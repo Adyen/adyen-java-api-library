@@ -12,22 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * Card
@@ -272,17 +286,18 @@ public class Card {
 
   @Override
   public String toString() {
-      String sb = "class Card {\n" +
-              "    cvc: " + toIndentedString(cvc) + "\n" +
-              "    expiryMonth: " + toIndentedString(expiryMonth) + "\n" +
-              "    expiryYear: " + toIndentedString(expiryYear) + "\n" +
-              "    holderName: " + toIndentedString(holderName) + "\n" +
-              "    issueNumber: " + toIndentedString(issueNumber) + "\n" +
-              "    number: " + toIndentedString(number) + "\n" +
-              "    startMonth: " + toIndentedString(startMonth) + "\n" +
-              "    startYear: " + toIndentedString(startYear) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Card {\n");
+    sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
+    sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
+    sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
+    sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
+    sb.append("    issueNumber: ").append(toIndentedString(issueNumber)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    startMonth: ").append(toIndentedString(startMonth)).append("\n");
+    sb.append("    startYear: ").append(toIndentedString(startYear)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -329,7 +344,7 @@ public class Card {
         if (Card.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Card is not found in the empty JSON string", Card.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Card is not found in the empty JSON string", Card.openapiRequiredFields.toString()));
         }
       }
 
@@ -337,14 +352,14 @@ public class Card {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Card.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Card` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Card` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Card.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field cvc

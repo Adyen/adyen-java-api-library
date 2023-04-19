@@ -12,24 +12,39 @@
 
 package com.adyen.model.management;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.management.Name;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.management.JSON;
 
 /**
  * CreateMerchantUserRequest
@@ -271,16 +286,17 @@ public class CreateMerchantUserRequest {
 
   @Override
   public String toString() {
-      String sb = "class CreateMerchantUserRequest {\n" +
-              "    accountGroups: " + toIndentedString(accountGroups) + "\n" +
-              "    authnApps: " + toIndentedString(authnApps) + "\n" +
-              "    email: " + toIndentedString(email) + "\n" +
-              "    name: " + toIndentedString(name) + "\n" +
-              "    roles: " + toIndentedString(roles) + "\n" +
-              "    timeZoneCode: " + toIndentedString(timeZoneCode) + "\n" +
-              "    username: " + toIndentedString(username) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CreateMerchantUserRequest {\n");
+    sb.append("    accountGroups: ").append(toIndentedString(accountGroups)).append("\n");
+    sb.append("    authnApps: ").append(toIndentedString(authnApps)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    timeZoneCode: ").append(toIndentedString(timeZoneCode)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -327,7 +343,7 @@ public class CreateMerchantUserRequest {
         if (CreateMerchantUserRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateMerchantUserRequest is not found in the empty JSON string", CreateMerchantUserRequest.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateMerchantUserRequest is not found in the empty JSON string", CreateMerchantUserRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -335,14 +351,14 @@ public class CreateMerchantUserRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreateMerchantUserRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateMerchantUserRequest` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateMerchantUserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateMerchantUserRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // ensure the json data is an array

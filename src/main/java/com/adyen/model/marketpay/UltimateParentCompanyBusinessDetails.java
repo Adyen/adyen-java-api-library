@@ -160,14 +160,15 @@ public class UltimateParentCompanyBusinessDetails {
 
     @Override
     public String toString() {
-        String sb = "class UltimateParentCompanyBusinessDetails {\n" +
-                "    legalBusinessName: " + toIndentedString(legalBusinessName) + "\n" +
-                "    registrationNumber: " + toIndentedString(registrationNumber) + "\n" +
-                "    stockExchange: " + toIndentedString(stockExchange) + "\n" +
-                "    stockNumber: " + toIndentedString(stockNumber) + "\n" +
-                "    stockTicker: " + toIndentedString(stockTicker) + "\n" +
-                "}";
-        return sb;
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UltimateParentCompanyBusinessDetails {\n");
+        sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
+        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+        sb.append("    stockExchange: ").append(toIndentedString(stockExchange)).append("\n");
+        sb.append("    stockNumber: ").append(toIndentedString(stockNumber)).append("\n");
+        sb.append("    stockTicker: ").append(toIndentedString(stockTicker)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

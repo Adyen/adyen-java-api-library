@@ -12,23 +12,36 @@
 
 package com.adyen.model.management;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.management.JSON;
 
 /**
  * PayoutSettings
@@ -62,7 +75,7 @@ public class PayoutSettings {
     
     URGENT("urgent");
 
-    private final String value;
+    private String value;
 
     PriorityEnum(String value) {
       this.value = value;
@@ -121,7 +134,7 @@ public class PayoutSettings {
     
     VALID("valid");
 
-    private final String value;
+    private String value;
 
     VerificationStatusEnum(String value) {
       this.value = value;
@@ -346,16 +359,17 @@ public class PayoutSettings {
 
   @Override
   public String toString() {
-    String sb = "class PayoutSettings {\n" +
-            "    allowed: " + toIndentedString(allowed) + "\n" +
-            "    enabled: " + toIndentedString(enabled) + "\n" +
-            "    enabledFromDate: " + toIndentedString(enabledFromDate) + "\n" +
-            "    id: " + toIndentedString(id) + "\n" +
-            "    priority: " + toIndentedString(priority) + "\n" +
-            "    transferInstrumentId: " + toIndentedString(transferInstrumentId) + "\n" +
-            "    verificationStatus: " + toIndentedString(verificationStatus) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PayoutSettings {\n");
+    sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    enabledFromDate: ").append(toIndentedString(enabledFromDate)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    transferInstrumentId: ").append(toIndentedString(transferInstrumentId)).append("\n");
+    sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -401,7 +415,7 @@ public class PayoutSettings {
         if (PayoutSettings.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PayoutSettings is not found in the empty JSON string", PayoutSettings.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PayoutSettings is not found in the empty JSON string", PayoutSettings.openapiRequiredFields.toString()));
         }
       }
 
@@ -409,14 +423,14 @@ public class PayoutSettings {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PayoutSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PayoutSettings` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PayoutSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PayoutSettings.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field enabledFromDate

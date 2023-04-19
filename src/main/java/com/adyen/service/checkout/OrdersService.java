@@ -11,20 +11,24 @@
 
 package com.adyen.service.checkout;
 
+import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.CheckoutBalanceCheckRequest;
 import com.adyen.model.checkout.CheckoutBalanceCheckResponse;
 import com.adyen.model.checkout.CheckoutCancelOrderRequest;
 import com.adyen.model.checkout.CheckoutCancelOrderResponse;
 import com.adyen.model.checkout.CheckoutCreateOrderRequest;
 import com.adyen.model.checkout.CheckoutCreateOrderResponse;
+import com.adyen.model.checkout.ServiceError;
+import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrdersService extends Service {
     private final String baseURL;

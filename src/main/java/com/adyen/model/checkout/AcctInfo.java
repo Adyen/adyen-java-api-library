@@ -12,23 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * AcctInfo
@@ -50,7 +63,7 @@ public class AcctInfo {
     
     _05("05");
 
-    private final String value;
+    private String value;
 
     ChAccAgeIndEnum(String value) {
       this.value = value;
@@ -109,7 +122,7 @@ public class AcctInfo {
     
     _04("04");
 
-    private final String value;
+    private String value;
 
     ChAccChangeIndEnum(String value) {
       this.value = value;
@@ -170,7 +183,7 @@ public class AcctInfo {
     
     _05("05");
 
-    private final String value;
+    private String value;
 
     ChAccPwChangeIndEnum(String value) {
       this.value = value;
@@ -239,7 +252,7 @@ public class AcctInfo {
     
     _05("05");
 
-    private final String value;
+    private String value;
 
     PaymentAccIndEnum(String value) {
       this.value = value;
@@ -302,7 +315,7 @@ public class AcctInfo {
     
     _04("04");
 
-    private final String value;
+    private String value;
 
     ShipAddressUsageIndEnum(String value) {
       this.value = value;
@@ -353,7 +366,7 @@ public class AcctInfo {
     
     _02("02");
 
-    private final String value;
+    private String value;
 
     ShipNameIndicatorEnum(String value) {
       this.value = value;
@@ -404,7 +417,7 @@ public class AcctInfo {
     
     _02("02");
 
-    private final String value;
+    private String value;
 
     SuspiciousAccActivityEnum(String value) {
       this.value = value;
@@ -844,25 +857,26 @@ public class AcctInfo {
 
   @Override
   public String toString() {
-    String sb = "class AcctInfo {\n" +
-            "    chAccAgeInd: " + toIndentedString(chAccAgeInd) + "\n" +
-            "    chAccChange: " + toIndentedString(chAccChange) + "\n" +
-            "    chAccChangeInd: " + toIndentedString(chAccChangeInd) + "\n" +
-            "    chAccPwChange: " + toIndentedString(chAccPwChange) + "\n" +
-            "    chAccPwChangeInd: " + toIndentedString(chAccPwChangeInd) + "\n" +
-            "    chAccString: " + toIndentedString(chAccString) + "\n" +
-            "    nbPurchaseAccount: " + toIndentedString(nbPurchaseAccount) + "\n" +
-            "    paymentAccAge: " + toIndentedString(paymentAccAge) + "\n" +
-            "    paymentAccInd: " + toIndentedString(paymentAccInd) + "\n" +
-            "    provisionAttemptsDay: " + toIndentedString(provisionAttemptsDay) + "\n" +
-            "    shipAddressUsage: " + toIndentedString(shipAddressUsage) + "\n" +
-            "    shipAddressUsageInd: " + toIndentedString(shipAddressUsageInd) + "\n" +
-            "    shipNameIndicator: " + toIndentedString(shipNameIndicator) + "\n" +
-            "    suspiciousAccActivity: " + toIndentedString(suspiciousAccActivity) + "\n" +
-            "    txnActivityDay: " + toIndentedString(txnActivityDay) + "\n" +
-            "    txnActivityYear: " + toIndentedString(txnActivityYear) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AcctInfo {\n");
+    sb.append("    chAccAgeInd: ").append(toIndentedString(chAccAgeInd)).append("\n");
+    sb.append("    chAccChange: ").append(toIndentedString(chAccChange)).append("\n");
+    sb.append("    chAccChangeInd: ").append(toIndentedString(chAccChangeInd)).append("\n");
+    sb.append("    chAccPwChange: ").append(toIndentedString(chAccPwChange)).append("\n");
+    sb.append("    chAccPwChangeInd: ").append(toIndentedString(chAccPwChangeInd)).append("\n");
+    sb.append("    chAccString: ").append(toIndentedString(chAccString)).append("\n");
+    sb.append("    nbPurchaseAccount: ").append(toIndentedString(nbPurchaseAccount)).append("\n");
+    sb.append("    paymentAccAge: ").append(toIndentedString(paymentAccAge)).append("\n");
+    sb.append("    paymentAccInd: ").append(toIndentedString(paymentAccInd)).append("\n");
+    sb.append("    provisionAttemptsDay: ").append(toIndentedString(provisionAttemptsDay)).append("\n");
+    sb.append("    shipAddressUsage: ").append(toIndentedString(shipAddressUsage)).append("\n");
+    sb.append("    shipAddressUsageInd: ").append(toIndentedString(shipAddressUsageInd)).append("\n");
+    sb.append("    shipNameIndicator: ").append(toIndentedString(shipNameIndicator)).append("\n");
+    sb.append("    suspiciousAccActivity: ").append(toIndentedString(suspiciousAccActivity)).append("\n");
+    sb.append("    txnActivityDay: ").append(toIndentedString(txnActivityDay)).append("\n");
+    sb.append("    txnActivityYear: ").append(toIndentedString(txnActivityYear)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -915,7 +929,7 @@ public class AcctInfo {
         if (AcctInfo.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AcctInfo is not found in the empty JSON string", AcctInfo.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AcctInfo is not found in the empty JSON string", AcctInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -923,7 +937,7 @@ public class AcctInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AcctInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AcctInfo` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AcctInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the field chAccAgeInd can be parsed to an enum value

@@ -21,11 +21,12 @@
 
 package com.adyen.model.posterminalmanagement;
 
+import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Store
@@ -192,16 +193,17 @@ public class Store {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Store {\n");
 
-        String sb = "class Store {\n" +
-                "    address: " + toIndentedString(address) + "\n" +
-                "    description: " + toIndentedString(description) + "\n" +
-                "    inStoreTerminals: " + toIndentedString(inStoreTerminals) + "\n" +
-                "    merchantAccountCode: " + toIndentedString(merchantAccountCode) + "\n" +
-                "    status: " + toIndentedString(status) + "\n" +
-                "    store: " + toIndentedString(store) + "\n" +
-                "}";
-        return sb;
+        sb.append("    address: ").append(toIndentedString(address)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    inStoreTerminals: ").append(toIndentedString(inStoreTerminals)).append("\n");
+        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

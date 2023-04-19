@@ -21,9 +21,9 @@
 
 package com.adyen.model.posterminalmanagement;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * GetStoresUnderAccountRequest
@@ -94,12 +94,13 @@ public class GetStoresUnderAccountRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetStoresUnderAccountRequest {\n");
 
-        String sb = "class GetStoresUnderAccountRequest {\n" +
-                "    companyAccount: " + toIndentedString(companyAccount) + "\n" +
-                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-                "}";
-        return sb;
+        sb.append("    companyAccount: ").append(toIndentedString(companyAccount)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

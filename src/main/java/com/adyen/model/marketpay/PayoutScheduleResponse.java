@@ -25,6 +25,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -125,12 +126,13 @@ public class PayoutScheduleResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PayoutScheduleResponse {\n");
 
-        String sb = "class PayoutScheduleResponse {\n" +
-                "    schedule: " + toIndentedString(schedule) + "\n" +
-                "    nextScheduledPayout: " + toIndentedString(nextScheduledPayout) + "\n" +
-                "}";
-        return sb;
+        sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+        sb.append("    nextScheduledPayout: ").append(toIndentedString(nextScheduledPayout)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

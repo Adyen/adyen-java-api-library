@@ -12,22 +12,36 @@
 
 package com.adyen.model.balanceplatform;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.balanceplatform.JSON;
 
 /**
  * BulkAddress
@@ -299,18 +313,19 @@ public class BulkAddress {
 
   @Override
   public String toString() {
-      String sb = "class BulkAddress {\n" +
-              "    city: " + toIndentedString(city) + "\n" +
-              "    company: " + toIndentedString(company) + "\n" +
-              "    country: " + toIndentedString(country) + "\n" +
-              "    email: " + toIndentedString(email) + "\n" +
-              "    houseNumberOrName: " + toIndentedString(houseNumberOrName) + "\n" +
-              "    mobile: " + toIndentedString(mobile) + "\n" +
-              "    postalCode: " + toIndentedString(postalCode) + "\n" +
-              "    stateOrProvince: " + toIndentedString(stateOrProvince) + "\n" +
-              "    street: " + toIndentedString(street) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BulkAddress {\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    houseNumberOrName: ").append(toIndentedString(houseNumberOrName)).append("\n");
+    sb.append("    mobile: ").append(toIndentedString(mobile)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append("\n");
+    sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -357,7 +372,7 @@ public class BulkAddress {
         if (BulkAddress.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BulkAddress is not found in the empty JSON string", BulkAddress.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BulkAddress is not found in the empty JSON string", BulkAddress.openapiRequiredFields.toString()));
         }
       }
 
@@ -365,14 +380,14 @@ public class BulkAddress {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!BulkAddress.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BulkAddress` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BulkAddress` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : BulkAddress.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field city

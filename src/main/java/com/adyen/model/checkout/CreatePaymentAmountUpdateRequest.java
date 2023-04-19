@@ -12,26 +12,40 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.checkout.Amount;
+import com.adyen.model.checkout.Split;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * CreatePaymentAmountUpdateRequest
@@ -53,7 +67,7 @@ public class CreatePaymentAmountUpdateRequest {
     
     NOSHOW("noShow");
 
-    private final String value;
+    private String value;
 
     IndustryUsageEnum(String value) {
       this.value = value;
@@ -252,14 +266,15 @@ public class CreatePaymentAmountUpdateRequest {
 
   @Override
   public String toString() {
-    String sb = "class CreatePaymentAmountUpdateRequest {\n" +
-            "    amount: " + toIndentedString(amount) + "\n" +
-            "    industryUsage: " + toIndentedString(industryUsage) + "\n" +
-            "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-            "    reference: " + toIndentedString(reference) + "\n" +
-            "    splits: " + toIndentedString(splits) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CreatePaymentAmountUpdateRequest {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
+    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -303,7 +318,7 @@ public class CreatePaymentAmountUpdateRequest {
         if (CreatePaymentAmountUpdateRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentAmountUpdateRequest is not found in the empty JSON string", CreatePaymentAmountUpdateRequest.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentAmountUpdateRequest is not found in the empty JSON string", CreatePaymentAmountUpdateRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -311,14 +326,14 @@ public class CreatePaymentAmountUpdateRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreatePaymentAmountUpdateRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePaymentAmountUpdateRequest` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePaymentAmountUpdateRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreatePaymentAmountUpdateRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field `amount`
@@ -350,7 +365,7 @@ public class CreatePaymentAmountUpdateRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        }
+        };
       }
   }
 

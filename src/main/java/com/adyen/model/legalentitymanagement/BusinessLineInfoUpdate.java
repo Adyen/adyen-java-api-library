@@ -12,25 +12,41 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.SourceOfFunds;
+import com.adyen.model.legalentitymanagement.WebData;
+import com.adyen.model.legalentitymanagement.WebDataExemption;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * BusinessLineInfoUpdate
@@ -264,16 +280,17 @@ public class BusinessLineInfoUpdate {
 
   @Override
   public String toString() {
-      String sb = "class BusinessLineInfoUpdate {\n" +
-              "    capability: " + toIndentedString(capability) + "\n" +
-              "    industryCode: " + toIndentedString(industryCode) + "\n" +
-              "    legalEntityId: " + toIndentedString(legalEntityId) + "\n" +
-              "    salesChannels: " + toIndentedString(salesChannels) + "\n" +
-              "    sourceOfFunds: " + toIndentedString(sourceOfFunds) + "\n" +
-              "    webData: " + toIndentedString(webData) + "\n" +
-              "    webDataExemption: " + toIndentedString(webDataExemption) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BusinessLineInfoUpdate {\n");
+    sb.append("    capability: ").append(toIndentedString(capability)).append("\n");
+    sb.append("    industryCode: ").append(toIndentedString(industryCode)).append("\n");
+    sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
+    sb.append("    salesChannels: ").append(toIndentedString(salesChannels)).append("\n");
+    sb.append("    sourceOfFunds: ").append(toIndentedString(sourceOfFunds)).append("\n");
+    sb.append("    webData: ").append(toIndentedString(webData)).append("\n");
+    sb.append("    webDataExemption: ").append(toIndentedString(webDataExemption)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -317,7 +334,7 @@ public class BusinessLineInfoUpdate {
         if (BusinessLineInfoUpdate.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BusinessLineInfoUpdate is not found in the empty JSON string", BusinessLineInfoUpdate.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BusinessLineInfoUpdate is not found in the empty JSON string", BusinessLineInfoUpdate.openapiRequiredFields.toString()));
         }
       }
 
@@ -325,7 +342,7 @@ public class BusinessLineInfoUpdate {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!BusinessLineInfoUpdate.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfoUpdate` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfoUpdate` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field capability
@@ -358,7 +375,7 @@ public class BusinessLineInfoUpdate {
         // validate the optional field `webData` (array)
         for (int i = 0; i < jsonArraywebData.size(); i++) {
           WebData.validateJsonObject(jsonArraywebData.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field `webDataExemption`
       if (jsonObj.getAsJsonObject("webDataExemption") != null) {

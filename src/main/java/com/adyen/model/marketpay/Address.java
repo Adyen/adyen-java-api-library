@@ -24,6 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -182,16 +183,17 @@ public class Address {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Address {\n");
 
-        String sb = "class Address {\n" +
-                "    city: " + toIndentedString(city) + "\n" +
-                "    country: " + toIndentedString(country) + "\n" +
-                "    houseNumberOrName: " + toIndentedString(houseNumberOrName) + "\n" +
-                "    postalCode: " + toIndentedString(postalCode) + "\n" +
-                "    stateOrProvince: " + toIndentedString(stateOrProvince) + "\n" +
-                "    street: " + toIndentedString(street) + "\n" +
-                "}";
-        return sb;
+        sb.append("    city: ").append(toIndentedString(city)).append("\n");
+        sb.append("    country: ").append(toIndentedString(country)).append("\n");
+        sb.append("    houseNumberOrName: ").append(toIndentedString(houseNumberOrName)).append("\n");
+        sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+        sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append("\n");
+        sb.append("    street: ").append(toIndentedString(street)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

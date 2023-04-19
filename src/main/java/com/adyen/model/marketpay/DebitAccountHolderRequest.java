@@ -1,11 +1,11 @@
 package com.adyen.model.marketpay;
 
-import com.google.gson.annotations.SerializedName;
+import static com.adyen.util.Util.toIndentedString;
 
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.util.Util.toIndentedString;
+import com.google.gson.annotations.SerializedName;
 
 public class DebitAccountHolderRequest {
     @SerializedName("accountHolderCode")
@@ -98,13 +98,14 @@ public class DebitAccountHolderRequest {
 
     @Override
     public String toString() {
-        String sb = "class DebitAccountHolderRequest {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    amount: " + toIndentedString(amount) + "\n" +
-                "    bankAccountUUID: " + toIndentedString(bankAccountUUID) + "\n" +
-                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-                "    description: " + toIndentedString(description) + "\n" +
-                "}";
-        return sb;
+        StringBuilder sb = new StringBuilder();
+        sb.append("class DebitAccountHolderRequest {\n");
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

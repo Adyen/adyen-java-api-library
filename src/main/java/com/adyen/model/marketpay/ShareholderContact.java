@@ -30,6 +30,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -320,20 +321,21 @@ public class ShareholderContact {
 
   @Override
   public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ShareholderContact {\n");
 
-    String sb = "class ShareholderContact {\n" +
-            "    address: " + toIndentedString(address) + "\n" +
-            "    email: " + toIndentedString(email) + "\n" +
-            "    fullPhoneNumber: " + toIndentedString(fullPhoneNumber) + "\n" +
-            "    name: " + toIndentedString(name) + "\n" +
-            "    personalData: " + toIndentedString(personalData) + "\n" +
-            "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
-            "    shareholderCode: " + toIndentedString(shareholderCode) + "\n" +
-            "    shareholderReference: " + toIndentedString(shareholderReference) + "\n" +
-            "    webAddress: " + toIndentedString(webAddress) + "\n" +
-            "    jobTitle: " + toIndentedString(jobTitle) + "\n" +
-            "    shareholderType: " + toIndentedString(shareholderType) + "\n" +
-            "}";
-    return sb;
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    personalData: ").append(toIndentedString(personalData)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+    sb.append("    shareholderReference: ").append(toIndentedString(shareholderReference)).append("\n");
+    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
+    sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
+    sb.append("    shareholderType: ").append(toIndentedString(shareholderType)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 }

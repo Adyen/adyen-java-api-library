@@ -12,26 +12,40 @@
 
 package com.adyen.model.recurring;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.recurring.RecurringDetailWrapper;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.recurring.JSON;
 
 /**
  * RecurringDetailsResult
@@ -176,13 +190,14 @@ public class RecurringDetailsResult {
 
   @Override
   public String toString() {
-      String sb = "class RecurringDetailsResult {\n" +
-              "    creationDate: " + toIndentedString(creationDate) + "\n" +
-              "    details: " + toIndentedString(details) + "\n" +
-              "    lastKnownShopperEmail: " + toIndentedString(lastKnownShopperEmail) + "\n" +
-              "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RecurringDetailsResult {\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    lastKnownShopperEmail: ").append(toIndentedString(lastKnownShopperEmail)).append("\n");
+    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -223,7 +238,7 @@ public class RecurringDetailsResult {
         if (RecurringDetailsResult.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetailsResult is not found in the empty JSON string", RecurringDetailsResult.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetailsResult is not found in the empty JSON string", RecurringDetailsResult.openapiRequiredFields.toString()));
         }
       }
 
@@ -231,7 +246,7 @@ public class RecurringDetailsResult {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!RecurringDetailsResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetailsResult` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetailsResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       JsonArray jsonArraydetails = jsonObj.getAsJsonArray("details");
@@ -244,7 +259,7 @@ public class RecurringDetailsResult {
         // validate the optional field `details` (array)
         for (int i = 0; i < jsonArraydetails.size(); i++) {
           RecurringDetailWrapper.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field lastKnownShopperEmail
       if (jsonObj.get("lastKnownShopperEmail") != null && !jsonObj.get("lastKnownShopperEmail").isJsonPrimitive()) {

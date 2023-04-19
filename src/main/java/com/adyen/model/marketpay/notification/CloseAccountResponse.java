@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -226,14 +227,15 @@ public class CloseAccountResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CloseAccountResponse {\n");
 
-        String sb = "class CloseAccountResponse {\n" +
-                "    accountCode: " + toIndentedString(accountCode) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    resultCode: " + toIndentedString(resultCode) + "\n" +
-                "    status: " + toIndentedString(status) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

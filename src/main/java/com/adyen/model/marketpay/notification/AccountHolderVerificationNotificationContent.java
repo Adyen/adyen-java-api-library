@@ -139,14 +139,15 @@ public class AccountHolderVerificationNotificationContent {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountHolderVerificationNotificationContent {\n");
 
-        String sb = "class AccountHolderVerificationNotificationContent {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    kycCheckStatusData: " + toIndentedString(kycCheckStatusData) + "\n" +
-                "    payoutMethodCode: " + toIndentedString(payoutMethodCode) + "\n" +
-                "    shareholderCode: " + toIndentedString(shareholderCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    kycCheckStatusData: ").append(toIndentedString(kycCheckStatusData)).append("\n");
+        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

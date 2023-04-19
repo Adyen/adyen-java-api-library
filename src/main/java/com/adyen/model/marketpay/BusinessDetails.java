@@ -319,21 +319,22 @@ public class BusinessDetails {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BusinessDetails {\n");
 
-        String sb = "class BusinessDetails {\n" +
-                "    doingBusinessAs: " + toIndentedString(doingBusinessAs) + "\n" +
-                "    incorporatedAt: " + toIndentedString(incorporatedAt) + "\n" +
-                "    legalBusinessName: " + toIndentedString(legalBusinessName) + "\n" +
-                "    registrationNumber: " + toIndentedString(registrationNumber) + "\n" +
-                "    shareholders: " + toIndentedString(shareholders) + "\n" +
-                "    signatories: " + toIndentedString(signatories) + "\n" +
-                "    stockExchange: " + toIndentedString(stockExchange) + "\n" +
-                "    stockNumber: " + toIndentedString(stockNumber) + "\n" +
-                "    stockTicker: " + toIndentedString(stockTicker) + "\n" +
-                "    taxId: " + toIndentedString(taxId) + "\n" +
-                "    listedUltimateParentCompany: " + toIndentedString(listedUltimateParentCompany) + "\n" +
-                "}";
-        return sb;
+        sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
+        sb.append("    incorporatedAt: ").append(toIndentedString(incorporatedAt)).append("\n");
+        sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
+        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
+        sb.append("    signatories: ").append(toIndentedString(signatories)).append("\n");
+        sb.append("    stockExchange: ").append(toIndentedString(stockExchange)).append("\n");
+        sb.append("    stockNumber: ").append(toIndentedString(stockNumber)).append("\n");
+        sb.append("    stockTicker: ").append(toIndentedString(stockTicker)).append("\n");
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+        sb.append("    listedUltimateParentCompany: ").append(toIndentedString(listedUltimateParentCompany)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

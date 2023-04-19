@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -276,20 +277,21 @@ public class UpdateAccountResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UpdateAccountResponse {\n");
 
-        String sb = "class UpdateAccountResponse {\n" +
-                "    accountCode: " + toIndentedString(accountCode) + "\n" +
-                "    description: " + toIndentedString(description) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    metadata: " + toIndentedString(metadata) + "\n" +
-                "    payoutSchedule: " + toIndentedString(payoutSchedule) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    resultCode: " + toIndentedString(resultCode) + "\n" +
-                "    bankAccountUUID" + toIndentedString(bankAccountUUID) + "\n" +
-                "    payoutMethodCode" + toIndentedString(payoutMethodCode) + "\n" +
-                "    payoutSpeed" + toIndentedString(payoutSpeed) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    bankAccountUUID").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    payoutMethodCode").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    payoutSpeed").append(toIndentedString(payoutSpeed)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

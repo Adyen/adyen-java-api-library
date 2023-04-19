@@ -12,22 +12,36 @@
 
 package com.adyen.model.payments;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalDataTemporaryServices
@@ -299,18 +313,19 @@ public class AdditionalDataTemporaryServices {
 
   @Override
   public String toString() {
-      String sb = "class AdditionalDataTemporaryServices {\n" +
-              "    enhancedSchemeDataCustomerReference: " + toIndentedString(enhancedSchemeDataCustomerReference) + "\n" +
-              "    enhancedSchemeDataEmployeeName: " + toIndentedString(enhancedSchemeDataEmployeeName) + "\n" +
-              "    enhancedSchemeDataJobDescription: " + toIndentedString(enhancedSchemeDataJobDescription) + "\n" +
-              "    enhancedSchemeDataRegularHoursRate: " + toIndentedString(enhancedSchemeDataRegularHoursRate) + "\n" +
-              "    enhancedSchemeDataRegularHoursWorked: " + toIndentedString(enhancedSchemeDataRegularHoursWorked) + "\n" +
-              "    enhancedSchemeDataRequestName: " + toIndentedString(enhancedSchemeDataRequestName) + "\n" +
-              "    enhancedSchemeDataTempStartDate: " + toIndentedString(enhancedSchemeDataTempStartDate) + "\n" +
-              "    enhancedSchemeDataTempWeekEnding: " + toIndentedString(enhancedSchemeDataTempWeekEnding) + "\n" +
-              "    enhancedSchemeDataTotalTaxAmount: " + toIndentedString(enhancedSchemeDataTotalTaxAmount) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalDataTemporaryServices {\n");
+    sb.append("    enhancedSchemeDataCustomerReference: ").append(toIndentedString(enhancedSchemeDataCustomerReference)).append("\n");
+    sb.append("    enhancedSchemeDataEmployeeName: ").append(toIndentedString(enhancedSchemeDataEmployeeName)).append("\n");
+    sb.append("    enhancedSchemeDataJobDescription: ").append(toIndentedString(enhancedSchemeDataJobDescription)).append("\n");
+    sb.append("    enhancedSchemeDataRegularHoursRate: ").append(toIndentedString(enhancedSchemeDataRegularHoursRate)).append("\n");
+    sb.append("    enhancedSchemeDataRegularHoursWorked: ").append(toIndentedString(enhancedSchemeDataRegularHoursWorked)).append("\n");
+    sb.append("    enhancedSchemeDataRequestName: ").append(toIndentedString(enhancedSchemeDataRequestName)).append("\n");
+    sb.append("    enhancedSchemeDataTempStartDate: ").append(toIndentedString(enhancedSchemeDataTempStartDate)).append("\n");
+    sb.append("    enhancedSchemeDataTempWeekEnding: ").append(toIndentedString(enhancedSchemeDataTempWeekEnding)).append("\n");
+    sb.append("    enhancedSchemeDataTotalTaxAmount: ").append(toIndentedString(enhancedSchemeDataTotalTaxAmount)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -356,7 +371,7 @@ public class AdditionalDataTemporaryServices {
         if (AdditionalDataTemporaryServices.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataTemporaryServices is not found in the empty JSON string", AdditionalDataTemporaryServices.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataTemporaryServices is not found in the empty JSON string", AdditionalDataTemporaryServices.openapiRequiredFields.toString()));
         }
       }
 
@@ -364,7 +379,7 @@ public class AdditionalDataTemporaryServices {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataTemporaryServices.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field enhancedSchemeData.customerReference

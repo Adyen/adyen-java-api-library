@@ -12,26 +12,39 @@
 
 package com.adyen.model.balanceplatform;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.balanceplatform.Balance;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.balanceplatform.JSON;
 
 /**
  * BalanceAccount
@@ -75,7 +88,7 @@ public class BalanceAccount {
     
     SUSPENDED("suspended");
 
-    private final String value;
+    private String value;
 
     StatusEnum(String value) {
       this.value = value;
@@ -335,17 +348,18 @@ public class BalanceAccount {
 
   @Override
   public String toString() {
-    String sb = "class BalanceAccount {\n" +
-            "    accountHolderId: " + toIndentedString(accountHolderId) + "\n" +
-            "    balances: " + toIndentedString(balances) + "\n" +
-            "    defaultCurrencyCode: " + toIndentedString(defaultCurrencyCode) + "\n" +
-            "    description: " + toIndentedString(description) + "\n" +
-            "    id: " + toIndentedString(id) + "\n" +
-            "    reference: " + toIndentedString(reference) + "\n" +
-            "    status: " + toIndentedString(status) + "\n" +
-            "    timeZone: " + toIndentedString(timeZone) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BalanceAccount {\n");
+    sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
+    sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
+    sb.append("    defaultCurrencyCode: ").append(toIndentedString(defaultCurrencyCode)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -392,7 +406,7 @@ public class BalanceAccount {
         if (BalanceAccount.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BalanceAccount is not found in the empty JSON string", BalanceAccount.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BalanceAccount is not found in the empty JSON string", BalanceAccount.openapiRequiredFields.toString()));
         }
       }
 
@@ -400,14 +414,14 @@ public class BalanceAccount {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!BalanceAccount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BalanceAccount` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BalanceAccount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : BalanceAccount.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field accountHolderId
@@ -424,7 +438,7 @@ public class BalanceAccount {
         // validate the optional field `balances` (array)
         for (int i = 0; i < jsonArraybalances.size(); i++) {
           Balance.validateJsonObject(jsonArraybalances.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field defaultCurrencyCode
       if (jsonObj.get("defaultCurrencyCode") != null && !jsonObj.get("defaultCurrencyCode").isJsonPrimitive()) {

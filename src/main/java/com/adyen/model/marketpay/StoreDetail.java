@@ -294,22 +294,23 @@ public class StoreDetail {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class StoreDetail {\n");
 
-        String sb = "class StoreDetail {\n" +
-                "    address: " + toIndentedString(address) + "\n" +
-                "    fullPhoneNumber: " + toIndentedString(fullPhoneNumber) + "\n" +
-                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-                "    merchantCategoryCode: " + toIndentedString(merchantCategoryCode) + "\n" +
-                "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
-                "    shopperInteraction: " + toIndentedString(shopperInteraction) + "\n" +
-                "    splitConfigurationUUID: " + toIndentedString(splitConfigurationUUID) + "\n" +
-                "    status: " + toIndentedString(status) + "\n" +
-                "    store: " + toIndentedString(store) + "\n" +
-                "    storeName: " + toIndentedString(storeName) + "\n" +
-                "    storeReference: " + toIndentedString(storeReference) + "\n" +
-                "    virtualAccount: " + toIndentedString(virtualAccount) + "\n" +
-                "    webAddress: " + toIndentedString(webAddress) + "\n" +
-                "}";
-        return sb;
+        sb.append("    address: ").append(toIndentedString(address)).append("\n");
+        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
+        sb.append("    splitConfigurationUUID: ").append(toIndentedString(splitConfigurationUUID)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("    storeName: ").append(toIndentedString(storeName)).append("\n");
+        sb.append("    storeReference: ").append(toIndentedString(storeReference)).append("\n");
+        sb.append("    virtualAccount: ").append(toIndentedString(virtualAccount)).append("\n");
+        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

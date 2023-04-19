@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -172,15 +173,16 @@ public class GetAccountHolderStatusResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetAccountHolderStatusResponse {\n");
 
-        String sb = "class GetAccountHolderStatusResponse {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    accountHolderStatus: " + toIndentedString(accountHolderStatus) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    resultCode: " + toIndentedString(resultCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

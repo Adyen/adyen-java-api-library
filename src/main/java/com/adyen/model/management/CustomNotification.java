@@ -12,23 +12,38 @@
 
 package com.adyen.model.management;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.management.Amount;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.management.JSON;
 
 /**
  * CustomNotification
@@ -246,16 +261,17 @@ public class CustomNotification {
 
   @Override
   public String toString() {
-      String sb = "class CustomNotification {\n" +
-              "    amount: " + toIndentedString(amount) + "\n" +
-              "    eventCode: " + toIndentedString(eventCode) + "\n" +
-              "    eventDate: " + toIndentedString(eventDate) + "\n" +
-              "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
-              "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
-              "    reason: " + toIndentedString(reason) + "\n" +
-              "    success: " + toIndentedString(success) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CustomNotification {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    eventCode: ").append(toIndentedString(eventCode)).append("\n");
+    sb.append("    eventDate: ").append(toIndentedString(eventDate)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -299,7 +315,7 @@ public class CustomNotification {
         if (CustomNotification.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomNotification is not found in the empty JSON string", CustomNotification.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomNotification is not found in the empty JSON string", CustomNotification.openapiRequiredFields.toString()));
         }
       }
 
@@ -307,7 +323,7 @@ public class CustomNotification {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CustomNotification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomNotification` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomNotification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `amount`

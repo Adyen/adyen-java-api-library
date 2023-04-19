@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -100,12 +101,13 @@ public class KYCBankAccountCheckResult {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class KYCBankAccountCheckResult {\n");
 
-        String sb = "class KYCBankAccountCheckResult {\n" +
-                "    bankAccountUUID: " + toIndentedString(bankAccountUUID) + "\n" +
-                "    checks: " + toIndentedString(checks) + "\n" +
-                "}";
-        return sb;
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

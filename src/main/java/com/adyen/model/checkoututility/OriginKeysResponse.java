@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -85,11 +86,12 @@ public class OriginKeysResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OriginKeysResponse {\n");
 
-        String sb = "class OriginKeysResponse {\n" +
-                "    originKeys: " + toIndentedString(originKeys) + "\n" +
-                "}";
-        return sb;
+        sb.append("    originKeys: ").append(toIndentedString(originKeys)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }
 

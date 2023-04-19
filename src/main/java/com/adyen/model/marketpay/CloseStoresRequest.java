@@ -21,10 +21,9 @@
 package com.adyen.model.marketpay;
 
 import com.google.gson.annotations.SerializedName;
-
+import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * CloseStoresRequest
@@ -97,12 +96,13 @@ public class CloseStoresRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CloseStoresRequest {\n");
 
-        String sb = "class CloseStoresRequest {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    stores: " + toIndentedString(stores) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    stores: ").append(toIndentedString(stores)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

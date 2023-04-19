@@ -12,25 +12,41 @@
 
 package com.adyen.model.balanceplatform;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.balanceplatform.Amount;
+import com.adyen.model.balanceplatform.SweepConfigurationV2Schedule;
+import com.adyen.model.balanceplatform.SweepCounterparty;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.balanceplatform.JSON;
 
 /**
  * SweepConfigurationV2
@@ -48,7 +64,7 @@ public class SweepConfigurationV2 {
     
     PLATFORMPAYMENT("platformPayment");
 
-    private final String value;
+    private String value;
 
     CategoryEnum(String value) {
       this.value = value;
@@ -125,7 +141,7 @@ public class SweepConfigurationV2 {
     
     WIRE("wire");
 
-    private final String value;
+    private String value;
 
     PrioritiesEnum(String value) {
       this.value = value;
@@ -198,7 +214,7 @@ public class SweepConfigurationV2 {
     
     UNKNOWN("unknown");
 
-    private final String value;
+    private String value;
 
     ReasonEnum(String value) {
       this.value = value;
@@ -253,7 +269,7 @@ public class SweepConfigurationV2 {
     
     INACTIVE("inactive");
 
-    private final String value;
+    private String value;
 
     StatusEnum(String value) {
       this.value = value;
@@ -316,7 +332,7 @@ public class SweepConfigurationV2 {
     
     PUSH("push");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -679,22 +695,23 @@ public class SweepConfigurationV2 {
 
   @Override
   public String toString() {
-    String sb = "class SweepConfigurationV2 {\n" +
-            "    category: " + toIndentedString(category) + "\n" +
-            "    counterparty: " + toIndentedString(counterparty) + "\n" +
-            "    currency: " + toIndentedString(currency) + "\n" +
-            "    description: " + toIndentedString(description) + "\n" +
-            "    id: " + toIndentedString(id) + "\n" +
-            "    priorities: " + toIndentedString(priorities) + "\n" +
-            "    reason: " + toIndentedString(reason) + "\n" +
-            "    schedule: " + toIndentedString(schedule) + "\n" +
-            "    status: " + toIndentedString(status) + "\n" +
-            "    sweepAmount: " + toIndentedString(sweepAmount) + "\n" +
-            "    targetAmount: " + toIndentedString(targetAmount) + "\n" +
-            "    triggerAmount: " + toIndentedString(triggerAmount) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SweepConfigurationV2 {\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    sweepAmount: ").append(toIndentedString(sweepAmount)).append("\n");
+    sb.append("    targetAmount: ").append(toIndentedString(targetAmount)).append("\n");
+    sb.append("    triggerAmount: ").append(toIndentedString(triggerAmount)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -748,7 +765,7 @@ public class SweepConfigurationV2 {
         if (SweepConfigurationV2.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SweepConfigurationV2 is not found in the empty JSON string", SweepConfigurationV2.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SweepConfigurationV2 is not found in the empty JSON string", SweepConfigurationV2.openapiRequiredFields.toString()));
         }
       }
 
@@ -756,14 +773,14 @@ public class SweepConfigurationV2 {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!SweepConfigurationV2.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SweepConfigurationV2` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SweepConfigurationV2` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SweepConfigurationV2.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // ensure the field category can be parsed to an enum value

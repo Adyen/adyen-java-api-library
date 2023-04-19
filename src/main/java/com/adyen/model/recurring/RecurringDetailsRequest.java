@@ -12,22 +12,37 @@
 
 package com.adyen.model.recurring;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.recurring.Recurring;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.recurring.JSON;
 
 /**
  * RecurringDetailsRequest
@@ -137,12 +152,13 @@ public class RecurringDetailsRequest {
 
   @Override
   public String toString() {
-      String sb = "class RecurringDetailsRequest {\n" +
-              "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-              "    recurring: " + toIndentedString(recurring) + "\n" +
-              "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RecurringDetailsRequest {\n");
+    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -184,7 +200,7 @@ public class RecurringDetailsRequest {
         if (RecurringDetailsRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetailsRequest is not found in the empty JSON string", RecurringDetailsRequest.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetailsRequest is not found in the empty JSON string", RecurringDetailsRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -192,14 +208,14 @@ public class RecurringDetailsRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!RecurringDetailsRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetailsRequest` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetailsRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RecurringDetailsRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field merchantAccount

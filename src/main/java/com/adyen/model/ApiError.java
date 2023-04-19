@@ -21,11 +21,7 @@
 package com.adyen.model;
 
 import com.adyen.model.marketpay.ErrorFieldType;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
+import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -168,16 +164,17 @@ public class ApiError {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ApiError {\n");
 
-        String sb = "class ApiError {\n" +
-                "    status: " + toIndentedString(status) + "\n" +
-                "    errorCode: " + toIndentedString(errorCode) + "\n" +
-                "    message: " + toIndentedString(message) + "\n" +
-                "    errorType: " + toIndentedString(errorType) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "}";
-        return sb;
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

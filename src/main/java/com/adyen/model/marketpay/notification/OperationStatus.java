@@ -94,11 +94,12 @@ public class OperationStatus {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OperationStatus {\n");
 
-        String sb = "class OperationStatus {\n" +
-                "    message: " + toIndentedString(message) + "\n" +
-                "    statusCode: " + toIndentedString(statusCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

@@ -12,23 +12,36 @@
 
 package com.adyen.model.balanceplatform;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.balanceplatform.JSON;
 
 /**
  * StringMatch
@@ -48,7 +61,7 @@ public class StringMatch {
     
     STARTSWITH("startsWith");
 
-    private final String value;
+    private String value;
 
     OperationEnum(String value) {
       this.value = value;
@@ -162,11 +175,12 @@ public class StringMatch {
 
   @Override
   public String toString() {
-      String sb = "class StringMatch {\n" +
-              "    operation: " + toIndentedString(operation) + "\n" +
-              "    value: " + toIndentedString(value) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class StringMatch {\n");
+    sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -205,7 +219,7 @@ public class StringMatch {
         if (StringMatch.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StringMatch is not found in the empty JSON string", StringMatch.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StringMatch is not found in the empty JSON string", StringMatch.openapiRequiredFields.toString()));
         }
       }
 
@@ -213,7 +227,7 @@ public class StringMatch {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!StringMatch.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringMatch` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringMatch` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the field operation can be parsed to an enum value

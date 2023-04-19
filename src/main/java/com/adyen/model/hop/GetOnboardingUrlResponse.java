@@ -21,12 +21,12 @@
 
 package com.adyen.model.hop;
 
-import com.adyen.model.marketpay.ErrorFieldType;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import com.adyen.model.marketpay.ErrorFieldType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * GetOnboardingUrlResponse
@@ -149,14 +149,15 @@ public class GetOnboardingUrlResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetOnboardingUrlResponse {\n");
 
-        String sb = "class GetOnboardingUrlResponse {\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    redirectUrl: " + toIndentedString(redirectUrl) + "\n" +
-                "    resultCode: " + toIndentedString(resultCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

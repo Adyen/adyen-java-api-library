@@ -12,25 +12,45 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.Address;
+import com.adyen.model.legalentitymanagement.BirthData;
+import com.adyen.model.legalentitymanagement.IdentificationData;
+import com.adyen.model.legalentitymanagement.Name;
+import com.adyen.model.legalentitymanagement.PhoneNumber;
+import com.adyen.model.legalentitymanagement.TaxInformation;
+import com.adyen.model.legalentitymanagement.WebData;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Individual
@@ -310,18 +330,19 @@ public class Individual {
 
   @Override
   public String toString() {
-      String sb = "class Individual {\n" +
-              "    birthData: " + toIndentedString(birthData) + "\n" +
-              "    email: " + toIndentedString(email) + "\n" +
-              "    identificationData: " + toIndentedString(identificationData) + "\n" +
-              "    name: " + toIndentedString(name) + "\n" +
-              "    nationality: " + toIndentedString(nationality) + "\n" +
-              "    phone: " + toIndentedString(phone) + "\n" +
-              "    residentialAddress: " + toIndentedString(residentialAddress) + "\n" +
-              "    taxInformation: " + toIndentedString(taxInformation) + "\n" +
-              "    webData: " + toIndentedString(webData) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Individual {\n");
+    sb.append("    birthData: ").append(toIndentedString(birthData)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    identificationData: ").append(toIndentedString(identificationData)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    residentialAddress: ").append(toIndentedString(residentialAddress)).append("\n");
+    sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
+    sb.append("    webData: ").append(toIndentedString(webData)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -369,7 +390,7 @@ public class Individual {
         if (Individual.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Individual is not found in the empty JSON string", Individual.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Individual is not found in the empty JSON string", Individual.openapiRequiredFields.toString()));
         }
       }
 
@@ -377,14 +398,14 @@ public class Individual {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Individual.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Individual` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Individual` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Individual.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field `birthData`
@@ -425,7 +446,7 @@ public class Individual {
         // validate the optional field `taxInformation` (array)
         for (int i = 0; i < jsonArraytaxInformation.size(); i++) {
           TaxInformation.validateJsonObject(jsonArraytaxInformation.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field `webData`
       if (jsonObj.getAsJsonObject("webData") != null) {

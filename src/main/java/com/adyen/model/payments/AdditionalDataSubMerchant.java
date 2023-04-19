@@ -12,22 +12,36 @@
 
 package com.adyen.model.payments;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalDataSubMerchant
@@ -326,19 +340,20 @@ public class AdditionalDataSubMerchant {
 
   @Override
   public String toString() {
-      String sb = "class AdditionalDataSubMerchant {\n" +
-              "    subMerchantNumberOfSubSellers: " + toIndentedString(subMerchantNumberOfSubSellers) + "\n" +
-              "    subMerchantSubSellerSubSellerNrCity: " + toIndentedString(subMerchantSubSellerSubSellerNrCity) + "\n" +
-              "    subMerchantSubSellerSubSellerNrCountry: " + toIndentedString(subMerchantSubSellerSubSellerNrCountry) + "\n" +
-              "    subMerchantSubSellerSubSellerNrId: " + toIndentedString(subMerchantSubSellerSubSellerNrId) + "\n" +
-              "    subMerchantSubSellerSubSellerNrMcc: " + toIndentedString(subMerchantSubSellerSubSellerNrMcc) + "\n" +
-              "    subMerchantSubSellerSubSellerNrName: " + toIndentedString(subMerchantSubSellerSubSellerNrName) + "\n" +
-              "    subMerchantSubSellerSubSellerNrPostalCode: " + toIndentedString(subMerchantSubSellerSubSellerNrPostalCode) + "\n" +
-              "    subMerchantSubSellerSubSellerNrState: " + toIndentedString(subMerchantSubSellerSubSellerNrState) + "\n" +
-              "    subMerchantSubSellerSubSellerNrStreet: " + toIndentedString(subMerchantSubSellerSubSellerNrStreet) + "\n" +
-              "    subMerchantSubSellerSubSellerNrTaxId: " + toIndentedString(subMerchantSubSellerSubSellerNrTaxId) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalDataSubMerchant {\n");
+    sb.append("    subMerchantNumberOfSubSellers: ").append(toIndentedString(subMerchantNumberOfSubSellers)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrCity: ").append(toIndentedString(subMerchantSubSellerSubSellerNrCity)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrCountry: ").append(toIndentedString(subMerchantSubSellerSubSellerNrCountry)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrId: ").append(toIndentedString(subMerchantSubSellerSubSellerNrId)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrMcc: ").append(toIndentedString(subMerchantSubSellerSubSellerNrMcc)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrName: ").append(toIndentedString(subMerchantSubSellerSubSellerNrName)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrPostalCode: ").append(toIndentedString(subMerchantSubSellerSubSellerNrPostalCode)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrState: ").append(toIndentedString(subMerchantSubSellerSubSellerNrState)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrStreet: ").append(toIndentedString(subMerchantSubSellerSubSellerNrStreet)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrTaxId: ").append(toIndentedString(subMerchantSubSellerSubSellerNrTaxId)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -385,7 +400,7 @@ public class AdditionalDataSubMerchant {
         if (AdditionalDataSubMerchant.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataSubMerchant is not found in the empty JSON string", AdditionalDataSubMerchant.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataSubMerchant is not found in the empty JSON string", AdditionalDataSubMerchant.openapiRequiredFields.toString()));
         }
       }
 
@@ -393,7 +408,7 @@ public class AdditionalDataSubMerchant {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataSubMerchant.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataSubMerchant` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataSubMerchant` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field subMerchant.numberOfSubSellers

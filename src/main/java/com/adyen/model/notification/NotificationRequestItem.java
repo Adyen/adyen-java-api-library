@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -227,21 +228,22 @@ public class NotificationRequestItem {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NotificationRequestItem {\n");
 
-        String sb = "class NotificationRequestItem {\n" +
-                "    amount: " + toIndentedString(amount) + "\n" +
-                "    eventCode: " + toIndentedString(eventCode) + "\n" +
-                "    eventDate: " + toIndentedString(eventDate) + "\n" +
-                "    merchantAccountCode: " + toIndentedString(merchantAccountCode) + "\n" +
-                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
-                "    originalReference: " + toIndentedString(originalReference) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    reason: " + toIndentedString(reason) + "\n" +
-                "    success: " + toIndentedString(success) + "\n" +
-                "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
-                "    operations: " + toIndentedString(operations) + "\n" +
-                "    additionalData: " + toIndentedString(additionalData) + "\n" +
-                "}";
-        return sb;
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    eventCode: ").append(toIndentedString(eventCode)).append("\n");
+        sb.append("    eventDate: ").append(toIndentedString(eventDate)).append("\n");
+        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+        sb.append("    success: ").append(toIndentedString(success)).append("\n");
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+        sb.append("    operations: ").append(toIndentedString(operations)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

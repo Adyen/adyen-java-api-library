@@ -12,25 +12,41 @@
 
 package com.adyen.model.management;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.management.BillingEntity;
+import com.adyen.model.management.OrderItem;
+import com.adyen.model.management.ShippingLocation;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.management.JSON;
 
 /**
  * TerminalOrder
@@ -283,17 +299,18 @@ public class TerminalOrder {
 
   @Override
   public String toString() {
-      String sb = "class TerminalOrder {\n" +
-              "    billingEntity: " + toIndentedString(billingEntity) + "\n" +
-              "    customerOrderReference: " + toIndentedString(customerOrderReference) + "\n" +
-              "    id: " + toIndentedString(id) + "\n" +
-              "    items: " + toIndentedString(items) + "\n" +
-              "    orderDate: " + toIndentedString(orderDate) + "\n" +
-              "    shippingLocation: " + toIndentedString(shippingLocation) + "\n" +
-              "    status: " + toIndentedString(status) + "\n" +
-              "    trackingUrl: " + toIndentedString(trackingUrl) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TerminalOrder {\n");
+    sb.append("    billingEntity: ").append(toIndentedString(billingEntity)).append("\n");
+    sb.append("    customerOrderReference: ").append(toIndentedString(customerOrderReference)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    orderDate: ").append(toIndentedString(orderDate)).append("\n");
+    sb.append("    shippingLocation: ").append(toIndentedString(shippingLocation)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    trackingUrl: ").append(toIndentedString(trackingUrl)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -338,7 +355,7 @@ public class TerminalOrder {
         if (TerminalOrder.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TerminalOrder is not found in the empty JSON string", TerminalOrder.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TerminalOrder is not found in the empty JSON string", TerminalOrder.openapiRequiredFields.toString()));
         }
       }
 
@@ -346,7 +363,7 @@ public class TerminalOrder {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TerminalOrder.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalOrder` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalOrder` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `billingEntity`
@@ -371,7 +388,7 @@ public class TerminalOrder {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           OrderItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field orderDate
       if (jsonObj.get("orderDate") != null && !jsonObj.get("orderDate").isJsonPrimitive()) {

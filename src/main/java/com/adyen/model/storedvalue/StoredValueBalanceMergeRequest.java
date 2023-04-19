@@ -20,7 +20,10 @@
  */
 package com.adyen.model.storedvalue;
 
+import java.util.Objects;
+
 import com.adyen.model.checkout.PaymentMethod;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +31,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.Objects;
 
 /**
  * StoredValueBalanceMergeRequest
@@ -302,19 +304,20 @@ public class StoredValueBalanceMergeRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class StoredValueBalanceMergeRequest {\n");
 
-        String sb = "class StoredValueBalanceMergeRequest {\n" +
-                "    amount: " + toIndentedString(amount) + "\n" +
-                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-                "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
-                "    recurringDetailReference: " + toIndentedString(recurringDetailReference) + "\n" +
-                "    reference: " + toIndentedString(reference) + "\n" +
-                "    shopperInteraction: " + toIndentedString(shopperInteraction) + "\n" +
-                "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
-                "    sourcePaymentMethod: " + toIndentedString(sourcePaymentMethod) + "\n" +
-                "    store: " + toIndentedString(store) + "\n" +
-                "}";
-        return sb;
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    sourcePaymentMethod: ").append(toIndentedString(sourcePaymentMethod)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

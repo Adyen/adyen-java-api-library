@@ -29,6 +29,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Objects;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * CreateAccountHolderRequest
  */
@@ -266,18 +269,19 @@ public class CreateAccountHolderRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CreateAccountHolderRequest {\n");
 
-        String sb = "class CreateAccountHolderRequest {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    accountHolderDetails: " + toIndentedString(accountHolderDetails) + "\n" +
-                "    createDefaultAccount: " + toIndentedString(createDefaultAccount) + "\n" +
-                "    description: " + toIndentedString(description) + "\n" +
-                "    legalEntity: " + toIndentedString(legalEntity) + "\n" +
-                "    primaryCurrency: " + toIndentedString(primaryCurrency) + "\n" +
-                "    processingTier: " + toIndentedString(processingTier) + "\n" +
-                "    verificationProfile: " + toIndentedString(verificationProfile) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
+        sb.append("    createDefaultAccount: ").append(toIndentedString(createDefaultAccount)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
+        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
+        sb.append("    verificationProfile: ").append(toIndentedString(verificationProfile)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

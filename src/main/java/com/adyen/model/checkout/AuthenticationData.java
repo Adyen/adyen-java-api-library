@@ -12,23 +12,37 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.checkout.ThreeDSRequestData;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * AuthenticationData
@@ -44,7 +58,7 @@ public class AuthenticationData {
     
     NEVER("never");
 
-    private final String value;
+    private String value;
 
     AttemptAuthenticationEnum(String value) {
       this.value = value;
@@ -185,12 +199,13 @@ public class AuthenticationData {
 
   @Override
   public String toString() {
-    String sb = "class AuthenticationData {\n" +
-            "    attemptAuthentication: " + toIndentedString(attemptAuthentication) + "\n" +
-            "    authenticationOnly: " + toIndentedString(authenticationOnly) + "\n" +
-            "    threeDSRequestData: " + toIndentedString(threeDSRequestData) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AuthenticationData {\n");
+    sb.append("    attemptAuthentication: ").append(toIndentedString(attemptAuthentication)).append("\n");
+    sb.append("    authenticationOnly: ").append(toIndentedString(authenticationOnly)).append("\n");
+    sb.append("    threeDSRequestData: ").append(toIndentedString(threeDSRequestData)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -230,7 +245,7 @@ public class AuthenticationData {
         if (AuthenticationData.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AuthenticationData is not found in the empty JSON string", AuthenticationData.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AuthenticationData is not found in the empty JSON string", AuthenticationData.openapiRequiredFields.toString()));
         }
       }
 
@@ -238,7 +253,7 @@ public class AuthenticationData {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AuthenticationData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthenticationData` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthenticationData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the field attemptAuthentication can be parsed to an enum value

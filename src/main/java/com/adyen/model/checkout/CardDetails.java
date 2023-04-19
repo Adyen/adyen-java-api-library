@@ -12,23 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * CardDetails
@@ -82,7 +95,7 @@ public class CardDetails {
   public enum FundingSourceEnum {
     DEBIT("debit");
 
-    private final String value;
+    private String value;
 
     FundingSourceEnum(String value) {
       this.value = value;
@@ -167,7 +180,7 @@ public class CardDetails {
     
     CARD("card");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -672,28 +685,29 @@ public class CardDetails {
 
   @Override
   public String toString() {
-    String sb = "class CardDetails {\n" +
-            "    brand: " + toIndentedString(brand) + "\n" +
-            "    checkoutAttemptId: " + toIndentedString(checkoutAttemptId) + "\n" +
-            "    cupsecureplusSmscode: " + toIndentedString(cupsecureplusSmscode) + "\n" +
-            "    cvc: " + toIndentedString(cvc) + "\n" +
-            "    encryptedCardNumber: " + toIndentedString(encryptedCardNumber) + "\n" +
-            "    encryptedExpiryMonth: " + toIndentedString(encryptedExpiryMonth) + "\n" +
-            "    encryptedExpiryYear: " + toIndentedString(encryptedExpiryYear) + "\n" +
-            "    encryptedSecurityCode: " + toIndentedString(encryptedSecurityCode) + "\n" +
-            "    expiryMonth: " + toIndentedString(expiryMonth) + "\n" +
-            "    expiryYear: " + toIndentedString(expiryYear) + "\n" +
-            "    fundingSource: " + toIndentedString(fundingSource) + "\n" +
-            "    holderName: " + toIndentedString(holderName) + "\n" +
-            "    networkPaymentReference: " + toIndentedString(networkPaymentReference) + "\n" +
-            "    number: " + toIndentedString(number) + "\n" +
-            "    recurringDetailReference: " + toIndentedString(recurringDetailReference) + "\n" +
-            "    shopperNotificationReference: " + toIndentedString(shopperNotificationReference) + "\n" +
-            "    storedPaymentMethodId: " + toIndentedString(storedPaymentMethodId) + "\n" +
-            "    threeDS2SdkVersion: " + toIndentedString(threeDS2SdkVersion) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CardDetails {\n");
+    sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    cupsecureplusSmscode: ").append(toIndentedString(cupsecureplusSmscode)).append("\n");
+    sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
+    sb.append("    encryptedCardNumber: ").append(toIndentedString(encryptedCardNumber)).append("\n");
+    sb.append("    encryptedExpiryMonth: ").append(toIndentedString(encryptedExpiryMonth)).append("\n");
+    sb.append("    encryptedExpiryYear: ").append(toIndentedString(encryptedExpiryYear)).append("\n");
+    sb.append("    encryptedSecurityCode: ").append(toIndentedString(encryptedSecurityCode)).append("\n");
+    sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
+    sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
+    sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+    sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
+    sb.append("    networkPaymentReference: ").append(toIndentedString(networkPaymentReference)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+    sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");
+    sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    threeDS2SdkVersion: ").append(toIndentedString(threeDS2SdkVersion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -749,7 +763,7 @@ public class CardDetails {
         if (CardDetails.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CardDetails is not found in the empty JSON string", CardDetails.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CardDetails is not found in the empty JSON string", CardDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -757,7 +771,7 @@ public class CardDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CardDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field brand

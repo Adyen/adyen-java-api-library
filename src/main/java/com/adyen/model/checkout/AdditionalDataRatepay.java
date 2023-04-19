@@ -12,22 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataRatepay
@@ -272,17 +286,18 @@ public class AdditionalDataRatepay {
 
   @Override
   public String toString() {
-      String sb = "class AdditionalDataRatepay {\n" +
-              "    ratepayInstallmentAmount: " + toIndentedString(ratepayInstallmentAmount) + "\n" +
-              "    ratepayInterestRate: " + toIndentedString(ratepayInterestRate) + "\n" +
-              "    ratepayLastInstallmentAmount: " + toIndentedString(ratepayLastInstallmentAmount) + "\n" +
-              "    ratepayPaymentFirstday: " + toIndentedString(ratepayPaymentFirstday) + "\n" +
-              "    ratepaydataDeliveryDate: " + toIndentedString(ratepaydataDeliveryDate) + "\n" +
-              "    ratepaydataDueDate: " + toIndentedString(ratepaydataDueDate) + "\n" +
-              "    ratepaydataInvoiceDate: " + toIndentedString(ratepaydataInvoiceDate) + "\n" +
-              "    ratepaydataInvoiceId: " + toIndentedString(ratepaydataInvoiceId) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalDataRatepay {\n");
+    sb.append("    ratepayInstallmentAmount: ").append(toIndentedString(ratepayInstallmentAmount)).append("\n");
+    sb.append("    ratepayInterestRate: ").append(toIndentedString(ratepayInterestRate)).append("\n");
+    sb.append("    ratepayLastInstallmentAmount: ").append(toIndentedString(ratepayLastInstallmentAmount)).append("\n");
+    sb.append("    ratepayPaymentFirstday: ").append(toIndentedString(ratepayPaymentFirstday)).append("\n");
+    sb.append("    ratepaydataDeliveryDate: ").append(toIndentedString(ratepaydataDeliveryDate)).append("\n");
+    sb.append("    ratepaydataDueDate: ").append(toIndentedString(ratepaydataDueDate)).append("\n");
+    sb.append("    ratepaydataInvoiceDate: ").append(toIndentedString(ratepaydataInvoiceDate)).append("\n");
+    sb.append("    ratepaydataInvoiceId: ").append(toIndentedString(ratepaydataInvoiceId)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -327,7 +342,7 @@ public class AdditionalDataRatepay {
         if (AdditionalDataRatepay.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataRatepay is not found in the empty JSON string", AdditionalDataRatepay.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataRatepay is not found in the empty JSON string", AdditionalDataRatepay.openapiRequiredFields.toString()));
         }
       }
 
@@ -335,7 +350,7 @@ public class AdditionalDataRatepay {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataRatepay.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRatepay` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRatepay` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field ratepay.installmentAmount

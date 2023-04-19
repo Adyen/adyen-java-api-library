@@ -12,23 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataCommon
@@ -60,7 +73,7 @@ public class AdditionalDataCommon {
     
     DELAYEDCHARGE("DelayedCharge");
 
-    private final String value;
+    private String value;
 
     IndustryUsageEnum(String value) {
       this.value = value;
@@ -536,25 +549,26 @@ public class AdditionalDataCommon {
 
   @Override
   public String toString() {
-    String sb = "class AdditionalDataCommon {\n" +
-            "    requestedTestErrorResponseCode: " + toIndentedString(requestedTestErrorResponseCode) + "\n" +
-            "    allowPartialAuth: " + toIndentedString(allowPartialAuth) + "\n" +
-            "    authorisationType: " + toIndentedString(authorisationType) + "\n" +
-            "    customRoutingFlag: " + toIndentedString(customRoutingFlag) + "\n" +
-            "    industryUsage: " + toIndentedString(industryUsage) + "\n" +
-            "    manualCapture: " + toIndentedString(manualCapture) + "\n" +
-            "    networkTxReference: " + toIndentedString(networkTxReference) + "\n" +
-            "    overwriteBrand: " + toIndentedString(overwriteBrand) + "\n" +
-            "    subMerchantCity: " + toIndentedString(subMerchantCity) + "\n" +
-            "    subMerchantCountry: " + toIndentedString(subMerchantCountry) + "\n" +
-            "    subMerchantID: " + toIndentedString(subMerchantID) + "\n" +
-            "    subMerchantName: " + toIndentedString(subMerchantName) + "\n" +
-            "    subMerchantPostalCode: " + toIndentedString(subMerchantPostalCode) + "\n" +
-            "    subMerchantState: " + toIndentedString(subMerchantState) + "\n" +
-            "    subMerchantStreet: " + toIndentedString(subMerchantStreet) + "\n" +
-            "    subMerchantTaxId: " + toIndentedString(subMerchantTaxId) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalDataCommon {\n");
+    sb.append("    requestedTestErrorResponseCode: ").append(toIndentedString(requestedTestErrorResponseCode)).append("\n");
+    sb.append("    allowPartialAuth: ").append(toIndentedString(allowPartialAuth)).append("\n");
+    sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
+    sb.append("    customRoutingFlag: ").append(toIndentedString(customRoutingFlag)).append("\n");
+    sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
+    sb.append("    manualCapture: ").append(toIndentedString(manualCapture)).append("\n");
+    sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
+    sb.append("    overwriteBrand: ").append(toIndentedString(overwriteBrand)).append("\n");
+    sb.append("    subMerchantCity: ").append(toIndentedString(subMerchantCity)).append("\n");
+    sb.append("    subMerchantCountry: ").append(toIndentedString(subMerchantCountry)).append("\n");
+    sb.append("    subMerchantID: ").append(toIndentedString(subMerchantID)).append("\n");
+    sb.append("    subMerchantName: ").append(toIndentedString(subMerchantName)).append("\n");
+    sb.append("    subMerchantPostalCode: ").append(toIndentedString(subMerchantPostalCode)).append("\n");
+    sb.append("    subMerchantState: ").append(toIndentedString(subMerchantState)).append("\n");
+    sb.append("    subMerchantStreet: ").append(toIndentedString(subMerchantStreet)).append("\n");
+    sb.append("    subMerchantTaxId: ").append(toIndentedString(subMerchantTaxId)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -607,7 +621,7 @@ public class AdditionalDataCommon {
         if (AdditionalDataCommon.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataCommon is not found in the empty JSON string", AdditionalDataCommon.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataCommon is not found in the empty JSON string", AdditionalDataCommon.openapiRequiredFields.toString()));
         }
       }
 
@@ -615,7 +629,7 @@ public class AdditionalDataCommon {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataCommon.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCommon` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCommon` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field RequestedTestErrorResponseCode

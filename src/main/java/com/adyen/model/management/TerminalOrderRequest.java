@@ -12,25 +12,39 @@
 
 package com.adyen.model.management;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.management.OrderItem;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.management.JSON;
 
 /**
  * TerminalOrderRequest
@@ -202,14 +216,15 @@ public class TerminalOrderRequest {
 
   @Override
   public String toString() {
-      String sb = "class TerminalOrderRequest {\n" +
-              "    billingEntityId: " + toIndentedString(billingEntityId) + "\n" +
-              "    customerOrderReference: " + toIndentedString(customerOrderReference) + "\n" +
-              "    items: " + toIndentedString(items) + "\n" +
-              "    shippingLocationId: " + toIndentedString(shippingLocationId) + "\n" +
-              "    taxId: " + toIndentedString(taxId) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TerminalOrderRequest {\n");
+    sb.append("    billingEntityId: ").append(toIndentedString(billingEntityId)).append("\n");
+    sb.append("    customerOrderReference: ").append(toIndentedString(customerOrderReference)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    shippingLocationId: ").append(toIndentedString(shippingLocationId)).append("\n");
+    sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -251,7 +266,7 @@ public class TerminalOrderRequest {
         if (TerminalOrderRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TerminalOrderRequest is not found in the empty JSON string", TerminalOrderRequest.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TerminalOrderRequest is not found in the empty JSON string", TerminalOrderRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -259,7 +274,7 @@ public class TerminalOrderRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TerminalOrderRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalOrderRequest` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalOrderRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field billingEntityId
@@ -280,7 +295,7 @@ public class TerminalOrderRequest {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           OrderItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field shippingLocationId
       if (jsonObj.get("shippingLocationId") != null && !jsonObj.get("shippingLocationId").isJsonPrimitive()) {

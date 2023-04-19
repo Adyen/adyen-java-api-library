@@ -12,27 +12,46 @@
 
 package com.adyen.model.recurring;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.recurring.Address;
+import com.adyen.model.recurring.BankAccount;
+import com.adyen.model.recurring.Card;
+import com.adyen.model.recurring.Name;
+import com.adyen.model.recurring.TokenDetails;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.recurring.JSON;
 
 /**
  * RecurringDetail
@@ -536,26 +555,27 @@ public class RecurringDetail {
 
   @Override
   public String toString() {
-    String sb = "class RecurringDetail {\n" +
-            "    additionalData: " + toIndentedString(additionalData) + "\n" +
-            "    alias: " + toIndentedString(alias) + "\n" +
-            "    aliasType: " + toIndentedString(aliasType) + "\n" +
-            "    bank: " + toIndentedString(bank) + "\n" +
-            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
-            "    card: " + toIndentedString(card) + "\n" +
-            "    contractTypes: " + toIndentedString(contractTypes) + "\n" +
-            "    creationDate: " + toIndentedString(creationDate) + "\n" +
-            "    firstPspReference: " + toIndentedString(firstPspReference) + "\n" +
-            "    name: " + toIndentedString(name) + "\n" +
-            "    networkTxReference: " + toIndentedString(networkTxReference) + "\n" +
-            "    paymentMethodVariant: " + toIndentedString(paymentMethodVariant) + "\n" +
-            "    recurringDetailReference: " + toIndentedString(recurringDetailReference) + "\n" +
-            "    shopperName: " + toIndentedString(shopperName) + "\n" +
-            "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + "\n" +
-            "    tokenDetails: " + toIndentedString(tokenDetails) + "\n" +
-            "    variant: " + toIndentedString(variant) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RecurringDetail {\n");
+    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+    sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
+    sb.append("    aliasType: ").append(toIndentedString(aliasType)).append("\n");
+    sb.append("    bank: ").append(toIndentedString(bank)).append("\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    card: ").append(toIndentedString(card)).append("\n");
+    sb.append("    contractTypes: ").append(toIndentedString(contractTypes)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    firstPspReference: ").append(toIndentedString(firstPspReference)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
+    sb.append("    paymentMethodVariant: ").append(toIndentedString(paymentMethodVariant)).append("\n");
+    sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
+    sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+    sb.append("    tokenDetails: ").append(toIndentedString(tokenDetails)).append("\n");
+    sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -611,7 +631,7 @@ public class RecurringDetail {
         if (RecurringDetail.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetail is not found in the empty JSON string", RecurringDetail.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetail is not found in the empty JSON string", RecurringDetail.openapiRequiredFields.toString()));
         }
       }
 
@@ -619,14 +639,14 @@ public class RecurringDetail {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!RecurringDetail.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetail` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RecurringDetail.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field alias

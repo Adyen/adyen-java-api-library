@@ -12,23 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * ResponseAdditionalDataCommon
@@ -132,7 +145,7 @@ public class ResponseAdditionalDataCommon {
     
     FRAUD("FRAUD");
 
-    private final String value;
+    private String value;
 
     FraudResultTypeEnum(String value) {
       this.value = value;
@@ -269,7 +282,7 @@ public class ResponseAdditionalDataCommon {
     
     UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
 
-    private final String value;
+    private String value;
 
     RecurringProcessingModelEnum(String value) {
       this.value = value;
@@ -1746,68 +1759,69 @@ public class ResponseAdditionalDataCommon {
 
   @Override
   public String toString() {
-    String sb = "class ResponseAdditionalDataCommon {\n" +
-            "    acquirerAccountCode: " + toIndentedString(acquirerAccountCode) + "\n" +
-            "    acquirerCode: " + toIndentedString(acquirerCode) + "\n" +
-            "    acquirerReference: " + toIndentedString(acquirerReference) + "\n" +
-            "    alias: " + toIndentedString(alias) + "\n" +
-            "    aliasType: " + toIndentedString(aliasType) + "\n" +
-            "    authCode: " + toIndentedString(authCode) + "\n" +
-            "    authorisationMid: " + toIndentedString(authorisationMid) + "\n" +
-            "    authorisedAmountCurrency: " + toIndentedString(authorisedAmountCurrency) + "\n" +
-            "    authorisedAmountValue: " + toIndentedString(authorisedAmountValue) + "\n" +
-            "    avsResult: " + toIndentedString(avsResult) + "\n" +
-            "    avsResultRaw: " + toIndentedString(avsResultRaw) + "\n" +
-            "    bic: " + toIndentedString(bic) + "\n" +
-            "    coBrandedWith: " + toIndentedString(coBrandedWith) + "\n" +
-            "    cvcResult: " + toIndentedString(cvcResult) + "\n" +
-            "    cvcResultRaw: " + toIndentedString(cvcResultRaw) + "\n" +
-            "    dsTransID: " + toIndentedString(dsTransID) + "\n" +
-            "    eci: " + toIndentedString(eci) + "\n" +
-            "    expiryDate: " + toIndentedString(expiryDate) + "\n" +
-            "    extraCostsCurrency: " + toIndentedString(extraCostsCurrency) + "\n" +
-            "    extraCostsValue: " + toIndentedString(extraCostsValue) + "\n" +
-            "    fraudCheckItemNrFraudCheckname: " + toIndentedString(fraudCheckItemNrFraudCheckname) + "\n" +
-            "    fraudManualReview: " + toIndentedString(fraudManualReview) + "\n" +
-            "    fraudResultType: " + toIndentedString(fraudResultType) + "\n" +
-            "    fundingSource: " + toIndentedString(fundingSource) + "\n" +
-            "    fundsAvailability: " + toIndentedString(fundsAvailability) + "\n" +
-            "    inferredRefusalReason: " + toIndentedString(inferredRefusalReason) + "\n" +
-            "    isCardCommercial: " + toIndentedString(isCardCommercial) + "\n" +
-            "    issuerCountry: " + toIndentedString(issuerCountry) + "\n" +
-            "    liabilityShift: " + toIndentedString(liabilityShift) + "\n" +
-            "    mcBankNetReferenceNumber: " + toIndentedString(mcBankNetReferenceNumber) + "\n" +
-            "    merchantAdviceCode: " + toIndentedString(merchantAdviceCode) + "\n" +
-            "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
-            "    networkTxReference: " + toIndentedString(networkTxReference) + "\n" +
-            "    ownerName: " + toIndentedString(ownerName) + "\n" +
-            "    paymentAccountReference: " + toIndentedString(paymentAccountReference) + "\n" +
-            "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
-            "    paymentMethodVariant: " + toIndentedString(paymentMethodVariant) + "\n" +
-            "    payoutEligible: " + toIndentedString(payoutEligible) + "\n" +
-            "    realtimeAccountUpdaterStatus: " + toIndentedString(realtimeAccountUpdaterStatus) + "\n" +
-            "    receiptFreeText: " + toIndentedString(receiptFreeText) + "\n" +
-            "    recurringContractTypes: " + toIndentedString(recurringContractTypes) + "\n" +
-            "    recurringFirstPspReference: " + toIndentedString(recurringFirstPspReference) + "\n" +
-            "    recurringRecurringDetailReference: " + toIndentedString(recurringRecurringDetailReference) + "\n" +
-            "    recurringShopperReference: " + toIndentedString(recurringShopperReference) + "\n" +
-            "    recurringProcessingModel: " + toIndentedString(recurringProcessingModel) + "\n" +
-            "    referred: " + toIndentedString(referred) + "\n" +
-            "    refusalReasonRaw: " + toIndentedString(refusalReasonRaw) + "\n" +
-            "    requestAmount: " + toIndentedString(requestAmount) + "\n" +
-            "    requestCurrencyCode: " + toIndentedString(requestCurrencyCode) + "\n" +
-            "    shopperInteraction: " + toIndentedString(shopperInteraction) + "\n" +
-            "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
-            "    terminalId: " + toIndentedString(terminalId) + "\n" +
-            "    threeDAuthenticated: " + toIndentedString(threeDAuthenticated) + "\n" +
-            "    threeDAuthenticatedResponse: " + toIndentedString(threeDAuthenticatedResponse) + "\n" +
-            "    threeDOffered: " + toIndentedString(threeDOffered) + "\n" +
-            "    threeDOfferedResponse: " + toIndentedString(threeDOfferedResponse) + "\n" +
-            "    threeDSVersion: " + toIndentedString(threeDSVersion) + "\n" +
-            "    visaTransactionId: " + toIndentedString(visaTransactionId) + "\n" +
-            "    xid: " + toIndentedString(xid) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ResponseAdditionalDataCommon {\n");
+    sb.append("    acquirerAccountCode: ").append(toIndentedString(acquirerAccountCode)).append("\n");
+    sb.append("    acquirerCode: ").append(toIndentedString(acquirerCode)).append("\n");
+    sb.append("    acquirerReference: ").append(toIndentedString(acquirerReference)).append("\n");
+    sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
+    sb.append("    aliasType: ").append(toIndentedString(aliasType)).append("\n");
+    sb.append("    authCode: ").append(toIndentedString(authCode)).append("\n");
+    sb.append("    authorisationMid: ").append(toIndentedString(authorisationMid)).append("\n");
+    sb.append("    authorisedAmountCurrency: ").append(toIndentedString(authorisedAmountCurrency)).append("\n");
+    sb.append("    authorisedAmountValue: ").append(toIndentedString(authorisedAmountValue)).append("\n");
+    sb.append("    avsResult: ").append(toIndentedString(avsResult)).append("\n");
+    sb.append("    avsResultRaw: ").append(toIndentedString(avsResultRaw)).append("\n");
+    sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
+    sb.append("    coBrandedWith: ").append(toIndentedString(coBrandedWith)).append("\n");
+    sb.append("    cvcResult: ").append(toIndentedString(cvcResult)).append("\n");
+    sb.append("    cvcResultRaw: ").append(toIndentedString(cvcResultRaw)).append("\n");
+    sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
+    sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
+    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
+    sb.append("    extraCostsCurrency: ").append(toIndentedString(extraCostsCurrency)).append("\n");
+    sb.append("    extraCostsValue: ").append(toIndentedString(extraCostsValue)).append("\n");
+    sb.append("    fraudCheckItemNrFraudCheckname: ").append(toIndentedString(fraudCheckItemNrFraudCheckname)).append("\n");
+    sb.append("    fraudManualReview: ").append(toIndentedString(fraudManualReview)).append("\n");
+    sb.append("    fraudResultType: ").append(toIndentedString(fraudResultType)).append("\n");
+    sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+    sb.append("    fundsAvailability: ").append(toIndentedString(fundsAvailability)).append("\n");
+    sb.append("    inferredRefusalReason: ").append(toIndentedString(inferredRefusalReason)).append("\n");
+    sb.append("    isCardCommercial: ").append(toIndentedString(isCardCommercial)).append("\n");
+    sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append("\n");
+    sb.append("    liabilityShift: ").append(toIndentedString(liabilityShift)).append("\n");
+    sb.append("    mcBankNetReferenceNumber: ").append(toIndentedString(mcBankNetReferenceNumber)).append("\n");
+    sb.append("    merchantAdviceCode: ").append(toIndentedString(merchantAdviceCode)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
+    sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+    sb.append("    paymentAccountReference: ").append(toIndentedString(paymentAccountReference)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    paymentMethodVariant: ").append(toIndentedString(paymentMethodVariant)).append("\n");
+    sb.append("    payoutEligible: ").append(toIndentedString(payoutEligible)).append("\n");
+    sb.append("    realtimeAccountUpdaterStatus: ").append(toIndentedString(realtimeAccountUpdaterStatus)).append("\n");
+    sb.append("    receiptFreeText: ").append(toIndentedString(receiptFreeText)).append("\n");
+    sb.append("    recurringContractTypes: ").append(toIndentedString(recurringContractTypes)).append("\n");
+    sb.append("    recurringFirstPspReference: ").append(toIndentedString(recurringFirstPspReference)).append("\n");
+    sb.append("    recurringRecurringDetailReference: ").append(toIndentedString(recurringRecurringDetailReference)).append("\n");
+    sb.append("    recurringShopperReference: ").append(toIndentedString(recurringShopperReference)).append("\n");
+    sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
+    sb.append("    referred: ").append(toIndentedString(referred)).append("\n");
+    sb.append("    refusalReasonRaw: ").append(toIndentedString(refusalReasonRaw)).append("\n");
+    sb.append("    requestAmount: ").append(toIndentedString(requestAmount)).append("\n");
+    sb.append("    requestCurrencyCode: ").append(toIndentedString(requestCurrencyCode)).append("\n");
+    sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
+    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+    sb.append("    terminalId: ").append(toIndentedString(terminalId)).append("\n");
+    sb.append("    threeDAuthenticated: ").append(toIndentedString(threeDAuthenticated)).append("\n");
+    sb.append("    threeDAuthenticatedResponse: ").append(toIndentedString(threeDAuthenticatedResponse)).append("\n");
+    sb.append("    threeDOffered: ").append(toIndentedString(threeDOffered)).append("\n");
+    sb.append("    threeDOfferedResponse: ").append(toIndentedString(threeDOfferedResponse)).append("\n");
+    sb.append("    threeDSVersion: ").append(toIndentedString(threeDSVersion)).append("\n");
+    sb.append("    visaTransactionId: ").append(toIndentedString(visaTransactionId)).append("\n");
+    sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -1903,7 +1917,7 @@ public class ResponseAdditionalDataCommon {
         if (ResponseAdditionalDataCommon.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataCommon is not found in the empty JSON string", ResponseAdditionalDataCommon.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataCommon is not found in the empty JSON string", ResponseAdditionalDataCommon.openapiRequiredFields.toString()));
         }
       }
 
@@ -1911,7 +1925,7 @@ public class ResponseAdditionalDataCommon {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ResponseAdditionalDataCommon.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataCommon` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataCommon` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field acquirerAccountCode

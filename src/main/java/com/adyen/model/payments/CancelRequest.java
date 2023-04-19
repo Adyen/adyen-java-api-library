@@ -12,27 +12,43 @@
 
 package com.adyen.model.payments;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.payments.PlatformChargebackLogic;
+import com.adyen.model.payments.Split;
+import com.adyen.model.payments.ThreeDSecureData;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.payments.JSON;
 
 /**
  * CancelRequest
@@ -347,19 +363,20 @@ public class CancelRequest {
 
   @Override
   public String toString() {
-    String sb = "class CancelRequest {\n" +
-            "    additionalData: " + toIndentedString(additionalData) + "\n" +
-            "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-            "    mpiData: " + toIndentedString(mpiData) + "\n" +
-            "    originalMerchantReference: " + toIndentedString(originalMerchantReference) + "\n" +
-            "    originalReference: " + toIndentedString(originalReference) + "\n" +
-            "    platformChargebackLogic: " + toIndentedString(platformChargebackLogic) + "\n" +
-            "    reference: " + toIndentedString(reference) + "\n" +
-            "    splits: " + toIndentedString(splits) + "\n" +
-            "    tenderReference: " + toIndentedString(tenderReference) + "\n" +
-            "    uniqueTerminalId: " + toIndentedString(uniqueTerminalId) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CancelRequest {\n");
+    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+    sb.append("    originalMerchantReference: ").append(toIndentedString(originalMerchantReference)).append("\n");
+    sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+    sb.append("    tenderReference: ").append(toIndentedString(tenderReference)).append("\n");
+    sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -408,7 +425,7 @@ public class CancelRequest {
         if (CancelRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CancelRequest is not found in the empty JSON string", CancelRequest.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CancelRequest is not found in the empty JSON string", CancelRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -416,14 +433,14 @@ public class CancelRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CancelRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CancelRequest` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CancelRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CancelRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field merchantAccount
@@ -460,7 +477,7 @@ public class CancelRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field tenderReference
       if (jsonObj.get("tenderReference") != null && !jsonObj.get("tenderReference").isJsonPrimitive()) {

@@ -100,12 +100,13 @@ public class DeleteSignatoriesRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class DeleteSignatoriesRequest {\n");
 
-        String sb = "class DeleteSignatoriesRequest {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    signatoryCodes: " + toIndentedString(signatoryCodes) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    signatoryCodes: ").append(toIndentedString(signatoryCodes)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

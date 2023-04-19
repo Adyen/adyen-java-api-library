@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -80,11 +81,12 @@ public class OriginKeysRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OriginKeysRequest {\n");
 
-        String sb = "class OriginKeysRequest {\n" +
-                "    originDomains: " + toIndentedString(originDomains) + "\n" +
-                "}";
-        return sb;
+        sb.append("    originDomains: ").append(toIndentedString(originDomains)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

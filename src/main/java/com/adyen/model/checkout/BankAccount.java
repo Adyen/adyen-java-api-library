@@ -12,22 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * BankAccount
@@ -299,18 +313,19 @@ public class BankAccount {
 
   @Override
   public String toString() {
-      String sb = "class BankAccount {\n" +
-              "    bankAccountNumber: " + toIndentedString(bankAccountNumber) + "\n" +
-              "    bankCity: " + toIndentedString(bankCity) + "\n" +
-              "    bankLocationId: " + toIndentedString(bankLocationId) + "\n" +
-              "    bankName: " + toIndentedString(bankName) + "\n" +
-              "    bic: " + toIndentedString(bic) + "\n" +
-              "    countryCode: " + toIndentedString(countryCode) + "\n" +
-              "    iban: " + toIndentedString(iban) + "\n" +
-              "    ownerName: " + toIndentedString(ownerName) + "\n" +
-              "    taxId: " + toIndentedString(taxId) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BankAccount {\n");
+    sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
+    sb.append("    bankCity: ").append(toIndentedString(bankCity)).append("\n");
+    sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
+    sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+    sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+    sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -356,7 +371,7 @@ public class BankAccount {
         if (BankAccount.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BankAccount is not found in the empty JSON string", BankAccount.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BankAccount is not found in the empty JSON string", BankAccount.openapiRequiredFields.toString()));
         }
       }
 
@@ -364,7 +379,7 @@ public class BankAccount {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!BankAccount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BankAccount` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BankAccount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field bankAccountNumber

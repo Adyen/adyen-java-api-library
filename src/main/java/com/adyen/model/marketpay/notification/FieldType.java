@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -297,12 +298,13 @@ public class FieldType {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FieldType {\n");
 
-        String sb = "class FieldType {\n" +
-                "    field: " + toIndentedString(field) + "\n" +
-                "    fieldName: " + toIndentedString(fieldName) + "\n" +
-                "    shareholderCode: " + toIndentedString(shareholderCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    field: ").append(toIndentedString(field)).append("\n");
+        sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
+        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

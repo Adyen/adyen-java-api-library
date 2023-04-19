@@ -12,22 +12,36 @@
 
 package com.adyen.model.payments;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalDataOpenInvoice
@@ -542,27 +556,28 @@ public class AdditionalDataOpenInvoice {
 
   @Override
   public String toString() {
-    String sb = "class AdditionalDataOpenInvoice {\n" +
-            "    openinvoicedataMerchantData: " + toIndentedString(openinvoicedataMerchantData) + "\n" +
-            "    openinvoicedataNumberOfLines: " + toIndentedString(openinvoicedataNumberOfLines) + "\n" +
-            "    openinvoicedataRecipientFirstName: " + toIndentedString(openinvoicedataRecipientFirstName) + "\n" +
-            "    openinvoicedataRecipientLastName: " + toIndentedString(openinvoicedataRecipientLastName) + "\n" +
-            "    openinvoicedataLineItemNrCurrencyCode: " + toIndentedString(openinvoicedataLineItemNrCurrencyCode) + "\n" +
-            "    openinvoicedataLineItemNrDescription: " + toIndentedString(openinvoicedataLineItemNrDescription) + "\n" +
-            "    openinvoicedataLineItemNrItemAmount: " + toIndentedString(openinvoicedataLineItemNrItemAmount) + "\n" +
-            "    openinvoicedataLineItemNrItemId: " + toIndentedString(openinvoicedataLineItemNrItemId) + "\n" +
-            "    openinvoicedataLineItemNrItemVatAmount: " + toIndentedString(openinvoicedataLineItemNrItemVatAmount) + "\n" +
-            "    openinvoicedataLineItemNrItemVatPercentage: " + toIndentedString(openinvoicedataLineItemNrItemVatPercentage) + "\n" +
-            "    openinvoicedataLineItemNrNumberOfItems: " + toIndentedString(openinvoicedataLineItemNrNumberOfItems) + "\n" +
-            "    openinvoicedataLineItemNrReturnShippingCompany: " + toIndentedString(openinvoicedataLineItemNrReturnShippingCompany) + "\n" +
-            "    openinvoicedataLineItemNrReturnTrackingNumber: " + toIndentedString(openinvoicedataLineItemNrReturnTrackingNumber) + "\n" +
-            "    openinvoicedataLineItemNrReturnTrackingUri: " + toIndentedString(openinvoicedataLineItemNrReturnTrackingUri) + "\n" +
-            "    openinvoicedataLineItemNrShippingCompany: " + toIndentedString(openinvoicedataLineItemNrShippingCompany) + "\n" +
-            "    openinvoicedataLineItemNrShippingMethod: " + toIndentedString(openinvoicedataLineItemNrShippingMethod) + "\n" +
-            "    openinvoicedataLineItemNrTrackingNumber: " + toIndentedString(openinvoicedataLineItemNrTrackingNumber) + "\n" +
-            "    openinvoicedataLineItemNrTrackingUri: " + toIndentedString(openinvoicedataLineItemNrTrackingUri) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalDataOpenInvoice {\n");
+    sb.append("    openinvoicedataMerchantData: ").append(toIndentedString(openinvoicedataMerchantData)).append("\n");
+    sb.append("    openinvoicedataNumberOfLines: ").append(toIndentedString(openinvoicedataNumberOfLines)).append("\n");
+    sb.append("    openinvoicedataRecipientFirstName: ").append(toIndentedString(openinvoicedataRecipientFirstName)).append("\n");
+    sb.append("    openinvoicedataRecipientLastName: ").append(toIndentedString(openinvoicedataRecipientLastName)).append("\n");
+    sb.append("    openinvoicedataLineItemNrCurrencyCode: ").append(toIndentedString(openinvoicedataLineItemNrCurrencyCode)).append("\n");
+    sb.append("    openinvoicedataLineItemNrDescription: ").append(toIndentedString(openinvoicedataLineItemNrDescription)).append("\n");
+    sb.append("    openinvoicedataLineItemNrItemAmount: ").append(toIndentedString(openinvoicedataLineItemNrItemAmount)).append("\n");
+    sb.append("    openinvoicedataLineItemNrItemId: ").append(toIndentedString(openinvoicedataLineItemNrItemId)).append("\n");
+    sb.append("    openinvoicedataLineItemNrItemVatAmount: ").append(toIndentedString(openinvoicedataLineItemNrItemVatAmount)).append("\n");
+    sb.append("    openinvoicedataLineItemNrItemVatPercentage: ").append(toIndentedString(openinvoicedataLineItemNrItemVatPercentage)).append("\n");
+    sb.append("    openinvoicedataLineItemNrNumberOfItems: ").append(toIndentedString(openinvoicedataLineItemNrNumberOfItems)).append("\n");
+    sb.append("    openinvoicedataLineItemNrReturnShippingCompany: ").append(toIndentedString(openinvoicedataLineItemNrReturnShippingCompany)).append("\n");
+    sb.append("    openinvoicedataLineItemNrReturnTrackingNumber: ").append(toIndentedString(openinvoicedataLineItemNrReturnTrackingNumber)).append("\n");
+    sb.append("    openinvoicedataLineItemNrReturnTrackingUri: ").append(toIndentedString(openinvoicedataLineItemNrReturnTrackingUri)).append("\n");
+    sb.append("    openinvoicedataLineItemNrShippingCompany: ").append(toIndentedString(openinvoicedataLineItemNrShippingCompany)).append("\n");
+    sb.append("    openinvoicedataLineItemNrShippingMethod: ").append(toIndentedString(openinvoicedataLineItemNrShippingMethod)).append("\n");
+    sb.append("    openinvoicedataLineItemNrTrackingNumber: ").append(toIndentedString(openinvoicedataLineItemNrTrackingNumber)).append("\n");
+    sb.append("    openinvoicedataLineItemNrTrackingUri: ").append(toIndentedString(openinvoicedataLineItemNrTrackingUri)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -617,7 +632,7 @@ public class AdditionalDataOpenInvoice {
         if (AdditionalDataOpenInvoice.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataOpenInvoice is not found in the empty JSON string", AdditionalDataOpenInvoice.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataOpenInvoice is not found in the empty JSON string", AdditionalDataOpenInvoice.openapiRequiredFields.toString()));
         }
       }
 
@@ -625,7 +640,7 @@ public class AdditionalDataOpenInvoice {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataOpenInvoice.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataOpenInvoice` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataOpenInvoice` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field openinvoicedata.merchantData

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -180,15 +181,16 @@ public class AccountHolderBalanceResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountHolderBalanceResponse {\n");
 
-        String sb = "class AccountHolderBalanceResponse {\n" +
-                "    balancePerAccount: " + toIndentedString(balancePerAccount) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    resultCode: " + toIndentedString(resultCode) + "\n" +
-                "    totalBalance: " + toIndentedString(totalBalance) + "\n" +
-                "}";
-        return sb;
+        sb.append("    balancePerAccount: ").append(toIndentedString(balancePerAccount)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    totalBalance: ").append(toIndentedString(totalBalance)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

@@ -98,11 +98,12 @@ public class KYCSignatoryCheckResult {
 
     @Override
     public String toString() {
-        String sb = "class KYCSignatoryCheckResult {\n" +
-                "    checks: " + toIndentedString(checks) + "\n" +
-                "    signatoryCode: " + toIndentedString(signatoryCode) + "\n" +
-                "}";
-        return sb;
+        StringBuilder sb = new StringBuilder();
+        sb.append("class KYCSignatoryCheckResult {\n");
+        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
+        sb.append("    signatoryCode: ").append(toIndentedString(signatoryCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }
 

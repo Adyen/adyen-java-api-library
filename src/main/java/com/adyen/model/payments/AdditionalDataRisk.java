@@ -12,22 +12,36 @@
 
 package com.adyen.model.payments;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalDataRisk
@@ -623,30 +637,31 @@ public class AdditionalDataRisk {
 
   @Override
   public String toString() {
-    String sb = "class AdditionalDataRisk {\n" +
-            "    riskdataCustomFieldName: " + toIndentedString(riskdataCustomFieldName) + "\n" +
-            "    riskdataBasketItemItemNrAmountPerItem: " + toIndentedString(riskdataBasketItemItemNrAmountPerItem) + "\n" +
-            "    riskdataBasketItemItemNrBrand: " + toIndentedString(riskdataBasketItemItemNrBrand) + "\n" +
-            "    riskdataBasketItemItemNrCategory: " + toIndentedString(riskdataBasketItemItemNrCategory) + "\n" +
-            "    riskdataBasketItemItemNrColor: " + toIndentedString(riskdataBasketItemItemNrColor) + "\n" +
-            "    riskdataBasketItemItemNrCurrency: " + toIndentedString(riskdataBasketItemItemNrCurrency) + "\n" +
-            "    riskdataBasketItemItemNrItemID: " + toIndentedString(riskdataBasketItemItemNrItemID) + "\n" +
-            "    riskdataBasketItemItemNrManufacturer: " + toIndentedString(riskdataBasketItemItemNrManufacturer) + "\n" +
-            "    riskdataBasketItemItemNrProductTitle: " + toIndentedString(riskdataBasketItemItemNrProductTitle) + "\n" +
-            "    riskdataBasketItemItemNrQuantity: " + toIndentedString(riskdataBasketItemItemNrQuantity) + "\n" +
-            "    riskdataBasketItemItemNrReceiverEmail: " + toIndentedString(riskdataBasketItemItemNrReceiverEmail) + "\n" +
-            "    riskdataBasketItemItemNrSize: " + toIndentedString(riskdataBasketItemItemNrSize) + "\n" +
-            "    riskdataBasketItemItemNrSku: " + toIndentedString(riskdataBasketItemItemNrSku) + "\n" +
-            "    riskdataBasketItemItemNrUpc: " + toIndentedString(riskdataBasketItemItemNrUpc) + "\n" +
-            "    riskdataPromotionsPromotionItemNrPromotionCode: " + toIndentedString(riskdataPromotionsPromotionItemNrPromotionCode) + "\n" +
-            "    riskdataPromotionsPromotionItemNrPromotionDiscountAmount: " + toIndentedString(riskdataPromotionsPromotionItemNrPromotionDiscountAmount) + "\n" +
-            "    riskdataPromotionsPromotionItemNrPromotionDiscountCurrency: " + toIndentedString(riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) + "\n" +
-            "    riskdataPromotionsPromotionItemNrPromotionDiscountPercentage: " + toIndentedString(riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) + "\n" +
-            "    riskdataPromotionsPromotionItemNrPromotionName: " + toIndentedString(riskdataPromotionsPromotionItemNrPromotionName) + "\n" +
-            "    riskdataRiskProfileReference: " + toIndentedString(riskdataRiskProfileReference) + "\n" +
-            "    riskdataSkipRisk: " + toIndentedString(riskdataSkipRisk) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalDataRisk {\n");
+    sb.append("    riskdataCustomFieldName: ").append(toIndentedString(riskdataCustomFieldName)).append("\n");
+    sb.append("    riskdataBasketItemItemNrAmountPerItem: ").append(toIndentedString(riskdataBasketItemItemNrAmountPerItem)).append("\n");
+    sb.append("    riskdataBasketItemItemNrBrand: ").append(toIndentedString(riskdataBasketItemItemNrBrand)).append("\n");
+    sb.append("    riskdataBasketItemItemNrCategory: ").append(toIndentedString(riskdataBasketItemItemNrCategory)).append("\n");
+    sb.append("    riskdataBasketItemItemNrColor: ").append(toIndentedString(riskdataBasketItemItemNrColor)).append("\n");
+    sb.append("    riskdataBasketItemItemNrCurrency: ").append(toIndentedString(riskdataBasketItemItemNrCurrency)).append("\n");
+    sb.append("    riskdataBasketItemItemNrItemID: ").append(toIndentedString(riskdataBasketItemItemNrItemID)).append("\n");
+    sb.append("    riskdataBasketItemItemNrManufacturer: ").append(toIndentedString(riskdataBasketItemItemNrManufacturer)).append("\n");
+    sb.append("    riskdataBasketItemItemNrProductTitle: ").append(toIndentedString(riskdataBasketItemItemNrProductTitle)).append("\n");
+    sb.append("    riskdataBasketItemItemNrQuantity: ").append(toIndentedString(riskdataBasketItemItemNrQuantity)).append("\n");
+    sb.append("    riskdataBasketItemItemNrReceiverEmail: ").append(toIndentedString(riskdataBasketItemItemNrReceiverEmail)).append("\n");
+    sb.append("    riskdataBasketItemItemNrSize: ").append(toIndentedString(riskdataBasketItemItemNrSize)).append("\n");
+    sb.append("    riskdataBasketItemItemNrSku: ").append(toIndentedString(riskdataBasketItemItemNrSku)).append("\n");
+    sb.append("    riskdataBasketItemItemNrUpc: ").append(toIndentedString(riskdataBasketItemItemNrUpc)).append("\n");
+    sb.append("    riskdataPromotionsPromotionItemNrPromotionCode: ").append(toIndentedString(riskdataPromotionsPromotionItemNrPromotionCode)).append("\n");
+    sb.append("    riskdataPromotionsPromotionItemNrPromotionDiscountAmount: ").append(toIndentedString(riskdataPromotionsPromotionItemNrPromotionDiscountAmount)).append("\n");
+    sb.append("    riskdataPromotionsPromotionItemNrPromotionDiscountCurrency: ").append(toIndentedString(riskdataPromotionsPromotionItemNrPromotionDiscountCurrency)).append("\n");
+    sb.append("    riskdataPromotionsPromotionItemNrPromotionDiscountPercentage: ").append(toIndentedString(riskdataPromotionsPromotionItemNrPromotionDiscountPercentage)).append("\n");
+    sb.append("    riskdataPromotionsPromotionItemNrPromotionName: ").append(toIndentedString(riskdataPromotionsPromotionItemNrPromotionName)).append("\n");
+    sb.append("    riskdataRiskProfileReference: ").append(toIndentedString(riskdataRiskProfileReference)).append("\n");
+    sb.append("    riskdataSkipRisk: ").append(toIndentedString(riskdataSkipRisk)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -704,7 +719,7 @@ public class AdditionalDataRisk {
         if (AdditionalDataRisk.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataRisk is not found in the empty JSON string", AdditionalDataRisk.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataRisk is not found in the empty JSON string", AdditionalDataRisk.openapiRequiredFields.toString()));
         }
       }
 
@@ -712,7 +727,7 @@ public class AdditionalDataRisk {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataRisk.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRisk` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRisk` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field riskdata.[customFieldName]

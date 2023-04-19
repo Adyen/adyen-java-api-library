@@ -12,24 +12,37 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * AccountInfo
@@ -51,7 +64,7 @@ public class AccountInfo {
     
     MORETHAN60DAYS("moreThan60Days");
 
-    private final String value;
+    private String value;
 
     AccountAgeIndicatorEnum(String value) {
       this.value = value;
@@ -110,7 +123,7 @@ public class AccountInfo {
     
     MORETHAN60DAYS("moreThan60Days");
 
-    private final String value;
+    private String value;
 
     AccountChangeIndicatorEnum(String value) {
       this.value = value;
@@ -167,7 +180,7 @@ public class AccountInfo {
     
     DEBIT("debit");
 
-    private final String value;
+    private String value;
 
     AccountTypeEnum(String value) {
       this.value = value;
@@ -230,7 +243,7 @@ public class AccountInfo {
     
     MORETHAN60DAYS("moreThan60Days");
 
-    private final String value;
+    private String value;
 
     DeliveryAddressUsageIndicatorEnum(String value) {
       this.value = value;
@@ -299,7 +312,7 @@ public class AccountInfo {
     
     MORETHAN60DAYS("moreThan60Days");
 
-    private final String value;
+    private String value;
 
     PasswordChangeIndicatorEnum(String value) {
       this.value = value;
@@ -368,7 +381,7 @@ public class AccountInfo {
     
     MORETHAN60DAYS("moreThan60Days");
 
-    private final String value;
+    private String value;
 
     PaymentAccountIndicatorEnum(String value) {
       this.value = value;
@@ -887,28 +900,29 @@ public class AccountInfo {
 
   @Override
   public String toString() {
-    String sb = "class AccountInfo {\n" +
-            "    accountAgeIndicator: " + toIndentedString(accountAgeIndicator) + "\n" +
-            "    accountChangeDate: " + toIndentedString(accountChangeDate) + "\n" +
-            "    accountChangeIndicator: " + toIndentedString(accountChangeIndicator) + "\n" +
-            "    accountCreationDate: " + toIndentedString(accountCreationDate) + "\n" +
-            "    accountType: " + toIndentedString(accountType) + "\n" +
-            "    addCardAttemptsDay: " + toIndentedString(addCardAttemptsDay) + "\n" +
-            "    deliveryAddressUsageDate: " + toIndentedString(deliveryAddressUsageDate) + "\n" +
-            "    deliveryAddressUsageIndicator: " + toIndentedString(deliveryAddressUsageIndicator) + "\n" +
-            "    homePhone: " + toIndentedString(homePhone) + "\n" +
-            "    mobilePhone: " + toIndentedString(mobilePhone) + "\n" +
-            "    passwordChangeDate: " + toIndentedString(passwordChangeDate) + "\n" +
-            "    passwordChangeIndicator: " + toIndentedString(passwordChangeIndicator) + "\n" +
-            "    pastTransactionsDay: " + toIndentedString(pastTransactionsDay) + "\n" +
-            "    pastTransactionsYear: " + toIndentedString(pastTransactionsYear) + "\n" +
-            "    paymentAccountAge: " + toIndentedString(paymentAccountAge) + "\n" +
-            "    paymentAccountIndicator: " + toIndentedString(paymentAccountIndicator) + "\n" +
-            "    purchasesLast6Months: " + toIndentedString(purchasesLast6Months) + "\n" +
-            "    suspiciousActivity: " + toIndentedString(suspiciousActivity) + "\n" +
-            "    workPhone: " + toIndentedString(workPhone) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AccountInfo {\n");
+    sb.append("    accountAgeIndicator: ").append(toIndentedString(accountAgeIndicator)).append("\n");
+    sb.append("    accountChangeDate: ").append(toIndentedString(accountChangeDate)).append("\n");
+    sb.append("    accountChangeIndicator: ").append(toIndentedString(accountChangeIndicator)).append("\n");
+    sb.append("    accountCreationDate: ").append(toIndentedString(accountCreationDate)).append("\n");
+    sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    addCardAttemptsDay: ").append(toIndentedString(addCardAttemptsDay)).append("\n");
+    sb.append("    deliveryAddressUsageDate: ").append(toIndentedString(deliveryAddressUsageDate)).append("\n");
+    sb.append("    deliveryAddressUsageIndicator: ").append(toIndentedString(deliveryAddressUsageIndicator)).append("\n");
+    sb.append("    homePhone: ").append(toIndentedString(homePhone)).append("\n");
+    sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append("\n");
+    sb.append("    passwordChangeDate: ").append(toIndentedString(passwordChangeDate)).append("\n");
+    sb.append("    passwordChangeIndicator: ").append(toIndentedString(passwordChangeIndicator)).append("\n");
+    sb.append("    pastTransactionsDay: ").append(toIndentedString(pastTransactionsDay)).append("\n");
+    sb.append("    pastTransactionsYear: ").append(toIndentedString(pastTransactionsYear)).append("\n");
+    sb.append("    paymentAccountAge: ").append(toIndentedString(paymentAccountAge)).append("\n");
+    sb.append("    paymentAccountIndicator: ").append(toIndentedString(paymentAccountIndicator)).append("\n");
+    sb.append("    purchasesLast6Months: ").append(toIndentedString(purchasesLast6Months)).append("\n");
+    sb.append("    suspiciousActivity: ").append(toIndentedString(suspiciousActivity)).append("\n");
+    sb.append("    workPhone: ").append(toIndentedString(workPhone)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -964,7 +978,7 @@ public class AccountInfo {
         if (AccountInfo.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountInfo is not found in the empty JSON string", AccountInfo.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountInfo is not found in the empty JSON string", AccountInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -972,7 +986,7 @@ public class AccountInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AccountInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountInfo` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the field accountAgeIndicator can be parsed to an enum value

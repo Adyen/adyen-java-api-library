@@ -24,6 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -161,15 +162,16 @@ public class AccountProcessingState {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountProcessingState {\n");
 
-        String sb = "class AccountProcessingState {\n" +
-                "    disableReason: " + toIndentedString(disableReason) + "\n" +
-                "    processedTo: " + toIndentedString(processedTo) + "\n" +
-                "    processedFrom: " + toIndentedString(processedFrom) + "\n" +
-                "    tierNumber: " + toIndentedString(tierNumber) + "\n" +
-                "    disabled: " + toIndentedString(disabled) + "\n" +
-                "}";
-        return sb;
+        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
+        sb.append("    processedTo: ").append(toIndentedString(processedTo)).append("\n");
+        sb.append("    processedFrom: ").append(toIndentedString(processedFrom)).append("\n");
+        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
+        sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

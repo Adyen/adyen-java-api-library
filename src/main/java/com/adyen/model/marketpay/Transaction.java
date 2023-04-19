@@ -32,6 +32,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -495,26 +496,27 @@ public class Transaction {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Transaction {\n");
 
-        String sb = "class Transaction {\n" +
-                "    amount: " + toIndentedString(amount) + "\n" +
-                "    bankAccountDetail: " + toIndentedString(bankAccountDetail) + "\n" +
-                "    captureMerchantReference: " + toIndentedString(captureMerchantReference) + "\n" +
-                "    capturePspReference: " + toIndentedString(capturePspReference) + "\n" +
-                "    creationDate: " + toIndentedString(creationDate) + "\n" +
-                "    description: " + toIndentedString(description) + "\n" +
-                "    destinationAccountCode: " + toIndentedString(destinationAccountCode) + "\n" +
-                "    disputePspReference: " + toIndentedString(disputePspReference) + "\n" +
-                "    disputeReasonCode: " + toIndentedString(disputeReasonCode) + "\n" +
-                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
-                "    paymentPspReference: " + toIndentedString(paymentPspReference) + "\n" +
-                "    payoutPspReference: " + toIndentedString(payoutPspReference) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    sourceAccountCode: " + toIndentedString(sourceAccountCode) + "\n" +
-                "    transactionStatus: " + toIndentedString(transactionStatus) + "\n" +
-                "    transferCode: " + toIndentedString(transferCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    bankAccountDetail: ").append(toIndentedString(bankAccountDetail)).append("\n");
+        sb.append("    captureMerchantReference: ").append(toIndentedString(captureMerchantReference)).append("\n");
+        sb.append("    capturePspReference: ").append(toIndentedString(capturePspReference)).append("\n");
+        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append("\n");
+        sb.append("    disputePspReference: ").append(toIndentedString(disputePspReference)).append("\n");
+        sb.append("    disputeReasonCode: ").append(toIndentedString(disputeReasonCode)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
+        sb.append("    payoutPspReference: ").append(toIndentedString(payoutPspReference)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append("\n");
+        sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
+        sb.append("    transferCode: ").append(toIndentedString(transferCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

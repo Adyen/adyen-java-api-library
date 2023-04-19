@@ -24,6 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -116,13 +117,14 @@ public class GetUploadedDocumentsRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetUploadedDocumentsRequest {\n");
 
-        String sb = "class GetUploadedDocumentsRequest {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    bankAccountUUID: " + toIndentedString(bankAccountUUID) + "\n" +
-                "    shareholderCode: " + toIndentedString(shareholderCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

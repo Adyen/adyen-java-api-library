@@ -76,12 +76,13 @@ public class NotificationRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NotificationRequestItem {\n");
 
-        String sb = "class NotificationRequestItem {\n" +
-                "    live: " + toIndentedString(live) + "\n" +
-                "    notificationItems: " + toIndentedString(notificationItemContainers) + "\n" +
-                "}";
-        return sb;
+        sb.append("    live: ").append(toIndentedString(live)).append("\n");
+        sb.append("    notificationItems: ").append(toIndentedString(notificationItemContainers)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

@@ -268,14 +268,15 @@ public class KYCCheckStatusData {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class KYCCheckStatusData {\n");
 
-        String sb = "class KYCCheckStatusData {\n" +
-                "    requiredFields: " + toIndentedString(requiredFields) + "\n" +
-                "    status: " + toIndentedString(status) + "\n" +
-                "    summary: " + toIndentedString(summary) + "\n" +
-                "    type: " + toIndentedString(type) + "\n" +
-                "}";
-        return sb;
+        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

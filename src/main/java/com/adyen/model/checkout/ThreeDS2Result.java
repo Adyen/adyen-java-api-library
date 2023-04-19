@@ -12,23 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * ThreeDS2Result
@@ -62,7 +75,7 @@ public class ThreeDS2Result {
     
     _07("07");
 
-    private final String value;
+    private String value;
 
     ChallengeCancelEnum(String value) {
       this.value = value;
@@ -117,7 +130,7 @@ public class ThreeDS2Result {
     
     REQUESTCHALLENGEASMANDATE("requestChallengeAsMandate");
 
-    private final String value;
+    private String value;
 
     ChallengeIndicatorEnum(String value) {
       this.value = value;
@@ -180,7 +193,7 @@ public class ThreeDS2Result {
     
     TRANSACTIONRISKANALYSIS("transactionRiskAnalysis");
 
-    private final String value;
+    private String value;
 
     ExemptionIndicatorEnum(String value) {
       this.value = value;
@@ -594,23 +607,24 @@ public class ThreeDS2Result {
 
   @Override
   public String toString() {
-    String sb = "class ThreeDS2Result {\n" +
-            "    authenticationValue: " + toIndentedString(authenticationValue) + "\n" +
-            "    cavvAlgorithm: " + toIndentedString(cavvAlgorithm) + "\n" +
-            "    challengeCancel: " + toIndentedString(challengeCancel) + "\n" +
-            "    challengeIndicator: " + toIndentedString(challengeIndicator) + "\n" +
-            "    dsTransID: " + toIndentedString(dsTransID) + "\n" +
-            "    eci: " + toIndentedString(eci) + "\n" +
-            "    exemptionIndicator: " + toIndentedString(exemptionIndicator) + "\n" +
-            "    messageVersion: " + toIndentedString(messageVersion) + "\n" +
-            "    riskScore: " + toIndentedString(riskScore) + "\n" +
-            "    threeDSServerTransID: " + toIndentedString(threeDSServerTransID) + "\n" +
-            "    timestamp: " + toIndentedString(timestamp) + "\n" +
-            "    transStatus: " + toIndentedString(transStatus) + "\n" +
-            "    transStatusReason: " + toIndentedString(transStatusReason) + "\n" +
-            "    whiteListStatus: " + toIndentedString(whiteListStatus) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ThreeDS2Result {\n");
+    sb.append("    authenticationValue: ").append(toIndentedString(authenticationValue)).append("\n");
+    sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
+    sb.append("    challengeCancel: ").append(toIndentedString(challengeCancel)).append("\n");
+    sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
+    sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
+    sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
+    sb.append("    exemptionIndicator: ").append(toIndentedString(exemptionIndicator)).append("\n");
+    sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
+    sb.append("    riskScore: ").append(toIndentedString(riskScore)).append("\n");
+    sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    transStatus: ").append(toIndentedString(transStatus)).append("\n");
+    sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append("\n");
+    sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -661,7 +675,7 @@ public class ThreeDS2Result {
         if (ThreeDS2Result.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2Result is not found in the empty JSON string", ThreeDS2Result.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2Result is not found in the empty JSON string", ThreeDS2Result.openapiRequiredFields.toString()));
         }
       }
 
@@ -669,7 +683,7 @@ public class ThreeDS2Result {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDS2Result.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2Result` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2Result` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field authenticationValue

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -80,11 +81,12 @@ public class DeleteNotificationConfigurationRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class DeleteNotificationConfigurationRequest {\n");
 
-        String sb = "class DeleteNotificationConfigurationRequest {\n" +
-                "    notificationIds: " + toIndentedString(notificationIds) + "\n" +
-                "}";
-        return sb;
+        sb.append("    notificationIds: ").append(toIndentedString(notificationIds)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

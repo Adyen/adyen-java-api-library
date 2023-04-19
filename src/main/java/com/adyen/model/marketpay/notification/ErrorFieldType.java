@@ -118,12 +118,13 @@ public class ErrorFieldType {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ErrorFieldType {\n");
 
-        String sb = "class ErrorFieldType {\n" +
-                "    errorCode: " + toIndentedString(errorCode) + "\n" +
-                "    errorDescription: " + toIndentedString(errorDescription) + "\n" +
-                "    fieldType: " + toIndentedString(fieldType) + "\n" +
-                "}";
-        return sb;
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append("\n");
+        sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

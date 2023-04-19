@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -123,13 +124,14 @@ public class GetTierConfigurationResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetTierConfigurationResponse {\n");
 
-        String sb = "class GetTierConfigurationResponse {\n" +
-                "    submittedAsync: " + toIndentedString(submittedAsync) + "\n" +
-                "    tierConfiguration: " + toIndentedString(tierConfiguration) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "}";
-        return sb;
+        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
+        sb.append("    tierConfiguration: ").append(toIndentedString(tierConfiguration)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

@@ -12,23 +12,36 @@
 
 package com.adyen.model.transfers;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.transfers.JSON;
 
 /**
  * BRLocalAccountIdentification
@@ -54,7 +67,7 @@ public class BRLocalAccountIdentification {
   public enum TypeEnum {
     BRLOCAL("brLocal");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -210,13 +223,14 @@ public class BRLocalAccountIdentification {
 
   @Override
   public String toString() {
-    String sb = "class BRLocalAccountIdentification {\n" +
-            "    accountNumber: " + toIndentedString(accountNumber) + "\n" +
-            "    bankCode: " + toIndentedString(bankCode) + "\n" +
-            "    branchNumber: " + toIndentedString(branchNumber) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BRLocalAccountIdentification {\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+    sb.append("    branchNumber: ").append(toIndentedString(branchNumber)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -261,7 +275,7 @@ public class BRLocalAccountIdentification {
         if (BRLocalAccountIdentification.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BRLocalAccountIdentification is not found in the empty JSON string", BRLocalAccountIdentification.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BRLocalAccountIdentification is not found in the empty JSON string", BRLocalAccountIdentification.openapiRequiredFields.toString()));
         }
       }
 
@@ -269,14 +283,14 @@ public class BRLocalAccountIdentification {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!BRLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BRLocalAccountIdentification` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BRLocalAccountIdentification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : BRLocalAccountIdentification.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field accountNumber

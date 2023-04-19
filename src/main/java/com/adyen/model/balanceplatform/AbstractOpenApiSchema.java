@@ -12,10 +12,10 @@
 
 package com.adyen.model.balanceplatform;
 
-import jakarta.ws.rs.core.GenericType;
-
-import java.util.Map;
 import java.util.Objects;
+import java.lang.reflect.Type;
+import java.util.Map;
+import jakarta.ws.rs.core.GenericType;
 
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
@@ -26,7 +26,7 @@ public abstract class AbstractOpenApiSchema {
     private Object instance;
 
     // is nullable
-    private final Boolean isNullable;
+    private Boolean isNullable;
 
     // schema type (e.g. oneOf, anyOf)
     private final String schemaType;
@@ -88,12 +88,13 @@ public abstract class AbstractOpenApiSchema {
 
     @Override
     public String toString() {
-        String sb = "class " + getClass() + " {\n" +
-                "    instance: " + toIndentedString(instance) + "\n" +
-                "    isNullable: " + toIndentedString(isNullable) + "\n" +
-                "    schemaType: " + toIndentedString(schemaType) + "\n" +
-                "}";
-        return sb;
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ").append(getClass()).append(" {\n");
+        sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
+        sb.append("    isNullable: ").append(toIndentedString(isNullable)).append("\n");
+        sb.append("    schemaType: ").append(toIndentedString(schemaType)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

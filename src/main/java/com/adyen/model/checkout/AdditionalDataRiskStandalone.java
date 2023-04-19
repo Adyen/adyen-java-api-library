@@ -12,22 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataRiskStandalone
@@ -461,24 +475,25 @@ public class AdditionalDataRiskStandalone {
 
   @Override
   public String toString() {
-    String sb = "class AdditionalDataRiskStandalone {\n" +
-            "    payPalCountryCode: " + toIndentedString(payPalCountryCode) + "\n" +
-            "    payPalEmailId: " + toIndentedString(payPalEmailId) + "\n" +
-            "    payPalFirstName: " + toIndentedString(payPalFirstName) + "\n" +
-            "    payPalLastName: " + toIndentedString(payPalLastName) + "\n" +
-            "    payPalPayerId: " + toIndentedString(payPalPayerId) + "\n" +
-            "    payPalPhone: " + toIndentedString(payPalPhone) + "\n" +
-            "    payPalProtectionEligibility: " + toIndentedString(payPalProtectionEligibility) + "\n" +
-            "    payPalTransactionId: " + toIndentedString(payPalTransactionId) + "\n" +
-            "    avsResultRaw: " + toIndentedString(avsResultRaw) + "\n" +
-            "    bin: " + toIndentedString(bin) + "\n" +
-            "    cvcResultRaw: " + toIndentedString(cvcResultRaw) + "\n" +
-            "    riskToken: " + toIndentedString(riskToken) + "\n" +
-            "    threeDAuthenticated: " + toIndentedString(threeDAuthenticated) + "\n" +
-            "    threeDOffered: " + toIndentedString(threeDOffered) + "\n" +
-            "    tokenDataType: " + toIndentedString(tokenDataType) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalDataRiskStandalone {\n");
+    sb.append("    payPalCountryCode: ").append(toIndentedString(payPalCountryCode)).append("\n");
+    sb.append("    payPalEmailId: ").append(toIndentedString(payPalEmailId)).append("\n");
+    sb.append("    payPalFirstName: ").append(toIndentedString(payPalFirstName)).append("\n");
+    sb.append("    payPalLastName: ").append(toIndentedString(payPalLastName)).append("\n");
+    sb.append("    payPalPayerId: ").append(toIndentedString(payPalPayerId)).append("\n");
+    sb.append("    payPalPhone: ").append(toIndentedString(payPalPhone)).append("\n");
+    sb.append("    payPalProtectionEligibility: ").append(toIndentedString(payPalProtectionEligibility)).append("\n");
+    sb.append("    payPalTransactionId: ").append(toIndentedString(payPalTransactionId)).append("\n");
+    sb.append("    avsResultRaw: ").append(toIndentedString(avsResultRaw)).append("\n");
+    sb.append("    bin: ").append(toIndentedString(bin)).append("\n");
+    sb.append("    cvcResultRaw: ").append(toIndentedString(cvcResultRaw)).append("\n");
+    sb.append("    riskToken: ").append(toIndentedString(riskToken)).append("\n");
+    sb.append("    threeDAuthenticated: ").append(toIndentedString(threeDAuthenticated)).append("\n");
+    sb.append("    threeDOffered: ").append(toIndentedString(threeDOffered)).append("\n");
+    sb.append("    tokenDataType: ").append(toIndentedString(tokenDataType)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -530,7 +545,7 @@ public class AdditionalDataRiskStandalone {
         if (AdditionalDataRiskStandalone.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataRiskStandalone is not found in the empty JSON string", AdditionalDataRiskStandalone.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataRiskStandalone is not found in the empty JSON string", AdditionalDataRiskStandalone.openapiRequiredFields.toString()));
         }
       }
 
@@ -538,7 +553,7 @@ public class AdditionalDataRiskStandalone {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataRiskStandalone.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRiskStandalone` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRiskStandalone` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field PayPal.CountryCode

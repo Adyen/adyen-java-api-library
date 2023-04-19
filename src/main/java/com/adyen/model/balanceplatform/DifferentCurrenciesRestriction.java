@@ -12,22 +12,36 @@
 
 package com.adyen.model.balanceplatform;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.balanceplatform.JSON;
 
 /**
  * DifferentCurrenciesRestriction
@@ -110,11 +124,12 @@ public class DifferentCurrenciesRestriction {
 
   @Override
   public String toString() {
-      String sb = "class DifferentCurrenciesRestriction {\n" +
-              "    operation: " + toIndentedString(operation) + "\n" +
-              "    value: " + toIndentedString(value) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DifferentCurrenciesRestriction {\n");
+    sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -154,7 +169,7 @@ public class DifferentCurrenciesRestriction {
         if (DifferentCurrenciesRestriction.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DifferentCurrenciesRestriction is not found in the empty JSON string", DifferentCurrenciesRestriction.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DifferentCurrenciesRestriction is not found in the empty JSON string", DifferentCurrenciesRestriction.openapiRequiredFields.toString()));
         }
       }
 
@@ -162,14 +177,14 @@ public class DifferentCurrenciesRestriction {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!DifferentCurrenciesRestriction.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DifferentCurrenciesRestriction` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DifferentCurrenciesRestriction` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : DifferentCurrenciesRestriction.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field operation

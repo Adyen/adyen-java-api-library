@@ -26,6 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -222,18 +223,19 @@ public class PayoutAccountHolderRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PayoutAccountHolderRequest {\n");
 
-        String sb = "class PayoutAccountHolderRequest {\n" +
-                "    accountCode: " + toIndentedString(accountCode) + "\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    amount: " + toIndentedString(amount) + "\n" +
-                "    bankAccountUUID: " + toIndentedString(bankAccountUUID) + "\n" +
-                "    description: " + toIndentedString(description) + "\n" +
-                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
-                "    payoutMethodCode: " + toIndentedString(payoutMethodCode) + "\n" +
-                "    payoutSpeed: " + toIndentedString(payoutSpeed) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    payoutSpeed: ").append(toIndentedString(payoutSpeed)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

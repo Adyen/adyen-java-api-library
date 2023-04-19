@@ -21,11 +21,12 @@
 
 package com.adyen.model.posterminalmanagement;
 
+import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * MerchantAccount
@@ -164,14 +165,15 @@ public class MerchantAccount {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MerchantAccount {\n");
 
-        String sb = "class MerchantAccount {\n" +
-                "    inStoreTerminals: " + toIndentedString(inStoreTerminals) + "\n" +
-                "    inventoryTerminals: " + toIndentedString(inventoryTerminals) + "\n" +
-                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-                "    stores: " + toIndentedString(stores) + "\n" +
-                "}";
-        return sb;
+        sb.append("    inStoreTerminals: ").append(toIndentedString(inStoreTerminals)).append("\n");
+        sb.append("    inventoryTerminals: ").append(toIndentedString(inventoryTerminals)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    stores: ").append(toIndentedString(stores)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

@@ -22,7 +22,6 @@
 package com.adyen.model.marketpay;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -92,11 +91,12 @@ public class KYCPayoutMethodCheckResult {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class KYCPayoutMethodCheckResult {\n");
 
-        String sb = "class KYCPayoutMethodCheckResult {\n" +
-                "    checks: " + toIndentedString(checks) + "\n" +
-                "    payoutMethodCode: " + toIndentedString(payoutMethodCode) + "\n" +
-                "}";
-        return sb;
+        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
+        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

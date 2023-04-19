@@ -21,12 +21,12 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+import com.google.gson.annotations.SerializedName;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -213,17 +213,18 @@ public class BeneficiarySetupNotificationContent {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BeneficiarySetupNotificationContent {\n");
 
-        String sb = "class BeneficiarySetupNotificationContent {\n" +
-                "    destinationAccountCode: " + toIndentedString(destinationAccountCode) + "\n" +
-                "    destinationAccountHolderCode: " + toIndentedString(destinationAccountHolderCode) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
-                "    sourceAccountCode: " + toIndentedString(sourceAccountCode) + "\n" +
-                "    sourceAccountHolderCode: " + toIndentedString(sourceAccountHolderCode) + "\n" +
-                "    transferDate: " + toIndentedString(transferDate) + "\n" +
-                "}";
-        return sb;
+        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append("\n");
+        sb.append("    destinationAccountHolderCode: ").append(toIndentedString(destinationAccountHolderCode)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append("\n");
+        sb.append("    sourceAccountHolderCode: ").append(toIndentedString(sourceAccountHolderCode)).append("\n");
+        sb.append("    transferDate: ").append(toIndentedString(transferDate)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

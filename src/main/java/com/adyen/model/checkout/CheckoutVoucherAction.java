@@ -12,23 +12,37 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.checkout.Amount;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * CheckoutVoucherAction
@@ -114,7 +128,7 @@ public class CheckoutVoucherAction {
   public enum TypeEnum {
     VOUCHER("voucher");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -642,29 +656,30 @@ public class CheckoutVoucherAction {
 
   @Override
   public String toString() {
-    String sb = "class CheckoutVoucherAction {\n" +
-            "    alternativeReference: " + toIndentedString(alternativeReference) + "\n" +
-            "    collectionInstitutionNumber: " + toIndentedString(collectionInstitutionNumber) + "\n" +
-            "    downloadUrl: " + toIndentedString(downloadUrl) + "\n" +
-            "    entity: " + toIndentedString(entity) + "\n" +
-            "    expiresAt: " + toIndentedString(expiresAt) + "\n" +
-            "    initialAmount: " + toIndentedString(initialAmount) + "\n" +
-            "    instructionsUrl: " + toIndentedString(instructionsUrl) + "\n" +
-            "    issuer: " + toIndentedString(issuer) + "\n" +
-            "    maskedTelephoneNumber: " + toIndentedString(maskedTelephoneNumber) + "\n" +
-            "    merchantName: " + toIndentedString(merchantName) + "\n" +
-            "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
-            "    paymentData: " + toIndentedString(paymentData) + "\n" +
-            "    paymentMethodType: " + toIndentedString(paymentMethodType) + "\n" +
-            "    reference: " + toIndentedString(reference) + "\n" +
-            "    shopperEmail: " + toIndentedString(shopperEmail) + "\n" +
-            "    shopperName: " + toIndentedString(shopperName) + "\n" +
-            "    surcharge: " + toIndentedString(surcharge) + "\n" +
-            "    totalAmount: " + toIndentedString(totalAmount) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "    url: " + toIndentedString(url) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CheckoutVoucherAction {\n");
+    sb.append("    alternativeReference: ").append(toIndentedString(alternativeReference)).append("\n");
+    sb.append("    collectionInstitutionNumber: ").append(toIndentedString(collectionInstitutionNumber)).append("\n");
+    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
+    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
+    sb.append("    instructionsUrl: ").append(toIndentedString(instructionsUrl)).append("\n");
+    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    maskedTelephoneNumber: ").append(toIndentedString(maskedTelephoneNumber)).append("\n");
+    sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+    sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
+    sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
+    sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -722,7 +737,7 @@ public class CheckoutVoucherAction {
         if (CheckoutVoucherAction.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CheckoutVoucherAction is not found in the empty JSON string", CheckoutVoucherAction.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CheckoutVoucherAction is not found in the empty JSON string", CheckoutVoucherAction.openapiRequiredFields.toString()));
         }
       }
 
@@ -730,14 +745,14 @@ public class CheckoutVoucherAction {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CheckoutVoucherAction.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CheckoutVoucherAction` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CheckoutVoucherAction` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CheckoutVoucherAction.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field alternativeReference

@@ -118,13 +118,14 @@ public class GetTaxFormRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetTaxFormRequest {\n");
 
-        String sb = "class GetTaxFormRequest {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    formType: " + toIndentedString(formType) + "\n" +
-                "    year: " + toIndentedString(year) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    formType: ").append(toIndentedString(formType)).append("\n");
+        sb.append("    year: ").append(toIndentedString(year)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

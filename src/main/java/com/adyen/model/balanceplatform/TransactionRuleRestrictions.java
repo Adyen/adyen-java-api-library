@@ -12,22 +12,50 @@
 
 package com.adyen.model.balanceplatform;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.balanceplatform.ActiveNetworkTokensRestriction;
+import com.adyen.model.balanceplatform.BrandVariantsRestriction;
+import com.adyen.model.balanceplatform.CountriesRestriction;
+import com.adyen.model.balanceplatform.DayOfWeekRestriction;
+import com.adyen.model.balanceplatform.DifferentCurrenciesRestriction;
+import com.adyen.model.balanceplatform.EntryModesRestriction;
+import com.adyen.model.balanceplatform.InternationalTransactionRestriction;
+import com.adyen.model.balanceplatform.MatchingTransactionsRestriction;
+import com.adyen.model.balanceplatform.MccsRestriction;
+import com.adyen.model.balanceplatform.MerchantNamesRestriction;
+import com.adyen.model.balanceplatform.MerchantsRestriction;
+import com.adyen.model.balanceplatform.ProcessingTypesRestriction;
+import com.adyen.model.balanceplatform.TimeOfDayRestriction;
+import com.adyen.model.balanceplatform.TotalAmountRestriction;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.balanceplatform.JSON;
 
 /**
  * TransactionRuleRestrictions
@@ -434,23 +462,24 @@ public class TransactionRuleRestrictions {
 
   @Override
   public String toString() {
-    String sb = "class TransactionRuleRestrictions {\n" +
-            "    activeNetworkTokens: " + toIndentedString(activeNetworkTokens) + "\n" +
-            "    brandVariants: " + toIndentedString(brandVariants) + "\n" +
-            "    countries: " + toIndentedString(countries) + "\n" +
-            "    dayOfWeek: " + toIndentedString(dayOfWeek) + "\n" +
-            "    differentCurrencies: " + toIndentedString(differentCurrencies) + "\n" +
-            "    entryModes: " + toIndentedString(entryModes) + "\n" +
-            "    internationalTransaction: " + toIndentedString(internationalTransaction) + "\n" +
-            "    matchingTransactions: " + toIndentedString(matchingTransactions) + "\n" +
-            "    mccs: " + toIndentedString(mccs) + "\n" +
-            "    merchantNames: " + toIndentedString(merchantNames) + "\n" +
-            "    merchants: " + toIndentedString(merchants) + "\n" +
-            "    processingTypes: " + toIndentedString(processingTypes) + "\n" +
-            "    timeOfDay: " + toIndentedString(timeOfDay) + "\n" +
-            "    totalAmount: " + toIndentedString(totalAmount) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TransactionRuleRestrictions {\n");
+    sb.append("    activeNetworkTokens: ").append(toIndentedString(activeNetworkTokens)).append("\n");
+    sb.append("    brandVariants: ").append(toIndentedString(brandVariants)).append("\n");
+    sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    dayOfWeek: ").append(toIndentedString(dayOfWeek)).append("\n");
+    sb.append("    differentCurrencies: ").append(toIndentedString(differentCurrencies)).append("\n");
+    sb.append("    entryModes: ").append(toIndentedString(entryModes)).append("\n");
+    sb.append("    internationalTransaction: ").append(toIndentedString(internationalTransaction)).append("\n");
+    sb.append("    matchingTransactions: ").append(toIndentedString(matchingTransactions)).append("\n");
+    sb.append("    mccs: ").append(toIndentedString(mccs)).append("\n");
+    sb.append("    merchantNames: ").append(toIndentedString(merchantNames)).append("\n");
+    sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");
+    sb.append("    processingTypes: ").append(toIndentedString(processingTypes)).append("\n");
+    sb.append("    timeOfDay: ").append(toIndentedString(timeOfDay)).append("\n");
+    sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -501,7 +530,7 @@ public class TransactionRuleRestrictions {
         if (TransactionRuleRestrictions.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleRestrictions is not found in the empty JSON string", TransactionRuleRestrictions.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleRestrictions is not found in the empty JSON string", TransactionRuleRestrictions.openapiRequiredFields.toString()));
         }
       }
 
@@ -509,7 +538,7 @@ public class TransactionRuleRestrictions {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionRuleRestrictions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleRestrictions` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleRestrictions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `activeNetworkTokens`

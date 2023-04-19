@@ -21,11 +21,11 @@
 
 package com.adyen.model.posterminalmanagement;
 
-import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * AssignTerminalsRequest
@@ -167,15 +167,16 @@ public class AssignTerminalsRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AssignTerminalsRequest {\n");
 
-        String sb = "class AssignTerminalsRequest {\n" +
-                "    companyAccount: " + toIndentedString(companyAccount) + "\n" +
-                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
-                "    merchantInventory: " + toIndentedString(merchantInventory) + "\n" +
-                "    store: " + toIndentedString(store) + "\n" +
-                "    terminals: " + toIndentedString(terminals) + "\n" +
-                "}";
-        return sb;
+        sb.append("    companyAccount: ").append(toIndentedString(companyAccount)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    merchantInventory: ").append(toIndentedString(merchantInventory)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("    terminals: ").append(toIndentedString(terminals)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

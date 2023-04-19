@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -374,22 +375,23 @@ public class CreateAccountHolderResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CreateAccountHolderResponse {\n");
 
-        String sb = "class CreateAccountHolderResponse {\n" +
-                "    accountCode: " + toIndentedString(accountCode) + "\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    accountHolderDetails: " + toIndentedString(accountHolderDetails) + "\n" +
-                "    accountHolderStatus: " + toIndentedString(accountHolderStatus) + "\n" +
-                "    description: " + toIndentedString(description) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    legalEntity: " + toIndentedString(legalEntity) + "\n" +
-                "    primaryCurrency: " + toIndentedString(primaryCurrency) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    resultCode: " + toIndentedString(resultCode) + "\n" +
-                "    verification: " + toIndentedString(verification) + "\n" +
-                "    verificationProfile: " + toIndentedString(verificationProfile) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
+        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
+        sb.append("    verificationProfile: ").append(toIndentedString(verificationProfile)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

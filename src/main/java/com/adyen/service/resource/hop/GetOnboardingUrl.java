@@ -24,10 +24,10 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.resource.Resource;
 
-import java.util.Collections;
+import java.util.Arrays;
 
 public class GetOnboardingUrl extends Resource {
     public GetOnboardingUrl(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Hop/" + Client.MARKETPAY_HOP_API_VERSION + "/getOnboardingUrl", Collections.singletonList("accountHolderCode"));
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Hop/" + Client.MARKETPAY_HOP_API_VERSION + "/getOnboardingUrl", Arrays.asList("accountHolderCode"));
     }
 }

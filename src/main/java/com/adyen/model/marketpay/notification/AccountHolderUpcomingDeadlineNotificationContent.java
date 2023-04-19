@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -210,14 +211,15 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountHolderUpcomingDeadlineNotificationContent {\n");
 
-        String sb = "class AccountHolderUpcomingDeadlineNotificationContent {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    event: " + toIndentedString(event) + "\n" +
-                "    executionDate: " + toIndentedString(executionDate) + "\n" +
-                "    reason: " + toIndentedString(reason) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    event: ").append(toIndentedString(event)).append("\n");
+        sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
+        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

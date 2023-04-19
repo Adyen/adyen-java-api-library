@@ -25,6 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -75,14 +76,15 @@ public class GetNotificationConfigurationResponse extends GenericResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetNotificationConfigurationResponse {\n");
 
-        String sb = "class GetNotificationConfigurationResponse {\n" +
-                "    configurationDetails: " + toIndentedString(configurationDetails) + "\n" +
-                "    invalidFields: " + toIndentedString(getInvalidFields()) + "\n" +
-                "    pspReference: " + toIndentedString(getPspReference()) + "\n" +
-                "    resultCode: " + toIndentedString(getResultCode()) + "\n" +
-                "}";
-        return sb;
+        sb.append("    configurationDetails: ").append(toIndentedString(configurationDetails)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(getInvalidFields())).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(getPspReference())).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(getResultCode())).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

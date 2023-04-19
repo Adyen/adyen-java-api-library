@@ -25,6 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -73,11 +74,12 @@ public class GetNotificationConfigurationRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetNotificationConfigurationRequest {\n");
 
-        String sb = "class GetNotificationConfigurationRequest {\n" +
-                "    notificationId: " + toIndentedString(notificationId) + "\n" +
-                "}";
-        return sb;
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

@@ -21,11 +21,11 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.CreateAccountResponse;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Date;
 import java.util.Objects;
+
+import com.adyen.model.marketpay.CreateAccountResponse;
+import com.google.gson.annotations.SerializedName;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -186,16 +186,17 @@ public class AccountCreateNotification extends GenericNotification {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountCreateNotification {\n");
 
-        String sb = "class AccountCreateNotification {\n" +
-                "    content: " + toIndentedString(content) + "\n" +
-                "    error: " + toIndentedString(error) + "\n" +
-                "    eventDate: " + toIndentedString(eventDate) + "\n" +
-                "    executingUserKey: " + toIndentedString(executingUserKey) + "\n" +
-                "    live: " + toIndentedString(live) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "}";
-        return sb;
+        sb.append("    content: ").append(toIndentedString(content)).append("\n");
+        sb.append("    error: ").append(toIndentedString(error)).append("\n");
+        sb.append("    eventDate: ").append(toIndentedString(eventDate)).append("\n");
+        sb.append("    executingUserKey: ").append(toIndentedString(executingUserKey)).append("\n");
+        sb.append("    live: ").append(toIndentedString(live)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

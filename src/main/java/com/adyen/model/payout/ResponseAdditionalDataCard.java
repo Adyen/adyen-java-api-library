@@ -12,22 +12,36 @@
 
 package com.adyen.model.payout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.payout.JSON;
 
 /**
  * ResponseAdditionalDataCard
@@ -272,17 +286,18 @@ public class ResponseAdditionalDataCard {
 
   @Override
   public String toString() {
-      String sb = "class ResponseAdditionalDataCard {\n" +
-              "    cardBin: " + toIndentedString(cardBin) + "\n" +
-              "    cardHolderName: " + toIndentedString(cardHolderName) + "\n" +
-              "    cardIssuingBank: " + toIndentedString(cardIssuingBank) + "\n" +
-              "    cardIssuingCountry: " + toIndentedString(cardIssuingCountry) + "\n" +
-              "    cardIssuingCurrency: " + toIndentedString(cardIssuingCurrency) + "\n" +
-              "    cardPaymentMethod: " + toIndentedString(cardPaymentMethod) + "\n" +
-              "    cardSummary: " + toIndentedString(cardSummary) + "\n" +
-              "    issuerBin: " + toIndentedString(issuerBin) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ResponseAdditionalDataCard {\n");
+    sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
+    sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
+    sb.append("    cardIssuingBank: ").append(toIndentedString(cardIssuingBank)).append("\n");
+    sb.append("    cardIssuingCountry: ").append(toIndentedString(cardIssuingCountry)).append("\n");
+    sb.append("    cardIssuingCurrency: ").append(toIndentedString(cardIssuingCurrency)).append("\n");
+    sb.append("    cardPaymentMethod: ").append(toIndentedString(cardPaymentMethod)).append("\n");
+    sb.append("    cardSummary: ").append(toIndentedString(cardSummary)).append("\n");
+    sb.append("    issuerBin: ").append(toIndentedString(issuerBin)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -327,7 +342,7 @@ public class ResponseAdditionalDataCard {
         if (ResponseAdditionalDataCard.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataCard is not found in the empty JSON string", ResponseAdditionalDataCard.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataCard is not found in the empty JSON string", ResponseAdditionalDataCard.openapiRequiredFields.toString()));
         }
       }
 
@@ -335,7 +350,7 @@ public class ResponseAdditionalDataCard {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ResponseAdditionalDataCard.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataCard` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataCard` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field cardBin

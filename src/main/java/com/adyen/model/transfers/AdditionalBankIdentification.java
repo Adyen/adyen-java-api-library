@@ -12,23 +12,36 @@
 
 package com.adyen.model.transfers;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.transfers.JSON;
 
 /**
  * AdditionalBankIdentification
@@ -48,7 +61,7 @@ public class AdditionalBankIdentification {
     
     USROUTINGNUMBER("usRoutingNumber");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -158,11 +171,12 @@ public class AdditionalBankIdentification {
 
   @Override
   public String toString() {
-      String sb = "class AdditionalBankIdentification {\n" +
-              "    code: " + toIndentedString(code) + "\n" +
-              "    type: " + toIndentedString(type) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AdditionalBankIdentification {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -201,7 +215,7 @@ public class AdditionalBankIdentification {
         if (AdditionalBankIdentification.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalBankIdentification is not found in the empty JSON string", AdditionalBankIdentification.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalBankIdentification is not found in the empty JSON string", AdditionalBankIdentification.openapiRequiredFields.toString()));
         }
       }
 
@@ -209,7 +223,7 @@ public class AdditionalBankIdentification {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalBankIdentification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalBankIdentification` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalBankIdentification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field code

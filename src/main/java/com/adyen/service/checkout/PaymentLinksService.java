@@ -11,13 +11,15 @@
 
 package com.adyen.service.checkout;
 
+import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.CreatePaymentLinkRequest;
 import com.adyen.model.checkout.PaymentLinkResponse;
+import com.adyen.model.checkout.ServiceError;
 import com.adyen.model.checkout.UpdatePaymentLinkRequest;
+import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 

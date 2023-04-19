@@ -12,22 +12,38 @@
 
 package com.adyen.model.binlookup;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.binlookup.Amount;
+import com.adyen.model.binlookup.CardBin;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.binlookup.JSON;
 
 /**
  * CostEstimateResponse
@@ -191,14 +207,15 @@ public class CostEstimateResponse {
 
   @Override
   public String toString() {
-      String sb = "class CostEstimateResponse {\n" +
-              "    cardBin: " + toIndentedString(cardBin) + "\n" +
-              "    costEstimateAmount: " + toIndentedString(costEstimateAmount) + "\n" +
-              "    costEstimateReference: " + toIndentedString(costEstimateReference) + "\n" +
-              "    resultCode: " + toIndentedString(resultCode) + "\n" +
-              "    surchargeType: " + toIndentedString(surchargeType) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CostEstimateResponse {\n");
+    sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
+    sb.append("    costEstimateAmount: ").append(toIndentedString(costEstimateAmount)).append("\n");
+    sb.append("    costEstimateReference: ").append(toIndentedString(costEstimateReference)).append("\n");
+    sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+    sb.append("    surchargeType: ").append(toIndentedString(surchargeType)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -240,7 +257,7 @@ public class CostEstimateResponse {
         if (CostEstimateResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CostEstimateResponse is not found in the empty JSON string", CostEstimateResponse.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CostEstimateResponse is not found in the empty JSON string", CostEstimateResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -248,7 +265,7 @@ public class CostEstimateResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CostEstimateResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CostEstimateResponse` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CostEstimateResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `cardBin`

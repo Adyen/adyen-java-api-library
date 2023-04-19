@@ -24,6 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -115,13 +116,14 @@ public class ErrorFieldType {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ErrorFieldType {\n");
 
-        String sb = "class ErrorFieldType {\n" +
-                "    errorDescription: " + toIndentedString(errorDescription) + "\n" +
-                "    errorCode: " + toIndentedString(errorCode) + "\n" +
-                "    fieldType: " + toIndentedString(fieldType) + "\n" +
-                "}";
-        return sb;
+        sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append("\n");
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

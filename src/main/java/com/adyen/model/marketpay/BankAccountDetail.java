@@ -26,6 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -624,36 +625,37 @@ public class BankAccountDetail {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BankAccountDetail {\n");
 
-        String sb = "class BankAccountDetail {\n" +
-                "    accountNumber: " + toIndentedString(accountNumber) + "\n" +
-                "    accountType: " + toIndentedString(accountType) + "\n" +
-                "    bankAccountName: " + toIndentedString(bankAccountName) + "\n" +
-                "    bankAccountReference: " + toIndentedString(bankAccountReference) + "\n" +
-                "    bankAccountUUID: " + toIndentedString(bankAccountUUID) + "\n" +
-                "    bankBicSwift: " + toIndentedString(bankBicSwift) + "\n" +
-                "    bankCity: " + toIndentedString(bankCity) + "\n" +
-                "    bankCode: " + toIndentedString(bankCode) + "\n" +
-                "    bankName: " + toIndentedString(bankName) + "\n" +
-                "    branchCode: " + toIndentedString(branchCode) + "\n" +
-                "    checkCode: " + toIndentedString(checkCode) + "\n" +
-                "    countryCode: " + toIndentedString(countryCode) + "\n" +
-                "    currencyCode: " + toIndentedString(currencyCode) + "\n" +
-                "    iban: " + toIndentedString(iban) + "\n" +
-                "    ownerCity: " + toIndentedString(ownerCity) + "\n" +
-                "    ownerCountryCode: " + toIndentedString(ownerCountryCode) + "\n" +
-                "    ownerDateOfBirth: " + toIndentedString(ownerDateOfBirth) + "\n" +
-                "    ownerHouseNumberOrName: " + toIndentedString(ownerHouseNumberOrName) + "\n" +
-                "    ownerName: " + toIndentedString(ownerName) + "\n" +
-                "    ownerNationality: " + toIndentedString(ownerNationality) + "\n" +
-                "    ownerPostalCode: " + toIndentedString(ownerPostalCode) + "\n" +
-                "    ownerState: " + toIndentedString(ownerState) + "\n" +
-                "    ownerStreet: " + toIndentedString(ownerStreet) + "\n" +
-                "    primaryAccount: " + toIndentedString(primaryAccount) + "\n" +
-                "    taxId: " + toIndentedString(taxId) + "\n" +
-                "    urlForVerification: " + toIndentedString(urlForVerification) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+        sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+        sb.append("    bankAccountName: ").append(toIndentedString(bankAccountName)).append("\n");
+        sb.append("    bankAccountReference: ").append(toIndentedString(bankAccountReference)).append("\n");
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    bankBicSwift: ").append(toIndentedString(bankBicSwift)).append("\n");
+        sb.append("    bankCity: ").append(toIndentedString(bankCity)).append("\n");
+        sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+        sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+        sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
+        sb.append("    checkCode: ").append(toIndentedString(checkCode)).append("\n");
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+        sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+        sb.append("    ownerCity: ").append(toIndentedString(ownerCity)).append("\n");
+        sb.append("    ownerCountryCode: ").append(toIndentedString(ownerCountryCode)).append("\n");
+        sb.append("    ownerDateOfBirth: ").append(toIndentedString(ownerDateOfBirth)).append("\n");
+        sb.append("    ownerHouseNumberOrName: ").append(toIndentedString(ownerHouseNumberOrName)).append("\n");
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+        sb.append("    ownerNationality: ").append(toIndentedString(ownerNationality)).append("\n");
+        sb.append("    ownerPostalCode: ").append(toIndentedString(ownerPostalCode)).append("\n");
+        sb.append("    ownerState: ").append(toIndentedString(ownerState)).append("\n");
+        sb.append("    ownerStreet: ").append(toIndentedString(ownerStreet)).append("\n");
+        sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+        sb.append("    urlForVerification: ").append(toIndentedString(urlForVerification)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

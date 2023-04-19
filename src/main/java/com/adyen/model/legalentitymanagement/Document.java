@@ -12,27 +12,41 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.Attachment;
+import com.adyen.model.legalentitymanagement.OwnerEntity;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Document
@@ -118,7 +132,7 @@ public class Document {
     
     CONSTITUTIONALDOCUMENT("constitutionalDocument");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -477,22 +491,23 @@ public class Document {
 
   @Override
   public String toString() {
-    String sb = "class Document {\n" +
-            "    attachment: " + toIndentedString(attachment) + "\n" +
-            "    attachments: " + toIndentedString(attachments) + "\n" +
-            "    creationDate: " + toIndentedString(creationDate) + "\n" +
-            "    description: " + toIndentedString(description) + "\n" +
-            "    expiryDate: " + toIndentedString(expiryDate) + "\n" +
-            "    fileName: " + toIndentedString(fileName) + "\n" +
-            "    id: " + toIndentedString(id) + "\n" +
-            "    issuerCountry: " + toIndentedString(issuerCountry) + "\n" +
-            "    issuerState: " + toIndentedString(issuerState) + "\n" +
-            "    modificationDate: " + toIndentedString(modificationDate) + "\n" +
-            "    number: " + toIndentedString(number) + "\n" +
-            "    owner: " + toIndentedString(owner) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Document {\n");
+    sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append("\n");
+    sb.append("    issuerState: ").append(toIndentedString(issuerState)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -546,7 +561,7 @@ public class Document {
         if (Document.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Document is not found in the empty JSON string", Document.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Document is not found in the empty JSON string", Document.openapiRequiredFields.toString()));
         }
       }
 
@@ -554,14 +569,14 @@ public class Document {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Document.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Document` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Document` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Document.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field `attachment`
@@ -578,7 +593,7 @@ public class Document {
         // validate the optional field `attachments` (array)
         for (int i = 0; i < jsonArrayattachments.size(); i++) {
           Attachment.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {

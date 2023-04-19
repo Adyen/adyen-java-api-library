@@ -12,22 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * ResponseAdditionalDataInstallments
@@ -380,21 +394,22 @@ public class ResponseAdditionalDataInstallments {
 
   @Override
   public String toString() {
-    String sb = "class ResponseAdditionalDataInstallments {\n" +
-            "    installmentPaymentDataInstallmentType: " + toIndentedString(installmentPaymentDataInstallmentType) + "\n" +
-            "    installmentPaymentDataOptionItemNrAnnualPercentageRate: " + toIndentedString(installmentPaymentDataOptionItemNrAnnualPercentageRate) + "\n" +
-            "    installmentPaymentDataOptionItemNrFirstInstallmentAmount: " + toIndentedString(installmentPaymentDataOptionItemNrFirstInstallmentAmount) + "\n" +
-            "    installmentPaymentDataOptionItemNrInstallmentFee: " + toIndentedString(installmentPaymentDataOptionItemNrInstallmentFee) + "\n" +
-            "    installmentPaymentDataOptionItemNrInterestRate: " + toIndentedString(installmentPaymentDataOptionItemNrInterestRate) + "\n" +
-            "    installmentPaymentDataOptionItemNrMaximumNumberOfInstallments: " + toIndentedString(installmentPaymentDataOptionItemNrMaximumNumberOfInstallments) + "\n" +
-            "    installmentPaymentDataOptionItemNrMinimumNumberOfInstallments: " + toIndentedString(installmentPaymentDataOptionItemNrMinimumNumberOfInstallments) + "\n" +
-            "    installmentPaymentDataOptionItemNrNumberOfInstallments: " + toIndentedString(installmentPaymentDataOptionItemNrNumberOfInstallments) + "\n" +
-            "    installmentPaymentDataOptionItemNrSubsequentInstallmentAmount: " + toIndentedString(installmentPaymentDataOptionItemNrSubsequentInstallmentAmount) + "\n" +
-            "    installmentPaymentDataOptionItemNrTotalAmountDue: " + toIndentedString(installmentPaymentDataOptionItemNrTotalAmountDue) + "\n" +
-            "    installmentPaymentDataPaymentOptions: " + toIndentedString(installmentPaymentDataPaymentOptions) + "\n" +
-            "    installmentsValue: " + toIndentedString(installmentsValue) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ResponseAdditionalDataInstallments {\n");
+    sb.append("    installmentPaymentDataInstallmentType: ").append(toIndentedString(installmentPaymentDataInstallmentType)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrAnnualPercentageRate: ").append(toIndentedString(installmentPaymentDataOptionItemNrAnnualPercentageRate)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrFirstInstallmentAmount: ").append(toIndentedString(installmentPaymentDataOptionItemNrFirstInstallmentAmount)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrInstallmentFee: ").append(toIndentedString(installmentPaymentDataOptionItemNrInstallmentFee)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrInterestRate: ").append(toIndentedString(installmentPaymentDataOptionItemNrInterestRate)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrMaximumNumberOfInstallments: ").append(toIndentedString(installmentPaymentDataOptionItemNrMaximumNumberOfInstallments)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrMinimumNumberOfInstallments: ").append(toIndentedString(installmentPaymentDataOptionItemNrMinimumNumberOfInstallments)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrNumberOfInstallments: ").append(toIndentedString(installmentPaymentDataOptionItemNrNumberOfInstallments)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrSubsequentInstallmentAmount: ").append(toIndentedString(installmentPaymentDataOptionItemNrSubsequentInstallmentAmount)).append("\n");
+    sb.append("    installmentPaymentDataOptionItemNrTotalAmountDue: ").append(toIndentedString(installmentPaymentDataOptionItemNrTotalAmountDue)).append("\n");
+    sb.append("    installmentPaymentDataPaymentOptions: ").append(toIndentedString(installmentPaymentDataPaymentOptions)).append("\n");
+    sb.append("    installmentsValue: ").append(toIndentedString(installmentsValue)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -443,7 +458,7 @@ public class ResponseAdditionalDataInstallments {
         if (ResponseAdditionalDataInstallments.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataInstallments is not found in the empty JSON string", ResponseAdditionalDataInstallments.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataInstallments is not found in the empty JSON string", ResponseAdditionalDataInstallments.openapiRequiredFields.toString()));
         }
       }
 
@@ -451,7 +466,7 @@ public class ResponseAdditionalDataInstallments {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ResponseAdditionalDataInstallments.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataInstallments` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataInstallments` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field installmentPaymentData.installmentType

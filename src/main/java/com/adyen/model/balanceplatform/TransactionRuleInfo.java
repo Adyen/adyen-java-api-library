@@ -12,23 +12,39 @@
 
 package com.adyen.model.balanceplatform;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.balanceplatform.TransactionRuleEntityKey;
+import com.adyen.model.balanceplatform.TransactionRuleInterval;
+import com.adyen.model.balanceplatform.TransactionRuleRestrictions;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.balanceplatform.JSON;
 
 /**
  * TransactionRuleInfo
@@ -64,7 +80,7 @@ public class TransactionRuleInfo {
     
     SCOREBASED("scoreBased");
 
-    private final String value;
+    private String value;
 
     OutcomeTypeEnum(String value) {
       this.value = value;
@@ -121,7 +137,7 @@ public class TransactionRuleInfo {
     
     TOKENIZATION("tokenization");
 
-    private final String value;
+    private String value;
 
     RequestTypeEnum(String value) {
       this.value = value;
@@ -184,7 +200,7 @@ public class TransactionRuleInfo {
     
     INACTIVE("inactive");
 
-    private final String value;
+    private String value;
 
     StatusEnum(String value) {
       this.value = value;
@@ -239,7 +255,7 @@ public class TransactionRuleInfo {
     
     VELOCITY("velocity");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -602,22 +618,23 @@ public class TransactionRuleInfo {
 
   @Override
   public String toString() {
-    String sb = "class TransactionRuleInfo {\n" +
-            "    aggregationLevel: " + toIndentedString(aggregationLevel) + "\n" +
-            "    description: " + toIndentedString(description) + "\n" +
-            "    endDate: " + toIndentedString(endDate) + "\n" +
-            "    entityKey: " + toIndentedString(entityKey) + "\n" +
-            "    interval: " + toIndentedString(interval) + "\n" +
-            "    outcomeType: " + toIndentedString(outcomeType) + "\n" +
-            "    reference: " + toIndentedString(reference) + "\n" +
-            "    requestType: " + toIndentedString(requestType) + "\n" +
-            "    ruleRestrictions: " + toIndentedString(ruleRestrictions) + "\n" +
-            "    score: " + toIndentedString(score) + "\n" +
-            "    startDate: " + toIndentedString(startDate) + "\n" +
-            "    status: " + toIndentedString(status) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TransactionRuleInfo {\n");
+    sb.append("    aggregationLevel: ").append(toIndentedString(aggregationLevel)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    entityKey: ").append(toIndentedString(entityKey)).append("\n");
+    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("    outcomeType: ").append(toIndentedString(outcomeType)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
+    sb.append("    ruleRestrictions: ").append(toIndentedString(ruleRestrictions)).append("\n");
+    sb.append("    score: ").append(toIndentedString(score)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -673,7 +690,7 @@ public class TransactionRuleInfo {
         if (TransactionRuleInfo.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleInfo is not found in the empty JSON string", TransactionRuleInfo.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleInfo is not found in the empty JSON string", TransactionRuleInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -681,14 +698,14 @@ public class TransactionRuleInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionRuleInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleInfo` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TransactionRuleInfo.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field aggregationLevel

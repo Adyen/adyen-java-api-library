@@ -12,25 +12,41 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.CapabilityProblem;
+import com.adyen.model.legalentitymanagement.CapabilitySettings;
+import com.adyen.model.legalentitymanagement.SupportingEntityCapability;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * LegalEntityCapability
@@ -54,7 +70,7 @@ public class LegalEntityCapability {
     
     NOTAPPLICABLE("notApplicable");
 
-    private final String value;
+    private String value;
 
     AllowedLevelEnum(String value) {
       this.value = value;
@@ -121,7 +137,7 @@ public class LegalEntityCapability {
     
     NOTAPPLICABLE("notApplicable");
 
-    private final String value;
+    private String value;
 
     RequestedLevelEnum(String value) {
       this.value = value;
@@ -361,18 +377,19 @@ public class LegalEntityCapability {
 
   @Override
   public String toString() {
-    String sb = "class LegalEntityCapability {\n" +
-            "    allowed: " + toIndentedString(allowed) + "\n" +
-            "    allowedLevel: " + toIndentedString(allowedLevel) + "\n" +
-            "    allowedSettings: " + toIndentedString(allowedSettings) + "\n" +
-            "    problems: " + toIndentedString(problems) + "\n" +
-            "    requested: " + toIndentedString(requested) + "\n" +
-            "    requestedLevel: " + toIndentedString(requestedLevel) + "\n" +
-            "    requestedSettings: " + toIndentedString(requestedSettings) + "\n" +
-            "    transferInstruments: " + toIndentedString(transferInstruments) + "\n" +
-            "    verificationStatus: " + toIndentedString(verificationStatus) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LegalEntityCapability {\n");
+    sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
+    sb.append("    allowedLevel: ").append(toIndentedString(allowedLevel)).append("\n");
+    sb.append("    allowedSettings: ").append(toIndentedString(allowedSettings)).append("\n");
+    sb.append("    problems: ").append(toIndentedString(problems)).append("\n");
+    sb.append("    requested: ").append(toIndentedString(requested)).append("\n");
+    sb.append("    requestedLevel: ").append(toIndentedString(requestedLevel)).append("\n");
+    sb.append("    requestedSettings: ").append(toIndentedString(requestedSettings)).append("\n");
+    sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
+    sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -418,7 +435,7 @@ public class LegalEntityCapability {
         if (LegalEntityCapability.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LegalEntityCapability is not found in the empty JSON string", LegalEntityCapability.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in LegalEntityCapability is not found in the empty JSON string", LegalEntityCapability.openapiRequiredFields.toString()));
         }
       }
 
@@ -426,7 +443,7 @@ public class LegalEntityCapability {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!LegalEntityCapability.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LegalEntityCapability` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LegalEntityCapability` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the field allowedLevel can be parsed to an enum value
@@ -450,7 +467,7 @@ public class LegalEntityCapability {
         // validate the optional field `problems` (array)
         for (int i = 0; i < jsonArrayproblems.size(); i++) {
           CapabilityProblem.validateJsonObject(jsonArrayproblems.get(i).getAsJsonObject());
-        }
+        };
       }
       // ensure the field requestedLevel can be parsed to an enum value
       if (jsonObj.get("requestedLevel") != null) {
@@ -473,7 +490,7 @@ public class LegalEntityCapability {
         // validate the optional field `transferInstruments` (array)
         for (int i = 0; i < jsonArraytransferInstruments.size(); i++) {
           SupportingEntityCapability.validateJsonObject(jsonArraytransferInstruments.get(i).getAsJsonObject());
-        }
+        };
       }
       // validate the optional field verificationStatus
       if (jsonObj.get("verificationStatus") != null && !jsonObj.get("verificationStatus").isJsonPrimitive()) {

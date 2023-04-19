@@ -12,23 +12,36 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * CheckoutThreeDS2Action
@@ -62,7 +75,7 @@ public class CheckoutThreeDS2Action {
   public enum TypeEnum {
     THREEDS2("threeDS2");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -291,16 +304,17 @@ public class CheckoutThreeDS2Action {
 
   @Override
   public String toString() {
-    String sb = "class CheckoutThreeDS2Action {\n" +
-            "    authorisationToken: " + toIndentedString(authorisationToken) + "\n" +
-            "    paymentData: " + toIndentedString(paymentData) + "\n" +
-            "    paymentMethodType: " + toIndentedString(paymentMethodType) + "\n" +
-            "    subtype: " + toIndentedString(subtype) + "\n" +
-            "    token: " + toIndentedString(token) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "    url: " + toIndentedString(url) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CheckoutThreeDS2Action {\n");
+    sb.append("    authorisationToken: ").append(toIndentedString(authorisationToken)).append("\n");
+    sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+    sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -345,7 +359,7 @@ public class CheckoutThreeDS2Action {
         if (CheckoutThreeDS2Action.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CheckoutThreeDS2Action is not found in the empty JSON string", CheckoutThreeDS2Action.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CheckoutThreeDS2Action is not found in the empty JSON string", CheckoutThreeDS2Action.openapiRequiredFields.toString()));
         }
       }
 
@@ -353,14 +367,14 @@ public class CheckoutThreeDS2Action {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CheckoutThreeDS2Action.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CheckoutThreeDS2Action` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CheckoutThreeDS2Action` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CheckoutThreeDS2Action.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field authorisationToken

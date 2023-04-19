@@ -11,18 +11,22 @@
 
 package com.adyen.service.checkout;
 
+import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.ApplePaySessionResponse;
 import com.adyen.model.checkout.CheckoutUtilityRequest;
 import com.adyen.model.checkout.CheckoutUtilityResponse;
 import com.adyen.model.checkout.CreateApplePaySessionRequest;
+import com.adyen.model.checkout.ServiceError;
+import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UtilityService extends Service {
     private final String baseURL;

@@ -12,22 +12,36 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * SupportingEntityCapability
@@ -142,13 +156,14 @@ public class SupportingEntityCapability {
 
   @Override
   public String toString() {
-      String sb = "class SupportingEntityCapability {\n" +
-              "    allowed: " + toIndentedString(allowed) + "\n" +
-              "    id: " + toIndentedString(id) + "\n" +
-              "    requested: " + toIndentedString(requested) + "\n" +
-              "    verificationStatus: " + toIndentedString(verificationStatus) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SupportingEntityCapability {\n");
+    sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    requested: ").append(toIndentedString(requested)).append("\n");
+    sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -189,7 +204,7 @@ public class SupportingEntityCapability {
         if (SupportingEntityCapability.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SupportingEntityCapability is not found in the empty JSON string", SupportingEntityCapability.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SupportingEntityCapability is not found in the empty JSON string", SupportingEntityCapability.openapiRequiredFields.toString()));
         }
       }
 
@@ -197,7 +212,7 @@ public class SupportingEntityCapability {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!SupportingEntityCapability.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SupportingEntityCapability` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SupportingEntityCapability` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field id

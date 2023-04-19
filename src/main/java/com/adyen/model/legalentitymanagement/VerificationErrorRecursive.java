@@ -12,26 +12,39 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.RemediatingAction;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * VerificationErrorRecursive
@@ -143,7 +156,7 @@ public class VerificationErrorRecursive {
     
     WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER("withdrawFromAtmInRestrictedCountriesConsumer");
 
-    private final String value;
+    private String value;
 
     CapabilitiesEnum(String value) {
       this.value = value;
@@ -204,7 +217,7 @@ public class VerificationErrorRecursive {
     
     PENDINGSTATUS("pendingStatus");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -403,14 +416,15 @@ public class VerificationErrorRecursive {
 
   @Override
   public String toString() {
-    String sb = "class VerificationErrorRecursive {\n" +
-            "    capabilities: " + toIndentedString(capabilities) + "\n" +
-            "    code: " + toIndentedString(code) + "\n" +
-            "    message: " + toIndentedString(message) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "    remediatingActions: " + toIndentedString(remediatingActions) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class VerificationErrorRecursive {\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    remediatingActions: ").append(toIndentedString(remediatingActions)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -452,7 +466,7 @@ public class VerificationErrorRecursive {
         if (VerificationErrorRecursive.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationErrorRecursive is not found in the empty JSON string", VerificationErrorRecursive.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationErrorRecursive is not found in the empty JSON string", VerificationErrorRecursive.openapiRequiredFields.toString()));
         }
       }
 
@@ -460,7 +474,7 @@ public class VerificationErrorRecursive {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!VerificationErrorRecursive.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationErrorRecursive` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationErrorRecursive` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the json data is an array
@@ -492,7 +506,7 @@ public class VerificationErrorRecursive {
         // validate the optional field `remediatingActions` (array)
         for (int i = 0; i < jsonArrayremediatingActions.size(); i++) {
           RemediatingAction.validateJsonObject(jsonArrayremediatingActions.get(i).getAsJsonObject());
-        }
+        };
       }
   }
 

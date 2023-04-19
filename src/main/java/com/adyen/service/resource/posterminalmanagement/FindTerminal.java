@@ -25,11 +25,11 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.resource.Resource;
 
-import java.util.Collections;
+import java.util.Arrays;
 
 public class FindTerminal extends Resource {
 
     public FindTerminal(Service service) {
-        super(service, service.getClient().getConfig().getPosTerminalManagementApiEndpoint() + "/" + Client.POS_TERMINAL_MANAGEMENT_VERSION + "/findTerminal", Collections.singletonList("terminal"));
+        super(service, service.getClient().getConfig().getPosTerminalManagementApiEndpoint() + "/" + Client.POS_TERMINAL_MANAGEMENT_VERSION + "/findTerminal", Arrays.asList("terminal"));
     }
 }

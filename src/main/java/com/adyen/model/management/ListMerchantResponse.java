@@ -12,25 +12,40 @@
 
 package com.adyen.model.management;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.management.Merchant;
+import com.adyen.model.management.PaginationLinks;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.management.JSON;
 
 /**
  * ListMerchantResponse
@@ -175,13 +190,14 @@ public class ListMerchantResponse {
 
   @Override
   public String toString() {
-      String sb = "class ListMerchantResponse {\n" +
-              "    links: " + toIndentedString(links) + "\n" +
-              "    data: " + toIndentedString(data) + "\n" +
-              "    itemsTotal: " + toIndentedString(itemsTotal) + "\n" +
-              "    pagesTotal: " + toIndentedString(pagesTotal) + "\n" +
-              "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ListMerchantResponse {\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    itemsTotal: ").append(toIndentedString(itemsTotal)).append("\n");
+    sb.append("    pagesTotal: ").append(toIndentedString(pagesTotal)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -224,7 +240,7 @@ public class ListMerchantResponse {
         if (ListMerchantResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ListMerchantResponse is not found in the empty JSON string", ListMerchantResponse.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListMerchantResponse is not found in the empty JSON string", ListMerchantResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -232,14 +248,14 @@ public class ListMerchantResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ListMerchantResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListMerchantResponse` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListMerchantResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ListMerchantResponse.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field `_links`
@@ -256,7 +272,7 @@ public class ListMerchantResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           Merchant.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        }
+        };
       }
   }
 

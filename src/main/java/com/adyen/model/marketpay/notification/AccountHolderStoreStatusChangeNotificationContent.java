@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -321,17 +322,18 @@ public class AccountHolderStoreStatusChangeNotificationContent {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountHolderStoreStatusChangeNotificationContent {\n");
 
-        String sb = "class AccountHolderStoreStatusChangeNotificationContent {\n" +
-                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    newStatus: " + toIndentedString(newStatus) + "\n" +
-                "    oldStatus: " + toIndentedString(oldStatus) + "\n" +
-                "    reason: " + toIndentedString(reason) + "\n" +
-                "    store: " + toIndentedString(store) + "\n" +
-                "    storeReference: " + toIndentedString(storeReference) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    newStatus: ").append(toIndentedString(newStatus)).append("\n");
+        sb.append("    oldStatus: ").append(toIndentedString(oldStatus)).append("\n");
+        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("    storeReference: ").append(toIndentedString(storeReference)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

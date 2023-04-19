@@ -21,11 +21,12 @@
 
 package com.adyen.model.posterminalmanagement;
 
+import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * AssignTerminalsResponse
@@ -79,11 +80,12 @@ public class AssignTerminalsResponse {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AssignTerminalsResponse {\n");
 
-        String sb = "class AssignTerminalsResponse {\n" +
-                "    results: " + toIndentedString(results) + "\n" +
-                "}";
-        return sb;
+        sb.append("    results: ").append(toIndentedString(results)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

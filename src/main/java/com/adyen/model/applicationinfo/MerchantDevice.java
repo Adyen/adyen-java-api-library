@@ -24,6 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class MerchantDevice {
@@ -98,13 +99,14 @@ public class MerchantDevice {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MerchantDevice {\n");
 
-        String sb = "class MerchantDevice {\n" +
-                "    os: " + toIndentedString(os) + "\n" +
-                "    osVersion: " + toIndentedString(osVersion) + "\n" +
-                "    reference: " + toIndentedString(reference) + "\n" +
-                "}";
-        return sb;
+        sb.append("    os: ").append(toIndentedString(os)).append("\n");
+        sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

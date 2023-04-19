@@ -22,10 +22,10 @@
 package com.adyen.model.marketpay;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -143,13 +143,14 @@ public class DetailBalance {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class DetailBalance {\n");
 
-        String sb = "class DetailBalance {\n" +
-                "    balance: " + toIndentedString(balance) + "\n" +
-                "    onHoldBalance: " + toIndentedString(onHoldBalance) + "\n" +
-                "    pendingBalance: " + toIndentedString(pendingBalance) + "\n" +
-                "}";
-        return sb;
+        sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+        sb.append("    onHoldBalance: ").append(toIndentedString(onHoldBalance)).append("\n");
+        sb.append("    pendingBalance: ").append(toIndentedString(pendingBalance)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 

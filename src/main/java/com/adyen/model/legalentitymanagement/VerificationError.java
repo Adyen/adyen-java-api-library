@@ -12,26 +12,40 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.RemediatingAction;
+import com.adyen.model.legalentitymanagement.VerificationErrorRecursive;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * VerificationError
@@ -143,7 +157,7 @@ public class VerificationError {
     
     WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER("withdrawFromAtmInRestrictedCountriesConsumer");
 
-    private final String value;
+    private String value;
 
     CapabilitiesEnum(String value) {
       this.value = value;
@@ -212,7 +226,7 @@ public class VerificationError {
     
     PENDINGSTATUS("pendingStatus");
 
-    private final String value;
+    private String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -438,15 +452,16 @@ public class VerificationError {
 
   @Override
   public String toString() {
-    String sb = "class VerificationError {\n" +
-            "    capabilities: " + toIndentedString(capabilities) + "\n" +
-            "    code: " + toIndentedString(code) + "\n" +
-            "    message: " + toIndentedString(message) + "\n" +
-            "    remediatingActions: " + toIndentedString(remediatingActions) + "\n" +
-            "    subErrors: " + toIndentedString(subErrors) + "\n" +
-            "    type: " + toIndentedString(type) + "\n" +
-            "}";
-    return sb;
+    StringBuilder sb = new StringBuilder();
+    sb.append("class VerificationError {\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    remediatingActions: ").append(toIndentedString(remediatingActions)).append("\n");
+    sb.append("    subErrors: ").append(toIndentedString(subErrors)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -489,7 +504,7 @@ public class VerificationError {
         if (VerificationError.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationError is not found in the empty JSON string", VerificationError.openapiRequiredFields));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationError is not found in the empty JSON string", VerificationError.openapiRequiredFields.toString()));
         }
       }
 
@@ -497,7 +512,7 @@ public class VerificationError {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!VerificationError.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationError` properties. JSON: %s", entry.getKey(), jsonObj));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationError` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the json data is an array
@@ -522,7 +537,7 @@ public class VerificationError {
         // validate the optional field `remediatingActions` (array)
         for (int i = 0; i < jsonArrayremediatingActions.size(); i++) {
           RemediatingAction.validateJsonObject(jsonArrayremediatingActions.get(i).getAsJsonObject());
-        }
+        };
       }
       JsonArray jsonArraysubErrors = jsonObj.getAsJsonArray("subErrors");
       if (jsonArraysubErrors != null) {
@@ -534,7 +549,7 @@ public class VerificationError {
         // validate the optional field `subErrors` (array)
         for (int i = 0; i < jsonArraysubErrors.size(); i++) {
           VerificationErrorRecursive.validateJsonObject(jsonArraysubErrors.get(i).getAsJsonObject());
-        }
+        };
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

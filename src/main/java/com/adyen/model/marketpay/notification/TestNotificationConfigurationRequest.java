@@ -21,11 +21,13 @@
 
 package com.adyen.model.marketpay.notification;
 
+;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -181,12 +183,13 @@ public class TestNotificationConfigurationRequest {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class TestNotificationConfigurationRequest {\n");
 
-        String sb = "class TestNotificationConfigurationRequest {\n" +
-                "    notificationId: " + toIndentedString(notificationId) + "\n" +
-                "    eventTypes: " + toIndentedString(eventTypes) + "\n" +
-                "}";
-        return sb;
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+        sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 }

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -128,13 +129,14 @@ public class AccountTransactionList {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountTransactionList {\n");
 
-        String sb = "class AccountTransactionList {\n" +
-                "    accountCode: " + toIndentedString(accountCode) + "\n" +
-                "    hasNextPage: " + toIndentedString(hasNextPage) + "\n" +
-                "    transactions: " + toIndentedString(transactions) + "\n" +
-                "}";
-        return sb;
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    hasNextPage: ").append(toIndentedString(hasNextPage)).append("\n");
+        sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
 
