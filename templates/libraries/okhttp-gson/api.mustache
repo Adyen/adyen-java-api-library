@@ -8,7 +8,7 @@ import com.adyen.constants.ApiConstants;
 {{/imports}}
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.{{resourceClass}};
+import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -58,7 +58,7 @@ public class {{classname}} extends ApiKeyAuthenticatedService {
         {{/hasQueryParams}}
 
         String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
-        {{resourceClass}} resource = new Resource(this, this.baseURL + "{{{path}}}", null);
+        Resource resource = new Resource(this, this.baseURL + "{{{path}}}", null);
         {{#returnType}}
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
         return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
