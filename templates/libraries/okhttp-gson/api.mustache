@@ -43,16 +43,17 @@ public class {{classname}} extends Service {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         {{#pathParams}}
-        if({{{paramName}}} != null) {
-            pathParams.put("{{baseName}}", {{{paramName}}});
+        if ({{{paramName}}} == null) {
+            throw new IllegalArgumentException("Please provide the {{{paramName}}} path parameter");
         }
+        pathParams.put("{{baseName}}", {{{paramName}}});
         {{/pathParams}}
         {{/hasPathParams}}
         {{#hasQueryParams}}
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         {{#queryParams}}
-        if({{{paramName}}} != null) {
+        if ({{{paramName}}} != null) {
         queryParams.put("{{baseName}}", {{{paramName}}}{{^isString}}.toString(){{/isString}});
         }
         {{/queryParams}}

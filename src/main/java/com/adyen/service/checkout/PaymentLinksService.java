@@ -57,9 +57,10 @@ public class PaymentLinksService extends Service {
     public PaymentLinkResponse getPaymentLink(String linkId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(linkId != null) {
-            pathParams.put("linkId", linkId);
+        if (linkId == null) {
+            throw new IllegalArgumentException("Please provide the linkId path parameter");
         }
+        pathParams.put("linkId", linkId);
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/paymentLinks/{linkId}", null);
@@ -91,9 +92,10 @@ public class PaymentLinksService extends Service {
     public PaymentLinkResponse updatePaymentLink(String linkId, UpdatePaymentLinkRequest updatePaymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(linkId != null) {
-            pathParams.put("linkId", linkId);
+        if (linkId == null) {
+            throw new IllegalArgumentException("Please provide the linkId path parameter");
         }
+        pathParams.put("linkId", linkId);
 
         String requestBody = updatePaymentLinkRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentLinks/{linkId}", null);

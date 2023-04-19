@@ -57,15 +57,16 @@ public class RecurringService extends Service {
     public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId, String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(recurringId != null) {
-            pathParams.put("recurringId", recurringId);
+        if (recurringId == null) {
+            throw new IllegalArgumentException("Please provide the recurringId path parameter");
         }
+        pathParams.put("recurringId", recurringId);
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
-        if(shopperReference != null) {
+        if (shopperReference != null) {
         queryParams.put("shopperReference", shopperReference);
         }
-        if(merchantAccount != null) {
+        if (merchantAccount != null) {
         queryParams.put("merchantAccount", merchantAccount);
         }
 
@@ -97,10 +98,10 @@ public class RecurringService extends Service {
     public ListStoredPaymentMethodsResponse getTokensForStoredPaymentDetails(String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
-        if(shopperReference != null) {
+        if (shopperReference != null) {
         queryParams.put("shopperReference", shopperReference);
         }
-        if(merchantAccount != null) {
+        if (merchantAccount != null) {
         queryParams.put("merchantAccount", merchantAccount);
         }
 

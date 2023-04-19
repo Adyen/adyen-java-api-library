@@ -95,9 +95,10 @@ public class ModificationsService extends Service {
     public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(paymentPspReference != null) {
-            pathParams.put("paymentPspReference", paymentPspReference);
+        if (paymentPspReference == null) {
+            throw new IllegalArgumentException("Please provide the paymentPspReference path parameter");
         }
+        pathParams.put("paymentPspReference", paymentPspReference);
 
         String requestBody = createPaymentAmountUpdateRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/amountUpdates", null);
@@ -129,9 +130,10 @@ public class ModificationsService extends Service {
     public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(paymentPspReference != null) {
-            pathParams.put("paymentPspReference", paymentPspReference);
+        if (paymentPspReference == null) {
+            throw new IllegalArgumentException("Please provide the paymentPspReference path parameter");
         }
+        pathParams.put("paymentPspReference", paymentPspReference);
 
         String requestBody = createPaymentCancelRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/cancels", null);
@@ -163,9 +165,10 @@ public class ModificationsService extends Service {
     public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(paymentPspReference != null) {
-            pathParams.put("paymentPspReference", paymentPspReference);
+        if (paymentPspReference == null) {
+            throw new IllegalArgumentException("Please provide the paymentPspReference path parameter");
         }
+        pathParams.put("paymentPspReference", paymentPspReference);
 
         String requestBody = createPaymentCaptureRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/captures", null);
@@ -197,9 +200,10 @@ public class ModificationsService extends Service {
     public PaymentRefundResource refundCapturedPayment(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(paymentPspReference != null) {
-            pathParams.put("paymentPspReference", paymentPspReference);
+        if (paymentPspReference == null) {
+            throw new IllegalArgumentException("Please provide the paymentPspReference path parameter");
         }
+        pathParams.put("paymentPspReference", paymentPspReference);
 
         String requestBody = createPaymentRefundRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/refunds", null);
@@ -231,9 +235,10 @@ public class ModificationsService extends Service {
     public PaymentReversalResource refundOrCancelPayment(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if(paymentPspReference != null) {
-            pathParams.put("paymentPspReference", paymentPspReference);
+        if (paymentPspReference == null) {
+            throw new IllegalArgumentException("Please provide the paymentPspReference path parameter");
         }
+        pathParams.put("paymentPspReference", paymentPspReference);
 
         String requestBody = createPaymentReversalRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/reversals", null);
