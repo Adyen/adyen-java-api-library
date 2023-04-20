@@ -85,7 +85,9 @@ public class AchDetails {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    ACH("ach");
+    ACH("ach"),
+    
+    ACH_PLAID("ach_plaid");
 
     private String value;
 

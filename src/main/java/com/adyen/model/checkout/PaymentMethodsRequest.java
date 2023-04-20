@@ -15,7 +15,7 @@ package com.adyen.model.checkout;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.checkout.Amount;
-import com.adyen.model.checkout.CheckoutOrder;
+import com.adyen.model.checkout.EncryptedOrderData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -133,7 +133,7 @@ public class PaymentMethodsRequest {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private CheckoutOrder order;
+  private EncryptedOrderData order;
 
   public static final String SERIALIZED_NAME_SHOPPER_LOCALE = "shopperLocale";
   @SerializedName(SERIALIZED_NAME_SHOPPER_LOCALE)
@@ -199,10 +199,10 @@ public class PaymentMethodsRequest {
   }
 
    /**
-   * List of payment methods to be presented to the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+   * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return allowedPaymentMethods
   **/
-  @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their `paymentMethod.type` from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getAllowedPaymentMethods() {
     return allowedPaymentMethods;
@@ -251,10 +251,10 @@ public class PaymentMethodsRequest {
   }
 
    /**
-   * List of payment methods to be hidden from the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+   * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return blockedPaymentMethods
   **/
-  @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their `paymentMethod.type` from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getBlockedPaymentMethods() {
     return blockedPaymentMethods;
@@ -332,7 +332,7 @@ public class PaymentMethodsRequest {
   }
 
 
-  public PaymentMethodsRequest order(CheckoutOrder order) {
+  public PaymentMethodsRequest order(EncryptedOrderData order) {
     
     this.order = order;
     return this;
@@ -344,12 +344,12 @@ public class PaymentMethodsRequest {
   **/
   @ApiModelProperty(value = "")
 
-  public CheckoutOrder getOrder() {
+  public EncryptedOrderData getOrder() {
     return order;
   }
 
 
-  public void setOrder(CheckoutOrder order) {
+  public void setOrder(EncryptedOrderData order) {
     this.order = order;
   }
 
@@ -585,7 +585,7 @@ public class PaymentMethodsRequest {
       }
       // validate the optional field `order`
       if (jsonObj.getAsJsonObject("order") != null) {
-        CheckoutOrder.validateJsonObject(jsonObj.getAsJsonObject("order"));
+        EncryptedOrderData.validateJsonObject(jsonObj.getAsJsonObject("order"));
       }
       // validate the optional field shopperLocale
       if (jsonObj.get("shopperLocale") != null && !jsonObj.get("shopperLocale").isJsonPrimitive()) {

@@ -11,7 +11,6 @@
 
 package com.adyen.service.checkout;
 
-import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;

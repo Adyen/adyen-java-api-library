@@ -1,2 +1,2 @@
 {{! Overload contains just required and body params, null on the remaining }}
-{{#pathParams}}{{paramName}}, {{/pathParams}}{{#bodyParams}}{{paramName}}, {{/bodyParams}}{{#required}}{{#queryParams}}{{paramName}}, {{/queryParams}}{{/required}}{{^required}}{{#queryParams}}null, {{/queryParams}}{{/required}}null
+{{#pathParams}}{{paramName}}, {{/pathParams}}{{#bodyParams}}{{paramName}}, {{/bodyParams}}{{#queryParams}}{{#required}}{{paramName}}, {{/required}}{{^required}}null, {{/required}} {{/queryParams}}null

@@ -117,8 +117,6 @@ public class PaymentDetails {
     
     MOLPAY_EBANKING_VN("molpay_ebanking_VN"),
     
-    OPENBANKING_UK("openbanking_UK"),
-    
     PAYBYBANK("paybybank"),
     
     EBANKING_FI("ebanking_FI"),
@@ -128,8 +126,6 @@ public class PaymentDetails {
     MOLPAY_EBANKING_DIRECT_MY("molpay_ebanking_direct_MY"),
     
     SWISH("swish"),
-    
-    TWINT("twint"),
     
     WALLEY("walley"),
     
@@ -228,8 +224,6 @@ public class PaymentDetails {
     DUITNOW("duitnow"),
     
     PROMPTPAY("promptpay"),
-    
-    TWINT_POS("twint_pos"),
     
     ALIPAY_HK("alipay_hk"),
     

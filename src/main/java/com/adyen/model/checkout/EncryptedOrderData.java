@@ -44,10 +44,10 @@ import java.util.Set;
 import com.adyen.model.checkout.JSON;
 
 /**
- * CheckoutOrder
+ * EncryptedOrderData
  */
 
-public class CheckoutOrder {
+public class EncryptedOrderData {
   public static final String SERIALIZED_NAME_ORDER_DATA = "orderData";
   @SerializedName(SERIALIZED_NAME_ORDER_DATA)
   private String orderData;
@@ -56,10 +56,10 @@ public class CheckoutOrder {
   @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
   private String pspReference;
 
-  public CheckoutOrder() { 
+  public EncryptedOrderData() { 
   }
 
-  public CheckoutOrder orderData(String orderData) {
+  public EncryptedOrderData orderData(String orderData) {
     
     this.orderData = orderData;
     return this;
@@ -81,7 +81,7 @@ public class CheckoutOrder {
   }
 
 
-  public CheckoutOrder pspReference(String pspReference) {
+  public EncryptedOrderData pspReference(String pspReference) {
     
     this.pspReference = pspReference;
     return this;
@@ -112,9 +112,9 @@ public class CheckoutOrder {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckoutOrder checkoutOrder = (CheckoutOrder) o;
-    return Objects.equals(this.orderData, checkoutOrder.orderData) &&
-        Objects.equals(this.pspReference, checkoutOrder.pspReference);
+    EncryptedOrderData encryptedOrderData = (EncryptedOrderData) o;
+    return Objects.equals(this.orderData, encryptedOrderData.orderData) &&
+        Objects.equals(this.pspReference, encryptedOrderData.pspReference);
   }
 
   @Override
@@ -125,7 +125,7 @@ public class CheckoutOrder {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckoutOrder {\n");
+    sb.append("class EncryptedOrderData {\n");
     sb.append("    orderData: ").append(toIndentedString(orderData)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("}");
@@ -163,27 +163,27 @@ public class CheckoutOrder {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CheckoutOrder
+  * @throws IOException if the JSON Object is invalid with respect to EncryptedOrderData
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (CheckoutOrder.openapiRequiredFields.isEmpty()) {
+        if (EncryptedOrderData.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CheckoutOrder is not found in the empty JSON string", CheckoutOrder.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in EncryptedOrderData is not found in the empty JSON string", EncryptedOrderData.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!CheckoutOrder.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CheckoutOrder` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!EncryptedOrderData.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EncryptedOrderData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CheckoutOrder.openapiRequiredFields) {
+      for (String requiredField : EncryptedOrderData.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
@@ -202,22 +202,22 @@ public class CheckoutOrder {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CheckoutOrder.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CheckoutOrder' and its subtypes
+       if (!EncryptedOrderData.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EncryptedOrderData' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CheckoutOrder> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CheckoutOrder.class));
+       final TypeAdapter<EncryptedOrderData> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EncryptedOrderData.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CheckoutOrder>() {
+       return (TypeAdapter<T>) new TypeAdapter<EncryptedOrderData>() {
            @Override
-           public void write(JsonWriter out, CheckoutOrder value) throws IOException {
+           public void write(JsonWriter out, EncryptedOrderData value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CheckoutOrder read(JsonReader in) throws IOException {
+           public EncryptedOrderData read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -228,18 +228,18 @@ public class CheckoutOrder {
   }
 
  /**
-  * Create an instance of CheckoutOrder given an JSON string
+  * Create an instance of EncryptedOrderData given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CheckoutOrder
-  * @throws IOException if the JSON string is invalid with respect to CheckoutOrder
+  * @return An instance of EncryptedOrderData
+  * @throws IOException if the JSON string is invalid with respect to EncryptedOrderData
   */
-  public static CheckoutOrder fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CheckoutOrder.class);
+  public static EncryptedOrderData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EncryptedOrderData.class);
   }
 
  /**
-  * Convert an instance of CheckoutOrder to an JSON string
+  * Convert an instance of EncryptedOrderData to an JSON string
   *
   * @return JSON string
   */

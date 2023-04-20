@@ -139,7 +139,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutCreateOrderRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutCreateOrderResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutNativeRedirectAction.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutOrder.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutOrderResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutQrCodeAction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutRedirectAction.CustomTypeAdapterFactory());
@@ -169,6 +168,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.DotpayDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.DragonpayDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.EcontextVoucherDetails.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.EncryptedOrderData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.ExternalPlatform.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.ForexQuote.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.FraudCheckResult.CustomTypeAdapterFactory());

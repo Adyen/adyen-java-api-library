@@ -75,6 +75,8 @@ public class StoredPaymentMethodDetails {
     
     MOMO_WALLET_APP("momo_wallet_app"),
     
+    TWINT("twint"),
+    
     PAYMAYA_WALLET("paymaya_wallet"),
     
     GRABPAY_SG("grabpay_SG"),
@@ -95,7 +97,9 @@ public class StoredPaymentMethodDetails {
     
     KAKAOPAY("kakaopay"),
     
-    TRUEMONEY("truemoney");
+    TRUEMONEY("truemoney"),
+    
+    TWINT_POS("twint_pos");
 
     private String value;
 

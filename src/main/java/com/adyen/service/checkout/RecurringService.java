@@ -11,7 +11,6 @@
 
 package com.adyen.service.checkout;
 
-import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
@@ -37,19 +36,21 @@ public class RecurringService extends Service {
     * Delete a token for stored payment details
     *
     * @param recurringId {@link String } The unique identifier of the token. (required)
+    * @param shopperReference {@link String } Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (required)
+    * @param merchantAccount {@link String } Your merchant account. (required)
     * @return {@link StoredPaymentMethodResource }
     * @throws ApiException if fails to make API call
     */
-    public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId) throws ApiException, IOException {
-        return deleteTokenForStoredPaymentDetails(recurringId, null, null, null);
+    public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId, String shopperReference, String merchantAccount) throws ApiException, IOException {
+        return deleteTokenForStoredPaymentDetails(recurringId, shopperReference,  merchantAccount,  null);
     }
 
     /**
     * Delete a token for stored payment details
     *
     * @param recurringId {@link String } The unique identifier of the token. (required)
-    * @param shopperReference {@link String } Query: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
-    * @param merchantAccount {@link String } Query: Your merchant account. (optional)
+    * @param shopperReference {@link String } Query: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (required)
+    * @param merchantAccount {@link String } Query: Your merchant account. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link StoredPaymentMethodResource }
     * @throws ApiException if fails to make API call
@@ -83,7 +84,7 @@ public class RecurringService extends Service {
     * @throws ApiException if fails to make API call
     */
     public ListStoredPaymentMethodsResponse getTokensForStoredPaymentDetails() throws ApiException, IOException {
-        return getTokensForStoredPaymentDetails(null, null, null);
+        return getTokensForStoredPaymentDetails(null,  null,  null);
     }
 
     /**

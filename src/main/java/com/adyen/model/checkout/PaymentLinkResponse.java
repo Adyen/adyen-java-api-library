@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
+import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.InstallmentOption;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Name;
@@ -68,6 +69,10 @@ public class PaymentLinkResponse {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Amount amount;
+
+  public static final String SERIALIZED_NAME_APPLICATION_INFO = "applicationInfo";
+  @SerializedName(SERIALIZED_NAME_APPLICATION_INFO)
+  private ApplicationInfo applicationInfo;
 
   public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
   @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
@@ -457,10 +462,10 @@ public class PaymentLinkResponse {
   }
 
    /**
-   * List of payment methods to be presented to the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+   * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return allowedPaymentMethods
   **/
-  @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their `paymentMethod.type` from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getAllowedPaymentMethods() {
     return allowedPaymentMethods;
@@ -491,6 +496,28 @@ public class PaymentLinkResponse {
 
   public void setAmount(Amount amount) {
     this.amount = amount;
+  }
+
+
+  public PaymentLinkResponse applicationInfo(ApplicationInfo applicationInfo) {
+    
+    this.applicationInfo = applicationInfo;
+    return this;
+  }
+
+   /**
+   * Get applicationInfo
+   * @return applicationInfo
+  **/
+  @ApiModelProperty(value = "")
+
+  public ApplicationInfo getApplicationInfo() {
+    return applicationInfo;
+  }
+
+
+  public void setApplicationInfo(ApplicationInfo applicationInfo) {
+    this.applicationInfo = applicationInfo;
   }
 
 
@@ -531,10 +558,10 @@ public class PaymentLinkResponse {
   }
 
    /**
-   * List of payment methods to be hidden from the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+   * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return blockedPaymentMethods
   **/
-  @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their `paymentMethod.type` from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getBlockedPaymentMethods() {
     return blockedPaymentMethods;
@@ -1394,6 +1421,7 @@ public class PaymentLinkResponse {
     PaymentLinkResponse paymentLinkResponse = (PaymentLinkResponse) o;
     return Objects.equals(this.allowedPaymentMethods, paymentLinkResponse.allowedPaymentMethods) &&
         Objects.equals(this.amount, paymentLinkResponse.amount) &&
+        Objects.equals(this.applicationInfo, paymentLinkResponse.applicationInfo) &&
         Objects.equals(this.billingAddress, paymentLinkResponse.billingAddress) &&
         Objects.equals(this.blockedPaymentMethods, paymentLinkResponse.blockedPaymentMethods) &&
         Objects.equals(this.captureDelayHours, paymentLinkResponse.captureDelayHours) &&
@@ -1437,7 +1465,7 @@ public class PaymentLinkResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethods, amount, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, id, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, status, store, storePaymentMethodMode, telephoneNumber, themeId, updatedAt, url);
+    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, id, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, status, store, storePaymentMethodMode, telephoneNumber, themeId, updatedAt, url);
   }
 
   @Override
@@ -1446,6 +1474,7 @@ public class PaymentLinkResponse {
     sb.append("class PaymentLinkResponse {\n");
     sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
     sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
@@ -1509,6 +1538,7 @@ public class PaymentLinkResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("allowedPaymentMethods");
     openapiFields.add("amount");
+    openapiFields.add("applicationInfo");
     openapiFields.add("billingAddress");
     openapiFields.add("blockedPaymentMethods");
     openapiFields.add("captureDelayHours");
@@ -1595,6 +1625,10 @@ public class PaymentLinkResponse {
       // validate the optional field `amount`
       if (jsonObj.getAsJsonObject("amount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
+      }
+      // validate the optional field `applicationInfo`
+      if (jsonObj.getAsJsonObject("applicationInfo") != null) {
+        ApplicationInfo.validateJsonObject(jsonObj.getAsJsonObject("applicationInfo"));
       }
       // validate the optional field `billingAddress`
       if (jsonObj.getAsJsonObject("billingAddress") != null) {

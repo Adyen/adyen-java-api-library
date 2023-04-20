@@ -14,7 +14,7 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.checkout.CheckoutOrder;
+import com.adyen.model.checkout.EncryptedOrderData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ public class CheckoutCancelOrderRequest {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private CheckoutOrder order;
+  private EncryptedOrderData order;
 
   public CheckoutCancelOrderRequest() { 
   }
@@ -82,7 +82,7 @@ public class CheckoutCancelOrderRequest {
   }
 
 
-  public CheckoutCancelOrderRequest order(CheckoutOrder order) {
+  public CheckoutCancelOrderRequest order(EncryptedOrderData order) {
     
     this.order = order;
     return this;
@@ -94,12 +94,12 @@ public class CheckoutCancelOrderRequest {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public CheckoutOrder getOrder() {
+  public EncryptedOrderData getOrder() {
     return order;
   }
 
 
-  public void setOrder(CheckoutOrder order) {
+  public void setOrder(EncryptedOrderData order) {
     this.order = order;
   }
 
@@ -195,7 +195,7 @@ public class CheckoutCancelOrderRequest {
       }
       // validate the optional field `order`
       if (jsonObj.getAsJsonObject("order") != null) {
-        CheckoutOrder.validateJsonObject(jsonObj.getAsJsonObject("order"));
+        EncryptedOrderData.validateJsonObject(jsonObj.getAsJsonObject("order"));
       }
   }
 
