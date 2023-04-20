@@ -20,30 +20,27 @@
  */
 package com.adyen;
 
+import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 
 import com.adyen.model.checkout.*;
-import com.adyen.service.Payment;
 import com.adyen.service.checkout.*;
 
 import com.adyen.service.checkout.PaymentsService;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.sound.sampled.Line;
-import java.io.Console;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.time.chrono.Chronology;
-import java.time.temporal.TemporalField;
 import java.util.*;
 
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class CheckoutTest extends BaseTest {
@@ -377,5 +374,29 @@ public class CheckoutTest extends BaseTest {
         RecurringService checkout = new RecurringService(client);
         StoredPaymentMethodResource response = checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
         assertEquals(response.getType(), "string");
+    }
+
+    /**
+     * Should delete StoredPaymentMethods
+     */
+    @Test
+    public void TestLiveURLCheckout() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
+        client.setEnvironment(Environment.LIVE, "prefix");
+        RecurringService checkout = new RecurringService(client);
+        checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
+        HashMap<String, String> queryParams = new HashMap<String,String>();
+        queryParams.put("merchantAccount", "TestMerchantAccount");
+        queryParams.put("shopperReference", "test-1234");
+
+        verify(client.getHttpClient()).request(
+                "https://prefix-checkout-live.adyenpayments.com/checkout/v70/storedPaymentMethods/recurringId",
+                null,
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.DELETE,
+                queryParams
+        );
     }
 }
