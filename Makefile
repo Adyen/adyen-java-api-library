@@ -12,15 +12,22 @@ output:=target/out
 # Generate models (for each service)
 models: $(services)
 
-binlookup: spec=BinLookupService-v52
+balancecontrol: spec=BalanceControlService-v1
+balancecontrol: smallServiceName=BalanceControlService
+binlookup: spec=BinLookupService-v54
+binlookup: smallServiceName=BinLookupService
 checkout: spec=CheckoutService-v70
+dataprotection: spec=DataProtectionService-v1
+dataprotection: smallServiceName=DataProtectionService
 storedValue: spec=StoredValueService-v46
+storedValue: smallServiceName=StoredValueService
 posterminalmanagement: spec=TfmAPIService-v1
+posterminalmanagement: smallServiceName=PosTerminalManagement
 payments: spec=PaymentService-v68
 recurring: spec=RecurringService-v68
+recurring: smallServiceName=RecurringService
 payout: spec=PayoutService-v68
 management: spec=ManagementService-v1
-management: resourceClass=Management
 balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
 legalentitymanagement: spec=LegalEntityService-v2
@@ -53,7 +60,13 @@ $(services): target/spec $(openapi-generator-jar)
 	mv $(output)/$(models)/JSON.java $(models)/$@
 
 
-checkout: target/spec $(openapi-generator-jar)
+
+bigServices:=balancePlatform checkout storedValue payments payout management legalentitymanagement transfers
+singleFileServices:=balancecontrol binlookup dataprotection storedValue posterminalmanagement recurring
+
+all: $(bigServices) $(singleFileServices)
+
+$(bigServices): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)
 	rm -rf src/main/java/com/adyen/service/$@ $(output)
 	$(openapi-generator-cli) generate \
@@ -72,11 +85,36 @@ checkout: target/spec $(openapi-generator-jar)
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=serializationLibrary=gson \
-		--additional-properties=openApiNullable=false \
-		--additional-properties=resourceClass=$(resourceClass)Resource
+		--additional-properties=openApiNullable=false
 	mv $(output)/$(models)/$@ $(models)/$@
 	mv $(output)/src/main/java/com/adyen/service/JSON.java $(models)/$@
 	mv $(output)/src/main/java/com/adyen/service/$@ src/main/java/com/adyen/service/$@
+
+$(singleFileServices): target/spec $(openapi-generator-jar)
+	rm -rf $(models)/$@ $(output)
+	rm -rf src/main/java/com/adyen/service/$@ $(output)
+	$(openapi-generator-cli) generate \
+		-i target/spec/json/$(spec).json \
+		-g $(generator) \
+		-c templates/libraries/okhttp-gson/config.yaml \
+		-o $(output) \
+		--reserved-words-mappings configuration=configuration \
+		--ignore-file-override ./.openapi-generator-ignore \
+		--skip-validate-spec \
+		--model-package $(subst /,.,com.adyen.model.$@) \
+		--library $(library) \
+		--additional-properties customApi=$@ \
+		--api-package com.adyen.service \
+        --api-name-suffix Service \
+		--global-property modelDocs=false \
+		--global-property modelTests=false \
+		--additional-properties=dateLibrary=java8 \
+		--additional-properties=serializationLibrary=gson \
+		--additional-properties=openApiNullable=false \
+		--additional-properties=smallServiceName=$(smallServiceName)
+	mv $(output)/$(models)/$@ $(models)/$@
+	mv $(output)/src/main/java/com/adyen/JSON.java $(models)/$@
+	mv $(output)/src/main/java/com/adyen/service/*Single.java src/main/java/com/adyen/service/$(smallServiceName).java
 
 
 # Checkout spec (and patch version)
