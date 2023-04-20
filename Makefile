@@ -61,7 +61,7 @@ $(services): target/spec $(openapi-generator-jar)
 
 
 
-bigServices:=balancePlatform checkout storedValue payments payout management legalentitymanagement transfers
+bigServices:=balanceplatform checkout storedValue payments payout management legalentitymanagement transfers
 singleFileServices:=balancecontrol binlookup dataprotection storedValue posterminalmanagement recurring
 
 all: $(bigServices) $(singleFileServices)
