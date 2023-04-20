@@ -34,16 +34,16 @@ public class LegalEntityManagementTest extends BaseTest {
 
     @Test
     public void LegalEntitiesRetrieveTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/LegalEntity.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntity.json");
         LegalEntities service = new LegalEntities(client);
         LegalEntity response = service.retrieve("LE322JV223222D5GG42KN6869");
         assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
-        assertEquals("LE322JV223222D5GG42KN6869", response.getId());
+        assertEquals("string", response.getId());
     }
 
     @Test
     public void LegalEntitiesUpdateTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/LegalEntity.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntity.json");
         LegalEntities service = new LegalEntities(client);
         LegalEntityInfo request = LegalEntityInfo.fromJson("{\n" +
                 "    \"type\": \"individual\",\n" +
@@ -71,7 +71,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "}");
         LegalEntity response = service.update("LE322JV223222D5GG42KN6869", request);
         assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
-        assertEquals("LE322JV223222D5GG42KN6869", response.getId());
+        assertEquals("string", response.getId());
     }
 
     @Test
