@@ -27,10 +27,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClassicCheckoutSdkService extends Service {
+public class ClassicCheckoutSdkApi extends Service {
     private final String baseURL;
 
-    public ClassicCheckoutSdkService(Client client) {
+    public ClassicCheckoutSdkApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }

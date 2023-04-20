@@ -24,10 +24,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RecurringService extends Service {
+public class RecurringApi extends Service {
     private final String baseURL;
 
-    public RecurringService(Client client) {
+    public RecurringApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }

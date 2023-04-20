@@ -27,10 +27,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UtilityService extends Service {
+public class UtilityApi extends Service {
     private final String baseURL;
 
-    public UtilityService(Client client) {
+    public UtilityApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }

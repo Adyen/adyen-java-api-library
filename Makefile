@@ -13,19 +13,19 @@ output:=target/out
 models: $(services)
 
 balancecontrol: spec=BalanceControlService-v1
-balancecontrol: smallServiceName=BalanceControlService
+balancecontrol: smallServiceName=BalanceControlApi
 binlookup: spec=BinLookupService-v54
-binlookup: smallServiceName=BinLookupService
+binlookup: smallServiceName=BinLookupApi
 checkout: spec=CheckoutService-v70
 dataprotection: spec=DataProtectionService-v1
-dataprotection: smallServiceName=DataProtectionService
+dataprotection: smallServiceName=DataProtectionApi
 storedvalue: spec=StoredValueService-v46
-storedvalue: smallServiceName=StoredValueService
+storedvalue: smallServiceName=StoredValueApi
 posterminalmanagement: spec=TfmAPIService-v1
-posterminalmanagement: smallServiceName=PosTerminalManagement
+posterminalmanagement: smallServiceName=PosTerminalManagementApi
 payments: spec=PaymentService-v68
 recurring: spec=RecurringService-v68
-recurring: smallServiceName=RecurringService
+recurring: smallServiceName=RecurringApi
 payout: spec=PayoutService-v68
 management: spec=ManagementService-v1
 balanceplatform: spec=BalancePlatformService-v2
@@ -79,7 +79,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		--model-package $(subst /,.,com.adyen.model.$@) \
 		--library $(library) \
 		--api-package com.adyen.service.$@ \
-        --api-name-suffix Service \
+        --api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=java8 \
@@ -104,7 +104,7 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		--library $(library) \
 		--additional-properties customApi=$@ \
 		--api-package com.adyen.service \
-        --api-name-suffix Service \
+        --api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=java8 \
