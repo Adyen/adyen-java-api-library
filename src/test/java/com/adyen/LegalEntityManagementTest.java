@@ -22,38 +22,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class LegalEntityManagementTest extends BaseTest {
-
     @Test
     public void LegalEntitiesCreateTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/LegalEntity.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntity.json");
         LegalEntities service = new LegalEntities(client);
-        LegalEntityInfo request = LegalEntityInfo.fromJson("{\n" +
-                "    \"type\": \"individual\",\n" +
-                "    \"individual\": {\n" +
-                "        \"residentialAddress\": {\n" +
-                "            \"city\": \"San Francisco\",\n" +
-                "            \"country\": \"US\",\n" +
-                "            \"postalCode\": \"94107\",\n" +
-                "            \"street\": \"Brannan Street 274\",\n" +
-                "            \"stateOrProvince\": \"CA\"\n" +
-                "        },\n" +
-                "        \"phone\": {\n" +
-                "            \"number\": \"5551231234\",\n" +
-                "            \"type\": \"mobile\"\n" +
-                "        },\n" +
-                "        \"name\": {\n" +
-                "            \"firstName\": \"Simone\",\n" +
-                "            \"lastName\": \"Hopper\"\n" +
-                "        },\n" +
-                "        \"birthData\": {\n" +
-                "            \"dateOfBirth\": \"1981-12-01\"\n" +
-                "        },\n" +
-                "        \"email\": \"s.hopper@example.com\"\n" +
-                "    }\n" +
-                "}");
+        LegalEntityInfo request = LegalEntityInfo.fromJson(getFileContents("mocks/legalentitymanagement/request/LegalEntityInfoRequiredType.json"));
         LegalEntity response = service.create(request);
         assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
-        assertEquals("LE322JV223222D5GG42KN6869", response.getId());
+        assertEquals("string", response.getId());
     }
 
     @Test
@@ -100,120 +76,76 @@ public class LegalEntityManagementTest extends BaseTest {
 
     @Test
     public void LegalEntitiesListBusinessLinesTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLines.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/BusinessLines.json");
         LegalEntities service = new LegalEntities(client);
         BusinessLines response = service.listBusinessLines("LE322JV223222D5GG42KN6869");
-        assertEquals("LE322JV223222D5GG42KN6869", response.getBusinessLines().get(0).getId());
-        assertEquals("LE664JV223222D5GG42KN6869", response.getBusinessLines().get(0).getLegalEntityId());
+        assertEquals("string", response.getBusinessLines().get(0).getId());
+        assertEquals("string", response.getBusinessLines().get(0).getLegalEntityId());
     }
 
     @Test
     public void TransferInstrumentsCreateTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/TransferInstrument.json");
         TransferInstruments service = new TransferInstruments(client);
-        TransferInstrumentInfo request = TransferInstrumentInfo.fromJson("{\n" +
-                "  \"legalEntityId\": \"LE322KH223222D5GG4C9J83RN\",\n" +
-                "  \"type\": \"bankAccount\",\n" +
-                "  \"bankAccount\": {\n" +
-                "    \"countryCode\": \"NL\",\n" +
-                "    \"currencyCode\": \"EUR\",\n" +
-                "    \"iban\": \"NL62ABNA0000000123\"\n" +
-                "  }\n" +
-                "}");
+        TransferInstrumentInfo request = TransferInstrumentInfo.fromJson(getFileContents("mocks/legalentitymanagement/request/TransferInstrumentInfo.json"));
         TransferInstrument response = service.create(request);
         assertEquals(TransferInstrument.TypeEnum.BANKACCOUNT, response.getType());
-        assertEquals("SE576BH223222F5GJVKHH6BDT", response.getId());
+        assertEquals("string", response.getId());
     }
 
     @Test
     public void TransferInstrumentsRetrieveTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/TransferInstrument.json");
         TransferInstruments service = new TransferInstruments(client);
         TransferInstrument response = service.retrieve("SE576BH223222F5GJVKHH6BDT");
         assertEquals(TransferInstrument.TypeEnum.BANKACCOUNT, response.getType());
-        assertEquals("SE576BH223222F5GJVKHH6BDT", response.getId());
+        assertEquals("string", response.getId());
     }
 
     @Test
     public void TransferInstrumentsUpdateTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/TransferInstrument.json");
         TransferInstruments service = new TransferInstruments(client);
-        TransferInstrumentInfo request = TransferInstrumentInfo.fromJson("{\n" +
-                "  \"legalEntityId\": \"LE322KH223222D5GG4C9J83RN\",\n" +
-                "  \"type\": \"bankAccount\",\n" +
-                "  \"bankAccount\": {\n" +
-                "    \"countryCode\": \"NL\",\n" +
-                "    \"currencyCode\": \"EUR\",\n" +
-                "    \"iban\": \"NL62ABNA0000000123\"\n" +
-                "  }\n" +
-                "}");
+        TransferInstrumentInfo request = TransferInstrumentInfo.fromJson(getFileContents("mocks/legalentitymanagement/request/TransferInstrumentInfo.json"));
         TransferInstrument response = service.update("SE576BH223222F5GJVKHH6BDT", request);
         assertEquals(TransferInstrument.TypeEnum.BANKACCOUNT, response.getType());
-        assertEquals("SE576BH223222F5GJVKHH6BDT", response.getId());
+        assertEquals("string", response.getId());
     }
 
     @Test
     public void TransferInstrumentsDeleteTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/TransferInstrument.json");
         TransferInstruments service = new TransferInstruments(client);
         service.delete("SE576BH223222F5GJVKHH6BDT");
     }
 
     @Test
     public void BusinessLinesCreateTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLine.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/BusinessLine.json");
         BusinessLineService service = new BusinessLineService(client);
-        BusinessLineInfo request = BusinessLineInfo.fromJson("{\n" +
-                "  \"capability\": \"issueBankAccount\",\n" +
-                "  \"industryCode\": \"55\",\n" +
-                "  \"webData\": [\n" +
-                "    {\n" +
-                "      \"webAddress\": \"https://www.adyen.com\"\n" +
-                "    }\n" +
-                "  ],\n" +
-                "  \"legalEntityId\": \"LE322JV223222D5FZ9N74BSGM\",\n" +
-                "  \"sourceOfFunds\": {\n" +
-                "    \"type\": \"business\",\n" +
-                "    \"adyenProcessedFunds\": \"false\",\n" +
-                "    \"description\": \"Funds from my flower shop business\"\n" +
-                "  }\n" +
-                "}");
+        BusinessLineInfo request = BusinessLineInfo.fromJson(getFileContents("mocks/legalentitymanagement/request/BusinessLineInfo.json"));
         BusinessLine response = service.create(request);
-        assertEquals("LE322JV223222D5FZ9N74BSGM", response.getLegalEntityId());
-        assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
+        assertEquals("string", response.getLegalEntityId());
+        assertEquals("string", response.getId());
     }
 
     @Test
     public void BusinessLinesRetrieveTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLine.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/BusinessLine.json");
         BusinessLineService service = new BusinessLineService(client);
         BusinessLine response = service.retrieve("SE322KT223222D5FJ7TJN2986");
-        assertEquals("LE322JV223222D5FZ9N74BSGM", response.getLegalEntityId());
-        assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
+        assertEquals("string", response.getLegalEntityId());
+        assertEquals("string", response.getId());
     }
 
     @Test
     public void BusinessLinesUpdateTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLine.json");
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/response/BusinessLine.json");
         BusinessLineService service = new BusinessLineService(client);
-        BusinessLineInfo request = BusinessLineInfo.fromJson("{\n" +
-                "  \"capability\": \"issueBankAccount\",\n" +
-                "  \"industryCode\": \"55\",\n" +
-                "  \"webData\": [\n" +
-                "    {\n" +
-                "      \"webAddress\": \"https://www.adyen.com\"\n" +
-                "    }\n" +
-                "  ],\n" +
-                "  \"legalEntityId\": \"LE322JV223222D5FZ9N74BSGM\",\n" +
-                "  \"sourceOfFunds\": {\n" +
-                "    \"type\": \"business\",\n" +
-                "    \"adyenProcessedFunds\": \"false\",\n" +
-                "    \"description\": \"Funds from my flower shop business\"\n" +
-                "  }\n" +
-                "}");
+        BusinessLineInfo request = BusinessLineInfo.fromJson(getFileContents("mocks/legalentitymanagement/request/BusinessLineInfo.json"));
         BusinessLine response = service.update("SE322KT223222D5FJ7TJN2986", request);
-        assertEquals("LE322JV223222D5FZ9N74BSGM", response.getLegalEntityId());
-        assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
+        assertEquals("string", response.getLegalEntityId());
+        assertEquals("string", response.getId());
     }
 
     @Test

@@ -1,0 +1,129 @@
+{
+  "entityAssociations": [
+    {
+      "jobTitle": "string",
+      "legalEntityId": "string",
+      "type": "pciSignatory"
+    }
+  ],
+  "individual": {
+    "birthData": {
+      "dateOfBirth": "string"
+    },
+    "email": "string",
+    "identificationData": {
+      "cardNumber": "string",
+      "issuerState": "string",
+      "nationalIdExempt": true,
+      "number": "string",
+      "type": "bankStatement"
+    },
+    "name": {
+      "firstName": "string",
+      "infix": "string",
+      "lastName": "string"
+    },
+    "nationality": "string",
+    "phone": {
+      "number": "string",
+      "type": "string"
+    },
+    "residentialAddress": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "taxInformation": [
+      {
+        "country": "st",
+        "number": "string",
+        "type": "string"
+      }
+    ],
+    "webData": {
+      "webAddress": "string"
+    }
+  },
+  "organization": {
+    "dateOfIncorporation": "string",
+    "description": "string",
+    "doingBusinessAs": "string",
+    "email": "string",
+    "legalName": "string",
+    "phone": {
+      "number": "string",
+      "type": "string"
+    },
+    "principalPlaceOfBusiness": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registeredAddress": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registrationNumber": "string",
+    "stockData": {
+      "marketIdentifier": "string",
+      "stockNumber": "string",
+      "tickerSymbol": "string"
+    },
+    "taxInformation": [
+      {
+        "country": "st",
+        "number": "string",
+        "type": "string"
+      }
+    ],
+    "taxReportingClassification": {
+      "businessType": "other",
+      "financialInstitutionNumber": "string",
+      "mainSourceOfIncome": "businessOperation",
+      "type": "nonFinancialNonReportable"
+    },
+    "type": "associationIncorporated",
+    "vatAbsenceReason": "industryExemption",
+    "vatNumber": "string",
+    "webData": {
+      "webAddress": "string"
+    }
+  },
+  "reference": "string",
+  "soleProprietorship": {
+    "countryOfGoverningLaw": "string",
+    "dateOfIncorporation": "string",
+    "doingBusinessAs": "string",
+    "name": "string",
+    "principalPlaceOfBusiness": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registeredAddress": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registrationNumber": "string",
+    "vatAbsenceReason": "industryExemption",
+    "vatNumber": "string"
+  },
+  "type": "individual"
+}
