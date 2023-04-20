@@ -5,12 +5,12 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=balanceplatform binlookup checkout legalentitymanagement management payments payout recurring transfers
+modelGen:=balanceplatform binlookup checkout legalentitymanagement management payments payout recurring transfers
 models:=src/main/java/com/adyen/model
 output:=target/out
 
 # Generate models (for each service)
-models: $(services)
+models: $(modelGen)
 
 balancecontrol: spec=BalanceControlService-v1
 balancecontrol: smallServiceName=BalanceControlApi
@@ -63,7 +63,7 @@ $(services): target/spec $(openapi-generator-jar)
 bigServices:=balanceplatform checkout storedValue payments payout management legalentitymanagement transfers
 singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring
 
-all: $(bigServices) $(singleFileServices)
+services: $(bigServices) $(singleFileServices)
 
 $(bigServices): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)
