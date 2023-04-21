@@ -1,13 +1,8 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.model.checkout.PaymentLinkResponse;
-import com.adyen.model.checkout.ServiceError;
-import com.adyen.model.management.AllowedOriginsResponse;
 import com.adyen.model.management.CreateAllowedOriginRequest;
-import com.adyen.model.management.JSON;
-import com.adyen.model.management.RestServiceError;
-import com.adyen.service.Checkout;
+import com.adyen.service.checkout.PaymentLinksApi;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.management.MyApiCredential;
 import org.junit.Assert;
@@ -37,10 +32,10 @@ public class ErrorHandlingTest extends BaseTest{
     @Ignore("Integration test")
     public void CheckoutErrorTest() throws IOException, ApiException {
         Client client = new Client(System.getenv("API_KEY"), Environment.TEST);
-        Checkout service = new Checkout(client);
+        PaymentLinksApi service = new PaymentLinksApi(client);
         try
         {
-            service.getPaymentLinks("1234");
+            service.getPaymentLink("1234");
         } catch(ApiException e) {
             Assert.assertTrue(e.getResponseBody().contains("Invalid payment link ID"));
         }
