@@ -9,6 +9,9 @@ import com.adyen.service.resource.LegalEntityManagementResource;
 
 import java.io.IOException;
 
+/**
+ * @deprecated replaced by {@link DocumentsApi}
+ */
 public class Documents extends Service {
     public Documents(Client client) {
         super(client);

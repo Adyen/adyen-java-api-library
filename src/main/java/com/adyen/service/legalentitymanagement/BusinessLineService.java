@@ -10,6 +10,9 @@ import com.adyen.service.resource.LegalEntityManagementResource;
 
 import java.io.IOException;
 
+/**
+ * @deprecated replaced by {@link BusinessLinesApi}
+ */
 public class BusinessLineService extends Service {
     public BusinessLineService(Client client) {
         super(client);

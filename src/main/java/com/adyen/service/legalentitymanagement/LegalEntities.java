@@ -11,6 +11,9 @@ import com.adyen.service.resource.LegalEntityManagementResource;
 
 import java.io.IOException;
 
+/**
+ * @deprecated replaced by {@link LegalEntitiesApi}
+ */
 public class LegalEntities extends Service {
     public LegalEntities(Client client) {
         super(client);

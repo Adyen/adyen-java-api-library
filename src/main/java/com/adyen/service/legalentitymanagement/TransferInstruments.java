@@ -10,6 +10,9 @@ import com.adyen.service.resource.LegalEntityManagementResource;
 
 import java.io.IOException;
 
+/**
+ * @deprecated replaced by {@link TransferInstrumentsApi}
+ */
 public class TransferInstruments extends Service {
     public TransferInstruments(Client client) {
         super(client);
