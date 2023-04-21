@@ -15,10 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 {{#operations}}
-public class {{classname}} extends Service {
+public class {{smallServiceName}} extends Service {
     private final String baseURL;
 
-    public {{classname}}(Client client) {
+    public {{smallServiceName}}(Client client) {
         super(client);
         this.baseURL = createBaseURL("{{{basePath}}}");
     }

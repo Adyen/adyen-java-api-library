@@ -126,10 +126,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The arrival date. * Date format: &#x60;yyyyMMdd&#x60;
+   * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    * @return lodgingCheckInDate
   **/
-  @ApiModelProperty(value = "The arrival date. * Date format: `yyyyMMdd`")
+  @ApiModelProperty(value = "The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.")
 
   public String getLodgingCheckInDate() {
     return lodgingCheckInDate;
@@ -148,10 +148,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The departure date. * Date format: &#x60;yyyyMMdd&#x60;
+   * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    * @return lodgingCheckOutDate
   **/
-  @ApiModelProperty(value = "The departure date. * Date format: `yyyyMMdd`")
+  @ApiModelProperty(value = "The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.")
 
   public String getLodgingCheckOutDate() {
     return lodgingCheckOutDate;
@@ -170,10 +170,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The toll free phone number for the hotel/lodgings. * Format: Alphanumeric * maxLength: 17
+   * The toll-free phone number for the lodging. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.
    * @return lodgingCustomerServiceTollFreeNumber
   **/
-  @ApiModelProperty(value = "The toll free phone number for the hotel/lodgings. * Format: Alphanumeric * maxLength: 17")
+  @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.")
 
   public String getLodgingCustomerServiceTollFreeNumber() {
     return lodgingCustomerServiceTollFreeNumber;
@@ -192,10 +192,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: &#39;Y&#39; or &#39;N&#39;. * Format: Alphabetic * maxLength: 1
+   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic. * Max length: 1 character.
    * @return lodgingFireSafetyActIndicator
   **/
-  @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: 'Y' or 'N'. * Format: Alphabetic * maxLength: 1")
+  @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: 'Y' or 'N'. * Format: alphabetic. * Max length: 1 character.")
 
   public String getLodgingFireSafetyActIndicator() {
     return lodgingFireSafetyActIndicator;
@@ -214,10 +214,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The folio cash advances. * Format: Numeric * maxLength: 12
+   * The folio cash advances. * Format: numeric. * Max length: 12 characters.
    * @return lodgingFolioCashAdvances
   **/
-  @ApiModelProperty(value = "The folio cash advances. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "The folio cash advances. * Format: numeric. * Max length: 12 characters.")
 
   public String getLodgingFolioCashAdvances() {
     return lodgingFolioCashAdvances;
@@ -236,10 +236,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Card acceptor’s internal invoice or billing ID reference number. * Format: Alphanumeric * maxLength: 25
+   * The card acceptor’s internal invoice or billing ID reference number. * Format: alphanumeric. * Max length: 25 characters.
    * @return lodgingFolioNumber
   **/
-  @ApiModelProperty(value = "Card acceptor’s internal invoice or billing ID reference number. * Format: Alphanumeric * maxLength: 25")
+  @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Format: alphanumeric. * Max length: 25 characters.")
 
   public String getLodgingFolioNumber() {
     return lodgingFolioNumber;
@@ -258,10 +258,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Any charges for food and beverages associated with the booking. * Format: Numeric * maxLength: 12
+   * The additional charges for food and beverages associated with the booking. * Format: numeric. * Max length: 12 characters.
    * @return lodgingFoodBeverageCharges
   **/
-  @ApiModelProperty(value = "Any charges for food and beverages associated with the booking. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "The additional charges for food and beverages associated with the booking. * Format: numeric. * Max length: 12 characters.")
 
   public String getLodgingFoodBeverageCharges() {
     return lodgingFoodBeverageCharges;
@@ -280,10 +280,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Indicates if the customer was a \&quot;no-show\&quot; (neither keeps nor cancels their booking).  Value should be Y or N. * Format: Numeric * maxLength: 1
+   * Indicates if the customer didn&#39;t check in for their booking.  Possible values:   * **Y**: the customer didn&#39;t check in.   **N**: the customer checked in.
    * @return lodgingNoShowIndicator
   **/
-  @ApiModelProperty(value = "Indicates if the customer was a \"no-show\" (neither keeps nor cancels their booking).  Value should be Y or N. * Format: Numeric * maxLength: 1")
+  @ApiModelProperty(value = "Indicates if the customer didn't check in for their booking.  Possible values:   * **Y**: the customer didn't check in.   **N**: the customer checked in.")
 
   public String getLodgingNoShowIndicator() {
     return lodgingNoShowIndicator;
@@ -302,10 +302,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Prepaid expenses for the booking. * Format: Numeric * maxLength: 12
+   * The prepaid expenses for the booking. * Format: numeric. * Max length: 12 characters.
    * @return lodgingPrepaidExpenses
   **/
-  @ApiModelProperty(value = "Prepaid expenses for the booking. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "The prepaid expenses for the booking. * Format: numeric. * Max length: 12 characters.")
 
   public String getLodgingPrepaidExpenses() {
     return lodgingPrepaidExpenses;
@@ -324,10 +324,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Identifies specific lodging property location by its local phone number. * Format: Alphanumeric * maxLength: 17
+   * Identifies the location of the lodging by its local phone number. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.
    * @return lodgingPropertyPhoneNumber
   **/
-  @ApiModelProperty(value = "Identifies specific lodging property location by its local phone number. * Format: Alphanumeric * maxLength: 17")
+  @ApiModelProperty(value = "Identifies the location of the lodging by its local phone number. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.")
 
   public String getLodgingPropertyPhoneNumber() {
     return lodgingPropertyPhoneNumber;
@@ -346,10 +346,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Total number of nights the room will be rented. * Format: Numeric * maxLength: 4
+   * The total number of nights the room is booked for. * Format: numeric. * Max length: 4 characters.
    * @return lodgingRoom1NumberOfNights
   **/
-  @ApiModelProperty(value = "Total number of nights the room will be rented. * Format: Numeric * maxLength: 4")
+  @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric. * Max length: 4 characters.")
 
   public String getLodgingRoom1NumberOfNights() {
     return lodgingRoom1NumberOfNights;
@@ -368,10 +368,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The rate of the room. * Format: Numeric * maxLength: 12
+   * The rate of the room. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return lodgingRoom1Rate
   **/
-  @ApiModelProperty(value = "The rate of the room. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "The rate of the room. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getLodgingRoom1Rate() {
     return lodgingRoom1Rate;
@@ -390,10 +390,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total amount of tax to be paid. * Format: Numeric * maxLength: 12
+   * The total amount of tax to be paid. * Format: numeric. * Max length: 12 chracters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return lodgingRoom1Tax
   **/
-  @ApiModelProperty(value = "The total amount of tax to be paid. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "The total amount of tax to be paid. * Format: numeric. * Max length: 12 chracters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getLodgingRoom1Tax() {
     return lodgingRoom1Tax;
@@ -412,10 +412,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Total room tax amount. * Format: Numeric * maxLength: 12
+   * The total room tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return lodgingTotalRoomTax
   **/
-  @ApiModelProperty(value = "Total room tax amount. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "The total room tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getLodgingTotalRoomTax() {
     return lodgingTotalRoomTax;
@@ -434,10 +434,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Total tax amount. * Format: Numeric * maxLength: 12
+   * The total tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return lodgingTotalTax
   **/
-  @ApiModelProperty(value = "Total tax amount. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "The total tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getLodgingTotalTax() {
     return lodgingTotalTax;
@@ -456,10 +456,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Number of nights. This should be included in the auth message. * Format: Numeric * maxLength: 2
+   * The number of nights. This should be included in the auth message. * Format: numeric. * Max length: 2 characters.
    * @return travelEntertainmentAuthDataDuration
   **/
-  @ApiModelProperty(value = "Number of nights. This should be included in the auth message. * Format: Numeric * maxLength: 2")
+  @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric. * Max length: 2 characters.")
 
   public String getTravelEntertainmentAuthDataDuration() {
     return travelEntertainmentAuthDataDuration;
@@ -478,10 +478,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be \&quot;H\&quot; for Hotel. This should be included in the auth message.  * Format: Alphanumeric * maxLength: 1
+   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be \&quot;H\&quot; for Hotel. This should be included in the auth message.  * Format: alphanumeric. * Max length: 1 character.
    * @return travelEntertainmentAuthDataMarket
   **/
-  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"H\" for Hotel. This should be included in the auth message.  * Format: Alphanumeric * maxLength: 1")
+  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"H\" for Hotel. This should be included in the auth message.  * Format: alphanumeric. * Max length: 1 character.")
 
   public String getTravelEntertainmentAuthDataMarket() {
     return travelEntertainmentAuthDataMarket;

@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import com.adyen.enums.Environment;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -49,4 +50,27 @@ public class Service {
         isApiKeyRequired = apiKeyRequired;
     }
 
+    protected String createBaseURL(String url) {
+        Config config = this.getClient().getConfig();
+        if (config.getEnvironment() != Environment.LIVE) {
+            return url;
+        }
+
+        if (url.contains("pal-")) {
+            if (config.getLiveEndpointUrlPrefix() == null) {
+                throw new IllegalArgumentException("please provide a live url prefix in the client");
+            }
+            url = url.replaceFirst("https://pal-test.adyen.com/pal/servlet/",
+                    "https://" + config.getLiveEndpointUrlPrefix() + "-pal-live.adyenpayments.com/pal/servlet/");
+        }
+
+        if (url.contains("checkout-")) {
+            if (config.getLiveEndpointUrlPrefix() == null) {
+                throw new IllegalArgumentException("please provide a live url prefix in the client");
+            }
+            url = url.replaceFirst("https://checkout-test.adyen.com/",
+                    "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/checkout/");
+        }
+        return url.replaceFirst("-test", "-live");
+    }
 }
