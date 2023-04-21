@@ -79,7 +79,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		--model-package $(subst /,.,com.adyen.model.$@) \
 		--library $(library) \
 		--api-package com.adyen.service.$@ \
-        --api-name-suffix Api \
+		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=java8 \
