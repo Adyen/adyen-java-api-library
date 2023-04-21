@@ -140,6 +140,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutCreateOrderResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutNativeRedirectAction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutOrderResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutPaymentMethod.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutQrCodeAction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutRedirectAction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.CheckoutSDKAction.CustomTypeAdapterFactory());
@@ -207,7 +208,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.PaymentDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.PaymentDetailsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.PaymentDonationRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.PaymentDonationRequestPaymentMethod.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.PaymentLinkResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.PaymentMethod.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.PaymentMethodGroup.CustomTypeAdapterFactory());
