@@ -19,7 +19,6 @@ import com.adyen.model.legalentitymanagement.AcceptTermsOfServiceResponse;
 import com.adyen.model.legalentitymanagement.GetTermsOfServiceAcceptanceInfosResponse;
 import com.adyen.model.legalentitymanagement.GetTermsOfServiceDocumentRequest;
 import com.adyen.model.legalentitymanagement.GetTermsOfServiceDocumentResponse;
-import com.adyen.model.legalentitymanagement.ServiceError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
