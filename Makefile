@@ -52,6 +52,7 @@ $(services): target/spec $(openapi-generator-jar)
 		--library $(library) \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
+		--inline-schema-name-mappings PaymentDonationRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=serializationLibrary=gson \
 		--additional-properties=openApiNullable=false \
@@ -82,6 +83,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
+		--inline-schema-name-mappings PaymentDonationRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=serializationLibrary=gson \
 		--additional-properties=openApiNullable=false
@@ -107,6 +109,7 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
+		--inline-schema-name-mappings PaymentDonationRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=serializationLibrary=gson \
 		--additional-properties=openApiNullable=false \

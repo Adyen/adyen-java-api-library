@@ -20,6 +20,7 @@ import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
 import com.adyen.model.checkout.BrowserInfo;
+import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
 import com.adyen.model.checkout.EncryptedOrderData;
 import com.adyen.model.checkout.ForexQuote;
@@ -28,7 +29,6 @@ import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Mandate;
 import com.adyen.model.checkout.MerchantRiskIndicator;
 import com.adyen.model.checkout.Name;
-import com.adyen.model.checkout.PaymentDonationRequestPaymentMethod;
 import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.Split;
@@ -385,7 +385,7 @@ public class PaymentDonationRequest {
 
   public static final String SERIALIZED_NAME_PAYMENT_METHOD = "paymentMethod";
   @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
-  private PaymentDonationRequestPaymentMethod paymentMethod;
+  private CheckoutPaymentMethod paymentMethod;
 
   public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
@@ -1526,7 +1526,7 @@ public class PaymentDonationRequest {
   }
 
 
-  public PaymentDonationRequest paymentMethod(PaymentDonationRequestPaymentMethod paymentMethod) {
+  public PaymentDonationRequest paymentMethod(CheckoutPaymentMethod paymentMethod) {
     
     this.paymentMethod = paymentMethod;
     return this;
@@ -1538,12 +1538,12 @@ public class PaymentDonationRequest {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public PaymentDonationRequestPaymentMethod getPaymentMethod() {
+  public CheckoutPaymentMethod getPaymentMethod() {
     return paymentMethod;
   }
 
 
-  public void setPaymentMethod(PaymentDonationRequestPaymentMethod paymentMethod) {
+  public void setPaymentMethod(CheckoutPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
@@ -2535,7 +2535,7 @@ public class PaymentDonationRequest {
       }
       // validate the optional field `paymentMethod`
       if (jsonObj.getAsJsonObject("paymentMethod") != null) {
-        PaymentDonationRequestPaymentMethod.validateJsonObject(jsonObj.getAsJsonObject("paymentMethod"));
+        CheckoutPaymentMethod.validateJsonObject(jsonObj.getAsJsonObject("paymentMethod"));
       }
       // validate the optional field `platformChargebackLogic`
       if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {

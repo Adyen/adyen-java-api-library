@@ -72,7 +72,7 @@ public class CheckoutTest extends BaseTest {
         cardDetails.setType(CardDetails.TypeEnum.SCHEME);
         PaymentRequest paymentRequest = new PaymentRequest();
         paymentRequest.setAmount(amount);
-        paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
+        paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(cardDetails));
         PaymentsApi checkout = new PaymentsApi(client);
         PaymentResponse paymentResponse = checkout.payments(paymentRequest);
         assertEquals("993617895204576J", paymentResponse.getPspReference());
@@ -94,7 +94,7 @@ public class CheckoutTest extends BaseTest {
         paymentRequest.setMerchantAccount("myMerchantAccount");
         paymentRequest.setReference("merchantReference");
         paymentRequest.setReturnUrl("http://return.com");
-        paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(idealDetails));
+        paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(idealDetails));
 
         PaymentRequest parsedPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
         assertEquals(IdealDetails.TypeEnum.IDEAL, parsedPaymentRequest.getPaymentMethod().getIdealDetails().getType());
@@ -292,7 +292,7 @@ public class CheckoutTest extends BaseTest {
         paymentDonationRequest.setDonationAccount("YOUR_DONATION_ACCOUNT");
         paymentDonationRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
         CardDetails cardDetails = new CardDetails().type(CardDetails.TypeEnum.SCHEME);
-        paymentDonationRequest.paymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
+        paymentDonationRequest.paymentMethod(new CheckoutPaymentMethod(cardDetails));
         paymentDonationRequest.setReference("YOUR_MERCHANT_REFERENCE");
         paymentDonationRequest.setReturnUrl("https://your-company.com/...");
         PaymentsApi checkout = new PaymentsApi(client);
