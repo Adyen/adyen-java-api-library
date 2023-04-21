@@ -50,7 +50,7 @@ public class Service {
         isApiKeyRequired = apiKeyRequired;
     }
 
-    public String createBaseURL(String url) {
+    protected String createBaseURL(String url) {
         Config config = this.getClient().getConfig();
         if (config.getEnvironment() != Environment.LIVE) {
             return url;
