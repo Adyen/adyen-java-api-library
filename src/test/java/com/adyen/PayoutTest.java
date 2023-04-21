@@ -21,8 +21,10 @@
 package com.adyen;
 
 import com.adyen.model.payout.*;
-import com.adyen.service.Payout;
 import com.adyen.service.exception.ApiException;
+import com.adyen.service.payout.InitializationApi;
+import com.adyen.service.payout.InstantPayoutsApi;
+import com.adyen.service.payout.ReviewingApi;
 import org.junit.Test;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_MANUAL_REVIEW;
@@ -37,7 +39,7 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testStoreDetailAndSubmitThirdPartySuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/payout/storeDetailAndSubmitThirdParty-success.json");
-        Payout payout = new Payout(client);
+        InitializationApi payout = new InitializationApi(client);
 
         StoreDetailAndSubmitRequest request = new StoreDetailAndSubmitRequest();
         StoreDetailAndSubmitResponse result = payout.storeDetailAndSubmitThirdParty(request);
@@ -51,7 +53,7 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testStoreDetailSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/payout/storeDetail-success.json");
-        Payout payout = new Payout(client);
+        InitializationApi payout = new InitializationApi(client);
 
         StoreDetailRequest request = new StoreDetailRequest();
         StoreDetailResponse result = payout.storeDetail(request);
@@ -64,7 +66,7 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testConfirmThirdPartySuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/payout/modifyResponse-success.json");
-        Payout payout = new Payout(client);
+        ReviewingApi payout = new ReviewingApi(client);
 
         ModifyRequest request = new ModifyRequest();
         ModifyResponse result = payout.confirmThirdParty(request);
@@ -76,10 +78,10 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testSubmitThirdPartySuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/payout/submitResponse-success.json");
-        Payout payout = new Payout(client);
+        InitializationApi payout = new InitializationApi(client);
 
         SubmitRequest request = new SubmitRequest();
-        SubmitResponse result = payout.submitThirdparty(request);
+        SubmitResponse result = payout.submitThirdParty(request);
 
         assertEquals("[payout-submit-received]", result.getResultCode());
         assertEquals("8815131768219992", result.getPspReference());
@@ -90,7 +92,7 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testDeclineThirdPartySuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/payout/modifyResponse-success.json");
-        Payout payout = new Payout(client);
+        ReviewingApi payout = new ReviewingApi(client);
 
         ModifyRequest request = new ModifyRequest();
         ModifyResponse result = payout.declineThirdParty(request);
@@ -102,7 +104,7 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testPayoutSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/payout/payout-success.json");
-        Payout payout = new Payout(client);
+        InstantPayoutsApi payout = new InstantPayoutsApi(client);
 
         PayoutRequest request = new PayoutRequest();
         PayoutResponse result = payout.payout(request);
@@ -115,7 +117,7 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testPayoutErrorMerchant() throws Exception {
         Client client = createMockClientForErrors(403, "mocks/payout/payout-error-403.json");
-        Payout payout = new Payout(client);
+        InstantPayoutsApi payout = new InstantPayoutsApi(client);
 
         PayoutRequest request = new PayoutRequest();
 
@@ -132,7 +134,7 @@ public class PayoutTest extends BaseTest {
     @Test
     public void testPayoutErrorReference() throws Exception {
         Client client = createMockClientForErrors(422, "mocks/payout/payout-error-422.json");
-        Payout payout = new Payout(client);
+        InstantPayoutsApi payout = new InstantPayoutsApi(client);
 
         PayoutRequest request = new PayoutRequest();
 
