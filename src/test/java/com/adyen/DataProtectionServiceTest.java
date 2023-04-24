@@ -20,15 +20,17 @@
  */
 package com.adyen;
 
-import com.adyen.model.dataprotection.SubjectErasureRequest;
+import com.adyen.constants.ApiConstants;
+import com.adyen.model.dataprotection.SubjectErasureByPspReferenceRequest;
 import com.adyen.model.dataprotection.SubjectErasureResponse;
-import com.adyen.service.DataProtection;
+import com.adyen.service.DataProtectionApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 
 public class DataProtectionServiceTest extends BaseTest {
     /**
@@ -37,16 +39,25 @@ public class DataProtectionServiceTest extends BaseTest {
     @Test
     public void TestRequestSubjectErasureSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/request-subject-erasure-success.json");
-        DataProtection dataProtection = new DataProtection(client);
-        SubjectErasureRequest subjectErasureRequest = createSubjectErasureRequest();
+        DataProtectionApi dataProtection = new DataProtectionApi(client);
+        SubjectErasureByPspReferenceRequest subjectErasureRequest = new SubjectErasureByPspReferenceRequest();
 
         SubjectErasureResponse subjectErasureResponse = dataProtection.requestSubjectErasure(subjectErasureRequest);
 
+        verify(client.getHttpClient()).request(
+                "https://ca-test.adyen.com/ca/services/DataProtectionService/v1/requestSubjectErasure",
+                "{}",
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.POST,
+                null
+        );
         assertEquals(SubjectErasureResponse.ResultEnum.SUCCESS, subjectErasureResponse.getResult());
     }
 
-    protected SubjectErasureRequest createSubjectErasureRequest() {
-        SubjectErasureRequest subjectErasureRequest = new SubjectErasureRequest();
+    protected SubjectErasureByPspReferenceRequest createSubjectErasureRequest() {
+        SubjectErasureByPspReferenceRequest subjectErasureRequest = new SubjectErasureByPspReferenceRequest();
         subjectErasureRequest.setForceErasure(false);
         subjectErasureRequest.setMerchantAccount("Test");
         subjectErasureRequest.setPspReference("123456");
@@ -57,8 +68,8 @@ public class DataProtectionServiceTest extends BaseTest {
     @Test
     public void TestGetAuthenticationResultErrorNotFound() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/request-subject-erasure-not-found.json");
-        DataProtection dataProtection = new DataProtection(client);
-        SubjectErasureRequest subjectErasureRequest = createSubjectErasureRequest();
+        DataProtectionApi dataProtection = new DataProtectionApi(client);
+        SubjectErasureByPspReferenceRequest subjectErasureRequest = createSubjectErasureRequest();
 
         SubjectErasureResponse subjectErasureResponse = dataProtection.requestSubjectErasure(subjectErasureRequest);
 
