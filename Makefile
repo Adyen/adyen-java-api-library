@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-modelGen:=balanceplatform binlookup checkout legalentitymanagement management payments payout recurring transfers
+modelGen:=balanceplatform binlookup checkout legalentitymanagement management payment payout recurring transfers
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -23,7 +23,8 @@ storedvalue: spec=StoredValueService-v46
 storedvalue: smallServiceName=StoredValueApi
 posterminalmanagement: spec=TfmAPIService-v1
 posterminalmanagement: smallServiceName=PosTerminalManagementApi
-payments: spec=PaymentService-v68
+payment: spec=PaymentService-v68
+payment: smallServiceName=PaymentApi
 recurring: spec=RecurringService-v68
 recurring: smallServiceName=RecurringApi
 payout: spec=PayoutService-v68
@@ -61,8 +62,8 @@ $(services): target/spec $(openapi-generator-jar)
 	mv $(output)/$(models)/JSON.java $(models)/$@
 
 # Full service + models automation
-bigServices:=balanceplatform checkout storedValue payments payout management legalentitymanagement transfers
-singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring
+bigServices:=balanceplatform checkout storedValue payout management legalentitymanagement transfers
+singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment
 
 services: $(bigServices) $(singleFileServices)
 
@@ -92,6 +93,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 	mv $(output)/src/main/java/com/adyen/service/$@ src/main/java/com/adyen/service/$@
 
 $(singleFileServices): target/spec $(openapi-generator-jar)
+	cat <<< "$$(jq 'del(.paths[][].tags)' target/spec/json/$(spec).json)" > target/spec/json/$(spec).json
 	rm -rf $(models)/$@ $(output)
 	rm -rf src/main/java/com/adyen/service/$@ $(output)
 	$(openapi-generator-cli) generate \

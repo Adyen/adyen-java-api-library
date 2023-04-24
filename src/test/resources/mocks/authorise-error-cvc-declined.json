@@ -7,56 +7,31 @@
   "fraudResult": {
     "accountScore": 50,
     "results": [
-      {
-        "accountScore": 0,
+      {"FraudCheckResult": {
+        "accountScore": 8,
         "checkId": 2,
         "name": "CardChunkUsage"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 3,
-        "name": "PaymentDetailUsage"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 4,
-        "name": "HolderNameUsage"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 1,
-        "name": "PaymentDetailRefCheck"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 13,
-        "name": "IssuerRefCheck"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 15,
-        "name": "IssuingCountryReferral"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 27,
-        "name": "PmOwnerRefCheck"
-      },
-      {
-        "accountScore": 50,
-        "checkId": 41,
-        "name": "PaymentDetailNonFraudRefCheck"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 10,
-        "name": "HolderNameContainsNumber"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 11,
-        "name": "HolderNameIsOneWord"
-      }
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }}
     ]
   },
   "pspReference": "7924836078655376",

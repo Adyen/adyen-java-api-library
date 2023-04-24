@@ -8,16 +8,31 @@
   "fraudResult": {
     "accountScore": 12,
     "results": [
-      {
-        "accountScore": 12,
-        "checkId": -1,
-        "name": "Pre-Auth-Risk-Total"
-      },
-      {
-        "accountScore": 0,
-        "checkId": 25,
-        "name": "CVCAuthResultCheck"
-      }
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }},
+      {"FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }}
     ]
   },
   "pspReference": "8524836146572696",

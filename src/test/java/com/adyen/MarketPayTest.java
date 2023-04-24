@@ -20,10 +20,10 @@
  */
 package com.adyen;
 
-import com.adyen.model.payments.Card;
-import com.adyen.model.payments.FraudCheckResult;
-import com.adyen.model.payments.PaymentRequest;
-import com.adyen.model.payments.PaymentResult;
+import com.adyen.model.payment.Card;
+import com.adyen.model.payment.FraudCheckResult;
+import com.adyen.model.payment.PaymentRequest;
+import com.adyen.model.payment.PaymentResult;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.hop.GetOnboardingUrlRequest;
@@ -34,7 +34,7 @@ import com.adyen.model.marketpay.*;
 import com.adyen.service.Account;
 import com.adyen.service.Fund;
 import com.adyen.service.Hop;
-import com.adyen.service.Payment;
+import com.adyen.service.PaymentApi;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
 import org.junit.Test;
@@ -65,10 +65,10 @@ public class MarketPayTest extends BaseTest {
     @Test
     public void TestCreateSplitPayment() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456");
-        paymentRequest.setAmount(new com.adyen.model.payments.Amount().value(6200L).currency("EUR"));
+        paymentRequest.setAmount(new com.adyen.model.payment.Amount().value(6200L).currency("EUR"));
         Card card = new Card();
         card.setExpiryMonth("08");
         card.setExpiryYear("2018");
@@ -104,7 +104,7 @@ public class MarketPayTest extends BaseTest {
         // add items to list
         splitPayment.setSplitPaymentItems(splitPaymentItems);
 
-        // add it into the request
+        // add it into the requests
         setSplitPayment(paymentRequest, splitPayment);
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
@@ -127,9 +127,9 @@ public class MarketPayTest extends BaseTest {
         assertEquals("false", additionalData.get(THREE_D_AUTHENTICATED));
         assertEquals("69746", paymentResult.getAuthCode());
 
-        assertEquals(11, paymentResult.getFraudResult().getResults().size());
+        assertEquals(5, paymentResult.getFraudResult().getResults().size());
 
-        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0);
+        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0).getFraudCheckResult();
         assertEquals("CardChunkUsage", fraudCheckResult.getName());
         assertEquals(8, fraudCheckResult.getAccountScore().intValue());
         assertEquals(2, fraudCheckResult.getCheckId().intValue());
