@@ -7,7 +7,7 @@
 package com.adyen;
 
 import com.adyen.model.recurring.*;
-import com.adyen.service.Recurring;
+import com.adyen.service.RecurringApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
@@ -78,7 +78,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testListRecurringDetails() throws Exception {
         Client client = createMockClientFromFile("mocks/recurring/listRecurringDetails-success.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         RecurringDetailsRequest request = createRecurringDetailsRequest();
 
@@ -96,7 +96,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testDisable() throws Exception {
         Client client = createMockClientFromFile("mocks/recurring/disable-success.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         DisableRequest request = createDisableRequest();
 
@@ -107,7 +107,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testDisable803() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/recurring/disable-error-803.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         DisableRequest request = createDisableRequest();
 
@@ -123,7 +123,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testScheduleAccountUpdater() throws Exception {
         Client client = createMockClientFromFile("mocks/recurring/scheduleAccountUpdater-success.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         ScheduleAccountUpdaterRequest request = createScheduleAccountUpdaterRequest();
 
@@ -137,7 +137,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testScheduleAccountUpdater130() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/recurring/scheduleAccountUpdater-error-130.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         ScheduleAccountUpdaterRequest request = createScheduleAccountUpdaterRequest();
 
@@ -153,7 +153,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testNotifyShopper() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/recurring/notifyShopper-success.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         NotifyShopperRequest request = createNotifyShopperRequest();
 
@@ -170,7 +170,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testCreatePermit() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/recurring/createPermit-success.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         CreatePermitRequest createPermitRequest = new CreatePermitRequest();
         createPermitRequest.setMerchantAccount("merchantAccount");
@@ -192,7 +192,7 @@ public class RecurringTest extends BaseTest {
     @Test
     public void testDisablePermit() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/recurring/disablePermit-success.json");
-        Recurring recurring = new Recurring(client);
+        RecurringApi recurring = new RecurringApi(client);
 
         DisablePermitRequest disablePermitRequest = new DisablePermitRequest();
         disablePermitRequest.setMerchantAccount("merchantAccount");
