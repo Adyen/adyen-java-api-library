@@ -1,0 +1,399 @@
+{
+  "capabilities": {
+    "additionalProp1": {
+      "allowed": true,
+      "allowedLevel": "high",
+      "allowedSettings": {
+        "amountPerIndustry": {
+          "additionalProp1": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp2": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp3": {
+            "currency": "string",
+            "value": 0
+          }
+        },
+        "authorizedCardUsers": true,
+        "fundingSource": [
+          "credit"
+        ],
+        "interval": "daily",
+        "maxAmount": {
+          "currency": "string",
+          "value": 0
+        }
+      },
+      "requested": true,
+      "requestedLevel": "high",
+      "requestedSettings": {
+        "amountPerIndustry": {
+          "additionalProp1": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp2": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp3": {
+            "currency": "string",
+            "value": 0
+          }
+        },
+        "authorizedCardUsers": true,
+        "fundingSource": [
+          "credit"
+        ],
+        "interval": "daily",
+        "maxAmount": {
+          "currency": "string",
+          "value": 0
+        }
+      },
+      "transferInstruments": [
+        {
+          "allowed": true,
+          "id": "string",
+          "requested": true,
+          "verificationStatus": "string"
+        }
+      ],
+      "verificationStatus": "string"
+    },
+    "additionalProp2": {
+      "allowed": true,
+      "allowedLevel": "high",
+      "allowedSettings": {
+        "amountPerIndustry": {
+          "additionalProp1": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp2": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp3": {
+            "currency": "string",
+            "value": 0
+          }
+        },
+        "authorizedCardUsers": true,
+        "fundingSource": [
+          "credit"
+        ],
+        "interval": "daily",
+        "maxAmount": {
+          "currency": "string",
+          "value": 0
+        }
+      },
+      "requested": true,
+      "requestedLevel": "high",
+      "requestedSettings": {
+        "amountPerIndustry": {
+          "additionalProp1": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp2": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp3": {
+            "currency": "string",
+            "value": 0
+          }
+        },
+        "authorizedCardUsers": true,
+        "fundingSource": [
+          "credit"
+        ],
+        "interval": "daily",
+        "maxAmount": {
+          "currency": "string",
+          "value": 0
+        }
+      },
+      "transferInstruments": [
+        {
+          "allowed": true,
+          "id": "string",
+          "requested": true,
+          "verificationStatus": "string"
+        }
+      ],
+      "verificationStatus": "string"
+    },
+    "additionalProp3": {
+      "allowed": true,
+      "allowedLevel": "high",
+      "allowedSettings": {
+        "amountPerIndustry": {
+          "additionalProp1": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp2": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp3": {
+            "currency": "string",
+            "value": 0
+          }
+        },
+        "authorizedCardUsers": true,
+        "fundingSource": [
+          "credit"
+        ],
+        "interval": "daily",
+        "maxAmount": {
+          "currency": "string",
+          "value": 0
+        }
+      },
+      "requested": true,
+      "requestedLevel": "high",
+      "requestedSettings": {
+        "amountPerIndustry": {
+          "additionalProp1": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp2": {
+            "currency": "string",
+            "value": 0
+          },
+          "additionalProp3": {
+            "currency": "string",
+            "value": 0
+          }
+        },
+        "authorizedCardUsers": true,
+        "fundingSource": [
+          "credit"
+        ],
+        "interval": "daily",
+        "maxAmount": {
+          "currency": "string",
+          "value": 0
+        }
+      },
+      "transferInstruments": [
+        {
+          "allowed": true,
+          "id": "string",
+          "requested": true,
+          "verificationStatus": "string"
+        }
+      ],
+      "verificationStatus": "string"
+    }
+  },
+  "documentDetails": [
+    {
+      "active": true,
+      "description": "string",
+      "fileName": "string",
+      "id": "string",
+      "modificationDate": "2023-04-19T15:28:42.670Z",
+      "type": "string"
+    }
+  ],
+  "entityAssociations": [
+    {
+      "associatorId": "string",
+      "entityType": "string",
+      "jobTitle": "string",
+      "legalEntityId": "string",
+      "name": "string",
+      "type": "pciSignatory"
+    }
+  ],
+  "id": "string",
+  "individual": {
+    "birthData": {
+      "dateOfBirth": "string"
+    },
+    "email": "string",
+    "identificationData": {
+      "cardNumber": "string",
+      "issuerState": "string",
+      "nationalIdExempt": true,
+      "number": "string",
+      "type": "bankStatement"
+    },
+    "name": {
+      "firstName": "string",
+      "infix": "string",
+      "lastName": "string"
+    },
+    "nationality": "string",
+    "phone": {
+      "number": "string",
+      "type": "string"
+    },
+    "residentialAddress": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "taxInformation": [
+      {
+        "country": "st",
+        "number": "string",
+        "type": "string"
+      }
+    ],
+    "webData": {
+      "webAddress": "string",
+      "webAddressId": "string"
+    }
+  },
+  "organization": {
+    "dateOfIncorporation": "string",
+    "description": "string",
+    "doingBusinessAs": "string",
+    "email": "string",
+    "legalName": "string",
+    "phone": {
+      "number": "string",
+      "type": "string"
+    },
+    "principalPlaceOfBusiness": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registeredAddress": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registrationNumber": "string",
+    "stockData": {
+      "marketIdentifier": "string",
+      "stockNumber": "string",
+      "tickerSymbol": "string"
+    },
+    "taxInformation": [
+      {
+        "country": "st",
+        "number": "string",
+        "type": "string"
+      }
+    ],
+    "taxReportingClassification": {
+      "businessType": "other",
+      "financialInstitutionNumber": "string",
+      "mainSourceOfIncome": "businessOperation",
+      "type": "nonFinancialNonReportable"
+    },
+    "type": "associationIncorporated",
+    "vatAbsenceReason": "industryExemption",
+    "vatNumber": "string",
+    "webData": {
+      "webAddress": "string",
+      "webAddressId": "string"
+    }
+  },
+  "problems": [
+    {
+      "entity": {
+        "documents": [
+          "string"
+        ],
+        "id": "string",
+        "owner": {
+          "documents": [
+            "string"
+          ],
+          "id": "string",
+          "type": "BankAccount"
+        },
+        "type": "BankAccount"
+      },
+      "verificationErrors": [
+        {
+          "capabilities": [
+            "acceptExternalFunding"
+          ],
+          "code": "string",
+          "message": "string",
+          "remediatingActions": [
+            {
+              "code": "string",
+              "message": "string"
+            }
+          ],
+          "subErrors": [
+            {
+              "capabilities": [
+                "acceptExternalFunding"
+              ],
+              "code": "string",
+              "message": "string",
+              "type": "dataMissing",
+              "remediatingActions": [
+                {
+                  "code": "string",
+                  "message": "string"
+                }
+              ]
+            }
+          ],
+          "type": "dataMissing"
+        }
+      ]
+    }
+  ],
+  "reference": "string",
+  "soleProprietorship": {
+    "countryOfGoverningLaw": "string",
+    "dateOfIncorporation": "string",
+    "doingBusinessAs": "string",
+    "name": "string",
+    "principalPlaceOfBusiness": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registeredAddress": {
+      "city": "string",
+      "country": "string",
+      "postalCode": "string",
+      "stateOrProvince": "string",
+      "street": "string",
+      "street2": "string"
+    },
+    "registrationNumber": "string",
+    "vatAbsenceReason": "industryExemption",
+    "vatNumber": "string"
+  },
+  "transferInstruments": [
+    {
+      "accountIdentifier": "string",
+      "id": "string",
+      "realLastFour": "string"
+    }
+  ],
+  "type": "individual"
+}

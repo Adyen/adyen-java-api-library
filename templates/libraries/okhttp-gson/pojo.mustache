@@ -466,7 +466,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
         // validate the optional field `{{{baseName}}}` (array)
         for (int i = 0; i < jsonArray{{name}}.size(); i++) {
           {{{items.dataType}}}.validateJsonObject(jsonArray{{name}}.get(i).getAsJsonObject());
-        };
+        }
       }
       {{/isRequired}}
       {{/items.isModel}}

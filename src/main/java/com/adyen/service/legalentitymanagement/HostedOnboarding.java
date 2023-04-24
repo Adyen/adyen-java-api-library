@@ -12,6 +12,9 @@ import com.adyen.service.resource.LegalEntityManagementResource;
 
 import java.io.IOException;
 
+/**
+ * @deprecated replaced by {@link HostedOnboardingApi}
+ */
 public class HostedOnboarding extends Service {
     public HostedOnboarding(Client client) {
         super(client);

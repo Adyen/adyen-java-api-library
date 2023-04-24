@@ -1,27 +1,20 @@
 {
-  "documentDetails": [{
-    "active": false,
-    "fileName": "string",
-    "id": "string"
-  }],
-  "documents": [{ "id": "string" }],
-  "entityAssociations": [{
-    "associatorId": "string",
-    "entityType": "string",
-    "jobTitle": "string",
-    "legalEntityId": "string",
-    "name": "string",
-    "type": "signatory"
-  }],
-  "id": "LE322JV223222D5GG42KN6869",
+  "entityAssociations": [
+    {
+      "jobTitle": "string",
+      "legalEntityId": "string",
+      "type": "pciSignatory"
+    }
+  ],
   "individual": {
-    "birthData": { "dateOfBirth": "string" },
+    "birthData": {
+      "dateOfBirth": "string"
+    },
     "email": "string",
     "identificationData": {
-      "expiryDate": "string",
-      "issuerCountry": "string",
+      "cardNumber": "string",
       "issuerState": "string",
-      "nationalIdExempt": false,
+      "nationalIdExempt": true,
       "number": "string",
       "type": "bankStatement"
     },
@@ -43,14 +36,19 @@
       "street": "string",
       "street2": "string"
     },
-    "taxInformation": [{
-      "country": "string",
-      "number": "string",
-      "type": "string"
-    }],
-    "webData": { "webAddress": "string" }
+    "taxInformation": [
+      {
+        "country": "st",
+        "number": "string",
+        "type": "string"
+      }
+    ],
+    "webData": {
+      "webAddress": "string"
+    }
   },
   "organization": {
+    "dateOfIncorporation": "string",
     "description": "string",
     "doingBusinessAs": "string",
     "email": "string",
@@ -81,11 +79,13 @@
       "stockNumber": "string",
       "tickerSymbol": "string"
     },
-    "taxInformation": [{
-      "country": "string",
-      "number": "string",
-      "type": "string"
-    }],
+    "taxInformation": [
+      {
+        "country": "st",
+        "number": "string",
+        "type": "string"
+      }
+    ],
     "taxReportingClassification": {
       "businessType": "other",
       "financialInstitutionNumber": "string",
@@ -95,11 +95,14 @@
     "type": "associationIncorporated",
     "vatAbsenceReason": "industryExemption",
     "vatNumber": "string",
-    "webData": { "webAddress": "string" }
+    "webData": {
+      "webAddress": "string"
+    }
   },
   "reference": "string",
   "soleProprietorship": {
     "countryOfGoverningLaw": "string",
+    "dateOfIncorporation": "string",
     "doingBusinessAs": "string",
     "name": "string",
     "principalPlaceOfBusiness": {
@@ -122,6 +125,5 @@
     "vatAbsenceReason": "industryExemption",
     "vatNumber": "string"
   },
-  "transferInstruments": [{ "id": "string", "accountIdentifier": "string" }],
   "type": "individual"
 }

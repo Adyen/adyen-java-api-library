@@ -1,0 +1,12 @@
+{
+  "bankAccount": {
+    "accountIdentification": {
+      "accountNumber": "string",
+      "bsbCode": "string",
+      "type": "auLocal"
+    },
+    "countryCode": "string"
+  },
+  "legalEntityId": "string",
+  "type": "bankAccount"
+}

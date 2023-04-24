@@ -30,7 +30,7 @@ payout: spec=PayoutService-v68
 management: spec=ManagementService-v1
 balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
-legalentitymanagement: spec=LegalEntityService-v2
+legalentitymanagement: spec=LegalEntityService-v3
 # Classic Platforms
 marketpay/account: spec=AccountService-v6
 marketpay/fund: spec=FundService-v6
