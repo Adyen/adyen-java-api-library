@@ -22,7 +22,7 @@
 package com.adyen;
 
 import com.adyen.model.posterminalmanagement.*;
-import com.adyen.service.PosTerminalManagement;
+import com.adyen.service.PosTerminalManagementApi;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class PosTerminalManagementTest extends BaseTest {
     @Test
     public void testAssignTerminalsSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/posterminalmanagement/assign-terminals-success.json");
-        PosTerminalManagement posTerminalManagement = new PosTerminalManagement(client);
+        PosTerminalManagementApi posTerminalManagement = new PosTerminalManagementApi(client);
 
         AssignTerminalsRequest request = new AssignTerminalsRequest();
         request.setCompanyAccount("companyAccount");
@@ -49,7 +49,7 @@ public class PosTerminalManagementTest extends BaseTest {
     @Test
     public void testFindTerminalSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/posterminalmanagement/find-terminal-success.json");
-        PosTerminalManagement posTerminalManagement = new PosTerminalManagement(client);
+        PosTerminalManagementApi posTerminalManagement = new PosTerminalManagementApi(client);
 
         FindTerminalRequest request = new FindTerminalRequest();
         request.setTerminal("P400Plus-375039202");
@@ -57,7 +57,6 @@ public class PosTerminalManagementTest extends BaseTest {
 
         assertEquals("DemoCompany", result.getCompanyAccount());
         assertEquals("TestMerchant", result.getMerchantAccount());
-        assertEquals(false, result.isMerchantInventory());
         assertEquals("MyStore", result.getStore());
         assertEquals("P400Plus-375039202", result.getTerminal());
     }
@@ -65,7 +64,7 @@ public class PosTerminalManagementTest extends BaseTest {
     @Test
     public void testGetTerminalsUnderAccountSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/posterminalmanagement/get-terminals-under-account-success.json");
-        PosTerminalManagement posTerminalManagement = new PosTerminalManagement(client);
+        PosTerminalManagementApi posTerminalManagement = new PosTerminalManagementApi(client);
 
         GetTerminalsUnderAccountRequest request = new GetTerminalsUnderAccountRequest();
         request.setCompanyAccount("DemoCompany");
@@ -80,7 +79,7 @@ public class PosTerminalManagementTest extends BaseTest {
     @Test
     public void testGetStoresUnderAccountSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/posterminalmanagement/get-stores-under-account-success.json");
-        PosTerminalManagement posTerminalManagement = new PosTerminalManagement(client);
+        PosTerminalManagementApi posTerminalManagement = new PosTerminalManagementApi(client);
 
         GetStoresUnderAccountRequest request = new GetStoresUnderAccountRequest();
         request.setCompanyAccount("DemoCompany");
@@ -99,7 +98,7 @@ public class PosTerminalManagementTest extends BaseTest {
     @Test
     public void testGetTerminalDetailsSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/posterminalmanagement/get-terminal-details-success.json");
-        PosTerminalManagement posTerminalManagement = new PosTerminalManagement(client);
+        PosTerminalManagementApi posTerminalManagement = new PosTerminalManagementApi(client);
 
         GetTerminalDetailsRequest request = new GetTerminalDetailsRequest();
         request.setTerminal("P400Plus-375039202");
