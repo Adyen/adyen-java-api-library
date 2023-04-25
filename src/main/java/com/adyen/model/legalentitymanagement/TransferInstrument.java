@@ -427,7 +427,7 @@ public class TransferInstrument {
         // validate the optional field `documentDetails` (array)
         for (int i = 0; i < jsonArraydocumentDetails.size(); i++) {
           DocumentReference.validateJsonObject(jsonArraydocumentDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
@@ -447,7 +447,7 @@ public class TransferInstrument {
         // validate the optional field `problems` (array)
         for (int i = 0; i < jsonArrayproblems.size(); i++) {
           CapabilityProblem.validateJsonObject(jsonArrayproblems.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

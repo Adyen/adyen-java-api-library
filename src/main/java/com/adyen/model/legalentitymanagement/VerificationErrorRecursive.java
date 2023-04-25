@@ -506,7 +506,7 @@ public class VerificationErrorRecursive {
         // validate the optional field `remediatingActions` (array)
         for (int i = 0; i < jsonArrayremediatingActions.size(); i++) {
           RemediatingAction.validateJsonObject(jsonArrayremediatingActions.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

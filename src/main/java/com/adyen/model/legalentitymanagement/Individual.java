@@ -446,7 +446,7 @@ public class Individual {
         // validate the optional field `taxInformation` (array)
         for (int i = 0; i < jsonArraytaxInformation.size(); i++) {
           TaxInformation.validateJsonObject(jsonArraytaxInformation.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `webData`
       if (jsonObj.getAsJsonObject("webData") != null) {

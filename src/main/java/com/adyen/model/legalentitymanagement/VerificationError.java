@@ -537,7 +537,7 @@ public class VerificationError {
         // validate the optional field `remediatingActions` (array)
         for (int i = 0; i < jsonArrayremediatingActions.size(); i++) {
           RemediatingAction.validateJsonObject(jsonArrayremediatingActions.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArraysubErrors = jsonObj.getAsJsonArray("subErrors");
       if (jsonArraysubErrors != null) {
@@ -549,7 +549,7 @@ public class VerificationError {
         // validate the optional field `subErrors` (array)
         for (int i = 0; i < jsonArraysubErrors.size(); i++) {
           VerificationErrorRecursive.validateJsonObject(jsonArraysubErrors.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

@@ -171,7 +171,7 @@ public class VerificationErrors {
         // validate the optional field `problems` (array)
         for (int i = 0; i < jsonArrayproblems.size(); i++) {
           CapabilityProblem.validateJsonObject(jsonArrayproblems.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

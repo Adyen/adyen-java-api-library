@@ -18,6 +18,7 @@ import com.adyen.model.legalentitymanagement.BusinessLines;
 import com.adyen.model.legalentitymanagement.LegalEntity;
 import com.adyen.model.legalentitymanagement.LegalEntityInfo;
 import com.adyen.model.legalentitymanagement.LegalEntityInfoRequiredType;
+import com.adyen.model.legalentitymanagement.ServiceError;
 import com.adyen.model.legalentitymanagement.VerificationErrors;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;

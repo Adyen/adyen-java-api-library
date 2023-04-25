@@ -20,6 +20,7 @@ import com.adyen.model.legalentitymanagement.GetPciQuestionnaireInfosResponse;
 import com.adyen.model.legalentitymanagement.GetPciQuestionnaireResponse;
 import com.adyen.model.legalentitymanagement.PciSigningRequest;
 import com.adyen.model.legalentitymanagement.PciSigningResponse;
+import com.adyen.model.legalentitymanagement.ServiceError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;

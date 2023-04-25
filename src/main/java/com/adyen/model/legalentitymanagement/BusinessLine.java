@@ -528,7 +528,7 @@ public class BusinessLine {
         // validate the optional field `problems` (array)
         for (int i = 0; i < jsonArrayproblems.size(); i++) {
           CapabilityProblem.validateJsonObject(jsonArrayproblems.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the json data is an array
       if (jsonObj.get("salesChannels") != null && !jsonObj.get("salesChannels").isJsonArray()) {
@@ -555,7 +555,7 @@ public class BusinessLine {
         // validate the optional field `webData` (array)
         for (int i = 0; i < jsonArraywebData.size(); i++) {
           WebData.validateJsonObject(jsonArraywebData.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `webDataExemption`
       if (jsonObj.getAsJsonObject("webDataExemption") != null) {

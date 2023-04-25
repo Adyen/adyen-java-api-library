@@ -176,7 +176,7 @@ public class BusinessLines {
         // validate the optional field `businessLines` (array)
         for (int i = 0; i < jsonArraybusinessLines.size(); i++) {
           BusinessLine.validateJsonObject(jsonArraybusinessLines.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 
