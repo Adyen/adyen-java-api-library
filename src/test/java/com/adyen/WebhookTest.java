@@ -22,30 +22,19 @@ package com.adyen;
 
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
-import com.adyen.model.nexo.DisplayRequest;
-import com.adyen.model.nexo.DisplayResponse;
 import com.adyen.model.nexo.EventNotification;
 import com.adyen.model.nexo.EventToNotifyType;
 import com.adyen.model.nexo.InfoQualifyType;
-import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
-import com.adyen.model.notification.NotificationRequestItemContainer;
 import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.terminal.TerminalAPIResponse;
-import com.adyen.notification.NotificationHandler;
-import com.adyen.service.TerminalCloudAPI;
-import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
-import com.google.gson.Gson;
+import com.adyen.notification.WebhookHandler;
 import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -55,13 +44,13 @@ import static org.junit.Assert.assertTrue;
 /**
  * Tests notification messages
  */
-public class NotificationTest extends BaseTest {
+public class WebhookTest extends BaseTest {
 
-    private NotificationHandler notificationHandler;
+    private WebhookHandler webhookHandler;
 
     @Before
     public void init() {
-        notificationHandler = new NotificationHandler();
+        webhookHandler = new WebhookHandler();
     }
 
     @Test
@@ -205,7 +194,8 @@ public class NotificationTest extends BaseTest {
     @Test
     public void testTerminalDisplayNotification() throws Exception {
         String json = getFileContents("mocks/notification/display-notification.json");
-        TerminalAPIRequest notification = notificationHandler.handleTerminalNotificationJson(json);
+        TerminalAPIRequest notification = webhookHandler
+                .handleTerminalNotificationJson(json);
         DisplayOutput displayOutput = notification.getSaleToPOIRequest().getDisplayRequest().getDisplayOutput().get(0);
 
         assertEquals(InfoQualifyType.STATUS, displayOutput.getInfoQualify());
@@ -216,7 +206,7 @@ public class NotificationTest extends BaseTest {
     @Test
     public void testTerminalEventNotification() throws Exception {
         String json = getFileContents("mocks/notification/event-notification.json");
-        TerminalAPIRequest notification = notificationHandler.handleTerminalNotificationJson(json);
+        TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
         EventNotification eventNotification = notification.getSaleToPOIRequest().getEventNotification();
 
         assertEquals("newstate=IDLE&oldstate=START", eventNotification.getEventDetails());
@@ -244,6 +234,6 @@ public class NotificationTest extends BaseTest {
 
     private NotificationRequest readNotificationRequestFromFile(String resourcePath) throws IOException {
         String json = getFileContents(resourcePath);
-        return notificationHandler.handleNotificationJson(json);
+        return webhookHandler.handleNotificationJson(json);
     }
 }

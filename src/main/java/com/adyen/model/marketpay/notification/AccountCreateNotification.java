@@ -33,7 +33,7 @@ import static com.adyen.util.Util.toIndentedString;
  * AccountCreateNotification
  */
 
-public class AccountCreateNotification extends GenericNotification {
+public class AccountCreateNotification extends GenericWebhook {
     @SerializedName("content")
     private CreateAccountResponse content = null;
 

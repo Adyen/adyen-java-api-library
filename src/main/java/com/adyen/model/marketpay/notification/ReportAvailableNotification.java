@@ -28,7 +28,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class ReportAvailableNotification extends GenericNotification {
+public class ReportAvailableNotification extends GenericWebhook {
     @SerializedName("content")
     private ReportAvailableNotificationContent content = null;
 

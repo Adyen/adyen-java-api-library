@@ -44,7 +44,7 @@ import com.adyen.model.marketpay.notification.CreateNotificationConfigurationRes
 import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationResponse;
 import com.adyen.model.marketpay.notification.DirectDebitInitiatedNotification;
-import com.adyen.model.marketpay.notification.GenericNotification;
+import com.adyen.model.marketpay.notification.GenericWebhook;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationListResponse;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationResponse;
@@ -59,7 +59,7 @@ import com.adyen.model.marketpay.notification.TestNotificationConfigurationRespo
 import com.adyen.model.marketpay.notification.TransferFundsNotification;
 import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationResponse;
-import com.adyen.notification.NotificationHandler;
+import com.adyen.notification.WebhookHandler;
 import com.adyen.service.Notification;
 import org.junit.Assert;
 import org.junit.Test;
@@ -180,11 +180,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountCreatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-created-success.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_CREATED, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_CREATED, notificationMessage.getEventType());
         AccountCreateNotification accountCreateNotificationMessage = (AccountCreateNotification) notificationMessage;
 
         assertEquals("000", accountCreateNotificationMessage.getError().getErrorCode());
@@ -214,11 +214,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderCreatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-created-success.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_CREATED, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_CREATED, notificationMessage.getEventType());
         AccountHolderCreateNotification accountHolderCreateNotificationMessage = (AccountHolderCreateNotification) notificationMessage;
         assertNotNull(accountHolderCreateNotificationMessage.getContent());
         assertEquals("AHC00000001", accountHolderCreateNotificationMessage.getContent().getAccountHolderCode());
@@ -229,11 +229,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderVerificationNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-verification.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_VERIFICATION, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_VERIFICATION, notificationMessage.getEventType());
         AccountHolderVerificationNotification notification = (AccountHolderVerificationNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("AH0000001", notification.getContent().getAccountHolderCode());
@@ -242,11 +242,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderStatusChangeNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-status-change.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE, notificationMessage.getEventType());
         AccountHolderStatusChangeNotification notification = (AccountHolderStatusChangeNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -258,11 +258,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderPayoutFailNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-payout-fail.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_PAYOUT, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_PAYOUT, notificationMessage.getEventType());
         AccountHolderPayoutNotification notification = (AccountHolderPayoutNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -275,11 +275,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderPayoutNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-payout.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_PAYOUT, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_PAYOUT, notificationMessage.getEventType());
         AccountHolderPayoutNotification notification = (AccountHolderPayoutNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -291,11 +291,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderUpdatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-updated.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_UPDATED, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_UPDATED, notificationMessage.getEventType());
         AccountHolderUpdateNotification notification = (AccountHolderUpdateNotification) notificationMessage;
 
         assertNotNull(notification.getContent());
@@ -323,11 +323,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayBeneficiarySetupNotification() {
         String json = getFileContents("mocks/marketpay/notification/beneficiary-setup.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.BENEFICIARY_SETUP, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.BENEFICIARY_SETUP, notificationMessage.getEventType());
         BeneficiarySetupNotification notification = (BeneficiarySetupNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -338,11 +338,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayScheduledRefundsNotification() {
         String json = getFileContents("mocks/marketpay/notification/scheduled-refunds-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.SCHEDULED_REFUNDS, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.SCHEDULED_REFUNDS, notificationMessage.getEventType());
         ScheduledRefundsNotification notification = (ScheduledRefundsNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -354,11 +354,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayCompensateNegativeBalanceNotification() {
         String json = getFileContents("mocks/marketpay/notification/compensate-negative-balance-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.COMPENSATE_NEGATIVE_BALANCE, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.COMPENSATE_NEGATIVE_BALANCE, notificationMessage.getEventType());
         CompensateNegativeBalanceNotification notification = (CompensateNegativeBalanceNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -369,11 +369,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayPaymentFailureNotification() {
         String json = getFileContents("mocks/marketpay/notification/payment-failure-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.PAYMENT_FAILURE, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.PAYMENT_FAILURE, notificationMessage.getEventType());
         PaymentFailureNotification notification = (PaymentFailureNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -384,11 +384,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayReportAvailableNotification() {
         String json = getFileContents("mocks/marketpay/notification/report-available-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.REPORT_AVAILABLE, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.REPORT_AVAILABLE, notificationMessage.getEventType());
         ReportAvailableNotification notification = (ReportAvailableNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
@@ -398,11 +398,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayTransferFundsNotification() {
         String json = getFileContents("mocks/marketpay/notification/transfer-funds-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.TRANSFER_FUNDS, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.TRANSFER_FUNDS, notificationMessage.getEventType());
         TransferFundsNotification notification = (TransferFundsNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals(1000L, notification.getContent().getAmount().getValue().longValue());
@@ -419,11 +419,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountClosedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-closed-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_CLOSED, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_CLOSED, notificationMessage.getEventType());
         AccountCloseNotification notification = (AccountCloseNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals(1, notification.getContent().getInvalidFields().size());
@@ -432,11 +432,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountUpdatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-updated-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_UPDATED, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_UPDATED, notificationMessage.getEventType());
         AccountUpdateNotification notification = (AccountUpdateNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals(1, notification.getContent().getInvalidFields().size());
@@ -445,11 +445,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountFundsBelowThreshold() {
         String json = getFileContents("mocks/marketpay/notification/account-funds-below-thresold-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_FUNDS_BELOW_THRESHOLD, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_FUNDS_BELOW_THRESHOLD, notificationMessage.getEventType());
         AccountFundsBelowThresholdNotification notification = (AccountFundsBelowThresholdNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("TestAccountHolder", notification.getContent().getAccountCode());
@@ -460,11 +460,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderStoreStatusChange() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-store-status-change-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_STORE_STATUS_CHANGE, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_STORE_STATUS_CHANGE, notificationMessage.getEventType());
         AccountHolderStoreStatusChangeNotification notification = (AccountHolderStoreStatusChangeNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("AH000001", notification.getContent().getAccountHolderCode());
@@ -474,11 +474,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayAccountHolderUpcomingDeadline() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-upcoming-deadline-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_UPCOMING_DEADLINE, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.ACCOUNT_HOLDER_UPCOMING_DEADLINE, notificationMessage.getEventType());
         AccountHolderUpcomingDeadlineNotification notification = (AccountHolderUpcomingDeadlineNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("testD47", notification.getContent().getAccountHolderCode());
@@ -488,11 +488,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayDirectDebitInitiated() {
         String json = getFileContents("mocks/marketpay/notification/direct-debit-initiated-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.DIRECT_DEBIT_INITIATED, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.DIRECT_DEBIT_INITIATED, notificationMessage.getEventType());
         DirectDebitInitiatedNotification notification = (DirectDebitInitiatedNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("100000000", notification.getContent().getAccountCode());
@@ -502,11 +502,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayPayoutConfirmed() {
         String json = getFileContents("mocks/marketpay/notification/payout-confirmed-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.PAYOUT_CONFIRMED, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.PAYOUT_CONFIRMED, notificationMessage.getEventType());
         AccountHolderPayoutNotification notification = (AccountHolderPayoutNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("100000000", notification.getContent().getAccountCode());
@@ -517,11 +517,11 @@ public class MarketPayNotificationTest extends BaseTest {
     @Test
     public void testMarketPayRefundFundsTransfer() {
         String json = getFileContents("mocks/marketpay/notification/refund-funds-transfer-test.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
+        WebhookHandler webhookHandler = new WebhookHandler();
 
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+        GenericWebhook notificationMessage = webhookHandler.handleMarketpayNotificationJson(json);
 
-        assertEquals(GenericNotification.EventTypeEnum.REFUND_FUNDS_TRANSFER, notificationMessage.getEventType());
+        assertEquals(GenericWebhook.EventTypeEnum.REFUND_FUNDS_TRANSFER, notificationMessage.getEventType());
         RefundFundsTransferNotification notification = (RefundFundsTransferNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("MRef#000001", notification.getContent().getMerchantReference());

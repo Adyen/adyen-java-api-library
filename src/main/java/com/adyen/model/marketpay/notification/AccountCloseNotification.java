@@ -32,7 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
  * AccountCloseNotification
  */
 
-public class AccountCloseNotification extends GenericNotification {
+public class AccountCloseNotification extends GenericWebhook {
     @SerializedName("content")
     private CloseAccountResponse content = null;
 
