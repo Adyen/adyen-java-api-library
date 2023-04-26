@@ -32,7 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
  * DirectDebitInitiatedNotification
  */
 
-public class DirectDebitInitiatedNotification extends GenericNotification {
+public class DirectDebitInitiatedNotification extends GenericWebhook {
     @SerializedName("content")
     private DirectDebitInitiatedNotificationContent content = null;
 

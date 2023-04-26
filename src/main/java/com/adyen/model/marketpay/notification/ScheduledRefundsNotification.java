@@ -28,7 +28,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class ScheduledRefundsNotification extends GenericNotification {
+public class ScheduledRefundsNotification extends GenericWebhook {
     @SerializedName("content")
     private ScheduledRefundsNotificationContent content = null;
 

@@ -21,7 +21,7 @@
 package com.adyen.notification;
 
 import com.adyen.deserializer.MarketPayNotificationMessageDeserializer;
-import com.adyen.model.marketpay.notification.GenericNotification;
+import com.adyen.model.marketpay.notification.GenericWebhook;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
@@ -34,14 +34,14 @@ import java.io.IOException;
 /**
  * Notification converter
  */
-public class NotificationHandler {
+public class WebhookHandler {
     private static final Gson GSON = new Gson();
     private final Gson marketPayGson;
     private final Gson terminalGson;
 
-    public NotificationHandler() {
+    public WebhookHandler() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(GenericNotification.class, new MarketPayNotificationMessageDeserializer());
+        gsonBuilder.registerTypeAdapter(GenericWebhook.class, new MarketPayNotificationMessageDeserializer());
         marketPayGson = gsonBuilder.create();
         terminalGson = TerminalAPIGsonBuilder.create();
     }
@@ -50,8 +50,8 @@ public class NotificationHandler {
         return NotificationRequest.fromJson(json);
     }
 
-    public GenericNotification handleMarketpayNotificationJson(String json) {
-        return marketPayGson.fromJson(json, GenericNotification.class);
+    public GenericWebhook handleMarketpayNotificationJson(String json) {
+        return marketPayGson.fromJson(json, GenericWebhook.class);
     }
 
     // Note that terminal notifications are structured as TerminalAPIRequest objects

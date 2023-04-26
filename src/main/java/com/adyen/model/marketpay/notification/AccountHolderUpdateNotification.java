@@ -29,7 +29,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class AccountHolderUpdateNotification extends GenericNotification {
+public class AccountHolderUpdateNotification extends GenericWebhook {
     @SerializedName("content")
     private UpdateAccountHolderResponse content = null;
 
