@@ -455,7 +455,7 @@ public class LegalEntityCapability {
         // validate the optional field `transferInstruments` (array)
         for (int i = 0; i < jsonArraytransferInstruments.size(); i++) {
           SupportingEntityCapability.validateJsonObject(jsonArraytransferInstruments.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field verificationStatus
       if (jsonObj.get("verificationStatus") != null && !jsonObj.get("verificationStatus").isJsonPrimitive()) {

@@ -572,7 +572,7 @@ public class LegalEntity {
         // validate the optional field `documentDetails` (array)
         for (int i = 0; i < jsonArraydocumentDetails.size(); i++) {
           DocumentReference.validateJsonObject(jsonArraydocumentDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArraydocuments = jsonObj.getAsJsonArray("documents");
       if (jsonArraydocuments != null) {
@@ -584,7 +584,7 @@ public class LegalEntity {
         // validate the optional field `documents` (array)
         for (int i = 0; i < jsonArraydocuments.size(); i++) {
           EntityReference.validateJsonObject(jsonArraydocuments.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayentityAssociations = jsonObj.getAsJsonArray("entityAssociations");
       if (jsonArrayentityAssociations != null) {
@@ -596,7 +596,7 @@ public class LegalEntity {
         // validate the optional field `entityAssociations` (array)
         for (int i = 0; i < jsonArrayentityAssociations.size(); i++) {
           LegalEntityAssociation.validateJsonObject(jsonArrayentityAssociations.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
@@ -620,7 +620,7 @@ public class LegalEntity {
         // validate the optional field `problems` (array)
         for (int i = 0; i < jsonArrayproblems.size(); i++) {
           CapabilityProblem.validateJsonObject(jsonArrayproblems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
@@ -640,7 +640,7 @@ public class LegalEntity {
         // validate the optional field `transferInstruments` (array)
         for (int i = 0; i < jsonArraytransferInstruments.size(); i++) {
           TransferInstrumentReference.validateJsonObject(jsonArraytransferInstruments.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

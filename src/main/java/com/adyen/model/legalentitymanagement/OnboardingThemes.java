@@ -242,7 +242,7 @@ public class OnboardingThemes {
         // validate the optional field `themes` (array)
         for (int i = 0; i < jsonArraythemes.size(); i++) {
           OnboardingTheme.validateJsonObject(jsonArraythemes.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 
