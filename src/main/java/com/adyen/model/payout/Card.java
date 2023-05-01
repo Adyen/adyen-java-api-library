@@ -115,7 +115,7 @@ public class Card {
    * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
    * @return expiryMonth
   **/
-  @ApiModelProperty(required = true, value = "The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 = March * 11 = November")
+  @ApiModelProperty(value = "The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 = March * 11 = November")
 
   public String getExpiryMonth() {
     return expiryMonth;
@@ -137,7 +137,7 @@ public class Card {
    * The card expiry year. Format: 4 digits. For example: 2020
    * @return expiryYear
   **/
-  @ApiModelProperty(required = true, value = "The card expiry year. Format: 4 digits. For example: 2020")
+  @ApiModelProperty(value = "The card expiry year. Format: 4 digits. For example: 2020")
 
   public String getExpiryYear() {
     return expiryYear;
@@ -159,7 +159,7 @@ public class Card {
    * The name of the cardholder, as printed on the card.
    * @return holderName
   **/
-  @ApiModelProperty(required = true, value = "The name of the cardholder, as printed on the card.")
+  @ApiModelProperty(value = "The name of the cardholder, as printed on the card.")
 
   public String getHolderName() {
     return holderName;
@@ -203,7 +203,7 @@ public class Card {
    * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
    * @return number
   **/
-  @ApiModelProperty(required = true, value = "The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.")
+  @ApiModelProperty(value = "The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.")
 
   public String getNumber() {
     return number;
@@ -329,10 +329,6 @@ public class Card {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("expiryMonth");
-    openapiRequiredFields.add("expiryYear");
-    openapiRequiredFields.add("holderName");
-    openapiRequiredFields.add("number");
   }
 
  /**
@@ -355,13 +351,6 @@ public class Card {
       for (Entry<String, JsonElement> entry : entries) {
         if (!Card.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Card` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Card.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field cvc
