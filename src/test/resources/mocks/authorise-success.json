@@ -22,49 +22,71 @@
   "fraudResult": {
     "accountScore": 25,
     "results": [{
+      "FraudCheckResult": {
         "accountScore": 8,
         "checkId": 2,
         "name": "CardChunkUsage"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 5,
         "checkId": 3,
         "name": "PaymentDetailUsage"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 12,
         "checkId": 4,
         "name": "HolderNameUsage"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 1,
         "name": "PaymentDetailRefCheck"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 13,
         "name": "IssuerRefCheck"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 15,
         "name": "IssuingCountryReferral"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 27,
         "name": "PmOwnerRefCheck"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 41,
         "name": "PaymentDetailNonFraudRefCheck"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 10,
         "name": "HolderNameContainsNumber"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 11,
         "name": "HolderNameIsOneWord"
+      }
     }, {
+      "FraudCheckResult": {
         "accountScore": 0,
         "checkId": 25,
         "name": "CVCAuthResultCheck"
+      }
     }]
   },
   "pspReference": "7924835492819808",

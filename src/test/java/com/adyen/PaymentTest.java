@@ -93,7 +93,7 @@ public class PaymentTest extends BaseTest {
 
         assertEquals(11, paymentResult.getFraudResult().getResults().size());
 
-        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0);
+        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0).getFraudCheckResult();
         assertEquals("CardChunkUsage", fraudCheckResult.getName());
         assertEquals(8, fraudCheckResult.getAccountScore().intValue());
         assertEquals(2, fraudCheckResult.getCheckId().intValue());
