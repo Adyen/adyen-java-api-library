@@ -236,7 +236,7 @@ public class PaginatedBalanceAccountsResponse {
         // validate the optional field `balanceAccounts` (array)
         for (int i = 0; i < jsonArraybalanceAccounts.size(); i++) {
           BalanceAccountBase.validateJsonObject(jsonArraybalanceAccounts.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

@@ -1668,7 +1668,7 @@ public class PaymentLinkResponse {
         // validate the optional field `lineItems` (array)
         for (int i = 0; i < jsonArraylineItems.size(); i++) {
           LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field mcc
       if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
@@ -1739,7 +1739,7 @@ public class PaymentLinkResponse {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field status can be parsed to an enum value
       if (jsonObj.get("status") != null) {

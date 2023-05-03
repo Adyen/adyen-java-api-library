@@ -171,7 +171,7 @@ public class TransactionRulesResponse {
         // validate the optional field `transactionRules` (array)
         for (int i = 0; i < jsonArraytransactionRules.size(); i++) {
           TransactionRule.validateJsonObject(jsonArraytransactionRules.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

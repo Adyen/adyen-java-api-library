@@ -236,7 +236,7 @@ public class BalanceSweepConfigurationsResponse {
         // validate the optional field `sweeps` (array)
         for (int i = 0; i < jsonArraysweeps.size(); i++) {
           SweepConfigurationV2.validateJsonObject(jsonArraysweeps.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

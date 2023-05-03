@@ -209,7 +209,7 @@ public class PaymentMethodsResponse {
         // validate the optional field `paymentMethods` (array)
         for (int i = 0; i < jsonArraypaymentMethods.size(); i++) {
           PaymentMethod.validateJsonObject(jsonArraypaymentMethods.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArraystoredPaymentMethods = jsonObj.getAsJsonArray("storedPaymentMethods");
       if (jsonArraystoredPaymentMethods != null) {
@@ -221,7 +221,7 @@ public class PaymentMethodsResponse {
         // validate the optional field `storedPaymentMethods` (array)
         for (int i = 0; i < jsonArraystoredPaymentMethods.size(); i++) {
           StoredPaymentMethod.validateJsonObject(jsonArraystoredPaymentMethods.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

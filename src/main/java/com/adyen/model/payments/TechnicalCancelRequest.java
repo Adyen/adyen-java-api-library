@@ -478,7 +478,7 @@ public class TechnicalCancelRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field tenderReference
       if (jsonObj.get("tenderReference") != null && !jsonObj.get("tenderReference").isJsonPrimitive()) {

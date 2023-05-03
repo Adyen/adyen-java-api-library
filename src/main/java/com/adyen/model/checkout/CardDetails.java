@@ -610,10 +610,10 @@ public class CardDetails {
   }
 
    /**
-   * Version of the 3D Secure 2 mobile SDK.
+   * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    * @return threeDS2SdkVersion
   **/
-  @ApiModelProperty(value = "Version of the 3D Secure 2 mobile SDK.")
+  @ApiModelProperty(value = "Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.")
 
   public String getThreeDS2SdkVersion() {
     return threeDS2SdkVersion;

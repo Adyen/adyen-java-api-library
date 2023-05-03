@@ -200,7 +200,7 @@ public class JSONObject {
         // validate the optional field `paths` (array)
         for (int i = 0; i < jsonArraypaths.size(); i++) {
           JSONPath.validateJsonObject(jsonArraypaths.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `rootPath`
       if (jsonObj.getAsJsonObject("rootPath") != null) {

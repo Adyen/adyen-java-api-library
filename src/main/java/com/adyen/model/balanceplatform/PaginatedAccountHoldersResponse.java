@@ -236,7 +236,7 @@ public class PaginatedAccountHoldersResponse {
         // validate the optional field `accountHolders` (array)
         for (int i = 0; i < jsonArrayaccountHolders.size(); i++) {
           AccountHolder.validateJsonObject(jsonArrayaccountHolders.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

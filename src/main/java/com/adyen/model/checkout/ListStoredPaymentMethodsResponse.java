@@ -237,7 +237,7 @@ public class ListStoredPaymentMethodsResponse {
         // validate the optional field `storedPaymentMethods` (array)
         for (int i = 0; i < jsonArraystoredPaymentMethods.size(); i++) {
           StoredPaymentMethodResource.validateJsonObject(jsonArraystoredPaymentMethods.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

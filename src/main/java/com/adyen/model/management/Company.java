@@ -350,7 +350,7 @@ public class Company {
         // validate the optional field `dataCenters` (array)
         for (int i = 0; i < jsonArraydataCenters.size(); i++) {
           DataCenter.validateJsonObject(jsonArraydataCenters.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {

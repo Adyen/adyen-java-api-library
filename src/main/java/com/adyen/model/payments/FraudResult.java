@@ -14,7 +14,7 @@ package com.adyen.model.payments;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.payments.FraudCheckResult;
+import com.adyen.model.payments.FraudCheckResultWrapper;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,7 +57,7 @@ public class FraudResult {
 
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  private List<FraudCheckResult> results = null;
+  private List<FraudCheckResultWrapper> results = null;
 
   public FraudResult() { 
   }
@@ -84,13 +84,13 @@ public class FraudResult {
   }
 
 
-  public FraudResult results(List<FraudCheckResult> results) {
+  public FraudResult results(List<FraudCheckResultWrapper> results) {
     
     this.results = results;
     return this;
   }
 
-  public FraudResult addResultsItem(FraudCheckResult resultsItem) {
+  public FraudResult addResultsItem(FraudCheckResultWrapper resultsItem) {
     if (this.results == null) {
       this.results = new ArrayList<>();
     }
@@ -104,12 +104,12 @@ public class FraudResult {
   **/
   @ApiModelProperty(value = "The result of the individual risk checks.")
 
-  public List<FraudCheckResult> getResults() {
+  public List<FraudCheckResultWrapper> getResults() {
     return results;
   }
 
 
-  public void setResults(List<FraudCheckResult> results) {
+  public void setResults(List<FraudCheckResultWrapper> results) {
     this.results = results;
   }
 
@@ -207,8 +207,8 @@ public class FraudResult {
 
         // validate the optional field `results` (array)
         for (int i = 0; i < jsonArrayresults.size(); i++) {
-          FraudCheckResult.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
-        };
+          FraudCheckResultWrapper.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
+        }
       }
   }
 

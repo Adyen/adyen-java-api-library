@@ -590,7 +590,7 @@ public class AccountHolderCapability {
         // validate the optional field `transferInstruments` (array)
         for (int i = 0; i < jsonArraytransferInstruments.size(); i++) {
           AccountSupportingEntityCapability.validateJsonObject(jsonArraytransferInstruments.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field verificationStatus can be parsed to an enum value
       if (jsonObj.get("verificationStatus") != null) {

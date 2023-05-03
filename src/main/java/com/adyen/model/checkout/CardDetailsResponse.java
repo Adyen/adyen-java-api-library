@@ -171,7 +171,7 @@ public class CardDetailsResponse {
         // validate the optional field `brands` (array)
         for (int i = 0; i < jsonArraybrands.size(); i++) {
           CardBrandDetails.validateJsonObject(jsonArraybrands.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

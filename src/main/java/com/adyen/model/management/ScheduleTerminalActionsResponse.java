@@ -399,7 +399,7 @@ public class ScheduleTerminalActionsResponse {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           TerminalActionScheduleDetail.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field scheduledAt
       if (jsonObj.get("scheduledAt") != null && !jsonObj.get("scheduledAt").isJsonPrimitive()) {

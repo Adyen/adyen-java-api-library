@@ -272,7 +272,7 @@ public class ListMerchantUsersResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           User.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

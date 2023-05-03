@@ -1695,7 +1695,7 @@ public class CheckoutBalanceCheckRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {

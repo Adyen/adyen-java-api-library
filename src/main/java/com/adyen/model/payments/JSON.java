@@ -128,6 +128,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ExternalPlatform.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ForexQuote.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.FraudCheckResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.FraudCheckResultWrapper.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.FraudResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.FundDestination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.FundSource.CustomTypeAdapterFactory());
