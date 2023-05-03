@@ -104,10 +104,10 @@ public class Address2 {
   }
 
    /**
-   * The two-character ISO 3166-1 alpha-2 country code. For example, **US**. &gt;If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
+   * The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
    * @return country
   **/
-  @ApiModelProperty(required = true, value = "The two-character ISO 3166-1 alpha-2 country code. For example, **US**. >If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`.")
+  @ApiModelProperty(required = true, value = "The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.")
 
   public String getCountry() {
     return country;

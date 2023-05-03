@@ -212,7 +212,7 @@ public class MerchantNamesRestriction {
         // validate the optional field `value` (array)
         for (int i = 0; i < jsonArrayvalue.size(); i++) {
           StringMatch.validateJsonObject(jsonArrayvalue.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

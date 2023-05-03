@@ -561,7 +561,7 @@ public class Merchant {
         // validate the optional field `dataCenters` (array)
         for (int i = 0; i < jsonArraydataCenters.size(); i++) {
           DataCenter.validateJsonObject(jsonArraydataCenters.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field defaultShopperInteraction
       if (jsonObj.get("defaultShopperInteraction") != null && !jsonObj.get("defaultShopperInteraction").isJsonPrimitive()) {

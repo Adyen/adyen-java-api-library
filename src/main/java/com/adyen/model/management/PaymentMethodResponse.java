@@ -448,7 +448,7 @@ public class PaymentMethodResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           PaymentMethod.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the json data is an array
       if (jsonObj.get("typesWithErrors") != null && !jsonObj.get("typesWithErrors").isJsonArray()) {

@@ -556,7 +556,7 @@ public class AccountHolder {
         // validate the optional field `verificationDeadlines` (array)
         for (int i = 0; i < jsonArrayverificationDeadlines.size(); i++) {
           VerificationDeadline.validateJsonObject(jsonArrayverificationDeadlines.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

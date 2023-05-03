@@ -527,7 +527,7 @@ public class PaymentRefundResource {
         // validate the optional field `lineItems` (array)
         for (int i = 0; i < jsonArraylineItems.size(); i++) {
           LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
@@ -562,7 +562,7 @@ public class PaymentRefundResource {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field status can be parsed to an enum value
       if (jsonObj.get("status") != null) {

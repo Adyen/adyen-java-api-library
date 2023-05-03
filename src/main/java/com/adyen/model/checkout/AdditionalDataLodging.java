@@ -96,10 +96,6 @@ public class AdditionalDataLodging {
   @SerializedName(SERIALIZED_NAME_LODGING_ROOM1_RATE)
   private String lodgingRoom1Rate;
 
-  public static final String SERIALIZED_NAME_LODGING_ROOM1_TAX = "lodging.room1.tax";
-  @SerializedName(SERIALIZED_NAME_LODGING_ROOM1_TAX)
-  private String lodgingRoom1Tax;
-
   public static final String SERIALIZED_NAME_LODGING_TOTAL_ROOM_TAX = "lodging.totalRoomTax";
   @SerializedName(SERIALIZED_NAME_LODGING_TOTAL_ROOM_TAX)
   private String lodgingTotalRoomTax;
@@ -170,10 +166,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The toll-free phone number for the lodging. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.
+   * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
    * @return lodgingCustomerServiceTollFreeNumber
   **/
-  @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.")
+  @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
 
   public String getLodgingCustomerServiceTollFreeNumber() {
     return lodgingCustomerServiceTollFreeNumber;
@@ -192,10 +188,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic. * Max length: 1 character.
+   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
    * @return lodgingFireSafetyActIndicator
   **/
-  @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: 'Y' or 'N'. * Format: alphabetic. * Max length: 1 character.")
+  @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be 'Y' or 'N'. * Format: alphabetic * Max length: 1 character")
 
   public String getLodgingFireSafetyActIndicator() {
     return lodgingFireSafetyActIndicator;
@@ -214,10 +210,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The folio cash advances. * Format: numeric. * Max length: 12 characters.
+   * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return lodgingFolioCashAdvances
   **/
-  @ApiModelProperty(value = "The folio cash advances. * Format: numeric. * Max length: 12 characters.")
+  @ApiModelProperty(value = "The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters")
 
   public String getLodgingFolioCashAdvances() {
     return lodgingFolioCashAdvances;
@@ -236,10 +232,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The card acceptor’s internal invoice or billing ID reference number. * Format: alphanumeric. * Max length: 25 characters.
+   * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space * Must not be all zeros
    * @return lodgingFolioNumber
   **/
-  @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Format: alphanumeric. * Max length: 25 characters.")
+  @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space * Must not be all zeros")
 
   public String getLodgingFolioNumber() {
     return lodgingFolioNumber;
@@ -258,10 +254,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The additional charges for food and beverages associated with the booking. * Format: numeric. * Max length: 12 characters.
+   * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return lodgingFoodBeverageCharges
   **/
-  @ApiModelProperty(value = "The additional charges for food and beverages associated with the booking. * Format: numeric. * Max length: 12 characters.")
+  @ApiModelProperty(value = "Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters")
 
   public String getLodgingFoodBeverageCharges() {
     return lodgingFoodBeverageCharges;
@@ -280,10 +276,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Indicates if the customer didn&#39;t check in for their booking.  Possible values:   * **Y**: the customer didn&#39;t check in.   **N**: the customer checked in.
+   * Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
    * @return lodgingNoShowIndicator
   **/
-  @ApiModelProperty(value = "Indicates if the customer didn't check in for their booking.  Possible values:   * **Y**: the customer didn't check in.   **N**: the customer checked in.")
+  @ApiModelProperty(value = "Indicates if the customer didn't check in for their booking.  Possible values:  * **Y**: the customer didn't check in  * **N**: the customer checked in")
 
   public String getLodgingNoShowIndicator() {
     return lodgingNoShowIndicator;
@@ -302,10 +298,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The prepaid expenses for the booking. * Format: numeric. * Max length: 12 characters.
+   * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    * @return lodgingPrepaidExpenses
   **/
-  @ApiModelProperty(value = "The prepaid expenses for the booking. * Format: numeric. * Max length: 12 characters.")
+  @ApiModelProperty(value = "The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters")
 
   public String getLodgingPrepaidExpenses() {
     return lodgingPrepaidExpenses;
@@ -324,10 +320,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Identifies the location of the lodging by its local phone number. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.
+   * The lodging property location&#39;s phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
    * @return lodgingPropertyPhoneNumber
   **/
-  @ApiModelProperty(value = "Identifies the location of the lodging by its local phone number. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.")
+  @ApiModelProperty(value = "The lodging property location's phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
 
   public String getLodgingPropertyPhoneNumber() {
     return lodgingPropertyPhoneNumber;
@@ -346,10 +342,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total number of nights the room is booked for. * Format: numeric. * Max length: 4 characters.
+   * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 2 characters
    * @return lodgingRoom1NumberOfNights
   **/
-  @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric. * Max length: 4 characters.")
+  @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 2 characters")
 
   public String getLodgingRoom1NumberOfNights() {
     return lodgingRoom1NumberOfNights;
@@ -368,10 +364,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The rate of the room. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingRoom1Rate
   **/
-  @ApiModelProperty(value = "The rate of the room. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(value = "The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
 
   public String getLodgingRoom1Rate() {
     return lodgingRoom1Rate;
@@ -383,28 +379,6 @@ public class AdditionalDataLodging {
   }
 
 
-  public AdditionalDataLodging lodgingRoom1Tax(String lodgingRoom1Tax) {
-    
-    this.lodgingRoom1Tax = lodgingRoom1Tax;
-    return this;
-  }
-
-   /**
-   * The total amount of tax to be paid. * Format: numeric. * Max length: 12 chracters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * @return lodgingRoom1Tax
-  **/
-  @ApiModelProperty(value = "The total amount of tax to be paid. * Format: numeric. * Max length: 12 chracters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
-
-  public String getLodgingRoom1Tax() {
-    return lodgingRoom1Tax;
-  }
-
-
-  public void setLodgingRoom1Tax(String lodgingRoom1Tax) {
-    this.lodgingRoom1Tax = lodgingRoom1Tax;
-  }
-
-
   public AdditionalDataLodging lodgingTotalRoomTax(String lodgingTotalRoomTax) {
     
     this.lodgingTotalRoomTax = lodgingTotalRoomTax;
@@ -412,10 +386,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total room tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingTotalRoomTax
   **/
-  @ApiModelProperty(value = "The total room tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(value = "The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
 
   public String getLodgingTotalRoomTax() {
     return lodgingTotalRoomTax;
@@ -434,10 +408,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingTotalTax
   **/
-  @ApiModelProperty(value = "The total tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
 
   public String getLodgingTotalTax() {
     return lodgingTotalTax;
@@ -456,10 +430,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The number of nights. This should be included in the auth message. * Format: numeric. * Max length: 2 characters.
+   * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 2 characters
    * @return travelEntertainmentAuthDataDuration
   **/
-  @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric. * Max length: 2 characters.")
+  @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric * Max length: 2 characters")
 
   public String getTravelEntertainmentAuthDataDuration() {
     return travelEntertainmentAuthDataDuration;
@@ -478,10 +452,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be \&quot;H\&quot; for Hotel. This should be included in the auth message.  * Format: alphanumeric. * Max length: 1 character.
+   * Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    * @return travelEntertainmentAuthDataMarket
   **/
-  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"H\" for Hotel. This should be included in the auth message.  * Format: alphanumeric. * Max length: 1 character.")
+  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character")
 
   public String getTravelEntertainmentAuthDataMarket() {
     return travelEntertainmentAuthDataMarket;
@@ -515,7 +489,6 @@ public class AdditionalDataLodging {
         Objects.equals(this.lodgingPropertyPhoneNumber, additionalDataLodging.lodgingPropertyPhoneNumber) &&
         Objects.equals(this.lodgingRoom1NumberOfNights, additionalDataLodging.lodgingRoom1NumberOfNights) &&
         Objects.equals(this.lodgingRoom1Rate, additionalDataLodging.lodgingRoom1Rate) &&
-        Objects.equals(this.lodgingRoom1Tax, additionalDataLodging.lodgingRoom1Tax) &&
         Objects.equals(this.lodgingTotalRoomTax, additionalDataLodging.lodgingTotalRoomTax) &&
         Objects.equals(this.lodgingTotalTax, additionalDataLodging.lodgingTotalTax) &&
         Objects.equals(this.travelEntertainmentAuthDataDuration, additionalDataLodging.travelEntertainmentAuthDataDuration) &&
@@ -524,7 +497,7 @@ public class AdditionalDataLodging {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lodgingCheckInDate, lodgingCheckOutDate, lodgingCustomerServiceTollFreeNumber, lodgingFireSafetyActIndicator, lodgingFolioCashAdvances, lodgingFolioNumber, lodgingFoodBeverageCharges, lodgingNoShowIndicator, lodgingPrepaidExpenses, lodgingPropertyPhoneNumber, lodgingRoom1NumberOfNights, lodgingRoom1Rate, lodgingRoom1Tax, lodgingTotalRoomTax, lodgingTotalTax, travelEntertainmentAuthDataDuration, travelEntertainmentAuthDataMarket);
+    return Objects.hash(lodgingCheckInDate, lodgingCheckOutDate, lodgingCustomerServiceTollFreeNumber, lodgingFireSafetyActIndicator, lodgingFolioCashAdvances, lodgingFolioNumber, lodgingFoodBeverageCharges, lodgingNoShowIndicator, lodgingPrepaidExpenses, lodgingPropertyPhoneNumber, lodgingRoom1NumberOfNights, lodgingRoom1Rate, lodgingTotalRoomTax, lodgingTotalTax, travelEntertainmentAuthDataDuration, travelEntertainmentAuthDataMarket);
   }
 
   @Override
@@ -543,7 +516,6 @@ public class AdditionalDataLodging {
     sb.append("    lodgingPropertyPhoneNumber: ").append(toIndentedString(lodgingPropertyPhoneNumber)).append("\n");
     sb.append("    lodgingRoom1NumberOfNights: ").append(toIndentedString(lodgingRoom1NumberOfNights)).append("\n");
     sb.append("    lodgingRoom1Rate: ").append(toIndentedString(lodgingRoom1Rate)).append("\n");
-    sb.append("    lodgingRoom1Tax: ").append(toIndentedString(lodgingRoom1Tax)).append("\n");
     sb.append("    lodgingTotalRoomTax: ").append(toIndentedString(lodgingTotalRoomTax)).append("\n");
     sb.append("    lodgingTotalTax: ").append(toIndentedString(lodgingTotalTax)).append("\n");
     sb.append("    travelEntertainmentAuthDataDuration: ").append(toIndentedString(travelEntertainmentAuthDataDuration)).append("\n");
@@ -582,7 +554,6 @@ public class AdditionalDataLodging {
     openapiFields.add("lodging.propertyPhoneNumber");
     openapiFields.add("lodging.room1.numberOfNights");
     openapiFields.add("lodging.room1.rate");
-    openapiFields.add("lodging.room1.tax");
     openapiFields.add("lodging.totalRoomTax");
     openapiFields.add("lodging.totalTax");
     openapiFields.add("travelEntertainmentAuthData.duration");
@@ -661,10 +632,6 @@ public class AdditionalDataLodging {
       // validate the optional field lodging.room1.rate
       if (jsonObj.get("lodging.room1.rate") != null && !jsonObj.get("lodging.room1.rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lodging.room1.rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.rate").toString()));
-      }
-      // validate the optional field lodging.room1.tax
-      if (jsonObj.get("lodging.room1.tax") != null && !jsonObj.get("lodging.room1.tax").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.room1.tax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.tax").toString()));
       }
       // validate the optional field lodging.totalRoomTax
       if (jsonObj.get("lodging.totalRoomTax") != null && !jsonObj.get("lodging.totalRoomTax").isJsonPrimitive()) {

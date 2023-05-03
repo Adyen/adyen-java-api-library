@@ -134,10 +134,10 @@ public class CapabilityProblemEntity {
   }
 
    /**
-   * Get documents
+   * List of document IDs corresponding to the verification errors from capabilities.
    * @return documents
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of document IDs corresponding to the verification errors from capabilities.")
 
   public List<String> getDocuments() {
     return documents;

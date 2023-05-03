@@ -295,7 +295,7 @@ public class TerminalOrderRequest {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           OrderItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field shippingLocationId
       if (jsonObj.get("shippingLocationId") != null && !jsonObj.get("shippingLocationId").isJsonPrimitive()) {

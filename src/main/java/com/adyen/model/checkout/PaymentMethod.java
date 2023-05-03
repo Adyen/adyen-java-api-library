@@ -497,7 +497,7 @@ public class PaymentMethod {
         // validate the optional field `inputDetails` (array)
         for (int i = 0; i < jsonArrayinputDetails.size(); i++) {
           InputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayissuers = jsonObj.getAsJsonArray("issuers");
       if (jsonArrayissuers != null) {
@@ -509,7 +509,7 @@ public class PaymentMethod {
         // validate the optional field `issuers` (array)
         for (int i = 0; i < jsonArrayissuers.size(); i++) {
           PaymentMethodIssuer.validateJsonObject(jsonArrayissuers.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {

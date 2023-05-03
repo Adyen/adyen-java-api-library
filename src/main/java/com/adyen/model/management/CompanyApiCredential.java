@@ -472,7 +472,7 @@ public class CompanyApiCredential {
         // validate the optional field `allowedOrigins` (array)
         for (int i = 0; i < jsonArrayallowedOrigins.size(); i++) {
           AllowedOrigin.validateJsonObject(jsonArrayallowedOrigins.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the json data is an array
       if (jsonObj.get("associatedMerchantAccounts") != null && !jsonObj.get("associatedMerchantAccounts").isJsonArray()) {

@@ -116,6 +116,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.BulkAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.CALocalAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.CZLocalAccountIdentification.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.CapitalBalance.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.CapitalGrantAccount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.Card.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.CardConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.CardInfo.CustomTypeAdapterFactory());
@@ -128,6 +130,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.Duration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.EntryModesRestriction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.Expiry.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.Fee.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.GrantLimit.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.GrantOffer.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.GrantOffers.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.HULocalAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.IbanAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.InternationalTransactionRestriction.CustomTypeAdapterFactory());
@@ -156,6 +162,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.Phone.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.PhoneNumber.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.ProcessingTypesRestriction.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.Repayment.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.RepaymentTerm.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.RestServiceError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.SELocalAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.SGLocalAccountIdentification.CustomTypeAdapterFactory());
@@ -164,6 +172,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.SweepConfigurationV2Schedule.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.SweepCounterparty.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.SweepSchedule.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.ThresholdRepayment.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.TimeOfDay.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.TimeOfDayRestriction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.balanceplatform.TotalAmountRestriction.CustomTypeAdapterFactory());

@@ -326,7 +326,7 @@ public class SubInputDetail {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           Item.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field key
       if (jsonObj.get("key") != null && !jsonObj.get("key").isJsonPrimitive()) {

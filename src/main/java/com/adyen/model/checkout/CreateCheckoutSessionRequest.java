@@ -2044,7 +2044,7 @@ public class CreateCheckoutSessionRequest {
         // validate the optional field `lineItems` (array)
         for (int i = 0; i < jsonArraylineItems.size(); i++) {
           LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `mandate`
       if (jsonObj.getAsJsonObject("mandate") != null) {
@@ -2146,7 +2146,7 @@ public class CreateCheckoutSessionRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {

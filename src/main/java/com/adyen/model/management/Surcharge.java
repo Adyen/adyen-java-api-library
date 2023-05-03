@@ -200,7 +200,7 @@ public class Surcharge {
         // validate the optional field `configurations` (array)
         for (int i = 0; i < jsonArrayconfigurations.size(); i++) {
           ModelConfiguration.validateJsonObject(jsonArrayconfigurations.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

@@ -435,7 +435,7 @@ public class ApiCredential {
         // validate the optional field `allowedOrigins` (array)
         for (int i = 0; i < jsonArrayallowedOrigins.size(); i++) {
           AllowedOrigin.validateJsonObject(jsonArrayallowedOrigins.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field clientKey
       if (jsonObj.get("clientKey") != null && !jsonObj.get("clientKey").isJsonPrimitive()) {

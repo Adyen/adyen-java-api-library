@@ -208,7 +208,7 @@ public class NotificationUrl {
         // validate the optional field `localUrls` (array)
         for (int i = 0; i < jsonArraylocalUrls.size(); i++) {
           Url.validateJsonObject(jsonArraylocalUrls.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArraypublicUrls = jsonObj.getAsJsonArray("publicUrls");
       if (jsonArraypublicUrls != null) {
@@ -220,7 +220,7 @@ public class NotificationUrl {
         // validate the optional field `publicUrls` (array)
         for (int i = 0; i < jsonArraypublicUrls.size(); i++) {
           Url.validateJsonObject(jsonArraypublicUrls.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

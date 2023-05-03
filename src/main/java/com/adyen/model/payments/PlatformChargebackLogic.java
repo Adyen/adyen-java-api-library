@@ -101,6 +101,10 @@ public class PlatformChargebackLogic {
   @SerializedName(SERIALIZED_NAME_BEHAVIOR)
   private BehaviorEnum behavior;
 
+  public static final String SERIALIZED_NAME_COST_ALLOCATION_ACCOUNT = "costAllocationAccount";
+  @SerializedName(SERIALIZED_NAME_COST_ALLOCATION_ACCOUNT)
+  private String costAllocationAccount;
+
   public static final String SERIALIZED_NAME_TARGET_ACCOUNT = "targetAccount";
   @SerializedName(SERIALIZED_NAME_TARGET_ACCOUNT)
   private String targetAccount;
@@ -127,6 +131,28 @@ public class PlatformChargebackLogic {
 
   public void setBehavior(BehaviorEnum behavior) {
     this.behavior = behavior;
+  }
+
+
+  public PlatformChargebackLogic costAllocationAccount(String costAllocationAccount) {
+    
+    this.costAllocationAccount = costAllocationAccount;
+    return this;
+  }
+
+   /**
+   * Get costAllocationAccount
+   * @return costAllocationAccount
+  **/
+  @ApiModelProperty(value = "")
+
+  public String getCostAllocationAccount() {
+    return costAllocationAccount;
+  }
+
+
+  public void setCostAllocationAccount(String costAllocationAccount) {
+    this.costAllocationAccount = costAllocationAccount;
   }
 
 
@@ -163,12 +189,13 @@ public class PlatformChargebackLogic {
     }
     PlatformChargebackLogic platformChargebackLogic = (PlatformChargebackLogic) o;
     return Objects.equals(this.behavior, platformChargebackLogic.behavior) &&
+        Objects.equals(this.costAllocationAccount, platformChargebackLogic.costAllocationAccount) &&
         Objects.equals(this.targetAccount, platformChargebackLogic.targetAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(behavior, targetAccount);
+    return Objects.hash(behavior, costAllocationAccount, targetAccount);
   }
 
   @Override
@@ -176,6 +203,7 @@ public class PlatformChargebackLogic {
     StringBuilder sb = new StringBuilder();
     sb.append("class PlatformChargebackLogic {\n");
     sb.append("    behavior: ").append(toIndentedString(behavior)).append("\n");
+    sb.append("    costAllocationAccount: ").append(toIndentedString(costAllocationAccount)).append("\n");
     sb.append("    targetAccount: ").append(toIndentedString(targetAccount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -200,6 +228,7 @@ public class PlatformChargebackLogic {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("behavior");
+    openapiFields.add("costAllocationAccount");
     openapiFields.add("targetAccount");
 
     // a set of required properties/fields (JSON key names)
@@ -234,6 +263,10 @@ public class PlatformChargebackLogic {
           throw new IllegalArgumentException(String.format("Expected the field `behavior` to be a primitive type in the JSON string but got `%s`", jsonObj.get("behavior").toString()));
         }
         BehaviorEnum.fromValue(jsonObj.get("behavior").getAsString());
+      }
+      // validate the optional field costAllocationAccount
+      if (jsonObj.get("costAllocationAccount") != null && !jsonObj.get("costAllocationAccount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `costAllocationAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costAllocationAccount").toString()));
       }
       // validate the optional field targetAccount
       if (jsonObj.get("targetAccount") != null && !jsonObj.get("targetAccount").isJsonPrimitive()) {
