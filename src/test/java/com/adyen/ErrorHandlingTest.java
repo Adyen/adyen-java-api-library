@@ -4,7 +4,7 @@ import com.adyen.enums.Environment;
 import com.adyen.model.management.CreateAllowedOriginRequest;
 import com.adyen.service.checkout.PaymentLinksApi;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.management.MyApiCredential;
+import com.adyen.service.management.MyApiCredentialApi;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class ErrorHandlingTest extends BaseTest{
     @Ignore("Integration test")
     public void addAllowedOriginFail() throws IOException, ApiException {
         Client client = new Client(System.getenv("API_KEY"), Environment.TEST);
-        MyApiCredential service = new MyApiCredential(client);
+        MyApiCredentialApi service = new MyApiCredentialApi(client);
 
         CreateAllowedOriginRequest createAllowedOriginRequest = new CreateAllowedOriginRequest();
         createAllowedOriginRequest.setDomain("https://google.com");

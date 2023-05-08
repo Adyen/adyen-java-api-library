@@ -20,9 +20,9 @@ public class ManagementTest extends BaseTest {
     @Test
     public void listMerchantAccounts() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/management/list-merchants.json");
-        AccountMerchantLevel service = new AccountMerchantLevel(client);
+        AccountMerchantLevelApi service = new AccountMerchantLevelApi(client);
 
-        ListMerchantResponse merchants = service.listMerchantAccounts(null);
+        ListMerchantResponse merchants = service.listMerchantAccounts();
 
         assertEquals(10, merchants.getData().size());
         assertEquals("Amsterdam", merchants.getData().get(0).getMerchantCity());
@@ -33,15 +33,15 @@ public class ManagementTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/list-merchants.json");
         client.setEnvironment(Environment.TEST, "junit");
         Map<String, String> queryParams = Collections.singletonMap("pageSize", "25");
-        AccountMerchantLevel service = new AccountMerchantLevel(client);
+        AccountMerchantLevelApi service = new AccountMerchantLevelApi(client);
 
-        service.listMerchantAccounts(queryParams);
+        service.listMerchantAccounts(null, 25, null);
 
         verify(client.getHttpClient()).request(
                 "https://management-test.adyen.com/v1/merchants",
                 null,
                 client.getConfig(),
-                true,
+                false,
                 null,
                 ApiConstants.HttpMethod.GET,
                 queryParams
@@ -51,9 +51,9 @@ public class ManagementTest extends BaseTest {
     @Test
     public void listCompanies() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/management/list-companies.json");
-        AccountCompanyLevel service = new AccountCompanyLevel(client);
+        AccountCompanyLevelApi service = new AccountCompanyLevelApi(client);
 
-        ListCompanyResponse merchants = service.listCompanyAccounts(null);
+        ListCompanyResponse merchants = service.listCompanyAccounts();
 
         assertEquals(1, merchants.getData().size());
         assertEquals("YOUR_COMPANY_NAME", merchants.getData().get(0).getName());
@@ -62,7 +62,7 @@ public class ManagementTest extends BaseTest {
     @Test
     public void updateTerminalSettings() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/management/terminal-settings.json");
-        TerminalSettingsTerminalLevel service = new TerminalSettingsTerminalLevel(client);
+        TerminalSettingsTerminalLevelApi service = new TerminalSettingsTerminalLevelApi(client);
         TerminalSettings request = new TerminalSettings(); 
         request.setReceiptPrinting(new ReceiptPrinting().shopperApproved(true));
         
@@ -72,10 +72,10 @@ public class ManagementTest extends BaseTest {
         assertNotNull(response.getReceiptPrinting().getShopperApproved());
         assertTrue(response.getReceiptPrinting().getShopperApproved());
         verify(client.getHttpClient()).request(
-                "nullv1/terminals/123ABC/terminalSettings",
+                "https://management-test.adyen.com/v1/terminals/123ABC/terminalSettings",
                 "{\"receiptPrinting\":{\"shopperApproved\":true}}",
                 client.getConfig(),
-                true,
+                false,
                 null,
                 ApiConstants.HttpMethod.PATCH,
                 null
@@ -85,18 +85,18 @@ public class ManagementTest extends BaseTest {
     @Test
     public void createStore() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/management/store.json");
-        AccountStoreLevel service = new AccountStoreLevel(client);
+        AccountStoreLevelApi service = new AccountStoreLevelApi(client);
         StoreCreationRequest request = new StoreCreationRequest();
         request.setDescription("City centre store");
         
-        Store store = service.createStore("YOUR_MERCHANT_ACCOUNT_ID", request);
+        Store store = service.createStoreByMerchantId("YOUR_MERCHANT_ACCOUNT_ID", request);
 
         assertEquals("YOUR_STORE_ID", store.getId());
         verify(client.getHttpClient()).request(
-                "nullv1/merchants/YOUR_MERCHANT_ACCOUNT_ID/stores",
+                "https://management-test.adyen.com/v1/merchants/YOUR_MERCHANT_ACCOUNT_ID/stores",
                 "{\"description\":\"City centre store\"}",
                 client.getConfig(),
-                true,
+                false,
                 null,
                 ApiConstants.HttpMethod.POST,
                 null
@@ -106,15 +106,15 @@ public class ManagementTest extends BaseTest {
     @Test
     public void removeAllowedOrigin() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/management/store.json");
-        MyApiCredential service = new MyApiCredential(client);
+        MyApiCredentialApi service = new MyApiCredentialApi(client);
 
-        service.removeAllowedOrigin("DOEI");
+        service.removeAllowedOrigin("ID");
 
         verify(client.getHttpClient()).request(
-                "nullv1/me/allowedOrigins/DOEI",
+                "https://management-test.adyen.com/v1/me/allowedOrigins/ID",
                 null,
                 client.getConfig(),
-                true,
+                false,
                 null,
                 ApiConstants.HttpMethod.DELETE,
                 null
@@ -125,7 +125,7 @@ public class ManagementTest extends BaseTest {
     @Ignore("Integration test")
     public void me() throws IOException, ApiException {
         Client client = new Client(System.getenv("API_KEY"), Environment.TEST);
-        MyApiCredential service = new MyApiCredential(client);
+        MyApiCredentialApi service = new MyApiCredentialApi(client);
 
         MeApiCredential me = service.getApiCredentialDetails();
         
