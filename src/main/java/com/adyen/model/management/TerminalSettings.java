@@ -659,7 +659,7 @@ public class TerminalSettings {
         // validate the optional field `gratuities` (array)
         for (int i = 0; i < jsonArraygratuities.size(); i++) {
           Gratuity.validateJsonObject(jsonArraygratuities.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `hardware`
       if (jsonObj.getAsJsonObject("hardware") != null) {

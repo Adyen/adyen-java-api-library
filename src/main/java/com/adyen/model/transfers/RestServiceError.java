@@ -428,7 +428,7 @@ public class RestServiceError {
         // validate the optional field `invalidFields` (array)
         for (int i = 0; i < jsonArrayinvalidFields.size(); i++) {
           InvalidField.validateJsonObject(jsonArrayinvalidFields.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field requestId
       if (jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonPrimitive()) {

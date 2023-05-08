@@ -1,5 +1,6 @@
 package com.adyen;
 
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.legalentitymanagement.BusinessLine;
 import com.adyen.model.legalentitymanagement.BusinessLineInfo;
 import com.adyen.model.legalentitymanagement.BusinessLineInfoUpdate;
@@ -14,14 +15,12 @@ import com.adyen.model.legalentitymanagement.OnboardingTheme;
 import com.adyen.model.legalentitymanagement.OnboardingThemes;
 import com.adyen.model.legalentitymanagement.TransferInstrument;
 import com.adyen.model.legalentitymanagement.TransferInstrumentInfo;
-import com.adyen.service.legalentitymanagement.BusinessLinesApi;
-import com.adyen.service.legalentitymanagement.Documents;
-import com.adyen.service.legalentitymanagement.HostedOnboardingApi;
-import com.adyen.service.legalentitymanagement.LegalEntitiesApi;
-import com.adyen.service.legalentitymanagement.TransferInstrumentsApi;
+import com.adyen.service.legalentitymanagement.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.verify;
 
 public class LegalEntityManagementTest extends BaseTest {
     @Test
@@ -148,12 +147,21 @@ public class LegalEntityManagementTest extends BaseTest {
         BusinessLine response = service.updateBusinessLine("SE322KT223222D5FJ7TJN2986", request);
         assertEquals("string", response.getLegalEntityId());
         assertEquals("string", response.getId());
+        verify(client.getHttpClient()).request(
+                "https://kyc-test.adyen.com/lem/v3/businessLines/SE322KT223222D5FJ7TJN2986",
+                request.toJson(),
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.PATCH,
+                null
+        );
     }
 
     @Test
     public void DocumentsCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        Documents service = new Documents(client);
+        DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
                 "        \"content\": \"string\",\n" +
@@ -182,7 +190,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    },\n" +
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
-        Document response = service.create(request);
+        Document response = service.uploadDocumentForVerificationChecks(request);
         assertEquals(Document.TypeEnum.DRIVERSLICENSE, response.getType());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -190,8 +198,8 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void DocumentsRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        Documents service = new Documents(client);
-        Document response = service.retrieve("SE322KT223222D5FJ7TJN2986");
+        DocumentsApi service = new DocumentsApi(client);
+        Document response = service.getDocument("SE322KT223222D5FJ7TJN2986");
         assertEquals(Document.TypeEnum.DRIVERSLICENSE, response.getType());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -199,7 +207,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void DocumentsUpdateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        Documents service = new Documents(client);
+        DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
                 "        \"content\": \"string\",\n" +
@@ -228,7 +236,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    },\n" +
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
-        Document response = service.update("SE322KT223222D5FJ7TJN2986", request);
+        Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
         assertEquals(Document.TypeEnum.DRIVERSLICENSE, response.getType());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -236,8 +244,17 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void DocumentsDeleteTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        Documents service = new Documents(client);
-        service.delete("SE322KT223222D5FJ7TJN2986");
+        DocumentsApi service = new DocumentsApi(client);
+        service.deleteDocument("SE322KT223222D5FJ7TJN2986");
+        verify(client.getHttpClient()).request(
+                "https://kyc-test.adyen.com/lem/v3/documents/SE322KT223222D5FJ7TJN2986",
+                null,
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.DELETE,
+                null
+        );
     }
 
     @Test
@@ -267,12 +284,21 @@ public class LegalEntityManagementTest extends BaseTest {
         HostedOnboardingApi service = new HostedOnboardingApi(client);
         OnboardingTheme response = service.getOnboardingLinkTheme("SE322KT223222D5FJ7TJN2986");
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
+        verify(client.getHttpClient()).request(
+                "https://kyc-test.adyen.com/lem/v3/themes/SE322KT223222D5FJ7TJN2986",
+                null,
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.GET,
+                null
+        );
     }
 
     @Test
     public void TestBase64EncodedResponseToByteArray() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        Documents service = new Documents(client);
+        DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
                 "        \"content\": \"string\",\n" +
@@ -301,7 +327,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    },\n" +
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
-        Document response = service.update("SE322KT223222D5FJ7TJN2986", request);
+        Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
         assertEquals("Thisisanbase64encodedstring", new String(response.getAttachments().get(0).getContent()));
     }
 }

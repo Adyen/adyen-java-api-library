@@ -247,7 +247,7 @@ public class ModelConfiguration {
         // validate the optional field `currencies` (array)
         for (int i = 0; i < jsonArraycurrencies.size(); i++) {
           Currency.validateJsonObject(jsonArraycurrencies.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the json data is an array
       if (jsonObj.get("sources") != null && !jsonObj.get("sources").isJsonArray()) {

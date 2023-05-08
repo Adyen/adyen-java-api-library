@@ -32,7 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
  * AccountHolderUpcomingDeadlineNotification
  */
 
-public class AccountHolderUpcomingDeadlineNotification extends GenericNotification {
+public class AccountHolderUpcomingDeadlineNotification extends GenericWebhook {
     @SerializedName("content")
     private AccountHolderUpcomingDeadlineNotificationContent content = null;
 

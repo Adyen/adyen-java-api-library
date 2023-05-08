@@ -201,7 +201,7 @@ public class WifiProfiles {
         // validate the optional field `profiles` (array)
         for (int i = 0; i < jsonArrayprofiles.size(); i++) {
           Profile.validateJsonObject(jsonArrayprofiles.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `settings`
       if (jsonObj.getAsJsonObject("settings") != null) {

@@ -117,6 +117,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.NumberAndBicAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.PLLocalAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.PartyIdentification2.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.PaymentInstrument.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.ResourceReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.RestServiceError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.SELocalAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.SGLocalAccountIdentification.CustomTypeAdapterFactory());
@@ -126,6 +128,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.TransferInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.UKLocalAccountIdentification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.USLocalAccountIdentification.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.transfers.UltimatePartyIdentification.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

@@ -593,7 +593,7 @@ public class Document {
         // validate the optional field `attachments` (array)
         for (int i = 0; i < jsonArrayattachments.size(); i++) {
           Attachment.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {

@@ -208,7 +208,7 @@ public class FraudResult {
         // validate the optional field `results` (array)
         for (int i = 0; i < jsonArrayresults.size(); i++) {
           FraudCheckResult.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

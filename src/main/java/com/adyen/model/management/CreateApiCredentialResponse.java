@@ -495,7 +495,7 @@ public class CreateApiCredentialResponse {
         // validate the optional field `allowedOrigins` (array)
         for (int i = 0; i < jsonArrayallowedOrigins.size(); i++) {
           AllowedOrigin.validateJsonObject(jsonArrayallowedOrigins.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field apiKey
       if (jsonObj.get("apiKey") != null && !jsonObj.get("apiKey").isJsonPrimitive()) {

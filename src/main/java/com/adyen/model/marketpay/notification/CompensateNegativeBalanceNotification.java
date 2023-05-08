@@ -28,7 +28,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class CompensateNegativeBalanceNotification extends GenericNotification {
+public class CompensateNegativeBalanceNotification extends GenericWebhook {
     @SerializedName("content")
     private CompensateNegativeBalanceNotificationContent content = null;
 

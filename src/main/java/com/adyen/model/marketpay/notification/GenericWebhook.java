@@ -23,7 +23,7 @@ package com.adyen.model.marketpay.notification;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GenericNotification {
+public class GenericWebhook {
     public enum EventTypeEnum {
         @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),

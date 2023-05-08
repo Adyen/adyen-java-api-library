@@ -472,7 +472,7 @@ public class BusinessLineInfo {
         // validate the optional field `webData` (array)
         for (int i = 0; i < jsonArraywebData.size(); i++) {
           WebData.validateJsonObject(jsonArraywebData.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `webDataExemption`
       if (jsonObj.getAsJsonObject("webDataExemption") != null) {

@@ -403,7 +403,7 @@ public class LegalEntityInfo {
         // validate the optional field `entityAssociations` (array)
         for (int i = 0; i < jsonArrayentityAssociations.size(); i++) {
           LegalEntityAssociation.validateJsonObject(jsonArrayentityAssociations.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `individual`
       if (jsonObj.getAsJsonObject("individual") != null) {

@@ -32,7 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
  * RefundFundsTransferNotification
  */
 
-public class RefundFundsTransferNotification extends GenericNotification {
+public class RefundFundsTransferNotification extends GenericWebhook {
     @SerializedName("content")
     private RefundFundsTransferNotificationContent content = null;
 

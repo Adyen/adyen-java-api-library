@@ -171,7 +171,7 @@ public class GetPciQuestionnaireInfosResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           PciDocumentInfo.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

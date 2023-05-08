@@ -28,7 +28,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class AccountHolderVerificationNotification extends GenericNotification {
+public class AccountHolderVerificationNotification extends GenericWebhook {
     @SerializedName("content")
     private AccountHolderVerificationNotificationContent content = null;
 

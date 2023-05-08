@@ -18,6 +18,7 @@ import com.adyen.model.legalentitymanagement.OnboardingLink;
 import com.adyen.model.legalentitymanagement.OnboardingLinkInfo;
 import com.adyen.model.legalentitymanagement.OnboardingTheme;
 import com.adyen.model.legalentitymanagement.OnboardingThemes;
+import com.adyen.model.legalentitymanagement.ServiceError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;

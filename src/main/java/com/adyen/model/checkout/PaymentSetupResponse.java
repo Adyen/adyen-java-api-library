@@ -206,7 +206,7 @@ public class PaymentSetupResponse {
         // validate the optional field `recurringDetails` (array)
         for (int i = 0; i < jsonArrayrecurringDetails.size(); i++) {
           RecurringDetail.validateJsonObject(jsonArrayrecurringDetails.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

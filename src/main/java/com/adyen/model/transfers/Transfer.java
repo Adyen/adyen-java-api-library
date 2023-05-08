@@ -16,6 +16,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.CounterpartyV3;
+import com.adyen.model.transfers.PaymentInstrument;
+import com.adyen.model.transfers.ResourceReference;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,9 +52,17 @@ import com.adyen.model.transfers.JSON;
  */
 
 public class Transfer {
+  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER = "accountHolder";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER)
+  private ResourceReference accountHolder;
+
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Amount amount;
+
+  public static final String SERIALIZED_NAME_BALANCE_ACCOUNT = "balanceAccount";
+  @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT)
+  private ResourceReference balanceAccount;
 
   public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
   @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
@@ -175,6 +185,10 @@ public class Transfer {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT = "paymentInstrument";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT)
+  private PaymentInstrument paymentInstrument;
 
   public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID)
@@ -494,6 +508,28 @@ public class Transfer {
   public Transfer() { 
   }
 
+  public Transfer accountHolder(ResourceReference accountHolder) {
+    
+    this.accountHolder = accountHolder;
+    return this;
+  }
+
+   /**
+   * Get accountHolder
+   * @return accountHolder
+  **/
+  @ApiModelProperty(value = "")
+
+  public ResourceReference getAccountHolder() {
+    return accountHolder;
+  }
+
+
+  public void setAccountHolder(ResourceReference accountHolder) {
+    this.accountHolder = accountHolder;
+  }
+
+
   public Transfer amount(Amount amount) {
     
     this.amount = amount;
@@ -516,6 +552,28 @@ public class Transfer {
   }
 
 
+  public Transfer balanceAccount(ResourceReference balanceAccount) {
+    
+    this.balanceAccount = balanceAccount;
+    return this;
+  }
+
+   /**
+   * Get balanceAccount
+   * @return balanceAccount
+  **/
+  @ApiModelProperty(value = "")
+
+  public ResourceReference getBalanceAccount() {
+    return balanceAccount;
+  }
+
+
+  public void setBalanceAccount(ResourceReference balanceAccount) {
+    this.balanceAccount = balanceAccount;
+  }
+
+
   public Transfer balanceAccountId(String balanceAccountId) {
     
     this.balanceAccountId = balanceAccountId;
@@ -525,7 +583,9 @@ public class Transfer {
    /**
    * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
    * @return balanceAccountId
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
 
   public String getBalanceAccountId() {
@@ -648,6 +708,28 @@ public class Transfer {
   }
 
 
+  public Transfer paymentInstrument(PaymentInstrument paymentInstrument) {
+    
+    this.paymentInstrument = paymentInstrument;
+    return this;
+  }
+
+   /**
+   * Get paymentInstrument
+   * @return paymentInstrument
+  **/
+  @ApiModelProperty(value = "")
+
+  public PaymentInstrument getPaymentInstrument() {
+    return paymentInstrument;
+  }
+
+
+  public void setPaymentInstrument(PaymentInstrument paymentInstrument) {
+    this.paymentInstrument = paymentInstrument;
+  }
+
+
   public Transfer paymentInstrumentId(String paymentInstrumentId) {
     
     this.paymentInstrumentId = paymentInstrumentId;
@@ -655,10 +737,12 @@ public class Transfer {
   }
 
    /**
-   * The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).
+   * The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) used in the transfer.
    * @return paymentInstrumentId
+   * @deprecated
   **/
-  @ApiModelProperty(value = "The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).")
+  @Deprecated
+  @ApiModelProperty(value = "The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) used in the transfer.")
 
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
@@ -790,13 +874,16 @@ public class Transfer {
       return false;
     }
     Transfer transfer = (Transfer) o;
-    return Objects.equals(this.amount, transfer.amount) &&
+    return Objects.equals(this.accountHolder, transfer.accountHolder) &&
+        Objects.equals(this.amount, transfer.amount) &&
+        Objects.equals(this.balanceAccount, transfer.balanceAccount) &&
         Objects.equals(this.balanceAccountId, transfer.balanceAccountId) &&
         Objects.equals(this.category, transfer.category) &&
         Objects.equals(this.counterparty, transfer.counterparty) &&
         Objects.equals(this.description, transfer.description) &&
         Objects.equals(this.direction, transfer.direction) &&
         Objects.equals(this.id, transfer.id) &&
+        Objects.equals(this.paymentInstrument, transfer.paymentInstrument) &&
         Objects.equals(this.paymentInstrumentId, transfer.paymentInstrumentId) &&
         Objects.equals(this.priority, transfer.priority) &&
         Objects.equals(this.reason, transfer.reason) &&
@@ -807,20 +894,23 @@ public class Transfer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, balanceAccountId, category, counterparty, description, direction, id, paymentInstrumentId, priority, reason, reference, referenceForBeneficiary, status);
+    return Objects.hash(accountHolder, amount, balanceAccount, balanceAccountId, category, counterparty, description, direction, id, paymentInstrument, paymentInstrumentId, priority, reason, reference, referenceForBeneficiary, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Transfer {\n");
+    sb.append("    accountHolder: ").append(toIndentedString(accountHolder)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    balanceAccount: ").append(toIndentedString(balanceAccount)).append("\n");
     sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -849,13 +939,16 @@ public class Transfer {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("accountHolder");
     openapiFields.add("amount");
+    openapiFields.add("balanceAccount");
     openapiFields.add("balanceAccountId");
     openapiFields.add("category");
     openapiFields.add("counterparty");
     openapiFields.add("description");
     openapiFields.add("direction");
     openapiFields.add("id");
+    openapiFields.add("paymentInstrument");
     openapiFields.add("paymentInstrumentId");
     openapiFields.add("priority");
     openapiFields.add("reason");
@@ -900,9 +993,17 @@ public class Transfer {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field `accountHolder`
+      if (jsonObj.getAsJsonObject("accountHolder") != null) {
+        ResourceReference.validateJsonObject(jsonObj.getAsJsonObject("accountHolder"));
+      }
       // validate the optional field `amount`
       if (jsonObj.getAsJsonObject("amount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
+      }
+      // validate the optional field `balanceAccount`
+      if (jsonObj.getAsJsonObject("balanceAccount") != null) {
+        ResourceReference.validateJsonObject(jsonObj.getAsJsonObject("balanceAccount"));
       }
       // validate the optional field balanceAccountId
       if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
@@ -933,6 +1034,10 @@ public class Transfer {
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // validate the optional field `paymentInstrument`
+      if (jsonObj.getAsJsonObject("paymentInstrument") != null) {
+        PaymentInstrument.validateJsonObject(jsonObj.getAsJsonObject("paymentInstrument"));
       }
       // validate the optional field paymentInstrumentId
       if (jsonObj.get("paymentInstrumentId") != null && !jsonObj.get("paymentInstrumentId").isJsonPrimitive()) {

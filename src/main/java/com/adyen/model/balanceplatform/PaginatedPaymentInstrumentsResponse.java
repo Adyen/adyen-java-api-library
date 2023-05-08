@@ -236,7 +236,7 @@ public class PaginatedPaymentInstrumentsResponse {
         // validate the optional field `paymentInstruments` (array)
         for (int i = 0; i < jsonArraypaymentInstruments.size(); i++) {
           PaymentInstrument.validateJsonObject(jsonArraypaymentInstruments.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

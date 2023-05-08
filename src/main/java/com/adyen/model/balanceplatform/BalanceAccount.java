@@ -438,7 +438,7 @@ public class BalanceAccount {
         // validate the optional field `balances` (array)
         for (int i = 0; i < jsonArraybalances.size(); i++) {
           Balance.validateJsonObject(jsonArraybalances.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field defaultCurrencyCode
       if (jsonObj.get("defaultCurrencyCode") != null && !jsonObj.get("defaultCurrencyCode").isJsonPrimitive()) {
