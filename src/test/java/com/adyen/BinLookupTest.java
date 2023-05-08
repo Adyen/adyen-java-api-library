@@ -21,7 +21,7 @@
 package com.adyen;
 
 import com.adyen.model.binlookup.*;
-import com.adyen.service.BinLookup;
+import com.adyen.service.BinLookupApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
@@ -42,7 +42,7 @@ public class BinLookupTest extends BaseTest {
     @Test
     public void TestGet3dsAvailabilitySuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/binlookup/get3dsAvailability-200-success.json");
-        BinLookup binLookup = new BinLookup(client);
+        BinLookupApi binLookup = new BinLookupApi(client);
 
         ThreeDSAvailabilityRequest threeDSAvailabilityRequest = new ThreeDSAvailabilityRequest();
         threeDSAvailabilityRequest.setMerchantAccount("merchantAccount");
@@ -57,7 +57,7 @@ public class BinLookupTest extends BaseTest {
     @Test
     public void TestGet3dsAvailabilityInvalidMerchantMocked() throws Exception {
         Client client = createMockClientForErrors(403, "mocks/binlookup/get3dsavailability-error-merchant.json");
-        BinLookup binLookup = new BinLookup(client);
+        BinLookupApi binLookup = new BinLookupApi(client);
 
         ThreeDSAvailabilityRequest threeDSAvailabilityRequest = new ThreeDSAvailabilityRequest();
         threeDSAvailabilityRequest.setMerchantAccount(null);
@@ -76,12 +76,12 @@ public class BinLookupTest extends BaseTest {
     public void TestGetCostEstimateSuccessMocked() throws Exception {
 
         Client client = createMockClientFromFile("mocks/binlookup/getCostEstimate-getCostEstimate-200.json");
-        BinLookup binLookup = new BinLookup(client);
+        BinLookupApi binLookup = new BinLookupApi(client);
 
         CostEstimateRequest costEstimateRequest = new CostEstimateRequest();
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(new Long("1000"));
+        amount.setValue(Long.valueOf("1000"));
         costEstimateRequest.setAmount(amount);
 
         CostEstimateAssumptions costEstimateAssumptions = new CostEstimateAssumptions();
@@ -109,12 +109,12 @@ public class BinLookupTest extends BaseTest {
     @Test
     public void TestGetCostEstimateInvalidMerchantMocked() throws Exception {
         Client client = createMockClientForErrors(500, "mocks/binlookup/getcostestimate-error-merchant.json");
-        BinLookup binLookup = new BinLookup(client);
+        BinLookupApi binLookup = new BinLookupApi(client);
 
         CostEstimateRequest costEstimateRequest = new CostEstimateRequest();
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(new Long("1000"));
+        amount.setValue(Long.valueOf("1000"));
         costEstimateRequest.setAmount(amount);
 
         CostEstimateAssumptions costEstimateAssumptions = new CostEstimateAssumptions();
@@ -143,12 +143,12 @@ public class BinLookupTest extends BaseTest {
     @Test
     public void TestGetCostEstimateInvalidCardNumberMocked() throws Exception {
         Client client = createMockClientForErrors(422, "mocks/binlookup/getcostestimate-error-cardnumber.json");
-        BinLookup binLookup = new BinLookup(client);
+        BinLookupApi binLookup = new BinLookupApi(client);
 
         CostEstimateRequest costEstimateRequest = new CostEstimateRequest();
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(new Long("1000"));
+        amount.setValue(Long.valueOf("1000"));
         costEstimateRequest.setAmount(amount);
 
         CostEstimateAssumptions costEstimateAssumptions = new CostEstimateAssumptions();
@@ -177,7 +177,7 @@ public class BinLookupTest extends BaseTest {
     @Test
     public void TestGetCostEstimateInvalidAmountMocked() throws Exception {
         Client client = createMockClientForErrors(422, "mocks/binlookup/getcostestimate-error-amount.json");
-        BinLookup binLookup = new BinLookup(client);
+        BinLookupApi binLookup = new BinLookupApi(client);
 
         CostEstimateRequest costEstimateRequest = new CostEstimateRequest();
         costEstimateRequest.setAmount(null);
