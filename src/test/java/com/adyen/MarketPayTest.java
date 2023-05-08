@@ -127,7 +127,7 @@ public class MarketPayTest extends BaseTest {
         assertEquals("false", additionalData.get(THREE_D_AUTHENTICATED));
         assertEquals("69746", paymentResult.getAuthCode());
 
-        assertEquals(5, paymentResult.getFraudResult().getResults().size());
+        assertEquals(11, paymentResult.getFraudResult().getResults().size());
 
         FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0).getFraudCheckResult();
         assertEquals("CardChunkUsage", fraudCheckResult.getName());
