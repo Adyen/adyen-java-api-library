@@ -70,6 +70,7 @@ public class Document {
   private String description;
 
   public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
   private String expiryDate;
 
@@ -82,10 +83,12 @@ public class Document {
   private String id;
 
   public static final String SERIALIZED_NAME_ISSUER_COUNTRY = "issuerCountry";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ISSUER_COUNTRY)
   private String issuerCountry;
 
   public static final String SERIALIZED_NAME_ISSUER_STATE = "issuerState";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ISSUER_STATE)
   private String issuerState;
 
@@ -273,6 +276,7 @@ public class Document {
   }
 
 
+  @Deprecated
   public Document expiryDate(String expiryDate) {
     
     this.expiryDate = expiryDate;
@@ -292,6 +296,7 @@ public class Document {
   }
 
 
+  @Deprecated
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
   }
@@ -332,6 +337,7 @@ public class Document {
 
 
 
+  @Deprecated
   public Document issuerCountry(String issuerCountry) {
     
     this.issuerCountry = issuerCountry;
@@ -351,11 +357,13 @@ public class Document {
   }
 
 
+  @Deprecated
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
   }
 
 
+  @Deprecated
   public Document issuerState(String issuerState) {
     
     this.issuerState = issuerState;
@@ -375,6 +383,7 @@ public class Document {
   }
 
 
+  @Deprecated
   public void setIssuerState(String issuerState) {
     this.issuerState = issuerState;
   }

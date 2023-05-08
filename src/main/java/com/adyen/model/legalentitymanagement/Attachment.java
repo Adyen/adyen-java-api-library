@@ -53,10 +53,12 @@ public class Attachment {
   private byte[] content;
 
   public static final String SERIALIZED_NAME_CONTENT_TYPE = "contentType";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
   private String contentType;
 
   public static final String SERIALIZED_NAME_FILENAME = "filename";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
@@ -93,6 +95,7 @@ public class Attachment {
   }
 
 
+  @Deprecated
   public Attachment contentType(String contentType) {
     
     this.contentType = contentType;
@@ -112,11 +115,13 @@ public class Attachment {
   }
 
 
+  @Deprecated
   public void setContentType(String contentType) {
     this.contentType = contentType;
   }
 
 
+  @Deprecated
   public Attachment filename(String filename) {
     
     this.filename = filename;
@@ -136,6 +141,7 @@ public class Attachment {
   }
 
 
+  @Deprecated
   public void setFilename(String filename) {
     this.filename = filename;
   }

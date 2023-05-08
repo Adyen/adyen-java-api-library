@@ -106,6 +106,7 @@ public class ApplePayDetails {
   private FundingSourceEnum fundingSource;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -231,6 +232,7 @@ public class ApplePayDetails {
   }
 
 
+  @Deprecated
   public ApplePayDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -250,6 +252,7 @@ public class ApplePayDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }

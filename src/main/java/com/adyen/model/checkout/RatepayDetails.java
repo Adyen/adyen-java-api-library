@@ -65,6 +65,7 @@ public class RatepayDetails {
   private String personalDetails;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -214,6 +215,7 @@ public class RatepayDetails {
   }
 
 
+  @Deprecated
   public RatepayDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -233,6 +235,7 @@ public class RatepayDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }

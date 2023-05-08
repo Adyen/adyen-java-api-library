@@ -66,6 +66,7 @@ public class Nexo {
   private EventUrl eventUrls;
 
   public static final String SERIALIZED_NAME_NEXO_EVENT_URLS = "nexoEventUrls";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_NEXO_EVENT_URLS)
   private List<String> nexoEventUrls = null;
 
@@ -138,6 +139,7 @@ public class Nexo {
   }
 
 
+  @Deprecated
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     
     this.nexoEventUrls = nexoEventUrls;
@@ -165,6 +167,7 @@ public class Nexo {
   }
 
 
+  @Deprecated
   public void setNexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
   }

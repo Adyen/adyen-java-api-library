@@ -535,6 +535,7 @@ public class CreateCheckoutSessionResponse {
   private String telephoneNumber;
 
   public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
   private Boolean threeDSAuthenticationOnly = false;
 
@@ -1810,6 +1811,7 @@ public class CreateCheckoutSessionResponse {
   }
 
 
+  @Deprecated
   public CreateCheckoutSessionResponse threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
@@ -1829,6 +1831,7 @@ public class CreateCheckoutSessionResponse {
   }
 
 
+  @Deprecated
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
   }

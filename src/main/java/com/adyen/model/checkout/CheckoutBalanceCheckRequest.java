@@ -331,6 +331,7 @@ public class CheckoutBalanceCheckRequest {
   private ThreeDS2RequestData threeDS2RequestData;
 
   public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
   private Boolean threeDSAuthenticationOnly = false;
 
@@ -1284,6 +1285,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
+  @Deprecated
   public CheckoutBalanceCheckRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
@@ -1303,6 +1305,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
+  @Deprecated
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
   }

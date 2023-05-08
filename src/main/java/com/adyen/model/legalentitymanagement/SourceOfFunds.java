@@ -49,6 +49,7 @@ import com.adyen.model.legalentitymanagement.JSON;
 
 public class SourceOfFunds {
   public static final String SERIALIZED_NAME_ACQUIRING_BUSINESS_LINE_ID = "acquiringBusinessLineId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ACQUIRING_BUSINESS_LINE_ID)
   private String acquiringBusinessLineId;
 
@@ -112,6 +113,7 @@ public class SourceOfFunds {
   public SourceOfFunds() { 
   }
 
+  @Deprecated
   public SourceOfFunds acquiringBusinessLineId(String acquiringBusinessLineId) {
     
     this.acquiringBusinessLineId = acquiringBusinessLineId;
@@ -131,6 +133,7 @@ public class SourceOfFunds {
   }
 
 
+  @Deprecated
   public void setAcquiringBusinessLineId(String acquiringBusinessLineId) {
     this.acquiringBusinessLineId = acquiringBusinessLineId;
   }

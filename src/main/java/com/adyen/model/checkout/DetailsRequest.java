@@ -63,6 +63,7 @@ public class DetailsRequest {
   private String paymentData;
 
   public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
   private Boolean threeDSAuthenticationOnly;
 
@@ -135,6 +136,7 @@ public class DetailsRequest {
   }
 
 
+  @Deprecated
   public DetailsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
@@ -154,6 +156,7 @@ public class DetailsRequest {
   }
 
 
+  @Deprecated
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
   }

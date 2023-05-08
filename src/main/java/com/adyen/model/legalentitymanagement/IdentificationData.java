@@ -53,10 +53,12 @@ public class IdentificationData {
   private String cardNumber;
 
   public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
   private String expiryDate;
 
   public static final String SERIALIZED_NAME_ISSUER_COUNTRY = "issuerCountry";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ISSUER_COUNTRY)
   private String issuerCountry;
 
@@ -170,6 +172,7 @@ public class IdentificationData {
   }
 
 
+  @Deprecated
   public IdentificationData expiryDate(String expiryDate) {
     
     this.expiryDate = expiryDate;
@@ -189,11 +192,13 @@ public class IdentificationData {
   }
 
 
+  @Deprecated
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
   }
 
 
+  @Deprecated
   public IdentificationData issuerCountry(String issuerCountry) {
     
     this.issuerCountry = issuerCountry;
@@ -213,6 +218,7 @@ public class IdentificationData {
   }
 
 
+  @Deprecated
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
   }

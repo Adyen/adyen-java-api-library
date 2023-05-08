@@ -53,6 +53,7 @@ public class GiropayDetails {
   private String checkoutAttemptId;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -134,6 +135,7 @@ public class GiropayDetails {
   }
 
 
+  @Deprecated
   public GiropayDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -153,6 +155,7 @@ public class GiropayDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }

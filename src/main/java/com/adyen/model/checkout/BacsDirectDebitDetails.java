@@ -65,6 +65,7 @@ public class BacsDirectDebitDetails {
   private String holderName;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -212,6 +213,7 @@ public class BacsDirectDebitDetails {
   }
 
 
+  @Deprecated
   public BacsDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -231,6 +233,7 @@ public class BacsDirectDebitDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
