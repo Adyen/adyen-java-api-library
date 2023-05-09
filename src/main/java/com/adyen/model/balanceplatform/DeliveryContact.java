@@ -14,7 +14,7 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.balanceplatform.Address2;
+import com.adyen.model.balanceplatform.DeliveryAddress;
 import com.adyen.model.balanceplatform.Name;
 import com.adyen.model.balanceplatform.PhoneNumber;
 import com.google.gson.TypeAdapter;
@@ -53,7 +53,7 @@ import com.adyen.model.balanceplatform.JSON;
 public class DeliveryContact {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private Address2 address;
+  private DeliveryAddress address;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -78,7 +78,7 @@ public class DeliveryContact {
   public DeliveryContact() { 
   }
 
-  public DeliveryContact address(Address2 address) {
+  public DeliveryContact address(DeliveryAddress address) {
     
     this.address = address;
     return this;
@@ -90,12 +90,12 @@ public class DeliveryContact {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public Address2 getAddress() {
+  public DeliveryAddress getAddress() {
     return address;
   }
 
 
-  public void setAddress(Address2 address) {
+  public void setAddress(DeliveryAddress address) {
     this.address = address;
   }
 
@@ -309,7 +309,7 @@ public class DeliveryContact {
       }
       // validate the optional field `address`
       if (jsonObj.getAsJsonObject("address") != null) {
-        Address2.validateJsonObject(jsonObj.getAsJsonObject("address"));
+        DeliveryAddress.validateJsonObject(jsonObj.getAsJsonObject("address"));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
