@@ -183,9 +183,6 @@ System.setProperty("https.proxyUser", "squid");
 System.setProperty("https.proxyPassword", "ward");
 ~~~~
 
-## Feedback
-We value your input! Help us enhance our API Libraries and improve the integration experience by providing your feedback. Please take a moment to fill out [our feedback form](https://forms.gle/A4EERrR6CWgKWe5r9) to share your thoughts, suggestions or ideas. 
-
 ### Example integrations
  
 For a closer look at how our Java library works, you can clone one of our example integrations:
@@ -194,6 +191,8 @@ For a closer look at how our Java library works, you can clone one of our exampl
 
 These include commented code, highlighting key features and concepts, and examples of API calls that can be made using the library.
 
+## Feedback
+We value your input! Help us enhance our API Libraries and improve the integration experience by providing your feedback. Please take a moment to fill out [our feedback form](https://forms.gle/A4EERrR6CWgKWe5r9) to share your thoughts, suggestions or ideas. 
 
 ## Contributing
  
