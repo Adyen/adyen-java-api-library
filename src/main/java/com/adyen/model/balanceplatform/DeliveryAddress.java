@@ -44,10 +44,10 @@ import java.util.Set;
 import com.adyen.model.balanceplatform.JSON;
 
 /**
- * Address2
+ * DeliveryAddress
  */
 
-public class Address2 {
+public class DeliveryAddress {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
@@ -76,10 +76,10 @@ public class Address2 {
   @SerializedName(SERIALIZED_NAME_STATE_OR_PROVINCE)
   private String stateOrProvince;
 
-  public Address2() { 
+  public DeliveryAddress() { 
   }
 
-  public Address2 city(String city) {
+  public DeliveryAddress city(String city) {
     
     this.city = city;
     return this;
@@ -101,7 +101,7 @@ public class Address2 {
   }
 
 
-  public Address2 country(String country) {
+  public DeliveryAddress country(String country) {
     
     this.country = country;
     return this;
@@ -123,7 +123,7 @@ public class Address2 {
   }
 
 
-  public Address2 line1(String line1) {
+  public DeliveryAddress line1(String line1) {
     
     this.line1 = line1;
     return this;
@@ -145,7 +145,7 @@ public class Address2 {
   }
 
 
-  public Address2 line2(String line2) {
+  public DeliveryAddress line2(String line2) {
     
     this.line2 = line2;
     return this;
@@ -167,7 +167,7 @@ public class Address2 {
   }
 
 
-  public Address2 line3(String line3) {
+  public DeliveryAddress line3(String line3) {
     
     this.line3 = line3;
     return this;
@@ -189,7 +189,7 @@ public class Address2 {
   }
 
 
-  public Address2 postalCode(String postalCode) {
+  public DeliveryAddress postalCode(String postalCode) {
     
     this.postalCode = postalCode;
     return this;
@@ -211,7 +211,7 @@ public class Address2 {
   }
 
 
-  public Address2 stateOrProvince(String stateOrProvince) {
+  public DeliveryAddress stateOrProvince(String stateOrProvince) {
     
     this.stateOrProvince = stateOrProvince;
     return this;
@@ -242,14 +242,14 @@ public class Address2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Address2 address2 = (Address2) o;
-    return Objects.equals(this.city, address2.city) &&
-        Objects.equals(this.country, address2.country) &&
-        Objects.equals(this.line1, address2.line1) &&
-        Objects.equals(this.line2, address2.line2) &&
-        Objects.equals(this.line3, address2.line3) &&
-        Objects.equals(this.postalCode, address2.postalCode) &&
-        Objects.equals(this.stateOrProvince, address2.stateOrProvince);
+    DeliveryAddress deliveryAddress = (DeliveryAddress) o;
+    return Objects.equals(this.city, deliveryAddress.city) &&
+        Objects.equals(this.country, deliveryAddress.country) &&
+        Objects.equals(this.line1, deliveryAddress.line1) &&
+        Objects.equals(this.line2, deliveryAddress.line2) &&
+        Objects.equals(this.line3, deliveryAddress.line3) &&
+        Objects.equals(this.postalCode, deliveryAddress.postalCode) &&
+        Objects.equals(this.stateOrProvince, deliveryAddress.stateOrProvince);
   }
 
   @Override
@@ -260,7 +260,7 @@ public class Address2 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Address2 {\n");
+    sb.append("class DeliveryAddress {\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    line1: ").append(toIndentedString(line1)).append("\n");
@@ -307,27 +307,27 @@ public class Address2 {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Address2
+  * @throws IOException if the JSON Object is invalid with respect to DeliveryAddress
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Address2.openapiRequiredFields.isEmpty()) {
+        if (DeliveryAddress.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Address2 is not found in the empty JSON string", Address2.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DeliveryAddress is not found in the empty JSON string", DeliveryAddress.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!Address2.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Address2` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!DeliveryAddress.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeliveryAddress` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Address2.openapiRequiredFields) {
+      for (String requiredField : DeliveryAddress.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
@@ -366,22 +366,22 @@ public class Address2 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Address2.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Address2' and its subtypes
+       if (!DeliveryAddress.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeliveryAddress' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Address2> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Address2.class));
+       final TypeAdapter<DeliveryAddress> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeliveryAddress.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Address2>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeliveryAddress>() {
            @Override
-           public void write(JsonWriter out, Address2 value) throws IOException {
+           public void write(JsonWriter out, DeliveryAddress value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Address2 read(JsonReader in) throws IOException {
+           public DeliveryAddress read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -392,18 +392,18 @@ public class Address2 {
   }
 
  /**
-  * Create an instance of Address2 given an JSON string
+  * Create an instance of DeliveryAddress given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Address2
-  * @throws IOException if the JSON string is invalid with respect to Address2
+  * @return An instance of DeliveryAddress
+  * @throws IOException if the JSON string is invalid with respect to DeliveryAddress
   */
-  public static Address2 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Address2.class);
+  public static DeliveryAddress fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeliveryAddress.class);
   }
 
  /**
-  * Convert an instance of Address2 to an JSON string
+  * Convert an instance of DeliveryAddress to an JSON string
   *
   * @return JSON string
   */
