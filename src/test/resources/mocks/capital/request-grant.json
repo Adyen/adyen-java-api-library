@@ -1,0 +1,31 @@
+{
+  "id": "GR00000000000000000000001",
+  "grantAccountId": "CG00000000000000000000001",
+  "grantOfferId": "0000000000000001",
+  "counterparty": {
+    "accountHolderId": "AH00000000000000000000001",
+    "balanceAccountId": "BA00000000000000000000001"
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": 1000000
+  },
+  "fee": {
+    "amount": {
+      "value": 120000,
+      "currency": "EUR"
+    }
+  },
+  "balances":
+    {
+      "currency": "EUR",
+      "fee": 120000,
+      "principal": 1000000,
+      "total": 1120000
+    }
+  ,
+  "repayment": {
+    "basisPoints": 1400
+  },
+  "status": "Pending"
+}

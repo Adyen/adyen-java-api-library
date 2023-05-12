@@ -65,7 +65,7 @@ $(services): target/spec $(openapi-generator-jar)
 
 # Full service + models automation
 bigServices:=balanceplatform checkout storedValue payout management legalentitymanagement transfers
-singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment
+singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment capital
 
 services: $(bigServices) $(singleFileServices)
 
