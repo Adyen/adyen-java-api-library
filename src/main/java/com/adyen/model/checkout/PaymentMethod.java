@@ -121,6 +121,7 @@ public class PaymentMethod {
   private PaymentMethodGroup group;
 
   public static final String SERIALIZED_NAME_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_INPUT_DETAILS)
   private List<InputDetail> inputDetails = null;
 
@@ -265,6 +266,7 @@ public class PaymentMethod {
   }
 
 
+  @Deprecated
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
     
     this.inputDetails = inputDetails;
@@ -292,6 +294,7 @@ public class PaymentMethod {
   }
 
 
+  @Deprecated
   public void setInputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
   }
@@ -497,7 +500,7 @@ public class PaymentMethod {
         // validate the optional field `inputDetails` (array)
         for (int i = 0; i < jsonArrayinputDetails.size(); i++) {
           InputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayissuers = jsonObj.getAsJsonArray("issuers");
       if (jsonArrayissuers != null) {
@@ -509,7 +512,7 @@ public class PaymentMethod {
         // validate the optional field `issuers` (array)
         for (int i = 0; i < jsonArrayissuers.size(); i++) {
           PaymentMethodIssuer.validateJsonObject(jsonArrayissuers.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {

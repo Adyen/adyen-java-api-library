@@ -28,7 +28,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class AccountHolderStatusChangeNotification extends GenericNotification {
+public class AccountHolderStatusChangeNotification extends GenericWebhook {
     @SerializedName("content")
     private AccountHolderStatusChangeNotificationContent content = null;
 

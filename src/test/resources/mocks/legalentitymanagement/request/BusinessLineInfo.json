@@ -1,0 +1,21 @@
+{
+  "industryCode": "string",
+  "legalEntityId": "string",
+  "salesChannels": [
+    "string"
+  ],
+  "service": "paymentProcessing",
+  "sourceOfFunds": {
+    "adyenProcessedFunds": true,
+    "description": "string",
+    "type": "business"
+  },
+  "webData": [
+    {
+      "webAddress": "string"
+    }
+  ],
+  "webDataExemption": {
+    "reason": "noOnlinePresence"
+  }
+}

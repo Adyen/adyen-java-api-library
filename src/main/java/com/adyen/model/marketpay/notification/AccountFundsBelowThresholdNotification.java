@@ -32,7 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
  * AccountFundsBelowThresholdNotification
  */
 
-public class AccountFundsBelowThresholdNotification extends GenericNotification {
+public class AccountFundsBelowThresholdNotification extends GenericWebhook {
     @SerializedName("content")
     private AccountFundsBelowThresholdNotificationContent content = null;
 

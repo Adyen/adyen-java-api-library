@@ -57,6 +57,7 @@ public class UpiCollectDetails {
   private String checkoutAttemptId;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -168,6 +169,7 @@ public class UpiCollectDetails {
   }
 
 
+  @Deprecated
   public UpiCollectDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -187,6 +189,7 @@ public class UpiCollectDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }

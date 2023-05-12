@@ -56,6 +56,7 @@ public class PaymentSetupResponse {
   private String paymentSession;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAILS = "recurringDetails";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAILS)
   private List<RecurringDetail> recurringDetails = null;
 
@@ -84,6 +85,7 @@ public class PaymentSetupResponse {
   }
 
 
+  @Deprecated
   public PaymentSetupResponse recurringDetails(List<RecurringDetail> recurringDetails) {
     
     this.recurringDetails = recurringDetails;
@@ -111,6 +113,7 @@ public class PaymentSetupResponse {
   }
 
 
+  @Deprecated
   public void setRecurringDetails(List<RecurringDetail> recurringDetails) {
     this.recurringDetails = recurringDetails;
   }
@@ -206,7 +209,7 @@ public class PaymentSetupResponse {
         // validate the optional field `recurringDetails` (array)
         for (int i = 0; i < jsonArrayrecurringDetails.size(); i++) {
           RecurringDetail.validateJsonObject(jsonArrayrecurringDetails.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

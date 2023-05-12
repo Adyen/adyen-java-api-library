@@ -388,7 +388,7 @@ public class TerminalOrder {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           OrderItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field orderDate
       if (jsonObj.get("orderDate") != null && !jsonObj.get("orderDate").isJsonPrimitive()) {

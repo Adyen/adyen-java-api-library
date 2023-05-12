@@ -272,7 +272,7 @@ public class ListCompanyResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           Company.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

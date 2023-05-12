@@ -14,8 +14,8 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.balanceplatform.BankAccount;
 import com.adyen.model.balanceplatform.Card;
+import com.adyen.model.balanceplatform.PaymentInstrumentBankAccount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -56,7 +56,7 @@ public class PaymentInstrument {
 
   public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bankAccount";
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
-  private BankAccount bankAccount;
+  private PaymentInstrumentBankAccount bankAccount;
 
   public static final String SERIALIZED_NAME_CARD = "card";
   @SerializedName(SERIALIZED_NAME_CARD)
@@ -276,7 +276,7 @@ public class PaymentInstrument {
   }
 
 
-  public PaymentInstrument bankAccount(BankAccount bankAccount) {
+  public PaymentInstrument bankAccount(PaymentInstrumentBankAccount bankAccount) {
     
     this.bankAccount = bankAccount;
     return this;
@@ -288,12 +288,12 @@ public class PaymentInstrument {
   **/
   @ApiModelProperty(value = "")
 
-  public BankAccount getBankAccount() {
+  public PaymentInstrumentBankAccount getBankAccount() {
     return bankAccount;
   }
 
 
-  public void setBankAccount(BankAccount bankAccount) {
+  public void setBankAccount(PaymentInstrumentBankAccount bankAccount) {
     this.bankAccount = bankAccount;
   }
 
@@ -616,7 +616,7 @@ public class PaymentInstrument {
       }
       // validate the optional field `bankAccount`
       if (jsonObj.getAsJsonObject("bankAccount") != null) {
-        BankAccount.validateJsonObject(jsonObj.getAsJsonObject("bankAccount"));
+        PaymentInstrumentBankAccount.validateJsonObject(jsonObj.getAsJsonObject("bankAccount"));
       }
       // validate the optional field `card`
       if (jsonObj.getAsJsonObject("card") != null) {

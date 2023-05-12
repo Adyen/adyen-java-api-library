@@ -26,13 +26,12 @@ import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.payments.*;
-import com.adyen.service.Payment;
+import com.adyen.model.payment.*;
+import com.adyen.service.PaymentApi;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
 import com.google.gson.reflect.TypeToken;
 import okio.ByteString;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -47,7 +46,7 @@ import java.util.TimeZone;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
-import static com.adyen.model.payments.PaymentResult.ResultCodeEnum.RECEIVED;
+import static com.adyen.model.payment.PaymentResult.ResultCodeEnum.RECEIVED;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -61,7 +60,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthoriseSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -93,7 +92,7 @@ public class PaymentTest extends BaseTest {
 
         assertEquals(11, paymentResult.getFraudResult().getResults().size());
 
-        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0);
+        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0).getFraudCheckResult();
         assertEquals("CardChunkUsage", fraudCheckResult.getName());
         assertEquals(8, fraudCheckResult.getAccountScore().intValue());
         assertEquals(2, fraudCheckResult.getCheckId().intValue());
@@ -105,7 +104,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthoriseError010Mocked() throws Exception {
         Client client = createMockClientForErrors(403, "mocks/authorise-error-010.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -124,7 +123,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthoriseErrorCVCDeclinedMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-error-cvc-declined.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -139,7 +138,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthoriseSuccess3DMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success-3d.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -157,11 +156,11 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthorise3DSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise3d-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest3d paymentRequest3d = create3DPaymentRequest();
 
-        PaymentResult paymentResult = payment.authorise3D(paymentRequest3d);
+        PaymentResult paymentResult = payment.authorise3d(paymentRequest3d);
 
         assertAuthorised(paymentResult);
         assertNotNull(paymentResult.getPspReference());
@@ -173,11 +172,11 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthorise3DS2SuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success-3ds2.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest3ds2 paymentRequest3ds2 = create3DS2PaymentRequest();
 
-        PaymentResult paymentResult = payment.authorise3DS2(paymentRequest3ds2);
+        PaymentResult paymentResult = payment.authorise3ds2(paymentRequest3ds2);
 
         assertAuthorised(paymentResult);
         assertNotNull(paymentResult.getAdditionalData());
@@ -191,7 +190,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestRetrieve3ds2ResultSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/retrieve-result-success-3ds2.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         ThreeDS2ResultRequest threeDS2ResultRequest = new ThreeDS2ResultRequest();
         threeDS2ResultRequest.setMerchantAccount("AMerchantAccount");
         threeDS2ResultRequest.setPspReference("9935272408535455");
@@ -210,7 +209,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthoriseCSESuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createCSEPaymentRequest();
 
@@ -225,7 +224,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestAuthoriseCSEErrorExpiredMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-error-expired.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createCSEPaymentRequest();
 
@@ -250,7 +249,7 @@ public class PaymentTest extends BaseTest {
         Client client = new Client();
         client.setHttpClient(adyenHttpClient);
 
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -271,7 +270,7 @@ public class PaymentTest extends BaseTest {
     public void TestOpenInvoice() throws Exception {
 
         Client client = createMockClientFromFile("mocks/authorise-success-klarna.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = this.createOpenInvoicePaymentRequest();
         PaymentResult paymentResult = payment.authorise(paymentRequest);
@@ -284,7 +283,7 @@ public class PaymentTest extends BaseTest {
     public void TestBoletoSuccess() throws Exception {
 
         Client client = createMockClientFromFile("mocks/authorise-success-boleto.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         Address billingAddress = new Address();
         billingAddress.setCity("São Paulo");
@@ -330,7 +329,7 @@ public class PaymentTest extends BaseTest {
     public void TestGetAuthenticationResult3ds1Success() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/authentication-result-success-3ds1.json");
 
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
         AuthenticationResultResponse authenticationResultResponse = payment.getAuthenticationResult(authenticationResultRequest);
         assertNotNull(authenticationResultResponse);
@@ -342,7 +341,7 @@ public class PaymentTest extends BaseTest {
     public void TestGetAuthenticationResult3ds2Success() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/authentication-result-success-3ds2.json");
 
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
         AuthenticationResultResponse authenticationResultResponse = payment.getAuthenticationResult(authenticationResultRequest);
         assertNotNull(authenticationResultResponse);
@@ -354,7 +353,7 @@ public class PaymentTest extends BaseTest {
     public void TestGetAuthenticationResultErrorOldAuthentication() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/authentication-result-error-old-psp.json");
 
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
         try {
             payment.getAuthenticationResult(authenticationResultRequest);
@@ -370,7 +369,7 @@ public class PaymentTest extends BaseTest {
     public void TestGetAuthenticationResultErrorNotFound() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/authentication-result-error-not-found.json");
 
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
         try {
             payment.getAuthenticationResult(authenticationResultRequest);
@@ -386,7 +385,7 @@ public class PaymentTest extends BaseTest {
     public void TestGetAuthenticationResultErrorInvalidPsp() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/authentication-result-error-invalid-psp.json");
 
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
         authenticationResultRequest.setPspReference(null);
         try {
@@ -404,7 +403,7 @@ public class PaymentTest extends BaseTest {
 
         Client client = createMockClientForErrors(403, "mocks/authentication-result-error-not-allowed.json");
 
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
         try {
             payment.getAuthenticationResult(authenticationResultRequest);
@@ -417,22 +416,9 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
-    public void TestAuthoriseDefaultApplicationInfo() throws Exception {
-        Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
-        Payment payment = new Payment(client);
-
-        PaymentRequest paymentRequest = createCSEPaymentRequest();
-
-        PaymentResult paymentResult = payment.authorise(paymentRequest);
-
-        assertAuthorised(paymentResult);
-        assertEquals(applicationInfo, paymentRequest.getApplicationInfo());
-    }
-
-    @Test
     public void TestAuthoriseCustomApplicationInfo() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         PaymentRequest paymentRequest = createCSEPaymentRequest();
         ApplicationInfo applicationInfo = new ApplicationInfo();
@@ -457,7 +443,7 @@ public class PaymentTest extends BaseTest {
     public void TestByteArrayDeserialization() throws Exception {
 
         Client client = createMockClientFromFile("mocks/authorise-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
 
         final String expectedBytesAsString = "Let's pretend/ this a jpg or something=";
         final byte[] expectedBytes = expectedBytesAsString.getBytes(StandardCharsets.UTF_8);
@@ -476,7 +462,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestByteArrayToJSONString() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         PaymentRequest paymentRequest = new PaymentRequest();
         paymentRequest.mpiData(new ThreeDSecureData().cavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes()));
         
@@ -490,7 +476,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testRefund() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         RefundRequest request = new RefundRequest();
         ModificationResult result = payment.refund(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
@@ -499,7 +485,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testCapture() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         CaptureRequest request = new CaptureRequest();
         ModificationResult result = payment.capture(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
@@ -508,7 +494,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testCancel() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         CancelRequest request = new CancelRequest();
         ModificationResult result = payment.cancel(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
@@ -517,7 +503,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testCancelOrRefund() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         CancelOrRefundRequest request = new CancelOrRefundRequest();
         ModificationResult result = payment.cancelOrRefund(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
@@ -526,7 +512,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testTechnicalCancel() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         TechnicalCancelRequest request = new TechnicalCancelRequest();
         ModificationResult result = payment.technicalCancel(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
@@ -535,7 +521,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testAdjustAuthorisation() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         AdjustAuthorisationRequest request = new AdjustAuthorisationRequest();
         ModificationResult result = payment.adjustAuthorisation(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
@@ -544,7 +530,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testDonate() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         DonationRequest request = new DonationRequest();
         ModificationResult result = payment.donate(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
@@ -553,7 +539,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void testVoidPendingRefund() throws Exception {
         Client client = createMockClientFromFile("mocks/modification-success.json");
-        Payment payment = new Payment(client);
+        PaymentApi payment = new PaymentApi(client);
         VoidPendingRefundRequest request = new VoidPendingRefundRequest();
         ModificationResult result = payment.voidPendingRefund(request);
         assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);

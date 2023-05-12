@@ -53,6 +53,7 @@ public class StoredPaymentMethodDetails {
   private String checkoutAttemptId;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -75,6 +76,8 @@ public class StoredPaymentMethodDetails {
     
     MOMO_WALLET_APP("momo_wallet_app"),
     
+    TWINT("twint"),
+    
     PAYMAYA_WALLET("paymaya_wallet"),
     
     GRABPAY_SG("grabpay_SG"),
@@ -95,7 +98,9 @@ public class StoredPaymentMethodDetails {
     
     KAKAOPAY("kakaopay"),
     
-    TRUEMONEY("truemoney");
+    TRUEMONEY("truemoney"),
+    
+    TWINT_POS("twint_pos");
 
     private String value;
 
@@ -164,6 +169,7 @@ public class StoredPaymentMethodDetails {
   }
 
 
+  @Deprecated
   public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -183,6 +189,7 @@ public class StoredPaymentMethodDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }

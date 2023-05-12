@@ -208,7 +208,7 @@ public class EventUrl {
         // validate the optional field `eventLocalUrls` (array)
         for (int i = 0; i < jsonArrayeventLocalUrls.size(); i++) {
           Url.validateJsonObject(jsonArrayeventLocalUrls.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayeventPublicUrls = jsonObj.getAsJsonArray("eventPublicUrls");
       if (jsonArrayeventPublicUrls != null) {
@@ -220,7 +220,7 @@ public class EventUrl {
         // validate the optional field `eventPublicUrls` (array)
         for (int i = 0; i < jsonArrayeventPublicUrls.size(); i++) {
           Url.validateJsonObject(jsonArrayeventPublicUrls.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

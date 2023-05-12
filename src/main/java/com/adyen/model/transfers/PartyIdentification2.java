@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,6 +54,10 @@ public class PartyIdentification2 {
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private Address2 address;
 
+  public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
+  @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
+  private LocalDate dateOfBirth;
+
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -64,6 +69,10 @@ public class PartyIdentification2 {
   public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
+
+  public static final String SERIALIZED_NAME_REFERENCE = "reference";
+  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  private String reference;
 
   /**
    * The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.
@@ -143,6 +152,28 @@ public class PartyIdentification2 {
   }
 
 
+  public PartyIdentification2 dateOfBirth(LocalDate dateOfBirth) {
+    
+    this.dateOfBirth = dateOfBirth;
+    return this;
+  }
+
+   /**
+   * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
+   * @return dateOfBirth
+  **/
+  @ApiModelProperty(value = "The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when `type` is **individual**.")
+
+  public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+
+  public void setDateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+
   public PartyIdentification2 firstName(String firstName) {
     
     this.firstName = firstName;
@@ -150,10 +181,10 @@ public class PartyIdentification2 {
   }
 
    /**
-   * First name of the individual. Required when &#x60;type&#x60; is **individual**.
+   * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
    * @return firstName
   **/
-  @ApiModelProperty(value = "First name of the individual. Required when `type` is **individual**.")
+  @ApiModelProperty(value = "First name of the individual.  Allowed only when `type` is **individual**.")
 
   public String getFirstName() {
     return firstName;
@@ -194,10 +225,10 @@ public class PartyIdentification2 {
   }
 
    /**
-   * Last name of the individual. Required when &#x60;type&#x60; is **individual**.
+   * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
    * @return lastName
   **/
-  @ApiModelProperty(value = "Last name of the individual. Required when `type` is **individual**.")
+  @ApiModelProperty(value = "Last name of the individual.  Allowed only when `type` is **individual**.")
 
   public String getLastName() {
     return lastName;
@@ -206,6 +237,28 @@ public class PartyIdentification2 {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+
+
+  public PartyIdentification2 reference(String reference) {
+    
+    this.reference = reference;
+    return this;
+  }
+
+   /**
+   * Your unique reference of the party. This should be consistent for all transfers initiated to/from the same party/counterparty. e.g Your client&#39;s unique wallet or payee ID
+   * @return reference
+  **/
+  @ApiModelProperty(value = "Your unique reference of the party. This should be consistent for all transfers initiated to/from the same party/counterparty. e.g Your client's unique wallet or payee ID")
+
+  public String getReference() {
+    return reference;
+  }
+
+
+  public void setReference(String reference) {
+    this.reference = reference;
   }
 
 
@@ -242,15 +295,17 @@ public class PartyIdentification2 {
     }
     PartyIdentification2 partyIdentification2 = (PartyIdentification2) o;
     return Objects.equals(this.address, partyIdentification2.address) &&
+        Objects.equals(this.dateOfBirth, partyIdentification2.dateOfBirth) &&
         Objects.equals(this.firstName, partyIdentification2.firstName) &&
         Objects.equals(this.fullName, partyIdentification2.fullName) &&
         Objects.equals(this.lastName, partyIdentification2.lastName) &&
+        Objects.equals(this.reference, partyIdentification2.reference) &&
         Objects.equals(this.type, partyIdentification2.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, firstName, fullName, lastName, type);
+    return Objects.hash(address, dateOfBirth, firstName, fullName, lastName, reference, type);
   }
 
   @Override
@@ -258,9 +313,11 @@ public class PartyIdentification2 {
     StringBuilder sb = new StringBuilder();
     sb.append("class PartyIdentification2 {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -285,9 +342,11 @@ public class PartyIdentification2 {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("address");
+    openapiFields.add("dateOfBirth");
     openapiFields.add("firstName");
     openapiFields.add("fullName");
     openapiFields.add("lastName");
+    openapiFields.add("reference");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -339,6 +398,10 @@ public class PartyIdentification2 {
       // validate the optional field lastName
       if (jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
+      }
+      // validate the optional field reference
+      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

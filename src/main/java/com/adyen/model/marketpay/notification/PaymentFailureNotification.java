@@ -28,7 +28,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class PaymentFailureNotification extends GenericNotification {
+public class PaymentFailureNotification extends GenericWebhook {
     @SerializedName("content")
     private PaymentFailureNotificationContent content = null;
 

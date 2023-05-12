@@ -28,7 +28,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class BeneficiarySetupNotification extends GenericNotification {
+public class BeneficiarySetupNotification extends GenericWebhook {
     @SerializedName("content")
     private BeneficiarySetupNotificationContent content = null;
 

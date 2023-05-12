@@ -1,0 +1,14 @@
+{
+  "type": "https://docs.adyen.com/errors/validation",
+  "title": "The request is missing required fields or contains invalid data.",
+  "status": 422,
+  "detail": "Invalid legal entity information provided",
+  "requestId": "1234567890",
+  "invalidFields": [
+    {
+      "name": "type",
+      "message": "Type was not provided, or was invalid. Possible values: [organization, individual, soleProprietorship, trust, unincorporatedPartnership]."
+    }
+  ],
+  "errorCode": "30_102"
+}

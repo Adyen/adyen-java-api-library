@@ -171,7 +171,7 @@ public class TerminalProductsResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           TerminalProduct.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

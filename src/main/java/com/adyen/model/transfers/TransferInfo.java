@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.CounterpartyInfoV3;
+import com.adyen.model.transfers.UltimatePartyIdentification;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -198,6 +199,10 @@ public class TransferInfo {
   @SerializedName(SERIALIZED_NAME_REFERENCE_FOR_BENEFICIARY)
   private String referenceForBeneficiary;
 
+  public static final String SERIALIZED_NAME_ULTIMATE_PARTY = "ultimateParty";
+  @SerializedName(SERIALIZED_NAME_ULTIMATE_PARTY)
+  private UltimatePartyIdentification ultimateParty;
+
   public TransferInfo() { 
   }
 
@@ -296,10 +301,10 @@ public class TransferInfo {
   }
 
    /**
-   * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
+   * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    * @return description
   **/
-  @ApiModelProperty(value = "A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.")
+  @ApiModelProperty(value = "Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , ' + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] & $ % # @** **~ = + - _ ' \" ! ?**")
 
   public String getDescription() {
     return description;
@@ -421,6 +426,28 @@ public class TransferInfo {
   }
 
 
+  public TransferInfo ultimateParty(UltimatePartyIdentification ultimateParty) {
+    
+    this.ultimateParty = ultimateParty;
+    return this;
+  }
+
+   /**
+   * Get ultimateParty
+   * @return ultimateParty
+  **/
+  @ApiModelProperty(value = "")
+
+  public UltimatePartyIdentification getUltimateParty() {
+    return ultimateParty;
+  }
+
+
+  public void setUltimateParty(UltimatePartyIdentification ultimateParty) {
+    this.ultimateParty = ultimateParty;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -440,12 +467,13 @@ public class TransferInfo {
         Objects.equals(this.paymentInstrumentId, transferInfo.paymentInstrumentId) &&
         Objects.equals(this.priority, transferInfo.priority) &&
         Objects.equals(this.reference, transferInfo.reference) &&
-        Objects.equals(this.referenceForBeneficiary, transferInfo.referenceForBeneficiary);
+        Objects.equals(this.referenceForBeneficiary, transferInfo.referenceForBeneficiary) &&
+        Objects.equals(this.ultimateParty, transferInfo.ultimateParty);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, balanceAccountId, category, counterparty, description, id, paymentInstrumentId, priority, reference, referenceForBeneficiary);
+    return Objects.hash(amount, balanceAccountId, category, counterparty, description, id, paymentInstrumentId, priority, reference, referenceForBeneficiary, ultimateParty);
   }
 
   @Override
@@ -462,6 +490,7 @@ public class TransferInfo {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    referenceForBeneficiary: ").append(toIndentedString(referenceForBeneficiary)).append("\n");
+    sb.append("    ultimateParty: ").append(toIndentedString(ultimateParty)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -494,6 +523,7 @@ public class TransferInfo {
     openapiFields.add("priority");
     openapiFields.add("reference");
     openapiFields.add("referenceForBeneficiary");
+    openapiFields.add("ultimateParty");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -576,6 +606,10 @@ public class TransferInfo {
       // validate the optional field referenceForBeneficiary
       if (jsonObj.get("referenceForBeneficiary") != null && !jsonObj.get("referenceForBeneficiary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceForBeneficiary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceForBeneficiary").toString()));
+      }
+      // validate the optional field `ultimateParty`
+      if (jsonObj.getAsJsonObject("ultimateParty") != null) {
+        UltimatePartyIdentification.validateJsonObject(jsonObj.getAsJsonObject("ultimateParty"));
       }
   }
 

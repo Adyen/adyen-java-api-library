@@ -44,7 +44,7 @@ public class Client {
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "19.0.0";
+    public static final String LIB_VERSION = "20.0.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
@@ -70,7 +70,7 @@ public class Client {
     public static final String TRANSFER_VERSION = "v3";
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE = "https://kyc-test.adyen.com/lem/";
-    public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v2";
+    public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v3";
     public static final String MANAGEMENT_ENDPOINT_TEST = "https://management-test.adyen.com/";
     public static final String MANAGEMENT_ENDPOINT_LIVE = "https://management-live.adyen.com/";
     public static final String MANAGEMENT_VERSION = "v1";
@@ -216,6 +216,7 @@ public class Client {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             if (liveEndpointUrlPrefix != null && !liveEndpointUrlPrefix.isEmpty()) {
+                this.config.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
                 this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
                 this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);
             } else {

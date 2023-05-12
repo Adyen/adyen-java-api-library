@@ -171,7 +171,7 @@ public class AndroidCertificatesResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           AndroidCertificate.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

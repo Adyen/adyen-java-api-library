@@ -122,6 +122,7 @@ public class RecurringDetail {
   private PaymentMethodGroup group;
 
   public static final String SERIALIZED_NAME_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_INPUT_DETAILS)
   private List<InputDetail> inputDetails = null;
 
@@ -274,6 +275,7 @@ public class RecurringDetail {
   }
 
 
+  @Deprecated
   public RecurringDetail inputDetails(List<InputDetail> inputDetails) {
     
     this.inputDetails = inputDetails;
@@ -301,6 +303,7 @@ public class RecurringDetail {
   }
 
 
+  @Deprecated
   public void setInputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
   }
@@ -556,7 +559,7 @@ public class RecurringDetail {
         // validate the optional field `inputDetails` (array)
         for (int i = 0; i < jsonArrayinputDetails.size(); i++) {
           InputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayissuers = jsonObj.getAsJsonArray("issuers");
       if (jsonArrayissuers != null) {
@@ -568,7 +571,7 @@ public class RecurringDetail {
         // validate the optional field `issuers` (array)
         for (int i = 0; i < jsonArrayissuers.size(); i++) {
           PaymentMethodIssuer.validateJsonObject(jsonArrayissuers.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {

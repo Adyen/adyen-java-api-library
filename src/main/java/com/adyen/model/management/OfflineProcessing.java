@@ -200,7 +200,7 @@ public class OfflineProcessing {
         // validate the optional field `offlineSwipeLimits` (array)
         for (int i = 0; i < jsonArrayofflineSwipeLimits.size(); i++) {
           MinorUnitsMonetaryValue.validateJsonObject(jsonArrayofflineSwipeLimits.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

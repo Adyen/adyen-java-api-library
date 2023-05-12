@@ -22,6 +22,8 @@ import com.adyen.model.management.Nexo;
 import com.adyen.model.management.OfflineProcessing;
 import com.adyen.model.management.Opi;
 import com.adyen.model.management.Passcodes;
+import com.adyen.model.management.PayAtTable;
+import com.adyen.model.management.Payment;
 import com.adyen.model.management.ReceiptOptions;
 import com.adyen.model.management.ReceiptPrinting;
 import com.adyen.model.management.Signature;
@@ -96,6 +98,14 @@ public class TerminalSettings {
   public static final String SERIALIZED_NAME_PASSCODES = "passcodes";
   @SerializedName(SERIALIZED_NAME_PASSCODES)
   private Passcodes passcodes;
+
+  public static final String SERIALIZED_NAME_PAY_AT_TABLE = "payAtTable";
+  @SerializedName(SERIALIZED_NAME_PAY_AT_TABLE)
+  private PayAtTable payAtTable;
+
+  public static final String SERIALIZED_NAME_PAYMENT = "payment";
+  @SerializedName(SERIALIZED_NAME_PAYMENT)
+  private Payment payment;
 
   public static final String SERIALIZED_NAME_RECEIPT_OPTIONS = "receiptOptions";
   @SerializedName(SERIALIZED_NAME_RECEIPT_OPTIONS)
@@ -312,6 +322,50 @@ public class TerminalSettings {
   }
 
 
+  public TerminalSettings payAtTable(PayAtTable payAtTable) {
+    
+    this.payAtTable = payAtTable;
+    return this;
+  }
+
+   /**
+   * Get payAtTable
+   * @return payAtTable
+  **/
+  @ApiModelProperty(value = "")
+
+  public PayAtTable getPayAtTable() {
+    return payAtTable;
+  }
+
+
+  public void setPayAtTable(PayAtTable payAtTable) {
+    this.payAtTable = payAtTable;
+  }
+
+
+  public TerminalSettings payment(Payment payment) {
+    
+    this.payment = payment;
+    return this;
+  }
+
+   /**
+   * Get payment
+   * @return payment
+  **/
+  @ApiModelProperty(value = "")
+
+  public Payment getPayment() {
+    return payment;
+  }
+
+
+  public void setPayment(Payment payment) {
+    this.payment = payment;
+  }
+
+
   public TerminalSettings receiptOptions(ReceiptOptions receiptOptions) {
     
     this.receiptOptions = receiptOptions;
@@ -484,6 +538,8 @@ public class TerminalSettings {
         Objects.equals(this.offlineProcessing, terminalSettings.offlineProcessing) &&
         Objects.equals(this.opi, terminalSettings.opi) &&
         Objects.equals(this.passcodes, terminalSettings.passcodes) &&
+        Objects.equals(this.payAtTable, terminalSettings.payAtTable) &&
+        Objects.equals(this.payment, terminalSettings.payment) &&
         Objects.equals(this.receiptOptions, terminalSettings.receiptOptions) &&
         Objects.equals(this.receiptPrinting, terminalSettings.receiptPrinting) &&
         Objects.equals(this.signature, terminalSettings.signature) &&
@@ -495,7 +551,7 @@ public class TerminalSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, nexo, offlineProcessing, opi, passcodes, receiptOptions, receiptPrinting, signature, standalone, surcharge, timeouts, wifiProfiles);
+    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, nexo, offlineProcessing, opi, passcodes, payAtTable, payment, receiptOptions, receiptPrinting, signature, standalone, surcharge, timeouts, wifiProfiles);
   }
 
   @Override
@@ -510,6 +566,8 @@ public class TerminalSettings {
     sb.append("    offlineProcessing: ").append(toIndentedString(offlineProcessing)).append("\n");
     sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
     sb.append("    passcodes: ").append(toIndentedString(passcodes)).append("\n");
+    sb.append("    payAtTable: ").append(toIndentedString(payAtTable)).append("\n");
+    sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
     sb.append("    receiptOptions: ").append(toIndentedString(receiptOptions)).append("\n");
     sb.append("    receiptPrinting: ").append(toIndentedString(receiptPrinting)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
@@ -547,6 +605,8 @@ public class TerminalSettings {
     openapiFields.add("offlineProcessing");
     openapiFields.add("opi");
     openapiFields.add("passcodes");
+    openapiFields.add("payAtTable");
+    openapiFields.add("payment");
     openapiFields.add("receiptOptions");
     openapiFields.add("receiptPrinting");
     openapiFields.add("signature");
@@ -599,7 +659,7 @@ public class TerminalSettings {
         // validate the optional field `gratuities` (array)
         for (int i = 0; i < jsonArraygratuities.size(); i++) {
           Gratuity.validateJsonObject(jsonArraygratuities.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `hardware`
       if (jsonObj.getAsJsonObject("hardware") != null) {
@@ -620,6 +680,14 @@ public class TerminalSettings {
       // validate the optional field `passcodes`
       if (jsonObj.getAsJsonObject("passcodes") != null) {
         Passcodes.validateJsonObject(jsonObj.getAsJsonObject("passcodes"));
+      }
+      // validate the optional field `payAtTable`
+      if (jsonObj.getAsJsonObject("payAtTable") != null) {
+        PayAtTable.validateJsonObject(jsonObj.getAsJsonObject("payAtTable"));
+      }
+      // validate the optional field `payment`
+      if (jsonObj.getAsJsonObject("payment") != null) {
+        Payment.validateJsonObject(jsonObj.getAsJsonObject("payment"));
       }
       // validate the optional field `receiptOptions`
       if (jsonObj.getAsJsonObject("receiptOptions") != null) {

@@ -73,7 +73,11 @@ public class PaymentMethodResponse {
    */
   @JsonAdapter(TypesWithErrorsEnum.Adapter.class)
   public enum TypesWithErrorsEnum {
+    AFTERPAYTOUCH("afterpaytouch"),
+    
     ALIPAY("alipay"),
+    
+    ALIPAY_HK("alipay_hk"),
     
     AMEX("amex"),
     
@@ -84,6 +88,8 @@ public class PaymentMethodResponse {
     BLIK("blik"),
     
     CARTEBANCAIRE("cartebancaire"),
+    
+    CLEARPAY("clearpay"),
     
     CUP("cup"),
     
@@ -141,6 +147,8 @@ public class PaymentMethodResponse {
     
     MULTIBANCO("multibanco"),
     
+    ONLINEBANKING_PL("onlineBanking_PL"),
+    
     PAYPAL("paypal"),
     
     PAYSHOP("payshop"),
@@ -148,6 +156,8 @@ public class PaymentMethodResponse {
     SWISH("swish"),
     
     TRUSTLY("trustly"),
+    
+    VIPPS("vipps"),
     
     VISA("visa"),
     
@@ -438,7 +448,7 @@ public class PaymentMethodResponse {
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
           PaymentMethod.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the json data is an array
       if (jsonObj.get("typesWithErrors") != null && !jsonObj.get("typesWithErrors").isJsonArray()) {

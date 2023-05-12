@@ -20,8 +20,11 @@
  */
 package com.adyen.model.notification;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,10 +59,19 @@ public class NotificationRequest {
 
     
     public List<NotificationRequestItem> getNotificationItems() {
-        if (this.notificationItemContainers == null) {
+        if (notificationItemContainers == null) {
             return null;
         }
         return notificationItemContainers.stream().map(s -> s.getNotificationItem()).collect(Collectors.toList());
+    }
+
+    public void setNotificationItems(List<NotificationRequestItem> notificationItems) {
+        notificationItemContainers = new ArrayList<NotificationRequestItemContainer>();
+        for(NotificationRequestItem requestItem: notificationItems) {
+            NotificationRequestItemContainer requestItemContainer = new NotificationRequestItemContainer();
+            requestItemContainer.setNotificationItem(requestItem);
+            notificationItemContainers.add(requestItemContainer);
+        }
     }
 
     @Override
@@ -71,5 +83,25 @@ public class NotificationRequest {
         sb.append("    notificationItems: ").append(toIndentedString(notificationItemContainers)).append("\n");
         sb.append("}");
         return sb.toString();
+    }
+
+    /**
+     * Create an instance of NotificationRequest given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of NotificationRequest
+     * @throws IOException if the JSON string is invalid with respect to NotificationRequest
+     */
+    public static NotificationRequest fromJson(String jsonString) throws IOException {
+        return new Gson().fromJson(jsonString, NotificationRequest.class);
+    }
+
+    /**
+     * Convert an instance of NotificationRequest to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return new Gson().toJson(this);
     }
 }

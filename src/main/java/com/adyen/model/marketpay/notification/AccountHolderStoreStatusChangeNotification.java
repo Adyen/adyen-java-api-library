@@ -32,7 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
  * AccountHolderStoreStatusChangeNotification
  */
 
-public class AccountHolderStoreStatusChangeNotification extends GenericNotification {
+public class AccountHolderStoreStatusChangeNotification extends GenericWebhook {
     @SerializedName("content")
     private AccountHolderStoreStatusChangeNotificationContent content = null;
 

@@ -63,6 +63,7 @@ public class InputDetail {
   private List<SubInputDetail> details = null;
 
   public static final String SERIALIZED_NAME_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_INPUT_DETAILS)
   private List<SubInputDetail> inputDetails = null;
 
@@ -153,6 +154,7 @@ public class InputDetail {
   }
 
 
+  @Deprecated
   public InputDetail inputDetails(List<SubInputDetail> inputDetails) {
     
     this.inputDetails = inputDetails;
@@ -180,6 +182,7 @@ public class InputDetail {
   }
 
 
+  @Deprecated
   public void setInputDetails(List<SubInputDetail> inputDetails) {
     this.inputDetails = inputDetails;
   }
@@ -432,7 +435,7 @@ public class InputDetail {
         // validate the optional field `details` (array)
         for (int i = 0; i < jsonArraydetails.size(); i++) {
           SubInputDetail.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayinputDetails = jsonObj.getAsJsonArray("inputDetails");
       if (jsonArrayinputDetails != null) {
@@ -444,7 +447,7 @@ public class InputDetail {
         // validate the optional field `inputDetails` (array)
         for (int i = 0; i < jsonArrayinputDetails.size(); i++) {
           SubInputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field itemSearchUrl
       if (jsonObj.get("itemSearchUrl") != null && !jsonObj.get("itemSearchUrl").isJsonPrimitive()) {
@@ -460,7 +463,7 @@ public class InputDetail {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           Item.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field key
       if (jsonObj.get("key") != null && !jsonObj.get("key").isJsonPrimitive()) {

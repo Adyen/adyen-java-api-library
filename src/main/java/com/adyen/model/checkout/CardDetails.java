@@ -57,6 +57,7 @@ public class CardDetails {
   private String checkoutAttemptId;
 
   public static final String SERIALIZED_NAME_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CUPSECUREPLUS_SMSCODE)
   private String cupsecureplusSmscode;
 
@@ -150,6 +151,7 @@ public class CardDetails {
   private String number;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -269,6 +271,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public CardDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
     
     this.cupsecureplusSmscode = cupsecureplusSmscode;
@@ -288,6 +291,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
   }
@@ -535,6 +539,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public CardDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -554,6 +559,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
@@ -610,10 +616,10 @@ public class CardDetails {
   }
 
    /**
-   * Version of the 3D Secure 2 mobile SDK.
+   * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    * @return threeDS2SdkVersion
   **/
-  @ApiModelProperty(value = "Version of the 3D Secure 2 mobile SDK.")
+  @ApiModelProperty(value = "Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.")
 
   public String getThreeDS2SdkVersion() {
     return threeDS2SdkVersion;

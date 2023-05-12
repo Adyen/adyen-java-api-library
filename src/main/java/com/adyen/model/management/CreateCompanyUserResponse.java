@@ -68,6 +68,10 @@ public class CreateCompanyUserResponse {
   @SerializedName(SERIALIZED_NAME_ASSOCIATED_MERCHANT_ACCOUNTS)
   private List<String> associatedMerchantAccounts = null;
 
+  public static final String SERIALIZED_NAME_AUTHN_APPS = "authnApps";
+  @SerializedName(SERIALIZED_NAME_AUTHN_APPS)
+  private List<String> authnApps = null;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -196,6 +200,36 @@ public class CreateCompanyUserResponse {
 
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
+  }
+
+
+  public CreateCompanyUserResponse authnApps(List<String> authnApps) {
+    
+    this.authnApps = authnApps;
+    return this;
+  }
+
+  public CreateCompanyUserResponse addAuthnAppsItem(String authnAppsItem) {
+    if (this.authnApps == null) {
+      this.authnApps = new ArrayList<>();
+    }
+    this.authnApps.add(authnAppsItem);
+    return this;
+  }
+
+   /**
+   * Set of authn apps available to this user
+   * @return authnApps
+  **/
+  @ApiModelProperty(value = "Set of authn apps available to this user")
+
+  public List<String> getAuthnApps() {
+    return authnApps;
+  }
+
+
+  public void setAuthnApps(List<String> authnApps) {
+    this.authnApps = authnApps;
   }
 
 
@@ -350,6 +384,7 @@ public class CreateCompanyUserResponse {
         Objects.equals(this.accountGroups, createCompanyUserResponse.accountGroups) &&
         Objects.equals(this.active, createCompanyUserResponse.active) &&
         Objects.equals(this.associatedMerchantAccounts, createCompanyUserResponse.associatedMerchantAccounts) &&
+        Objects.equals(this.authnApps, createCompanyUserResponse.authnApps) &&
         Objects.equals(this.email, createCompanyUserResponse.email) &&
         Objects.equals(this.id, createCompanyUserResponse.id) &&
         Objects.equals(this.name, createCompanyUserResponse.name) &&
@@ -360,7 +395,7 @@ public class CreateCompanyUserResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, accountGroups, active, associatedMerchantAccounts, email, id, name, roles, timeZoneCode, username);
+    return Objects.hash(links, accountGroups, active, associatedMerchantAccounts, authnApps, email, id, name, roles, timeZoneCode, username);
   }
 
   @Override
@@ -371,6 +406,7 @@ public class CreateCompanyUserResponse {
     sb.append("    accountGroups: ").append(toIndentedString(accountGroups)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    associatedMerchantAccounts: ").append(toIndentedString(associatedMerchantAccounts)).append("\n");
+    sb.append("    authnApps: ").append(toIndentedString(authnApps)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -403,6 +439,7 @@ public class CreateCompanyUserResponse {
     openapiFields.add("accountGroups");
     openapiFields.add("active");
     openapiFields.add("associatedMerchantAccounts");
+    openapiFields.add("authnApps");
     openapiFields.add("email");
     openapiFields.add("id");
     openapiFields.add("name");
@@ -459,6 +496,10 @@ public class CreateCompanyUserResponse {
       // ensure the json data is an array
       if (jsonObj.get("associatedMerchantAccounts") != null && !jsonObj.get("associatedMerchantAccounts").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `associatedMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("associatedMerchantAccounts").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("authnApps") != null && !jsonObj.get("authnApps").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `authnApps` to be an array in the JSON string but got `%s`", jsonObj.get("authnApps").toString()));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {

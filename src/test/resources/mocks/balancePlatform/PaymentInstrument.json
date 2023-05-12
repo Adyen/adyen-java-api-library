@@ -1,10 +1,22 @@
 {
-  "balanceAccountId": "BA3227C223222B5CTBLR8BWJB",
+  "balanceAccountId": "BA3227C223222B5FG88S28BGN",
+  "description": "My test card",
   "issuingCountryCode": "NL",
   "status": "active",
-  "type": "bankAccount",
-  "bankAccount": {
-    "iban": "NL20ADYB2017000035"
+  "type": "card",
+  "card": {
+    "brand": "mc",
+    "brandVariant": "mcdebit",
+    "cardholderName": "Simon Hopper",
+    "formFactor": "virtual",
+    "bin": "555544",
+    "cvc": "136",
+    "expiration": {
+      "month": "11",
+      "year": "2025"
+    },
+    "lastFour": "3703",
+    "number": "5555444411213703"
   },
-  "id": "PI322LJ223222B5DJS7CD9LWL"
+  "id": "PI32272223222C5GXTDWH3TTN"
 }

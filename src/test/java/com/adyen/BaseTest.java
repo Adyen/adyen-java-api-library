@@ -33,18 +33,18 @@ import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.TransactionIdentification;
-import com.adyen.model.payments.ApplicationInfo;
-import com.adyen.model.payments.AuthenticationResultRequest;
-import com.adyen.model.payments.BrowserInfo;
-import com.adyen.model.payments.Card;
-import com.adyen.model.payments.CommonField;
-import com.adyen.model.payments.Name;
-import com.adyen.model.payments.PaymentRequest3d;
-import com.adyen.model.payments.PaymentRequest3ds2;
-import com.adyen.model.payments.ThreeDS2RequestData;
+import com.adyen.model.payment.ApplicationInfo;
+import com.adyen.model.payment.AuthenticationResultRequest;
+import com.adyen.model.payment.BrowserInfo;
+import com.adyen.model.payment.Card;
+import com.adyen.model.payment.CommonField;
+import com.adyen.model.payment.Name;
+import com.adyen.model.payment.PaymentRequest3d;
+import com.adyen.model.payment.PaymentRequest3ds2;
+import com.adyen.model.payment.ThreeDS2RequestData;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.additionalData.InvoiceLine;
-import com.adyen.model.payments.PaymentRequest;
+import com.adyen.model.payment.PaymentRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -166,7 +166,7 @@ public class BaseTest {
         card.setNumber("5136333333333335");
         card.setCvc("737");
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                .amount(new com.adyen.model.payments.Amount().value(100000L).currency("EUR"))
+                .amount(new com.adyen.model.payment.Amount().value(100000L).currency("EUR"))
                 .card(card);
     }
 
@@ -178,7 +178,7 @@ public class BaseTest {
         OffsetDateTime date = OffsetDateTime.parse("1970-07-10T12:00:00+01:00");
 
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456");
-        paymentRequest.amount(new com.adyen.model.payments.Amount().value(200L).currency("EUR"));
+        paymentRequest.amount(new com.adyen.model.payment.Amount().value(200L).currency("EUR"));
 
         // Set Shopper Data
         paymentRequest.setShopperEmail("youremail@email.com");
@@ -193,7 +193,7 @@ public class BaseTest {
         paymentRequest.setShopperName(shopperName);
 
         // Set Billing and Delivery address
-        com.adyen.model.payments.Address address = new com.adyen.model.payments.Address();
+        com.adyen.model.payment.Address address = new com.adyen.model.payment.Address();
         address.setCity("Gravenhage");
         address.setCountry("NL");
         address.setHouseNumberOrName("1");
@@ -278,7 +278,7 @@ public class BaseTest {
         additionalData.put(ApiConstants.AdditionalData.Card.Encrypted.JSON, "adyenjs_0_1_4p1$...");
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
                 .additionalData(additionalData)
-                .amount(new com.adyen.model.payments.Amount().value(100000L).currency("EUR"));
+                .amount(new com.adyen.model.payment.Amount().value(100000L).currency("EUR"));
     }
 
     /**

@@ -20,15 +20,15 @@ import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
 import com.adyen.model.checkout.BrowserInfo;
-import com.adyen.model.checkout.CheckoutOrder;
+import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
+import com.adyen.model.checkout.EncryptedOrderData;
 import com.adyen.model.checkout.ForexQuote;
 import com.adyen.model.checkout.Installments;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Mandate;
 import com.adyen.model.checkout.MerchantRiskIndicator;
 import com.adyen.model.checkout.Name;
-import com.adyen.model.checkout.PaymentDonationRequestPaymentMethod;
 import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.Split;
@@ -77,6 +77,10 @@ public class PaymentDonationRequest {
   public static final String SERIALIZED_NAME_ACCOUNT_INFO = "accountInfo";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_INFO)
   private AccountInfo accountInfo;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_AMOUNT = "additionalAmount";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_AMOUNT)
+  private Amount additionalAmount;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
@@ -168,6 +172,7 @@ public class PaymentDonationRequest {
   private Company company;
 
   public static final String SERIALIZED_NAME_CONVERSION_ID = "conversionId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CONVERSION_ID)
   private String conversionId;
 
@@ -369,7 +374,7 @@ public class PaymentDonationRequest {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private CheckoutOrder order;
+  private EncryptedOrderData order;
 
   public static final String SERIALIZED_NAME_ORDER_REFERENCE = "orderReference";
   @SerializedName(SERIALIZED_NAME_ORDER_REFERENCE)
@@ -381,7 +386,7 @@ public class PaymentDonationRequest {
 
   public static final String SERIALIZED_NAME_PAYMENT_METHOD = "paymentMethod";
   @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
-  private PaymentDonationRequestPaymentMethod paymentMethod;
+  private CheckoutPaymentMethod paymentMethod;
 
   public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
@@ -396,7 +401,7 @@ public class PaymentDonationRequest {
   private String recurringFrequency;
 
   /**
-   * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
+   * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    */
   @JsonAdapter(RecurringProcessingModelEnum.Adapter.class)
   public enum RecurringProcessingModelEnum {
@@ -576,6 +581,7 @@ public class PaymentDonationRequest {
   private ThreeDS2RequestData threeDS2RequestData;
 
   public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
   private Boolean threeDSAuthenticationOnly = false;
 
@@ -605,6 +611,28 @@ public class PaymentDonationRequest {
 
   public void setAccountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
+  }
+
+
+  public PaymentDonationRequest additionalAmount(Amount additionalAmount) {
+    
+    this.additionalAmount = additionalAmount;
+    return this;
+  }
+
+   /**
+   * Get additionalAmount
+   * @return additionalAmount
+  **/
+  @ApiModelProperty(value = "")
+
+  public Amount getAdditionalAmount() {
+    return additionalAmount;
+  }
+
+
+  public void setAdditionalAmount(Amount additionalAmount) {
+    this.additionalAmount = additionalAmount;
   }
 
 
@@ -799,10 +827,10 @@ public class PaymentDonationRequest {
   }
 
    /**
-   * Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.
+   * Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    * @return checkoutAttemptId
   **/
-  @ApiModelProperty(value = "Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.")
+  @ApiModelProperty(value = "Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.")
 
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
@@ -836,6 +864,7 @@ public class PaymentDonationRequest {
   }
 
 
+  @Deprecated
   public PaymentDonationRequest conversionId(String conversionId) {
     
     this.conversionId = conversionId;
@@ -843,16 +872,19 @@ public class PaymentDonationRequest {
   }
 
    /**
-   * Conversion ID that corresponds to the Id generated for tracking user payment journey.
+   * Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    * @return conversionId
+   * @deprecated
   **/
-  @ApiModelProperty(value = "Conversion ID that corresponds to the Id generated for tracking user payment journey.")
+  @Deprecated
+  @ApiModelProperty(value = "Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.")
 
   public String getConversionId() {
     return conversionId;
   }
 
 
+  @Deprecated
   public void setConversionId(String conversionId) {
     this.conversionId = conversionId;
   }
@@ -1225,10 +1257,10 @@ public class PaymentDonationRequest {
   }
 
    /**
-   * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
+   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. > This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
+  @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
 
   public List<LineItem> getLineItems() {
     return lineItems;
@@ -1255,10 +1287,10 @@ public class PaymentDonationRequest {
   }
 
    /**
-   * This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants should send the Katakana shopperStatement in full-width characters.  An example request would be: &gt; {   \&quot;shopperStatement\&quot; : \&quot;ADYEN - SELLER-A\&quot;,   \&quot;localizedShopperStatement\&quot; : {     \&quot;ja-Kana\&quot; : \&quot;ADYEN - セラーA\&quot;   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field &#x60;shopperStatement&#x60; is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned.
+   * This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants can use half-width or full-width characters. An example request would be: &gt; {   \&quot;shopperStatement\&quot; : \&quot;ADYEN - SELLER-A\&quot;,   \&quot;localizedShopperStatement\&quot; : {     \&quot;ja-Kana\&quot; : \&quot;ADYEN - セラーA\&quot;   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field &#x60;shopperStatement&#x60; is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned. Please note, this field can be used for only Visa and Mastercard transactions.
    * @return localizedShopperStatement
   **/
-  @ApiModelProperty(value = "This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants should send the Katakana shopperStatement in full-width characters.  An example request would be: > {   \"shopperStatement\" : \"ADYEN - SELLER-A\",   \"localizedShopperStatement\" : {     \"ja-Kana\" : \"ADYEN - セラーA\"   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field `shopperStatement` is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned.")
+  @ApiModelProperty(value = "This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants can use half-width or full-width characters. An example request would be: > {   \"shopperStatement\" : \"ADYEN - SELLER-A\",   \"localizedShopperStatement\" : {     \"ja-Kana\" : \"ADYEN - セラーA\"   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field `shopperStatement` is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned. Please note, this field can be used for only Visa and Mastercard transactions.")
 
   public Map<String, String> getLocalizedShopperStatement() {
     return localizedShopperStatement;
@@ -1432,7 +1464,7 @@ public class PaymentDonationRequest {
   }
 
 
-  public PaymentDonationRequest order(CheckoutOrder order) {
+  public PaymentDonationRequest order(EncryptedOrderData order) {
     
     this.order = order;
     return this;
@@ -1444,12 +1476,12 @@ public class PaymentDonationRequest {
   **/
   @ApiModelProperty(value = "")
 
-  public CheckoutOrder getOrder() {
+  public EncryptedOrderData getOrder() {
     return order;
   }
 
 
-  public void setOrder(CheckoutOrder order) {
+  public void setOrder(EncryptedOrderData order) {
     this.order = order;
   }
 
@@ -1498,7 +1530,7 @@ public class PaymentDonationRequest {
   }
 
 
-  public PaymentDonationRequest paymentMethod(PaymentDonationRequestPaymentMethod paymentMethod) {
+  public PaymentDonationRequest paymentMethod(CheckoutPaymentMethod paymentMethod) {
     
     this.paymentMethod = paymentMethod;
     return this;
@@ -1510,12 +1542,12 @@ public class PaymentDonationRequest {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public PaymentDonationRequestPaymentMethod getPaymentMethod() {
+  public CheckoutPaymentMethod getPaymentMethod() {
     return paymentMethod;
   }
 
 
-  public void setPaymentMethod(PaymentDonationRequestPaymentMethod paymentMethod) {
+  public void setPaymentMethod(CheckoutPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
@@ -1593,10 +1625,10 @@ public class PaymentDonationRequest {
   }
 
    /**
-   * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
+   * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    * @return recurringProcessingModel
   **/
-  @ApiModelProperty(value = "Defines a recurring payment type. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
+  @ApiModelProperty(value = "Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
     return recurringProcessingModel;
@@ -2034,6 +2066,7 @@ public class PaymentDonationRequest {
   }
 
 
+  @Deprecated
   public PaymentDonationRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
@@ -2053,6 +2086,7 @@ public class PaymentDonationRequest {
   }
 
 
+  @Deprecated
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
   }
@@ -2091,6 +2125,7 @@ public class PaymentDonationRequest {
     }
     PaymentDonationRequest paymentDonationRequest = (PaymentDonationRequest) o;
     return Objects.equals(this.accountInfo, paymentDonationRequest.accountInfo) &&
+        Objects.equals(this.additionalAmount, paymentDonationRequest.additionalAmount) &&
         Objects.equals(this.additionalData, paymentDonationRequest.additionalData) &&
         Objects.equals(this.amount, paymentDonationRequest.amount) &&
         Objects.equals(this.applicationInfo, paymentDonationRequest.applicationInfo) &&
@@ -2160,7 +2195,7 @@ public class PaymentDonationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2168,6 +2203,7 @@ public class PaymentDonationRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentDonationRequest {\n");
     sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
+    sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
@@ -2256,6 +2292,7 @@ public class PaymentDonationRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("accountInfo");
+    openapiFields.add("additionalAmount");
     openapiFields.add("additionalData");
     openapiFields.add("amount");
     openapiFields.add("applicationInfo");
@@ -2365,6 +2402,10 @@ public class PaymentDonationRequest {
       if (jsonObj.getAsJsonObject("accountInfo") != null) {
         AccountInfo.validateJsonObject(jsonObj.getAsJsonObject("accountInfo"));
       }
+      // validate the optional field `additionalAmount`
+      if (jsonObj.getAsJsonObject("additionalAmount") != null) {
+        Amount.validateJsonObject(jsonObj.getAsJsonObject("additionalAmount"));
+      }
       // validate the optional field `amount`
       if (jsonObj.getAsJsonObject("amount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
@@ -2460,7 +2501,7 @@ public class PaymentDonationRequest {
         // validate the optional field `lineItems` (array)
         for (int i = 0; i < jsonArraylineItems.size(); i++) {
           LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `mandate`
       if (jsonObj.getAsJsonObject("mandate") != null) {
@@ -2488,7 +2529,7 @@ public class PaymentDonationRequest {
       }
       // validate the optional field `order`
       if (jsonObj.getAsJsonObject("order") != null) {
-        CheckoutOrder.validateJsonObject(jsonObj.getAsJsonObject("order"));
+        EncryptedOrderData.validateJsonObject(jsonObj.getAsJsonObject("order"));
       }
       // validate the optional field orderReference
       if (jsonObj.get("orderReference") != null && !jsonObj.get("orderReference").isJsonPrimitive()) {
@@ -2500,7 +2541,7 @@ public class PaymentDonationRequest {
       }
       // validate the optional field `paymentMethod`
       if (jsonObj.getAsJsonObject("paymentMethod") != null) {
-        PaymentDonationRequestPaymentMethod.validateJsonObject(jsonObj.getAsJsonObject("paymentMethod"));
+        CheckoutPaymentMethod.validateJsonObject(jsonObj.getAsJsonObject("paymentMethod"));
       }
       // validate the optional field `platformChargebackLogic`
       if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
@@ -2590,7 +2631,7 @@ public class PaymentDonationRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {

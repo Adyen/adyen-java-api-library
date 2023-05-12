@@ -71,6 +71,10 @@ public class UpdatePaymentMethodInfo {
   @SerializedName(SERIALIZED_NAME_SHOPPER_STATEMENT)
   private ShopperStatement shopperStatement;
 
+  public static final String SERIALIZED_NAME_STORE_IDS = "storeIds";
+  @SerializedName(SERIALIZED_NAME_STORE_IDS)
+  private List<String> storeIds = null;
+
   public UpdatePaymentMethodInfo() { 
   }
 
@@ -208,6 +212,36 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+  public UpdatePaymentMethodInfo storeIds(List<String> storeIds) {
+    
+    this.storeIds = storeIds;
+    return this;
+  }
+
+  public UpdatePaymentMethodInfo addStoreIdsItem(String storeIdsItem) {
+    if (this.storeIds == null) {
+      this.storeIds = new ArrayList<>();
+    }
+    this.storeIds.add(storeIdsItem);
+    return this;
+  }
+
+   /**
+   * The list of stores for this payment method
+   * @return storeIds
+  **/
+  @ApiModelProperty(value = "The list of stores for this payment method")
+
+  public List<String> getStoreIds() {
+    return storeIds;
+  }
+
+
+  public void setStoreIds(List<String> storeIds) {
+    this.storeIds = storeIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -222,12 +256,13 @@ public class UpdatePaymentMethodInfo {
         Objects.equals(this.currencies, updatePaymentMethodInfo.currencies) &&
         Objects.equals(this.customRoutingFlags, updatePaymentMethodInfo.customRoutingFlags) &&
         Objects.equals(this.enabled, updatePaymentMethodInfo.enabled) &&
-        Objects.equals(this.shopperStatement, updatePaymentMethodInfo.shopperStatement);
+        Objects.equals(this.shopperStatement, updatePaymentMethodInfo.shopperStatement) &&
+        Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countries, currencies, customRoutingFlags, enabled, shopperStatement);
+    return Objects.hash(countries, currencies, customRoutingFlags, enabled, shopperStatement, storeIds);
   }
 
   @Override
@@ -239,6 +274,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
+    sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -266,6 +302,7 @@ public class UpdatePaymentMethodInfo {
     openapiFields.add("customRoutingFlags");
     openapiFields.add("enabled");
     openapiFields.add("shopperStatement");
+    openapiFields.add("storeIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -308,6 +345,10 @@ public class UpdatePaymentMethodInfo {
       // validate the optional field `shopperStatement`
       if (jsonObj.getAsJsonObject("shopperStatement") != null) {
         ShopperStatement.validateJsonObject(jsonObj.getAsJsonObject("shopperStatement"));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("storeIds") != null && !jsonObj.get("storeIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `storeIds` to be an array in the JSON string but got `%s`", jsonObj.get("storeIds").toString()));
       }
   }
 

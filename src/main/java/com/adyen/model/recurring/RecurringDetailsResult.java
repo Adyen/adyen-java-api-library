@@ -1,5 +1,6 @@
 /*
  * Adyen Recurring API
+ * The Recurring APIs allow you to manage and remove your tokens or saved payment details. Tokens should be created with validation during a payment request.  For more information, refer to our [Tokenization documentation](https://docs.adyen.com/online-payments/tokenization). ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Recurring API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Recurring/v68/disable ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Recurring/v68/disable ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * Contact: developer-experience@adyen.com
@@ -14,7 +15,7 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.recurring.RecurringDetail;
+import com.adyen.model.recurring.RecurringDetailWrapper;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -58,7 +59,7 @@ public class RecurringDetailsResult {
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
-  private List<RecurringDetail> details = null;
+  private List<RecurringDetailWrapper> details = null;
 
   public static final String SERIALIZED_NAME_LAST_KNOWN_SHOPPER_EMAIL = "lastKnownShopperEmail";
   @SerializedName(SERIALIZED_NAME_LAST_KNOWN_SHOPPER_EMAIL)
@@ -93,13 +94,13 @@ public class RecurringDetailsResult {
   }
 
 
-  public RecurringDetailsResult details(List<RecurringDetail> details) {
+  public RecurringDetailsResult details(List<RecurringDetailWrapper> details) {
     
     this.details = details;
     return this;
   }
 
-  public RecurringDetailsResult addDetailsItem(RecurringDetail detailsItem) {
+  public RecurringDetailsResult addDetailsItem(RecurringDetailWrapper detailsItem) {
     if (this.details == null) {
       this.details = new ArrayList<>();
     }
@@ -113,12 +114,12 @@ public class RecurringDetailsResult {
   **/
   @ApiModelProperty(value = "Payment details stored for recurring payments.")
 
-  public List<RecurringDetail> getDetails() {
+  public List<RecurringDetailWrapper> getDetails() {
     return details;
   }
 
 
-  public void setDetails(List<RecurringDetail> details) {
+  public void setDetails(List<RecurringDetailWrapper> details) {
     this.details = details;
   }
 
@@ -258,8 +259,8 @@ public class RecurringDetailsResult {
 
         // validate the optional field `details` (array)
         for (int i = 0; i < jsonArraydetails.size(); i++) {
-          RecurringDetail.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
-        };
+          RecurringDetailWrapper.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
+        }
       }
       // validate the optional field lastKnownShopperEmail
       if (jsonObj.get("lastKnownShopperEmail") != null && !jsonObj.get("lastKnownShopperEmail").isJsonPrimitive()) {
