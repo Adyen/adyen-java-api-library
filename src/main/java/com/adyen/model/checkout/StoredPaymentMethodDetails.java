@@ -53,6 +53,7 @@ public class StoredPaymentMethodDetails {
   private String checkoutAttemptId;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -168,6 +169,7 @@ public class StoredPaymentMethodDetails {
   }
 
 
+  @Deprecated
   public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -187,6 +189,7 @@ public class StoredPaymentMethodDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }

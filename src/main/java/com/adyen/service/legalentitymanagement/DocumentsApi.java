@@ -36,7 +36,6 @@ public class DocumentsApi extends Service {
     * Delete a document
     *
     * @param id {@link String } The unique identifier of the document to be deleted. (required)
-    * @return {@link Object }
     * @throws ApiException if fails to make API call
     */
     public void deleteDocument(String id) throws ApiException, IOException {
@@ -48,7 +47,6 @@ public class DocumentsApi extends Service {
     *
     * @param id {@link String } The unique identifier of the document to be deleted. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Object }
     * @throws ApiException if fails to make API call
     */
     public void deleteDocument(String id, RequestOptions requestOptions) throws ApiException, IOException {

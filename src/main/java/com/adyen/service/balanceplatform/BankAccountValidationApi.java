@@ -36,7 +36,6 @@ public class BankAccountValidationApi extends Service {
     * Validate a bank account
     *
     * @param bankAccountIdentificationValidationRequest {@link BankAccountIdentificationValidationRequest }  (required)
-    * @return void
     * @throws ApiException if fails to make API call
     */
     public void validateBankAccountIdentification(BankAccountIdentificationValidationRequest bankAccountIdentificationValidationRequest) throws ApiException, IOException {
@@ -48,7 +47,6 @@ public class BankAccountValidationApi extends Service {
     *
     * @param bankAccountIdentificationValidationRequest {@link BankAccountIdentificationValidationRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return void
     * @throws ApiException if fails to make API call
     */
     public void validateBankAccountIdentification(BankAccountIdentificationValidationRequest bankAccountIdentificationValidationRequest, RequestOptions requestOptions) throws ApiException, IOException {

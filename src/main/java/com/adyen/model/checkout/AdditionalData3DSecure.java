@@ -49,6 +49,7 @@ import com.adyen.model.checkout.JSON;
 
 public class AdditionalData3DSecure {
   public static final String SERIALIZED_NAME_ALLOW3_D_S2 = "allow3DS2";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ALLOW3_D_S2)
   private String allow3DS2;
 
@@ -110,6 +111,7 @@ public class AdditionalData3DSecure {
   private ChallengeWindowSizeEnum challengeWindowSize;
 
   public static final String SERIALIZED_NAME_EXECUTE_THREE_D = "executeThreeD";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_EXECUTE_THREE_D)
   private String executeThreeD;
 
@@ -128,6 +130,7 @@ public class AdditionalData3DSecure {
   public AdditionalData3DSecure() { 
   }
 
+  @Deprecated
   public AdditionalData3DSecure allow3DS2(String allow3DS2) {
     
     this.allow3DS2 = allow3DS2;
@@ -147,6 +150,7 @@ public class AdditionalData3DSecure {
   }
 
 
+  @Deprecated
   public void setAllow3DS2(String allow3DS2) {
     this.allow3DS2 = allow3DS2;
   }
@@ -174,6 +178,7 @@ public class AdditionalData3DSecure {
   }
 
 
+  @Deprecated
   public AdditionalData3DSecure executeThreeD(String executeThreeD) {
     
     this.executeThreeD = executeThreeD;
@@ -193,6 +198,7 @@ public class AdditionalData3DSecure {
   }
 
 
+  @Deprecated
   public void setExecuteThreeD(String executeThreeD) {
     this.executeThreeD = executeThreeD;
   }

@@ -19,6 +19,8 @@ binlookup: smallServiceName=BinLookupApi
 checkout: spec=CheckoutService-v70
 dataprotection: spec=DataProtectionService-v1
 dataprotection: smallServiceName=DataProtectionApi
+capital: spec=GrantService-v3
+capital: smallServiceName=CapitalApi
 storedvalue: spec=StoredValueService-v46
 storedvalue: smallServiceName=StoredValueApi
 posterminalmanagement: spec=TfmAPIService-v1
@@ -63,7 +65,7 @@ $(services): target/spec $(openapi-generator-jar)
 
 # Full service + models automation
 bigServices:=balanceplatform checkout storedValue payout management legalentitymanagement transfers
-singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment
+singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment capital
 
 services: $(bigServices) $(singleFileServices)
 

@@ -54,6 +54,7 @@ public class BankAccountInfo {
   private BankAccountInfoAccountIdentification accountIdentification;
 
   public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "accountType";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
   private String accountType;
 
@@ -86,6 +87,7 @@ public class BankAccountInfo {
   }
 
 
+  @Deprecated
   public BankAccountInfo accountType(String accountType) {
     
     this.accountType = accountType;
@@ -105,6 +107,7 @@ public class BankAccountInfo {
   }
 
 
+  @Deprecated
   public void setAccountType(String accountType) {
     this.accountType = accountType;
   }

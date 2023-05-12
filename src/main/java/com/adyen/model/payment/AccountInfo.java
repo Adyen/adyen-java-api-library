@@ -287,10 +287,12 @@ public class AccountInfo {
   private DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator;
 
   public static final String SERIALIZED_NAME_HOME_PHONE = "homePhone";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_HOME_PHONE)
   private String homePhone;
 
   public static final String SERIALIZED_NAME_MOBILE_PHONE = "mobilePhone";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_MOBILE_PHONE)
   private String mobilePhone;
 
@@ -433,6 +435,7 @@ public class AccountInfo {
   private Boolean suspiciousActivity;
 
   public static final String SERIALIZED_NAME_WORK_PHONE = "workPhone";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_WORK_PHONE)
   private String workPhone;
 
@@ -615,6 +618,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public AccountInfo homePhone(String homePhone) {
     
     this.homePhone = homePhone;
@@ -634,11 +638,13 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public void setHomePhone(String homePhone) {
     this.homePhone = homePhone;
   }
 
 
+  @Deprecated
   public AccountInfo mobilePhone(String mobilePhone) {
     
     this.mobilePhone = mobilePhone;
@@ -658,6 +664,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public void setMobilePhone(String mobilePhone) {
     this.mobilePhone = mobilePhone;
   }
@@ -839,6 +846,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public AccountInfo workPhone(String workPhone) {
     
     this.workPhone = workPhone;
@@ -858,6 +866,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public void setWorkPhone(String workPhone) {
     this.workPhone = workPhone;
   }

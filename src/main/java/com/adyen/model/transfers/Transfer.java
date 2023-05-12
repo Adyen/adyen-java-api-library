@@ -65,6 +65,7 @@ public class Transfer {
   private ResourceReference balanceAccount;
 
   public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
   private String balanceAccountId;
 
@@ -191,6 +192,7 @@ public class Transfer {
   private PaymentInstrument paymentInstrument;
 
   public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID)
   private String paymentInstrumentId;
 
@@ -574,6 +576,7 @@ public class Transfer {
   }
 
 
+  @Deprecated
   public Transfer balanceAccountId(String balanceAccountId) {
     
     this.balanceAccountId = balanceAccountId;
@@ -593,6 +596,7 @@ public class Transfer {
   }
 
 
+  @Deprecated
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
@@ -730,6 +734,7 @@ public class Transfer {
   }
 
 
+  @Deprecated
   public Transfer paymentInstrumentId(String paymentInstrumentId) {
     
     this.paymentInstrumentId = paymentInstrumentId;
@@ -749,6 +754,7 @@ public class Transfer {
   }
 
 
+  @Deprecated
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }

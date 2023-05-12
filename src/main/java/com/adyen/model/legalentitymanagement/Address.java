@@ -148,10 +148,10 @@ public class Address {
   }
 
    /**
-   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.   If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
+   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    * @return stateOrProvince
   **/
-  @ApiModelProperty(value = "The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.   If you specify the state or province, you must also send `city`, `postalCode`, and `street`.")
+  @ApiModelProperty(value = "The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send `city`, `postalCode`, and `street`.")
 
   public String getStateOrProvince() {
     return stateOrProvince;

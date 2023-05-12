@@ -54,6 +54,7 @@ import com.adyen.model.legalentitymanagement.JSON;
 
 public class BusinessLineInfo {
   public static final String SERIALIZED_NAME_CAPABILITY = "capability";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CAPABILITY)
   private String capability;
 
@@ -137,6 +138,7 @@ public class BusinessLineInfo {
   public BusinessLineInfo() { 
   }
 
+  @Deprecated
   public BusinessLineInfo capability(String capability) {
     
     this.capability = capability;
@@ -156,6 +158,7 @@ public class BusinessLineInfo {
   }
 
 
+  @Deprecated
   public void setCapability(String capability) {
     this.capability = capability;
   }
