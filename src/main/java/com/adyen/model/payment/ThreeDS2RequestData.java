@@ -172,6 +172,7 @@ public class ThreeDS2RequestData {
   private AddrMatchEnum addrMatch;
 
   public static final String SERIALIZED_NAME_AUTHENTICATION_ONLY = "authenticationOnly";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_ONLY)
   private Boolean authenticationOnly = false;
 
@@ -227,6 +228,7 @@ public class ThreeDS2RequestData {
   }
 
   public static final String SERIALIZED_NAME_CHALLENGE_INDICATOR = "challengeIndicator";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CHALLENGE_INDICATOR)
   private ChallengeIndicatorEnum challengeIndicator;
 
@@ -632,6 +634,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
     
     this.authenticationOnly = authenticationOnly;
@@ -651,11 +654,13 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   public void setAuthenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
   }
 
 
+  @Deprecated
   public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     
     this.challengeIndicator = challengeIndicator;
@@ -675,6 +680,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
   }

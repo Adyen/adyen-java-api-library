@@ -121,6 +121,7 @@ public class PaymentMethod {
   private PaymentMethodGroup group;
 
   public static final String SERIALIZED_NAME_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_INPUT_DETAILS)
   private List<InputDetail> inputDetails = null;
 
@@ -265,6 +266,7 @@ public class PaymentMethod {
   }
 
 
+  @Deprecated
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
     
     this.inputDetails = inputDetails;
@@ -292,6 +294,7 @@ public class PaymentMethod {
   }
 
 
+  @Deprecated
   public void setInputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
   }

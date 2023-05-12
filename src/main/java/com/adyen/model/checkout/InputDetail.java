@@ -63,6 +63,7 @@ public class InputDetail {
   private List<SubInputDetail> details = null;
 
   public static final String SERIALIZED_NAME_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_INPUT_DETAILS)
   private List<SubInputDetail> inputDetails = null;
 
@@ -153,6 +154,7 @@ public class InputDetail {
   }
 
 
+  @Deprecated
   public InputDetail inputDetails(List<SubInputDetail> inputDetails) {
     
     this.inputDetails = inputDetails;
@@ -180,6 +182,7 @@ public class InputDetail {
   }
 
 
+  @Deprecated
   public void setInputDetails(List<SubInputDetail> inputDetails) {
     this.inputDetails = inputDetails;
   }

@@ -172,6 +172,7 @@ public class PaymentDonationRequest {
   private Company company;
 
   public static final String SERIALIZED_NAME_CONVERSION_ID = "conversionId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CONVERSION_ID)
   private String conversionId;
 
@@ -580,6 +581,7 @@ public class PaymentDonationRequest {
   private ThreeDS2RequestData threeDS2RequestData;
 
   public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
   private Boolean threeDSAuthenticationOnly = false;
 
@@ -862,6 +864,7 @@ public class PaymentDonationRequest {
   }
 
 
+  @Deprecated
   public PaymentDonationRequest conversionId(String conversionId) {
     
     this.conversionId = conversionId;
@@ -881,6 +884,7 @@ public class PaymentDonationRequest {
   }
 
 
+  @Deprecated
   public void setConversionId(String conversionId) {
     this.conversionId = conversionId;
   }
@@ -2062,6 +2066,7 @@ public class PaymentDonationRequest {
   }
 
 
+  @Deprecated
   public PaymentDonationRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
@@ -2081,6 +2086,7 @@ public class PaymentDonationRequest {
   }
 
 
+  @Deprecated
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
   }

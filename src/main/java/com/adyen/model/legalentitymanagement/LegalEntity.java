@@ -70,6 +70,7 @@ public class LegalEntity {
   private List<DocumentReference> documentDetails = null;
 
   public static final String SERIALIZED_NAME_DOCUMENTS = "documents";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_DOCUMENTS)
   private List<EntityReference> documents = null;
 
@@ -220,6 +221,7 @@ public class LegalEntity {
   }
 
 
+  @Deprecated
   public LegalEntity documents(List<EntityReference> documents) {
     
     this.documents = documents;
@@ -247,6 +249,7 @@ public class LegalEntity {
   }
 
 
+  @Deprecated
   public void setDocuments(List<EntityReference> documents) {
     this.documents = documents;
   }

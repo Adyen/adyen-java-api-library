@@ -71,6 +71,7 @@ public class ScheduleTerminalActionsResponse {
   private String storeId;
 
   public static final String SERIALIZED_NAME_TERMINAL_IDS = "terminalIds";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_TERMINAL_IDS)
   private List<String> terminalIds = null;
 
@@ -185,6 +186,7 @@ public class ScheduleTerminalActionsResponse {
   }
 
 
+  @Deprecated
   public ScheduleTerminalActionsResponse terminalIds(List<String> terminalIds) {
     
     this.terminalIds = terminalIds;
@@ -212,6 +214,7 @@ public class ScheduleTerminalActionsResponse {
   }
 
 
+  @Deprecated
   public void setTerminalIds(List<String> terminalIds) {
     this.terminalIds = terminalIds;
   }

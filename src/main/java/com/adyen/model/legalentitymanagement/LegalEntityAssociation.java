@@ -69,7 +69,7 @@ public class LegalEntityAssociation {
   private String name;
 
   /**
-   * Defines the relationship of the legal entity to the current legal entity.   Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.   Possible values for sole proprietorships: **soleProprietorship**. 
+   * Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -156,10 +156,10 @@ public class LegalEntityAssociation {
 
 
    /**
-   * The legal entity type of associated legal entity.   For example, **organization**, **soleProprietorship** or **individual**. 
+   * The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.
    * @return entityType
   **/
-  @ApiModelProperty(value = "The legal entity type of associated legal entity.   For example, **organization**, **soleProprietorship** or **individual**. ")
+  @ApiModelProperty(value = "The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.")
 
   public String getEntityType() {
     return entityType;
@@ -232,10 +232,10 @@ public class LegalEntityAssociation {
   }
 
    /**
-   * Defines the relationship of the legal entity to the current legal entity.   Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.   Possible values for sole proprietorships: **soleProprietorship**. 
+   * Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.   Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.   Possible values for sole proprietorships: **soleProprietorship**. ")
+  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.")
 
   public TypeEnum getType() {
     return type;

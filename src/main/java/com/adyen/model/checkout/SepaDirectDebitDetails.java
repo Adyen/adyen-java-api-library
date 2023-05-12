@@ -61,6 +61,7 @@ public class SepaDirectDebitDetails {
   private String ownerName;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -188,6 +189,7 @@ public class SepaDirectDebitDetails {
   }
 
 
+  @Deprecated
   public SepaDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -207,6 +209,7 @@ public class SepaDirectDebitDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }

@@ -117,6 +117,7 @@ public class MerchantRiskIndicator {
   private DeliveryAddressIndicatorEnum deliveryAddressIndicator;
 
   public static final String SERIALIZED_NAME_DELIVERY_EMAIL = "deliveryEmail";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_DELIVERY_EMAIL)
   private String deliveryEmail;
 
@@ -262,6 +263,7 @@ public class MerchantRiskIndicator {
   }
 
 
+  @Deprecated
   public MerchantRiskIndicator deliveryEmail(String deliveryEmail) {
     
     this.deliveryEmail = deliveryEmail;
@@ -281,6 +283,7 @@ public class MerchantRiskIndicator {
   }
 
 
+  @Deprecated
   public void setDeliveryEmail(String deliveryEmail) {
     this.deliveryEmail = deliveryEmail;
   }
