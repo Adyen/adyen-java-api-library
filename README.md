@@ -67,12 +67,12 @@ API is listed in the [Supported API versions](#supported-api-versions) section o
 // Import the required classes
 import com.adyen.Client;
 import com.adyen.enums.Environment;
-import com.adyen.service.Checkout;
+import com.adyen.service.checkout.PaymentsApi;
 import com.adyen.model.checkout.*;
 
 // Setup Client and Service
 Client client = new Client("Your X-API-KEY", Environment.TEST);
-Checkout checkout = new Checkout(client);
+PaymentsApi paymentsApi = new PaymentsApi(client);
 
 // Create PaymentRequest 
 PaymentRequest paymentRequest = new PaymentRequest();
@@ -82,14 +82,14 @@ CardDetails cardDetails = new CardDetails();
         .encryptedSecurityCode("test_737")
         .encryptedExpiryMonth("test_03")
         .encryptedExpiryYear("test_2030");
-paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
+paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(cardDetails));
 Amount amount = new Amount().currency("EUR").value(1000L);
 paymentRequest.setAmount(amount);
 paymentRequest.setReference("Your order number");
 paymentRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
 
 // Make a call to the /payments endpoint
-PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest);
 
 ~~~~
  
@@ -99,10 +99,11 @@ For requests on live environment, you need to pass the [Live URL Prefix](https:/
 // Import the required classes
 import com.adyen.Client;
 import com.adyen.enums.Environment;
+import com.adyen.service.checkout.ModificationsApi
 
 // Setup Client and Service
 Client client = new Client("Your X-API-KEY", Environment.LIVE, "Your live URL prefix");
-Checkout checkout = new Checkout(client);
+ModificationsApi modificationsApi = new ModificationsApi(client);
 
 ...
 ~~~~
@@ -111,10 +112,11 @@ Checkout checkout = new Checkout(client);
 // Import the required classes
 import com.adyen.Client;
 import com.adyen.enums.Environment;
+import com.adyen.service.checkout.PaymentLinksApi
 
 // Setup Client and Service
 Client client = new Client("Your username", "Your password", Environment.LIVE, "Your live URL prefix", "Your application name");
-Checkout checkout = new Checkout(client);
+PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
  
 ...
 ~~~~
@@ -123,7 +125,7 @@ Checkout checkout = new Checkout(client);
 // Import the required classes
 import java.util.List;
 import com.adyen.util.HMACValidator;
-import com.adyen.notification.NotificationHandler;
+import com.adyen.notification.WebhookHandler;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 
@@ -132,8 +134,8 @@ String hmacKey = "YOUR_HMAC_KEY";
 String notificationRequestJson = "NOTIFICATION_REQUEST_JSON";
 HMACValidator hmacValidator = new HMACValidator();
 
-NotificationHandler notificationHandler = new NotificationHandler();
-NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(notificationRequestJson);
+WebhookHandler webhookHandler = new WebhookHandler();
+NotificationRequest notificationRequest = webhookHandler.handleNotificationJson(notificationRequestJson);
 
 // fetch first (and only) NotificationRequestItem
 var notificationRequestItem = notificationRequest.getNotificationItems().stream().findFirst();
