@@ -45,6 +45,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.recurring.JSON;
 
@@ -227,6 +229,10 @@ public class RecurringDetailsResult {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(RecurringDetailsResult.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -247,7 +253,7 @@ public class RecurringDetailsResult {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!RecurringDetailsResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetailsResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       JsonArray jsonArraydetails = jsonObj.getAsJsonArray("details");
@@ -264,11 +270,11 @@ public class RecurringDetailsResult {
       }
       // validate the optional field lastKnownShopperEmail
       if (jsonObj.get("lastKnownShopperEmail") != null && !jsonObj.get("lastKnownShopperEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lastKnownShopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastKnownShopperEmail").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lastKnownShopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastKnownShopperEmail").toString()));
       }
       // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
   }
 

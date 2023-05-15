@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -156,6 +158,10 @@ public class StoreSplitConfiguration {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(StoreSplitConfiguration.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -176,16 +182,16 @@ public class StoreSplitConfiguration {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!StoreSplitConfiguration.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoreSplitConfiguration` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field balanceAccountId
       if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
       }
       // validate the optional field splitConfigurationId
       if (jsonObj.get("splitConfigurationId") != null && !jsonObj.get("splitConfigurationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splitConfigurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splitConfigurationId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `splitConfigurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splitConfigurationId").toString()));
       }
   }
 

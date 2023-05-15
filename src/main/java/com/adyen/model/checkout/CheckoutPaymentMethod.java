@@ -1908,6 +1908,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with AchDetails
     try {
+      Logger.getLogger(AchDetails.class.getName()).setLevel(Level.OFF);
       AchDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1916,6 +1917,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with AfterpayDetails
     try {
+      Logger.getLogger(AfterpayDetails.class.getName()).setLevel(Level.OFF);
       AfterpayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1924,6 +1926,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with AmazonPayDetails
     try {
+      Logger.getLogger(AmazonPayDetails.class.getName()).setLevel(Level.OFF);
       AmazonPayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1932,6 +1935,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with AndroidPayDetails
     try {
+      Logger.getLogger(AndroidPayDetails.class.getName()).setLevel(Level.OFF);
       AndroidPayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1940,6 +1944,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with ApplePayDetails
     try {
+      Logger.getLogger(ApplePayDetails.class.getName()).setLevel(Level.OFF);
       ApplePayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1948,6 +1953,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with BacsDirectDebitDetails
     try {
+      Logger.getLogger(BacsDirectDebitDetails.class.getName()).setLevel(Level.OFF);
       BacsDirectDebitDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1956,6 +1962,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with BillDeskDetails
     try {
+      Logger.getLogger(BillDeskDetails.class.getName()).setLevel(Level.OFF);
       BillDeskDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1964,6 +1971,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with BlikDetails
     try {
+      Logger.getLogger(BlikDetails.class.getName()).setLevel(Level.OFF);
       BlikDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1972,6 +1980,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with CardDetails
     try {
+      Logger.getLogger(CardDetails.class.getName()).setLevel(Level.OFF);
       CardDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1980,6 +1989,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with CellulantDetails
     try {
+      Logger.getLogger(CellulantDetails.class.getName()).setLevel(Level.OFF);
       CellulantDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1988,6 +1998,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with DokuDetails
     try {
+      Logger.getLogger(DokuDetails.class.getName()).setLevel(Level.OFF);
       DokuDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -1996,6 +2007,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with DotpayDetails
     try {
+      Logger.getLogger(DotpayDetails.class.getName()).setLevel(Level.OFF);
       DotpayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2004,6 +2016,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with DragonpayDetails
     try {
+      Logger.getLogger(DragonpayDetails.class.getName()).setLevel(Level.OFF);
       DragonpayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2012,6 +2025,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with EcontextVoucherDetails
     try {
+      Logger.getLogger(EcontextVoucherDetails.class.getName()).setLevel(Level.OFF);
       EcontextVoucherDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2020,6 +2034,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with GenericIssuerPaymentMethodDetails
     try {
+      Logger.getLogger(GenericIssuerPaymentMethodDetails.class.getName()).setLevel(Level.OFF);
       GenericIssuerPaymentMethodDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2028,6 +2043,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with GiropayDetails
     try {
+      Logger.getLogger(GiropayDetails.class.getName()).setLevel(Level.OFF);
       GiropayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2036,6 +2052,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with GooglePayDetails
     try {
+      Logger.getLogger(GooglePayDetails.class.getName()).setLevel(Level.OFF);
       GooglePayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2044,6 +2061,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with IdealDetails
     try {
+      Logger.getLogger(IdealDetails.class.getName()).setLevel(Level.OFF);
       IdealDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2052,6 +2070,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with KlarnaDetails
     try {
+      Logger.getLogger(KlarnaDetails.class.getName()).setLevel(Level.OFF);
       KlarnaDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2060,6 +2079,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with MasterpassDetails
     try {
+      Logger.getLogger(MasterpassDetails.class.getName()).setLevel(Level.OFF);
       MasterpassDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2068,6 +2088,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with MbwayDetails
     try {
+      Logger.getLogger(MbwayDetails.class.getName()).setLevel(Level.OFF);
       MbwayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2076,6 +2097,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with MobilePayDetails
     try {
+      Logger.getLogger(MobilePayDetails.class.getName()).setLevel(Level.OFF);
       MobilePayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2084,6 +2106,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with MolPayDetails
     try {
+      Logger.getLogger(MolPayDetails.class.getName()).setLevel(Level.OFF);
       MolPayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2092,6 +2115,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with OpenInvoiceDetails
     try {
+      Logger.getLogger(OpenInvoiceDetails.class.getName()).setLevel(Level.OFF);
       OpenInvoiceDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2100,6 +2124,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with PayPalDetails
     try {
+      Logger.getLogger(PayPalDetails.class.getName()).setLevel(Level.OFF);
       PayPalDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2108,6 +2133,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with PayUUpiDetails
     try {
+      Logger.getLogger(PayUUpiDetails.class.getName()).setLevel(Level.OFF);
       PayUUpiDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2116,6 +2142,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with PayWithGoogleDetails
     try {
+      Logger.getLogger(PayWithGoogleDetails.class.getName()).setLevel(Level.OFF);
       PayWithGoogleDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2124,6 +2151,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with PaymentDetails
     try {
+      Logger.getLogger(PaymentDetails.class.getName()).setLevel(Level.OFF);
       PaymentDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2132,6 +2160,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with RatepayDetails
     try {
+      Logger.getLogger(RatepayDetails.class.getName()).setLevel(Level.OFF);
       RatepayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2140,6 +2169,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with SamsungPayDetails
     try {
+      Logger.getLogger(SamsungPayDetails.class.getName()).setLevel(Level.OFF);
       SamsungPayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2148,6 +2178,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with SepaDirectDebitDetails
     try {
+      Logger.getLogger(SepaDirectDebitDetails.class.getName()).setLevel(Level.OFF);
       SepaDirectDebitDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2156,6 +2187,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with StoredPaymentMethodDetails
     try {
+      Logger.getLogger(StoredPaymentMethodDetails.class.getName()).setLevel(Level.OFF);
       StoredPaymentMethodDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2164,6 +2196,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with UpiCollectDetails
     try {
+      Logger.getLogger(UpiCollectDetails.class.getName()).setLevel(Level.OFF);
       UpiCollectDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2172,6 +2205,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with UpiIntentDetails
     try {
+      Logger.getLogger(UpiIntentDetails.class.getName()).setLevel(Level.OFF);
       UpiIntentDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2180,6 +2214,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with VippsDetails
     try {
+      Logger.getLogger(VippsDetails.class.getName()).setLevel(Level.OFF);
       VippsDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2188,6 +2223,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with VisaCheckoutDetails
     try {
+      Logger.getLogger(VisaCheckoutDetails.class.getName()).setLevel(Level.OFF);
       VisaCheckoutDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2196,6 +2232,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with WeChatPayDetails
     try {
+      Logger.getLogger(WeChatPayDetails.class.getName()).setLevel(Level.OFF);
       WeChatPayDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2204,6 +2241,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with WeChatPayMiniProgramDetails
     try {
+      Logger.getLogger(WeChatPayMiniProgramDetails.class.getName()).setLevel(Level.OFF);
       WeChatPayMiniProgramDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -2212,6 +2250,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
     // validate the json string with ZipDetails
     try {
+      Logger.getLogger(ZipDetails.class.getName()).setLevel(Level.OFF);
       ZipDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {

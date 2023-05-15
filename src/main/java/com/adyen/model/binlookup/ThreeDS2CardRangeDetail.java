@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.binlookup.JSON;
 
@@ -291,6 +293,10 @@ public class ThreeDS2CardRangeDetail {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ThreeDS2CardRangeDetail.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -311,32 +317,32 @@ public class ThreeDS2CardRangeDetail {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDS2CardRangeDetail.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2CardRangeDetail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the json data is an array
       if (jsonObj.get("acsInfoInd") != null && !jsonObj.get("acsInfoInd").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `acsInfoInd` to be an array in the JSON string but got `%s`", jsonObj.get("acsInfoInd").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `acsInfoInd` to be an array in the JSON string but got `%s`", jsonObj.get("acsInfoInd").toString()));
       }
       // validate the optional field brandCode
       if (jsonObj.get("brandCode") != null && !jsonObj.get("brandCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `brandCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brandCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `brandCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brandCode").toString()));
       }
       // validate the optional field endRange
       if (jsonObj.get("endRange") != null && !jsonObj.get("endRange").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endRange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endRange").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `endRange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endRange").toString()));
       }
       // validate the optional field startRange
       if (jsonObj.get("startRange") != null && !jsonObj.get("startRange").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `startRange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startRange").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `startRange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startRange").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("threeDS2Versions") != null && !jsonObj.get("threeDS2Versions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDS2Versions` to be an array in the JSON string but got `%s`", jsonObj.get("threeDS2Versions").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `threeDS2Versions` to be an array in the JSON string but got `%s`", jsonObj.get("threeDS2Versions").toString()));
       }
       // validate the optional field threeDSMethodURL
       if (jsonObj.get("threeDSMethodURL") != null && !jsonObj.get("threeDSMethodURL").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSMethodURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSMethodURL").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `threeDSMethodURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSMethodURL").toString()));
       }
   }
 

@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.posterminalmanagement.JSON;
 
@@ -895,6 +897,10 @@ public class GetTerminalDetailsResponse {
     openapiRequiredFields.add("companyAccount");
     openapiRequiredFields.add("terminal");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(GetTerminalDetailsResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -915,7 +921,7 @@ public class GetTerminalDetailsResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!GetTerminalDetailsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTerminalDetailsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -927,67 +933,67 @@ public class GetTerminalDetailsResponse {
       }
       // validate the optional field bluetoothIp
       if (jsonObj.get("bluetoothIp") != null && !jsonObj.get("bluetoothIp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bluetoothIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothIp").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `bluetoothIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothIp").toString()));
       }
       // validate the optional field bluetoothMac
       if (jsonObj.get("bluetoothMac") != null && !jsonObj.get("bluetoothMac").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bluetoothMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothMac").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `bluetoothMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothMac").toString()));
       }
       // validate the optional field companyAccount
       if (jsonObj.get("companyAccount") != null && !jsonObj.get("companyAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
       }
       // validate the optional field country
       if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
       }
       // validate the optional field deviceModel
       if (jsonObj.get("deviceModel") != null && !jsonObj.get("deviceModel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deviceModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceModel").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `deviceModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceModel").toString()));
       }
       // validate the optional field displayLabel
       if (jsonObj.get("displayLabel") != null && !jsonObj.get("displayLabel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `displayLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayLabel").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `displayLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayLabel").toString()));
       }
       // validate the optional field ethernetIp
       if (jsonObj.get("ethernetIp") != null && !jsonObj.get("ethernetIp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ethernetIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetIp").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `ethernetIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetIp").toString()));
       }
       // validate the optional field ethernetMac
       if (jsonObj.get("ethernetMac") != null && !jsonObj.get("ethernetMac").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ethernetMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetMac").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `ethernetMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetMac").toString()));
       }
       // validate the optional field firmwareVersion
       if (jsonObj.get("firmwareVersion") != null && !jsonObj.get("firmwareVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `firmwareVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firmwareVersion").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `firmwareVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firmwareVersion").toString()));
       }
       // validate the optional field iccid
       if (jsonObj.get("iccid") != null && !jsonObj.get("iccid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `iccid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iccid").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `iccid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iccid").toString()));
       }
       // validate the optional field linkNegotiation
       if (jsonObj.get("linkNegotiation") != null && !jsonObj.get("linkNegotiation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `linkNegotiation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkNegotiation").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `linkNegotiation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkNegotiation").toString()));
       }
       // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
       // validate the optional field permanentTerminalId
       if (jsonObj.get("permanentTerminalId") != null && !jsonObj.get("permanentTerminalId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `permanentTerminalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permanentTerminalId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `permanentTerminalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permanentTerminalId").toString()));
       }
       // validate the optional field serialNumber
       if (jsonObj.get("serialNumber") != null && !jsonObj.get("serialNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `serialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serialNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `serialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serialNumber").toString()));
       }
       // validate the optional field simStatus
       if (jsonObj.get("simStatus") != null && !jsonObj.get("simStatus").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `simStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("simStatus").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `simStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("simStatus").toString()));
       }
       // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
       }
       // validate the optional field `storeDetails`
       if (jsonObj.getAsJsonObject("storeDetails") != null) {
@@ -995,7 +1001,7 @@ public class GetTerminalDetailsResponse {
       }
       // validate the optional field terminal
       if (jsonObj.get("terminal") != null && !jsonObj.get("terminal").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
       }
       // ensure the field terminalStatus can be parsed to an enum value
       if (jsonObj.get("terminalStatus") != null) {
@@ -1006,11 +1012,11 @@ public class GetTerminalDetailsResponse {
       }
       // validate the optional field wifiIp
       if (jsonObj.get("wifiIp") != null && !jsonObj.get("wifiIp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wifiIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiIp").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `wifiIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiIp").toString()));
       }
       // validate the optional field wifiMac
       if (jsonObj.get("wifiMac") != null && !jsonObj.get("wifiMac").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wifiMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiMac").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `wifiMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiMac").toString()));
       }
   }
 

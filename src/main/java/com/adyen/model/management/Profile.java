@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -625,6 +627,10 @@ public class Profile {
     openapiRequiredFields.add("ssid");
     openapiRequiredFields.add("wsec");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Profile.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -645,7 +651,7 @@ public class Profile {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Profile.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Profile` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -657,15 +663,15 @@ public class Profile {
       }
       // validate the optional field authType
       if (jsonObj.get("authType") != null && !jsonObj.get("authType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `authType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `authType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authType").toString()));
       }
       // validate the optional field bssType
       if (jsonObj.get("bssType") != null && !jsonObj.get("bssType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bssType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bssType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `bssType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bssType").toString()));
       }
       // validate the optional field eap
       if (jsonObj.get("eap") != null && !jsonObj.get("eap").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eap` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eap").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `eap` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eap").toString()));
       }
       // validate the optional field `eapCaCert`
       if (jsonObj.getAsJsonObject("eapCaCert") != null) {
@@ -681,11 +687,11 @@ public class Profile {
       }
       // validate the optional field eapClientPwd
       if (jsonObj.get("eapClientPwd") != null && !jsonObj.get("eapClientPwd").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eapClientPwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapClientPwd").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `eapClientPwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapClientPwd").toString()));
       }
       // validate the optional field eapIdentity
       if (jsonObj.get("eapIdentity") != null && !jsonObj.get("eapIdentity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eapIdentity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapIdentity").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `eapIdentity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapIdentity").toString()));
       }
       // validate the optional field `eapIntermediateCert`
       if (jsonObj.getAsJsonObject("eapIntermediateCert") != null) {
@@ -693,23 +699,23 @@ public class Profile {
       }
       // validate the optional field eapPwd
       if (jsonObj.get("eapPwd") != null && !jsonObj.get("eapPwd").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eapPwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapPwd").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `eapPwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapPwd").toString()));
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field psk
       if (jsonObj.get("psk") != null && !jsonObj.get("psk").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `psk` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psk").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `psk` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psk").toString()));
       }
       // validate the optional field ssid
       if (jsonObj.get("ssid") != null && !jsonObj.get("ssid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssid").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `ssid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssid").toString()));
       }
       // validate the optional field wsec
       if (jsonObj.get("wsec") != null && !jsonObj.get("wsec").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wsec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wsec").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `wsec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wsec").toString()));
       }
   }
 

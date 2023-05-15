@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -187,6 +189,10 @@ public class CreateStandalonePaymentCancelRequest {
     openapiRequiredFields.add("merchantAccount");
     openapiRequiredFields.add("paymentReference");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CreateStandalonePaymentCancelRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -207,7 +213,7 @@ public class CreateStandalonePaymentCancelRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreateStandalonePaymentCancelRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateStandalonePaymentCancelRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -219,15 +225,15 @@ public class CreateStandalonePaymentCancelRequest {
       }
       // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
       // validate the optional field paymentReference
       if (jsonObj.get("paymentReference") != null && !jsonObj.get("paymentReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `paymentReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `paymentReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentReference").toString()));
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
   }
 

@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -748,6 +750,10 @@ public class UpdateCompanyWebhookRequest {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(UpdateCompanyWebhookRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -768,7 +774,7 @@ public class UpdateCompanyWebhookRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!UpdateCompanyWebhookRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateCompanyWebhookRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `additionalSettings`
@@ -784,7 +790,7 @@ public class UpdateCompanyWebhookRequest {
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the field filterMerchantAccountType can be parsed to an enum value
       if (jsonObj.get("filterMerchantAccountType") != null) {
@@ -795,7 +801,7 @@ public class UpdateCompanyWebhookRequest {
       }
       // ensure the json data is an array
       if (jsonObj.get("filterMerchantAccounts") != null && !jsonObj.get("filterMerchantAccounts").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `filterMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("filterMerchantAccounts").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `filterMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("filterMerchantAccounts").toString()));
       }
       // ensure the field networkType can be parsed to an enum value
       if (jsonObj.get("networkType") != null) {
@@ -806,7 +812,7 @@ public class UpdateCompanyWebhookRequest {
       }
       // validate the optional field password
       if (jsonObj.get("password") != null && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       // ensure the field sslVersion can be parsed to an enum value
       if (jsonObj.get("sslVersion") != null) {
@@ -817,11 +823,11 @@ public class UpdateCompanyWebhookRequest {
       }
       // validate the optional field url
       if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       // validate the optional field username
       if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

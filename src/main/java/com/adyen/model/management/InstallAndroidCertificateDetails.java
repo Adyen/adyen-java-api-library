@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -201,6 +203,10 @@ public class InstallAndroidCertificateDetails {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(InstallAndroidCertificateDetails.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -221,12 +227,12 @@ public class InstallAndroidCertificateDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!InstallAndroidCertificateDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InstallAndroidCertificateDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field certificateId
       if (jsonObj.get("certificateId") != null && !jsonObj.get("certificateId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificateId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `certificateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificateId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

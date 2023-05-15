@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -621,6 +623,10 @@ public class AdditionalDataOpenInvoice {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalDataOpenInvoice.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -641,80 +647,80 @@ public class AdditionalDataOpenInvoice {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataOpenInvoice.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataOpenInvoice` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field openinvoicedata.merchantData
       if (jsonObj.get("openinvoicedata.merchantData") != null && !jsonObj.get("openinvoicedata.merchantData").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedata.merchantData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.merchantData").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.merchantData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.merchantData").toString()));
       }
       // validate the optional field openinvoicedata.numberOfLines
       if (jsonObj.get("openinvoicedata.numberOfLines") != null && !jsonObj.get("openinvoicedata.numberOfLines").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedata.numberOfLines` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.numberOfLines").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.numberOfLines` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.numberOfLines").toString()));
       }
       // validate the optional field openinvoicedata.recipientFirstName
       if (jsonObj.get("openinvoicedata.recipientFirstName") != null && !jsonObj.get("openinvoicedata.recipientFirstName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedata.recipientFirstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.recipientFirstName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.recipientFirstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.recipientFirstName").toString()));
       }
       // validate the optional field openinvoicedata.recipientLastName
       if (jsonObj.get("openinvoicedata.recipientLastName") != null && !jsonObj.get("openinvoicedata.recipientLastName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedata.recipientLastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.recipientLastName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.recipientLastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.recipientLastName").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].currencyCode
       if (jsonObj.get("openinvoicedataLine[itemNr].currencyCode") != null && !jsonObj.get("openinvoicedataLine[itemNr].currencyCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].currencyCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].currencyCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].currencyCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].currencyCode").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].description
       if (jsonObj.get("openinvoicedataLine[itemNr].description") != null && !jsonObj.get("openinvoicedataLine[itemNr].description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].description").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].description").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].itemAmount
       if (jsonObj.get("openinvoicedataLine[itemNr].itemAmount") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemAmount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].itemAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemAmount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemAmount").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].itemId
       if (jsonObj.get("openinvoicedataLine[itemNr].itemId") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].itemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemId").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].itemVatAmount
       if (jsonObj.get("openinvoicedataLine[itemNr].itemVatAmount") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemVatAmount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].itemVatAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemVatAmount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemVatAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemVatAmount").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].itemVatPercentage
       if (jsonObj.get("openinvoicedataLine[itemNr].itemVatPercentage") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemVatPercentage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].itemVatPercentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemVatPercentage").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemVatPercentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemVatPercentage").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].numberOfItems
       if (jsonObj.get("openinvoicedataLine[itemNr].numberOfItems") != null && !jsonObj.get("openinvoicedataLine[itemNr].numberOfItems").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].numberOfItems` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].numberOfItems").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].numberOfItems` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].numberOfItems").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].returnShippingCompany
       if (jsonObj.get("openinvoicedataLine[itemNr].returnShippingCompany") != null && !jsonObj.get("openinvoicedataLine[itemNr].returnShippingCompany").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].returnShippingCompany` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnShippingCompany").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].returnShippingCompany` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnShippingCompany").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].returnTrackingNumber
       if (jsonObj.get("openinvoicedataLine[itemNr].returnTrackingNumber") != null && !jsonObj.get("openinvoicedataLine[itemNr].returnTrackingNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].returnTrackingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnTrackingNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].returnTrackingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnTrackingNumber").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].returnTrackingUri
       if (jsonObj.get("openinvoicedataLine[itemNr].returnTrackingUri") != null && !jsonObj.get("openinvoicedataLine[itemNr].returnTrackingUri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].returnTrackingUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnTrackingUri").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].returnTrackingUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnTrackingUri").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].shippingCompany
       if (jsonObj.get("openinvoicedataLine[itemNr].shippingCompany") != null && !jsonObj.get("openinvoicedataLine[itemNr].shippingCompany").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].shippingCompany` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].shippingCompany").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].shippingCompany` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].shippingCompany").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].shippingMethod
       if (jsonObj.get("openinvoicedataLine[itemNr].shippingMethod") != null && !jsonObj.get("openinvoicedataLine[itemNr].shippingMethod").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].shippingMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].shippingMethod").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].shippingMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].shippingMethod").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].trackingNumber
       if (jsonObj.get("openinvoicedataLine[itemNr].trackingNumber") != null && !jsonObj.get("openinvoicedataLine[itemNr].trackingNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].trackingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].trackingNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].trackingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].trackingNumber").toString()));
       }
       // validate the optional field openinvoicedataLine[itemNr].trackingUri
       if (jsonObj.get("openinvoicedataLine[itemNr].trackingUri") != null && !jsonObj.get("openinvoicedataLine[itemNr].trackingUri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `openinvoicedataLine[itemNr].trackingUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].trackingUri").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].trackingUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].trackingUri").toString()));
       }
   }
 

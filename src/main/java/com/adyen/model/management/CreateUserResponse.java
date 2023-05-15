@@ -44,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -418,6 +420,10 @@ public class CreateUserResponse {
     openapiRequiredFields.add("timeZoneCode");
     openapiRequiredFields.add("username");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CreateUserResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -438,7 +444,7 @@ public class CreateUserResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreateUserResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateUserResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -454,19 +460,19 @@ public class CreateUserResponse {
       }
       // ensure the json data is an array
       if (jsonObj.get("accountGroups") != null && !jsonObj.get("accountGroups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("authnApps") != null && !jsonObj.get("authnApps").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `authnApps` to be an array in the JSON string but got `%s`", jsonObj.get("authnApps").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `authnApps` to be an array in the JSON string but got `%s`", jsonObj.get("authnApps").toString()));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field `name`
       if (jsonObj.getAsJsonObject("name") != null) {
@@ -474,15 +480,15 @@ public class CreateUserResponse {
       }
       // ensure the json data is an array
       if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
       }
       // validate the optional field timeZoneCode
       if (jsonObj.get("timeZoneCode") != null && !jsonObj.get("timeZoneCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `timeZoneCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZoneCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `timeZoneCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZoneCode").toString()));
       }
       // validate the optional field username
       if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

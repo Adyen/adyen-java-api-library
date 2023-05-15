@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.binlookup.JSON;
 
@@ -246,6 +248,10 @@ public class CostEstimateResponse {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CostEstimateResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -266,7 +272,7 @@ public class CostEstimateResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CostEstimateResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CostEstimateResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `cardBin`
@@ -279,15 +285,15 @@ public class CostEstimateResponse {
       }
       // validate the optional field costEstimateReference
       if (jsonObj.get("costEstimateReference") != null && !jsonObj.get("costEstimateReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `costEstimateReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costEstimateReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `costEstimateReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costEstimateReference").toString()));
       }
       // validate the optional field resultCode
       if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
       }
       // validate the optional field surchargeType
       if (jsonObj.get("surchargeType") != null && !jsonObj.get("surchargeType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `surchargeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("surchargeType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `surchargeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("surchargeType").toString()));
       }
   }
 

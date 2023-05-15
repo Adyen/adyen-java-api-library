@@ -44,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.posterminalmanagement.JSON;
 
@@ -206,6 +208,10 @@ public class GetTerminalsUnderAccountResponse {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("companyAccount");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(GetTerminalsUnderAccountResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -226,7 +232,7 @@ public class GetTerminalsUnderAccountResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!GetTerminalsUnderAccountResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTerminalsUnderAccountResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -238,11 +244,11 @@ public class GetTerminalsUnderAccountResponse {
       }
       // validate the optional field companyAccount
       if (jsonObj.get("companyAccount") != null && !jsonObj.get("companyAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("inventoryTerminals") != null && !jsonObj.get("inventoryTerminals").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `inventoryTerminals` to be an array in the JSON string but got `%s`", jsonObj.get("inventoryTerminals").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `inventoryTerminals` to be an array in the JSON string but got `%s`", jsonObj.get("inventoryTerminals").toString()));
       }
       JsonArray jsonArraymerchantAccounts = jsonObj.getAsJsonArray("merchantAccounts");
       if (jsonArraymerchantAccounts != null) {

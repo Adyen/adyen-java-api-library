@@ -44,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -447,6 +449,10 @@ public class CreateApiCredentialResponse {
     openapiRequiredFields.add("roles");
     openapiRequiredFields.add("username");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CreateApiCredentialResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -467,7 +473,7 @@ public class CreateApiCredentialResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreateApiCredentialResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateApiCredentialResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -483,7 +489,7 @@ public class CreateApiCredentialResponse {
       }
       // ensure the json data is an array
       if (jsonObj.get("allowedIpAddresses") != null && !jsonObj.get("allowedIpAddresses").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowedIpAddresses` to be an array in the JSON string but got `%s`", jsonObj.get("allowedIpAddresses").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `allowedIpAddresses` to be an array in the JSON string but got `%s`", jsonObj.get("allowedIpAddresses").toString()));
       }
       JsonArray jsonArrayallowedOrigins = jsonObj.getAsJsonArray("allowedOrigins");
       if (jsonArrayallowedOrigins != null) {
@@ -499,31 +505,31 @@ public class CreateApiCredentialResponse {
       }
       // validate the optional field apiKey
       if (jsonObj.get("apiKey") != null && !jsonObj.get("apiKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiKey").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `apiKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiKey").toString()));
       }
       // validate the optional field clientKey
       if (jsonObj.get("clientKey") != null && !jsonObj.get("clientKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `clientKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clientKey").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `clientKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clientKey").toString()));
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field password
       if (jsonObj.get("password") != null && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
       }
       // validate the optional field username
       if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

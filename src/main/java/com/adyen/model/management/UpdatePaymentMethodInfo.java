@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -307,6 +309,10 @@ public class UpdatePaymentMethodInfo {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(UpdatePaymentMethodInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -327,20 +333,20 @@ public class UpdatePaymentMethodInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!UpdatePaymentMethodInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdatePaymentMethodInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the json data is an array
       if (jsonObj.get("countries") != null && !jsonObj.get("countries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `countries` to be an array in the JSON string but got `%s`", jsonObj.get("countries").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `countries` to be an array in the JSON string but got `%s`", jsonObj.get("countries").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("currencies") != null && !jsonObj.get("currencies").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currencies` to be an array in the JSON string but got `%s`", jsonObj.get("currencies").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `currencies` to be an array in the JSON string but got `%s`", jsonObj.get("currencies").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("customRoutingFlags") != null && !jsonObj.get("customRoutingFlags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customRoutingFlags` to be an array in the JSON string but got `%s`", jsonObj.get("customRoutingFlags").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `customRoutingFlags` to be an array in the JSON string but got `%s`", jsonObj.get("customRoutingFlags").toString()));
       }
       // validate the optional field `shopperStatement`
       if (jsonObj.getAsJsonObject("shopperStatement") != null) {
@@ -348,7 +354,7 @@ public class UpdatePaymentMethodInfo {
       }
       // ensure the json data is an array
       if (jsonObj.get("storeIds") != null && !jsonObj.get("storeIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storeIds` to be an array in the JSON string but got `%s`", jsonObj.get("storeIds").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `storeIds` to be an array in the JSON string but got `%s`", jsonObj.get("storeIds").toString()));
       }
   }
 

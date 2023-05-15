@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.balanceplatform.JSON;
 
@@ -189,6 +191,10 @@ public class PaymentInstrumentRevealInfo {
     openapiRequiredFields.add("expiration");
     openapiRequiredFields.add("pan");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(PaymentInstrumentRevealInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -209,7 +215,7 @@ public class PaymentInstrumentRevealInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentInstrumentRevealInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentRevealInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -221,7 +227,7 @@ public class PaymentInstrumentRevealInfo {
       }
       // validate the optional field cvc
       if (jsonObj.get("cvc") != null && !jsonObj.get("cvc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
       }
       // validate the optional field `expiration`
       if (jsonObj.getAsJsonObject("expiration") != null) {
@@ -229,7 +235,7 @@ public class PaymentInstrumentRevealInfo {
       }
       // validate the optional field pan
       if (jsonObj.get("pan") != null && !jsonObj.get("pan").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `pan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan").toString()));
       }
   }
 

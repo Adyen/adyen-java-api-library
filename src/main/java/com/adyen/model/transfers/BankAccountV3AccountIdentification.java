@@ -784,6 +784,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with AULocalAccountIdentification
     try {
+      Logger.getLogger(AULocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       AULocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -792,6 +793,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with BRLocalAccountIdentification
     try {
+      Logger.getLogger(BRLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       BRLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -800,6 +802,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with CALocalAccountIdentification
     try {
+      Logger.getLogger(CALocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       CALocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -808,6 +811,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with CZLocalAccountIdentification
     try {
+      Logger.getLogger(CZLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       CZLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -816,6 +820,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with DKLocalAccountIdentification
     try {
+      Logger.getLogger(DKLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       DKLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -824,6 +829,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with HULocalAccountIdentification
     try {
+      Logger.getLogger(HULocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       HULocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -832,6 +838,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with IbanAccountIdentification
     try {
+      Logger.getLogger(IbanAccountIdentification.class.getName()).setLevel(Level.OFF);
       IbanAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -840,6 +847,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with NOLocalAccountIdentification
     try {
+      Logger.getLogger(NOLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       NOLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -848,6 +856,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with NumberAndBicAccountIdentification
     try {
+      Logger.getLogger(NumberAndBicAccountIdentification.class.getName()).setLevel(Level.OFF);
       NumberAndBicAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -856,6 +865,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with PLLocalAccountIdentification
     try {
+      Logger.getLogger(PLLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       PLLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -864,6 +874,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with SELocalAccountIdentification
     try {
+      Logger.getLogger(SELocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       SELocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -872,6 +883,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with SGLocalAccountIdentification
     try {
+      Logger.getLogger(SGLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       SGLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -880,6 +892,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with UKLocalAccountIdentification
     try {
+      Logger.getLogger(UKLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       UKLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -888,6 +901,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
     // validate the json string with USLocalAccountIdentification
     try {
+      Logger.getLogger(USLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       USLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {

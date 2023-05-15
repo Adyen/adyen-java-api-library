@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -562,6 +564,10 @@ public class AdditionalDataLodging {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalDataLodging.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -582,72 +588,72 @@ public class AdditionalDataLodging {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataLodging.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLodging` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field lodging.checkInDate
       if (jsonObj.get("lodging.checkInDate") != null && !jsonObj.get("lodging.checkInDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.checkInDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkInDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.checkInDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkInDate").toString()));
       }
       // validate the optional field lodging.checkOutDate
       if (jsonObj.get("lodging.checkOutDate") != null && !jsonObj.get("lodging.checkOutDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.checkOutDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkOutDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.checkOutDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkOutDate").toString()));
       }
       // validate the optional field lodging.customerServiceTollFreeNumber
       if (jsonObj.get("lodging.customerServiceTollFreeNumber") != null && !jsonObj.get("lodging.customerServiceTollFreeNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.customerServiceTollFreeNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.customerServiceTollFreeNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.customerServiceTollFreeNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.customerServiceTollFreeNumber").toString()));
       }
       // validate the optional field lodging.fireSafetyActIndicator
       if (jsonObj.get("lodging.fireSafetyActIndicator") != null && !jsonObj.get("lodging.fireSafetyActIndicator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.fireSafetyActIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.fireSafetyActIndicator").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.fireSafetyActIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.fireSafetyActIndicator").toString()));
       }
       // validate the optional field lodging.folioCashAdvances
       if (jsonObj.get("lodging.folioCashAdvances") != null && !jsonObj.get("lodging.folioCashAdvances").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.folioCashAdvances` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioCashAdvances").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.folioCashAdvances` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioCashAdvances").toString()));
       }
       // validate the optional field lodging.folioNumber
       if (jsonObj.get("lodging.folioNumber") != null && !jsonObj.get("lodging.folioNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.folioNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.folioNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioNumber").toString()));
       }
       // validate the optional field lodging.foodBeverageCharges
       if (jsonObj.get("lodging.foodBeverageCharges") != null && !jsonObj.get("lodging.foodBeverageCharges").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.foodBeverageCharges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.foodBeverageCharges").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.foodBeverageCharges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.foodBeverageCharges").toString()));
       }
       // validate the optional field lodging.noShowIndicator
       if (jsonObj.get("lodging.noShowIndicator") != null && !jsonObj.get("lodging.noShowIndicator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.noShowIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.noShowIndicator").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.noShowIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.noShowIndicator").toString()));
       }
       // validate the optional field lodging.prepaidExpenses
       if (jsonObj.get("lodging.prepaidExpenses") != null && !jsonObj.get("lodging.prepaidExpenses").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.prepaidExpenses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.prepaidExpenses").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.prepaidExpenses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.prepaidExpenses").toString()));
       }
       // validate the optional field lodging.propertyPhoneNumber
       if (jsonObj.get("lodging.propertyPhoneNumber") != null && !jsonObj.get("lodging.propertyPhoneNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.propertyPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.propertyPhoneNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.propertyPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.propertyPhoneNumber").toString()));
       }
       // validate the optional field lodging.room1.numberOfNights
       if (jsonObj.get("lodging.room1.numberOfNights") != null && !jsonObj.get("lodging.room1.numberOfNights").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.room1.numberOfNights` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.numberOfNights").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.room1.numberOfNights` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.numberOfNights").toString()));
       }
       // validate the optional field lodging.room1.rate
       if (jsonObj.get("lodging.room1.rate") != null && !jsonObj.get("lodging.room1.rate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.room1.rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.rate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.room1.rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.rate").toString()));
       }
       // validate the optional field lodging.totalRoomTax
       if (jsonObj.get("lodging.totalRoomTax") != null && !jsonObj.get("lodging.totalRoomTax").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.totalRoomTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalRoomTax").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.totalRoomTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalRoomTax").toString()));
       }
       // validate the optional field lodging.totalTax
       if (jsonObj.get("lodging.totalTax") != null && !jsonObj.get("lodging.totalTax").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.totalTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalTax").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.totalTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalTax").toString()));
       }
       // validate the optional field travelEntertainmentAuthData.duration
       if (jsonObj.get("travelEntertainmentAuthData.duration") != null && !jsonObj.get("travelEntertainmentAuthData.duration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `travelEntertainmentAuthData.duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.duration").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `travelEntertainmentAuthData.duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.duration").toString()));
       }
       // validate the optional field travelEntertainmentAuthData.market
       if (jsonObj.get("travelEntertainmentAuthData.market") != null && !jsonObj.get("travelEntertainmentAuthData.market").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `travelEntertainmentAuthData.market` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.market").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `travelEntertainmentAuthData.market` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.market").toString()));
       }
   }
 

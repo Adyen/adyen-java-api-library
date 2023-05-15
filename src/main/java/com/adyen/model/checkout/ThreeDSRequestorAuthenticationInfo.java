@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -240,6 +242,10 @@ public class ThreeDSRequestorAuthenticationInfo {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ThreeDSRequestorAuthenticationInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -260,12 +266,12 @@ public class ThreeDSRequestorAuthenticationInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDSRequestorAuthenticationInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSRequestorAuthenticationInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field threeDSReqAuthData
       if (jsonObj.get("threeDSReqAuthData") != null && !jsonObj.get("threeDSReqAuthData").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthData").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `threeDSReqAuthData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthData").toString()));
       }
       // ensure the field threeDSReqAuthMethod can be parsed to an enum value
       if (jsonObj.get("threeDSReqAuthMethod") != null) {
@@ -276,7 +282,7 @@ public class ThreeDSRequestorAuthenticationInfo {
       }
       // validate the optional field threeDSReqAuthTimestamp
       if (jsonObj.get("threeDSReqAuthTimestamp") != null && !jsonObj.get("threeDSReqAuthTimestamp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthTimestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthTimestamp").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `threeDSReqAuthTimestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthTimestamp").toString()));
       }
   }
 

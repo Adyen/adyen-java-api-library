@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -267,6 +269,10 @@ public class KlarnaInfo {
     openapiRequiredFields.add("disputeEmail");
     openapiRequiredFields.add("supportEmail");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(KlarnaInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -287,7 +293,7 @@ public class KlarnaInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!KlarnaInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KlarnaInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -299,7 +305,7 @@ public class KlarnaInfo {
       }
       // validate the optional field disputeEmail
       if (jsonObj.get("disputeEmail") != null && !jsonObj.get("disputeEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `disputeEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disputeEmail").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `disputeEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disputeEmail").toString()));
       }
       // ensure the field region can be parsed to an enum value
       if (jsonObj.get("region") != null) {
@@ -310,7 +316,7 @@ public class KlarnaInfo {
       }
       // validate the optional field supportEmail
       if (jsonObj.get("supportEmail") != null && !jsonObj.get("supportEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `supportEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supportEmail").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `supportEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supportEmail").toString()));
       }
   }
 

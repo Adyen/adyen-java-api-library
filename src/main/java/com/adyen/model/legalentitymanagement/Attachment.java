@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.legalentitymanagement.JSON;
 
@@ -254,6 +256,10 @@ public class Attachment {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("content");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Attachment.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -274,7 +280,7 @@ public class Attachment {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Attachment.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Attachment` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -286,19 +292,19 @@ public class Attachment {
       }
       // validate the optional field contentType
       if (jsonObj.get("contentType") != null && !jsonObj.get("contentType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contentType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `contentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contentType").toString()));
       }
       // validate the optional field filename
       if (jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
       }
       // validate the optional field pageName
       if (jsonObj.get("pageName") != null && !jsonObj.get("pageName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pageName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `pageName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageName").toString()));
       }
       // validate the optional field pageType
       if (jsonObj.get("pageType") != null && !jsonObj.get("pageType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pageType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `pageType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageType").toString()));
       }
   }
 

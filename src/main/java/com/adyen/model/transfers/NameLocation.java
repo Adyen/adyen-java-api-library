@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.transfers.JSON;
 
@@ -272,6 +274,10 @@ public class NameLocation {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(NameLocation.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -292,32 +298,32 @@ public class NameLocation {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!NameLocation.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NameLocation` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field city
       if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       // validate the optional field country
       if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
       }
       // validate the optional field countryOfOrigin
       if (jsonObj.get("countryOfOrigin") != null && !jsonObj.get("countryOfOrigin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `countryOfOrigin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryOfOrigin").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `countryOfOrigin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryOfOrigin").toString()));
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field rawData
       if (jsonObj.get("rawData") != null && !jsonObj.get("rawData").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rawData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rawData").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `rawData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rawData").toString()));
       }
       // validate the optional field state
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
   }
 

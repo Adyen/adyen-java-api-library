@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -157,6 +159,10 @@ public class VippsInfo {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("logo");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(VippsInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -177,7 +183,7 @@ public class VippsInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!VippsInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VippsInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -189,11 +195,11 @@ public class VippsInfo {
       }
       // validate the optional field logo
       if (jsonObj.get("logo") != null && !jsonObj.get("logo").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `logo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo").toString()));
       }
       // validate the optional field subscriptionCancelUrl
       if (jsonObj.get("subscriptionCancelUrl") != null && !jsonObj.get("subscriptionCancelUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subscriptionCancelUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscriptionCancelUrl").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subscriptionCancelUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscriptionCancelUrl").toString()));
       }
   }
 

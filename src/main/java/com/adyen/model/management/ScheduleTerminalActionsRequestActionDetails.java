@@ -378,6 +378,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with InstallAndroidAppDetails
     try {
+      Logger.getLogger(InstallAndroidAppDetails.class.getName()).setLevel(Level.OFF);
       InstallAndroidAppDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -386,6 +387,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
     }
     // validate the json string with InstallAndroidCertificateDetails
     try {
+      Logger.getLogger(InstallAndroidCertificateDetails.class.getName()).setLevel(Level.OFF);
       InstallAndroidCertificateDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -394,6 +396,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
     }
     // validate the json string with ReleaseUpdateDetails
     try {
+      Logger.getLogger(ReleaseUpdateDetails.class.getName()).setLevel(Level.OFF);
       ReleaseUpdateDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -402,6 +405,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
     }
     // validate the json string with UninstallAndroidAppDetails
     try {
+      Logger.getLogger(UninstallAndroidAppDetails.class.getName()).setLevel(Level.OFF);
       UninstallAndroidAppDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -410,6 +414,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
     }
     // validate the json string with UninstallAndroidCertificateDetails
     try {
+      Logger.getLogger(UninstallAndroidCertificateDetails.class.getName()).setLevel(Level.OFF);
       UninstallAndroidCertificateDetails.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {

@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payout.JSON;
 
@@ -185,6 +187,10 @@ public class ResponseAdditionalDataNetworkTokens {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ResponseAdditionalDataNetworkTokens.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -205,20 +211,20 @@ public class ResponseAdditionalDataNetworkTokens {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ResponseAdditionalDataNetworkTokens.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataNetworkTokens` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field networkToken.available
       if (jsonObj.get("networkToken.available") != null && !jsonObj.get("networkToken.available").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `networkToken.available` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.available").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `networkToken.available` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.available").toString()));
       }
       // validate the optional field networkToken.bin
       if (jsonObj.get("networkToken.bin") != null && !jsonObj.get("networkToken.bin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `networkToken.bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.bin").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `networkToken.bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.bin").toString()));
       }
       // validate the optional field networkToken.tokenSummary
       if (jsonObj.get("networkToken.tokenSummary") != null && !jsonObj.get("networkToken.tokenSummary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `networkToken.tokenSummary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.tokenSummary").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `networkToken.tokenSummary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.tokenSummary").toString()));
       }
   }
 

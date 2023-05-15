@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.recurring.JSON;
 
@@ -246,6 +248,10 @@ public class Permit {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Permit.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -266,16 +272,16 @@ public class Permit {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Permit.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Permit` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field partnerId
       if (jsonObj.get("partnerId") != null && !jsonObj.get("partnerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `partnerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("partnerId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `partnerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("partnerId").toString()));
       }
       // validate the optional field profileReference
       if (jsonObj.get("profileReference") != null && !jsonObj.get("profileReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `profileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `profileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileReference").toString()));
       }
       // validate the optional field `restriction`
       if (jsonObj.getAsJsonObject("restriction") != null) {
@@ -283,7 +289,7 @@ public class Permit {
       }
       // validate the optional field resultKey
       if (jsonObj.get("resultKey") != null && !jsonObj.get("resultKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resultKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultKey").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `resultKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultKey").toString()));
       }
   }
 

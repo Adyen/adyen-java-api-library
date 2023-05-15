@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -368,6 +370,10 @@ public class BrowserInfo {
     openapiRequiredFields.add("timeZoneOffset");
     openapiRequiredFields.add("userAgent");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(BrowserInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -388,7 +394,7 @@ public class BrowserInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!BrowserInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BrowserInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
@@ -400,15 +406,15 @@ public class BrowserInfo {
       }
       // validate the optional field acceptHeader
       if (jsonObj.get("acceptHeader") != null && !jsonObj.get("acceptHeader").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `acceptHeader` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acceptHeader").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `acceptHeader` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acceptHeader").toString()));
       }
       // validate the optional field language
       if (jsonObj.get("language") != null && !jsonObj.get("language").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
       // validate the optional field userAgent
       if (jsonObj.get("userAgent") != null && !jsonObj.get("userAgent").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userAgent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userAgent").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `userAgent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userAgent").toString()));
       }
   }
 

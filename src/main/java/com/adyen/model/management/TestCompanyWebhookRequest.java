@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -204,6 +206,10 @@ public class TestCompanyWebhookRequest {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TestCompanyWebhookRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -224,12 +230,12 @@ public class TestCompanyWebhookRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TestCompanyWebhookRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestCompanyWebhookRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the json data is an array
       if (jsonObj.get("merchantIds") != null && !jsonObj.get("merchantIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantIds` to be an array in the JSON string but got `%s`", jsonObj.get("merchantIds").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `merchantIds` to be an array in the JSON string but got `%s`", jsonObj.get("merchantIds").toString()));
       }
       // validate the optional field `notification`
       if (jsonObj.getAsJsonObject("notification") != null) {
@@ -237,7 +243,7 @@ public class TestCompanyWebhookRequest {
       }
       // ensure the json data is an array
       if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
       }
   }
 

@@ -472,6 +472,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with CheckoutAwaitAction
     try {
+      Logger.getLogger(CheckoutAwaitAction.class.getName()).setLevel(Level.OFF);
       CheckoutAwaitAction.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -480,6 +481,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     }
     // validate the json string with CheckoutNativeRedirectAction
     try {
+      Logger.getLogger(CheckoutNativeRedirectAction.class.getName()).setLevel(Level.OFF);
       CheckoutNativeRedirectAction.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -488,6 +490,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     }
     // validate the json string with CheckoutQrCodeAction
     try {
+      Logger.getLogger(CheckoutQrCodeAction.class.getName()).setLevel(Level.OFF);
       CheckoutQrCodeAction.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -496,6 +499,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     }
     // validate the json string with CheckoutRedirectAction
     try {
+      Logger.getLogger(CheckoutRedirectAction.class.getName()).setLevel(Level.OFF);
       CheckoutRedirectAction.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -504,6 +508,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     }
     // validate the json string with CheckoutSDKAction
     try {
+      Logger.getLogger(CheckoutSDKAction.class.getName()).setLevel(Level.OFF);
       CheckoutSDKAction.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -512,6 +517,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     }
     // validate the json string with CheckoutThreeDS2Action
     try {
+      Logger.getLogger(CheckoutThreeDS2Action.class.getName()).setLevel(Level.OFF);
       CheckoutThreeDS2Action.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -520,6 +526,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     }
     // validate the json string with CheckoutVoucherAction
     try {
+      Logger.getLogger(CheckoutVoucherAction.class.getName()).setLevel(Level.OFF);
       CheckoutVoucherAction.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {

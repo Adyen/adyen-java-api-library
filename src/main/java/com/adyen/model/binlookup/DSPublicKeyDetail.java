@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.binlookup.JSON;
 
@@ -215,6 +217,10 @@ public class DSPublicKeyDetail {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(DSPublicKeyDetail.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -235,20 +241,20 @@ public class DSPublicKeyDetail {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!DSPublicKeyDetail.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DSPublicKeyDetail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field brand
       if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
       }
       // validate the optional field directoryServerId
       if (jsonObj.get("directoryServerId") != null && !jsonObj.get("directoryServerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `directoryServerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("directoryServerId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `directoryServerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("directoryServerId").toString()));
       }
       // validate the optional field fromSDKVersion
       if (jsonObj.get("fromSDKVersion") != null && !jsonObj.get("fromSDKVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fromSDKVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromSDKVersion").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `fromSDKVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromSDKVersion").toString()));
       }
   }
 
