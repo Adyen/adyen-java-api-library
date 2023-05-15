@@ -15,6 +15,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import {{package}}.JSON;
 
@@ -412,7 +414,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   /**
   * logger for Deserialization Errors
   */
-  private static final Logger log = Logger.getLogger(BankAccountInfoAccountIdentification.class.getName());
+  private static final Logger log = Logger.getLogger({{classname}}.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
