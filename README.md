@@ -82,7 +82,7 @@ CardDetails cardDetails = new CardDetails();
         .encryptedSecurityCode("test_737")
         .encryptedExpiryMonth("test_03")
         .encryptedExpiryYear("test_2030");
-paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
+paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(cardDetails));
 Amount amount = new Amount().currency("EUR").value(1000L);
 paymentRequest.setAmount(amount);
 paymentRequest.setReference("Your order number");
