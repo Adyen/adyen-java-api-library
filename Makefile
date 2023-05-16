@@ -95,11 +95,11 @@ $(bigServices): target/spec $(openapi-generator-jar)
 	mv $(output)/src/main/java/com/adyen/service/$@ src/main/java/com/adyen/service/$@
 
 $(singleFileServices): target/spec $(openapi-generator-jar)
-	cat <<< "$$(jq 'del(.paths[][].tags)' target/spec/json/$(spec).json)" > target/spec/json/$(spec).json
+	node -p "let json=require('./target/spec/json/$(spec).json');for(k in json['paths']){for (i in json['paths'][k]){delete json['paths'][k][i]['tags']}};console.log(JSON.stringify(json, null, 2));" > target/spec/$(spec).json
 	rm -rf $(models)/$@ $(output)
 	rm -rf src/main/java/com/adyen/service/$@ $(output)
 	$(openapi-generator-cli) generate \
-		-i target/spec/json/$(spec).json \
+		-i target/spec/$(spec).json \
 		-g $(generator) \
 		-c templates/libraries/okhttp-gson/config.yaml \
 		-o $(output) \
@@ -118,6 +118,7 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		--additional-properties=serializationLibrary=gson \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=smallServiceName=$(smallServiceName)
+	rm -rf target/spec/$(spec).json
 	mv $(output)/$(models)/$@ $(models)/$@
 	mv $(output)/src/main/java/com/adyen/JSON.java $(models)/$@
 	mv $(output)/src/main/java/com/adyen/service/*Single.java src/main/java/com/adyen/service/$(smallServiceName).java
