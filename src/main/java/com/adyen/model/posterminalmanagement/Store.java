@@ -311,7 +311,7 @@ public class Store {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Store.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Store` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 

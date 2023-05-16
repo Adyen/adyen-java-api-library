@@ -182,7 +182,7 @@ public class CardBrandDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CardBrandDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CardBrandDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field type

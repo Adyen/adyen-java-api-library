@@ -355,7 +355,7 @@ public class AcceptTermsOfServiceResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AcceptTermsOfServiceResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AcceptTermsOfServiceResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field acceptedBy

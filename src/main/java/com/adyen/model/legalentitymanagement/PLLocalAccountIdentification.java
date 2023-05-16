@@ -229,7 +229,7 @@ public class PLLocalAccountIdentification {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PLLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PLLocalAccountIdentification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 

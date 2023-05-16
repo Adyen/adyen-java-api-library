@@ -215,7 +215,7 @@ public class PaymentInstrumentRevealInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentInstrumentRevealInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentRevealInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 

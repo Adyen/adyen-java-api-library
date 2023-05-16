@@ -164,7 +164,7 @@ public class TransactionRulesResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionRulesResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionRulesResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       JsonArray jsonArraytransactionRules = jsonObj.getAsJsonArray("transactionRules");

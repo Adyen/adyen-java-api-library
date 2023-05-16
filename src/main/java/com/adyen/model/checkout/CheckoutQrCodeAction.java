@@ -344,7 +344,7 @@ public class CheckoutQrCodeAction {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CheckoutQrCodeAction.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CheckoutQrCodeAction` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 

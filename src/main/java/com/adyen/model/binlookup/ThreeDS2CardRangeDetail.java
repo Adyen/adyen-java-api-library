@@ -317,7 +317,7 @@ public class ThreeDS2CardRangeDetail {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDS2CardRangeDetail.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BusinessLineInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2CardRangeDetail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // ensure the json data is an array
