@@ -328,6 +328,8 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void TestNewFieldsInResponseDoesNotThrowError() throws IOException {
         try {
+            // turn of logger so it doesn't clutter the UT
+            Logger.getLogger(BankAccountInfo.class.getName()).setLevel(Level.OFF);
             BankAccountInfo bankAccountInfo = BankAccountInfo.fromJson("{\n" +
                     "  \"accountIdentification\":{\n" +
                     "    \"type\":\"usLocal\",\n" +
