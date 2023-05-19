@@ -164,7 +164,7 @@ public class TerminalOrdersResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TerminalOrdersResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TerminalOrdersResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TerminalOrdersResponse` properties.", entry.getKey()));
         }
       }
       JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");

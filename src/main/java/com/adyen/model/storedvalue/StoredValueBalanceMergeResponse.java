@@ -351,7 +351,7 @@ public class StoredValueBalanceMergeResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!StoredValueBalanceMergeResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StoredValueBalanceMergeResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StoredValueBalanceMergeResponse` properties.", entry.getKey()));
         }
       }
       // validate the optional field authCode

@@ -675,7 +675,7 @@ public class ThreeDS2ResponseData {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDS2ResponseData.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2ResponseData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2ResponseData` properties.", entry.getKey()));
         }
       }
       // validate the optional field acsChallengeMandated

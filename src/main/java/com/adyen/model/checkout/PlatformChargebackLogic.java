@@ -260,7 +260,7 @@ public class PlatformChargebackLogic {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PlatformChargebackLogic.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PlatformChargebackLogic` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PlatformChargebackLogic` properties.", entry.getKey()));
         }
       }
       // ensure the field behavior can be parsed to an enum value

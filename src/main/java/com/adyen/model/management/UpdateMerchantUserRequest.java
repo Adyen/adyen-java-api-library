@@ -61,14 +61,6 @@ public class UpdateMerchantUserRequest {
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
 
-  public static final String SERIALIZED_NAME_AUTHN_APPS_TO_ADD = "authnAppsToAdd";
-  @SerializedName(SERIALIZED_NAME_AUTHN_APPS_TO_ADD)
-  private List<String> authnAppsToAdd = null;
-
-  public static final String SERIALIZED_NAME_AUTHN_APPS_TO_REMOVE = "authnAppsToRemove";
-  @SerializedName(SERIALIZED_NAME_AUTHN_APPS_TO_REMOVE)
-  private List<String> authnAppsToRemove = null;
-
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -137,66 +129,6 @@ public class UpdateMerchantUserRequest {
 
   public void setActive(Boolean active) {
     this.active = active;
-  }
-
-
-  public UpdateMerchantUserRequest authnAppsToAdd(List<String> authnAppsToAdd) {
-    
-    this.authnAppsToAdd = authnAppsToAdd;
-    return this;
-  }
-
-  public UpdateMerchantUserRequest addAuthnAppsToAddItem(String authnAppsToAddItem) {
-    if (this.authnAppsToAdd == null) {
-      this.authnAppsToAdd = new ArrayList<>();
-    }
-    this.authnAppsToAdd.add(authnAppsToAddItem);
-    return this;
-  }
-
-   /**
-   * Set of authn apps to add to this user
-   * @return authnAppsToAdd
-  **/
-  @ApiModelProperty(value = "Set of authn apps to add to this user")
-
-  public List<String> getAuthnAppsToAdd() {
-    return authnAppsToAdd;
-  }
-
-
-  public void setAuthnAppsToAdd(List<String> authnAppsToAdd) {
-    this.authnAppsToAdd = authnAppsToAdd;
-  }
-
-
-  public UpdateMerchantUserRequest authnAppsToRemove(List<String> authnAppsToRemove) {
-    
-    this.authnAppsToRemove = authnAppsToRemove;
-    return this;
-  }
-
-  public UpdateMerchantUserRequest addAuthnAppsToRemoveItem(String authnAppsToRemoveItem) {
-    if (this.authnAppsToRemove == null) {
-      this.authnAppsToRemove = new ArrayList<>();
-    }
-    this.authnAppsToRemove.add(authnAppsToRemoveItem);
-    return this;
-  }
-
-   /**
-   * Set of authn apps to remove from this user
-   * @return authnAppsToRemove
-  **/
-  @ApiModelProperty(value = "Set of authn apps to remove from this user")
-
-  public List<String> getAuthnAppsToRemove() {
-    return authnAppsToRemove;
-  }
-
-
-  public void setAuthnAppsToRemove(List<String> authnAppsToRemove) {
-    this.authnAppsToRemove = authnAppsToRemove;
   }
 
 
@@ -308,8 +240,6 @@ public class UpdateMerchantUserRequest {
     UpdateMerchantUserRequest updateMerchantUserRequest = (UpdateMerchantUserRequest) o;
     return Objects.equals(this.accountGroups, updateMerchantUserRequest.accountGroups) &&
         Objects.equals(this.active, updateMerchantUserRequest.active) &&
-        Objects.equals(this.authnAppsToAdd, updateMerchantUserRequest.authnAppsToAdd) &&
-        Objects.equals(this.authnAppsToRemove, updateMerchantUserRequest.authnAppsToRemove) &&
         Objects.equals(this.email, updateMerchantUserRequest.email) &&
         Objects.equals(this.name, updateMerchantUserRequest.name) &&
         Objects.equals(this.roles, updateMerchantUserRequest.roles) &&
@@ -318,7 +248,7 @@ public class UpdateMerchantUserRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGroups, active, authnAppsToAdd, authnAppsToRemove, email, name, roles, timeZoneCode);
+    return Objects.hash(accountGroups, active, email, name, roles, timeZoneCode);
   }
 
   @Override
@@ -327,8 +257,6 @@ public class UpdateMerchantUserRequest {
     sb.append("class UpdateMerchantUserRequest {\n");
     sb.append("    accountGroups: ").append(toIndentedString(accountGroups)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    authnAppsToAdd: ").append(toIndentedString(authnAppsToAdd)).append("\n");
-    sb.append("    authnAppsToRemove: ").append(toIndentedString(authnAppsToRemove)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
@@ -357,8 +285,6 @@ public class UpdateMerchantUserRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("accountGroups");
     openapiFields.add("active");
-    openapiFields.add("authnAppsToAdd");
-    openapiFields.add("authnAppsToRemove");
     openapiFields.add("email");
     openapiFields.add("name");
     openapiFields.add("roles");
@@ -391,20 +317,12 @@ public class UpdateMerchantUserRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!UpdateMerchantUserRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UpdateMerchantUserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UpdateMerchantUserRequest` properties.", entry.getKey()));
         }
       }
       // ensure the json data is an array
       if (jsonObj.get("accountGroups") != null && !jsonObj.get("accountGroups").isJsonArray()) {
         log.log(Level.WARNING, String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("authnAppsToAdd") != null && !jsonObj.get("authnAppsToAdd").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `authnAppsToAdd` to be an array in the JSON string but got `%s`", jsonObj.get("authnAppsToAdd").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("authnAppsToRemove") != null && !jsonObj.get("authnAppsToRemove").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `authnAppsToRemove` to be an array in the JSON string but got `%s`", jsonObj.get("authnAppsToRemove").toString()));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {

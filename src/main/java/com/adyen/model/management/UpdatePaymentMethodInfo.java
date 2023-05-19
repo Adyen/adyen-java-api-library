@@ -14,7 +14,8 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.management.ShopperStatement;
+import com.adyen.model.management.BcmcInfo;
+import com.adyen.model.management.CartesBancairesInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -53,6 +54,14 @@ import com.adyen.model.management.JSON;
  */
 
 public class UpdatePaymentMethodInfo {
+  public static final String SERIALIZED_NAME_BCMC = "bcmc";
+  @SerializedName(SERIALIZED_NAME_BCMC)
+  private BcmcInfo bcmc;
+
+  public static final String SERIALIZED_NAME_CARTES_BANCAIRES = "cartesBancaires";
+  @SerializedName(SERIALIZED_NAME_CARTES_BANCAIRES)
+  private CartesBancairesInfo cartesBancaires;
+
   public static final String SERIALIZED_NAME_COUNTRIES = "countries";
   @SerializedName(SERIALIZED_NAME_COUNTRIES)
   private List<String> countries = null;
@@ -61,17 +70,9 @@ public class UpdatePaymentMethodInfo {
   @SerializedName(SERIALIZED_NAME_CURRENCIES)
   private List<String> currencies = null;
 
-  public static final String SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS = "customRoutingFlags";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS)
-  private List<String> customRoutingFlags = null;
-
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
-
-  public static final String SERIALIZED_NAME_SHOPPER_STATEMENT = "shopperStatement";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_STATEMENT)
-  private ShopperStatement shopperStatement;
 
   public static final String SERIALIZED_NAME_STORE_IDS = "storeIds";
   @SerializedName(SERIALIZED_NAME_STORE_IDS)
@@ -79,6 +80,50 @@ public class UpdatePaymentMethodInfo {
 
   public UpdatePaymentMethodInfo() { 
   }
+
+  public UpdatePaymentMethodInfo bcmc(BcmcInfo bcmc) {
+    
+    this.bcmc = bcmc;
+    return this;
+  }
+
+   /**
+   * Get bcmc
+   * @return bcmc
+  **/
+  @ApiModelProperty(value = "")
+
+  public BcmcInfo getBcmc() {
+    return bcmc;
+  }
+
+
+  public void setBcmc(BcmcInfo bcmc) {
+    this.bcmc = bcmc;
+  }
+
+
+  public UpdatePaymentMethodInfo cartesBancaires(CartesBancairesInfo cartesBancaires) {
+    
+    this.cartesBancaires = cartesBancaires;
+    return this;
+  }
+
+   /**
+   * Get cartesBancaires
+   * @return cartesBancaires
+  **/
+  @ApiModelProperty(value = "")
+
+  public CartesBancairesInfo getCartesBancaires() {
+    return cartesBancaires;
+  }
+
+
+  public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
+    this.cartesBancaires = cartesBancaires;
+  }
+
 
   public UpdatePaymentMethodInfo countries(List<String> countries) {
     
@@ -140,36 +185,6 @@ public class UpdatePaymentMethodInfo {
   }
 
 
-  public UpdatePaymentMethodInfo customRoutingFlags(List<String> customRoutingFlags) {
-    
-    this.customRoutingFlags = customRoutingFlags;
-    return this;
-  }
-
-  public UpdatePaymentMethodInfo addCustomRoutingFlagsItem(String customRoutingFlagsItem) {
-    if (this.customRoutingFlags == null) {
-      this.customRoutingFlags = new ArrayList<>();
-    }
-    this.customRoutingFlags.add(customRoutingFlagsItem);
-    return this;
-  }
-
-   /**
-   * Custom routing flags for acquirer routing.
-   * @return customRoutingFlags
-  **/
-  @ApiModelProperty(value = "Custom routing flags for acquirer routing.")
-
-  public List<String> getCustomRoutingFlags() {
-    return customRoutingFlags;
-  }
-
-
-  public void setCustomRoutingFlags(List<String> customRoutingFlags) {
-    this.customRoutingFlags = customRoutingFlags;
-  }
-
-
   public UpdatePaymentMethodInfo enabled(Boolean enabled) {
     
     this.enabled = enabled;
@@ -189,28 +204,6 @@ public class UpdatePaymentMethodInfo {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
-  }
-
-
-  public UpdatePaymentMethodInfo shopperStatement(ShopperStatement shopperStatement) {
-    
-    this.shopperStatement = shopperStatement;
-    return this;
-  }
-
-   /**
-   * Get shopperStatement
-   * @return shopperStatement
-  **/
-  @ApiModelProperty(value = "")
-
-  public ShopperStatement getShopperStatement() {
-    return shopperStatement;
-  }
-
-
-  public void setShopperStatement(ShopperStatement shopperStatement) {
-    this.shopperStatement = shopperStatement;
   }
 
 
@@ -254,28 +247,28 @@ public class UpdatePaymentMethodInfo {
       return false;
     }
     UpdatePaymentMethodInfo updatePaymentMethodInfo = (UpdatePaymentMethodInfo) o;
-    return Objects.equals(this.countries, updatePaymentMethodInfo.countries) &&
+    return Objects.equals(this.bcmc, updatePaymentMethodInfo.bcmc) &&
+        Objects.equals(this.cartesBancaires, updatePaymentMethodInfo.cartesBancaires) &&
+        Objects.equals(this.countries, updatePaymentMethodInfo.countries) &&
         Objects.equals(this.currencies, updatePaymentMethodInfo.currencies) &&
-        Objects.equals(this.customRoutingFlags, updatePaymentMethodInfo.customRoutingFlags) &&
         Objects.equals(this.enabled, updatePaymentMethodInfo.enabled) &&
-        Objects.equals(this.shopperStatement, updatePaymentMethodInfo.shopperStatement) &&
         Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countries, currencies, customRoutingFlags, enabled, shopperStatement, storeIds);
+    return Objects.hash(bcmc, cartesBancaires, countries, currencies, enabled, storeIds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePaymentMethodInfo {\n");
+    sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
+    sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
-    sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -299,11 +292,11 @@ public class UpdatePaymentMethodInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("bcmc");
+    openapiFields.add("cartesBancaires");
     openapiFields.add("countries");
     openapiFields.add("currencies");
-    openapiFields.add("customRoutingFlags");
     openapiFields.add("enabled");
-    openapiFields.add("shopperStatement");
     openapiFields.add("storeIds");
 
     // a set of required properties/fields (JSON key names)
@@ -333,8 +326,16 @@ public class UpdatePaymentMethodInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!UpdatePaymentMethodInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UpdatePaymentMethodInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UpdatePaymentMethodInfo` properties.", entry.getKey()));
         }
+      }
+      // validate the optional field `bcmc`
+      if (jsonObj.getAsJsonObject("bcmc") != null) {
+        BcmcInfo.validateJsonObject(jsonObj.getAsJsonObject("bcmc"));
+      }
+      // validate the optional field `cartesBancaires`
+      if (jsonObj.getAsJsonObject("cartesBancaires") != null) {
+        CartesBancairesInfo.validateJsonObject(jsonObj.getAsJsonObject("cartesBancaires"));
       }
       // ensure the json data is an array
       if (jsonObj.get("countries") != null && !jsonObj.get("countries").isJsonArray()) {
@@ -343,14 +344,6 @@ public class UpdatePaymentMethodInfo {
       // ensure the json data is an array
       if (jsonObj.get("currencies") != null && !jsonObj.get("currencies").isJsonArray()) {
         log.log(Level.WARNING, String.format("Expected the field `currencies` to be an array in the JSON string but got `%s`", jsonObj.get("currencies").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("customRoutingFlags") != null && !jsonObj.get("customRoutingFlags").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `customRoutingFlags` to be an array in the JSON string but got `%s`", jsonObj.get("customRoutingFlags").toString()));
-      }
-      // validate the optional field `shopperStatement`
-      if (jsonObj.getAsJsonObject("shopperStatement") != null) {
-        ShopperStatement.validateJsonObject(jsonObj.getAsJsonObject("shopperStatement"));
       }
       // ensure the json data is an array
       if (jsonObj.get("storeIds") != null && !jsonObj.get("storeIds").isJsonArray()) {

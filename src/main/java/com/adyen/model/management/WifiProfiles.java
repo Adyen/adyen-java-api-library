@@ -194,7 +194,7 @@ public class WifiProfiles {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!WifiProfiles.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `WifiProfiles` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `WifiProfiles` properties.", entry.getKey()));
         }
       }
       JsonArray jsonArrayprofiles = jsonObj.getAsJsonArray("profiles");

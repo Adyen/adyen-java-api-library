@@ -129,10 +129,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Customer code, if supplied by a customer.  Encoding: ASCII.  Max length: 25 characters.  &gt; Required for Level 2 and Level 3 data.
+   * The customer code, if supplied by a customer.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataCustomerReference
   **/
-  @ApiModelProperty(value = "Customer code, if supplied by a customer.  Encoding: ASCII.  Max length: 25 characters.  > Required for Level 2 and Level 3 data.")
+  @ApiModelProperty(value = "The customer code, if supplied by a customer.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros")
 
   public String getEnhancedSchemeDataCustomerReference() {
     return enhancedSchemeDataCustomerReference;
@@ -151,10 +151,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Destination country code.  Encoding: ASCII.  Max length: 3 characters.
+   * The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address.  Encoding: ASCII  Fixed length: 3 characters
    * @return enhancedSchemeDataDestinationCountryCode
   **/
-  @ApiModelProperty(value = "Destination country code.  Encoding: ASCII.  Max length: 3 characters.")
+  @ApiModelProperty(value = "The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address.  Encoding: ASCII  Fixed length: 3 characters")
 
   public String getEnhancedSchemeDataDestinationCountryCode() {
     return enhancedSchemeDataDestinationCountryCode;
@@ -173,10 +173,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The postal code of a destination address.  Encoding: ASCII.  Max length: 10 characters.  &gt; Required for American Express.
+   * The postal code of the destination address.  Encoding: ASCII  Max length: 10 characters  Must not start with a space
    * @return enhancedSchemeDataDestinationPostalCode
   **/
-  @ApiModelProperty(value = "The postal code of a destination address.  Encoding: ASCII.  Max length: 10 characters.  > Required for American Express.")
+  @ApiModelProperty(value = "The postal code of the destination address.  Encoding: ASCII  Max length: 10 characters  Must not start with a space")
 
   public String getEnhancedSchemeDataDestinationPostalCode() {
     return enhancedSchemeDataDestinationPostalCode;
@@ -195,10 +195,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Destination state or province code.  Encoding: ASCII.Max length: 3 characters.
+   * Destination state or province code.  Encoding: ASCII  Max length: 3 characters  Must not start with a space
    * @return enhancedSchemeDataDestinationStateProvinceCode
   **/
-  @ApiModelProperty(value = "Destination state or province code.  Encoding: ASCII.Max length: 3 characters.")
+  @ApiModelProperty(value = "Destination state or province code.  Encoding: ASCII  Max length: 3 characters  Must not start with a space")
 
   public String getEnhancedSchemeDataDestinationStateProvinceCode() {
     return enhancedSchemeDataDestinationStateProvinceCode;
@@ -217,10 +217,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Duty amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
+   * The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
    * @return enhancedSchemeDataDutyAmount
   **/
-  @ApiModelProperty(value = "Duty amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
+  @ApiModelProperty(value = "The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
 
   public String getEnhancedSchemeDataDutyAmount() {
     return enhancedSchemeDataDutyAmount;
@@ -239,10 +239,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Shipping amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
+   * The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
    * @return enhancedSchemeDataFreightAmount
   **/
-  @ApiModelProperty(value = "Shipping amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
+  @ApiModelProperty(value = "The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
 
   public String getEnhancedSchemeDataFreightAmount() {
     return enhancedSchemeDataFreightAmount;
@@ -261,10 +261,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Item commodity code.  Encoding: ASCII.  Max length: 12 characters.
+   * The [UNSPC commodity code](https://www.unspsc.org/) of the item.  Encoding: ASCII  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataItemDetailLineItemNrCommodityCode
   **/
-  @ApiModelProperty(value = "Item commodity code.  Encoding: ASCII.  Max length: 12 characters.")
+  @ApiModelProperty(value = "The [UNSPC commodity code](https://www.unspsc.org/) of the item.  Encoding: ASCII  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrCommodityCode() {
     return enhancedSchemeDataItemDetailLineItemNrCommodityCode;
@@ -283,10 +283,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Item description.  Encoding: ASCII.  Max length: 26 characters.
+   * A description of the item.  Encoding: ASCII  Max length: 26 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataItemDetailLineItemNrDescription
   **/
-  @ApiModelProperty(value = "Item description.  Encoding: ASCII.  Max length: 26 characters.")
+  @ApiModelProperty(value = "A description of the item.  Encoding: ASCII  Max length: 26 characters  Must not start with a space or be all spaces  Must not be all zeros")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrDescription() {
     return enhancedSchemeDataItemDetailLineItemNrDescription;
@@ -305,10 +305,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Discount amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
+   * The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
    * @return enhancedSchemeDataItemDetailLineItemNrDiscountAmount
   **/
-  @ApiModelProperty(value = "Discount amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
+  @ApiModelProperty(value = "The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrDiscountAmount() {
     return enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
@@ -327,10 +327,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Product code.  Encoding: ASCII.  Max length: 12 characters.
+   * The product code.  Encoding: ASCII.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataItemDetailLineItemNrProductCode
   **/
-  @ApiModelProperty(value = "Product code.  Encoding: ASCII.  Max length: 12 characters.")
+  @ApiModelProperty(value = "The product code.  Encoding: ASCII.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrProductCode() {
     return enhancedSchemeDataItemDetailLineItemNrProductCode;
@@ -349,10 +349,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Quantity, specified as an integer value.  Value must be greater than 0.  Max length: 12 characters.
+   * The number of items. Must be an integer greater than zero.  Encoding: Numeric  Max length: 12 characters  Must not start with a space or be all spaces  
    * @return enhancedSchemeDataItemDetailLineItemNrQuantity
   **/
-  @ApiModelProperty(value = "Quantity, specified as an integer value.  Value must be greater than 0.  Max length: 12 characters.")
+  @ApiModelProperty(value = "The number of items. Must be an integer greater than zero.  Encoding: Numeric  Max length: 12 characters  Must not start with a space or be all spaces  ")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrQuantity() {
     return enhancedSchemeDataItemDetailLineItemNrQuantity;
@@ -371,10 +371,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Total amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
+   * The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataItemDetailLineItemNrTotalAmount
   **/
-  @ApiModelProperty(value = "Total amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
+  @ApiModelProperty(value = "The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrTotalAmount() {
     return enhancedSchemeDataItemDetailLineItemNrTotalAmount;
@@ -393,10 +393,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Item unit of measurement.  Encoding: ASCII.  Max length: 3 characters.
+   * The unit of measurement for an item.  Encoding: ASCII  Max length: 3 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure
   **/
-  @ApiModelProperty(value = "Item unit of measurement.  Encoding: ASCII.  Max length: 3 characters.")
+  @ApiModelProperty(value = "The unit of measurement for an item.  Encoding: ASCII  Max length: 3 characters  Must not start with a space or be all spaces  Must not be all zeros")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure() {
     return enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
@@ -415,10 +415,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Unit price, specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).  Max length: 12 characters.
+   * The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
    * @return enhancedSchemeDataItemDetailLineItemNrUnitPrice
   **/
-  @ApiModelProperty(value = "Unit price, specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).  Max length: 12 characters.")
+  @ApiModelProperty(value = "The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrUnitPrice() {
     return enhancedSchemeDataItemDetailLineItemNrUnitPrice;
@@ -437,10 +437,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Order date. * Format: &#x60;ddMMyy&#x60;  Encoding: ASCII.  Max length: 6 characters.
+   * The order date. * Format: &#x60;ddMMyy&#x60;  Encoding: ASCII  Max length: 6 characters
    * @return enhancedSchemeDataOrderDate
   **/
-  @ApiModelProperty(value = "Order date. * Format: `ddMMyy`  Encoding: ASCII.  Max length: 6 characters.")
+  @ApiModelProperty(value = "The order date. * Format: `ddMMyy`  Encoding: ASCII  Max length: 6 characters")
 
   public String getEnhancedSchemeDataOrderDate() {
     return enhancedSchemeDataOrderDate;
@@ -459,10 +459,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The postal code of a \&quot;ship-from\&quot; address.  Encoding: ASCII.  Max length: 10 characters.
+   * The postal code of the address the item is shipped from.  Encoding: ASCII  Max length: 10 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataShipFromPostalCode
   **/
-  @ApiModelProperty(value = "The postal code of a \"ship-from\" address.  Encoding: ASCII.  Max length: 10 characters.")
+  @ApiModelProperty(value = "The postal code of the address the item is shipped from.  Encoding: ASCII  Max length: 10 characters  Must not start with a space or be all spaces  Must not be all zeros")
 
   public String getEnhancedSchemeDataShipFromPostalCode() {
     return enhancedSchemeDataShipFromPostalCode;
@@ -481,10 +481,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Total tax amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.  &gt; Required for Level 2 and Level 3 data.
+   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters  
    * @return enhancedSchemeDataTotalTaxAmount
   **/
-  @ApiModelProperty(value = "Total tax amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.  > Required for Level 2 and Level 3 data.")
+  @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters  ")
 
   public String getEnhancedSchemeDataTotalTaxAmount() {
     return enhancedSchemeDataTotalTaxAmount;
@@ -618,7 +618,7 @@ public class AdditionalDataLevel23 {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataLevel23.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties.", entry.getKey()));
         }
       }
       // validate the optional field enhancedSchemeData.customerReference

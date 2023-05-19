@@ -164,7 +164,7 @@ public class ShippingLocationsResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ShippingLocationsResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ShippingLocationsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ShippingLocationsResponse` properties.", entry.getKey()));
         }
       }
       JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");

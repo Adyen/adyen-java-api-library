@@ -15,7 +15,7 @@ package com.adyen.model.management;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.management.PaginationLinks;
-import com.adyen.model.management.PaymentMethod;
+import com.adyen.model.management.PaymentMethodWrapper;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -60,7 +60,7 @@ public class PaymentMethodResponse {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<PaymentMethod> data = null;
+  private List<PaymentMethodWrapper> data = null;
 
   public static final String SERIALIZED_NAME_ITEMS_TOTAL = "itemsTotal";
   @SerializedName(SERIALIZED_NAME_ITEMS_TOTAL)
@@ -159,6 +159,10 @@ public class PaymentMethodResponse {
     
     TRUSTLY("trustly"),
     
+    TWINT("twint"),
+    
+    TWINT_POS("twint_pos"),
+    
     VIPPS("vipps"),
     
     VISA("visa"),
@@ -238,13 +242,13 @@ public class PaymentMethodResponse {
   }
 
 
-  public PaymentMethodResponse data(List<PaymentMethod> data) {
+  public PaymentMethodResponse data(List<PaymentMethodWrapper> data) {
     
     this.data = data;
     return this;
   }
 
-  public PaymentMethodResponse addDataItem(PaymentMethod dataItem) {
+  public PaymentMethodResponse addDataItem(PaymentMethodWrapper dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -258,12 +262,12 @@ public class PaymentMethodResponse {
   **/
   @ApiModelProperty(value = "Payment methods details.")
 
-  public List<PaymentMethod> getData() {
+  public List<PaymentMethodWrapper> getData() {
     return data;
   }
 
 
-  public void setData(List<PaymentMethod> data) {
+  public void setData(List<PaymentMethodWrapper> data) {
     this.data = data;
   }
 
@@ -430,7 +434,7 @@ public class PaymentMethodResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentMethodResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentMethodResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentMethodResponse` properties.", entry.getKey()));
         }
       }
 
@@ -453,7 +457,7 @@ public class PaymentMethodResponse {
 
         // validate the optional field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
-          PaymentMethod.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
+          PaymentMethodWrapper.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
         }
       }
       // ensure the json data is an array

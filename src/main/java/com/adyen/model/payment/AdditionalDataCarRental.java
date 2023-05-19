@@ -153,10 +153,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
+   * The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
    * @return carRentalCheckOutDate
   **/
-  @ApiModelProperty(value = "Pick-up date. * Date format: `yyyyMMdd`")
+  @ApiModelProperty(value = "The pick-up date. * Date format: `yyyyMMdd`")
 
   public String getCarRentalCheckOutDate() {
     return carRentalCheckOutDate;
@@ -175,10 +175,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17
+   * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
    * @return carRentalCustomerServiceTollFreeNumber
   **/
-  @ApiModelProperty(value = "The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17")
+  @ApiModelProperty(value = "The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
 
   public String getCarRentalCustomerServiceTollFreeNumber() {
     return carRentalCustomerServiceTollFreeNumber;
@@ -197,10 +197,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 19
+   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 2 * Must not be all spaces
    * @return carRentalDaysRented
   **/
-  @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 19")
+  @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 2 * Must not be all spaces")
 
   public String getCarRentalDaysRented() {
     return carRentalDaysRented;
@@ -219,10 +219,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Any fuel charges associated with the rental. * Format: Numeric * maxLength: 12
+   * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
    * @return carRentalFuelCharges
   **/
-  @ApiModelProperty(value = "Any fuel charges associated with the rental. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12")
 
   public String getCarRentalFuelCharges() {
     return carRentalFuelCharges;
@@ -241,10 +241,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Any insurance charges associated with the rental. * Format: Numeric * maxLength: 12
+   * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces * Must not be all zeros
    * @return carRentalInsuranceCharges
   **/
-  @ApiModelProperty(value = "Any insurance charges associated with the rental. * Format: Numeric * maxLength: 12")
+  @ApiModelProperty(value = "Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces * Must not be all zeros")
 
   public String getCarRentalInsuranceCharges() {
     return carRentalInsuranceCharges;
@@ -263,10 +263,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The city from which the car is rented. * Format: Alphanumeric * maxLength: 18
+   * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalLocationCity
   **/
-  @ApiModelProperty(value = "The city from which the car is rented. * Format: Alphanumeric * maxLength: 18")
+  @ApiModelProperty(value = "The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalLocationCity() {
     return carRentalLocationCity;
@@ -285,10 +285,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The country from which the car is rented. * Format: Alphanumeric * maxLength: 2
+   * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    * @return carRentalLocationCountry
   **/
-  @ApiModelProperty(value = "The country from which the car is rented. * Format: Alphanumeric * maxLength: 2")
+  @ApiModelProperty(value = "The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2")
 
   public String getCarRentalLocationCountry() {
     return carRentalLocationCountry;
@@ -307,10 +307,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The state or province from where the car is rented. * Format: Alphanumeric * maxLength: 3
+   * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalLocationStateProvince
   **/
-  @ApiModelProperty(value = "The state or province from where the car is rented. * Format: Alphanumeric * maxLength: 3")
+  @ApiModelProperty(value = "The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalLocationStateProvince() {
     return carRentalLocationStateProvince;
@@ -329,10 +329,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Indicates if the customer was a \&quot;no-show\&quot; (neither keeps nor cancels their booking). * Y - Customer was a no show. * N - Not applicable.
+   * Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
    * @return carRentalNoShowIndicator
   **/
-  @ApiModelProperty(value = "Indicates if the customer was a \"no-show\" (neither keeps nor cancels their booking). * Y - Customer was a no show. * N - Not applicable.")
+  @ApiModelProperty(value = "Indicates if the customer didn't pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable")
 
   public String getCarRentalNoShowIndicator() {
     return carRentalNoShowIndicator;
@@ -351,10 +351,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Charge associated with not returning a vehicle to the original rental location.
+   * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
    * @return carRentalOneWayDropOffCharges
   **/
-  @ApiModelProperty(value = "Charge associated with not returning a vehicle to the original rental location.")
+  @ApiModelProperty(value = "The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12")
 
   public String getCarRentalOneWayDropOffCharges() {
     return carRentalOneWayDropOffCharges;
@@ -373,10 +373,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Daily rental rate. * Format: Alphanumeric * maxLength: 12
+   * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
    * @return carRentalRate
   **/
-  @ApiModelProperty(value = "Daily rental rate. * Format: Alphanumeric * maxLength: 12")
+  @ApiModelProperty(value = "The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12")
 
   public String getCarRentalRate() {
     return carRentalRate;
@@ -395,10 +395,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Specifies whether the given rate is applied daily or weekly. * D - Daily rate. * W - Weekly rate.
+   * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
    * @return carRentalRateIndicator
   **/
-  @ApiModelProperty(value = "Specifies whether the given rate is applied daily or weekly. * D - Daily rate. * W - Weekly rate.")
+  @ApiModelProperty(value = "Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate")
 
   public String getCarRentalRateIndicator() {
     return carRentalRateIndicator;
@@ -417,10 +417,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The rental agreement number associated with this car rental. * Format: Alphanumeric * maxLength: 9
+   * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalRentalAgreementNumber
   **/
-  @ApiModelProperty(value = "The rental agreement number associated with this car rental. * Format: Alphanumeric * maxLength: 9")
+  @ApiModelProperty(value = "The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalRentalAgreementNumber() {
     return carRentalRentalAgreementNumber;
@@ -439,10 +439,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Daily rental rate. * Format: Alphanumeric * maxLength: 12
+   * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalRentalClassId
   **/
-  @ApiModelProperty(value = "Daily rental rate. * Format: Alphanumeric * maxLength: 12")
+  @ApiModelProperty(value = "The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalRentalClassId() {
     return carRentalRentalClassId;
@@ -461,10 +461,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26
+   * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalRenterName
   **/
-  @ApiModelProperty(value = "The name of the person renting the car. * Format: Alphanumeric * maxLength: 26")
+  @ApiModelProperty(value = "The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalRenterName() {
     return carRentalRenterName;
@@ -483,10 +483,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18
+   * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalReturnCity
   **/
-  @ApiModelProperty(value = "The city where the car must be returned. * Format: Alphanumeric * maxLength: 18")
+  @ApiModelProperty(value = "The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalReturnCity() {
     return carRentalReturnCity;
@@ -505,10 +505,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The country where the car must be returned. * Format: Alphanumeric * maxLength: 2
+   * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    * @return carRentalReturnCountry
   **/
-  @ApiModelProperty(value = "The country where the car must be returned. * Format: Alphanumeric * maxLength: 2")
+  @ApiModelProperty(value = "The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2")
 
   public String getCarRentalReturnCountry() {
     return carRentalReturnCountry;
@@ -527,10 +527,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60;
+   * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
    * @return carRentalReturnDate
   **/
-  @ApiModelProperty(value = "The last date to return the car by. * Date format: `yyyyMMdd`")
+  @ApiModelProperty(value = "The last date to return the car by. * Date format: `yyyyMMdd` * maxLength: 8")
 
   public String getCarRentalReturnDate() {
     return carRentalReturnDate;
@@ -549,10 +549,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10
+   * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalReturnLocationId
   **/
-  @ApiModelProperty(value = "Agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10")
+  @ApiModelProperty(value = "The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalReturnLocationId() {
     return carRentalReturnLocationId;
@@ -571,10 +571,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3
+   * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces * Must not be all zeros
    * @return carRentalReturnStateProvince
   **/
-  @ApiModelProperty(value = "The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3")
+  @ApiModelProperty(value = "The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces * Must not be all zeros")
 
   public String getCarRentalReturnStateProvince() {
     return carRentalReturnStateProvince;
@@ -593,10 +593,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Indicates whether the goods or services were tax-exempt, or tax was not collected.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
+   * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    * @return carRentalTaxExemptIndicator
   **/
-  @ApiModelProperty(value = "Indicates whether the goods or services were tax-exempt, or tax was not collected.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected")
+  @ApiModelProperty(value = "Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected")
 
   public String getCarRentalTaxExemptIndicator() {
     return carRentalTaxExemptIndicator;
@@ -615,10 +615,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Number of nights.  This should be included in the auth message. * Format: Numeric * maxLength: 2
+   * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 2
    * @return travelEntertainmentAuthDataDuration
   **/
-  @ApiModelProperty(value = "Number of nights.  This should be included in the auth message. * Format: Numeric * maxLength: 2")
+  @ApiModelProperty(value = "Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 2")
 
   public String getTravelEntertainmentAuthDataDuration() {
     return travelEntertainmentAuthDataDuration;
@@ -637,10 +637,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be \&quot;A\&quot; for Car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
+   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    * @return travelEntertainmentAuthDataMarket
   **/
-  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"A\" for Car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1")
+  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be 'A' for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1")
 
   public String getTravelEntertainmentAuthDataMarket() {
     return travelEntertainmentAuthDataMarket;
@@ -792,7 +792,7 @@ public class AdditionalDataCarRental {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataCarRental.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCarRental` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCarRental` properties.", entry.getKey()));
         }
       }
       // validate the optional field carRental.checkOutDate

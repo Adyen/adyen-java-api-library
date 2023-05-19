@@ -380,7 +380,7 @@ public class PaymentInstrumentUpdateRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentInstrumentUpdateRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentUpdateRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentUpdateRequest` properties.", entry.getKey()));
         }
       }
       // validate the optional field balanceAccountId

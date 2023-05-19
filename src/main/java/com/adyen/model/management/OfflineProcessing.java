@@ -193,7 +193,7 @@ public class OfflineProcessing {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!OfflineProcessing.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `OfflineProcessing` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `OfflineProcessing` properties.", entry.getKey()));
         }
       }
       JsonArray jsonArrayofflineSwipeLimits = jsonObj.getAsJsonArray("offlineSwipeLimits");

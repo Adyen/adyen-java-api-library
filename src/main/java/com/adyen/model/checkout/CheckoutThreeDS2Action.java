@@ -373,7 +373,7 @@ public class CheckoutThreeDS2Action {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CheckoutThreeDS2Action.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CheckoutThreeDS2Action` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CheckoutThreeDS2Action` properties.", entry.getKey()));
         }
       }
 

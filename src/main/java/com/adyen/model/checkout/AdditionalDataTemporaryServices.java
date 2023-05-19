@@ -385,7 +385,7 @@ public class AdditionalDataTemporaryServices {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataTemporaryServices.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties.", entry.getKey()));
         }
       }
       // validate the optional field enhancedSchemeData.customerReference

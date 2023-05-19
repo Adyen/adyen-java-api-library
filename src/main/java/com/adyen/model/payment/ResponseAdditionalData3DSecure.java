@@ -270,7 +270,7 @@ public class ResponseAdditionalData3DSecure {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ResponseAdditionalData3DSecure.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalData3DSecure` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalData3DSecure` properties.", entry.getKey()));
         }
       }
       // validate the optional field cardHolderInfo

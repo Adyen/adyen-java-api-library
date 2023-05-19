@@ -57,10 +57,6 @@ public class CreateMerchantUserRequest {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_GROUPS)
   private List<String> accountGroups = null;
 
-  public static final String SERIALIZED_NAME_AUTHN_APPS = "authnApps";
-  @SerializedName(SERIALIZED_NAME_AUTHN_APPS)
-  private List<String> authnApps = null;
-
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -111,36 +107,6 @@ public class CreateMerchantUserRequest {
 
   public void setAccountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
-  }
-
-
-  public CreateMerchantUserRequest authnApps(List<String> authnApps) {
-    
-    this.authnApps = authnApps;
-    return this;
-  }
-
-  public CreateMerchantUserRequest addAuthnAppsItem(String authnAppsItem) {
-    if (this.authnApps == null) {
-      this.authnApps = new ArrayList<>();
-    }
-    this.authnApps.add(authnAppsItem);
-    return this;
-  }
-
-   /**
-   * Set of authn apps to add to this user
-   * @return authnApps
-  **/
-  @ApiModelProperty(value = "Set of authn apps to add to this user")
-
-  public List<String> getAuthnApps() {
-    return authnApps;
-  }
-
-
-  public void setAuthnApps(List<String> authnApps) {
-    this.authnApps = authnApps;
   }
 
 
@@ -247,10 +213,10 @@ public class CreateMerchantUserRequest {
   }
 
    /**
-   * The username for this user. Allowed length: 255 alphanumeric characters.
+   * The user&#39;s email address that will be their username. Must be the same as the one in the &#x60;email&#x60; field.
    * @return username
   **/
-  @ApiModelProperty(required = true, value = "The username for this user. Allowed length: 255 alphanumeric characters.")
+  @ApiModelProperty(required = true, value = "The user's email address that will be their username. Must be the same as the one in the `email` field.")
 
   public String getUsername() {
     return username;
@@ -273,7 +239,6 @@ public class CreateMerchantUserRequest {
     }
     CreateMerchantUserRequest createMerchantUserRequest = (CreateMerchantUserRequest) o;
     return Objects.equals(this.accountGroups, createMerchantUserRequest.accountGroups) &&
-        Objects.equals(this.authnApps, createMerchantUserRequest.authnApps) &&
         Objects.equals(this.email, createMerchantUserRequest.email) &&
         Objects.equals(this.name, createMerchantUserRequest.name) &&
         Objects.equals(this.roles, createMerchantUserRequest.roles) &&
@@ -283,7 +248,7 @@ public class CreateMerchantUserRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGroups, authnApps, email, name, roles, timeZoneCode, username);
+    return Objects.hash(accountGroups, email, name, roles, timeZoneCode, username);
   }
 
   @Override
@@ -291,7 +256,6 @@ public class CreateMerchantUserRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateMerchantUserRequest {\n");
     sb.append("    accountGroups: ").append(toIndentedString(accountGroups)).append("\n");
-    sb.append("    authnApps: ").append(toIndentedString(authnApps)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
@@ -320,7 +284,6 @@ public class CreateMerchantUserRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("accountGroups");
-    openapiFields.add("authnApps");
     openapiFields.add("email");
     openapiFields.add("name");
     openapiFields.add("roles");
@@ -357,7 +320,7 @@ public class CreateMerchantUserRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreateMerchantUserRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreateMerchantUserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreateMerchantUserRequest` properties.", entry.getKey()));
         }
       }
 
@@ -370,10 +333,6 @@ public class CreateMerchantUserRequest {
       // ensure the json data is an array
       if (jsonObj.get("accountGroups") != null && !jsonObj.get("accountGroups").isJsonArray()) {
         log.log(Level.WARNING, String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("authnApps") != null && !jsonObj.get("authnApps").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `authnApps` to be an array in the JSON string but got `%s`", jsonObj.get("authnApps").toString()));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {

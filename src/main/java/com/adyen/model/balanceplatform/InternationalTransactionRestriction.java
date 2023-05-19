@@ -183,7 +183,7 @@ public class InternationalTransactionRestriction {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!InternationalTransactionRestriction.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `InternationalTransactionRestriction` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `InternationalTransactionRestriction` properties.", entry.getKey()));
         }
       }
 

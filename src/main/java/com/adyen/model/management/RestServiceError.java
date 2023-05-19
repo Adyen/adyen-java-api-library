@@ -14,7 +14,7 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.management.InvalidField;
+import com.adyen.model.management.InvalidFieldWrapper;
 import com.adyen.model.management.JSONObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -68,7 +68,7 @@ public class RestServiceError {
 
   public static final String SERIALIZED_NAME_INVALID_FIELDS = "invalidFields";
   @SerializedName(SERIALIZED_NAME_INVALID_FIELDS)
-  private List<InvalidField> invalidFields = null;
+  private List<InvalidFieldWrapper> invalidFields = null;
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
@@ -159,13 +159,13 @@ public class RestServiceError {
   }
 
 
-  public RestServiceError invalidFields(List<InvalidField> invalidFields) {
+  public RestServiceError invalidFields(List<InvalidFieldWrapper> invalidFields) {
     
     this.invalidFields = invalidFields;
     return this;
   }
 
-  public RestServiceError addInvalidFieldsItem(InvalidField invalidFieldsItem) {
+  public RestServiceError addInvalidFieldsItem(InvalidFieldWrapper invalidFieldsItem) {
     if (this.invalidFields == null) {
       this.invalidFields = new ArrayList<>();
     }
@@ -179,12 +179,12 @@ public class RestServiceError {
   **/
   @ApiModelProperty(value = "Detailed explanation of each validation error, when applicable.")
 
-  public List<InvalidField> getInvalidFields() {
+  public List<InvalidFieldWrapper> getInvalidFields() {
     return invalidFields;
   }
 
 
-  public void setInvalidFields(List<InvalidField> invalidFields) {
+  public void setInvalidFields(List<InvalidFieldWrapper> invalidFields) {
     this.invalidFields = invalidFields;
   }
 
@@ -402,7 +402,7 @@ public class RestServiceError {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!RestServiceError.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `RestServiceError` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `RestServiceError` properties.", entry.getKey()));
         }
       }
 
@@ -433,7 +433,7 @@ public class RestServiceError {
 
         // validate the optional field `invalidFields` (array)
         for (int i = 0; i < jsonArrayinvalidFields.size(); i++) {
-          InvalidField.validateJsonObject(jsonArrayinvalidFields.get(i).getAsJsonObject());
+          InvalidFieldWrapper.validateJsonObject(jsonArrayinvalidFields.get(i).getAsJsonObject());
         }
       }
       // validate the optional field requestId

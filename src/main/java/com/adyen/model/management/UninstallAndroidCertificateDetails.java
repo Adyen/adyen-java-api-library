@@ -227,7 +227,7 @@ public class UninstallAndroidCertificateDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!UninstallAndroidCertificateDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UninstallAndroidCertificateDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UninstallAndroidCertificateDetails` properties.", entry.getKey()));
         }
       }
       // validate the optional field certificateId

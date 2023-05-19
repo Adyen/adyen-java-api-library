@@ -253,7 +253,7 @@ public class StoreDetailAndSubmitResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!StoreDetailAndSubmitResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StoreDetailAndSubmitResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StoreDetailAndSubmitResponse` properties.", entry.getKey()));
         }
       }
 

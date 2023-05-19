@@ -222,7 +222,7 @@ public class PaginatedAccountHoldersResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaginatedAccountHoldersResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaginatedAccountHoldersResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaginatedAccountHoldersResponse` properties.", entry.getKey()));
         }
       }
 

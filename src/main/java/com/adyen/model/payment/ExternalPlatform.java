@@ -212,7 +212,7 @@ public class ExternalPlatform {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ExternalPlatform.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ExternalPlatform` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ExternalPlatform` properties.", entry.getKey()));
         }
       }
       // validate the optional field integrator

@@ -65,6 +65,10 @@ public class TerminalOrderRequest {
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<OrderItem> items = null;
 
+  public static final String SERIALIZED_NAME_ORDER_TYPE = "orderType";
+  @SerializedName(SERIALIZED_NAME_ORDER_TYPE)
+  private String orderType;
+
   public static final String SERIALIZED_NAME_SHIPPING_LOCATION_ID = "shippingLocationId";
   @SerializedName(SERIALIZED_NAME_SHIPPING_LOCATION_ID)
   private String shippingLocationId;
@@ -150,6 +154,28 @@ public class TerminalOrderRequest {
   }
 
 
+  public TerminalOrderRequest orderType(String orderType) {
+    
+    this.orderType = orderType;
+    return this;
+  }
+
+   /**
+   * Type of order
+   * @return orderType
+  **/
+  @ApiModelProperty(value = "Type of order")
+
+  public String getOrderType() {
+    return orderType;
+  }
+
+
+  public void setOrderType(String orderType) {
+    this.orderType = orderType;
+  }
+
+
   public TerminalOrderRequest shippingLocationId(String shippingLocationId) {
     
     this.shippingLocationId = shippingLocationId;
@@ -207,13 +233,14 @@ public class TerminalOrderRequest {
     return Objects.equals(this.billingEntityId, terminalOrderRequest.billingEntityId) &&
         Objects.equals(this.customerOrderReference, terminalOrderRequest.customerOrderReference) &&
         Objects.equals(this.items, terminalOrderRequest.items) &&
+        Objects.equals(this.orderType, terminalOrderRequest.orderType) &&
         Objects.equals(this.shippingLocationId, terminalOrderRequest.shippingLocationId) &&
         Objects.equals(this.taxId, terminalOrderRequest.taxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingEntityId, customerOrderReference, items, shippingLocationId, taxId);
+    return Objects.hash(billingEntityId, customerOrderReference, items, orderType, shippingLocationId, taxId);
   }
 
   @Override
@@ -223,6 +250,7 @@ public class TerminalOrderRequest {
     sb.append("    billingEntityId: ").append(toIndentedString(billingEntityId)).append("\n");
     sb.append("    customerOrderReference: ").append(toIndentedString(customerOrderReference)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");
     sb.append("    shippingLocationId: ").append(toIndentedString(shippingLocationId)).append("\n");
     sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
     sb.append("}");
@@ -250,6 +278,7 @@ public class TerminalOrderRequest {
     openapiFields.add("billingEntityId");
     openapiFields.add("customerOrderReference");
     openapiFields.add("items");
+    openapiFields.add("orderType");
     openapiFields.add("shippingLocationId");
     openapiFields.add("taxId");
 
@@ -280,7 +309,7 @@ public class TerminalOrderRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TerminalOrderRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TerminalOrderRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TerminalOrderRequest` properties.", entry.getKey()));
         }
       }
       // validate the optional field billingEntityId
@@ -302,6 +331,10 @@ public class TerminalOrderRequest {
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           OrderItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
         }
+      }
+      // validate the optional field orderType
+      if (jsonObj.get("orderType") != null && !jsonObj.get("orderType").isJsonPrimitive()) {
+        log.log(Level.WARNING, String.format("Expected the field `orderType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderType").toString()));
       }
       // validate the optional field shippingLocationId
       if (jsonObj.get("shippingLocationId") != null && !jsonObj.get("shippingLocationId").isJsonPrimitive()) {

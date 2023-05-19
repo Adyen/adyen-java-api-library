@@ -185,7 +185,7 @@ public class ScheduleAccountUpdaterResult {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ScheduleAccountUpdaterResult.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ScheduleAccountUpdaterResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ScheduleAccountUpdaterResult` properties.", entry.getKey()));
         }
       }
 

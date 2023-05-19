@@ -14,9 +14,11 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adyen.model.management.AfterpayTouchInfo;
 import com.adyen.model.management.ApplePayInfo;
 import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
+import com.adyen.model.management.ClearpayInfo;
 import com.adyen.model.management.GiroPayInfo;
 import com.adyen.model.management.GooglePayInfo;
 import com.adyen.model.management.KlarnaInfo;
@@ -24,6 +26,7 @@ import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
+import com.adyen.model.management.TwintInfo;
 import com.adyen.model.management.VippsInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -63,6 +66,10 @@ import com.adyen.model.management.JSON;
  */
 
 public class PaymentMethod {
+  public static final String SERIALIZED_NAME_AFTERPAY_TOUCH = "afterpayTouch";
+  @SerializedName(SERIALIZED_NAME_AFTERPAY_TOUCH)
+  private AfterpayTouchInfo afterpayTouch;
+
   public static final String SERIALIZED_NAME_ALLOWED = "allowed";
   @SerializedName(SERIALIZED_NAME_ALLOWED)
   private Boolean allowed;
@@ -82,6 +89,10 @@ public class PaymentMethod {
   public static final String SERIALIZED_NAME_CARTES_BANCAIRES = "cartesBancaires";
   @SerializedName(SERIALIZED_NAME_CARTES_BANCAIRES)
   private CartesBancairesInfo cartesBancaires;
+
+  public static final String SERIALIZED_NAME_CLEARPAY = "clearpay";
+  @SerializedName(SERIALIZED_NAME_CLEARPAY)
+  private ClearpayInfo clearpay;
 
   public static final String SERIALIZED_NAME_COUNTRIES = "countries";
   @SerializedName(SERIALIZED_NAME_COUNTRIES)
@@ -142,6 +153,10 @@ public class PaymentMethod {
   public static final String SERIALIZED_NAME_SWISH = "swish";
   @SerializedName(SERIALIZED_NAME_SWISH)
   private SwishInfo swish;
+
+  public static final String SERIALIZED_NAME_TWINT = "twint";
+  @SerializedName(SERIALIZED_NAME_TWINT)
+  private TwintInfo twint;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -208,6 +223,28 @@ public class PaymentMethod {
 
   public PaymentMethod() { 
   }
+
+  public PaymentMethod afterpayTouch(AfterpayTouchInfo afterpayTouch) {
+    
+    this.afterpayTouch = afterpayTouch;
+    return this;
+  }
+
+   /**
+   * Get afterpayTouch
+   * @return afterpayTouch
+  **/
+  @ApiModelProperty(value = "")
+
+  public AfterpayTouchInfo getAfterpayTouch() {
+    return afterpayTouch;
+  }
+
+
+  public void setAfterpayTouch(AfterpayTouchInfo afterpayTouch) {
+    this.afterpayTouch = afterpayTouch;
+  }
+
 
   public PaymentMethod allowed(Boolean allowed) {
     
@@ -316,6 +353,28 @@ public class PaymentMethod {
 
   public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
+  }
+
+
+  public PaymentMethod clearpay(ClearpayInfo clearpay) {
+    
+    this.clearpay = clearpay;
+    return this;
+  }
+
+   /**
+   * Get clearpay
+   * @return clearpay
+  **/
+  @ApiModelProperty(value = "")
+
+  public ClearpayInfo getClearpay() {
+    return clearpay;
+  }
+
+
+  public void setClearpay(ClearpayInfo clearpay) {
+    this.clearpay = clearpay;
   }
 
 
@@ -673,6 +732,28 @@ public class PaymentMethod {
   }
 
 
+  public PaymentMethod twint(TwintInfo twint) {
+    
+    this.twint = twint;
+    return this;
+  }
+
+   /**
+   * Get twint
+   * @return twint
+  **/
+  @ApiModelProperty(value = "")
+
+  public TwintInfo getTwint() {
+    return twint;
+  }
+
+
+  public void setTwint(TwintInfo twint) {
+    this.twint = twint;
+  }
+
+
   public PaymentMethod type(String type) {
     
     this.type = type;
@@ -749,11 +830,13 @@ public class PaymentMethod {
       return false;
     }
     PaymentMethod paymentMethod = (PaymentMethod) o;
-    return Objects.equals(this.allowed, paymentMethod.allowed) &&
+    return Objects.equals(this.afterpayTouch, paymentMethod.afterpayTouch) &&
+        Objects.equals(this.allowed, paymentMethod.allowed) &&
         Objects.equals(this.applePay, paymentMethod.applePay) &&
         Objects.equals(this.bcmc, paymentMethod.bcmc) &&
         Objects.equals(this.businessLineId, paymentMethod.businessLineId) &&
         Objects.equals(this.cartesBancaires, paymentMethod.cartesBancaires) &&
+        Objects.equals(this.clearpay, paymentMethod.clearpay) &&
         Objects.equals(this.countries, paymentMethod.countries) &&
         Objects.equals(this.currencies, paymentMethod.currencies) &&
         Objects.equals(this.customRoutingFlags, paymentMethod.customRoutingFlags) &&
@@ -769,6 +852,7 @@ public class PaymentMethod {
         Objects.equals(this.sofort, paymentMethod.sofort) &&
         Objects.equals(this.storeId, paymentMethod.storeId) &&
         Objects.equals(this.swish, paymentMethod.swish) &&
+        Objects.equals(this.twint, paymentMethod.twint) &&
         Objects.equals(this.type, paymentMethod.type) &&
         Objects.equals(this.verificationStatus, paymentMethod.verificationStatus) &&
         Objects.equals(this.vipps, paymentMethod.vipps);
@@ -776,18 +860,20 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, customRoutingFlags, enabled, giroPay, googlePay, id, klarna, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeId, swish, type, verificationStatus, vipps);
+    return Objects.hash(afterpayTouch, allowed, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, currencies, customRoutingFlags, enabled, giroPay, googlePay, id, klarna, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeId, swish, twint, type, verificationStatus, vipps);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentMethod {\n");
+    sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    businessLineId: ").append(toIndentedString(businessLineId)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
+    sb.append("    clearpay: ").append(toIndentedString(clearpay)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
@@ -803,6 +889,7 @@ public class PaymentMethod {
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
     sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
+    sb.append("    twint: ").append(toIndentedString(twint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
@@ -828,11 +915,13 @@ public class PaymentMethod {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("afterpayTouch");
     openapiFields.add("allowed");
     openapiFields.add("applePay");
     openapiFields.add("bcmc");
     openapiFields.add("businessLineId");
     openapiFields.add("cartesBancaires");
+    openapiFields.add("clearpay");
     openapiFields.add("countries");
     openapiFields.add("currencies");
     openapiFields.add("customRoutingFlags");
@@ -848,6 +937,7 @@ public class PaymentMethod {
     openapiFields.add("sofort");
     openapiFields.add("storeId");
     openapiFields.add("swish");
+    openapiFields.add("twint");
     openapiFields.add("type");
     openapiFields.add("verificationStatus");
     openapiFields.add("vipps");
@@ -880,7 +970,7 @@ public class PaymentMethod {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentMethod.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentMethod` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentMethod` properties.", entry.getKey()));
         }
       }
 
@@ -889,6 +979,10 @@ public class PaymentMethod {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field `afterpayTouch`
+      if (jsonObj.getAsJsonObject("afterpayTouch") != null) {
+        AfterpayTouchInfo.validateJsonObject(jsonObj.getAsJsonObject("afterpayTouch"));
       }
       // validate the optional field `applePay`
       if (jsonObj.getAsJsonObject("applePay") != null) {
@@ -905,6 +999,10 @@ public class PaymentMethod {
       // validate the optional field `cartesBancaires`
       if (jsonObj.getAsJsonObject("cartesBancaires") != null) {
         CartesBancairesInfo.validateJsonObject(jsonObj.getAsJsonObject("cartesBancaires"));
+      }
+      // validate the optional field `clearpay`
+      if (jsonObj.getAsJsonObject("clearpay") != null) {
+        ClearpayInfo.validateJsonObject(jsonObj.getAsJsonObject("clearpay"));
       }
       // ensure the json data is an array
       if (jsonObj.get("countries") != null && !jsonObj.get("countries").isJsonArray()) {
@@ -961,6 +1059,10 @@ public class PaymentMethod {
       // validate the optional field `swish`
       if (jsonObj.getAsJsonObject("swish") != null) {
         SwishInfo.validateJsonObject(jsonObj.getAsJsonObject("swish"));
+      }
+      // validate the optional field `twint`
+      if (jsonObj.getAsJsonObject("twint") != null) {
+        TwintInfo.validateJsonObject(jsonObj.getAsJsonObject("twint"));
       }
       // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {

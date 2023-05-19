@@ -64,7 +64,19 @@ public class BankAccountInfo {
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
 
+  public static final String SERIALIZED_NAME_TRUSTED_SOURCE = "trustedSource";
+  @SerializedName(SERIALIZED_NAME_TRUSTED_SOURCE)
+  private Boolean trustedSource;
+
   public BankAccountInfo() { 
+  }
+
+  
+  public BankAccountInfo(
+     Boolean trustedSource
+  ) {
+    this();
+    this.trustedSource = trustedSource;
   }
 
   public BankAccountInfo accountIdentification(BankAccountInfoAccountIdentification accountIdentification) {
@@ -137,6 +149,19 @@ public class BankAccountInfo {
   }
 
 
+   /**
+   * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
+   * @return trustedSource
+  **/
+  @ApiModelProperty(value = "Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote=2023-05-08-hosted-onboarding).")
+
+  public Boolean getTrustedSource() {
+    return trustedSource;
+  }
+
+
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -149,12 +174,13 @@ public class BankAccountInfo {
     BankAccountInfo bankAccountInfo = (BankAccountInfo) o;
     return Objects.equals(this.accountIdentification, bankAccountInfo.accountIdentification) &&
         Objects.equals(this.accountType, bankAccountInfo.accountType) &&
-        Objects.equals(this.countryCode, bankAccountInfo.countryCode);
+        Objects.equals(this.countryCode, bankAccountInfo.countryCode) &&
+        Objects.equals(this.trustedSource, bankAccountInfo.trustedSource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountIdentification, accountType, countryCode);
+    return Objects.hash(accountIdentification, accountType, countryCode, trustedSource);
   }
 
   @Override
@@ -164,6 +190,7 @@ public class BankAccountInfo {
     sb.append("    accountIdentification: ").append(toIndentedString(accountIdentification)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    trustedSource: ").append(toIndentedString(trustedSource)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -189,6 +216,7 @@ public class BankAccountInfo {
     openapiFields.add("accountIdentification");
     openapiFields.add("accountType");
     openapiFields.add("countryCode");
+    openapiFields.add("trustedSource");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -217,7 +245,7 @@ public class BankAccountInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!BankAccountInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BankAccountInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BankAccountInfo` properties.", entry.getKey()));
         }
       }
       // validate the optional field `accountIdentification`

@@ -617,7 +617,7 @@ public class AdditionalDataLevel23 {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataLevel23.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties.", entry.getKey()));
         }
       }
       // validate the optional field enhancedSchemeData.customerReference

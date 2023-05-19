@@ -90,10 +90,10 @@ public class VippsInfo {
   }
 
    /**
-   * Vipps subscription cancel url
+   * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    * @return subscriptionCancelUrl
   **/
-  @ApiModelProperty(value = "Vipps subscription cancel url")
+  @ApiModelProperty(value = "Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))")
 
   public String getSubscriptionCancelUrl() {
     return subscriptionCancelUrl;
@@ -183,7 +183,7 @@ public class VippsInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!VippsInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `VippsInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `VippsInfo` properties.", entry.getKey()));
         }
       }
 

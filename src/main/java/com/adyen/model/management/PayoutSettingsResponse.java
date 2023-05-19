@@ -164,7 +164,7 @@ public class PayoutSettingsResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PayoutSettingsResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PayoutSettingsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PayoutSettingsResponse` properties.", entry.getKey()));
         }
       }
       JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");

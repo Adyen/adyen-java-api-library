@@ -180,6 +180,12 @@ public class CardDetails {
     
     GIFTCARD("giftcard"),
     
+    MEALVOUCHER_FR_GROUPEUP("mealVoucher_FR_groupeup"),
+    
+    MEALVOUCHER_FR_NATIXIS("mealVoucher_FR_natixis"),
+    
+    MEALVOUCHER_FR_SODEXO("mealVoucher_FR_sodexo"),
+    
     ALLIANCEDATA("alliancedata"),
     
     CARD("card");
@@ -783,7 +789,7 @@ public class CardDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CardDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties.", entry.getKey()));
         }
       }
       // validate the optional field brand

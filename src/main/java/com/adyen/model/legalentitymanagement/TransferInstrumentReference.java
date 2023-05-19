@@ -144,10 +144,10 @@ public class TransferInstrumentReference {
 
 
    /**
-   * Identifies if the TI was created from a trusted source.
+   * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
    * @return trustedSource
   **/
-  @ApiModelProperty(value = "Identifies if the TI was created from a trusted source.")
+  @ApiModelProperty(value = "Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote=2023-05-08-hosted-onboarding).")
 
   public Boolean getTrustedSource() {
     return trustedSource;
@@ -241,7 +241,7 @@ public class TransferInstrumentReference {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransferInstrumentReference.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransferInstrumentReference` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransferInstrumentReference` properties.", entry.getKey()));
         }
       }
 

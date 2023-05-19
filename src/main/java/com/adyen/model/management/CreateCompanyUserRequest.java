@@ -61,10 +61,6 @@ public class CreateCompanyUserRequest {
   @SerializedName(SERIALIZED_NAME_ASSOCIATED_MERCHANT_ACCOUNTS)
   private List<String> associatedMerchantAccounts = null;
 
-  public static final String SERIALIZED_NAME_AUTHN_APPS = "authnApps";
-  @SerializedName(SERIALIZED_NAME_AUTHN_APPS)
-  private List<String> authnApps = null;
-
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -145,36 +141,6 @@ public class CreateCompanyUserRequest {
 
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
-  }
-
-
-  public CreateCompanyUserRequest authnApps(List<String> authnApps) {
-    
-    this.authnApps = authnApps;
-    return this;
-  }
-
-  public CreateCompanyUserRequest addAuthnAppsItem(String authnAppsItem) {
-    if (this.authnApps == null) {
-      this.authnApps = new ArrayList<>();
-    }
-    this.authnApps.add(authnAppsItem);
-    return this;
-  }
-
-   /**
-   * Set of authn apps to add to this user
-   * @return authnApps
-  **/
-  @ApiModelProperty(value = "Set of authn apps to add to this user")
-
-  public List<String> getAuthnApps() {
-    return authnApps;
-  }
-
-
-  public void setAuthnApps(List<String> authnApps) {
-    this.authnApps = authnApps;
   }
 
 
@@ -281,10 +247,10 @@ public class CreateCompanyUserRequest {
   }
 
    /**
-   * The username for this user. Allowed length: 255 alphanumeric characters.
+   * The user&#39;s email address that will be their username. Must be the same as the one in the &#x60;email&#x60; field.
    * @return username
   **/
-  @ApiModelProperty(required = true, value = "The username for this user. Allowed length: 255 alphanumeric characters.")
+  @ApiModelProperty(required = true, value = "The user's email address that will be their username. Must be the same as the one in the `email` field.")
 
   public String getUsername() {
     return username;
@@ -308,7 +274,6 @@ public class CreateCompanyUserRequest {
     CreateCompanyUserRequest createCompanyUserRequest = (CreateCompanyUserRequest) o;
     return Objects.equals(this.accountGroups, createCompanyUserRequest.accountGroups) &&
         Objects.equals(this.associatedMerchantAccounts, createCompanyUserRequest.associatedMerchantAccounts) &&
-        Objects.equals(this.authnApps, createCompanyUserRequest.authnApps) &&
         Objects.equals(this.email, createCompanyUserRequest.email) &&
         Objects.equals(this.name, createCompanyUserRequest.name) &&
         Objects.equals(this.roles, createCompanyUserRequest.roles) &&
@@ -318,7 +283,7 @@ public class CreateCompanyUserRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGroups, associatedMerchantAccounts, authnApps, email, name, roles, timeZoneCode, username);
+    return Objects.hash(accountGroups, associatedMerchantAccounts, email, name, roles, timeZoneCode, username);
   }
 
   @Override
@@ -327,7 +292,6 @@ public class CreateCompanyUserRequest {
     sb.append("class CreateCompanyUserRequest {\n");
     sb.append("    accountGroups: ").append(toIndentedString(accountGroups)).append("\n");
     sb.append("    associatedMerchantAccounts: ").append(toIndentedString(associatedMerchantAccounts)).append("\n");
-    sb.append("    authnApps: ").append(toIndentedString(authnApps)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
@@ -357,7 +321,6 @@ public class CreateCompanyUserRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("accountGroups");
     openapiFields.add("associatedMerchantAccounts");
-    openapiFields.add("authnApps");
     openapiFields.add("email");
     openapiFields.add("name");
     openapiFields.add("roles");
@@ -394,7 +357,7 @@ public class CreateCompanyUserRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreateCompanyUserRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreateCompanyUserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreateCompanyUserRequest` properties.", entry.getKey()));
         }
       }
 
@@ -411,10 +374,6 @@ public class CreateCompanyUserRequest {
       // ensure the json data is an array
       if (jsonObj.get("associatedMerchantAccounts") != null && !jsonObj.get("associatedMerchantAccounts").isJsonArray()) {
         log.log(Level.WARNING, String.format("Expected the field `associatedMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("associatedMerchantAccounts").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("authnApps") != null && !jsonObj.get("authnApps").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `authnApps` to be an array in the JSON string but got `%s`", jsonObj.get("authnApps").toString()));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {

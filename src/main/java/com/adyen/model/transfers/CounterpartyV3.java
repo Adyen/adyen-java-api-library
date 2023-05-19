@@ -242,7 +242,7 @@ public class CounterpartyV3 {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CounterpartyV3.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CounterpartyV3` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CounterpartyV3` properties.", entry.getKey()));
         }
       }
       // validate the optional field balanceAccountId

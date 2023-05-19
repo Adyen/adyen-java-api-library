@@ -227,7 +227,7 @@ public class AndroidPayDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AndroidPayDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AndroidPayDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AndroidPayDetails` properties.", entry.getKey()));
         }
       }
       // validate the optional field checkoutAttemptId

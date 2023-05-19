@@ -182,7 +182,7 @@ public class TransactionRuleEntityKey {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionRuleEntityKey.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleEntityKey` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleEntityKey` properties.", entry.getKey()));
         }
       }
       // validate the optional field entityReference

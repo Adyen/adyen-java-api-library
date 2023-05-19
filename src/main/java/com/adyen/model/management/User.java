@@ -66,9 +66,9 @@ public class User {
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
 
-  public static final String SERIALIZED_NAME_AUTHN_APPS = "authnApps";
-  @SerializedName(SERIALIZED_NAME_AUTHN_APPS)
-  private List<String> authnApps = null;
+  public static final String SERIALIZED_NAME_APPS = "apps";
+  @SerializedName(SERIALIZED_NAME_APPS)
+  private List<String> apps = null;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -171,33 +171,33 @@ public class User {
   }
 
 
-  public User authnApps(List<String> authnApps) {
+  public User apps(List<String> apps) {
     
-    this.authnApps = authnApps;
+    this.apps = apps;
     return this;
   }
 
-  public User addAuthnAppsItem(String authnAppsItem) {
-    if (this.authnApps == null) {
-      this.authnApps = new ArrayList<>();
+  public User addAppsItem(String appsItem) {
+    if (this.apps == null) {
+      this.apps = new ArrayList<>();
     }
-    this.authnApps.add(authnAppsItem);
+    this.apps.add(appsItem);
     return this;
   }
 
    /**
-   * Set of authn apps available to this user
-   * @return authnApps
+   * Set of apps available to this user
+   * @return apps
   **/
-  @ApiModelProperty(value = "Set of authn apps available to this user")
+  @ApiModelProperty(value = "Set of apps available to this user")
 
-  public List<String> getAuthnApps() {
-    return authnApps;
+  public List<String> getApps() {
+    return apps;
   }
 
 
-  public void setAuthnApps(List<String> authnApps) {
-    this.authnApps = authnApps;
+  public void setApps(List<String> apps) {
+    this.apps = apps;
   }
 
 
@@ -351,7 +351,7 @@ public class User {
     return Objects.equals(this.links, user.links) &&
         Objects.equals(this.accountGroups, user.accountGroups) &&
         Objects.equals(this.active, user.active) &&
-        Objects.equals(this.authnApps, user.authnApps) &&
+        Objects.equals(this.apps, user.apps) &&
         Objects.equals(this.email, user.email) &&
         Objects.equals(this.id, user.id) &&
         Objects.equals(this.name, user.name) &&
@@ -362,7 +362,7 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, accountGroups, active, authnApps, email, id, name, roles, timeZoneCode, username);
+    return Objects.hash(links, accountGroups, active, apps, email, id, name, roles, timeZoneCode, username);
   }
 
   @Override
@@ -372,7 +372,7 @@ public class User {
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    accountGroups: ").append(toIndentedString(accountGroups)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    authnApps: ").append(toIndentedString(authnApps)).append("\n");
+    sb.append("    apps: ").append(toIndentedString(apps)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -404,7 +404,7 @@ public class User {
     openapiFields.add("_links");
     openapiFields.add("accountGroups");
     openapiFields.add("active");
-    openapiFields.add("authnApps");
+    openapiFields.add("apps");
     openapiFields.add("email");
     openapiFields.add("id");
     openapiFields.add("name");
@@ -444,7 +444,7 @@ public class User {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!User.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `User` properties.", entry.getKey()));
         }
       }
 
@@ -463,8 +463,8 @@ public class User {
         log.log(Level.WARNING, String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
       }
       // ensure the json data is an array
-      if (jsonObj.get("authnApps") != null && !jsonObj.get("authnApps").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `authnApps` to be an array in the JSON string but got `%s`", jsonObj.get("authnApps").toString()));
+      if (jsonObj.get("apps") != null && !jsonObj.get("apps").isJsonArray()) {
+        log.log(Level.WARNING, String.format("Expected the field `apps` to be an array in the JSON string but got `%s`", jsonObj.get("apps").toString()));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {

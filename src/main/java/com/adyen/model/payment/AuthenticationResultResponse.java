@@ -185,7 +185,7 @@ public class AuthenticationResultResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AuthenticationResultResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AuthenticationResultResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AuthenticationResultResponse` properties.", entry.getKey()));
         }
       }
       // validate the optional field `threeDS1Result`

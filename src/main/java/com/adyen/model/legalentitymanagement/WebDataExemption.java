@@ -198,7 +198,7 @@ public class WebDataExemption {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!WebDataExemption.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `WebDataExemption` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `WebDataExemption` properties.", entry.getKey()));
         }
       }
       // ensure the field reason can be parsed to an enum value

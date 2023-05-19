@@ -184,7 +184,7 @@ public class FundOrigin {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!FundOrigin.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `FundOrigin` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `FundOrigin` properties.", entry.getKey()));
         }
       }
       // validate the optional field `billingAddress`
