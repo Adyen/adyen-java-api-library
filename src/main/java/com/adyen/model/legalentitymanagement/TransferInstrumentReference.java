@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.legalentitymanagement.JSON;
 
@@ -142,10 +144,10 @@ public class TransferInstrumentReference {
 
 
    /**
-   * Identifies if the TI was created from a trusted source.
+   * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
    * @return trustedSource
   **/
-  @ApiModelProperty(value = "Identifies if the TI was created from a trusted source.")
+  @ApiModelProperty(value = "Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote=2023-05-08-hosted-onboarding).")
 
   public Boolean getTrustedSource() {
     return trustedSource;
@@ -215,6 +217,10 @@ public class TransferInstrumentReference {
     openapiRequiredFields.add("accountIdentifier");
     openapiRequiredFields.add("id");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TransferInstrumentReference.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -235,7 +241,7 @@ public class TransferInstrumentReference {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransferInstrumentReference.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransferInstrumentReference` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransferInstrumentReference` properties.", entry.getKey()));
         }
       }
 
@@ -247,15 +253,15 @@ public class TransferInstrumentReference {
       }
       // validate the optional field accountIdentifier
       if (jsonObj.get("accountIdentifier") != null && !jsonObj.get("accountIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountIdentifier").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `accountIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountIdentifier").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field realLastFour
       if (jsonObj.get("realLastFour") != null && !jsonObj.get("realLastFour").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `realLastFour` to be a primitive type in the JSON string but got `%s`", jsonObj.get("realLastFour").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `realLastFour` to be a primitive type in the JSON string but got `%s`", jsonObj.get("realLastFour").toString()));
       }
   }
 

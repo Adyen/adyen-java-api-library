@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.posterminalmanagement.JSON;
 
@@ -129,6 +131,10 @@ public class FindTerminalRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("terminal");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(FindTerminalRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -149,7 +155,7 @@ public class FindTerminalRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!FindTerminalRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FindTerminalRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `FindTerminalRequest` properties.", entry.getKey()));
         }
       }
 
@@ -161,7 +167,7 @@ public class FindTerminalRequest {
       }
       // validate the optional field terminal
       if (jsonObj.get("terminal") != null && !jsonObj.get("terminal").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
       }
   }
 

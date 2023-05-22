@@ -216,6 +216,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     {{#oneOf}}
     // validate the json string with {{{.}}}
     try {
+      Logger.getLogger({{{.}}}.class.getName()).setLevel(Level.OFF);
       {{{.}}}.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {

@@ -44,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.recurring.JSON;
 
@@ -168,6 +170,10 @@ public class TokenDetails {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TokenDetails.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -188,12 +194,12 @@ public class TokenDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TokenDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TokenDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TokenDetails` properties.", entry.getKey()));
         }
       }
       // validate the optional field tokenDataType
       if (jsonObj.get("tokenDataType") != null && !jsonObj.get("tokenDataType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tokenDataType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenDataType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `tokenDataType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenDataType").toString()));
       }
   }
 

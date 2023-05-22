@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -186,6 +188,10 @@ public class ExternalPlatform {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ExternalPlatform.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -206,20 +212,20 @@ public class ExternalPlatform {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ExternalPlatform.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalPlatform` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ExternalPlatform` properties.", entry.getKey()));
         }
       }
       // validate the optional field integrator
       if (jsonObj.get("integrator") != null && !jsonObj.get("integrator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `integrator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrator").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `integrator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrator").toString()));
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field version
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
   }
 

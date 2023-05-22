@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -214,6 +216,10 @@ public class Passcodes {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Passcodes.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -234,24 +240,24 @@ public class Passcodes {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Passcodes.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Passcodes` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Passcodes` properties.", entry.getKey()));
         }
       }
       // validate the optional field adminMenuPin
       if (jsonObj.get("adminMenuPin") != null && !jsonObj.get("adminMenuPin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `adminMenuPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adminMenuPin").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `adminMenuPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adminMenuPin").toString()));
       }
       // validate the optional field refundPin
       if (jsonObj.get("refundPin") != null && !jsonObj.get("refundPin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `refundPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refundPin").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `refundPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refundPin").toString()));
       }
       // validate the optional field screenLockPin
       if (jsonObj.get("screenLockPin") != null && !jsonObj.get("screenLockPin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `screenLockPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenLockPin").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `screenLockPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenLockPin").toString()));
       }
       // validate the optional field txMenuPin
       if (jsonObj.get("txMenuPin") != null && !jsonObj.get("txMenuPin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `txMenuPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("txMenuPin").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `txMenuPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("txMenuPin").toString()));
       }
   }
 

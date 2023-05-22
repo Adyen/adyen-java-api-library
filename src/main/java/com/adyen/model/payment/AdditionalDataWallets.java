@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -273,6 +275,10 @@ public class AdditionalDataWallets {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalDataWallets.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -293,32 +299,32 @@ public class AdditionalDataWallets {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataWallets.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataWallets` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataWallets` properties.", entry.getKey()));
         }
       }
       // validate the optional field androidpay.token
       if (jsonObj.get("androidpay.token") != null && !jsonObj.get("androidpay.token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `androidpay.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("androidpay.token").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `androidpay.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("androidpay.token").toString()));
       }
       // validate the optional field masterpass.transactionId
       if (jsonObj.get("masterpass.transactionId") != null && !jsonObj.get("masterpass.transactionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `masterpass.transactionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("masterpass.transactionId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `masterpass.transactionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("masterpass.transactionId").toString()));
       }
       // validate the optional field payment.token
       if (jsonObj.get("payment.token") != null && !jsonObj.get("payment.token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payment.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment.token").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `payment.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment.token").toString()));
       }
       // validate the optional field paywithgoogle.token
       if (jsonObj.get("paywithgoogle.token") != null && !jsonObj.get("paywithgoogle.token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `paywithgoogle.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paywithgoogle.token").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `paywithgoogle.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paywithgoogle.token").toString()));
       }
       // validate the optional field samsungpay.token
       if (jsonObj.get("samsungpay.token") != null && !jsonObj.get("samsungpay.token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `samsungpay.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("samsungpay.token").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `samsungpay.token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("samsungpay.token").toString()));
       }
       // validate the optional field visacheckout.callId
       if (jsonObj.get("visacheckout.callId") != null && !jsonObj.get("visacheckout.callId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `visacheckout.callId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visacheckout.callId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `visacheckout.callId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visacheckout.callId").toString()));
       }
   }
 

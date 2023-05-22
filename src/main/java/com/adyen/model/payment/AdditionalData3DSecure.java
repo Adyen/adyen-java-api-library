@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -326,6 +328,10 @@ public class AdditionalData3DSecure {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalData3DSecure.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -346,12 +352,12 @@ public class AdditionalData3DSecure {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalData3DSecure.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalData3DSecure` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalData3DSecure` properties.", entry.getKey()));
         }
       }
       // validate the optional field allow3DS2
       if (jsonObj.get("allow3DS2") != null && !jsonObj.get("allow3DS2").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allow3DS2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allow3DS2").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `allow3DS2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allow3DS2").toString()));
       }
       // ensure the field challengeWindowSize can be parsed to an enum value
       if (jsonObj.get("challengeWindowSize") != null) {
@@ -362,19 +368,19 @@ public class AdditionalData3DSecure {
       }
       // validate the optional field executeThreeD
       if (jsonObj.get("executeThreeD") != null && !jsonObj.get("executeThreeD").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `executeThreeD` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executeThreeD").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `executeThreeD` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executeThreeD").toString()));
       }
       // validate the optional field mpiImplementationType
       if (jsonObj.get("mpiImplementationType") != null && !jsonObj.get("mpiImplementationType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mpiImplementationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mpiImplementationType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `mpiImplementationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mpiImplementationType").toString()));
       }
       // validate the optional field scaExemption
       if (jsonObj.get("scaExemption") != null && !jsonObj.get("scaExemption").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scaExemption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scaExemption").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `scaExemption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scaExemption").toString()));
       }
       // validate the optional field threeDSVersion
       if (jsonObj.get("threeDSVersion") != null && !jsonObj.get("threeDSVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
       }
   }
 

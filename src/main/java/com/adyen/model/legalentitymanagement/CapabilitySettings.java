@@ -45,6 +45,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.legalentitymanagement.JSON;
 
@@ -362,6 +364,10 @@ public class CapabilitySettings {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CapabilitySettings.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -382,12 +388,12 @@ public class CapabilitySettings {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CapabilitySettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CapabilitySettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CapabilitySettings` properties.", entry.getKey()));
         }
       }
       // ensure the json data is an array
       if (jsonObj.get("fundingSource") != null && !jsonObj.get("fundingSource").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be an array in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `fundingSource` to be an array in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
       }
       // ensure the field interval can be parsed to an enum value
       if (jsonObj.get("interval") != null) {

@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -359,6 +361,10 @@ public class AdditionalDataTemporaryServices {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalDataTemporaryServices.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -379,44 +385,44 @@ public class AdditionalDataTemporaryServices {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataTemporaryServices.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties.", entry.getKey()));
         }
       }
       // validate the optional field enhancedSchemeData.customerReference
       if (jsonObj.get("enhancedSchemeData.customerReference") != null && !jsonObj.get("enhancedSchemeData.customerReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.customerReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.customerReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.customerReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.customerReference").toString()));
       }
       // validate the optional field enhancedSchemeData.employeeName
       if (jsonObj.get("enhancedSchemeData.employeeName") != null && !jsonObj.get("enhancedSchemeData.employeeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.employeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.employeeName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.employeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.employeeName").toString()));
       }
       // validate the optional field enhancedSchemeData.jobDescription
       if (jsonObj.get("enhancedSchemeData.jobDescription") != null && !jsonObj.get("enhancedSchemeData.jobDescription").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.jobDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.jobDescription").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.jobDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.jobDescription").toString()));
       }
       // validate the optional field enhancedSchemeData.regularHoursRate
       if (jsonObj.get("enhancedSchemeData.regularHoursRate") != null && !jsonObj.get("enhancedSchemeData.regularHoursRate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.regularHoursRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursRate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.regularHoursRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursRate").toString()));
       }
       // validate the optional field enhancedSchemeData.regularHoursWorked
       if (jsonObj.get("enhancedSchemeData.regularHoursWorked") != null && !jsonObj.get("enhancedSchemeData.regularHoursWorked").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.regularHoursWorked` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursWorked").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.regularHoursWorked` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursWorked").toString()));
       }
       // validate the optional field enhancedSchemeData.requestName
       if (jsonObj.get("enhancedSchemeData.requestName") != null && !jsonObj.get("enhancedSchemeData.requestName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.requestName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.requestName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.requestName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.requestName").toString()));
       }
       // validate the optional field enhancedSchemeData.tempStartDate
       if (jsonObj.get("enhancedSchemeData.tempStartDate") != null && !jsonObj.get("enhancedSchemeData.tempStartDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.tempStartDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempStartDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.tempStartDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempStartDate").toString()));
       }
       // validate the optional field enhancedSchemeData.tempWeekEnding
       if (jsonObj.get("enhancedSchemeData.tempWeekEnding") != null && !jsonObj.get("enhancedSchemeData.tempWeekEnding").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.tempWeekEnding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempWeekEnding").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.tempWeekEnding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempWeekEnding").toString()));
       }
       // validate the optional field enhancedSchemeData.totalTaxAmount
       if (jsonObj.get("enhancedSchemeData.totalTaxAmount") != null && !jsonObj.get("enhancedSchemeData.totalTaxAmount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.totalTaxAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.totalTaxAmount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.totalTaxAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.totalTaxAmount").toString()));
       }
   }
 

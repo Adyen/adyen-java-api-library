@@ -54,6 +54,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.balanceplatform.JSON;
 
@@ -518,6 +520,10 @@ public class TransactionRuleRestrictions {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TransactionRuleRestrictions.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -538,7 +544,7 @@ public class TransactionRuleRestrictions {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionRuleRestrictions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleRestrictions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleRestrictions` properties.", entry.getKey()));
         }
       }
       // validate the optional field `activeNetworkTokens`

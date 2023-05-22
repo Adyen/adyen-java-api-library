@@ -1,22 +1,16 @@
 package com.adyen;
 
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.legalentitymanagement.BusinessLine;
-import com.adyen.model.legalentitymanagement.BusinessLineInfo;
-import com.adyen.model.legalentitymanagement.BusinessLineInfoUpdate;
-import com.adyen.model.legalentitymanagement.BusinessLines;
-import com.adyen.model.legalentitymanagement.Document;
-import com.adyen.model.legalentitymanagement.LegalEntity;
-import com.adyen.model.legalentitymanagement.LegalEntityInfo;
-import com.adyen.model.legalentitymanagement.LegalEntityInfoRequiredType;
-import com.adyen.model.legalentitymanagement.OnboardingLink;
-import com.adyen.model.legalentitymanagement.OnboardingLinkInfo;
-import com.adyen.model.legalentitymanagement.OnboardingTheme;
-import com.adyen.model.legalentitymanagement.OnboardingThemes;
-import com.adyen.model.legalentitymanagement.TransferInstrument;
-import com.adyen.model.legalentitymanagement.TransferInstrumentInfo;
+import com.adyen.model.checkout.CheckoutAwaitAction;
+import com.adyen.model.legalentitymanagement.*;
+import com.adyen.model.recurring.BankAccount;
 import com.adyen.service.legalentitymanagement.*;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.*;
@@ -329,5 +323,26 @@ public class LegalEntityManagementTest extends BaseTest {
                 "}");
         Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
         assertEquals("Thisisanbase64encodedstring", new String(response.getAttachments().get(0).getContent()));
+    }
+
+    @Test
+    public void TestNewFieldsInResponseDoesNotThrowError() throws IOException {
+        try {
+            // turn of logger so it doesn't clutter the UT
+            Logger.getLogger(BankAccountInfo.class.getName()).setLevel(Level.OFF);
+            BankAccountInfo bankAccountInfo = BankAccountInfo.fromJson("{\n" +
+                    "  \"accountIdentification\":{\n" +
+                    "    \"type\":\"usLocal\",\n" +
+                    "    \"accountNumber\":\"1234567835\",\n" +
+                    "    \"accountType\":\"checking\",\n" +
+                    "    \"routingNumber\":\"121202211\"\n" +
+                    "  },\n" +
+                    "  \"countryCode\":\"US\",\n" +
+                    "  \"trustedSource\":false,\n" +
+                    "  \"paramNotInSpec\":false\n " +
+                    "}");
+        } catch (Exception ex){
+            Assert.fail();
+        }
     }
 }

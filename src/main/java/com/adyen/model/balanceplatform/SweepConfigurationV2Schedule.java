@@ -243,6 +243,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with CronSweepSchedule
     try {
+      Logger.getLogger(CronSweepSchedule.class.getName()).setLevel(Level.OFF);
       CronSweepSchedule.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -251,6 +252,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
     }
     // validate the json string with SweepSchedule
     try {
+      Logger.getLogger(SweepSchedule.class.getName()).setLevel(Level.OFF);
       SweepSchedule.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {

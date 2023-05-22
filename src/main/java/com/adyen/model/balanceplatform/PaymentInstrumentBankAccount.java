@@ -243,6 +243,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with IbanAccountIdentification
     try {
+      Logger.getLogger(IbanAccountIdentification.class.getName()).setLevel(Level.OFF);
       IbanAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {
@@ -251,6 +252,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
     }
     // validate the json string with USLocalAccountIdentification
     try {
+      Logger.getLogger(USLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
       USLocalAccountIdentification.validateJsonObject(jsonObj);
       validCount++;
     } catch (Exception e) {

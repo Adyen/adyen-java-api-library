@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -489,6 +491,10 @@ public class Mandate {
     openapiRequiredFields.add("endsAt");
     openapiRequiredFields.add("frequency");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Mandate.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -509,7 +515,7 @@ public class Mandate {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Mandate.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Mandate` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Mandate` properties.", entry.getKey()));
         }
       }
 
@@ -521,7 +527,7 @@ public class Mandate {
       }
       // validate the optional field amount
       if (jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
       // ensure the field amountRule can be parsed to an enum value
       if (jsonObj.get("amountRule") != null) {
@@ -539,11 +545,11 @@ public class Mandate {
       }
       // validate the optional field billingDay
       if (jsonObj.get("billingDay") != null && !jsonObj.get("billingDay").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingDay` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingDay").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingDay` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingDay").toString()));
       }
       // validate the optional field endsAt
       if (jsonObj.get("endsAt") != null && !jsonObj.get("endsAt").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endsAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endsAt").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `endsAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endsAt").toString()));
       }
       // ensure the field frequency can be parsed to an enum value
       if (jsonObj.get("frequency") != null) {
@@ -554,11 +560,11 @@ public class Mandate {
       }
       // validate the optional field remarks
       if (jsonObj.get("remarks") != null && !jsonObj.get("remarks").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `remarks` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remarks").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `remarks` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remarks").toString()));
       }
       // validate the optional field startsAt
       if (jsonObj.get("startsAt") != null && !jsonObj.get("startsAt").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `startsAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startsAt").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `startsAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startsAt").toString()));
       }
   }
 

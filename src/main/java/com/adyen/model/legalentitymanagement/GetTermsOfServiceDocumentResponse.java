@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.legalentitymanagement.JSON;
 
@@ -300,6 +302,10 @@ public class GetTermsOfServiceDocumentResponse {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(GetTermsOfServiceDocumentResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -320,20 +326,20 @@ public class GetTermsOfServiceDocumentResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!GetTermsOfServiceDocumentResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTermsOfServiceDocumentResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `GetTermsOfServiceDocumentResponse` properties.", entry.getKey()));
         }
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field language
       if (jsonObj.get("language") != null && !jsonObj.get("language").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
       // validate the optional field termsOfServiceDocumentId
       if (jsonObj.get("termsOfServiceDocumentId") != null && !jsonObj.get("termsOfServiceDocumentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `termsOfServiceDocumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("termsOfServiceDocumentId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `termsOfServiceDocumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("termsOfServiceDocumentId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

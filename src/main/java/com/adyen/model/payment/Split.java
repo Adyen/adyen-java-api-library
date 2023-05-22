@@ -42,6 +42,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -80,6 +82,18 @@ public class Split {
     MARKETPLACE("MarketPlace"),
     
     PAYMENTFEE("PaymentFee"),
+    
+    PAYMENTFEEACQUIRING("PaymentFeeAcquiring"),
+    
+    PAYMENTFEEADYEN("PaymentFeeAdyen"),
+    
+    PAYMENTFEEADYENCOMMISSION("PaymentFeeAdyenCommission"),
+    
+    PAYMENTFEEADYENMARKUP("PaymentFeeAdyenMarkup"),
+    
+    PAYMENTFEEINTERCHANGE("PaymentFeeInterchange"),
+    
+    PAYMENTFEESCHEMEFEE("PaymentFeeSchemeFee"),
     
     REMAINDER("Remainder"),
     
@@ -310,6 +324,10 @@ public class Split {
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("type");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Split.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -330,7 +348,7 @@ public class Split {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Split.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Split` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Split` properties.", entry.getKey()));
         }
       }
 
@@ -342,7 +360,7 @@ public class Split {
       }
       // validate the optional field account
       if (jsonObj.get("account") != null && !jsonObj.get("account").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account").toString()));
       }
       // validate the optional field `amount`
       if (jsonObj.getAsJsonObject("amount") != null) {
@@ -350,11 +368,11 @@ public class Split {
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

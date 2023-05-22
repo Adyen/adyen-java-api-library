@@ -45,6 +45,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -343,6 +345,10 @@ public class TerminalOrder {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TerminalOrder.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -363,7 +369,7 @@ public class TerminalOrder {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TerminalOrder.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalOrder` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TerminalOrder` properties.", entry.getKey()));
         }
       }
       // validate the optional field `billingEntity`
@@ -372,11 +378,11 @@ public class TerminalOrder {
       }
       // validate the optional field customerOrderReference
       if (jsonObj.get("customerOrderReference") != null && !jsonObj.get("customerOrderReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customerOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerOrderReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `customerOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerOrderReference").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
       if (jsonArrayitems != null) {
@@ -392,7 +398,7 @@ public class TerminalOrder {
       }
       // validate the optional field orderDate
       if (jsonObj.get("orderDate") != null && !jsonObj.get("orderDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `orderDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `orderDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderDate").toString()));
       }
       // validate the optional field `shippingLocation`
       if (jsonObj.getAsJsonObject("shippingLocation") != null) {
@@ -400,11 +406,11 @@ public class TerminalOrder {
       }
       // validate the optional field status
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // validate the optional field trackingUrl
       if (jsonObj.get("trackingUrl") != null && !jsonObj.get("trackingUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `trackingUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trackingUrl").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `trackingUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trackingUrl").toString()));
       }
   }
 

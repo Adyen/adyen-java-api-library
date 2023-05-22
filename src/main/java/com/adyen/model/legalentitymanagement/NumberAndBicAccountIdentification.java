@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.legalentitymanagement.JSON;
 
@@ -263,6 +265,10 @@ public class NumberAndBicAccountIdentification {
     openapiRequiredFields.add("bic");
     openapiRequiredFields.add("type");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(NumberAndBicAccountIdentification.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -283,7 +289,7 @@ public class NumberAndBicAccountIdentification {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!NumberAndBicAccountIdentification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NumberAndBicAccountIdentification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `NumberAndBicAccountIdentification` properties.", entry.getKey()));
         }
       }
 
@@ -295,7 +301,7 @@ public class NumberAndBicAccountIdentification {
       }
       // validate the optional field accountNumber
       if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
       }
       // validate the optional field `additionalBankIdentification`
       if (jsonObj.getAsJsonObject("additionalBankIdentification") != null) {
@@ -303,7 +309,7 @@ public class NumberAndBicAccountIdentification {
       }
       // validate the optional field bic
       if (jsonObj.get("bic") != null && !jsonObj.get("bic").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bic` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bic").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `bic` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bic").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

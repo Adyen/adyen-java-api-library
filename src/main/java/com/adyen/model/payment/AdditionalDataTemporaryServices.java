@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -95,10 +97,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
+   * The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    * @return enhancedSchemeDataCustomerReference
   **/
-  @ApiModelProperty(value = "Customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25")
+  @ApiModelProperty(value = "The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25")
 
   public String getEnhancedSchemeDataCustomerReference() {
     return enhancedSchemeDataCustomerReference;
@@ -117,10 +119,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Name or ID associated with the individual working in a temporary capacity. * maxLength: 40
+   * The name or ID of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    * @return enhancedSchemeDataEmployeeName
   **/
-  @ApiModelProperty(value = "Name or ID associated with the individual working in a temporary capacity. * maxLength: 40")
+  @ApiModelProperty(value = "The name or ID of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces")
 
   public String getEnhancedSchemeDataEmployeeName() {
     return enhancedSchemeDataEmployeeName;
@@ -139,10 +141,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Description of the job or task of the individual working in a temporary capacity. * maxLength: 40
+   * The job description of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    * @return enhancedSchemeDataJobDescription
   **/
-  @ApiModelProperty(value = "Description of the job or task of the individual working in a temporary capacity. * maxLength: 40")
+  @ApiModelProperty(value = "The job description of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces")
 
   public String getEnhancedSchemeDataJobDescription() {
     return enhancedSchemeDataJobDescription;
@@ -161,10 +163,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Amount paid per regular hours worked, minor units. * maxLength: 7
+   * The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    * @return enhancedSchemeDataRegularHoursRate
   **/
-  @ApiModelProperty(value = "Amount paid per regular hours worked, minor units. * maxLength: 7")
+  @ApiModelProperty(value = "The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros")
 
   public String getEnhancedSchemeDataRegularHoursRate() {
     return enhancedSchemeDataRegularHoursRate;
@@ -183,10 +185,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Amount of time worked during a normal operation for the task or job. * maxLength: 7
+   * The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    * @return enhancedSchemeDataRegularHoursWorked
   **/
-  @ApiModelProperty(value = "Amount of time worked during a normal operation for the task or job. * maxLength: 7")
+  @ApiModelProperty(value = "The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros")
 
   public String getEnhancedSchemeDataRegularHoursWorked() {
     return enhancedSchemeDataRegularHoursWorked;
@@ -205,10 +207,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Name of the individual requesting temporary services. * maxLength: 40
+   * The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    * @return enhancedSchemeDataRequestName
   **/
-  @ApiModelProperty(value = "Name of the individual requesting temporary services. * maxLength: 40")
+  @ApiModelProperty(value = "The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces")
 
   public String getEnhancedSchemeDataRequestName() {
     return enhancedSchemeDataRequestName;
@@ -227,10 +229,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Date for the beginning of the pay period. * Format: ddMMyy * maxLength: 6
+   * The billing period start date. * Format: ddMMyy * maxLength: 6
    * @return enhancedSchemeDataTempStartDate
   **/
-  @ApiModelProperty(value = "Date for the beginning of the pay period. * Format: ddMMyy * maxLength: 6")
+  @ApiModelProperty(value = "The billing period start date. * Format: ddMMyy * maxLength: 6")
 
   public String getEnhancedSchemeDataTempStartDate() {
     return enhancedSchemeDataTempStartDate;
@@ -249,10 +251,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Date of the end of the billing cycle. * Format: ddMMyy * maxLength: 6
+   * The billing period end date. * Format: ddMMyy * maxLength: 6
    * @return enhancedSchemeDataTempWeekEnding
   **/
-  @ApiModelProperty(value = "Date of the end of the billing cycle. * Format: ddMMyy * maxLength: 6")
+  @ApiModelProperty(value = "The billing period end date. * Format: ddMMyy * maxLength: 6")
 
   public String getEnhancedSchemeDataTempWeekEnding() {
     return enhancedSchemeDataTempWeekEnding;
@@ -271,10 +273,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * Total tax amount, in minor units. For example, 2000 means USD 20.00 * maxLength: 12
+   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    * @return enhancedSchemeDataTotalTaxAmount
   **/
-  @ApiModelProperty(value = "Total tax amount, in minor units. For example, 2000 means USD 20.00 * maxLength: 12")
+  @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12")
 
   public String getEnhancedSchemeDataTotalTaxAmount() {
     return enhancedSchemeDataTotalTaxAmount;
@@ -360,6 +362,10 @@ public class AdditionalDataTemporaryServices {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalDataTemporaryServices.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -380,44 +386,44 @@ public class AdditionalDataTemporaryServices {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataTemporaryServices.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataTemporaryServices` properties.", entry.getKey()));
         }
       }
       // validate the optional field enhancedSchemeData.customerReference
       if (jsonObj.get("enhancedSchemeData.customerReference") != null && !jsonObj.get("enhancedSchemeData.customerReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.customerReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.customerReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.customerReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.customerReference").toString()));
       }
       // validate the optional field enhancedSchemeData.employeeName
       if (jsonObj.get("enhancedSchemeData.employeeName") != null && !jsonObj.get("enhancedSchemeData.employeeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.employeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.employeeName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.employeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.employeeName").toString()));
       }
       // validate the optional field enhancedSchemeData.jobDescription
       if (jsonObj.get("enhancedSchemeData.jobDescription") != null && !jsonObj.get("enhancedSchemeData.jobDescription").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.jobDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.jobDescription").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.jobDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.jobDescription").toString()));
       }
       // validate the optional field enhancedSchemeData.regularHoursRate
       if (jsonObj.get("enhancedSchemeData.regularHoursRate") != null && !jsonObj.get("enhancedSchemeData.regularHoursRate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.regularHoursRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursRate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.regularHoursRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursRate").toString()));
       }
       // validate the optional field enhancedSchemeData.regularHoursWorked
       if (jsonObj.get("enhancedSchemeData.regularHoursWorked") != null && !jsonObj.get("enhancedSchemeData.regularHoursWorked").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.regularHoursWorked` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursWorked").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.regularHoursWorked` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.regularHoursWorked").toString()));
       }
       // validate the optional field enhancedSchemeData.requestName
       if (jsonObj.get("enhancedSchemeData.requestName") != null && !jsonObj.get("enhancedSchemeData.requestName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.requestName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.requestName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.requestName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.requestName").toString()));
       }
       // validate the optional field enhancedSchemeData.tempStartDate
       if (jsonObj.get("enhancedSchemeData.tempStartDate") != null && !jsonObj.get("enhancedSchemeData.tempStartDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.tempStartDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempStartDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.tempStartDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempStartDate").toString()));
       }
       // validate the optional field enhancedSchemeData.tempWeekEnding
       if (jsonObj.get("enhancedSchemeData.tempWeekEnding") != null && !jsonObj.get("enhancedSchemeData.tempWeekEnding").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.tempWeekEnding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempWeekEnding").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.tempWeekEnding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.tempWeekEnding").toString()));
       }
       // validate the optional field enhancedSchemeData.totalTaxAmount
       if (jsonObj.get("enhancedSchemeData.totalTaxAmount") != null && !jsonObj.get("enhancedSchemeData.totalTaxAmount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.totalTaxAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.totalTaxAmount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.totalTaxAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.totalTaxAmount").toString()));
       }
   }
 

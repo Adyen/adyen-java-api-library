@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -96,10 +98,6 @@ public class AdditionalDataLodging {
   public static final String SERIALIZED_NAME_LODGING_ROOM1_RATE = "lodging.room1.rate";
   @SerializedName(SERIALIZED_NAME_LODGING_ROOM1_RATE)
   private String lodgingRoom1Rate;
-
-  public static final String SERIALIZED_NAME_LODGING_ROOM1_TAX = "lodging.room1.tax";
-  @SerializedName(SERIALIZED_NAME_LODGING_ROOM1_TAX)
-  private String lodgingRoom1Tax;
 
   public static final String SERIALIZED_NAME_LODGING_TOTAL_ROOM_TAX = "lodging.totalRoomTax";
   @SerializedName(SERIALIZED_NAME_LODGING_TOTAL_ROOM_TAX)
@@ -171,10 +169,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The toll-free phone number for the lodging. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.
+   * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
    * @return lodgingCustomerServiceTollFreeNumber
   **/
-  @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.")
+  @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
 
   public String getLodgingCustomerServiceTollFreeNumber() {
     return lodgingCustomerServiceTollFreeNumber;
@@ -193,10 +191,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic. * Max length: 1 character.
+   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
    * @return lodgingFireSafetyActIndicator
   **/
-  @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: 'Y' or 'N'. * Format: alphabetic. * Max length: 1 character.")
+  @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be 'Y' or 'N'. * Format: alphabetic * Max length: 1 character")
 
   public String getLodgingFireSafetyActIndicator() {
     return lodgingFireSafetyActIndicator;
@@ -215,10 +213,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The folio cash advances. * Format: numeric. * Max length: 12 characters.
+   * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return lodgingFolioCashAdvances
   **/
-  @ApiModelProperty(value = "The folio cash advances. * Format: numeric. * Max length: 12 characters.")
+  @ApiModelProperty(value = "The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters")
 
   public String getLodgingFolioCashAdvances() {
     return lodgingFolioCashAdvances;
@@ -237,10 +235,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The card acceptor’s internal invoice or billing ID reference number. * Format: alphanumeric. * Max length: 25 characters.
+   * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space * Must not be all zeros
    * @return lodgingFolioNumber
   **/
-  @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Format: alphanumeric. * Max length: 25 characters.")
+  @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space * Must not be all zeros")
 
   public String getLodgingFolioNumber() {
     return lodgingFolioNumber;
@@ -259,10 +257,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The additional charges for food and beverages associated with the booking. * Format: numeric. * Max length: 12 characters.
+   * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return lodgingFoodBeverageCharges
   **/
-  @ApiModelProperty(value = "The additional charges for food and beverages associated with the booking. * Format: numeric. * Max length: 12 characters.")
+  @ApiModelProperty(value = "Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters")
 
   public String getLodgingFoodBeverageCharges() {
     return lodgingFoodBeverageCharges;
@@ -281,10 +279,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Indicates if the customer didn&#39;t check in for their booking.  Possible values:   * **Y**: the customer didn&#39;t check in.   **N**: the customer checked in.
+   * Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
    * @return lodgingNoShowIndicator
   **/
-  @ApiModelProperty(value = "Indicates if the customer didn't check in for their booking.  Possible values:   * **Y**: the customer didn't check in.   **N**: the customer checked in.")
+  @ApiModelProperty(value = "Indicates if the customer didn't check in for their booking.  Possible values:  * **Y**: the customer didn't check in  * **N**: the customer checked in")
 
   public String getLodgingNoShowIndicator() {
     return lodgingNoShowIndicator;
@@ -303,10 +301,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The prepaid expenses for the booking. * Format: numeric. * Max length: 12 characters.
+   * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    * @return lodgingPrepaidExpenses
   **/
-  @ApiModelProperty(value = "The prepaid expenses for the booking. * Format: numeric. * Max length: 12 characters.")
+  @ApiModelProperty(value = "The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters")
 
   public String getLodgingPrepaidExpenses() {
     return lodgingPrepaidExpenses;
@@ -325,10 +323,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Identifies the location of the lodging by its local phone number. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.
+   * The lodging property location&#39;s phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
    * @return lodgingPropertyPhoneNumber
   **/
-  @ApiModelProperty(value = "Identifies the location of the lodging by its local phone number. * Format: alphanumeric. * Max length: 17 characters. * For US numbers: must start with 3 digits and be at least 10 characters in length. Otherwise, the capture can fail.")
+  @ApiModelProperty(value = "The lodging property location's phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
 
   public String getLodgingPropertyPhoneNumber() {
     return lodgingPropertyPhoneNumber;
@@ -347,10 +345,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total number of nights the room is booked for. * Format: numeric. * Max length: 4 characters.
+   * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 2 characters
    * @return lodgingRoom1NumberOfNights
   **/
-  @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric. * Max length: 4 characters.")
+  @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 2 characters")
 
   public String getLodgingRoom1NumberOfNights() {
     return lodgingRoom1NumberOfNights;
@@ -369,10 +367,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The rate of the room. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingRoom1Rate
   **/
-  @ApiModelProperty(value = "The rate of the room. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(value = "The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
 
   public String getLodgingRoom1Rate() {
     return lodgingRoom1Rate;
@@ -384,28 +382,6 @@ public class AdditionalDataLodging {
   }
 
 
-  public AdditionalDataLodging lodgingRoom1Tax(String lodgingRoom1Tax) {
-    
-    this.lodgingRoom1Tax = lodgingRoom1Tax;
-    return this;
-  }
-
-   /**
-   * The total amount of tax to be paid. * Format: numeric. * Max length: 12 chracters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * @return lodgingRoom1Tax
-  **/
-  @ApiModelProperty(value = "The total amount of tax to be paid. * Format: numeric. * Max length: 12 chracters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
-
-  public String getLodgingRoom1Tax() {
-    return lodgingRoom1Tax;
-  }
-
-
-  public void setLodgingRoom1Tax(String lodgingRoom1Tax) {
-    this.lodgingRoom1Tax = lodgingRoom1Tax;
-  }
-
-
   public AdditionalDataLodging lodgingTotalRoomTax(String lodgingTotalRoomTax) {
     
     this.lodgingTotalRoomTax = lodgingTotalRoomTax;
@@ -413,10 +389,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total room tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingTotalRoomTax
   **/
-  @ApiModelProperty(value = "The total room tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(value = "The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
 
   public String getLodgingTotalRoomTax() {
     return lodgingTotalRoomTax;
@@ -435,10 +411,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingTotalTax
   **/
-  @ApiModelProperty(value = "The total tax amount. * Format: numeric. * Max length: 12 characters. * Must be in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
 
   public String getLodgingTotalTax() {
     return lodgingTotalTax;
@@ -457,10 +433,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The number of nights. This should be included in the auth message. * Format: numeric. * Max length: 2 characters.
+   * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 2 characters
    * @return travelEntertainmentAuthDataDuration
   **/
-  @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric. * Max length: 2 characters.")
+  @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric * Max length: 2 characters")
 
   public String getTravelEntertainmentAuthDataDuration() {
     return travelEntertainmentAuthDataDuration;
@@ -479,10 +455,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be \&quot;H\&quot; for Hotel. This should be included in the auth message.  * Format: alphanumeric. * Max length: 1 character.
+   * Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    * @return travelEntertainmentAuthDataMarket
   **/
-  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"H\" for Hotel. This should be included in the auth message.  * Format: alphanumeric. * Max length: 1 character.")
+  @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character")
 
   public String getTravelEntertainmentAuthDataMarket() {
     return travelEntertainmentAuthDataMarket;
@@ -516,7 +492,6 @@ public class AdditionalDataLodging {
         Objects.equals(this.lodgingPropertyPhoneNumber, additionalDataLodging.lodgingPropertyPhoneNumber) &&
         Objects.equals(this.lodgingRoom1NumberOfNights, additionalDataLodging.lodgingRoom1NumberOfNights) &&
         Objects.equals(this.lodgingRoom1Rate, additionalDataLodging.lodgingRoom1Rate) &&
-        Objects.equals(this.lodgingRoom1Tax, additionalDataLodging.lodgingRoom1Tax) &&
         Objects.equals(this.lodgingTotalRoomTax, additionalDataLodging.lodgingTotalRoomTax) &&
         Objects.equals(this.lodgingTotalTax, additionalDataLodging.lodgingTotalTax) &&
         Objects.equals(this.travelEntertainmentAuthDataDuration, additionalDataLodging.travelEntertainmentAuthDataDuration) &&
@@ -525,7 +500,7 @@ public class AdditionalDataLodging {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lodgingCheckInDate, lodgingCheckOutDate, lodgingCustomerServiceTollFreeNumber, lodgingFireSafetyActIndicator, lodgingFolioCashAdvances, lodgingFolioNumber, lodgingFoodBeverageCharges, lodgingNoShowIndicator, lodgingPrepaidExpenses, lodgingPropertyPhoneNumber, lodgingRoom1NumberOfNights, lodgingRoom1Rate, lodgingRoom1Tax, lodgingTotalRoomTax, lodgingTotalTax, travelEntertainmentAuthDataDuration, travelEntertainmentAuthDataMarket);
+    return Objects.hash(lodgingCheckInDate, lodgingCheckOutDate, lodgingCustomerServiceTollFreeNumber, lodgingFireSafetyActIndicator, lodgingFolioCashAdvances, lodgingFolioNumber, lodgingFoodBeverageCharges, lodgingNoShowIndicator, lodgingPrepaidExpenses, lodgingPropertyPhoneNumber, lodgingRoom1NumberOfNights, lodgingRoom1Rate, lodgingTotalRoomTax, lodgingTotalTax, travelEntertainmentAuthDataDuration, travelEntertainmentAuthDataMarket);
   }
 
   @Override
@@ -544,7 +519,6 @@ public class AdditionalDataLodging {
     sb.append("    lodgingPropertyPhoneNumber: ").append(toIndentedString(lodgingPropertyPhoneNumber)).append("\n");
     sb.append("    lodgingRoom1NumberOfNights: ").append(toIndentedString(lodgingRoom1NumberOfNights)).append("\n");
     sb.append("    lodgingRoom1Rate: ").append(toIndentedString(lodgingRoom1Rate)).append("\n");
-    sb.append("    lodgingRoom1Tax: ").append(toIndentedString(lodgingRoom1Tax)).append("\n");
     sb.append("    lodgingTotalRoomTax: ").append(toIndentedString(lodgingTotalRoomTax)).append("\n");
     sb.append("    lodgingTotalTax: ").append(toIndentedString(lodgingTotalTax)).append("\n");
     sb.append("    travelEntertainmentAuthDataDuration: ").append(toIndentedString(travelEntertainmentAuthDataDuration)).append("\n");
@@ -583,7 +557,6 @@ public class AdditionalDataLodging {
     openapiFields.add("lodging.propertyPhoneNumber");
     openapiFields.add("lodging.room1.numberOfNights");
     openapiFields.add("lodging.room1.rate");
-    openapiFields.add("lodging.room1.tax");
     openapiFields.add("lodging.totalRoomTax");
     openapiFields.add("lodging.totalTax");
     openapiFields.add("travelEntertainmentAuthData.duration");
@@ -592,6 +565,10 @@ public class AdditionalDataLodging {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalDataLodging.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -612,76 +589,72 @@ public class AdditionalDataLodging {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataLodging.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLodging` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLodging` properties.", entry.getKey()));
         }
       }
       // validate the optional field lodging.checkInDate
       if (jsonObj.get("lodging.checkInDate") != null && !jsonObj.get("lodging.checkInDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.checkInDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkInDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.checkInDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkInDate").toString()));
       }
       // validate the optional field lodging.checkOutDate
       if (jsonObj.get("lodging.checkOutDate") != null && !jsonObj.get("lodging.checkOutDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.checkOutDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkOutDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.checkOutDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.checkOutDate").toString()));
       }
       // validate the optional field lodging.customerServiceTollFreeNumber
       if (jsonObj.get("lodging.customerServiceTollFreeNumber") != null && !jsonObj.get("lodging.customerServiceTollFreeNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.customerServiceTollFreeNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.customerServiceTollFreeNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.customerServiceTollFreeNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.customerServiceTollFreeNumber").toString()));
       }
       // validate the optional field lodging.fireSafetyActIndicator
       if (jsonObj.get("lodging.fireSafetyActIndicator") != null && !jsonObj.get("lodging.fireSafetyActIndicator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.fireSafetyActIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.fireSafetyActIndicator").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.fireSafetyActIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.fireSafetyActIndicator").toString()));
       }
       // validate the optional field lodging.folioCashAdvances
       if (jsonObj.get("lodging.folioCashAdvances") != null && !jsonObj.get("lodging.folioCashAdvances").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.folioCashAdvances` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioCashAdvances").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.folioCashAdvances` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioCashAdvances").toString()));
       }
       // validate the optional field lodging.folioNumber
       if (jsonObj.get("lodging.folioNumber") != null && !jsonObj.get("lodging.folioNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.folioNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.folioNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.folioNumber").toString()));
       }
       // validate the optional field lodging.foodBeverageCharges
       if (jsonObj.get("lodging.foodBeverageCharges") != null && !jsonObj.get("lodging.foodBeverageCharges").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.foodBeverageCharges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.foodBeverageCharges").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.foodBeverageCharges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.foodBeverageCharges").toString()));
       }
       // validate the optional field lodging.noShowIndicator
       if (jsonObj.get("lodging.noShowIndicator") != null && !jsonObj.get("lodging.noShowIndicator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.noShowIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.noShowIndicator").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.noShowIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.noShowIndicator").toString()));
       }
       // validate the optional field lodging.prepaidExpenses
       if (jsonObj.get("lodging.prepaidExpenses") != null && !jsonObj.get("lodging.prepaidExpenses").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.prepaidExpenses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.prepaidExpenses").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.prepaidExpenses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.prepaidExpenses").toString()));
       }
       // validate the optional field lodging.propertyPhoneNumber
       if (jsonObj.get("lodging.propertyPhoneNumber") != null && !jsonObj.get("lodging.propertyPhoneNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.propertyPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.propertyPhoneNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.propertyPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.propertyPhoneNumber").toString()));
       }
       // validate the optional field lodging.room1.numberOfNights
       if (jsonObj.get("lodging.room1.numberOfNights") != null && !jsonObj.get("lodging.room1.numberOfNights").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.room1.numberOfNights` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.numberOfNights").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.room1.numberOfNights` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.numberOfNights").toString()));
       }
       // validate the optional field lodging.room1.rate
       if (jsonObj.get("lodging.room1.rate") != null && !jsonObj.get("lodging.room1.rate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.room1.rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.rate").toString()));
-      }
-      // validate the optional field lodging.room1.tax
-      if (jsonObj.get("lodging.room1.tax") != null && !jsonObj.get("lodging.room1.tax").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.room1.tax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.tax").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.room1.rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.room1.rate").toString()));
       }
       // validate the optional field lodging.totalRoomTax
       if (jsonObj.get("lodging.totalRoomTax") != null && !jsonObj.get("lodging.totalRoomTax").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.totalRoomTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalRoomTax").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.totalRoomTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalRoomTax").toString()));
       }
       // validate the optional field lodging.totalTax
       if (jsonObj.get("lodging.totalTax") != null && !jsonObj.get("lodging.totalTax").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lodging.totalTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalTax").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `lodging.totalTax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lodging.totalTax").toString()));
       }
       // validate the optional field travelEntertainmentAuthData.duration
       if (jsonObj.get("travelEntertainmentAuthData.duration") != null && !jsonObj.get("travelEntertainmentAuthData.duration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `travelEntertainmentAuthData.duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.duration").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `travelEntertainmentAuthData.duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.duration").toString()));
       }
       // validate the optional field travelEntertainmentAuthData.market
       if (jsonObj.get("travelEntertainmentAuthData.market") != null && !jsonObj.get("travelEntertainmentAuthData.market").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `travelEntertainmentAuthData.market` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.market").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `travelEntertainmentAuthData.market` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.market").toString()));
       }
   }
 

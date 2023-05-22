@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payout.JSON;
 
@@ -272,6 +274,10 @@ public class ResponseAdditionalDataBillingAddress {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ResponseAdditionalDataBillingAddress.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -292,32 +298,32 @@ public class ResponseAdditionalDataBillingAddress {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ResponseAdditionalDataBillingAddress.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataBillingAddress` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataBillingAddress` properties.", entry.getKey()));
         }
       }
       // validate the optional field billingAddress.city
       if (jsonObj.get("billingAddress.city") != null && !jsonObj.get("billingAddress.city").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAddress.city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.city").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingAddress.city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.city").toString()));
       }
       // validate the optional field billingAddress.country
       if (jsonObj.get("billingAddress.country") != null && !jsonObj.get("billingAddress.country").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAddress.country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.country").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingAddress.country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.country").toString()));
       }
       // validate the optional field billingAddress.houseNumberOrName
       if (jsonObj.get("billingAddress.houseNumberOrName") != null && !jsonObj.get("billingAddress.houseNumberOrName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAddress.houseNumberOrName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.houseNumberOrName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingAddress.houseNumberOrName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.houseNumberOrName").toString()));
       }
       // validate the optional field billingAddress.postalCode
       if (jsonObj.get("billingAddress.postalCode") != null && !jsonObj.get("billingAddress.postalCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAddress.postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.postalCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingAddress.postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.postalCode").toString()));
       }
       // validate the optional field billingAddress.stateOrProvince
       if (jsonObj.get("billingAddress.stateOrProvince") != null && !jsonObj.get("billingAddress.stateOrProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAddress.stateOrProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.stateOrProvince").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingAddress.stateOrProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.stateOrProvince").toString()));
       }
       // validate the optional field billingAddress.street
       if (jsonObj.get("billingAddress.street") != null && !jsonObj.get("billingAddress.street").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAddress.street` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.street").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingAddress.street` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.street").toString()));
       }
   }
 

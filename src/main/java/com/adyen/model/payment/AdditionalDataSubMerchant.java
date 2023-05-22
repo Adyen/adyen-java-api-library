@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.payment.JSON;
 
@@ -389,6 +391,10 @@ public class AdditionalDataSubMerchant {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AdditionalDataSubMerchant.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -409,48 +415,48 @@ public class AdditionalDataSubMerchant {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataSubMerchant.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataSubMerchant` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataSubMerchant` properties.", entry.getKey()));
         }
       }
       // validate the optional field subMerchant.numberOfSubSellers
       if (jsonObj.get("subMerchant.numberOfSubSellers") != null && !jsonObj.get("subMerchant.numberOfSubSellers").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.numberOfSubSellers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.numberOfSubSellers").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.numberOfSubSellers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.numberOfSubSellers").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].city
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].city") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].city").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].city").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].city").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].country
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].country") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].country").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].country").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].country").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].id
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].id") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].id").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].mcc
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].mcc") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].mcc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].mcc").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].mcc").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].name
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].name") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].name").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].name").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].postalCode
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].postalCode") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].postalCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].postalCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].postalCode").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].state
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].state") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].state").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].state").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].street
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].street") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].street").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].street` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].street").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].street` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].street").toString()));
       }
       // validate the optional field subMerchant.subSeller[subSellerNr].taxId
       if (jsonObj.get("subMerchant.subSeller[subSellerNr].taxId") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].taxId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subMerchant.subSeller[subSellerNr].taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].taxId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].taxId").toString()));
       }
   }
 

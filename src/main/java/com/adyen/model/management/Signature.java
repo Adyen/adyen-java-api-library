@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -214,6 +216,10 @@ public class Signature {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Signature.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -234,16 +240,16 @@ public class Signature {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Signature.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Signature` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Signature` properties.", entry.getKey()));
         }
       }
       // validate the optional field deviceName
       if (jsonObj.get("deviceName") != null && !jsonObj.get("deviceName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deviceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `deviceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceName").toString()));
       }
       // validate the optional field deviceSlogan
       if (jsonObj.get("deviceSlogan") != null && !jsonObj.get("deviceSlogan").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deviceSlogan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceSlogan").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `deviceSlogan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceSlogan").toString()));
       }
   }
 

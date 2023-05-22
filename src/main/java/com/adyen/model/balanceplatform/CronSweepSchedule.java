@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.balanceplatform.JSON;
 
@@ -210,6 +212,10 @@ public class CronSweepSchedule {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("cronExpression");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CronSweepSchedule.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -230,7 +236,7 @@ public class CronSweepSchedule {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CronSweepSchedule.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CronSweepSchedule` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CronSweepSchedule` properties.", entry.getKey()));
         }
       }
 
@@ -242,7 +248,7 @@ public class CronSweepSchedule {
       }
       // validate the optional field cronExpression
       if (jsonObj.get("cronExpression") != null && !jsonObj.get("cronExpression").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cronExpression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cronExpression").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `cronExpression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cronExpression").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.posterminalmanagement.JSON;
 
@@ -246,6 +248,10 @@ public class FindTerminalResponse {
     openapiRequiredFields.add("companyAccount");
     openapiRequiredFields.add("terminal");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(FindTerminalResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -266,7 +272,7 @@ public class FindTerminalResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!FindTerminalResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FindTerminalResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `FindTerminalResponse` properties.", entry.getKey()));
         }
       }
 
@@ -278,19 +284,19 @@ public class FindTerminalResponse {
       }
       // validate the optional field companyAccount
       if (jsonObj.get("companyAccount") != null && !jsonObj.get("companyAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
       }
       // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
       // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
       }
       // validate the optional field terminal
       if (jsonObj.get("terminal") != null && !jsonObj.get("terminal").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
       }
   }
 

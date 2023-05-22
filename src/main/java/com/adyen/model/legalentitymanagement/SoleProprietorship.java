@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.legalentitymanagement.JSON;
 
@@ -410,6 +412,10 @@ public class SoleProprietorship {
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("registeredAddress");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(SoleProprietorship.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -430,7 +436,7 @@ public class SoleProprietorship {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!SoleProprietorship.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SoleProprietorship` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `SoleProprietorship` properties.", entry.getKey()));
         }
       }
 
@@ -442,19 +448,19 @@ public class SoleProprietorship {
       }
       // validate the optional field countryOfGoverningLaw
       if (jsonObj.get("countryOfGoverningLaw") != null && !jsonObj.get("countryOfGoverningLaw").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `countryOfGoverningLaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryOfGoverningLaw").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `countryOfGoverningLaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryOfGoverningLaw").toString()));
       }
       // validate the optional field dateOfIncorporation
       if (jsonObj.get("dateOfIncorporation") != null && !jsonObj.get("dateOfIncorporation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dateOfIncorporation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dateOfIncorporation").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `dateOfIncorporation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dateOfIncorporation").toString()));
       }
       // validate the optional field doingBusinessAs
       if (jsonObj.get("doingBusinessAs") != null && !jsonObj.get("doingBusinessAs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `doingBusinessAs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doingBusinessAs").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `doingBusinessAs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doingBusinessAs").toString()));
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `principalPlaceOfBusiness`
       if (jsonObj.getAsJsonObject("principalPlaceOfBusiness") != null) {
@@ -466,7 +472,7 @@ public class SoleProprietorship {
       }
       // validate the optional field registrationNumber
       if (jsonObj.get("registrationNumber") != null && !jsonObj.get("registrationNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `registrationNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("registrationNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `registrationNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("registrationNumber").toString()));
       }
       // ensure the field vatAbsenceReason can be parsed to an enum value
       if (jsonObj.get("vatAbsenceReason") != null) {
@@ -477,7 +483,7 @@ public class SoleProprietorship {
       }
       // validate the optional field vatNumber
       if (jsonObj.get("vatNumber") != null && !jsonObj.get("vatNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vatNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vatNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `vatNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vatNumber").toString()));
       }
   }
 

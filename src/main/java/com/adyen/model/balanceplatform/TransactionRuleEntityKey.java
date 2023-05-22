@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.balanceplatform.JSON;
 
@@ -156,6 +158,10 @@ public class TransactionRuleEntityKey {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TransactionRuleEntityKey.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -176,16 +182,16 @@ public class TransactionRuleEntityKey {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionRuleEntityKey.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleEntityKey` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleEntityKey` properties.", entry.getKey()));
         }
       }
       // validate the optional field entityReference
       if (jsonObj.get("entityReference") != null && !jsonObj.get("entityReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entityReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `entityReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityReference").toString()));
       }
       // validate the optional field entityType
       if (jsonObj.get("entityType") != null && !jsonObj.get("entityType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
       }
   }
 

@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.legalentitymanagement.JSON;
 
@@ -264,6 +266,10 @@ public class SourceOfFunds {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(SourceOfFunds.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -284,16 +290,16 @@ public class SourceOfFunds {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!SourceOfFunds.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SourceOfFunds` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `SourceOfFunds` properties.", entry.getKey()));
         }
       }
       // validate the optional field acquiringBusinessLineId
       if (jsonObj.get("acquiringBusinessLineId") != null && !jsonObj.get("acquiringBusinessLineId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `acquiringBusinessLineId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquiringBusinessLineId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `acquiringBusinessLineId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquiringBusinessLineId").toString()));
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {
