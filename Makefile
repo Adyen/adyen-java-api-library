@@ -95,7 +95,8 @@ $(bigServices): target/spec $(openapi-generator-jar)
 	mv $(output)/src/main/java/com/adyen/service/$@ src/main/java/com/adyen/service/$@
 
 $(singleFileServices): target/spec $(openapi-generator-jar)
-	cat <<< "$$(jq 'del(.paths[][].tags)' target/spec/json/$(spec).json)" > target/spec/json/$(spec).json
+	jq -e 'del(.paths[][].tags)' target/spec/json/$(spec).json > target/spec/json/$(spec).tmp
+	mv target/spec/json/$(spec).tmp target/spec/json/$(spec).json 
 	rm -rf $(models)/$@ $(output)
 	rm -rf src/main/java/com/adyen/service/$@ $(output)
 	$(openapi-generator-cli) generate \
