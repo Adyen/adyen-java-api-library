@@ -159,6 +159,10 @@ public class AdyenHttpClient implements ClientInterface {
             if (requestOptions.getRequestedVerificationCodeHeader() != null) {
                 httpUriRequest.addHeader(REQUESTED_VERIFICATION_CODE_HEADER, requestOptions.getRequestedVerificationCodeHeader());
             }
+
+            if (requestOptions.getAdditionalServiceHeaders() != null) {
+                requestOptions.getAdditionalServiceHeaders().forEach(httpUriRequest::addHeader);
+            }
         }
     }
 
