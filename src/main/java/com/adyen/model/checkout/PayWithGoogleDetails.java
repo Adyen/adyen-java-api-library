@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -106,6 +108,7 @@ public class PayWithGoogleDetails {
   private String googlePayToken;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -231,6 +234,7 @@ public class PayWithGoogleDetails {
   }
 
 
+  @Deprecated
   public PayWithGoogleDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -250,6 +254,7 @@ public class PayWithGoogleDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
@@ -365,6 +370,10 @@ public class PayWithGoogleDetails {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("googlePayToken");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(PayWithGoogleDetails.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -385,7 +394,7 @@ public class PayWithGoogleDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PayWithGoogleDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PayWithGoogleDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PayWithGoogleDetails` properties.", entry.getKey()));
         }
       }
 
@@ -397,7 +406,7 @@ public class PayWithGoogleDetails {
       }
       // validate the optional field checkoutAttemptId
       if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field fundingSource can be parsed to an enum value
       if (jsonObj.get("fundingSource") != null) {
@@ -408,15 +417,15 @@ public class PayWithGoogleDetails {
       }
       // validate the optional field googlePayToken
       if (jsonObj.get("googlePayToken") != null && !jsonObj.get("googlePayToken").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `googlePayToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("googlePayToken").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `googlePayToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("googlePayToken").toString()));
       }
       // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
       }
       // validate the optional field storedPaymentMethodId
       if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

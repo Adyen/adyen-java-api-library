@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -56,6 +58,7 @@ public class PaymentSetupResponse {
   private String paymentSession;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAILS = "recurringDetails";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAILS)
   private List<RecurringDetail> recurringDetails = null;
 
@@ -84,6 +87,7 @@ public class PaymentSetupResponse {
   }
 
 
+  @Deprecated
   public PaymentSetupResponse recurringDetails(List<RecurringDetail> recurringDetails) {
     
     this.recurringDetails = recurringDetails;
@@ -111,6 +115,7 @@ public class PaymentSetupResponse {
   }
 
 
+  @Deprecated
   public void setRecurringDetails(List<RecurringDetail> recurringDetails) {
     this.recurringDetails = recurringDetails;
   }
@@ -169,6 +174,10 @@ public class PaymentSetupResponse {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(PaymentSetupResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -189,12 +198,12 @@ public class PaymentSetupResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentSetupResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentSetupResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentSetupResponse` properties.", entry.getKey()));
         }
       }
       // validate the optional field paymentSession
       if (jsonObj.get("paymentSession") != null && !jsonObj.get("paymentSession").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `paymentSession` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSession").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `paymentSession` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSession").toString()));
       }
       JsonArray jsonArrayrecurringDetails = jsonObj.getAsJsonArray("recurringDetails");
       if (jsonArrayrecurringDetails != null) {

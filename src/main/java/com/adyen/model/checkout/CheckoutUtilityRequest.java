@@ -42,6 +42,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -135,6 +137,10 @@ public class CheckoutUtilityRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("originDomains");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CheckoutUtilityRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -155,7 +161,7 @@ public class CheckoutUtilityRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CheckoutUtilityRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CheckoutUtilityRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CheckoutUtilityRequest` properties.", entry.getKey()));
         }
       }
 
@@ -167,7 +173,7 @@ public class CheckoutUtilityRequest {
       }
       // ensure the json data is an array
       if (jsonObj.get("originDomains") != null && !jsonObj.get("originDomains").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `originDomains` to be an array in the JSON string but got `%s`", jsonObj.get("originDomains").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `originDomains` to be an array in the JSON string but got `%s`", jsonObj.get("originDomains").toString()));
       }
   }
 

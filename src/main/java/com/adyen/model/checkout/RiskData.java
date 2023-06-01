@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -225,6 +227,10 @@ public class RiskData {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(RiskData.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -245,16 +251,16 @@ public class RiskData {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!RiskData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RiskData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `RiskData` properties.", entry.getKey()));
         }
       }
       // validate the optional field clientData
       if (jsonObj.get("clientData") != null && !jsonObj.get("clientData").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `clientData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clientData").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `clientData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clientData").toString()));
       }
       // validate the optional field profileReference
       if (jsonObj.get("profileReference") != null && !jsonObj.get("profileReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `profileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `profileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileReference").toString()));
       }
   }
 

@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -57,6 +59,7 @@ public class CardDetails {
   private String checkoutAttemptId;
 
   public static final String SERIALIZED_NAME_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CUPSECUREPLUS_SMSCODE)
   private String cupsecureplusSmscode;
 
@@ -150,6 +153,7 @@ public class CardDetails {
   private String number;
 
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
 
@@ -175,6 +179,12 @@ public class CardDetails {
     NETWORKTOKEN("networkToken"),
     
     GIFTCARD("giftcard"),
+    
+    MEALVOUCHER_FR_GROUPEUP("mealVoucher_FR_groupeup"),
+    
+    MEALVOUCHER_FR_NATIXIS("mealVoucher_FR_natixis"),
+    
+    MEALVOUCHER_FR_SODEXO("mealVoucher_FR_sodexo"),
     
     ALLIANCEDATA("alliancedata"),
     
@@ -269,6 +279,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public CardDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
     
     this.cupsecureplusSmscode = cupsecureplusSmscode;
@@ -288,6 +299,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
   }
@@ -535,6 +547,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public CardDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -554,6 +567,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
@@ -751,6 +765,10 @@ public class CardDetails {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CardDetails.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -771,48 +789,48 @@ public class CardDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CardDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties.", entry.getKey()));
         }
       }
       // validate the optional field brand
       if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
       }
       // validate the optional field checkoutAttemptId
       if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field cupsecureplus.smscode
       if (jsonObj.get("cupsecureplus.smscode") != null && !jsonObj.get("cupsecureplus.smscode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cupsecureplus.smscode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cupsecureplus.smscode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `cupsecureplus.smscode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cupsecureplus.smscode").toString()));
       }
       // validate the optional field cvc
       if (jsonObj.get("cvc") != null && !jsonObj.get("cvc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
       }
       // validate the optional field encryptedCardNumber
       if (jsonObj.get("encryptedCardNumber") != null && !jsonObj.get("encryptedCardNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encryptedCardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedCardNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `encryptedCardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedCardNumber").toString()));
       }
       // validate the optional field encryptedExpiryMonth
       if (jsonObj.get("encryptedExpiryMonth") != null && !jsonObj.get("encryptedExpiryMonth").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encryptedExpiryMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedExpiryMonth").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `encryptedExpiryMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedExpiryMonth").toString()));
       }
       // validate the optional field encryptedExpiryYear
       if (jsonObj.get("encryptedExpiryYear") != null && !jsonObj.get("encryptedExpiryYear").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encryptedExpiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedExpiryYear").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `encryptedExpiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedExpiryYear").toString()));
       }
       // validate the optional field encryptedSecurityCode
       if (jsonObj.get("encryptedSecurityCode") != null && !jsonObj.get("encryptedSecurityCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encryptedSecurityCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedSecurityCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `encryptedSecurityCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedSecurityCode").toString()));
       }
       // validate the optional field expiryMonth
       if (jsonObj.get("expiryMonth") != null && !jsonObj.get("expiryMonth").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expiryMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryMonth").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `expiryMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryMonth").toString()));
       }
       // validate the optional field expiryYear
       if (jsonObj.get("expiryYear") != null && !jsonObj.get("expiryYear").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryYear").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `expiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryYear").toString()));
       }
       // ensure the field fundingSource can be parsed to an enum value
       if (jsonObj.get("fundingSource") != null) {
@@ -823,31 +841,31 @@ public class CardDetails {
       }
       // validate the optional field holderName
       if (jsonObj.get("holderName") != null && !jsonObj.get("holderName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `holderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderName").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `holderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderName").toString()));
       }
       // validate the optional field networkPaymentReference
       if (jsonObj.get("networkPaymentReference") != null && !jsonObj.get("networkPaymentReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `networkPaymentReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkPaymentReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `networkPaymentReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkPaymentReference").toString()));
       }
       // validate the optional field number
       if (jsonObj.get("number") != null && !jsonObj.get("number").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
       }
       // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
       }
       // validate the optional field shopperNotificationReference
       if (jsonObj.get("shopperNotificationReference") != null && !jsonObj.get("shopperNotificationReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperNotificationReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperNotificationReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shopperNotificationReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperNotificationReference").toString()));
       }
       // validate the optional field storedPaymentMethodId
       if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
       }
       // validate the optional field threeDS2SdkVersion
       if (jsonObj.get("threeDS2SdkVersion") != null && !jsonObj.get("threeDS2SdkVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDS2SdkVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDS2SdkVersion").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `threeDS2SdkVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDS2SdkVersion").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

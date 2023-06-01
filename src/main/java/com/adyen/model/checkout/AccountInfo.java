@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -286,10 +288,12 @@ public class AccountInfo {
   private DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator;
 
   public static final String SERIALIZED_NAME_HOME_PHONE = "homePhone";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_HOME_PHONE)
   private String homePhone;
 
   public static final String SERIALIZED_NAME_MOBILE_PHONE = "mobilePhone";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_MOBILE_PHONE)
   private String mobilePhone;
 
@@ -432,6 +436,7 @@ public class AccountInfo {
   private Boolean suspiciousActivity;
 
   public static final String SERIALIZED_NAME_WORK_PHONE = "workPhone";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_WORK_PHONE)
   private String workPhone;
 
@@ -614,6 +619,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public AccountInfo homePhone(String homePhone) {
     
     this.homePhone = homePhone;
@@ -633,11 +639,13 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public void setHomePhone(String homePhone) {
     this.homePhone = homePhone;
   }
 
 
+  @Deprecated
   public AccountInfo mobilePhone(String mobilePhone) {
     
     this.mobilePhone = mobilePhone;
@@ -657,6 +665,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public void setMobilePhone(String mobilePhone) {
     this.mobilePhone = mobilePhone;
   }
@@ -838,6 +847,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public AccountInfo workPhone(String workPhone) {
     
     this.workPhone = workPhone;
@@ -857,6 +867,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public void setWorkPhone(String workPhone) {
     this.workPhone = workPhone;
   }
@@ -966,6 +977,10 @@ public class AccountInfo {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AccountInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -986,7 +1001,7 @@ public class AccountInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AccountInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AccountInfo` properties.", entry.getKey()));
         }
       }
       // ensure the field accountAgeIndicator can be parsed to an enum value
@@ -1019,11 +1034,11 @@ public class AccountInfo {
       }
       // validate the optional field homePhone
       if (jsonObj.get("homePhone") != null && !jsonObj.get("homePhone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `homePhone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("homePhone").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `homePhone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("homePhone").toString()));
       }
       // validate the optional field mobilePhone
       if (jsonObj.get("mobilePhone") != null && !jsonObj.get("mobilePhone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mobilePhone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mobilePhone").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `mobilePhone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mobilePhone").toString()));
       }
       // ensure the field passwordChangeIndicator can be parsed to an enum value
       if (jsonObj.get("passwordChangeIndicator") != null) {
@@ -1041,7 +1056,7 @@ public class AccountInfo {
       }
       // validate the optional field workPhone
       if (jsonObj.get("workPhone") != null && !jsonObj.get("workPhone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workPhone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workPhone").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `workPhone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workPhone").toString()));
       }
   }
 

@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -185,6 +187,10 @@ public class ResponseAdditionalDataSepa {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ResponseAdditionalDataSepa.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -205,20 +211,20 @@ public class ResponseAdditionalDataSepa {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ResponseAdditionalDataSepa.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataSepa` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataSepa` properties.", entry.getKey()));
         }
       }
       // validate the optional field sepadirectdebit.dateOfSignature
       if (jsonObj.get("sepadirectdebit.dateOfSignature") != null && !jsonObj.get("sepadirectdebit.dateOfSignature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.dateOfSignature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.dateOfSignature").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `sepadirectdebit.dateOfSignature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.dateOfSignature").toString()));
       }
       // validate the optional field sepadirectdebit.mandateId
       if (jsonObj.get("sepadirectdebit.mandateId") != null && !jsonObj.get("sepadirectdebit.mandateId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.mandateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.mandateId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `sepadirectdebit.mandateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.mandateId").toString()));
       }
       // validate the optional field sepadirectdebit.sequenceType
       if (jsonObj.get("sepadirectdebit.sequenceType") != null && !jsonObj.get("sepadirectdebit.sequenceType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.sequenceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.sequenceType").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `sepadirectdebit.sequenceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.sequenceType").toString()));
       }
   }
 
