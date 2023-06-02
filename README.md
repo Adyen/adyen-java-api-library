@@ -50,7 +50,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>20.0.0</version>
+  <version>20.1.0</version>
 </dependency>
 ```
 
