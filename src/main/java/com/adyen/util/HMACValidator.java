@@ -20,6 +20,7 @@
  */
 package com.adyen.util;
 
+import com.adyen.model.marketpay.Message;
 import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
 import org.apache.commons.codec.binary.Base64;
@@ -31,7 +32,9 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SignatureException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
@@ -71,6 +74,15 @@ public class HMACValidator {
     // To calculate the HMAC SHA-256
     public String calculateHMAC(NotificationRequestItem notificationRequestItem, String key) throws IllegalArgumentException, SignatureException {
         return calculateHMAC(getDataToSign(notificationRequestItem), key);
+    }
+
+    // Calculate HMAC for BankingWebhooks (Generic webhooks)
+    public boolean validateHMAC(String hmacKey, String hmacSignature, String payload) throws SignatureException {
+        String calculatedSign = calculateHMAC(payload, hmacSignature);
+        System.out.println(calculatedSign);
+        final byte [] expectedSign = calculatedSign.getBytes(StandardCharsets.UTF_8);
+        final byte[] merchantSign =  hmacKey.getBytes(StandardCharsets.UTF_8);
+        return MessageDigest.isEqual(expectedSign, merchantSign);
     }
 
     public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key) throws IllegalArgumentException, SignatureException {

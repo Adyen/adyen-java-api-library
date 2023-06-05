@@ -20,6 +20,8 @@
  */
 package com.adyen;
 
+import com.adyen.model.configurationNotification.AccountHolderNotificationRequest;
+import com.adyen.model.configurationNotification.BalanceAccountNotificationRequest;
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
 import com.adyen.model.nexo.EventNotification;
@@ -28,18 +30,20 @@ import com.adyen.model.nexo.InfoQualifyType;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.notification.BankingWebhookHandler;
 import com.adyen.notification.WebhookHandler;
+import com.adyen.util.HMACValidator;
 import com.google.gson.JsonParser;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.function.ThrowingRunnable;
 
 import java.io.IOException;
+import java.security.SignatureException;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Tests notification messages
@@ -236,4 +240,28 @@ public class WebhookTest extends BaseTest {
         String json = getFileContents(resourcePath);
         return webhookHandler.handleNotificationJson(json);
     }
+
+    @Test
+    public void testBankingWebhook() {
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler();
+        AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest("{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}");
+        Assert.assertEquals(accountHolderNotificationRequest.getData().getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
+    }
+
+    @Test
+    public void testBankingWebhookClassCastExceptionCast() {
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler();
+        assertThrows(ClassCastException.class, () -> webhookHandler.getBalanceAccountNotificationRequest("{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}"));
+    }
+
+    @Test
+    public void testBankingWebhookHmacValidator() throws SignatureException {
+        String notification = "{\"data\":{\"balancePlatform\":\"Integration_tools_test\",\"accountId\":\"BA32272223222H5HVKTBK4MLB\",\"sweep\":{\"id\":\"SWPC42272223222H5HVKV6H8C64DP5\",\"schedule\":{\"type\":\"balance\"},\"status\":\"active\",\"targetAmount\":{\"currency\":\"EUR\",\"value\":0},\"triggerAmount\":{\"currency\":\"EUR\",\"value\":0},\"type\":\"pull\",\"counterparty\":{\"balanceAccountId\":\"BA3227C223222H5HVKT3H9WLC\"},\"currency\":\"EUR\"}},\"environment\":\"test\",\"type\":\"balancePlatform.balanceAccountSweep.updated\"}";
+        String signKey = "D7DD5BA6146493707BF0BE7496F6404EC7A63616B7158EC927B9F54BB436765F";
+        String hmacKey = "9Qz9S/0xpar1klkniKdshxpAhRKbiSAewPpWoxKefQA=";
+        HMACValidator hmacValidator = new HMACValidator();
+        boolean response = hmacValidator.validateHMAC(hmacKey, signKey, notification);
+        Assert.assertTrue(response);
+    }
+
 }
