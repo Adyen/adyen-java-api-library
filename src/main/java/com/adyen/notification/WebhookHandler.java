@@ -21,22 +21,15 @@
 package com.adyen.notification;
 
 import com.adyen.deserializer.MarketPayNotificationMessageDeserializer;
-import com.adyen.model.configurationNotification.*;
 import com.adyen.model.marketpay.notification.GenericWebhook;
 import com.adyen.model.notification.NotificationRequest;
-import com.adyen.model.reportNotification.ReportNotificationRequest;
 import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.transferNotification.TransferNotificationRequest;
 import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Notification converter
