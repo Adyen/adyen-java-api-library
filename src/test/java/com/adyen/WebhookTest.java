@@ -20,8 +20,8 @@
  */
 package com.adyen;
 
-import com.adyen.model.configurationNotification.AccountHolderNotificationRequest;
-import com.adyen.model.configurationNotification.BalanceAccountNotificationRequest;
+import com.adyen.model.configurationWebhooks.AccountHolderNotificationRequest;
+import com.adyen.model.configurationWebhooks.BalanceAccountNotificationRequest;
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
 import com.adyen.model.nexo.EventNotification;
