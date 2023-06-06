@@ -1,12 +1,12 @@
 package com.adyen.notification;
 
-import com.adyen.model.configurationWebhooks.AccountHolderNotificationRequest;
-import com.adyen.model.configurationWebhooks.BalanceAccountNotificationRequest;
-import com.adyen.model.configurationWebhooks.CardOrderNotificationRequest;
-import com.adyen.model.configurationWebhooks.PaymentNotificationRequest;
-import com.adyen.model.configurationWebhooks.SweepConfigurationNotificationRequest;
-import com.adyen.model.reportWebhooks.ReportNotificationRequest;
-import com.adyen.model.transferWebhooks.TransferNotificationRequest;
+import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
+import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
+import com.adyen.model.configurationwebhooks.CardOrderNotificationRequest;
+import com.adyen.model.configurationwebhooks.PaymentNotificationRequest;
+import com.adyen.model.configurationwebhooks.SweepConfigurationNotificationRequest;
+import com.adyen.model.reportwebhooks.ReportNotificationRequest;
+import com.adyen.model.transferwebhooks.TransferNotificationRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
