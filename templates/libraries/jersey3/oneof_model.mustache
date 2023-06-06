@@ -21,7 +21,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import {{invokerPackage}}.JSON;
 
 {{>additionalModelTypeAnnotations}}{{>xmlAnnotation}}
 @JsonDeserialize(using = {{classname}}.{{classname}}Deserializer.class)

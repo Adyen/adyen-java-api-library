@@ -64,7 +64,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.adyen.service.JSON;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -91,7 +90,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import com.adyen.service.JSON;
 
 
 @JsonDeserialize(using = CheckoutPaymentMethod.CheckoutPaymentMethodDeserializer.class)
