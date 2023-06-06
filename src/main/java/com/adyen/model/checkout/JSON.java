@@ -1,4 +1,4 @@
-package com.adyen.service;
+package com.adyen.model.checkout;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
