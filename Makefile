@@ -92,7 +92,6 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		--global-property modelTests=false \
 		--inline-schema-name-mappings PaymentDonationRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
-		--additional-properties=library=$(library) \
 		--additional-properties=openApiNullable=false
 	mv $(output)/$(models)/$@ $(models)/$@
 	mv $(output)/src/main/java/com/adyen/service/JSON.java $(models)/$@
@@ -106,7 +105,7 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 	$(openapi-generator-cli) generate \
 		-i target/spec/json/$(spec).json \
 		-g $(generator) \
-		-c templates/libraries/okhttp-gson/config.yaml \
+		-c templates/libraries/jersey3/config.yaml \
 		-o $(output) \
 		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
@@ -120,7 +119,6 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		--global-property modelTests=false \
 		--inline-schema-name-mappings PaymentDonationRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
-		--additional-properties=serializationLibrary=gson \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=smallServiceName=$(smallServiceName)
 	mv $(output)/$(models)/$@ $(models)/$@
