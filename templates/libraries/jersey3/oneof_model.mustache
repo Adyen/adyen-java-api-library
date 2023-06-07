@@ -94,11 +94,11 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                         {{/isNullable}}
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream({{{.}}}.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs({{{.}}}.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
                 }

@@ -113,11 +113,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                         attemptParsing |= (CheckoutAwaitAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutAwaitAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutAwaitAction.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutAwaitAction'");
                 }
@@ -139,11 +139,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                         attemptParsing |= (CheckoutNativeRedirectAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutNativeRedirectAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutNativeRedirectAction.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutNativeRedirectAction'");
                 }
@@ -165,11 +165,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                         attemptParsing |= (CheckoutQrCodeAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutQrCodeAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutQrCodeAction.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutQrCodeAction'");
                 }
@@ -191,11 +191,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                         attemptParsing |= (CheckoutRedirectAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutRedirectAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutRedirectAction.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutRedirectAction'");
                 }
@@ -217,11 +217,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                         attemptParsing |= (CheckoutSDKAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutSDKAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutSDKAction.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutSDKAction'");
                 }
@@ -243,11 +243,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                         attemptParsing |= (CheckoutThreeDS2Action.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutThreeDS2Action.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutThreeDS2Action.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutThreeDS2Action'");
                 }
@@ -269,11 +269,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                         attemptParsing |= (CheckoutVoucherAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
-                if (attemptParsing) {
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutVoucherAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing && typeMatch) {
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutVoucherAction.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
+                    // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutVoucherAction'");
                 }
