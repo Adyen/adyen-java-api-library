@@ -14,155 +14,119 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Terminal
  */
+@JsonPropertyOrder({
+  Terminal.JSON_PROPERTY_ASSIGNED,
+  Terminal.JSON_PROPERTY_BLUETOOTH_IP,
+  Terminal.JSON_PROPERTY_BLUETOOTH_MAC,
+  Terminal.JSON_PROPERTY_CITY,
+  Terminal.JSON_PROPERTY_COMPANY_ACCOUNT,
+  Terminal.JSON_PROPERTY_COUNTRY_CODE,
+  Terminal.JSON_PROPERTY_DEVICE_MODEL,
+  Terminal.JSON_PROPERTY_ETHERNET_IP,
+  Terminal.JSON_PROPERTY_ETHERNET_MAC,
+  Terminal.JSON_PROPERTY_FIRMWARE_VERSION,
+  Terminal.JSON_PROPERTY_ICCID,
+  Terminal.JSON_PROPERTY_ID,
+  Terminal.JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME,
+  Terminal.JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME,
+  Terminal.JSON_PROPERTY_LINK_NEGOTIATION,
+  Terminal.JSON_PROPERTY_SERIAL_NUMBER,
+  Terminal.JSON_PROPERTY_SIM_STATUS,
+  Terminal.JSON_PROPERTY_STATUS,
+  Terminal.JSON_PROPERTY_STORE_STATUS,
+  Terminal.JSON_PROPERTY_WIFI_IP,
+  Terminal.JSON_PROPERTY_WIFI_MAC,
+  Terminal.JSON_PROPERTY_WIFI_SSID
+})
 
 public class Terminal {
-  public static final String SERIALIZED_NAME_ASSIGNED = "assigned";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_ASSIGNED)
+  public static final String JSON_PROPERTY_ASSIGNED = "assigned";
   private Boolean assigned;
 
-  public static final String SERIALIZED_NAME_BLUETOOTH_IP = "bluetoothIp";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_BLUETOOTH_IP)
+  public static final String JSON_PROPERTY_BLUETOOTH_IP = "bluetoothIp";
   private String bluetoothIp;
 
-  public static final String SERIALIZED_NAME_BLUETOOTH_MAC = "bluetoothMac";
-  @SerializedName(SERIALIZED_NAME_BLUETOOTH_MAC)
+  public static final String JSON_PROPERTY_BLUETOOTH_MAC = "bluetoothMac";
   private String bluetoothMac;
 
-  public static final String SERIALIZED_NAME_CITY = "city";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_CITY)
+  public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
-  public static final String SERIALIZED_NAME_COMPANY_ACCOUNT = "companyAccount";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_COMPANY_ACCOUNT)
+  public static final String JSON_PROPERTY_COMPANY_ACCOUNT = "companyAccount";
   private String companyAccount;
 
-  public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
-  public static final String SERIALIZED_NAME_DEVICE_MODEL = "deviceModel";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_DEVICE_MODEL)
+  public static final String JSON_PROPERTY_DEVICE_MODEL = "deviceModel";
   private String deviceModel;
 
-  public static final String SERIALIZED_NAME_ETHERNET_IP = "ethernetIp";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_ETHERNET_IP)
+  public static final String JSON_PROPERTY_ETHERNET_IP = "ethernetIp";
   private String ethernetIp;
 
-  public static final String SERIALIZED_NAME_ETHERNET_MAC = "ethernetMac";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_ETHERNET_MAC)
+  public static final String JSON_PROPERTY_ETHERNET_MAC = "ethernetMac";
   private String ethernetMac;
 
-  public static final String SERIALIZED_NAME_FIRMWARE_VERSION = "firmwareVersion";
-  @SerializedName(SERIALIZED_NAME_FIRMWARE_VERSION)
+  public static final String JSON_PROPERTY_FIRMWARE_VERSION = "firmwareVersion";
   private String firmwareVersion;
 
-  public static final String SERIALIZED_NAME_ICCID = "iccid";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_ICCID)
+  public static final String JSON_PROPERTY_ICCID = "iccid";
   private String iccid;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME = "lastActivityDateTime";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME)
+  public static final String JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME = "lastActivityDateTime";
   private OffsetDateTime lastActivityDateTime;
 
-  public static final String SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME = "lastTransactionDateTime";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME)
+  public static final String JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME = "lastTransactionDateTime";
   private OffsetDateTime lastTransactionDateTime;
 
-  public static final String SERIALIZED_NAME_LINK_NEGOTIATION = "linkNegotiation";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_LINK_NEGOTIATION)
+  public static final String JSON_PROPERTY_LINK_NEGOTIATION = "linkNegotiation";
   private String linkNegotiation;
 
-  public static final String SERIALIZED_NAME_SERIAL_NUMBER = "serialNumber";
-  @SerializedName(SERIALIZED_NAME_SERIAL_NUMBER)
+  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private String serialNumber;
 
-  public static final String SERIALIZED_NAME_SIM_STATUS = "simStatus";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_SIM_STATUS)
+  public static final String JSON_PROPERTY_SIM_STATUS = "simStatus";
   private String simStatus;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
-  public static final String SERIALIZED_NAME_STORE_STATUS = "storeStatus";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_STORE_STATUS)
+  public static final String JSON_PROPERTY_STORE_STATUS = "storeStatus";
   private String storeStatus;
 
-  public static final String SERIALIZED_NAME_WIFI_IP = "wifiIp";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_WIFI_IP)
+  public static final String JSON_PROPERTY_WIFI_IP = "wifiIp";
   private String wifiIp;
 
-  public static final String SERIALIZED_NAME_WIFI_MAC = "wifiMac";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_WIFI_MAC)
+  public static final String JSON_PROPERTY_WIFI_MAC = "wifiMac";
   private String wifiMac;
 
-  public static final String SERIALIZED_NAME_WIFI_SSID = "wifiSsid";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_WIFI_SSID)
+  public static final String JSON_PROPERTY_WIFI_SSID = "wifiSsid";
   private String wifiSsid;
 
   public Terminal() { 
   }
 
-  @Deprecated
   public Terminal assigned(Boolean assigned) {
-    
     this.assigned = assigned;
     return this;
   }
@@ -174,21 +138,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The [assignment status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api) of the terminal. If true, the terminal is assigned. If false, the terminal is in inventory and can't be boarded.")
+  @JsonProperty(JSON_PROPERTY_ASSIGNED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAssigned() {
     return assigned;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_ASSIGNED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssigned(Boolean assigned) {
     this.assigned = assigned;
   }
 
 
-  @Deprecated
   public Terminal bluetoothIp(String bluetoothIp) {
-    
     this.bluetoothIp = bluetoothIp;
     return this;
   }
@@ -200,20 +165,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The Bluetooth IP address of the terminal.")
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBluetoothIp() {
     return bluetoothIp;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothIp(String bluetoothIp) {
     this.bluetoothIp = bluetoothIp;
   }
 
 
   public Terminal bluetoothMac(String bluetoothMac) {
-    
     this.bluetoothMac = bluetoothMac;
     return this;
   }
@@ -223,20 +190,22 @@ public class Terminal {
    * @return bluetoothMac
   **/
   @ApiModelProperty(value = "The Bluetooth MAC address of the terminal.")
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBluetoothMac() {
     return bluetoothMac;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothMac(String bluetoothMac) {
     this.bluetoothMac = bluetoothMac;
   }
 
 
-  @Deprecated
   public Terminal city(String city) {
-    
     this.city = city;
     return this;
   }
@@ -248,21 +217,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The city where the terminal is located.")
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCity() {
     return city;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
 
-  @Deprecated
   public Terminal companyAccount(String companyAccount) {
-    
     this.companyAccount = companyAccount;
     return this;
   }
@@ -274,21 +244,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
+  @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCompanyAccount() {
     return companyAccount;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
 
-  @Deprecated
   public Terminal countryCode(String countryCode) {
-    
     this.countryCode = countryCode;
     return this;
   }
@@ -300,21 +271,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The country code of the country where the terminal is located.")
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCountryCode() {
     return countryCode;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
 
-  @Deprecated
   public Terminal deviceModel(String deviceModel) {
-    
     this.deviceModel = deviceModel;
     return this;
   }
@@ -326,21 +298,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The model name of the terminal.")
+  @JsonProperty(JSON_PROPERTY_DEVICE_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDeviceModel() {
     return deviceModel;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_DEVICE_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceModel(String deviceModel) {
     this.deviceModel = deviceModel;
   }
 
 
-  @Deprecated
   public Terminal ethernetIp(String ethernetIp) {
-    
     this.ethernetIp = ethernetIp;
     return this;
   }
@@ -352,21 +325,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The ethernet IP address of the terminal.")
+  @JsonProperty(JSON_PROPERTY_ETHERNET_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEthernetIp() {
     return ethernetIp;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_ETHERNET_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetIp(String ethernetIp) {
     this.ethernetIp = ethernetIp;
   }
 
 
-  @Deprecated
   public Terminal ethernetMac(String ethernetMac) {
-    
     this.ethernetMac = ethernetMac;
     return this;
   }
@@ -378,20 +352,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The ethernet MAC address of the terminal.")
+  @JsonProperty(JSON_PROPERTY_ETHERNET_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEthernetMac() {
     return ethernetMac;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_ETHERNET_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetMac(String ethernetMac) {
     this.ethernetMac = ethernetMac;
   }
 
 
   public Terminal firmwareVersion(String firmwareVersion) {
-    
     this.firmwareVersion = firmwareVersion;
     return this;
   }
@@ -401,20 +377,22 @@ public class Terminal {
    * @return firmwareVersion
   **/
   @ApiModelProperty(value = "The software release currently in use on the terminal.")
+  @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFirmwareVersion() {
     return firmwareVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
   }
 
 
-  @Deprecated
   public Terminal iccid(String iccid) {
-    
     this.iccid = iccid;
     return this;
   }
@@ -426,20 +404,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the SIM card in the terminal.")
+  @JsonProperty(JSON_PROPERTY_ICCID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIccid() {
     return iccid;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_ICCID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
     this.iccid = iccid;
   }
 
 
   public Terminal id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -449,20 +429,22 @@ public class Terminal {
    * @return id
   **/
   @ApiModelProperty(value = "The unique identifier of the terminal.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
-  @Deprecated
   public Terminal lastActivityDateTime(OffsetDateTime lastActivityDateTime) {
-    
     this.lastActivityDateTime = lastActivityDateTime;
     return this;
   }
@@ -474,21 +456,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
+  @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastActivityDateTime() {
     return lastActivityDateTime;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     this.lastActivityDateTime = lastActivityDateTime;
   }
 
 
-  @Deprecated
   public Terminal lastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
-    
     this.lastTransactionDateTime = lastTransactionDateTime;
     return this;
   }
@@ -500,21 +483,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
+  @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastTransactionDateTime() {
     return lastTransactionDateTime;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     this.lastTransactionDateTime = lastTransactionDateTime;
   }
 
 
-  @Deprecated
   public Terminal linkNegotiation(String linkNegotiation) {
-    
     this.linkNegotiation = linkNegotiation;
     return this;
   }
@@ -526,20 +510,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The Ethernet link negotiation that the terminal uses:  - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex")
+  @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLinkNegotiation() {
     return linkNegotiation;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkNegotiation(String linkNegotiation) {
     this.linkNegotiation = linkNegotiation;
   }
 
 
   public Terminal serialNumber(String serialNumber) {
-    
     this.serialNumber = serialNumber;
     return this;
   }
@@ -549,20 +535,22 @@ public class Terminal {
    * @return serialNumber
   **/
   @ApiModelProperty(value = "The serial number of the terminal.")
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSerialNumber() {
     return serialNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
 
 
-  @Deprecated
   public Terminal simStatus(String simStatus) {
-    
     this.simStatus = simStatus;
     return this;
   }
@@ -574,21 +562,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.")
+  @JsonProperty(JSON_PROPERTY_SIM_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSimStatus() {
     return simStatus;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_SIM_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSimStatus(String simStatus) {
     this.simStatus = simStatus;
   }
 
 
-  @Deprecated
   public Terminal status(String status) {
-    
     this.status = status;
     return this;
   }
@@ -600,21 +589,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "Indicates when the terminal was last online, whether the terminal is being reassigned, or whether the terminal is turned off. If the terminal was last online more that a week ago, it is also shown as turned off.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStatus() {
     return status;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
 
 
-  @Deprecated
   public Terminal storeStatus(String storeStatus) {
-    
     this.storeStatus = storeStatus;
     return this;
   }
@@ -626,21 +616,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The status of the store that the terminal is assigned to.")
+  @JsonProperty(JSON_PROPERTY_STORE_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStoreStatus() {
     return storeStatus;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_STORE_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreStatus(String storeStatus) {
     this.storeStatus = storeStatus;
   }
 
 
-  @Deprecated
   public Terminal wifiIp(String wifiIp) {
-    
     this.wifiIp = wifiIp;
     return this;
   }
@@ -652,21 +643,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The terminal's IP address in your Wi-Fi network.")
+  @JsonProperty(JSON_PROPERTY_WIFI_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWifiIp() {
     return wifiIp;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_WIFI_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiIp(String wifiIp) {
     this.wifiIp = wifiIp;
   }
 
 
-  @Deprecated
   public Terminal wifiMac(String wifiMac) {
-    
     this.wifiMac = wifiMac;
     return this;
   }
@@ -678,21 +670,22 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The terminal's MAC address in your Wi-Fi network.")
+  @JsonProperty(JSON_PROPERTY_WIFI_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWifiMac() {
     return wifiMac;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_WIFI_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiMac(String wifiMac) {
     this.wifiMac = wifiMac;
   }
 
 
-  @Deprecated
   public Terminal wifiSsid(String wifiSsid) {
-    
     this.wifiSsid = wifiSsid;
     return this;
   }
@@ -704,19 +697,24 @@ public class Terminal {
   **/
   @Deprecated
   @ApiModelProperty(value = "The SSID of the Wi-Fi network that your terminal is connected to.")
+  @JsonProperty(JSON_PROPERTY_WIFI_SSID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWifiSsid() {
     return wifiSsid;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_WIFI_SSID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiSsid(String wifiSsid) {
     this.wifiSsid = wifiSsid;
   }
 
 
-
+  /**
+   * Return true if this Terminal object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -796,191 +794,23 @@ public class Terminal {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("assigned");
-    openapiFields.add("bluetoothIp");
-    openapiFields.add("bluetoothMac");
-    openapiFields.add("city");
-    openapiFields.add("companyAccount");
-    openapiFields.add("countryCode");
-    openapiFields.add("deviceModel");
-    openapiFields.add("ethernetIp");
-    openapiFields.add("ethernetMac");
-    openapiFields.add("firmwareVersion");
-    openapiFields.add("iccid");
-    openapiFields.add("id");
-    openapiFields.add("lastActivityDateTime");
-    openapiFields.add("lastTransactionDateTime");
-    openapiFields.add("linkNegotiation");
-    openapiFields.add("serialNumber");
-    openapiFields.add("simStatus");
-    openapiFields.add("status");
-    openapiFields.add("storeStatus");
-    openapiFields.add("wifiIp");
-    openapiFields.add("wifiMac");
-    openapiFields.add("wifiSsid");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of Terminal given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Terminal
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Terminal
+   */
+  public static Terminal fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Terminal.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Terminal.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Terminal
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Terminal.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Terminal is not found in the empty JSON string", Terminal.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Terminal.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Terminal` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field bluetoothIp
-      if (jsonObj.get("bluetoothIp") != null && !jsonObj.get("bluetoothIp").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bluetoothIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothIp").toString()));
-      }
-      // validate the optional field bluetoothMac
-      if (jsonObj.get("bluetoothMac") != null && !jsonObj.get("bluetoothMac").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bluetoothMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothMac").toString()));
-      }
-      // validate the optional field city
-      if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
-      }
-      // validate the optional field companyAccount
-      if (jsonObj.get("companyAccount") != null && !jsonObj.get("companyAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
-      }
-      // validate the optional field countryCode
-      if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
-      }
-      // validate the optional field deviceModel
-      if (jsonObj.get("deviceModel") != null && !jsonObj.get("deviceModel").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `deviceModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceModel").toString()));
-      }
-      // validate the optional field ethernetIp
-      if (jsonObj.get("ethernetIp") != null && !jsonObj.get("ethernetIp").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ethernetIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetIp").toString()));
-      }
-      // validate the optional field ethernetMac
-      if (jsonObj.get("ethernetMac") != null && !jsonObj.get("ethernetMac").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ethernetMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetMac").toString()));
-      }
-      // validate the optional field firmwareVersion
-      if (jsonObj.get("firmwareVersion") != null && !jsonObj.get("firmwareVersion").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `firmwareVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firmwareVersion").toString()));
-      }
-      // validate the optional field iccid
-      if (jsonObj.get("iccid") != null && !jsonObj.get("iccid").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `iccid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iccid").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field linkNegotiation
-      if (jsonObj.get("linkNegotiation") != null && !jsonObj.get("linkNegotiation").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `linkNegotiation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkNegotiation").toString()));
-      }
-      // validate the optional field serialNumber
-      if (jsonObj.get("serialNumber") != null && !jsonObj.get("serialNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `serialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serialNumber").toString()));
-      }
-      // validate the optional field simStatus
-      if (jsonObj.get("simStatus") != null && !jsonObj.get("simStatus").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `simStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("simStatus").toString()));
-      }
-      // validate the optional field status
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      // validate the optional field storeStatus
-      if (jsonObj.get("storeStatus") != null && !jsonObj.get("storeStatus").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `storeStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeStatus").toString()));
-      }
-      // validate the optional field wifiIp
-      if (jsonObj.get("wifiIp") != null && !jsonObj.get("wifiIp").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `wifiIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiIp").toString()));
-      }
-      // validate the optional field wifiMac
-      if (jsonObj.get("wifiMac") != null && !jsonObj.get("wifiMac").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `wifiMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiMac").toString()));
-      }
-      // validate the optional field wifiSsid
-      if (jsonObj.get("wifiSsid") != null && !jsonObj.get("wifiSsid").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `wifiSsid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiSsid").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Terminal.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Terminal' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Terminal> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Terminal.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Terminal>() {
-           @Override
-           public void write(JsonWriter out, Terminal value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Terminal read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Terminal given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Terminal
-  * @throws IOException if the JSON string is invalid with respect to Terminal
-  */
-  public static Terminal fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Terminal.class);
-  }
-
- /**
+/**
   * Convert an instance of Terminal to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

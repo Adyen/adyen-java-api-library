@@ -14,69 +14,62 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.AdditionalSettings;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * UpdateCompanyWebhookRequest
  */
+@JsonPropertyOrder({
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_ACTIVE,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_ADDITIONAL_SETTINGS,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_COMMUNICATION_FORMAT,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_DESCRIPTION,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_NETWORK_TYPE,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_PASSWORD,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_SSL_VERSION,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_URL,
+  UpdateCompanyWebhookRequest.JSON_PROPERTY_USERNAME
+})
 
 public class UpdateCompanyWebhookRequest {
-  public static final String SERIALIZED_NAME_ACCEPTS_EXPIRED_CERTIFICATE = "acceptsExpiredCertificate";
-  @SerializedName(SERIALIZED_NAME_ACCEPTS_EXPIRED_CERTIFICATE)
+  public static final String JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE = "acceptsExpiredCertificate";
   private Boolean acceptsExpiredCertificate;
 
-  public static final String SERIALIZED_NAME_ACCEPTS_SELF_SIGNED_CERTIFICATE = "acceptsSelfSignedCertificate";
-  @SerializedName(SERIALIZED_NAME_ACCEPTS_SELF_SIGNED_CERTIFICATE)
+  public static final String JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE = "acceptsSelfSignedCertificate";
   private Boolean acceptsSelfSignedCertificate;
 
-  public static final String SERIALIZED_NAME_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE = "acceptsUntrustedRootCertificate";
-  @SerializedName(SERIALIZED_NAME_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE)
+  public static final String JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE = "acceptsUntrustedRootCertificate";
   private Boolean acceptsUntrustedRootCertificate;
 
-  public static final String SERIALIZED_NAME_ACTIVE = "active";
-  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
-  public static final String SERIALIZED_NAME_ADDITIONAL_SETTINGS = "additionalSettings";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_SETTINGS)
+  public static final String JSON_PROPERTY_ADDITIONAL_SETTINGS = "additionalSettings";
   private AdditionalSettings additionalSettings;
 
   /**
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    */
-  @JsonAdapter(CommunicationFormatEnum.Adapter.class)
   public enum CommunicationFormatEnum {
     HTTP("http"),
     
@@ -90,6 +83,7 @@ public class UpdateCompanyWebhookRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -99,6 +93,7 @@ public class UpdateCompanyWebhookRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static CommunicationFormatEnum fromValue(String value) {
       for (CommunicationFormatEnum b : CommunicationFormatEnum.values()) {
         if (b.value.equals(value)) {
@@ -107,33 +102,17 @@ public class UpdateCompanyWebhookRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<CommunicationFormatEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CommunicationFormatEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CommunicationFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CommunicationFormatEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_COMMUNICATION_FORMAT = "communicationFormat";
-  @SerializedName(SERIALIZED_NAME_COMMUNICATION_FORMAT)
+  public static final String JSON_PROPERTY_COMMUNICATION_FORMAT = "communicationFormat";
   private CommunicationFormatEnum communicationFormat;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
   /**
    * Shows how merchant accounts are filtered when configuring the webhook. Possible values: * **includeAccounts**: The webhook is configured for the merchant accounts listed in &#x60;filterMerchantAccounts&#x60;. * **excludeAccounts**: The webhook is not configured for the merchant accounts listed in &#x60;filterMerchantAccounts&#x60;. * **allAccounts**: Includes all merchant accounts, and does not require specifying &#x60;filterMerchantAccounts&#x60;.
    */
-  @JsonAdapter(FilterMerchantAccountTypeEnum.Adapter.class)
   public enum FilterMerchantAccountTypeEnum {
     ALLACCOUNTS("allAccounts"),
     
@@ -147,6 +126,7 @@ public class UpdateCompanyWebhookRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -156,6 +136,7 @@ public class UpdateCompanyWebhookRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static FilterMerchantAccountTypeEnum fromValue(String value) {
       for (FilterMerchantAccountTypeEnum b : FilterMerchantAccountTypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -164,33 +145,17 @@ public class UpdateCompanyWebhookRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<FilterMerchantAccountTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FilterMerchantAccountTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public FilterMerchantAccountTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return FilterMerchantAccountTypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_FILTER_MERCHANT_ACCOUNT_TYPE = "filterMerchantAccountType";
-  @SerializedName(SERIALIZED_NAME_FILTER_MERCHANT_ACCOUNT_TYPE)
+  public static final String JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE = "filterMerchantAccountType";
   private FilterMerchantAccountTypeEnum filterMerchantAccountType;
 
-  public static final String SERIALIZED_NAME_FILTER_MERCHANT_ACCOUNTS = "filterMerchantAccounts";
-  @SerializedName(SERIALIZED_NAME_FILTER_MERCHANT_ACCOUNTS)
+  public static final String JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS = "filterMerchantAccounts";
   private List<String> filterMerchantAccounts = null;
 
   /**
    * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
    */
-  @JsonAdapter(NetworkTypeEnum.Adapter.class)
   public enum NetworkTypeEnum {
     LOCAL("LOCAL"),
     
@@ -202,6 +167,7 @@ public class UpdateCompanyWebhookRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -211,6 +177,7 @@ public class UpdateCompanyWebhookRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static NetworkTypeEnum fromValue(String value) {
       for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -219,37 +186,20 @@ public class UpdateCompanyWebhookRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return NetworkTypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_NETWORK_TYPE = "networkType";
-  @SerializedName(SERIALIZED_NAME_NETWORK_TYPE)
+  public static final String JSON_PROPERTY_NETWORK_TYPE = "networkType";
   private NetworkTypeEnum networkType;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
-  public static final String SERIALIZED_NAME_POPULATE_SOAP_ACTION_HEADER = "populateSoapActionHeader";
-  @SerializedName(SERIALIZED_NAME_POPULATE_SOAP_ACTION_HEADER)
+  public static final String JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER = "populateSoapActionHeader";
   private Boolean populateSoapActionHeader;
 
   /**
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
    */
-  @JsonAdapter(SslVersionEnum.Adapter.class)
   public enum SslVersionEnum {
     HTTP("HTTP"),
     
@@ -273,6 +223,7 @@ public class UpdateCompanyWebhookRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -282,6 +233,7 @@ public class UpdateCompanyWebhookRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static SslVersionEnum fromValue(String value) {
       for (SslVersionEnum b : SslVersionEnum.values()) {
         if (b.value.equals(value)) {
@@ -290,38 +242,21 @@ public class UpdateCompanyWebhookRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<SslVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SslVersionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public SslVersionEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return SslVersionEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_SSL_VERSION = "sslVersion";
-  @SerializedName(SERIALIZED_NAME_SSL_VERSION)
+  public static final String JSON_PROPERTY_SSL_VERSION = "sslVersion";
   private SslVersionEnum sslVersion;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
+  public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
   public UpdateCompanyWebhookRequest() { 
   }
 
   public UpdateCompanyWebhookRequest acceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
-    
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
     return this;
   }
@@ -331,19 +266,22 @@ public class UpdateCompanyWebhookRequest {
    * @return acceptsExpiredCertificate
   **/
   @ApiModelProperty(value = "Indicates if expired SSL certificates are accepted. Default value: **false**.")
+  @JsonProperty(JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAcceptsExpiredCertificate() {
     return acceptsExpiredCertificate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
   }
 
 
   public UpdateCompanyWebhookRequest acceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
-    
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
     return this;
   }
@@ -353,19 +291,22 @@ public class UpdateCompanyWebhookRequest {
    * @return acceptsSelfSignedCertificate
   **/
   @ApiModelProperty(value = "Indicates if self-signed SSL certificates are accepted. Default value: **false**.")
+  @JsonProperty(JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAcceptsSelfSignedCertificate() {
     return acceptsSelfSignedCertificate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
   }
 
 
   public UpdateCompanyWebhookRequest acceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
-    
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
     return this;
   }
@@ -375,19 +316,22 @@ public class UpdateCompanyWebhookRequest {
    * @return acceptsUntrustedRootCertificate
   **/
   @ApiModelProperty(value = "Indicates if untrusted SSL certificates are accepted. Default value: **false**.")
+  @JsonProperty(JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAcceptsUntrustedRootCertificate() {
     return acceptsUntrustedRootCertificate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
   }
 
 
   public UpdateCompanyWebhookRequest active(Boolean active) {
-    
     this.active = active;
     return this;
   }
@@ -397,19 +341,22 @@ public class UpdateCompanyWebhookRequest {
    * @return active
   **/
   @ApiModelProperty(value = "Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.")
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getActive() {
     return active;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
 
 
   public UpdateCompanyWebhookRequest additionalSettings(AdditionalSettings additionalSettings) {
-    
     this.additionalSettings = additionalSettings;
     return this;
   }
@@ -419,19 +366,22 @@ public class UpdateCompanyWebhookRequest {
    * @return additionalSettings
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AdditionalSettings getAdditionalSettings() {
     return additionalSettings;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSettings(AdditionalSettings additionalSettings) {
     this.additionalSettings = additionalSettings;
   }
 
 
   public UpdateCompanyWebhookRequest communicationFormat(CommunicationFormatEnum communicationFormat) {
-    
     this.communicationFormat = communicationFormat;
     return this;
   }
@@ -441,19 +391,22 @@ public class UpdateCompanyWebhookRequest {
    * @return communicationFormat
   **/
   @ApiModelProperty(example = "soap", value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
+  @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CommunicationFormatEnum getCommunicationFormat() {
     return communicationFormat;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
   }
 
 
   public UpdateCompanyWebhookRequest description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -463,19 +416,22 @@ public class UpdateCompanyWebhookRequest {
    * @return description
   **/
   @ApiModelProperty(value = "Your description for this webhook configuration.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public UpdateCompanyWebhookRequest filterMerchantAccountType(FilterMerchantAccountTypeEnum filterMerchantAccountType) {
-    
     this.filterMerchantAccountType = filterMerchantAccountType;
     return this;
   }
@@ -485,19 +441,22 @@ public class UpdateCompanyWebhookRequest {
    * @return filterMerchantAccountType
   **/
   @ApiModelProperty(value = "Shows how merchant accounts are filtered when configuring the webhook. Possible values: * **includeAccounts**: The webhook is configured for the merchant accounts listed in `filterMerchantAccounts`. * **excludeAccounts**: The webhook is not configured for the merchant accounts listed in `filterMerchantAccounts`. * **allAccounts**: Includes all merchant accounts, and does not require specifying `filterMerchantAccounts`.")
+  @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FilterMerchantAccountTypeEnum getFilterMerchantAccountType() {
     return filterMerchantAccountType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccountType(FilterMerchantAccountTypeEnum filterMerchantAccountType) {
     this.filterMerchantAccountType = filterMerchantAccountType;
   }
 
 
   public UpdateCompanyWebhookRequest filterMerchantAccounts(List<String> filterMerchantAccounts) {
-    
     this.filterMerchantAccounts = filterMerchantAccounts;
     return this;
   }
@@ -515,19 +474,22 @@ public class UpdateCompanyWebhookRequest {
    * @return filterMerchantAccounts
   **/
   @ApiModelProperty(value = "A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for `filterMerchantAccountType`.  Required if `filterMerchantAccountType` is either: * **includeAccounts** * **excludeAccounts**  Not needed for `filterMerchantAccountType`: **allAccounts**.")
+  @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getFilterMerchantAccounts() {
     return filterMerchantAccounts;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccounts(List<String> filterMerchantAccounts) {
     this.filterMerchantAccounts = filterMerchantAccounts;
   }
 
 
   public UpdateCompanyWebhookRequest networkType(NetworkTypeEnum networkType) {
-    
     this.networkType = networkType;
     return this;
   }
@@ -537,19 +499,22 @@ public class UpdateCompanyWebhookRequest {
    * @return networkType
   **/
   @ApiModelProperty(value = "Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.")
+  @JsonProperty(JSON_PROPERTY_NETWORK_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public NetworkTypeEnum getNetworkType() {
     return networkType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NETWORK_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
   }
 
 
   public UpdateCompanyWebhookRequest password(String password) {
-    
     this.password = password;
     return this;
   }
@@ -559,19 +524,22 @@ public class UpdateCompanyWebhookRequest {
    * @return password
   **/
   @ApiModelProperty(value = "Password to access the webhook URL.")
+  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPassword() {
     return password;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
   }
 
 
   public UpdateCompanyWebhookRequest populateSoapActionHeader(Boolean populateSoapActionHeader) {
-    
     this.populateSoapActionHeader = populateSoapActionHeader;
     return this;
   }
@@ -581,19 +549,22 @@ public class UpdateCompanyWebhookRequest {
    * @return populateSoapActionHeader
   **/
   @ApiModelProperty(value = "Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if `communicationFormat`: **soap**.")
+  @JsonProperty(JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPopulateSoapActionHeader() {
     return populateSoapActionHeader;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
   }
 
 
   public UpdateCompanyWebhookRequest sslVersion(SslVersionEnum sslVersion) {
-    
     this.sslVersion = sslVersion;
     return this;
   }
@@ -603,19 +574,22 @@ public class UpdateCompanyWebhookRequest {
    * @return sslVersion
   **/
   @ApiModelProperty(example = "TLSv1.2", value = "SSL version to access the public webhook URL specified in the `url` field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use `sslVersion`: **TLSv1.2**.")
+  @JsonProperty(JSON_PROPERTY_SSL_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SslVersionEnum getSslVersion() {
     return sslVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SSL_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSslVersion(SslVersionEnum sslVersion) {
     this.sslVersion = sslVersion;
   }
 
 
   public UpdateCompanyWebhookRequest url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -625,19 +599,22 @@ public class UpdateCompanyWebhookRequest {
    * @return url
   **/
   @ApiModelProperty(example = "http://www.adyen.com", value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUrl() {
     return url;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
 
 
   public UpdateCompanyWebhookRequest username(String username) {
-    
     this.username = username;
     return this;
   }
@@ -647,18 +624,24 @@ public class UpdateCompanyWebhookRequest {
    * @return username
   **/
   @ApiModelProperty(value = "Username to access the webhook URL.")
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUsername() {
     return username;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
 
 
-
+  /**
+   * Return true if this UpdateCompanyWebhookRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -724,160 +707,23 @@ public class UpdateCompanyWebhookRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acceptsExpiredCertificate");
-    openapiFields.add("acceptsSelfSignedCertificate");
-    openapiFields.add("acceptsUntrustedRootCertificate");
-    openapiFields.add("active");
-    openapiFields.add("additionalSettings");
-    openapiFields.add("communicationFormat");
-    openapiFields.add("description");
-    openapiFields.add("filterMerchantAccountType");
-    openapiFields.add("filterMerchantAccounts");
-    openapiFields.add("networkType");
-    openapiFields.add("password");
-    openapiFields.add("populateSoapActionHeader");
-    openapiFields.add("sslVersion");
-    openapiFields.add("url");
-    openapiFields.add("username");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of UpdateCompanyWebhookRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of UpdateCompanyWebhookRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to UpdateCompanyWebhookRequest
+   */
+  public static UpdateCompanyWebhookRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, UpdateCompanyWebhookRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(UpdateCompanyWebhookRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UpdateCompanyWebhookRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (UpdateCompanyWebhookRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateCompanyWebhookRequest is not found in the empty JSON string", UpdateCompanyWebhookRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UpdateCompanyWebhookRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UpdateCompanyWebhookRequest` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field `additionalSettings`
-      if (jsonObj.getAsJsonObject("additionalSettings") != null) {
-        AdditionalSettings.validateJsonObject(jsonObj.getAsJsonObject("additionalSettings"));
-      }
-      // ensure the field communicationFormat can be parsed to an enum value
-      if (jsonObj.get("communicationFormat") != null) {
-        if(!jsonObj.get("communicationFormat").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `communicationFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("communicationFormat").toString()));
-        }
-        CommunicationFormatEnum.fromValue(jsonObj.get("communicationFormat").getAsString());
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // ensure the field filterMerchantAccountType can be parsed to an enum value
-      if (jsonObj.get("filterMerchantAccountType") != null) {
-        if(!jsonObj.get("filterMerchantAccountType").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `filterMerchantAccountType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filterMerchantAccountType").toString()));
-        }
-        FilterMerchantAccountTypeEnum.fromValue(jsonObj.get("filterMerchantAccountType").getAsString());
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("filterMerchantAccounts") != null && !jsonObj.get("filterMerchantAccounts").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `filterMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("filterMerchantAccounts").toString()));
-      }
-      // ensure the field networkType can be parsed to an enum value
-      if (jsonObj.get("networkType") != null) {
-        if(!jsonObj.get("networkType").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `networkType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkType").toString()));
-        }
-        NetworkTypeEnum.fromValue(jsonObj.get("networkType").getAsString());
-      }
-      // validate the optional field password
-      if (jsonObj.get("password") != null && !jsonObj.get("password").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
-      }
-      // ensure the field sslVersion can be parsed to an enum value
-      if (jsonObj.get("sslVersion") != null) {
-        if(!jsonObj.get("sslVersion").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `sslVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sslVersion").toString()));
-        }
-        SslVersionEnum.fromValue(jsonObj.get("sslVersion").getAsString());
-      }
-      // validate the optional field url
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      // validate the optional field username
-      if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateCompanyWebhookRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateCompanyWebhookRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateCompanyWebhookRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateCompanyWebhookRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdateCompanyWebhookRequest>() {
-           @Override
-           public void write(JsonWriter out, UpdateCompanyWebhookRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdateCompanyWebhookRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of UpdateCompanyWebhookRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UpdateCompanyWebhookRequest
-  * @throws IOException if the JSON string is invalid with respect to UpdateCompanyWebhookRequest
-  */
-  public static UpdateCompanyWebhookRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateCompanyWebhookRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of UpdateCompanyWebhookRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

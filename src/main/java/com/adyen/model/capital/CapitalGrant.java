@@ -15,83 +15,67 @@ package com.adyen.model.capital;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.capital.Amount;
 import com.adyen.model.capital.CapitalBalance;
 import com.adyen.model.capital.Counterparty;
 import com.adyen.model.capital.Fee;
 import com.adyen.model.capital.Repayment;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.capital.JSON;
 
 /**
  * CapitalGrant
  */
+@JsonPropertyOrder({
+  CapitalGrant.JSON_PROPERTY_AMOUNT,
+  CapitalGrant.JSON_PROPERTY_BALANCES,
+  CapitalGrant.JSON_PROPERTY_COUNTERPARTY,
+  CapitalGrant.JSON_PROPERTY_FEE,
+  CapitalGrant.JSON_PROPERTY_GRANT_ACCOUNT_ID,
+  CapitalGrant.JSON_PROPERTY_GRANT_OFFER_ID,
+  CapitalGrant.JSON_PROPERTY_ID,
+  CapitalGrant.JSON_PROPERTY_REPAYMENT,
+  CapitalGrant.JSON_PROPERTY_STATUS
+})
 
 public class CapitalGrant {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_BALANCES = "balances";
-  @SerializedName(SERIALIZED_NAME_BALANCES)
+  public static final String JSON_PROPERTY_BALANCES = "balances";
   private CapitalBalance balances;
 
-  public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
-  @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
+  public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private Counterparty counterparty;
 
-  public static final String SERIALIZED_NAME_FEE = "fee";
-  @SerializedName(SERIALIZED_NAME_FEE)
+  public static final String JSON_PROPERTY_FEE = "fee";
   private Fee fee;
 
-  public static final String SERIALIZED_NAME_GRANT_ACCOUNT_ID = "grantAccountId";
-  @SerializedName(SERIALIZED_NAME_GRANT_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_GRANT_ACCOUNT_ID = "grantAccountId";
   private String grantAccountId;
 
-  public static final String SERIALIZED_NAME_GRANT_OFFER_ID = "grantOfferId";
-  @SerializedName(SERIALIZED_NAME_GRANT_OFFER_ID)
+  public static final String JSON_PROPERTY_GRANT_OFFER_ID = "grantOfferId";
   private String grantOfferId;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_REPAYMENT = "repayment";
-  @SerializedName(SERIALIZED_NAME_REPAYMENT)
+  public static final String JSON_PROPERTY_REPAYMENT = "repayment";
   private Repayment repayment;
 
   /**
    * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     PENDING("Pending"),
     
@@ -105,6 +89,7 @@ public class CapitalGrant {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -114,6 +99,7 @@ public class CapitalGrant {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -122,30 +108,15 @@ public class CapitalGrant {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
   public CapitalGrant() { 
   }
 
   public CapitalGrant amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -155,19 +126,22 @@ public class CapitalGrant {
    * @return amount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public CapitalGrant balances(CapitalBalance balances) {
-    
     this.balances = balances;
     return this;
   }
@@ -177,19 +151,22 @@ public class CapitalGrant {
    * @return balances
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_BALANCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CapitalBalance getBalances() {
     return balances;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(CapitalBalance balances) {
     this.balances = balances;
   }
 
 
   public CapitalGrant counterparty(Counterparty counterparty) {
-    
     this.counterparty = counterparty;
     return this;
   }
@@ -199,19 +176,22 @@ public class CapitalGrant {
    * @return counterparty
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Counterparty getCounterparty() {
     return counterparty;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
   }
 
 
   public CapitalGrant fee(Fee fee) {
-    
     this.fee = fee;
     return this;
   }
@@ -221,19 +201,22 @@ public class CapitalGrant {
    * @return fee
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Fee getFee() {
     return fee;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
     this.fee = fee;
   }
 
 
   public CapitalGrant grantAccountId(String grantAccountId) {
-    
     this.grantAccountId = grantAccountId;
     return this;
   }
@@ -243,19 +226,22 @@ public class CapitalGrant {
    * @return grantAccountId
   **/
   @ApiModelProperty(required = true, value = "The identifier of the grant account used for the grant.")
+  @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGrantAccountId() {
     return grantAccountId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantAccountId(String grantAccountId) {
     this.grantAccountId = grantAccountId;
   }
 
 
   public CapitalGrant grantOfferId(String grantOfferId) {
-    
     this.grantOfferId = grantOfferId;
     return this;
   }
@@ -265,19 +251,22 @@ public class CapitalGrant {
    * @return grantOfferId
   **/
   @ApiModelProperty(required = true, value = "The identifier of the grant offer that has been selected and from which the grant details will be used.")
+  @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGrantOfferId() {
     return grantOfferId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOfferId(String grantOfferId) {
     this.grantOfferId = grantOfferId;
   }
 
 
   public CapitalGrant id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -287,19 +276,22 @@ public class CapitalGrant {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "The identifier of the grant reference.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public CapitalGrant repayment(Repayment repayment) {
-    
     this.repayment = repayment;
     return this;
   }
@@ -309,19 +301,22 @@ public class CapitalGrant {
    * @return repayment
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REPAYMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Repayment getRepayment() {
     return repayment;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REPAYMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
     this.repayment = repayment;
   }
 
 
   public CapitalGrant status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -331,18 +326,24 @@ public class CapitalGrant {
    * @return status
   **/
   @ApiModelProperty(required = true, value = "The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
-
+  /**
+   * Return true if this CapitalGrant object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -396,153 +397,23 @@ public class CapitalGrant {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("balances");
-    openapiFields.add("counterparty");
-    openapiFields.add("fee");
-    openapiFields.add("grantAccountId");
-    openapiFields.add("grantOfferId");
-    openapiFields.add("id");
-    openapiFields.add("repayment");
-    openapiFields.add("status");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("balances");
-    openapiRequiredFields.add("grantAccountId");
-    openapiRequiredFields.add("grantOfferId");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("status");
+/**
+   * Create an instance of CapitalGrant given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CapitalGrant
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CapitalGrant
+   */
+  public static CapitalGrant fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CapitalGrant.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CapitalGrant.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CapitalGrant
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CapitalGrant.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CapitalGrant is not found in the empty JSON string", CapitalGrant.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CapitalGrant.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CapitalGrant` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CapitalGrant.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // validate the optional field `balances`
-      if (jsonObj.getAsJsonObject("balances") != null) {
-        CapitalBalance.validateJsonObject(jsonObj.getAsJsonObject("balances"));
-      }
-      // validate the optional field `counterparty`
-      if (jsonObj.getAsJsonObject("counterparty") != null) {
-        Counterparty.validateJsonObject(jsonObj.getAsJsonObject("counterparty"));
-      }
-      // validate the optional field `fee`
-      if (jsonObj.getAsJsonObject("fee") != null) {
-        Fee.validateJsonObject(jsonObj.getAsJsonObject("fee"));
-      }
-      // validate the optional field grantAccountId
-      if (jsonObj.get("grantAccountId") != null && !jsonObj.get("grantAccountId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `grantAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grantAccountId").toString()));
-      }
-      // validate the optional field grantOfferId
-      if (jsonObj.get("grantOfferId") != null && !jsonObj.get("grantOfferId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `grantOfferId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grantOfferId").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field `repayment`
-      if (jsonObj.getAsJsonObject("repayment") != null) {
-        Repayment.validateJsonObject(jsonObj.getAsJsonObject("repayment"));
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CapitalGrant.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CapitalGrant' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CapitalGrant> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CapitalGrant.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CapitalGrant>() {
-           @Override
-           public void write(JsonWriter out, CapitalGrant value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CapitalGrant read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CapitalGrant given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CapitalGrant
-  * @throws IOException if the JSON string is invalid with respect to CapitalGrant
-  */
-  public static CapitalGrant fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CapitalGrant.class);
-  }
-
- /**
+/**
   * Convert an instance of CapitalGrant to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

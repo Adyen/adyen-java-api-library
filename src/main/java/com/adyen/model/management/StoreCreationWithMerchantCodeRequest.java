@@ -14,87 +14,70 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.StoreLocation;
 import com.adyen.model.management.StoreSplitConfiguration;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * StoreCreationWithMerchantCodeRequest
  */
+@JsonPropertyOrder({
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_ADDRESS,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_BUSINESS_LINE_IDS,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_DESCRIPTION,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_EXTERNAL_REFERENCE_ID,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_MERCHANT_ID,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_PHONE_NUMBER,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_REFERENCE,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_SPLIT_CONFIGURATION
+})
 
 public class StoreCreationWithMerchantCodeRequest {
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  public static final String JSON_PROPERTY_ADDRESS = "address";
   private StoreLocation address;
 
-  public static final String SERIALIZED_NAME_BUSINESS_LINE_IDS = "businessLineIds";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_LINE_IDS)
+  public static final String JSON_PROPERTY_BUSINESS_LINE_IDS = "businessLineIds";
   private List<String> businessLineIds = null;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_EXTERNAL_REFERENCE_ID = "externalReferenceId";
-  @SerializedName(SERIALIZED_NAME_EXTERNAL_REFERENCE_ID)
+  public static final String JSON_PROPERTY_EXTERNAL_REFERENCE_ID = "externalReferenceId";
   private String externalReferenceId;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchantId";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
-  public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
-  @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
+  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_STATEMENT = "shopperStatement";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_STATEMENT)
+  public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
 
-  public static final String SERIALIZED_NAME_SPLIT_CONFIGURATION = "splitConfiguration";
-  @SerializedName(SERIALIZED_NAME_SPLIT_CONFIGURATION)
+  public static final String JSON_PROPERTY_SPLIT_CONFIGURATION = "splitConfiguration";
   private StoreSplitConfiguration splitConfiguration;
 
   public StoreCreationWithMerchantCodeRequest() { 
   }
 
   public StoreCreationWithMerchantCodeRequest address(StoreLocation address) {
-    
     this.address = address;
     return this;
   }
@@ -104,19 +87,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return address
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StoreLocation getAddress() {
     return address;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(StoreLocation address) {
     this.address = address;
   }
 
 
   public StoreCreationWithMerchantCodeRequest businessLineIds(List<String> businessLineIds) {
-    
     this.businessLineIds = businessLineIds;
     return this;
   }
@@ -134,19 +120,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return businessLineIds
   **/
   @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.")
+  @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getBusinessLineIds() {
     return businessLineIds;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineIds(List<String> businessLineIds) {
     this.businessLineIds = businessLineIds;
   }
 
 
   public StoreCreationWithMerchantCodeRequest description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -156,19 +145,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return description
   **/
   @ApiModelProperty(required = true, value = "Your description of the store.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public StoreCreationWithMerchantCodeRequest externalReferenceId(String externalReferenceId) {
-    
     this.externalReferenceId = externalReferenceId;
     return this;
   }
@@ -178,19 +170,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return externalReferenceId
   **/
   @ApiModelProperty(value = "When using the Zip payment method: The location ID that Zip has assigned to your store.")
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExternalReferenceId() {
     return externalReferenceId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReferenceId(String externalReferenceId) {
     this.externalReferenceId = externalReferenceId;
   }
 
 
   public StoreCreationWithMerchantCodeRequest merchantId(String merchantId) {
-    
     this.merchantId = merchantId;
     return this;
   }
@@ -200,19 +195,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return merchantId
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the merchant account that the store belongs to.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantId() {
     return merchantId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
 
   public StoreCreationWithMerchantCodeRequest phoneNumber(String phoneNumber) {
-    
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -222,19 +220,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return phoneNumber
   **/
   @ApiModelProperty(required = true, value = "The phone number of the store, including '+' and country code.")
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
 
 
   public StoreCreationWithMerchantCodeRequest reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -244,19 +245,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public StoreCreationWithMerchantCodeRequest shopperStatement(String shopperStatement) {
-    
     this.shopperStatement = shopperStatement;
     return this;
   }
@@ -266,19 +270,22 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return shopperStatement
   **/
   @ApiModelProperty(required = true, value = "The store name to be shown on the shopper's bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can't be all numbers.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperStatement() {
     return shopperStatement;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
   }
 
 
   public StoreCreationWithMerchantCodeRequest splitConfiguration(StoreSplitConfiguration splitConfiguration) {
-    
     this.splitConfiguration = splitConfiguration;
     return this;
   }
@@ -288,18 +295,24 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return splitConfiguration
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StoreSplitConfiguration getSplitConfiguration() {
     return splitConfiguration;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfiguration(StoreSplitConfiguration splitConfiguration) {
     this.splitConfiguration = splitConfiguration;
   }
 
 
-
+  /**
+   * Return true if this StoreCreationWithMerchantCodeRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -353,150 +366,23 @@ public class StoreCreationWithMerchantCodeRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("address");
-    openapiFields.add("businessLineIds");
-    openapiFields.add("description");
-    openapiFields.add("externalReferenceId");
-    openapiFields.add("merchantId");
-    openapiFields.add("phoneNumber");
-    openapiFields.add("reference");
-    openapiFields.add("shopperStatement");
-    openapiFields.add("splitConfiguration");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("address");
-    openapiRequiredFields.add("description");
-    openapiRequiredFields.add("merchantId");
-    openapiRequiredFields.add("phoneNumber");
-    openapiRequiredFields.add("shopperStatement");
+/**
+   * Create an instance of StoreCreationWithMerchantCodeRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StoreCreationWithMerchantCodeRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to StoreCreationWithMerchantCodeRequest
+   */
+  public static StoreCreationWithMerchantCodeRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StoreCreationWithMerchantCodeRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(StoreCreationWithMerchantCodeRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StoreCreationWithMerchantCodeRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (StoreCreationWithMerchantCodeRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StoreCreationWithMerchantCodeRequest is not found in the empty JSON string", StoreCreationWithMerchantCodeRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!StoreCreationWithMerchantCodeRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StoreCreationWithMerchantCodeRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : StoreCreationWithMerchantCodeRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `address`
-      if (jsonObj.getAsJsonObject("address") != null) {
-        StoreLocation.validateJsonObject(jsonObj.getAsJsonObject("address"));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("businessLineIds") != null && !jsonObj.get("businessLineIds").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `businessLineIds` to be an array in the JSON string but got `%s`", jsonObj.get("businessLineIds").toString()));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field externalReferenceId
-      if (jsonObj.get("externalReferenceId") != null && !jsonObj.get("externalReferenceId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `externalReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalReferenceId").toString()));
-      }
-      // validate the optional field merchantId
-      if (jsonObj.get("merchantId") != null && !jsonObj.get("merchantId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantId").toString()));
-      }
-      // validate the optional field phoneNumber
-      if (jsonObj.get("phoneNumber") != null && !jsonObj.get("phoneNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `phoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phoneNumber").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field shopperStatement
-      if (jsonObj.get("shopperStatement") != null && !jsonObj.get("shopperStatement").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
-      }
-      // validate the optional field `splitConfiguration`
-      if (jsonObj.getAsJsonObject("splitConfiguration") != null) {
-        StoreSplitConfiguration.validateJsonObject(jsonObj.getAsJsonObject("splitConfiguration"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StoreCreationWithMerchantCodeRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StoreCreationWithMerchantCodeRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StoreCreationWithMerchantCodeRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StoreCreationWithMerchantCodeRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<StoreCreationWithMerchantCodeRequest>() {
-           @Override
-           public void write(JsonWriter out, StoreCreationWithMerchantCodeRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public StoreCreationWithMerchantCodeRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of StoreCreationWithMerchantCodeRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StoreCreationWithMerchantCodeRequest
-  * @throws IOException if the JSON string is invalid with respect to StoreCreationWithMerchantCodeRequest
-  */
-  public static StoreCreationWithMerchantCodeRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StoreCreationWithMerchantCodeRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of StoreCreationWithMerchantCodeRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -15,70 +15,55 @@ package com.adyen.model.storedvalue;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.storedvalue.Amount;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.storedvalue.JSON;
 
 /**
  * StoredValueIssueResponse
  */
+@JsonPropertyOrder({
+  StoredValueIssueResponse.JSON_PROPERTY_AUTH_CODE,
+  StoredValueIssueResponse.JSON_PROPERTY_CURRENT_BALANCE,
+  StoredValueIssueResponse.JSON_PROPERTY_PAYMENT_METHOD,
+  StoredValueIssueResponse.JSON_PROPERTY_PSP_REFERENCE,
+  StoredValueIssueResponse.JSON_PROPERTY_REFUSAL_REASON,
+  StoredValueIssueResponse.JSON_PROPERTY_RESULT_CODE,
+  StoredValueIssueResponse.JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON
+})
 
 public class StoredValueIssueResponse {
-  public static final String SERIALIZED_NAME_AUTH_CODE = "authCode";
-  @SerializedName(SERIALIZED_NAME_AUTH_CODE)
+  public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
   private String authCode;
 
-  public static final String SERIALIZED_NAME_CURRENT_BALANCE = "currentBalance";
-  @SerializedName(SERIALIZED_NAME_CURRENT_BALANCE)
+  public static final String JSON_PROPERTY_CURRENT_BALANCE = "currentBalance";
   private Amount currentBalance;
 
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "paymentMethod";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
+  public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private Map<String, String> paymentMethod = null;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_REFUSAL_REASON = "refusalReason";
-  @SerializedName(SERIALIZED_NAME_REFUSAL_REASON)
+  public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
 
   /**
    * The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
    */
-  @JsonAdapter(ResultCodeEnum.Adapter.class)
   public enum ResultCodeEnum {
     SUCCESS("Success"),
     
@@ -94,6 +79,7 @@ public class StoredValueIssueResponse {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -103,6 +89,7 @@ public class StoredValueIssueResponse {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ResultCodeEnum fromValue(String value) {
       for (ResultCodeEnum b : ResultCodeEnum.values()) {
         if (b.value.equals(value)) {
@@ -111,34 +98,18 @@ public class StoredValueIssueResponse {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ResultCodeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ResultCodeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ResultCodeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ResultCodeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_RESULT_CODE = "resultCode";
-  @SerializedName(SERIALIZED_NAME_RESULT_CODE)
+  public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
-  public static final String SERIALIZED_NAME_THIRD_PARTY_REFUSAL_REASON = "thirdPartyRefusalReason";
-  @SerializedName(SERIALIZED_NAME_THIRD_PARTY_REFUSAL_REASON)
+  public static final String JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON = "thirdPartyRefusalReason";
   private String thirdPartyRefusalReason;
 
   public StoredValueIssueResponse() { 
   }
 
   public StoredValueIssueResponse authCode(String authCode) {
-    
     this.authCode = authCode;
     return this;
   }
@@ -148,19 +119,22 @@ public class StoredValueIssueResponse {
    * @return authCode
   **/
   @ApiModelProperty(value = "Authorisation code: * When the payment is authorised, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.")
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthCode() {
     return authCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
     this.authCode = authCode;
   }
 
 
   public StoredValueIssueResponse currentBalance(Amount currentBalance) {
-    
     this.currentBalance = currentBalance;
     return this;
   }
@@ -170,19 +144,22 @@ public class StoredValueIssueResponse {
    * @return currentBalance
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENT_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getCurrentBalance() {
     return currentBalance;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CURRENT_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrentBalance(Amount currentBalance) {
     this.currentBalance = currentBalance;
   }
 
 
   public StoredValueIssueResponse paymentMethod(Map<String, String> paymentMethod) {
-    
     this.paymentMethod = paymentMethod;
     return this;
   }
@@ -200,19 +177,22 @@ public class StoredValueIssueResponse {
    * @return paymentMethod
   **/
   @ApiModelProperty(value = "The collection that contains the type of the payment method and its specific information if available")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getPaymentMethod() {
     return paymentMethod;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
 
   public StoredValueIssueResponse pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -222,19 +202,22 @@ public class StoredValueIssueResponse {
    * @return pspReference
   **/
   @ApiModelProperty(value = "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public StoredValueIssueResponse refusalReason(String refusalReason) {
-    
     this.refusalReason = refusalReason;
     return this;
   }
@@ -244,19 +227,22 @@ public class StoredValueIssueResponse {
    * @return refusalReason
   **/
   @ApiModelProperty(value = "If the transaction is refused or an error occurs, this field holds Adyen's mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.")
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRefusalReason() {
     return refusalReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
 
 
   public StoredValueIssueResponse resultCode(ResultCodeEnum resultCode) {
-    
     this.resultCode = resultCode;
     return this;
   }
@@ -266,19 +252,22 @@ public class StoredValueIssueResponse {
    * @return resultCode
   **/
   @ApiModelProperty(value = "The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the `refusalReason` field.  * **Error** – There was an error when the operation was processed. The reason is given in the `refusalReason` field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  ")
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }
 
 
   public StoredValueIssueResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
-    
     this.thirdPartyRefusalReason = thirdPartyRefusalReason;
     return this;
   }
@@ -288,18 +277,24 @@ public class StoredValueIssueResponse {
    * @return thirdPartyRefusalReason
   **/
   @ApiModelProperty(value = "Raw refusal reason received from the third party, where available")
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThirdPartyRefusalReason() {
     return thirdPartyRefusalReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThirdPartyRefusalReason(String thirdPartyRefusalReason) {
     this.thirdPartyRefusalReason = thirdPartyRefusalReason;
   }
 
 
-
+  /**
+   * Return true if this StoredValueIssueResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -349,127 +344,23 @@ public class StoredValueIssueResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("authCode");
-    openapiFields.add("currentBalance");
-    openapiFields.add("paymentMethod");
-    openapiFields.add("pspReference");
-    openapiFields.add("refusalReason");
-    openapiFields.add("resultCode");
-    openapiFields.add("thirdPartyRefusalReason");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of StoredValueIssueResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StoredValueIssueResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to StoredValueIssueResponse
+   */
+  public static StoredValueIssueResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StoredValueIssueResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(StoredValueIssueResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StoredValueIssueResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (StoredValueIssueResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StoredValueIssueResponse is not found in the empty JSON string", StoredValueIssueResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!StoredValueIssueResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StoredValueIssueResponse` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field authCode
-      if (jsonObj.get("authCode") != null && !jsonObj.get("authCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authCode").toString()));
-      }
-      // validate the optional field `currentBalance`
-      if (jsonObj.getAsJsonObject("currentBalance") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("currentBalance"));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field refusalReason
-      if (jsonObj.get("refusalReason") != null && !jsonObj.get("refusalReason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `refusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReason").toString()));
-      }
-      // ensure the field resultCode can be parsed to an enum value
-      if (jsonObj.get("resultCode") != null) {
-        if(!jsonObj.get("resultCode").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
-        }
-        ResultCodeEnum.fromValue(jsonObj.get("resultCode").getAsString());
-      }
-      // validate the optional field thirdPartyRefusalReason
-      if (jsonObj.get("thirdPartyRefusalReason") != null && !jsonObj.get("thirdPartyRefusalReason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `thirdPartyRefusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thirdPartyRefusalReason").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StoredValueIssueResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StoredValueIssueResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StoredValueIssueResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StoredValueIssueResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<StoredValueIssueResponse>() {
-           @Override
-           public void write(JsonWriter out, StoredValueIssueResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public StoredValueIssueResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of StoredValueIssueResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StoredValueIssueResponse
-  * @throws IOException if the JSON string is invalid with respect to StoredValueIssueResponse
-  */
-  public static StoredValueIssueResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StoredValueIssueResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of StoredValueIssueResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

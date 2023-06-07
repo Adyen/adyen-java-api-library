@@ -14,51 +14,34 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * TwintInfo
  */
+@JsonPropertyOrder({
+  TwintInfo.JSON_PROPERTY_LOGO
+})
 
 public class TwintInfo {
-  public static final String SERIALIZED_NAME_LOGO = "logo";
-  @SerializedName(SERIALIZED_NAME_LOGO)
+  public static final String JSON_PROPERTY_LOGO = "logo";
   private String logo;
 
   public TwintInfo() { 
   }
 
   public TwintInfo logo(String logo) {
-    
     this.logo = logo;
     return this;
   }
@@ -68,18 +51,24 @@ public class TwintInfo {
    * @return logo
   **/
   @ApiModelProperty(required = true, value = "Twint logo. Format: Base64-encoded string.")
+  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLogo() {
     return logo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }
 
 
-
+  /**
+   * Return true if this TwintInfo object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,106 +106,23 @@ public class TwintInfo {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("logo");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("logo");
+/**
+   * Create an instance of TwintInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TwintInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TwintInfo
+   */
+  public static TwintInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TwintInfo.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TwintInfo.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TwintInfo
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TwintInfo.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TwintInfo is not found in the empty JSON string", TwintInfo.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TwintInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TwintInfo` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TwintInfo.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field logo
-      if (jsonObj.get("logo") != null && !jsonObj.get("logo").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `logo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TwintInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TwintInfo' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TwintInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TwintInfo.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TwintInfo>() {
-           @Override
-           public void write(JsonWriter out, TwintInfo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TwintInfo read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TwintInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TwintInfo
-  * @throws IOException if the JSON string is invalid with respect to TwintInfo
-  */
-  public static TwintInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TwintInfo.class);
-  }
-
- /**
+/**
   * Convert an instance of TwintInfo to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

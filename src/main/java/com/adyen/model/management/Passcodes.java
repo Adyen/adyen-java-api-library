@@ -14,63 +14,46 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Passcodes
  */
+@JsonPropertyOrder({
+  Passcodes.JSON_PROPERTY_ADMIN_MENU_PIN,
+  Passcodes.JSON_PROPERTY_REFUND_PIN,
+  Passcodes.JSON_PROPERTY_SCREEN_LOCK_PIN,
+  Passcodes.JSON_PROPERTY_TX_MENU_PIN
+})
 
 public class Passcodes {
-  public static final String SERIALIZED_NAME_ADMIN_MENU_PIN = "adminMenuPin";
-  @SerializedName(SERIALIZED_NAME_ADMIN_MENU_PIN)
+  public static final String JSON_PROPERTY_ADMIN_MENU_PIN = "adminMenuPin";
   private String adminMenuPin;
 
-  public static final String SERIALIZED_NAME_REFUND_PIN = "refundPin";
-  @SerializedName(SERIALIZED_NAME_REFUND_PIN)
+  public static final String JSON_PROPERTY_REFUND_PIN = "refundPin";
   private String refundPin;
 
-  public static final String SERIALIZED_NAME_SCREEN_LOCK_PIN = "screenLockPin";
-  @SerializedName(SERIALIZED_NAME_SCREEN_LOCK_PIN)
+  public static final String JSON_PROPERTY_SCREEN_LOCK_PIN = "screenLockPin";
   private String screenLockPin;
 
-  public static final String SERIALIZED_NAME_TX_MENU_PIN = "txMenuPin";
-  @SerializedName(SERIALIZED_NAME_TX_MENU_PIN)
+  public static final String JSON_PROPERTY_TX_MENU_PIN = "txMenuPin";
   private String txMenuPin;
 
   public Passcodes() { 
   }
 
   public Passcodes adminMenuPin(String adminMenuPin) {
-    
     this.adminMenuPin = adminMenuPin;
     return this;
   }
@@ -80,19 +63,22 @@ public class Passcodes {
    * @return adminMenuPin
   **/
   @ApiModelProperty(value = "The passcode for the Admin menu and the Settings menu.")
+  @JsonProperty(JSON_PROPERTY_ADMIN_MENU_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAdminMenuPin() {
     return adminMenuPin;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADMIN_MENU_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdminMenuPin(String adminMenuPin) {
     this.adminMenuPin = adminMenuPin;
   }
 
 
   public Passcodes refundPin(String refundPin) {
-    
     this.refundPin = refundPin;
     return this;
   }
@@ -102,19 +88,22 @@ public class Passcodes {
    * @return refundPin
   **/
   @ApiModelProperty(value = "The passcode for unreferenced refunds on standalone terminals.")
+  @JsonProperty(JSON_PROPERTY_REFUND_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRefundPin() {
     return refundPin;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFUND_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefundPin(String refundPin) {
     this.refundPin = refundPin;
   }
 
 
   public Passcodes screenLockPin(String screenLockPin) {
-    
     this.screenLockPin = screenLockPin;
     return this;
   }
@@ -124,19 +113,22 @@ public class Passcodes {
    * @return screenLockPin
   **/
   @ApiModelProperty(value = "The passcode to unlock the terminal screen after a timeout.")
+  @JsonProperty(JSON_PROPERTY_SCREEN_LOCK_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getScreenLockPin() {
     return screenLockPin;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SCREEN_LOCK_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenLockPin(String screenLockPin) {
     this.screenLockPin = screenLockPin;
   }
 
 
   public Passcodes txMenuPin(String txMenuPin) {
-    
     this.txMenuPin = txMenuPin;
     return this;
   }
@@ -146,18 +138,24 @@ public class Passcodes {
    * @return txMenuPin
   **/
   @ApiModelProperty(value = "The passcode for the Transactions menu.")
+  @JsonProperty(JSON_PROPERTY_TX_MENU_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTxMenuPin() {
     return txMenuPin;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TX_MENU_PIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxMenuPin(String txMenuPin) {
     this.txMenuPin = txMenuPin;
   }
 
 
-
+  /**
+   * Return true if this Passcodes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,113 +199,23 @@ public class Passcodes {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("adminMenuPin");
-    openapiFields.add("refundPin");
-    openapiFields.add("screenLockPin");
-    openapiFields.add("txMenuPin");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of Passcodes given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Passcodes
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Passcodes
+   */
+  public static Passcodes fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Passcodes.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Passcodes.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Passcodes
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Passcodes.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Passcodes is not found in the empty JSON string", Passcodes.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Passcodes.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Passcodes` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field adminMenuPin
-      if (jsonObj.get("adminMenuPin") != null && !jsonObj.get("adminMenuPin").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `adminMenuPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adminMenuPin").toString()));
-      }
-      // validate the optional field refundPin
-      if (jsonObj.get("refundPin") != null && !jsonObj.get("refundPin").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `refundPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refundPin").toString()));
-      }
-      // validate the optional field screenLockPin
-      if (jsonObj.get("screenLockPin") != null && !jsonObj.get("screenLockPin").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `screenLockPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenLockPin").toString()));
-      }
-      // validate the optional field txMenuPin
-      if (jsonObj.get("txMenuPin") != null && !jsonObj.get("txMenuPin").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `txMenuPin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("txMenuPin").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Passcodes.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Passcodes' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Passcodes> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Passcodes.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Passcodes>() {
-           @Override
-           public void write(JsonWriter out, Passcodes value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Passcodes read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Passcodes given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Passcodes
-  * @throws IOException if the JSON string is invalid with respect to Passcodes
-  */
-  public static Passcodes fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Passcodes.class);
-  }
-
- /**
+/**
   * Convert an instance of Passcodes to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,62 +14,45 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.CustomNotification;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * TestCompanyWebhookRequest
  */
+@JsonPropertyOrder({
+  TestCompanyWebhookRequest.JSON_PROPERTY_MERCHANT_IDS,
+  TestCompanyWebhookRequest.JSON_PROPERTY_NOTIFICATION,
+  TestCompanyWebhookRequest.JSON_PROPERTY_TYPES
+})
 
 public class TestCompanyWebhookRequest {
-  public static final String SERIALIZED_NAME_MERCHANT_IDS = "merchantIds";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_IDS)
+  public static final String JSON_PROPERTY_MERCHANT_IDS = "merchantIds";
   private List<String> merchantIds = null;
 
-  public static final String SERIALIZED_NAME_NOTIFICATION = "notification";
-  @SerializedName(SERIALIZED_NAME_NOTIFICATION)
+  public static final String JSON_PROPERTY_NOTIFICATION = "notification";
   private CustomNotification notification;
 
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
+  public static final String JSON_PROPERTY_TYPES = "types";
   private List<String> types = null;
 
   public TestCompanyWebhookRequest() { 
   }
 
   public TestCompanyWebhookRequest merchantIds(List<String> merchantIds) {
-    
     this.merchantIds = merchantIds;
     return this;
   }
@@ -87,19 +70,22 @@ public class TestCompanyWebhookRequest {
    * @return merchantIds
   **/
   @ApiModelProperty(value = "List of `merchantId` values for which test webhooks will be sent. The list can have a maximum of 20 `merchantId` values.  If not specified, we send sample notifications to all the merchant accounts that the webhook is configured for. If this is more than 20 merchant accounts, use this list to specify a subset of the merchant accounts for which to send test notifications.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getMerchantIds() {
     return merchantIds;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantIds(List<String> merchantIds) {
     this.merchantIds = merchantIds;
   }
 
 
   public TestCompanyWebhookRequest notification(CustomNotification notification) {
-    
     this.notification = notification;
     return this;
   }
@@ -109,19 +95,22 @@ public class TestCompanyWebhookRequest {
    * @return notification
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CustomNotification getNotification() {
     return notification;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotification(CustomNotification notification) {
     this.notification = notification;
   }
 
 
   public TestCompanyWebhookRequest types(List<String> types) {
-    
     this.types = types;
     return this;
   }
@@ -139,18 +128,24 @@ public class TestCompanyWebhookRequest {
    * @return types
   **/
   @ApiModelProperty(value = "List of event codes for which to send test notifications. Only the webhook types below are supported.   Possible values if webhook `type`: **standard**:  * **AUTHORISATION** * **CHARGEBACK_REVERSED** * **ORDER_CLOSED** * **ORDER_OPENED** * **PAIDOUT_REVERSED** * **PAYOUT_THIRDPARTY** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA** * **REPORT_AVAILABLE** * **CUSTOM** - set your custom notification fields in the [`notification`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_notification) object.  Possible values if webhook `type`: **banktransfer-notification**:  * **PENDING**  Possible values if webhook `type`: **report-notification**:  * **REPORT_AVAILABLE**  Possible values if webhook `type`: **ideal-notification**:  * **AUTHORISATION**  Possible values if webhook `type`: **pending-notification**:  * **PENDING** ")
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getTypes() {
     return types;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypes(List<String> types) {
     this.types = types;
   }
 
 
-
+  /**
+   * Return true if this TestCompanyWebhookRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -192,108 +187,23 @@ public class TestCompanyWebhookRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("merchantIds");
-    openapiFields.add("notification");
-    openapiFields.add("types");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of TestCompanyWebhookRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestCompanyWebhookRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TestCompanyWebhookRequest
+   */
+  public static TestCompanyWebhookRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TestCompanyWebhookRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TestCompanyWebhookRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestCompanyWebhookRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TestCompanyWebhookRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestCompanyWebhookRequest is not found in the empty JSON string", TestCompanyWebhookRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestCompanyWebhookRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TestCompanyWebhookRequest` properties.", entry.getKey()));
-        }
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("merchantIds") != null && !jsonObj.get("merchantIds").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantIds` to be an array in the JSON string but got `%s`", jsonObj.get("merchantIds").toString()));
-      }
-      // validate the optional field `notification`
-      if (jsonObj.getAsJsonObject("notification") != null) {
-        CustomNotification.validateJsonObject(jsonObj.getAsJsonObject("notification"));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestCompanyWebhookRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestCompanyWebhookRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestCompanyWebhookRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestCompanyWebhookRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestCompanyWebhookRequest>() {
-           @Override
-           public void write(JsonWriter out, TestCompanyWebhookRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestCompanyWebhookRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestCompanyWebhookRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestCompanyWebhookRequest
-  * @throws IOException if the JSON string is invalid with respect to TestCompanyWebhookRequest
-  */
-  public static TestCompanyWebhookRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestCompanyWebhookRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of TestCompanyWebhookRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

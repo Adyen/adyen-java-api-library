@@ -14,54 +14,38 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * CZLocalAccountIdentification
  */
+@JsonPropertyOrder({
+  CZLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  CZLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
+  CZLocalAccountIdentification.JSON_PROPERTY_TYPE
+})
 
 public class CZLocalAccountIdentification {
-  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
-  public static final String SERIALIZED_NAME_BANK_CODE = "bankCode";
-  @SerializedName(SERIALIZED_NAME_BANK_CODE)
+  public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
   private String bankCode;
 
   /**
    * **czLocal**
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     CZLOCAL("czLocal");
 
@@ -71,6 +55,7 @@ public class CZLocalAccountIdentification {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -80,6 +65,7 @@ public class CZLocalAccountIdentification {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -88,30 +74,15 @@ public class CZLocalAccountIdentification {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.CZLOCAL;
 
   public CZLocalAccountIdentification() { 
   }
 
   public CZLocalAccountIdentification accountNumber(String accountNumber) {
-    
     this.accountNumber = accountNumber;
     return this;
   }
@@ -121,19 +92,22 @@ public class CZLocalAccountIdentification {
    * @return accountNumber
   **/
   @ApiModelProperty(required = true, value = "The 2- to 16-digit bank account number (Číslo účtu) in the following format:  - The optional prefix (předčíslí).  - The required second part (základní část) which must be at least two non-zero digits.  Examples:  - **19-123457** (with prefix)  - **123457** (without prefix)  - **000019-0000123457** (with prefix, normalized)  - **000000-0000123457** (without prefix, normalized)")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountNumber() {
     return accountNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
 
   public CZLocalAccountIdentification bankCode(String bankCode) {
-    
     this.bankCode = bankCode;
     return this;
   }
@@ -143,19 +117,22 @@ public class CZLocalAccountIdentification {
    * @return bankCode
   **/
   @ApiModelProperty(required = true, value = "The 4-digit bank code (Kód banky), without separators or whitespace.")
+  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBankCode() {
     return bankCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
   }
 
 
   public CZLocalAccountIdentification type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -165,18 +142,24 @@ public class CZLocalAccountIdentification {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "**czLocal**")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this CZLocalAccountIdentification object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -218,121 +201,23 @@ public class CZLocalAccountIdentification {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accountNumber");
-    openapiFields.add("bankCode");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("accountNumber");
-    openapiRequiredFields.add("bankCode");
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of CZLocalAccountIdentification given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CZLocalAccountIdentification
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CZLocalAccountIdentification
+   */
+  public static CZLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CZLocalAccountIdentification.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CZLocalAccountIdentification.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CZLocalAccountIdentification
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CZLocalAccountIdentification.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CZLocalAccountIdentification is not found in the empty JSON string", CZLocalAccountIdentification.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CZLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CZLocalAccountIdentification` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CZLocalAccountIdentification.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field accountNumber
-      if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
-      }
-      // validate the optional field bankCode
-      if (jsonObj.get("bankCode") != null && !jsonObj.get("bankCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bankCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankCode").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CZLocalAccountIdentification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CZLocalAccountIdentification' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CZLocalAccountIdentification> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CZLocalAccountIdentification.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CZLocalAccountIdentification>() {
-           @Override
-           public void write(JsonWriter out, CZLocalAccountIdentification value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CZLocalAccountIdentification read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CZLocalAccountIdentification given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CZLocalAccountIdentification
-  * @throws IOException if the JSON string is invalid with respect to CZLocalAccountIdentification
-  */
-  public static CZLocalAccountIdentification fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CZLocalAccountIdentification.class);
-  }
-
- /**
+/**
   * Convert an instance of CZLocalAccountIdentification to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

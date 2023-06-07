@@ -15,63 +15,46 @@ package com.adyen.model.capital;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.capital.JSON;
 
 /**
  * CapitalBalance
  */
+@JsonPropertyOrder({
+  CapitalBalance.JSON_PROPERTY_CURRENCY,
+  CapitalBalance.JSON_PROPERTY_FEE,
+  CapitalBalance.JSON_PROPERTY_PRINCIPAL,
+  CapitalBalance.JSON_PROPERTY_TOTAL
+})
 
 public class CapitalBalance {
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
-  public static final String SERIALIZED_NAME_FEE = "fee";
-  @SerializedName(SERIALIZED_NAME_FEE)
+  public static final String JSON_PROPERTY_FEE = "fee";
   private Long fee;
 
-  public static final String SERIALIZED_NAME_PRINCIPAL = "principal";
-  @SerializedName(SERIALIZED_NAME_PRINCIPAL)
+  public static final String JSON_PROPERTY_PRINCIPAL = "principal";
   private Long principal;
 
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
+  public static final String JSON_PROPERTY_TOTAL = "total";
   private Long total;
 
   public CapitalBalance() { 
   }
 
   public CapitalBalance currency(String currency) {
-    
     this.currency = currency;
     return this;
   }
@@ -81,19 +64,22 @@ public class CapitalBalance {
    * @return currency
   **/
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCurrency() {
     return currency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
 
   public CapitalBalance fee(Long fee) {
-    
     this.fee = fee;
     return this;
   }
@@ -103,19 +89,22 @@ public class CapitalBalance {
    * @return fee
   **/
   @ApiModelProperty(required = true, value = "Fee amount.")
+  @JsonProperty(JSON_PROPERTY_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getFee() {
     return fee;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Long fee) {
     this.fee = fee;
   }
 
 
   public CapitalBalance principal(Long principal) {
-    
     this.principal = principal;
     return this;
   }
@@ -125,19 +114,22 @@ public class CapitalBalance {
    * @return principal
   **/
   @ApiModelProperty(required = true, value = "Principal amount.")
+  @JsonProperty(JSON_PROPERTY_PRINCIPAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getPrincipal() {
     return principal;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRINCIPAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipal(Long principal) {
     this.principal = principal;
   }
 
 
   public CapitalBalance total(Long total) {
-    
     this.total = total;
     return this;
   }
@@ -147,18 +139,24 @@ public class CapitalBalance {
    * @return total
   **/
   @ApiModelProperty(required = true, value = "Total amount. A sum of principal amount and fee amount.")
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getTotal() {
     return total;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotal(Long total) {
     this.total = total;
   }
 
 
-
+  /**
+   * Return true if this CapitalBalance object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,112 +200,23 @@ public class CapitalBalance {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("currency");
-    openapiFields.add("fee");
-    openapiFields.add("principal");
-    openapiFields.add("total");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("fee");
-    openapiRequiredFields.add("principal");
-    openapiRequiredFields.add("total");
+/**
+   * Create an instance of CapitalBalance given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CapitalBalance
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CapitalBalance
+   */
+  public static CapitalBalance fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CapitalBalance.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CapitalBalance.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CapitalBalance
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CapitalBalance.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CapitalBalance is not found in the empty JSON string", CapitalBalance.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CapitalBalance.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CapitalBalance` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CapitalBalance.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field currency
-      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CapitalBalance.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CapitalBalance' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CapitalBalance> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CapitalBalance.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CapitalBalance>() {
-           @Override
-           public void write(JsonWriter out, CapitalBalance value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CapitalBalance read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CapitalBalance given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CapitalBalance
-  * @throws IOException if the JSON string is invalid with respect to CapitalBalance
-  */
-  public static CapitalBalance fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CapitalBalance.class);
-  }
-
- /**
+/**
   * Convert an instance of CapitalBalance to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

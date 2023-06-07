@@ -14,67 +14,50 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Contact
  */
+@JsonPropertyOrder({
+  Contact.JSON_PROPERTY_EMAIL,
+  Contact.JSON_PROPERTY_FIRST_NAME,
+  Contact.JSON_PROPERTY_INFIX,
+  Contact.JSON_PROPERTY_LAST_NAME,
+  Contact.JSON_PROPERTY_PHONE_NUMBER
+})
 
 public class Contact {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
-  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
 
-  public static final String SERIALIZED_NAME_INFIX = "infix";
-  @SerializedName(SERIALIZED_NAME_INFIX)
+  public static final String JSON_PROPERTY_INFIX = "infix";
   private String infix;
 
-  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
-  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
-  public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
-  @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
+  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
 
   public Contact() { 
   }
 
   public Contact email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -84,19 +67,22 @@ public class Contact {
    * @return email
   **/
   @ApiModelProperty(value = "The individual's email address.")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmail() {
     return email;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
 
   public Contact firstName(String firstName) {
-    
     this.firstName = firstName;
     return this;
   }
@@ -106,19 +92,22 @@ public class Contact {
    * @return firstName
   **/
   @ApiModelProperty(value = "The individual's first name.")
+  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFirstName() {
     return firstName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
 
   public Contact infix(String infix) {
-    
     this.infix = infix;
     return this;
   }
@@ -128,19 +117,22 @@ public class Contact {
    * @return infix
   **/
   @ApiModelProperty(value = "The infix in the individual's name, if any.")
+  @JsonProperty(JSON_PROPERTY_INFIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInfix() {
     return infix;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INFIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfix(String infix) {
     this.infix = infix;
   }
 
 
   public Contact lastName(String lastName) {
-    
     this.lastName = lastName;
     return this;
   }
@@ -150,19 +142,22 @@ public class Contact {
    * @return lastName
   **/
   @ApiModelProperty(value = "The individual's last name.")
+  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLastName() {
     return lastName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
 
   public Contact phoneNumber(String phoneNumber) {
-    
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -172,18 +167,24 @@ public class Contact {
    * @return phoneNumber
   **/
   @ApiModelProperty(value = "The individual's phone number, specified as 10-14 digits with an optional `+` prefix.")
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
 
 
-
+  /**
+   * Return true if this Contact object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -229,118 +230,23 @@ public class Contact {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("email");
-    openapiFields.add("firstName");
-    openapiFields.add("infix");
-    openapiFields.add("lastName");
-    openapiFields.add("phoneNumber");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of Contact given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Contact
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Contact
+   */
+  public static Contact fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Contact.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Contact.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Contact
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Contact.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Contact is not found in the empty JSON string", Contact.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Contact.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Contact` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field email
-      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      // validate the optional field firstName
-      if (jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
-      }
-      // validate the optional field infix
-      if (jsonObj.get("infix") != null && !jsonObj.get("infix").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `infix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("infix").toString()));
-      }
-      // validate the optional field lastName
-      if (jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
-      }
-      // validate the optional field phoneNumber
-      if (jsonObj.get("phoneNumber") != null && !jsonObj.get("phoneNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `phoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phoneNumber").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Contact.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Contact' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Contact> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Contact.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Contact>() {
-           @Override
-           public void write(JsonWriter out, Contact value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Contact read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Contact given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Contact
-  * @throws IOException if the JSON string is invalid with respect to Contact
-  */
-  public static Contact fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Contact.class);
-  }
-
- /**
+/**
   * Convert an instance of Contact to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

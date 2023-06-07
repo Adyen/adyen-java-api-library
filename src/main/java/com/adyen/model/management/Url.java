@@ -14,63 +14,46 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Url
  */
+@JsonPropertyOrder({
+  Url.JSON_PROPERTY_ENCRYPTED,
+  Url.JSON_PROPERTY_PASSWORD,
+  Url.JSON_PROPERTY_URL,
+  Url.JSON_PROPERTY_USERNAME
+})
 
 public class Url {
-  public static final String SERIALIZED_NAME_ENCRYPTED = "encrypted";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTED)
+  public static final String JSON_PROPERTY_ENCRYPTED = "encrypted";
   private Boolean encrypted;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
+  public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
   public Url() { 
   }
 
   public Url encrypted(Boolean encrypted) {
-    
     this.encrypted = encrypted;
     return this;
   }
@@ -80,19 +63,22 @@ public class Url {
    * @return encrypted
   **/
   @ApiModelProperty(value = "Indicates if the message sent to this URL should be encrypted.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEncrypted() {
     return encrypted;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncrypted(Boolean encrypted) {
     this.encrypted = encrypted;
   }
 
 
   public Url password(String password) {
-    
     this.password = password;
     return this;
   }
@@ -102,19 +88,22 @@ public class Url {
    * @return password
   **/
   @ApiModelProperty(value = "The password for authentication of the notifications.")
+  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPassword() {
     return password;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
   }
 
 
   public Url url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -124,19 +113,22 @@ public class Url {
    * @return url
   **/
   @ApiModelProperty(value = "The URL in the format: http(s)://domain.com.")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUrl() {
     return url;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
 
 
   public Url username(String username) {
-    
     this.username = username;
     return this;
   }
@@ -146,18 +138,24 @@ public class Url {
    * @return username
   **/
   @ApiModelProperty(value = "The username for authentication of the notifications.")
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUsername() {
     return username;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
 
 
-
+  /**
+   * Return true if this Url object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,109 +199,23 @@ public class Url {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("encrypted");
-    openapiFields.add("password");
-    openapiFields.add("url");
-    openapiFields.add("username");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of Url given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Url
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Url
+   */
+  public static Url fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Url.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Url.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Url
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Url.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Url is not found in the empty JSON string", Url.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Url.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Url` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field password
-      if (jsonObj.get("password") != null && !jsonObj.get("password").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
-      }
-      // validate the optional field url
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      // validate the optional field username
-      if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Url.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Url' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Url> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Url.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Url>() {
-           @Override
-           public void write(JsonWriter out, Url value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Url read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Url given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Url
-  * @throws IOException if the JSON string is invalid with respect to Url
-  */
-  public static Url fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Url.class);
-  }
-
- /**
+/**
   * Convert an instance of Url to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

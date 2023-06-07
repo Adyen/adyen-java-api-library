@@ -14,51 +14,34 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * GenerateHmacKeyResponse
  */
+@JsonPropertyOrder({
+  GenerateHmacKeyResponse.JSON_PROPERTY_HMAC_KEY
+})
 
 public class GenerateHmacKeyResponse {
-  public static final String SERIALIZED_NAME_HMAC_KEY = "hmacKey";
-  @SerializedName(SERIALIZED_NAME_HMAC_KEY)
+  public static final String JSON_PROPERTY_HMAC_KEY = "hmacKey";
   private String hmacKey;
 
   public GenerateHmacKeyResponse() { 
   }
 
   public GenerateHmacKeyResponse hmacKey(String hmacKey) {
-    
     this.hmacKey = hmacKey;
     return this;
   }
@@ -68,18 +51,24 @@ public class GenerateHmacKeyResponse {
    * @return hmacKey
   **/
   @ApiModelProperty(required = true, value = "The HMAC key generated for this webhook.")
+  @JsonProperty(JSON_PROPERTY_HMAC_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getHmacKey() {
     return hmacKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HMAC_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHmacKey(String hmacKey) {
     this.hmacKey = hmacKey;
   }
 
 
-
+  /**
+   * Return true if this GenerateHmacKeyResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,106 +106,23 @@ public class GenerateHmacKeyResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("hmacKey");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("hmacKey");
+/**
+   * Create an instance of GenerateHmacKeyResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GenerateHmacKeyResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to GenerateHmacKeyResponse
+   */
+  public static GenerateHmacKeyResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, GenerateHmacKeyResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(GenerateHmacKeyResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GenerateHmacKeyResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GenerateHmacKeyResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GenerateHmacKeyResponse is not found in the empty JSON string", GenerateHmacKeyResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GenerateHmacKeyResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `GenerateHmacKeyResponse` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GenerateHmacKeyResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field hmacKey
-      if (jsonObj.get("hmacKey") != null && !jsonObj.get("hmacKey").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `hmacKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hmacKey").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GenerateHmacKeyResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GenerateHmacKeyResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GenerateHmacKeyResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GenerateHmacKeyResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<GenerateHmacKeyResponse>() {
-           @Override
-           public void write(JsonWriter out, GenerateHmacKeyResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public GenerateHmacKeyResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of GenerateHmacKeyResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GenerateHmacKeyResponse
-  * @throws IOException if the JSON string is invalid with respect to GenerateHmacKeyResponse
-  */
-  public static GenerateHmacKeyResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GenerateHmacKeyResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of GenerateHmacKeyResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

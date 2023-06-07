@@ -14,69 +14,65 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.CounterpartyV3;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * Transaction
  */
+@JsonPropertyOrder({
+  Transaction.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
+  Transaction.JSON_PROPERTY_AMOUNT,
+  Transaction.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
+  Transaction.JSON_PROPERTY_BALANCE_PLATFORM,
+  Transaction.JSON_PROPERTY_BOOKING_DATE,
+  Transaction.JSON_PROPERTY_CATEGORY,
+  Transaction.JSON_PROPERTY_COUNTERPARTY,
+  Transaction.JSON_PROPERTY_CREATED_AT,
+  Transaction.JSON_PROPERTY_DESCRIPTION,
+  Transaction.JSON_PROPERTY_ID,
+  Transaction.JSON_PROPERTY_INSTRUCTED_AMOUNT,
+  Transaction.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
+  Transaction.JSON_PROPERTY_REFERENCE,
+  Transaction.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
+  Transaction.JSON_PROPERTY_STATUS,
+  Transaction.JSON_PROPERTY_TRANSFER_ID,
+  Transaction.JSON_PROPERTY_TYPE,
+  Transaction.JSON_PROPERTY_VALUE_DATE
+})
 
 public class Transaction {
-  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_ID = "accountHolderId";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_ID)
+  public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
-  @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
-  public static final String SERIALIZED_NAME_BALANCE_PLATFORM = "balancePlatform";
-  @SerializedName(SERIALIZED_NAME_BALANCE_PLATFORM)
+  public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
-  public static final String SERIALIZED_NAME_BOOKING_DATE = "bookingDate";
-  @SerializedName(SERIALIZED_NAME_BOOKING_DATE)
+  public static final String JSON_PROPERTY_BOOKING_DATE = "bookingDate";
   private OffsetDateTime bookingDate;
 
   /**
    * The category of the transaction indicating the type of activity.   Possible values:  * **platformPayment**: The transaction is a payment or payment modification made with an Adyen merchant account.  * **internal**: The transaction resulted from an internal adjustment such as a deposit correction or invoice deduction.  * **bank**: The transaction is a bank-related activity, such as sending a payout or receiving funds.  * **issuedCard**: The transaction is a card-related activity, such as using an Adyen-issued card to pay online.  
    */
-  @JsonAdapter(CategoryEnum.Adapter.class)
   public enum CategoryEnum {
     BANK("bank"),
     
@@ -94,6 +90,7 @@ public class Transaction {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -103,6 +100,7 @@ public class Transaction {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static CategoryEnum fromValue(String value) {
       for (CategoryEnum b : CategoryEnum.values()) {
         if (b.value.equals(value)) {
@@ -111,61 +109,38 @@ public class Transaction {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<CategoryEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CategoryEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CategoryEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CategoryEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_CATEGORY = "category";
-  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
-  public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
-  @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
+  public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private CounterpartyV3 counterparty;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_INSTRUCTED_AMOUNT = "instructedAmount";
-  @SerializedName(SERIALIZED_NAME_INSTRUCTED_AMOUNT)
+  public static final String JSON_PROPERTY_INSTRUCTED_AMOUNT = "instructedAmount";
   private Amount instructedAmount;
 
-  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID)
+  public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
-  @SerializedName(SERIALIZED_NAME_REFERENCE_FOR_BENEFICIARY)
+  public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
 
   /**
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     BOOKED("booked"),
     
@@ -177,6 +152,7 @@ public class Transaction {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -186,6 +162,7 @@ public class Transaction {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -194,33 +171,17 @@ public class Transaction {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_TRANSFER_ID = "transferId";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_ID)
+  public static final String JSON_PROPERTY_TRANSFER_ID = "transferId";
   private String transferId;
 
   /**
    * The type of the transaction.   Possible values: **payment**, **capture**, **captureReversal**, **refund** **refundReversal**, **chargeback**, **chargebackReversal**, **secondChargeback**, **atmWithdrawal**, **atmWithdrawalReversal**, **internalTransfer**, **manualCorrection**, **invoiceDeduction**, **depositCorrection**, **bankTransfer**, **miscCost**, **paymentCost**, **fee**
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     ATMWITHDRAWAL("atmWithdrawal"),
     
@@ -280,6 +241,7 @@ public class Transaction {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -289,6 +251,7 @@ public class Transaction {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -297,34 +260,18 @@ public class Transaction {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_VALUE_DATE = "valueDate";
-  @SerializedName(SERIALIZED_NAME_VALUE_DATE)
+  public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
 
   public Transaction() { 
   }
 
   public Transaction accountHolderId(String accountHolderId) {
-    
     this.accountHolderId = accountHolderId;
     return this;
   }
@@ -334,19 +281,22 @@ public class Transaction {
    * @return accountHolderId
   **/
   @ApiModelProperty(required = true, value = "Unique identifier of the account holder.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountHolderId() {
     return accountHolderId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }
 
 
   public Transaction amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -356,19 +306,22 @@ public class Transaction {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public Transaction balanceAccountId(String balanceAccountId) {
-    
     this.balanceAccountId = balanceAccountId;
     return this;
   }
@@ -378,19 +331,22 @@ public class Transaction {
    * @return balanceAccountId
   **/
   @ApiModelProperty(required = true, value = "Unique identifier of the balance account.")
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
 
   public Transaction balancePlatform(String balancePlatform) {
-    
     this.balancePlatform = balancePlatform;
     return this;
   }
@@ -400,19 +356,22 @@ public class Transaction {
    * @return balancePlatform
   **/
   @ApiModelProperty(required = true, value = "Unique identifier of the balance platform.")
+  @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
 
   public Transaction bookingDate(OffsetDateTime bookingDate) {
-    
     this.bookingDate = bookingDate;
     return this;
   }
@@ -422,19 +381,22 @@ public class Transaction {
    * @return bookingDate
   **/
   @ApiModelProperty(required = true, value = "The date the transaction was booked to the balance account.")
+  @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getBookingDate() {
     return bookingDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
   }
 
 
   public Transaction category(CategoryEnum category) {
-    
     this.category = category;
     return this;
   }
@@ -444,19 +406,22 @@ public class Transaction {
    * @return category
   **/
   @ApiModelProperty(value = "The category of the transaction indicating the type of activity.   Possible values:  * **platformPayment**: The transaction is a payment or payment modification made with an Adyen merchant account.  * **internal**: The transaction resulted from an internal adjustment such as a deposit correction or invoice deduction.  * **bank**: The transaction is a bank-related activity, such as sending a payout or receiving funds.  * **issuedCard**: The transaction is a card-related activity, such as using an Adyen-issued card to pay online.  ")
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CategoryEnum getCategory() {
     return category;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
 
 
   public Transaction counterparty(CounterpartyV3 counterparty) {
-    
     this.counterparty = counterparty;
     return this;
   }
@@ -466,19 +431,22 @@ public class Transaction {
    * @return counterparty
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CounterpartyV3 getCounterparty() {
     return counterparty;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(CounterpartyV3 counterparty) {
     this.counterparty = counterparty;
   }
 
 
   public Transaction createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -488,19 +456,22 @@ public class Transaction {
    * @return createdAt
   **/
   @ApiModelProperty(required = true, value = "The date the transaction was created.")
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
 
   public Transaction description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -510,19 +481,22 @@ public class Transaction {
    * @return description
   **/
   @ApiModelProperty(value = "The `description` from the `/transfers` request.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public Transaction id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -532,19 +506,22 @@ public class Transaction {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "Unique identifier of the transaction.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public Transaction instructedAmount(Amount instructedAmount) {
-    
     this.instructedAmount = instructedAmount;
     return this;
   }
@@ -554,19 +531,22 @@ public class Transaction {
    * @return instructedAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INSTRUCTED_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getInstructedAmount() {
     return instructedAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTRUCTED_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstructedAmount(Amount instructedAmount) {
     this.instructedAmount = instructedAmount;
   }
 
 
   public Transaction paymentInstrumentId(String paymentInstrumentId) {
-    
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
@@ -576,19 +556,22 @@ public class Transaction {
    * @return paymentInstrumentId
   **/
   @ApiModelProperty(value = "Unique identifier of the payment instrument that was used for the transaction.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
 
   public Transaction reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -598,19 +581,22 @@ public class Transaction {
    * @return reference
   **/
   @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the `/transfers` request. If you haven't provided any, Adyen generates a unique reference.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public Transaction referenceForBeneficiary(String referenceForBeneficiary) {
-    
     this.referenceForBeneficiary = referenceForBeneficiary;
     return this;
   }
@@ -620,19 +606,22 @@ public class Transaction {
    * @return referenceForBeneficiary
   **/
   @ApiModelProperty(value = "The reference sent to or received from the counterparty.  * For outgoing funds, this is the [`referenceForBeneficiary`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [`/transfers`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReferenceForBeneficiary() {
     return referenceForBeneficiary;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
   }
 
 
   public Transaction status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -642,19 +631,22 @@ public class Transaction {
    * @return status
   **/
   @ApiModelProperty(required = true, value = "The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  ")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
   public Transaction transferId(String transferId) {
-    
     this.transferId = transferId;
     return this;
   }
@@ -664,19 +656,22 @@ public class Transaction {
    * @return transferId
   **/
   @ApiModelProperty(value = "Unique identifier of the related transfer.")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTransferId() {
     return transferId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferId(String transferId) {
     this.transferId = transferId;
   }
 
 
   public Transaction type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -686,19 +681,22 @@ public class Transaction {
    * @return type
   **/
   @ApiModelProperty(value = "The type of the transaction.   Possible values: **payment**, **capture**, **captureReversal**, **refund** **refundReversal**, **chargeback**, **chargebackReversal**, **secondChargeback**, **atmWithdrawal**, **atmWithdrawalReversal**, **internalTransfer**, **manualCorrection**, **invoiceDeduction**, **depositCorrection**, **bankTransfer**, **miscCost**, **paymentCost**, **fee**")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public Transaction valueDate(OffsetDateTime valueDate) {
-    
     this.valueDate = valueDate;
     return this;
   }
@@ -708,18 +706,24 @@ public class Transaction {
    * @return valueDate
   **/
   @ApiModelProperty(required = true, value = "The date the transfer amount becomes available in the balance account.")
+  @JsonProperty(JSON_PROPERTY_VALUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getValueDate() {
     return valueDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VALUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
   }
 
 
-
+  /**
+   * Return true if this Transaction object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -791,198 +795,23 @@ public class Transaction {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accountHolderId");
-    openapiFields.add("amount");
-    openapiFields.add("balanceAccountId");
-    openapiFields.add("balancePlatform");
-    openapiFields.add("bookingDate");
-    openapiFields.add("category");
-    openapiFields.add("counterparty");
-    openapiFields.add("createdAt");
-    openapiFields.add("description");
-    openapiFields.add("id");
-    openapiFields.add("instructedAmount");
-    openapiFields.add("paymentInstrumentId");
-    openapiFields.add("reference");
-    openapiFields.add("referenceForBeneficiary");
-    openapiFields.add("status");
-    openapiFields.add("transferId");
-    openapiFields.add("type");
-    openapiFields.add("valueDate");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("accountHolderId");
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("balanceAccountId");
-    openapiRequiredFields.add("balancePlatform");
-    openapiRequiredFields.add("bookingDate");
-    openapiRequiredFields.add("counterparty");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("reference");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("valueDate");
+/**
+   * Create an instance of Transaction given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Transaction
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Transaction
+   */
+  public static Transaction fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Transaction.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Transaction.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Transaction
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Transaction.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Transaction is not found in the empty JSON string", Transaction.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Transaction.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Transaction` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Transaction.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field accountHolderId
-      if (jsonObj.get("accountHolderId") != null && !jsonObj.get("accountHolderId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountHolderId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderId").toString()));
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // validate the optional field balanceAccountId
-      if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
-      }
-      // validate the optional field balancePlatform
-      if (jsonObj.get("balancePlatform") != null && !jsonObj.get("balancePlatform").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `balancePlatform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balancePlatform").toString()));
-      }
-      // ensure the field category can be parsed to an enum value
-      if (jsonObj.get("category") != null) {
-        if(!jsonObj.get("category").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
-        }
-        CategoryEnum.fromValue(jsonObj.get("category").getAsString());
-      }
-      // validate the optional field `counterparty`
-      if (jsonObj.getAsJsonObject("counterparty") != null) {
-        CounterpartyV3.validateJsonObject(jsonObj.getAsJsonObject("counterparty"));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field `instructedAmount`
-      if (jsonObj.getAsJsonObject("instructedAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("instructedAmount"));
-      }
-      // validate the optional field paymentInstrumentId
-      if (jsonObj.get("paymentInstrumentId") != null && !jsonObj.get("paymentInstrumentId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentInstrumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentInstrumentId").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field referenceForBeneficiary
-      if (jsonObj.get("referenceForBeneficiary") != null && !jsonObj.get("referenceForBeneficiary").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `referenceForBeneficiary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceForBeneficiary").toString()));
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-      // validate the optional field transferId
-      if (jsonObj.get("transferId") != null && !jsonObj.get("transferId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `transferId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transferId").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Transaction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Transaction' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Transaction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Transaction.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Transaction>() {
-           @Override
-           public void write(JsonWriter out, Transaction value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Transaction read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Transaction given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Transaction
-  * @throws IOException if the JSON string is invalid with respect to Transaction
-  */
-  public static Transaction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Transaction.class);
-  }
-
- /**
+/**
   * Convert an instance of Transaction to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

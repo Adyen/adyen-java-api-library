@@ -15,66 +15,49 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.recurring.Permit;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.recurring.JSON;
 
 /**
  * CreatePermitRequest
  */
+@JsonPropertyOrder({
+  CreatePermitRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreatePermitRequest.JSON_PROPERTY_PERMITS,
+  CreatePermitRequest.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  CreatePermitRequest.JSON_PROPERTY_SHOPPER_REFERENCE
+})
 
 public class CreatePermitRequest {
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_PERMITS = "permits";
-  @SerializedName(SERIALIZED_NAME_PERMITS)
+  public static final String JSON_PROPERTY_PERMITS = "permits";
   private List<Permit> permits = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
   public CreatePermitRequest() { 
   }
 
   public CreatePermitRequest merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -84,19 +67,22 @@ public class CreatePermitRequest {
    * @return merchantAccount
   **/
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public CreatePermitRequest permits(List<Permit> permits) {
-    
     this.permits = permits;
     return this;
   }
@@ -111,19 +97,22 @@ public class CreatePermitRequest {
    * @return permits
   **/
   @ApiModelProperty(required = true, value = "The permits to create for this recurring contract.")
+  @JsonProperty(JSON_PROPERTY_PERMITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Permit> getPermits() {
     return permits;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PERMITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermits(List<Permit> permits) {
     this.permits = permits;
   }
 
 
   public CreatePermitRequest recurringDetailReference(String recurringDetailReference) {
-    
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
@@ -133,19 +122,22 @@ public class CreatePermitRequest {
    * @return recurringDetailReference
   **/
   @ApiModelProperty(required = true, value = "The recurring contract the new permits will use.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
 
   public CreatePermitRequest shopperReference(String shopperReference) {
-    
     this.shopperReference = shopperReference;
     return this;
   }
@@ -155,18 +147,24 @@ public class CreatePermitRequest {
    * @return shopperReference
   **/
   @ApiModelProperty(required = true, value = "The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID).")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperReference() {
     return shopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
 
-
+  /**
+   * Return true if this CreatePermitRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -210,132 +208,23 @@ public class CreatePermitRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("merchantAccount");
-    openapiFields.add("permits");
-    openapiFields.add("recurringDetailReference");
-    openapiFields.add("shopperReference");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchantAccount");
-    openapiRequiredFields.add("permits");
-    openapiRequiredFields.add("recurringDetailReference");
-    openapiRequiredFields.add("shopperReference");
+/**
+   * Create an instance of CreatePermitRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CreatePermitRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePermitRequest
+   */
+  public static CreatePermitRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreatePermitRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CreatePermitRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreatePermitRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CreatePermitRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePermitRequest is not found in the empty JSON string", CreatePermitRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CreatePermitRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreatePermitRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreatePermitRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      JsonArray jsonArraypermits = jsonObj.getAsJsonArray("permits");
-      if (jsonArraypermits != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("permits").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `permits` to be an array in the JSON string but got `%s`", jsonObj.get("permits").toString()));
-        }
-
-        // validate the optional field `permits` (array)
-        for (int i = 0; i < jsonArraypermits.size(); i++) {
-          Permit.validateJsonObject(jsonArraypermits.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field recurringDetailReference
-      if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
-      }
-      // validate the optional field shopperReference
-      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreatePermitRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreatePermitRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreatePermitRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreatePermitRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreatePermitRequest>() {
-           @Override
-           public void write(JsonWriter out, CreatePermitRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreatePermitRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CreatePermitRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreatePermitRequest
-  * @throws IOException if the JSON string is invalid with respect to CreatePermitRequest
-  */
-  public static CreatePermitRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreatePermitRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of CreatePermitRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

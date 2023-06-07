@@ -14,6 +14,8 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.AfterpayTouchInfo;
 import com.adyen.model.management.ApplePayInfo;
 import com.adyen.model.management.BcmcInfo;
@@ -28,144 +30,127 @@ import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
 import com.adyen.model.management.TwintInfo;
 import com.adyen.model.management.VippsInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * PaymentMethod
  */
+@JsonPropertyOrder({
+  PaymentMethod.JSON_PROPERTY_AFTERPAY_TOUCH,
+  PaymentMethod.JSON_PROPERTY_ALLOWED,
+  PaymentMethod.JSON_PROPERTY_APPLE_PAY,
+  PaymentMethod.JSON_PROPERTY_BCMC,
+  PaymentMethod.JSON_PROPERTY_BUSINESS_LINE_ID,
+  PaymentMethod.JSON_PROPERTY_CARTES_BANCAIRES,
+  PaymentMethod.JSON_PROPERTY_CLEARPAY,
+  PaymentMethod.JSON_PROPERTY_COUNTRIES,
+  PaymentMethod.JSON_PROPERTY_CURRENCIES,
+  PaymentMethod.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
+  PaymentMethod.JSON_PROPERTY_ENABLED,
+  PaymentMethod.JSON_PROPERTY_GIRO_PAY,
+  PaymentMethod.JSON_PROPERTY_GOOGLE_PAY,
+  PaymentMethod.JSON_PROPERTY_ID,
+  PaymentMethod.JSON_PROPERTY_KLARNA,
+  PaymentMethod.JSON_PROPERTY_MEAL_VOUCHER_F_R,
+  PaymentMethod.JSON_PROPERTY_PAYPAL,
+  PaymentMethod.JSON_PROPERTY_REFERENCE,
+  PaymentMethod.JSON_PROPERTY_SHOPPER_INTERACTION,
+  PaymentMethod.JSON_PROPERTY_SOFORT,
+  PaymentMethod.JSON_PROPERTY_STORE_ID,
+  PaymentMethod.JSON_PROPERTY_SWISH,
+  PaymentMethod.JSON_PROPERTY_TWINT,
+  PaymentMethod.JSON_PROPERTY_TYPE,
+  PaymentMethod.JSON_PROPERTY_VERIFICATION_STATUS,
+  PaymentMethod.JSON_PROPERTY_VIPPS
+})
 
 public class PaymentMethod {
-  public static final String SERIALIZED_NAME_AFTERPAY_TOUCH = "afterpayTouch";
-  @SerializedName(SERIALIZED_NAME_AFTERPAY_TOUCH)
+  public static final String JSON_PROPERTY_AFTERPAY_TOUCH = "afterpayTouch";
   private AfterpayTouchInfo afterpayTouch;
 
-  public static final String SERIALIZED_NAME_ALLOWED = "allowed";
-  @SerializedName(SERIALIZED_NAME_ALLOWED)
+  public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
 
-  public static final String SERIALIZED_NAME_APPLE_PAY = "applePay";
-  @SerializedName(SERIALIZED_NAME_APPLE_PAY)
+  public static final String JSON_PROPERTY_APPLE_PAY = "applePay";
   private ApplePayInfo applePay;
 
-  public static final String SERIALIZED_NAME_BCMC = "bcmc";
-  @SerializedName(SERIALIZED_NAME_BCMC)
+  public static final String JSON_PROPERTY_BCMC = "bcmc";
   private BcmcInfo bcmc;
 
-  public static final String SERIALIZED_NAME_BUSINESS_LINE_ID = "businessLineId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_LINE_ID)
+  public static final String JSON_PROPERTY_BUSINESS_LINE_ID = "businessLineId";
   private String businessLineId;
 
-  public static final String SERIALIZED_NAME_CARTES_BANCAIRES = "cartesBancaires";
-  @SerializedName(SERIALIZED_NAME_CARTES_BANCAIRES)
+  public static final String JSON_PROPERTY_CARTES_BANCAIRES = "cartesBancaires";
   private CartesBancairesInfo cartesBancaires;
 
-  public static final String SERIALIZED_NAME_CLEARPAY = "clearpay";
-  @SerializedName(SERIALIZED_NAME_CLEARPAY)
+  public static final String JSON_PROPERTY_CLEARPAY = "clearpay";
   private ClearpayInfo clearpay;
 
-  public static final String SERIALIZED_NAME_COUNTRIES = "countries";
-  @SerializedName(SERIALIZED_NAME_COUNTRIES)
+  public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private List<String> countries = null;
 
-  public static final String SERIALIZED_NAME_CURRENCIES = "currencies";
-  @SerializedName(SERIALIZED_NAME_CURRENCIES)
+  public static final String JSON_PROPERTY_CURRENCIES = "currencies";
   private List<String> currencies = null;
 
-  public static final String SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS = "customRoutingFlags";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS)
+  public static final String JSON_PROPERTY_CUSTOM_ROUTING_FLAGS = "customRoutingFlags";
   private List<String> customRoutingFlags = null;
 
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
-  public static final String SERIALIZED_NAME_GIRO_PAY = "giroPay";
-  @SerializedName(SERIALIZED_NAME_GIRO_PAY)
+  public static final String JSON_PROPERTY_GIRO_PAY = "giroPay";
   private GiroPayInfo giroPay;
 
-  public static final String SERIALIZED_NAME_GOOGLE_PAY = "googlePay";
-  @SerializedName(SERIALIZED_NAME_GOOGLE_PAY)
+  public static final String JSON_PROPERTY_GOOGLE_PAY = "googlePay";
   private GooglePayInfo googlePay;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_KLARNA = "klarna";
-  @SerializedName(SERIALIZED_NAME_KLARNA)
+  public static final String JSON_PROPERTY_KLARNA = "klarna";
   private KlarnaInfo klarna;
 
-  public static final String SERIALIZED_NAME_MEAL_VOUCHER_F_R = "mealVoucher_FR";
-  @SerializedName(SERIALIZED_NAME_MEAL_VOUCHER_F_R)
+  public static final String JSON_PROPERTY_MEAL_VOUCHER_F_R = "mealVoucher_FR";
   private MealVoucherFRInfo mealVoucherFR;
 
-  public static final String SERIALIZED_NAME_PAYPAL = "paypal";
-  @SerializedName(SERIALIZED_NAME_PAYPAL)
+  public static final String JSON_PROPERTY_PAYPAL = "paypal";
   private PayPalInfo paypal;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_INTERACTION = "shopperInteraction";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_INTERACTION)
+  public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private String shopperInteraction;
 
-  public static final String SERIALIZED_NAME_SOFORT = "sofort";
-  @SerializedName(SERIALIZED_NAME_SOFORT)
+  public static final String JSON_PROPERTY_SOFORT = "sofort";
   private SofortInfo sofort;
 
-  public static final String SERIALIZED_NAME_STORE_ID = "storeId";
-  @SerializedName(SERIALIZED_NAME_STORE_ID)
+  public static final String JSON_PROPERTY_STORE_ID = "storeId";
   private String storeId;
 
-  public static final String SERIALIZED_NAME_SWISH = "swish";
-  @SerializedName(SERIALIZED_NAME_SWISH)
+  public static final String JSON_PROPERTY_SWISH = "swish";
   private SwishInfo swish;
 
-  public static final String SERIALIZED_NAME_TWINT = "twint";
-  @SerializedName(SERIALIZED_NAME_TWINT)
+  public static final String JSON_PROPERTY_TWINT = "twint";
   private TwintInfo twint;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    */
-  @JsonAdapter(VerificationStatusEnum.Adapter.class)
   public enum VerificationStatusEnum {
     VALID("valid"),
     
@@ -181,6 +166,7 @@ public class PaymentMethod {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -190,6 +176,7 @@ public class PaymentMethod {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static VerificationStatusEnum fromValue(String value) {
       for (VerificationStatusEnum b : VerificationStatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -198,34 +185,18 @@ public class PaymentMethod {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<VerificationStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final VerificationStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public VerificationStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return VerificationStatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_VERIFICATION_STATUS = "verificationStatus";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_STATUS)
+  public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private VerificationStatusEnum verificationStatus;
 
-  public static final String SERIALIZED_NAME_VIPPS = "vipps";
-  @SerializedName(SERIALIZED_NAME_VIPPS)
+  public static final String JSON_PROPERTY_VIPPS = "vipps";
   private VippsInfo vipps;
 
   public PaymentMethod() { 
   }
 
   public PaymentMethod afterpayTouch(AfterpayTouchInfo afterpayTouch) {
-    
     this.afterpayTouch = afterpayTouch;
     return this;
   }
@@ -235,19 +206,22 @@ public class PaymentMethod {
    * @return afterpayTouch
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AFTERPAY_TOUCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AfterpayTouchInfo getAfterpayTouch() {
     return afterpayTouch;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AFTERPAY_TOUCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAfterpayTouch(AfterpayTouchInfo afterpayTouch) {
     this.afterpayTouch = afterpayTouch;
   }
 
 
   public PaymentMethod allowed(Boolean allowed) {
-    
     this.allowed = allowed;
     return this;
   }
@@ -257,19 +231,22 @@ public class PaymentMethod {
    * @return allowed
   **/
   @ApiModelProperty(value = "Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.")
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowed() {
     return allowed;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
   }
 
 
   public PaymentMethod applePay(ApplePayInfo applePay) {
-    
     this.applePay = applePay;
     return this;
   }
@@ -279,19 +256,22 @@ public class PaymentMethod {
    * @return applePay
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APPLE_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApplePayInfo getApplePay() {
     return applePay;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_APPLE_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplePay(ApplePayInfo applePay) {
     this.applePay = applePay;
   }
 
 
   public PaymentMethod bcmc(BcmcInfo bcmc) {
-    
     this.bcmc = bcmc;
     return this;
   }
@@ -301,19 +281,22 @@ public class PaymentMethod {
    * @return bcmc
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BCMC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BcmcInfo getBcmc() {
     return bcmc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BCMC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBcmc(BcmcInfo bcmc) {
     this.bcmc = bcmc;
   }
 
 
   public PaymentMethod businessLineId(String businessLineId) {
-    
     this.businessLineId = businessLineId;
     return this;
   }
@@ -323,19 +306,22 @@ public class PaymentMethod {
    * @return businessLineId
   **/
   @ApiModelProperty(value = "The unique identifier of the business line.")
+  @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBusinessLineId() {
     return businessLineId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineId(String businessLineId) {
     this.businessLineId = businessLineId;
   }
 
 
   public PaymentMethod cartesBancaires(CartesBancairesInfo cartesBancaires) {
-    
     this.cartesBancaires = cartesBancaires;
     return this;
   }
@@ -345,19 +331,22 @@ public class PaymentMethod {
    * @return cartesBancaires
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CartesBancairesInfo getCartesBancaires() {
     return cartesBancaires;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
   }
 
 
   public PaymentMethod clearpay(ClearpayInfo clearpay) {
-    
     this.clearpay = clearpay;
     return this;
   }
@@ -367,19 +356,22 @@ public class PaymentMethod {
    * @return clearpay
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CLEARPAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ClearpayInfo getClearpay() {
     return clearpay;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CLEARPAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearpay(ClearpayInfo clearpay) {
     this.clearpay = clearpay;
   }
 
 
   public PaymentMethod countries(List<String> countries) {
-    
     this.countries = countries;
     return this;
   }
@@ -397,19 +389,22 @@ public class PaymentMethod {
    * @return countries
   **/
   @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
+  @JsonProperty(JSON_PROPERTY_COUNTRIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getCountries() {
     return countries;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTRIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(List<String> countries) {
     this.countries = countries;
   }
 
 
   public PaymentMethod currencies(List<String> currencies) {
-    
     this.currencies = currencies;
     return this;
   }
@@ -427,19 +422,22 @@ public class PaymentMethod {
    * @return currencies
   **/
   @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
+  @JsonProperty(JSON_PROPERTY_CURRENCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getCurrencies() {
     return currencies;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CURRENCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<String> currencies) {
     this.currencies = currencies;
   }
 
 
   public PaymentMethod customRoutingFlags(List<String> customRoutingFlags) {
-    
     this.customRoutingFlags = customRoutingFlags;
     return this;
   }
@@ -457,19 +455,22 @@ public class PaymentMethod {
    * @return customRoutingFlags
   **/
   @ApiModelProperty(value = "The list of custom routing flags to route payment to the intended acquirer.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getCustomRoutingFlags() {
     return customRoutingFlags;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomRoutingFlags(List<String> customRoutingFlags) {
     this.customRoutingFlags = customRoutingFlags;
   }
 
 
   public PaymentMethod enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
@@ -479,19 +480,22 @@ public class PaymentMethod {
    * @return enabled
   **/
   @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
     return enabled;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
 
   public PaymentMethod giroPay(GiroPayInfo giroPay) {
-    
     this.giroPay = giroPay;
     return this;
   }
@@ -501,19 +505,22 @@ public class PaymentMethod {
    * @return giroPay
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GIRO_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public GiroPayInfo getGiroPay() {
     return giroPay;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GIRO_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiroPay(GiroPayInfo giroPay) {
     this.giroPay = giroPay;
   }
 
 
   public PaymentMethod googlePay(GooglePayInfo googlePay) {
-    
     this.googlePay = googlePay;
     return this;
   }
@@ -523,19 +530,22 @@ public class PaymentMethod {
    * @return googlePay
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GOOGLE_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public GooglePayInfo getGooglePay() {
     return googlePay;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GOOGLE_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePay(GooglePayInfo googlePay) {
     this.googlePay = googlePay;
   }
 
 
   public PaymentMethod id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -545,19 +555,22 @@ public class PaymentMethod {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "The identifier of the resource.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public PaymentMethod klarna(KlarnaInfo klarna) {
-    
     this.klarna = klarna;
     return this;
   }
@@ -567,19 +580,22 @@ public class PaymentMethod {
    * @return klarna
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_KLARNA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public KlarnaInfo getKlarna() {
     return klarna;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_KLARNA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKlarna(KlarnaInfo klarna) {
     this.klarna = klarna;
   }
 
 
   public PaymentMethod mealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
-    
     this.mealVoucherFR = mealVoucherFR;
     return this;
   }
@@ -589,19 +605,22 @@ public class PaymentMethod {
    * @return mealVoucherFR
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MEAL_VOUCHER_F_R)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MealVoucherFRInfo getMealVoucherFR() {
     return mealVoucherFR;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MEAL_VOUCHER_F_R)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
     this.mealVoucherFR = mealVoucherFR;
   }
 
 
   public PaymentMethod paypal(PayPalInfo paypal) {
-    
     this.paypal = paypal;
     return this;
   }
@@ -611,19 +630,22 @@ public class PaymentMethod {
    * @return paypal
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAYPAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PayPalInfo getPaypal() {
     return paypal;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYPAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaypal(PayPalInfo paypal) {
     this.paypal = paypal;
   }
 
 
   public PaymentMethod reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -633,19 +655,22 @@ public class PaymentMethod {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the payment method. Supported characters a-z, A-Z, 0-9.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public PaymentMethod shopperInteraction(String shopperInteraction) {
-    
     this.shopperInteraction = shopperInteraction;
     return this;
   }
@@ -655,19 +680,22 @@ public class PaymentMethod {
    * @return shopperInteraction
   **/
   @ApiModelProperty(value = "The sales channel.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperInteraction() {
     return shopperInteraction;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
 
 
   public PaymentMethod sofort(SofortInfo sofort) {
-    
     this.sofort = sofort;
     return this;
   }
@@ -677,19 +705,22 @@ public class PaymentMethod {
    * @return sofort
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SOFORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SofortInfo getSofort() {
     return sofort;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SOFORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSofort(SofortInfo sofort) {
     this.sofort = sofort;
   }
 
 
   public PaymentMethod storeId(String storeId) {
-    
     this.storeId = storeId;
     return this;
   }
@@ -699,19 +730,22 @@ public class PaymentMethod {
    * @return storeId
   **/
   @ApiModelProperty(value = "The ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/stores__resParam_id), if any.")
+  @JsonProperty(JSON_PROPERTY_STORE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStoreId() {
     return storeId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
     this.storeId = storeId;
   }
 
 
   public PaymentMethod swish(SwishInfo swish) {
-    
     this.swish = swish;
     return this;
   }
@@ -721,19 +755,22 @@ public class PaymentMethod {
    * @return swish
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SWISH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SwishInfo getSwish() {
     return swish;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SWISH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSwish(SwishInfo swish) {
     this.swish = swish;
   }
 
 
   public PaymentMethod twint(TwintInfo twint) {
-    
     this.twint = twint;
     return this;
   }
@@ -743,19 +780,22 @@ public class PaymentMethod {
    * @return twint
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TWINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TwintInfo getTwint() {
     return twint;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TWINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTwint(TwintInfo twint) {
     this.twint = twint;
   }
 
 
   public PaymentMethod type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -765,19 +805,22 @@ public class PaymentMethod {
    * @return type
   **/
   @ApiModelProperty(value = "Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
 
   public PaymentMethod verificationStatus(VerificationStatusEnum verificationStatus) {
-    
     this.verificationStatus = verificationStatus;
     return this;
   }
@@ -787,19 +830,22 @@ public class PaymentMethod {
    * @return verificationStatus
   **/
   @ApiModelProperty(value = "Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public VerificationStatusEnum getVerificationStatus() {
     return verificationStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(VerificationStatusEnum verificationStatus) {
     this.verificationStatus = verificationStatus;
   }
 
 
   public PaymentMethod vipps(VippsInfo vipps) {
-    
     this.vipps = vipps;
     return this;
   }
@@ -809,18 +855,24 @@ public class PaymentMethod {
    * @return vipps
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VIPPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public VippsInfo getVipps() {
     return vipps;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VIPPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVipps(VippsInfo vipps) {
     this.vipps = vipps;
   }
 
 
-
+  /**
+   * Return true if this PaymentMethod object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -908,226 +960,23 @@ public class PaymentMethod {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("afterpayTouch");
-    openapiFields.add("allowed");
-    openapiFields.add("applePay");
-    openapiFields.add("bcmc");
-    openapiFields.add("businessLineId");
-    openapiFields.add("cartesBancaires");
-    openapiFields.add("clearpay");
-    openapiFields.add("countries");
-    openapiFields.add("currencies");
-    openapiFields.add("customRoutingFlags");
-    openapiFields.add("enabled");
-    openapiFields.add("giroPay");
-    openapiFields.add("googlePay");
-    openapiFields.add("id");
-    openapiFields.add("klarna");
-    openapiFields.add("mealVoucher_FR");
-    openapiFields.add("paypal");
-    openapiFields.add("reference");
-    openapiFields.add("shopperInteraction");
-    openapiFields.add("sofort");
-    openapiFields.add("storeId");
-    openapiFields.add("swish");
-    openapiFields.add("twint");
-    openapiFields.add("type");
-    openapiFields.add("verificationStatus");
-    openapiFields.add("vipps");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
+/**
+   * Create an instance of PaymentMethod given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentMethod
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentMethod
+   */
+  public static PaymentMethod fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentMethod.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentMethod.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentMethod
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentMethod.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentMethod is not found in the empty JSON string", PaymentMethod.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentMethod.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentMethod` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentMethod.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `afterpayTouch`
-      if (jsonObj.getAsJsonObject("afterpayTouch") != null) {
-        AfterpayTouchInfo.validateJsonObject(jsonObj.getAsJsonObject("afterpayTouch"));
-      }
-      // validate the optional field `applePay`
-      if (jsonObj.getAsJsonObject("applePay") != null) {
-        ApplePayInfo.validateJsonObject(jsonObj.getAsJsonObject("applePay"));
-      }
-      // validate the optional field `bcmc`
-      if (jsonObj.getAsJsonObject("bcmc") != null) {
-        BcmcInfo.validateJsonObject(jsonObj.getAsJsonObject("bcmc"));
-      }
-      // validate the optional field businessLineId
-      if (jsonObj.get("businessLineId") != null && !jsonObj.get("businessLineId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `businessLineId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessLineId").toString()));
-      }
-      // validate the optional field `cartesBancaires`
-      if (jsonObj.getAsJsonObject("cartesBancaires") != null) {
-        CartesBancairesInfo.validateJsonObject(jsonObj.getAsJsonObject("cartesBancaires"));
-      }
-      // validate the optional field `clearpay`
-      if (jsonObj.getAsJsonObject("clearpay") != null) {
-        ClearpayInfo.validateJsonObject(jsonObj.getAsJsonObject("clearpay"));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("countries") != null && !jsonObj.get("countries").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `countries` to be an array in the JSON string but got `%s`", jsonObj.get("countries").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("currencies") != null && !jsonObj.get("currencies").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `currencies` to be an array in the JSON string but got `%s`", jsonObj.get("currencies").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("customRoutingFlags") != null && !jsonObj.get("customRoutingFlags").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `customRoutingFlags` to be an array in the JSON string but got `%s`", jsonObj.get("customRoutingFlags").toString()));
-      }
-      // validate the optional field `giroPay`
-      if (jsonObj.getAsJsonObject("giroPay") != null) {
-        GiroPayInfo.validateJsonObject(jsonObj.getAsJsonObject("giroPay"));
-      }
-      // validate the optional field `googlePay`
-      if (jsonObj.getAsJsonObject("googlePay") != null) {
-        GooglePayInfo.validateJsonObject(jsonObj.getAsJsonObject("googlePay"));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field `klarna`
-      if (jsonObj.getAsJsonObject("klarna") != null) {
-        KlarnaInfo.validateJsonObject(jsonObj.getAsJsonObject("klarna"));
-      }
-      // validate the optional field `mealVoucher_FR`
-      if (jsonObj.getAsJsonObject("mealVoucher_FR") != null) {
-        MealVoucherFRInfo.validateJsonObject(jsonObj.getAsJsonObject("mealVoucher_FR"));
-      }
-      // validate the optional field `paypal`
-      if (jsonObj.getAsJsonObject("paypal") != null) {
-        PayPalInfo.validateJsonObject(jsonObj.getAsJsonObject("paypal"));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field shopperInteraction
-      if (jsonObj.get("shopperInteraction") != null && !jsonObj.get("shopperInteraction").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
-      }
-      // validate the optional field `sofort`
-      if (jsonObj.getAsJsonObject("sofort") != null) {
-        SofortInfo.validateJsonObject(jsonObj.getAsJsonObject("sofort"));
-      }
-      // validate the optional field storeId
-      if (jsonObj.get("storeId") != null && !jsonObj.get("storeId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `storeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeId").toString()));
-      }
-      // validate the optional field `swish`
-      if (jsonObj.getAsJsonObject("swish") != null) {
-        SwishInfo.validateJsonObject(jsonObj.getAsJsonObject("swish"));
-      }
-      // validate the optional field `twint`
-      if (jsonObj.getAsJsonObject("twint") != null) {
-        TwintInfo.validateJsonObject(jsonObj.getAsJsonObject("twint"));
-      }
-      // validate the optional field type
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // ensure the field verificationStatus can be parsed to an enum value
-      if (jsonObj.get("verificationStatus") != null) {
-        if(!jsonObj.get("verificationStatus").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `verificationStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationStatus").toString()));
-        }
-        VerificationStatusEnum.fromValue(jsonObj.get("verificationStatus").getAsString());
-      }
-      // validate the optional field `vipps`
-      if (jsonObj.getAsJsonObject("vipps") != null) {
-        VippsInfo.validateJsonObject(jsonObj.getAsJsonObject("vipps"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentMethod.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentMethod' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentMethod> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentMethod.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentMethod>() {
-           @Override
-           public void write(JsonWriter out, PaymentMethod value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentMethod read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaymentMethod given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentMethod
-  * @throws IOException if the JSON string is invalid with respect to PaymentMethod
-  */
-  public static PaymentMethod fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentMethod.class);
-  }
-
- /**
+/**
   * Convert an instance of PaymentMethod to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,62 +14,48 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * PayoutSettings
  */
+@JsonPropertyOrder({
+  PayoutSettings.JSON_PROPERTY_ALLOWED,
+  PayoutSettings.JSON_PROPERTY_ENABLED,
+  PayoutSettings.JSON_PROPERTY_ENABLED_FROM_DATE,
+  PayoutSettings.JSON_PROPERTY_ID,
+  PayoutSettings.JSON_PROPERTY_PRIORITY,
+  PayoutSettings.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
+  PayoutSettings.JSON_PROPERTY_VERIFICATION_STATUS
+})
 
 public class PayoutSettings {
-  public static final String SERIALIZED_NAME_ALLOWED = "allowed";
-  @SerializedName(SERIALIZED_NAME_ALLOWED)
+  public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
 
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
-  public static final String SERIALIZED_NAME_ENABLED_FROM_DATE = "enabledFromDate";
-  @SerializedName(SERIALIZED_NAME_ENABLED_FROM_DATE)
+  public static final String JSON_PROPERTY_ENABLED_FROM_DATE = "enabledFromDate";
   private String enabledFromDate;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   /**
    * Determines how long it takes for the funds to reach the bank account. Adyen pays out based on the [payout frequency](https://docs.adyen.com/account/getting-paid#payout-frequency). Depending on the currencies and banks involved in transferring the money, it may take up to three days for the payout funds to arrive in the bank account.   Possible values: * **first**: same day. * **urgent**: the next day. * **normal**: between 1 and 3 days.
    */
-  @JsonAdapter(PriorityEnum.Adapter.class)
   public enum PriorityEnum {
     FIRST("first"),
     
@@ -83,6 +69,7 @@ public class PayoutSettings {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -92,6 +79,7 @@ public class PayoutSettings {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static PriorityEnum fromValue(String value) {
       for (PriorityEnum b : PriorityEnum.values()) {
         if (b.value.equals(value)) {
@@ -100,33 +88,17 @@ public class PayoutSettings {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<PriorityEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PriorityEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public PriorityEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return PriorityEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
   private PriorityEnum priority;
 
-  public static final String SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID)
+  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   private String transferInstrumentId;
 
   /**
    * The status of the verification process for the bank account.  Possible values: * **valid**: the verification was successful. * **pending**: the verification is in progress. * **invalid**: the information provided is not complete. * **rejected**:  there are reasons to refuse working with this entity.
    */
-  @JsonAdapter(VerificationStatusEnum.Adapter.class)
   public enum VerificationStatusEnum {
     INVALID("invalid"),
     
@@ -142,6 +114,7 @@ public class PayoutSettings {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -151,6 +124,7 @@ public class PayoutSettings {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static VerificationStatusEnum fromValue(String value) {
       for (VerificationStatusEnum b : VerificationStatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -159,30 +133,15 @@ public class PayoutSettings {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<VerificationStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final VerificationStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public VerificationStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return VerificationStatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_VERIFICATION_STATUS = "verificationStatus";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_STATUS)
+  public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private VerificationStatusEnum verificationStatus;
 
   public PayoutSettings() { 
   }
 
   public PayoutSettings allowed(Boolean allowed) {
-    
     this.allowed = allowed;
     return this;
   }
@@ -192,19 +151,22 @@ public class PayoutSettings {
    * @return allowed
   **/
   @ApiModelProperty(value = "Indicates if payouts to the bank account are allowed. This value is set automatically based on the status of the verification process. The value is:  * **true** if `verificationStatus` is **valid**. * **false** for all other values.")
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowed() {
     return allowed;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
   }
 
 
   public PayoutSettings enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
@@ -214,19 +176,22 @@ public class PayoutSettings {
    * @return enabled
   **/
   @ApiModelProperty(value = "Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both `enabled` and `allowed` must be **true**.")
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
     return enabled;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
 
   public PayoutSettings enabledFromDate(String enabledFromDate) {
-    
     this.enabledFromDate = enabledFromDate;
     return this;
   }
@@ -236,19 +201,22 @@ public class PayoutSettings {
    * @return enabledFromDate
   **/
   @ApiModelProperty(value = "The date when Adyen starts paying out to this bank account.  Format: [ISO 8601](https://www.w3.org/TR/NOTE-datetime), for example, **2019-11-23T12:25:28Z** or **2020-05-27T20:25:28+08:00**.  If not specified, the `enabled` field indicates if payouts are enabled for this bank account.  If a date is specified and:  * `enabled`: **true**, payouts are enabled starting the specified date. * `enabled`: **false**, payouts are disabled until the specified date. On the specified date, `enabled` changes to **true** and this field is reset to **null**.")
+  @JsonProperty(JSON_PROPERTY_ENABLED_FROM_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnabledFromDate() {
     return enabledFromDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENABLED_FROM_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabledFromDate(String enabledFromDate) {
     this.enabledFromDate = enabledFromDate;
   }
 
 
   public PayoutSettings id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -258,19 +226,22 @@ public class PayoutSettings {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the payout setting.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public PayoutSettings priority(PriorityEnum priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -280,19 +251,22 @@ public class PayoutSettings {
    * @return priority
   **/
   @ApiModelProperty(value = "Determines how long it takes for the funds to reach the bank account. Adyen pays out based on the [payout frequency](https://docs.adyen.com/account/getting-paid#payout-frequency). Depending on the currencies and banks involved in transferring the money, it may take up to three days for the payout funds to arrive in the bank account.   Possible values: * **first**: same day. * **urgent**: the next day. * **normal**: between 1 and 3 days.")
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PriorityEnum getPriority() {
     return priority;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
     this.priority = priority;
   }
 
 
   public PayoutSettings transferInstrumentId(String transferInstrumentId) {
-    
     this.transferInstrumentId = transferInstrumentId;
     return this;
   }
@@ -302,19 +276,22 @@ public class PayoutSettings {
    * @return transferInstrumentId
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments) that contains the details of the bank account.")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }
 
 
   public PayoutSettings verificationStatus(VerificationStatusEnum verificationStatus) {
-    
     this.verificationStatus = verificationStatus;
     return this;
   }
@@ -324,18 +301,24 @@ public class PayoutSettings {
    * @return verificationStatus
   **/
   @ApiModelProperty(value = "The status of the verification process for the bank account.  Possible values: * **valid**: the verification was successful. * **pending**: the verification is in progress. * **invalid**: the information provided is not complete. * **rejected**:  there are reasons to refuse working with this entity.")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public VerificationStatusEnum getVerificationStatus() {
     return verificationStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(VerificationStatusEnum verificationStatus) {
     this.verificationStatus = verificationStatus;
   }
 
 
-
+  /**
+   * Return true if this PayoutSettings object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -385,135 +368,23 @@ public class PayoutSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed");
-    openapiFields.add("enabled");
-    openapiFields.add("enabledFromDate");
-    openapiFields.add("id");
-    openapiFields.add("priority");
-    openapiFields.add("transferInstrumentId");
-    openapiFields.add("verificationStatus");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("transferInstrumentId");
+/**
+   * Create an instance of PayoutSettings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PayoutSettings
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PayoutSettings
+   */
+  public static PayoutSettings fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PayoutSettings.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PayoutSettings.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PayoutSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PayoutSettings.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PayoutSettings is not found in the empty JSON string", PayoutSettings.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PayoutSettings.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PayoutSettings` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PayoutSettings.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field enabledFromDate
-      if (jsonObj.get("enabledFromDate") != null && !jsonObj.get("enabledFromDate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enabledFromDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enabledFromDate").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // ensure the field priority can be parsed to an enum value
-      if (jsonObj.get("priority") != null) {
-        if(!jsonObj.get("priority").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `priority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priority").toString()));
-        }
-        PriorityEnum.fromValue(jsonObj.get("priority").getAsString());
-      }
-      // validate the optional field transferInstrumentId
-      if (jsonObj.get("transferInstrumentId") != null && !jsonObj.get("transferInstrumentId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `transferInstrumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transferInstrumentId").toString()));
-      }
-      // ensure the field verificationStatus can be parsed to an enum value
-      if (jsonObj.get("verificationStatus") != null) {
-        if(!jsonObj.get("verificationStatus").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `verificationStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationStatus").toString()));
-        }
-        VerificationStatusEnum.fromValue(jsonObj.get("verificationStatus").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PayoutSettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PayoutSettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PayoutSettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PayoutSettings.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PayoutSettings>() {
-           @Override
-           public void write(JsonWriter out, PayoutSettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PayoutSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PayoutSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PayoutSettings
-  * @throws IOException if the JSON string is invalid with respect to PayoutSettings
-  */
-  public static PayoutSettings fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PayoutSettings.class);
-  }
-
- /**
+/**
   * Convert an instance of PayoutSettings to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

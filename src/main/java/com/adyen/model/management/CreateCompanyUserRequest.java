@@ -14,78 +14,61 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.Name;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * CreateCompanyUserRequest
  */
+@JsonPropertyOrder({
+  CreateCompanyUserRequest.JSON_PROPERTY_ACCOUNT_GROUPS,
+  CreateCompanyUserRequest.JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS,
+  CreateCompanyUserRequest.JSON_PROPERTY_EMAIL,
+  CreateCompanyUserRequest.JSON_PROPERTY_NAME,
+  CreateCompanyUserRequest.JSON_PROPERTY_ROLES,
+  CreateCompanyUserRequest.JSON_PROPERTY_TIME_ZONE_CODE,
+  CreateCompanyUserRequest.JSON_PROPERTY_USERNAME
+})
 
 public class CreateCompanyUserRequest {
-  public static final String SERIALIZED_NAME_ACCOUNT_GROUPS = "accountGroups";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_GROUPS)
+  public static final String JSON_PROPERTY_ACCOUNT_GROUPS = "accountGroups";
   private List<String> accountGroups = null;
 
-  public static final String SERIALIZED_NAME_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
-  @SerializedName(SERIALIZED_NAME_ASSOCIATED_MERCHANT_ACCOUNTS)
+  public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
   private List<String> associatedMerchantAccounts = null;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private Name name;
 
-  public static final String SERIALIZED_NAME_ROLES = "roles";
-  @SerializedName(SERIALIZED_NAME_ROLES)
+  public static final String JSON_PROPERTY_ROLES = "roles";
   private List<String> roles = null;
 
-  public static final String SERIALIZED_NAME_TIME_ZONE_CODE = "timeZoneCode";
-  @SerializedName(SERIALIZED_NAME_TIME_ZONE_CODE)
+  public static final String JSON_PROPERTY_TIME_ZONE_CODE = "timeZoneCode";
   private String timeZoneCode;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
+  public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
   public CreateCompanyUserRequest() { 
   }
 
   public CreateCompanyUserRequest accountGroups(List<String> accountGroups) {
-    
     this.accountGroups = accountGroups;
     return this;
   }
@@ -103,19 +86,22 @@ public class CreateCompanyUserRequest {
    * @return accountGroups
   **/
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getAccountGroups() {
     return accountGroups;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
   }
 
 
   public CreateCompanyUserRequest associatedMerchantAccounts(List<String> associatedMerchantAccounts) {
-    
     this.associatedMerchantAccounts = associatedMerchantAccounts;
     return this;
   }
@@ -133,19 +119,22 @@ public class CreateCompanyUserRequest {
    * @return associatedMerchantAccounts
   **/
   @ApiModelProperty(value = "The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.")
+  @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getAssociatedMerchantAccounts() {
     return associatedMerchantAccounts;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
   }
 
 
   public CreateCompanyUserRequest email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -155,19 +144,22 @@ public class CreateCompanyUserRequest {
    * @return email
   **/
   @ApiModelProperty(required = true, value = "The email address of the user.")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmail() {
     return email;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
 
   public CreateCompanyUserRequest name(Name name) {
-    
     this.name = name;
     return this;
   }
@@ -177,19 +169,22 @@ public class CreateCompanyUserRequest {
    * @return name
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Name getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
   }
 
 
   public CreateCompanyUserRequest roles(List<String> roles) {
-    
     this.roles = roles;
     return this;
   }
@@ -207,19 +202,22 @@ public class CreateCompanyUserRequest {
    * @return roles
   **/
   @ApiModelProperty(value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
+  @JsonProperty(JSON_PROPERTY_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getRoles() {
     return roles;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
 
 
   public CreateCompanyUserRequest timeZoneCode(String timeZoneCode) {
-    
     this.timeZoneCode = timeZoneCode;
     return this;
   }
@@ -229,19 +227,22 @@ public class CreateCompanyUserRequest {
    * @return timeZoneCode
   **/
   @ApiModelProperty(value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTimeZoneCode() {
     return timeZoneCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {
     this.timeZoneCode = timeZoneCode;
   }
 
 
   public CreateCompanyUserRequest username(String username) {
-    
     this.username = username;
     return this;
   }
@@ -251,18 +252,24 @@ public class CreateCompanyUserRequest {
    * @return username
   **/
   @ApiModelProperty(required = true, value = "The user's email address that will be their username. Must be the same as the one in the `email` field.")
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUsername() {
     return username;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
 
 
-
+  /**
+   * Return true if this CreateCompanyUserRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -312,138 +319,23 @@ public class CreateCompanyUserRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accountGroups");
-    openapiFields.add("associatedMerchantAccounts");
-    openapiFields.add("email");
-    openapiFields.add("name");
-    openapiFields.add("roles");
-    openapiFields.add("timeZoneCode");
-    openapiFields.add("username");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("username");
+/**
+   * Create an instance of CreateCompanyUserRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CreateCompanyUserRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreateCompanyUserRequest
+   */
+  public static CreateCompanyUserRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreateCompanyUserRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CreateCompanyUserRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateCompanyUserRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CreateCompanyUserRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateCompanyUserRequest is not found in the empty JSON string", CreateCompanyUserRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CreateCompanyUserRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreateCompanyUserRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateCompanyUserRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("accountGroups") != null && !jsonObj.get("accountGroups").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("associatedMerchantAccounts") != null && !jsonObj.get("associatedMerchantAccounts").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `associatedMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("associatedMerchantAccounts").toString()));
-      }
-      // validate the optional field email
-      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      // validate the optional field `name`
-      if (jsonObj.getAsJsonObject("name") != null) {
-        Name.validateJsonObject(jsonObj.getAsJsonObject("name"));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
-      }
-      // validate the optional field timeZoneCode
-      if (jsonObj.get("timeZoneCode") != null && !jsonObj.get("timeZoneCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `timeZoneCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZoneCode").toString()));
-      }
-      // validate the optional field username
-      if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateCompanyUserRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateCompanyUserRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateCompanyUserRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateCompanyUserRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreateCompanyUserRequest>() {
-           @Override
-           public void write(JsonWriter out, CreateCompanyUserRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreateCompanyUserRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CreateCompanyUserRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreateCompanyUserRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateCompanyUserRequest
-  */
-  public static CreateCompanyUserRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateCompanyUserRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of CreateCompanyUserRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

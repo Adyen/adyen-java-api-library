@@ -14,71 +14,54 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * UpdatableAddress
  */
+@JsonPropertyOrder({
+  UpdatableAddress.JSON_PROPERTY_CITY,
+  UpdatableAddress.JSON_PROPERTY_LINE1,
+  UpdatableAddress.JSON_PROPERTY_LINE2,
+  UpdatableAddress.JSON_PROPERTY_LINE3,
+  UpdatableAddress.JSON_PROPERTY_POSTAL_CODE,
+  UpdatableAddress.JSON_PROPERTY_STATE_OR_PROVINCE
+})
 
 public class UpdatableAddress {
-  public static final String SERIALIZED_NAME_CITY = "city";
-  @SerializedName(SERIALIZED_NAME_CITY)
+  public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
-  public static final String SERIALIZED_NAME_LINE1 = "line1";
-  @SerializedName(SERIALIZED_NAME_LINE1)
+  public static final String JSON_PROPERTY_LINE1 = "line1";
   private String line1;
 
-  public static final String SERIALIZED_NAME_LINE2 = "line2";
-  @SerializedName(SERIALIZED_NAME_LINE2)
+  public static final String JSON_PROPERTY_LINE2 = "line2";
   private String line2;
 
-  public static final String SERIALIZED_NAME_LINE3 = "line3";
-  @SerializedName(SERIALIZED_NAME_LINE3)
+  public static final String JSON_PROPERTY_LINE3 = "line3";
   private String line3;
 
-  public static final String SERIALIZED_NAME_POSTAL_CODE = "postalCode";
-  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
+  public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private String postalCode;
 
-  public static final String SERIALIZED_NAME_STATE_OR_PROVINCE = "stateOrProvince";
-  @SerializedName(SERIALIZED_NAME_STATE_OR_PROVINCE)
+  public static final String JSON_PROPERTY_STATE_OR_PROVINCE = "stateOrProvince";
   private String stateOrProvince;
 
   public UpdatableAddress() { 
   }
 
   public UpdatableAddress city(String city) {
-    
     this.city = city;
     return this;
   }
@@ -88,19 +71,22 @@ public class UpdatableAddress {
    * @return city
   **/
   @ApiModelProperty(value = "The name of the city.")
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCity() {
     return city;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
 
   public UpdatableAddress line1(String line1) {
-    
     this.line1 = line1;
     return this;
   }
@@ -110,19 +96,22 @@ public class UpdatableAddress {
    * @return line1
   **/
   @ApiModelProperty(value = "The street address.")
+  @JsonProperty(JSON_PROPERTY_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLine1() {
     return line1;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
     this.line1 = line1;
   }
 
 
   public UpdatableAddress line2(String line2) {
-    
     this.line2 = line2;
     return this;
   }
@@ -132,19 +121,22 @@ public class UpdatableAddress {
    * @return line2
   **/
   @ApiModelProperty(value = "Second address line.")
+  @JsonProperty(JSON_PROPERTY_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLine2() {
     return line2;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
     this.line2 = line2;
   }
 
 
   public UpdatableAddress line3(String line3) {
-    
     this.line3 = line3;
     return this;
   }
@@ -154,19 +146,22 @@ public class UpdatableAddress {
    * @return line3
   **/
   @ApiModelProperty(value = "Third address line.")
+  @JsonProperty(JSON_PROPERTY_LINE3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLine3() {
     return line3;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
     this.line3 = line3;
   }
 
 
   public UpdatableAddress postalCode(String postalCode) {
-    
     this.postalCode = postalCode;
     return this;
   }
@@ -176,19 +171,22 @@ public class UpdatableAddress {
    * @return postalCode
   **/
   @ApiModelProperty(value = "The postal code.")
+  @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPostalCode() {
     return postalCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
 
 
   public UpdatableAddress stateOrProvince(String stateOrProvince) {
-    
     this.stateOrProvince = stateOrProvince;
     return this;
   }
@@ -198,18 +196,24 @@ public class UpdatableAddress {
    * @return stateOrProvince
   **/
   @ApiModelProperty(value = "The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States")
+  @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStateOrProvince() {
     return stateOrProvince;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
   }
 
 
-
+  /**
+   * Return true if this UpdatableAddress object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -257,123 +261,23 @@ public class UpdatableAddress {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("city");
-    openapiFields.add("line1");
-    openapiFields.add("line2");
-    openapiFields.add("line3");
-    openapiFields.add("postalCode");
-    openapiFields.add("stateOrProvince");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of UpdatableAddress given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of UpdatableAddress
+   * @throws JsonProcessingException if the JSON string is invalid with respect to UpdatableAddress
+   */
+  public static UpdatableAddress fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, UpdatableAddress.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(UpdatableAddress.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UpdatableAddress
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (UpdatableAddress.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdatableAddress is not found in the empty JSON string", UpdatableAddress.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UpdatableAddress.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UpdatableAddress` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field city
-      if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
-      }
-      // validate the optional field line1
-      if (jsonObj.get("line1") != null && !jsonObj.get("line1").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `line1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line1").toString()));
-      }
-      // validate the optional field line2
-      if (jsonObj.get("line2") != null && !jsonObj.get("line2").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `line2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line2").toString()));
-      }
-      // validate the optional field line3
-      if (jsonObj.get("line3") != null && !jsonObj.get("line3").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `line3` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line3").toString()));
-      }
-      // validate the optional field postalCode
-      if (jsonObj.get("postalCode") != null && !jsonObj.get("postalCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postalCode").toString()));
-      }
-      // validate the optional field stateOrProvince
-      if (jsonObj.get("stateOrProvince") != null && !jsonObj.get("stateOrProvince").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `stateOrProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stateOrProvince").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdatableAddress.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdatableAddress' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdatableAddress> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdatableAddress.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdatableAddress>() {
-           @Override
-           public void write(JsonWriter out, UpdatableAddress value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdatableAddress read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of UpdatableAddress given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UpdatableAddress
-  * @throws IOException if the JSON string is invalid with respect to UpdatableAddress
-  */
-  public static UpdatableAddress fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdatableAddress.class);
-  }
-
- /**
+/**
   * Convert an instance of UpdatableAddress to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

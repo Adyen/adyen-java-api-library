@@ -15,67 +15,50 @@ package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.posterminalmanagement.JSON;
 
 /**
  * FindTerminalResponse
  */
+@JsonPropertyOrder({
+  FindTerminalResponse.JSON_PROPERTY_COMPANY_ACCOUNT,
+  FindTerminalResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  FindTerminalResponse.JSON_PROPERTY_MERCHANT_INVENTORY,
+  FindTerminalResponse.JSON_PROPERTY_STORE,
+  FindTerminalResponse.JSON_PROPERTY_TERMINAL
+})
 
 public class FindTerminalResponse {
-  public static final String SERIALIZED_NAME_COMPANY_ACCOUNT = "companyAccount";
-  @SerializedName(SERIALIZED_NAME_COMPANY_ACCOUNT)
+  public static final String JSON_PROPERTY_COMPANY_ACCOUNT = "companyAccount";
   private String companyAccount;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_MERCHANT_INVENTORY = "merchantInventory";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_INVENTORY)
+  public static final String JSON_PROPERTY_MERCHANT_INVENTORY = "merchantInventory";
   private Boolean merchantInventory;
 
-  public static final String SERIALIZED_NAME_STORE = "store";
-  @SerializedName(SERIALIZED_NAME_STORE)
+  public static final String JSON_PROPERTY_STORE = "store";
   private String store;
 
-  public static final String SERIALIZED_NAME_TERMINAL = "terminal";
-  @SerializedName(SERIALIZED_NAME_TERMINAL)
+  public static final String JSON_PROPERTY_TERMINAL = "terminal";
   private String terminal;
 
   public FindTerminalResponse() { 
   }
 
   public FindTerminalResponse companyAccount(String companyAccount) {
-    
     this.companyAccount = companyAccount;
     return this;
   }
@@ -85,19 +68,22 @@ public class FindTerminalResponse {
    * @return companyAccount
   **/
   @ApiModelProperty(required = true, value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
+  @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCompanyAccount() {
     return companyAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
 
   public FindTerminalResponse merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -107,19 +93,22 @@ public class FindTerminalResponse {
    * @return merchantAccount
   **/
   @ApiModelProperty(value = "The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public FindTerminalResponse merchantInventory(Boolean merchantInventory) {
-    
     this.merchantInventory = merchantInventory;
     return this;
   }
@@ -129,19 +118,22 @@ public class FindTerminalResponse {
    * @return merchantInventory
   **/
   @ApiModelProperty(value = "Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantInventory() {
     return merchantInventory;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
   }
 
 
   public FindTerminalResponse store(String store) {
-    
     this.store = store;
     return this;
   }
@@ -151,19 +143,22 @@ public class FindTerminalResponse {
    * @return store
   **/
   @ApiModelProperty(value = "The store code of the store that the terminal is assigned to.")
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStore() {
     return store;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
 
 
   public FindTerminalResponse terminal(String terminal) {
-    
     this.terminal = terminal;
     return this;
   }
@@ -173,18 +168,24 @@ public class FindTerminalResponse {
    * @return terminal
   **/
   @ApiModelProperty(required = true, value = "The unique terminal ID.")
+  @JsonProperty(JSON_PROPERTY_TERMINAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTerminal() {
     return terminal;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TERMINAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }
 
 
-
+  /**
+   * Return true if this FindTerminalResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,123 +231,23 @@ public class FindTerminalResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("companyAccount");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("merchantInventory");
-    openapiFields.add("store");
-    openapiFields.add("terminal");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("companyAccount");
-    openapiRequiredFields.add("terminal");
+/**
+   * Create an instance of FindTerminalResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of FindTerminalResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to FindTerminalResponse
+   */
+  public static FindTerminalResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, FindTerminalResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(FindTerminalResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to FindTerminalResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (FindTerminalResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FindTerminalResponse is not found in the empty JSON string", FindTerminalResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!FindTerminalResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `FindTerminalResponse` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FindTerminalResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field companyAccount
-      if (jsonObj.get("companyAccount") != null && !jsonObj.get("companyAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field store
-      if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
-      }
-      // validate the optional field terminal
-      if (jsonObj.get("terminal") != null && !jsonObj.get("terminal").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FindTerminalResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FindTerminalResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FindTerminalResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FindTerminalResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<FindTerminalResponse>() {
-           @Override
-           public void write(JsonWriter out, FindTerminalResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public FindTerminalResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of FindTerminalResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of FindTerminalResponse
-  * @throws IOException if the JSON string is invalid with respect to FindTerminalResponse
-  */
-  public static FindTerminalResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FindTerminalResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of FindTerminalResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

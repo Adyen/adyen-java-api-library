@@ -14,120 +14,103 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.ModelFile;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Profile
  */
+@JsonPropertyOrder({
+  Profile.JSON_PROPERTY_AUTH_TYPE,
+  Profile.JSON_PROPERTY_AUTO_WIFI,
+  Profile.JSON_PROPERTY_BSS_TYPE,
+  Profile.JSON_PROPERTY_CHANNEL,
+  Profile.JSON_PROPERTY_DEFAULT_PROFILE,
+  Profile.JSON_PROPERTY_EAP,
+  Profile.JSON_PROPERTY_EAP_CA_CERT,
+  Profile.JSON_PROPERTY_EAP_CLIENT_CERT,
+  Profile.JSON_PROPERTY_EAP_CLIENT_KEY,
+  Profile.JSON_PROPERTY_EAP_CLIENT_PWD,
+  Profile.JSON_PROPERTY_EAP_IDENTITY,
+  Profile.JSON_PROPERTY_EAP_INTERMEDIATE_CERT,
+  Profile.JSON_PROPERTY_EAP_PWD,
+  Profile.JSON_PROPERTY_HIDDEN_SSID,
+  Profile.JSON_PROPERTY_NAME,
+  Profile.JSON_PROPERTY_PSK,
+  Profile.JSON_PROPERTY_SSID,
+  Profile.JSON_PROPERTY_WSEC
+})
 
 public class Profile {
-  public static final String SERIALIZED_NAME_AUTH_TYPE = "authType";
-  @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
+  public static final String JSON_PROPERTY_AUTH_TYPE = "authType";
   private String authType;
 
-  public static final String SERIALIZED_NAME_AUTO_WIFI = "autoWifi";
-  @SerializedName(SERIALIZED_NAME_AUTO_WIFI)
+  public static final String JSON_PROPERTY_AUTO_WIFI = "autoWifi";
   private Boolean autoWifi;
 
-  public static final String SERIALIZED_NAME_BSS_TYPE = "bssType";
-  @SerializedName(SERIALIZED_NAME_BSS_TYPE)
+  public static final String JSON_PROPERTY_BSS_TYPE = "bssType";
   private String bssType;
 
-  public static final String SERIALIZED_NAME_CHANNEL = "channel";
-  @SerializedName(SERIALIZED_NAME_CHANNEL)
+  public static final String JSON_PROPERTY_CHANNEL = "channel";
   private Integer channel;
 
-  public static final String SERIALIZED_NAME_DEFAULT_PROFILE = "defaultProfile";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_PROFILE)
+  public static final String JSON_PROPERTY_DEFAULT_PROFILE = "defaultProfile";
   private Boolean defaultProfile;
 
-  public static final String SERIALIZED_NAME_EAP = "eap";
-  @SerializedName(SERIALIZED_NAME_EAP)
+  public static final String JSON_PROPERTY_EAP = "eap";
   private String eap;
 
-  public static final String SERIALIZED_NAME_EAP_CA_CERT = "eapCaCert";
-  @SerializedName(SERIALIZED_NAME_EAP_CA_CERT)
+  public static final String JSON_PROPERTY_EAP_CA_CERT = "eapCaCert";
   private ModelFile eapCaCert;
 
-  public static final String SERIALIZED_NAME_EAP_CLIENT_CERT = "eapClientCert";
-  @SerializedName(SERIALIZED_NAME_EAP_CLIENT_CERT)
+  public static final String JSON_PROPERTY_EAP_CLIENT_CERT = "eapClientCert";
   private ModelFile eapClientCert;
 
-  public static final String SERIALIZED_NAME_EAP_CLIENT_KEY = "eapClientKey";
-  @SerializedName(SERIALIZED_NAME_EAP_CLIENT_KEY)
+  public static final String JSON_PROPERTY_EAP_CLIENT_KEY = "eapClientKey";
   private ModelFile eapClientKey;
 
-  public static final String SERIALIZED_NAME_EAP_CLIENT_PWD = "eapClientPwd";
-  @SerializedName(SERIALIZED_NAME_EAP_CLIENT_PWD)
+  public static final String JSON_PROPERTY_EAP_CLIENT_PWD = "eapClientPwd";
   private String eapClientPwd;
 
-  public static final String SERIALIZED_NAME_EAP_IDENTITY = "eapIdentity";
-  @SerializedName(SERIALIZED_NAME_EAP_IDENTITY)
+  public static final String JSON_PROPERTY_EAP_IDENTITY = "eapIdentity";
   private String eapIdentity;
 
-  public static final String SERIALIZED_NAME_EAP_INTERMEDIATE_CERT = "eapIntermediateCert";
-  @SerializedName(SERIALIZED_NAME_EAP_INTERMEDIATE_CERT)
+  public static final String JSON_PROPERTY_EAP_INTERMEDIATE_CERT = "eapIntermediateCert";
   private ModelFile eapIntermediateCert;
 
-  public static final String SERIALIZED_NAME_EAP_PWD = "eapPwd";
-  @SerializedName(SERIALIZED_NAME_EAP_PWD)
+  public static final String JSON_PROPERTY_EAP_PWD = "eapPwd";
   private String eapPwd;
 
-  public static final String SERIALIZED_NAME_HIDDEN_SSID = "hiddenSsid";
-  @SerializedName(SERIALIZED_NAME_HIDDEN_SSID)
+  public static final String JSON_PROPERTY_HIDDEN_SSID = "hiddenSsid";
   private Boolean hiddenSsid;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_PSK = "psk";
-  @SerializedName(SERIALIZED_NAME_PSK)
+  public static final String JSON_PROPERTY_PSK = "psk";
   private String psk;
 
-  public static final String SERIALIZED_NAME_SSID = "ssid";
-  @SerializedName(SERIALIZED_NAME_SSID)
+  public static final String JSON_PROPERTY_SSID = "ssid";
   private String ssid;
 
-  public static final String SERIALIZED_NAME_WSEC = "wsec";
-  @SerializedName(SERIALIZED_NAME_WSEC)
+  public static final String JSON_PROPERTY_WSEC = "wsec";
   private String wsec;
 
   public Profile() { 
   }
 
   public Profile authType(String authType) {
-    
     this.authType = authType;
     return this;
   }
@@ -137,19 +120,22 @@ public class Profile {
    * @return authType
   **/
   @ApiModelProperty(required = true, value = "The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.")
+  @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthType() {
     return authType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthType(String authType) {
     this.authType = authType;
   }
 
 
   public Profile autoWifi(Boolean autoWifi) {
-    
     this.autoWifi = autoWifi;
     return this;
   }
@@ -159,19 +145,22 @@ public class Profile {
    * @return autoWifi
   **/
   @ApiModelProperty(value = "Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.")
+  @JsonProperty(JSON_PROPERTY_AUTO_WIFI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAutoWifi() {
     return autoWifi;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTO_WIFI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoWifi(Boolean autoWifi) {
     this.autoWifi = autoWifi;
   }
 
 
   public Profile bssType(String bssType) {
-    
     this.bssType = bssType;
     return this;
   }
@@ -181,19 +170,22 @@ public class Profile {
    * @return bssType
   **/
   @ApiModelProperty(required = true, value = "Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.")
+  @JsonProperty(JSON_PROPERTY_BSS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBssType() {
     return bssType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BSS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBssType(String bssType) {
     this.bssType = bssType;
   }
 
 
   public Profile channel(Integer channel) {
-    
     this.channel = channel;
     return this;
   }
@@ -203,19 +195,22 @@ public class Profile {
    * @return channel
   **/
   @ApiModelProperty(value = "The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.")
+  @JsonProperty(JSON_PROPERTY_CHANNEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getChannel() {
     return channel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CHANNEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChannel(Integer channel) {
     this.channel = channel;
   }
 
 
   public Profile defaultProfile(Boolean defaultProfile) {
-    
     this.defaultProfile = defaultProfile;
     return this;
   }
@@ -225,19 +220,22 @@ public class Profile {
    * @return defaultProfile
   **/
   @ApiModelProperty(value = "Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.")
+  @JsonProperty(JSON_PROPERTY_DEFAULT_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDefaultProfile() {
     return defaultProfile;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DEFAULT_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultProfile(Boolean defaultProfile) {
     this.defaultProfile = defaultProfile;
   }
 
 
   public Profile eap(String eap) {
-    
     this.eap = eap;
     return this;
   }
@@ -247,19 +245,22 @@ public class Profile {
    * @return eap
   **/
   @ApiModelProperty(value = "For `authType` **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**")
+  @JsonProperty(JSON_PROPERTY_EAP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEap() {
     return eap;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEap(String eap) {
     this.eap = eap;
   }
 
 
   public Profile eapCaCert(ModelFile eapCaCert) {
-    
     this.eapCaCert = eapCaCert;
     return this;
   }
@@ -269,19 +270,22 @@ public class Profile {
    * @return eapCaCert
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EAP_CA_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ModelFile getEapCaCert() {
     return eapCaCert;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP_CA_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapCaCert(ModelFile eapCaCert) {
     this.eapCaCert = eapCaCert;
   }
 
 
   public Profile eapClientCert(ModelFile eapClientCert) {
-    
     this.eapClientCert = eapClientCert;
     return this;
   }
@@ -291,19 +295,22 @@ public class Profile {
    * @return eapClientCert
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EAP_CLIENT_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ModelFile getEapClientCert() {
     return eapClientCert;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP_CLIENT_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientCert(ModelFile eapClientCert) {
     this.eapClientCert = eapClientCert;
   }
 
 
   public Profile eapClientKey(ModelFile eapClientKey) {
-    
     this.eapClientKey = eapClientKey;
     return this;
   }
@@ -313,19 +320,22 @@ public class Profile {
    * @return eapClientKey
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EAP_CLIENT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ModelFile getEapClientKey() {
     return eapClientKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP_CLIENT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientKey(ModelFile eapClientKey) {
     this.eapClientKey = eapClientKey;
   }
 
 
   public Profile eapClientPwd(String eapClientPwd) {
-    
     this.eapClientPwd = eapClientPwd;
     return this;
   }
@@ -335,19 +345,22 @@ public class Profile {
    * @return eapClientPwd
   **/
   @ApiModelProperty(value = "For `eap` **tls**. The password of the RSA key file, if that file is password-protected.")
+  @JsonProperty(JSON_PROPERTY_EAP_CLIENT_PWD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEapClientPwd() {
     return eapClientPwd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP_CLIENT_PWD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientPwd(String eapClientPwd) {
     this.eapClientPwd = eapClientPwd;
   }
 
 
   public Profile eapIdentity(String eapIdentity) {
-    
     this.eapIdentity = eapIdentity;
     return this;
   }
@@ -357,19 +370,22 @@ public class Profile {
    * @return eapIdentity
   **/
   @ApiModelProperty(value = "For `authType` **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.")
+  @JsonProperty(JSON_PROPERTY_EAP_IDENTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEapIdentity() {
     return eapIdentity;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP_IDENTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIdentity(String eapIdentity) {
     this.eapIdentity = eapIdentity;
   }
 
 
   public Profile eapIntermediateCert(ModelFile eapIntermediateCert) {
-    
     this.eapIntermediateCert = eapIntermediateCert;
     return this;
   }
@@ -379,19 +395,22 @@ public class Profile {
    * @return eapIntermediateCert
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EAP_INTERMEDIATE_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ModelFile getEapIntermediateCert() {
     return eapIntermediateCert;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP_INTERMEDIATE_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIntermediateCert(ModelFile eapIntermediateCert) {
     this.eapIntermediateCert = eapIntermediateCert;
   }
 
 
   public Profile eapPwd(String eapPwd) {
-    
     this.eapPwd = eapPwd;
     return this;
   }
@@ -401,19 +420,22 @@ public class Profile {
    * @return eapPwd
   **/
   @ApiModelProperty(value = "For `eap` **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.")
+  @JsonProperty(JSON_PROPERTY_EAP_PWD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEapPwd() {
     return eapPwd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EAP_PWD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapPwd(String eapPwd) {
     this.eapPwd = eapPwd;
   }
 
 
   public Profile hiddenSsid(Boolean hiddenSsid) {
-    
     this.hiddenSsid = hiddenSsid;
     return this;
   }
@@ -423,19 +445,22 @@ public class Profile {
    * @return hiddenSsid
   **/
   @ApiModelProperty(value = "Indicates if the network doesn't broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.")
+  @JsonProperty(JSON_PROPERTY_HIDDEN_SSID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHiddenSsid() {
     return hiddenSsid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HIDDEN_SSID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHiddenSsid(Boolean hiddenSsid) {
     this.hiddenSsid = hiddenSsid;
   }
 
 
   public Profile name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -445,19 +470,22 @@ public class Profile {
    * @return name
   **/
   @ApiModelProperty(value = "Your name for the Wi-Fi profile.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public Profile psk(String psk) {
-    
     this.psk = psk;
     return this;
   }
@@ -467,19 +495,22 @@ public class Profile {
    * @return psk
   **/
   @ApiModelProperty(value = "For `authType` **wpa-psk or **wpa2-psk**. The password to the wireless network.")
+  @JsonProperty(JSON_PROPERTY_PSK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPsk() {
     return psk;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPsk(String psk) {
     this.psk = psk;
   }
 
 
   public Profile ssid(String ssid) {
-    
     this.ssid = ssid;
     return this;
   }
@@ -489,19 +520,22 @@ public class Profile {
    * @return ssid
   **/
   @ApiModelProperty(required = true, value = "The name of the wireless network.")
+  @JsonProperty(JSON_PROPERTY_SSID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSsid() {
     return ssid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SSID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {
     this.ssid = ssid;
   }
 
 
   public Profile wsec(String wsec) {
-    
     this.wsec = wsec;
     return this;
   }
@@ -511,18 +545,24 @@ public class Profile {
    * @return wsec
   **/
   @ApiModelProperty(required = true, value = "The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**")
+  @JsonProperty(JSON_PROPERTY_WSEC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWsec() {
     return wsec;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WSEC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWsec(String wsec) {
     this.wsec = wsec;
   }
 
 
-
+  /**
+   * Return true if this Profile object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -594,178 +634,23 @@ public class Profile {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("authType");
-    openapiFields.add("autoWifi");
-    openapiFields.add("bssType");
-    openapiFields.add("channel");
-    openapiFields.add("defaultProfile");
-    openapiFields.add("eap");
-    openapiFields.add("eapCaCert");
-    openapiFields.add("eapClientCert");
-    openapiFields.add("eapClientKey");
-    openapiFields.add("eapClientPwd");
-    openapiFields.add("eapIdentity");
-    openapiFields.add("eapIntermediateCert");
-    openapiFields.add("eapPwd");
-    openapiFields.add("hiddenSsid");
-    openapiFields.add("name");
-    openapiFields.add("psk");
-    openapiFields.add("ssid");
-    openapiFields.add("wsec");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("authType");
-    openapiRequiredFields.add("bssType");
-    openapiRequiredFields.add("ssid");
-    openapiRequiredFields.add("wsec");
+/**
+   * Create an instance of Profile given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Profile
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Profile
+   */
+  public static Profile fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Profile.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Profile.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Profile
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Profile.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Profile is not found in the empty JSON string", Profile.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Profile.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Profile` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Profile.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field authType
-      if (jsonObj.get("authType") != null && !jsonObj.get("authType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authType").toString()));
-      }
-      // validate the optional field bssType
-      if (jsonObj.get("bssType") != null && !jsonObj.get("bssType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bssType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bssType").toString()));
-      }
-      // validate the optional field eap
-      if (jsonObj.get("eap") != null && !jsonObj.get("eap").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `eap` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eap").toString()));
-      }
-      // validate the optional field `eapCaCert`
-      if (jsonObj.getAsJsonObject("eapCaCert") != null) {
-        ModelFile.validateJsonObject(jsonObj.getAsJsonObject("eapCaCert"));
-      }
-      // validate the optional field `eapClientCert`
-      if (jsonObj.getAsJsonObject("eapClientCert") != null) {
-        ModelFile.validateJsonObject(jsonObj.getAsJsonObject("eapClientCert"));
-      }
-      // validate the optional field `eapClientKey`
-      if (jsonObj.getAsJsonObject("eapClientKey") != null) {
-        ModelFile.validateJsonObject(jsonObj.getAsJsonObject("eapClientKey"));
-      }
-      // validate the optional field eapClientPwd
-      if (jsonObj.get("eapClientPwd") != null && !jsonObj.get("eapClientPwd").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `eapClientPwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapClientPwd").toString()));
-      }
-      // validate the optional field eapIdentity
-      if (jsonObj.get("eapIdentity") != null && !jsonObj.get("eapIdentity").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `eapIdentity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapIdentity").toString()));
-      }
-      // validate the optional field `eapIntermediateCert`
-      if (jsonObj.getAsJsonObject("eapIntermediateCert") != null) {
-        ModelFile.validateJsonObject(jsonObj.getAsJsonObject("eapIntermediateCert"));
-      }
-      // validate the optional field eapPwd
-      if (jsonObj.get("eapPwd") != null && !jsonObj.get("eapPwd").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `eapPwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eapPwd").toString()));
-      }
-      // validate the optional field name
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field psk
-      if (jsonObj.get("psk") != null && !jsonObj.get("psk").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `psk` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psk").toString()));
-      }
-      // validate the optional field ssid
-      if (jsonObj.get("ssid") != null && !jsonObj.get("ssid").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ssid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssid").toString()));
-      }
-      // validate the optional field wsec
-      if (jsonObj.get("wsec") != null && !jsonObj.get("wsec").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `wsec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wsec").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Profile.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Profile' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Profile> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Profile.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Profile>() {
-           @Override
-           public void write(JsonWriter out, Profile value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Profile read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Profile given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Profile
-  * @throws IOException if the JSON string is invalid with respect to Profile
-  */
-  public static Profile fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Profile.class);
-  }
-
- /**
+/**
   * Convert an instance of Profile to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

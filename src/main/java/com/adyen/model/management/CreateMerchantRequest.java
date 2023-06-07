@@ -14,77 +14,60 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * CreateMerchantRequest
  */
+@JsonPropertyOrder({
+  CreateMerchantRequest.JSON_PROPERTY_BUSINESS_LINE_ID,
+  CreateMerchantRequest.JSON_PROPERTY_COMPANY_ID,
+  CreateMerchantRequest.JSON_PROPERTY_DESCRIPTION,
+  CreateMerchantRequest.JSON_PROPERTY_LEGAL_ENTITY_ID,
+  CreateMerchantRequest.JSON_PROPERTY_PRICING_PLAN,
+  CreateMerchantRequest.JSON_PROPERTY_REFERENCE,
+  CreateMerchantRequest.JSON_PROPERTY_SALES_CHANNELS
+})
 
 public class CreateMerchantRequest {
-  public static final String SERIALIZED_NAME_BUSINESS_LINE_ID = "businessLineId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_LINE_ID)
+  public static final String JSON_PROPERTY_BUSINESS_LINE_ID = "businessLineId";
   private String businessLineId;
 
-  public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
-  @SerializedName(SERIALIZED_NAME_COMPANY_ID)
+  public static final String JSON_PROPERTY_COMPANY_ID = "companyId";
   private String companyId;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_LEGAL_ENTITY_ID = "legalEntityId";
-  @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_ID)
+  public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
 
-  public static final String SERIALIZED_NAME_PRICING_PLAN = "pricingPlan";
-  @SerializedName(SERIALIZED_NAME_PRICING_PLAN)
+  public static final String JSON_PROPERTY_PRICING_PLAN = "pricingPlan";
   private String pricingPlan;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SALES_CHANNELS = "salesChannels";
-  @SerializedName(SERIALIZED_NAME_SALES_CHANNELS)
+  public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
   private List<String> salesChannels = null;
 
   public CreateMerchantRequest() { 
   }
 
   public CreateMerchantRequest businessLineId(String businessLineId) {
-    
     this.businessLineId = businessLineId;
     return this;
   }
@@ -94,19 +77,22 @@ public class CreateMerchantRequest {
    * @return businessLineId
   **/
   @ApiModelProperty(value = "The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.")
+  @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBusinessLineId() {
     return businessLineId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineId(String businessLineId) {
     this.businessLineId = businessLineId;
   }
 
 
   public CreateMerchantRequest companyId(String companyId) {
-    
     this.companyId = companyId;
     return this;
   }
@@ -116,19 +102,22 @@ public class CreateMerchantRequest {
    * @return companyId
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the company account.")
+  @JsonProperty(JSON_PROPERTY_COMPANY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCompanyId() {
     return companyId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COMPANY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
 
 
   public CreateMerchantRequest description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -138,19 +127,22 @@ public class CreateMerchantRequest {
    * @return description
   **/
   @ApiModelProperty(value = "Your description for the merchant account, maximum 300 characters.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public CreateMerchantRequest legalEntityId(String legalEntityId) {
-    
     this.legalEntityId = legalEntityId;
     return this;
   }
@@ -160,19 +152,22 @@ public class CreateMerchantRequest {
    * @return legalEntityId
   **/
   @ApiModelProperty(value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.")
+  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLegalEntityId() {
     return legalEntityId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
 
 
   public CreateMerchantRequest pricingPlan(String pricingPlan) {
-    
     this.pricingPlan = pricingPlan;
     return this;
   }
@@ -182,19 +177,22 @@ public class CreateMerchantRequest {
    * @return pricingPlan
   **/
   @ApiModelProperty(value = "Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.")
+  @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPricingPlan() {
     return pricingPlan;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPricingPlan(String pricingPlan) {
     this.pricingPlan = pricingPlan;
   }
 
 
   public CreateMerchantRequest reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -204,19 +202,22 @@ public class CreateMerchantRequest {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the `reference` is required and must be unique within the company account.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public CreateMerchantRequest salesChannels(List<String> salesChannels) {
-    
     this.salesChannels = salesChannels;
     return this;
   }
@@ -234,18 +235,24 @@ public class CreateMerchantRequest {
    * @return salesChannels
   **/
   @ApiModelProperty(value = "List of sales channels that the merchant will process payments with")
+  @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getSalesChannels() {
     return salesChannels;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
   }
 
 
-
+  /**
+   * Return true if this CreateMerchantRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -295,136 +302,23 @@ public class CreateMerchantRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("businessLineId");
-    openapiFields.add("companyId");
-    openapiFields.add("description");
-    openapiFields.add("legalEntityId");
-    openapiFields.add("pricingPlan");
-    openapiFields.add("reference");
-    openapiFields.add("salesChannels");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("companyId");
+/**
+   * Create an instance of CreateMerchantRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CreateMerchantRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreateMerchantRequest
+   */
+  public static CreateMerchantRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreateMerchantRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CreateMerchantRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateMerchantRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CreateMerchantRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateMerchantRequest is not found in the empty JSON string", CreateMerchantRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CreateMerchantRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreateMerchantRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateMerchantRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field businessLineId
-      if (jsonObj.get("businessLineId") != null && !jsonObj.get("businessLineId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `businessLineId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessLineId").toString()));
-      }
-      // validate the optional field companyId
-      if (jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field legalEntityId
-      if (jsonObj.get("legalEntityId") != null && !jsonObj.get("legalEntityId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `legalEntityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("legalEntityId").toString()));
-      }
-      // validate the optional field pricingPlan
-      if (jsonObj.get("pricingPlan") != null && !jsonObj.get("pricingPlan").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pricingPlan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricingPlan").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("salesChannels") != null && !jsonObj.get("salesChannels").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `salesChannels` to be an array in the JSON string but got `%s`", jsonObj.get("salesChannels").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateMerchantRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateMerchantRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateMerchantRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateMerchantRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreateMerchantRequest>() {
-           @Override
-           public void write(JsonWriter out, CreateMerchantRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreateMerchantRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CreateMerchantRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreateMerchantRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateMerchantRequest
-  */
-  public static CreateMerchantRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateMerchantRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of CreateMerchantRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

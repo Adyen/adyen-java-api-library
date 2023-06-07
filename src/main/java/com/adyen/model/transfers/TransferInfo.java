@@ -14,57 +14,49 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.CounterpartyInfoV3;
 import com.adyen.model.transfers.UltimatePartyIdentification;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * TransferInfo
  */
+@JsonPropertyOrder({
+  TransferInfo.JSON_PROPERTY_AMOUNT,
+  TransferInfo.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
+  TransferInfo.JSON_PROPERTY_CATEGORY,
+  TransferInfo.JSON_PROPERTY_COUNTERPARTY,
+  TransferInfo.JSON_PROPERTY_DESCRIPTION,
+  TransferInfo.JSON_PROPERTY_ID,
+  TransferInfo.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
+  TransferInfo.JSON_PROPERTY_PRIORITY,
+  TransferInfo.JSON_PROPERTY_REFERENCE,
+  TransferInfo.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
+  TransferInfo.JSON_PROPERTY_ULTIMATE_PARTY
+})
 
 public class TransferInfo {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
-  @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
   /**
    * The type of transfer.  Possible values:   - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: Transfer initiated by a Adyen-issued card.  - **platformPayment**: Fund movements related to payments that are acquired for your users.
    */
-  @JsonAdapter(CategoryEnum.Adapter.class)
   public enum CategoryEnum {
     BANK("bank"),
     
@@ -80,6 +72,7 @@ public class TransferInfo {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -89,6 +82,7 @@ public class TransferInfo {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static CategoryEnum fromValue(String value) {
       for (CategoryEnum b : CategoryEnum.values()) {
         if (b.value.equals(value)) {
@@ -97,45 +91,26 @@ public class TransferInfo {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<CategoryEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CategoryEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CategoryEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CategoryEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_CATEGORY = "category";
-  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
-  public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
-  @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
+  public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private CounterpartyInfoV3 counterparty;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT_ID)
+  public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).
    */
-  @JsonAdapter(PriorityEnum.Adapter.class)
   public enum PriorityEnum {
     CROSSBORDER("crossBorder"),
     
@@ -157,6 +132,7 @@ public class TransferInfo {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -166,6 +142,7 @@ public class TransferInfo {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static PriorityEnum fromValue(String value) {
       for (PriorityEnum b : PriorityEnum.values()) {
         if (b.value.equals(value)) {
@@ -174,42 +151,24 @@ public class TransferInfo {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<PriorityEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PriorityEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public PriorityEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return PriorityEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
   private PriorityEnum priority;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
-  @SerializedName(SERIALIZED_NAME_REFERENCE_FOR_BENEFICIARY)
+  public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
 
-  public static final String SERIALIZED_NAME_ULTIMATE_PARTY = "ultimateParty";
-  @SerializedName(SERIALIZED_NAME_ULTIMATE_PARTY)
+  public static final String JSON_PROPERTY_ULTIMATE_PARTY = "ultimateParty";
   private UltimatePartyIdentification ultimateParty;
 
   public TransferInfo() { 
   }
 
   public TransferInfo amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -219,19 +178,22 @@ public class TransferInfo {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public TransferInfo balanceAccountId(String balanceAccountId) {
-    
     this.balanceAccountId = balanceAccountId;
     return this;
   }
@@ -241,19 +203,22 @@ public class TransferInfo {
    * @return balanceAccountId
   **/
   @ApiModelProperty(value = "The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
 
   public TransferInfo category(CategoryEnum category) {
-    
     this.category = category;
     return this;
   }
@@ -263,19 +228,22 @@ public class TransferInfo {
    * @return category
   **/
   @ApiModelProperty(required = true, value = "The type of transfer.  Possible values:   - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: Transfer initiated by a Adyen-issued card.  - **platformPayment**: Fund movements related to payments that are acquired for your users.")
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CategoryEnum getCategory() {
     return category;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
 
 
   public TransferInfo counterparty(CounterpartyInfoV3 counterparty) {
-    
     this.counterparty = counterparty;
     return this;
   }
@@ -285,19 +253,22 @@ public class TransferInfo {
    * @return counterparty
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CounterpartyInfoV3 getCounterparty() {
     return counterparty;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(CounterpartyInfoV3 counterparty) {
     this.counterparty = counterparty;
   }
 
 
   public TransferInfo description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -307,19 +278,22 @@ public class TransferInfo {
    * @return description
   **/
   @ApiModelProperty(value = "Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , ' + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] & $ % # @** **~ = + - _ ' \" ! ?**")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TransferInfo id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -329,19 +303,22 @@ public class TransferInfo {
    * @return id
   **/
   @ApiModelProperty(value = "The ID of the resource.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public TransferInfo paymentInstrumentId(String paymentInstrumentId) {
-    
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
@@ -351,19 +328,22 @@ public class TransferInfo {
    * @return paymentInstrumentId
   **/
   @ApiModelProperty(value = "The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
 
   public TransferInfo priority(PriorityEnum priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -373,19 +353,22 @@ public class TransferInfo {
    * @return priority
   **/
   @ApiModelProperty(value = "The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with `category` **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).")
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PriorityEnum getPriority() {
     return priority;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
     this.priority = priority;
   }
 
 
   public TransferInfo reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -395,19 +378,22 @@ public class TransferInfo {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the transfer, used internally within your platform. If you don't provide this in the request, Adyen generates a unique reference.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public TransferInfo referenceForBeneficiary(String referenceForBeneficiary) {
-    
     this.referenceForBeneficiary = referenceForBeneficiary;
     return this;
   }
@@ -417,19 +403,22 @@ public class TransferInfo {
    * @return referenceForBeneficiary
   **/
   @ApiModelProperty(value = " A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**. The maximum length depends on the `category`.  - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReferenceForBeneficiary() {
     return referenceForBeneficiary;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
   }
 
 
   public TransferInfo ultimateParty(UltimatePartyIdentification ultimateParty) {
-    
     this.ultimateParty = ultimateParty;
     return this;
   }
@@ -439,18 +428,24 @@ public class TransferInfo {
    * @return ultimateParty
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UltimatePartyIdentification getUltimateParty() {
     return ultimateParty;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUltimateParty(UltimatePartyIdentification ultimateParty) {
     this.ultimateParty = ultimateParty;
   }
 
 
-
+  /**
+   * Return true if this TransferInfo object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -508,164 +503,23 @@ public class TransferInfo {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("balanceAccountId");
-    openapiFields.add("category");
-    openapiFields.add("counterparty");
-    openapiFields.add("description");
-    openapiFields.add("id");
-    openapiFields.add("paymentInstrumentId");
-    openapiFields.add("priority");
-    openapiFields.add("reference");
-    openapiFields.add("referenceForBeneficiary");
-    openapiFields.add("ultimateParty");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("category");
-    openapiRequiredFields.add("counterparty");
+/**
+   * Create an instance of TransferInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TransferInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TransferInfo
+   */
+  public static TransferInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TransferInfo.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TransferInfo.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TransferInfo
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TransferInfo.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransferInfo is not found in the empty JSON string", TransferInfo.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TransferInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransferInfo` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TransferInfo.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // validate the optional field balanceAccountId
-      if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
-      }
-      // ensure the field category can be parsed to an enum value
-      if (jsonObj.get("category") != null) {
-        if(!jsonObj.get("category").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
-        }
-        CategoryEnum.fromValue(jsonObj.get("category").getAsString());
-      }
-      // validate the optional field `counterparty`
-      if (jsonObj.getAsJsonObject("counterparty") != null) {
-        CounterpartyInfoV3.validateJsonObject(jsonObj.getAsJsonObject("counterparty"));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field paymentInstrumentId
-      if (jsonObj.get("paymentInstrumentId") != null && !jsonObj.get("paymentInstrumentId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentInstrumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentInstrumentId").toString()));
-      }
-      // ensure the field priority can be parsed to an enum value
-      if (jsonObj.get("priority") != null) {
-        if(!jsonObj.get("priority").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `priority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priority").toString()));
-        }
-        PriorityEnum.fromValue(jsonObj.get("priority").getAsString());
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field referenceForBeneficiary
-      if (jsonObj.get("referenceForBeneficiary") != null && !jsonObj.get("referenceForBeneficiary").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `referenceForBeneficiary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceForBeneficiary").toString()));
-      }
-      // validate the optional field `ultimateParty`
-      if (jsonObj.getAsJsonObject("ultimateParty") != null) {
-        UltimatePartyIdentification.validateJsonObject(jsonObj.getAsJsonObject("ultimateParty"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TransferInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TransferInfo' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TransferInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TransferInfo.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TransferInfo>() {
-           @Override
-           public void write(JsonWriter out, TransferInfo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TransferInfo read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TransferInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TransferInfo
-  * @throws IOException if the JSON string is invalid with respect to TransferInfo
-  */
-  public static TransferInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TransferInfo.class);
-  }
-
- /**
+/**
   * Convert an instance of TransferInfo to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

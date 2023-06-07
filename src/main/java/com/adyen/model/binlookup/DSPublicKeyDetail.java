@@ -15,63 +15,46 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * DSPublicKeyDetail
  */
+@JsonPropertyOrder({
+  DSPublicKeyDetail.JSON_PROPERTY_BRAND,
+  DSPublicKeyDetail.JSON_PROPERTY_DIRECTORY_SERVER_ID,
+  DSPublicKeyDetail.JSON_PROPERTY_FROM_S_D_K_VERSION,
+  DSPublicKeyDetail.JSON_PROPERTY_PUBLIC_KEY
+})
 
 public class DSPublicKeyDetail {
-  public static final String SERIALIZED_NAME_BRAND = "brand";
-  @SerializedName(SERIALIZED_NAME_BRAND)
+  public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
-  public static final String SERIALIZED_NAME_DIRECTORY_SERVER_ID = "directoryServerId";
-  @SerializedName(SERIALIZED_NAME_DIRECTORY_SERVER_ID)
+  public static final String JSON_PROPERTY_DIRECTORY_SERVER_ID = "directoryServerId";
   private String directoryServerId;
 
-  public static final String SERIALIZED_NAME_FROM_S_D_K_VERSION = "fromSDKVersion";
-  @SerializedName(SERIALIZED_NAME_FROM_S_D_K_VERSION)
+  public static final String JSON_PROPERTY_FROM_S_D_K_VERSION = "fromSDKVersion";
   private String fromSDKVersion;
 
-  public static final String SERIALIZED_NAME_PUBLIC_KEY = "publicKey";
-  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
+  public static final String JSON_PROPERTY_PUBLIC_KEY = "publicKey";
   private byte[] publicKey;
 
   public DSPublicKeyDetail() { 
   }
 
   public DSPublicKeyDetail brand(String brand) {
-    
     this.brand = brand;
     return this;
   }
@@ -81,19 +64,22 @@ public class DSPublicKeyDetail {
    * @return brand
   **/
   @ApiModelProperty(value = "Card brand.")
+  @JsonProperty(JSON_PROPERTY_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBrand() {
     return brand;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
 
   public DSPublicKeyDetail directoryServerId(String directoryServerId) {
-    
     this.directoryServerId = directoryServerId;
     return this;
   }
@@ -103,19 +89,22 @@ public class DSPublicKeyDetail {
    * @return directoryServerId
   **/
   @ApiModelProperty(value = "Directory Server (DS) identifier.")
+  @JsonProperty(JSON_PROPERTY_DIRECTORY_SERVER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDirectoryServerId() {
     return directoryServerId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DIRECTORY_SERVER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectoryServerId(String directoryServerId) {
     this.directoryServerId = directoryServerId;
   }
 
 
   public DSPublicKeyDetail fromSDKVersion(String fromSDKVersion) {
-    
     this.fromSDKVersion = fromSDKVersion;
     return this;
   }
@@ -125,19 +114,22 @@ public class DSPublicKeyDetail {
    * @return fromSDKVersion
   **/
   @ApiModelProperty(value = "The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).")
+  @JsonProperty(JSON_PROPERTY_FROM_S_D_K_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFromSDKVersion() {
     return fromSDKVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FROM_S_D_K_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromSDKVersion(String fromSDKVersion) {
     this.fromSDKVersion = fromSDKVersion;
   }
 
 
   public DSPublicKeyDetail publicKey(byte[] publicKey) {
-    
     this.publicKey = publicKey;
     return this;
   }
@@ -147,18 +139,24 @@ public class DSPublicKeyDetail {
    * @return publicKey
   **/
   @ApiModelProperty(value = "Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public byte[] getPublicKey() {
     return publicKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicKey(byte[] publicKey) {
     this.publicKey = publicKey;
   }
 
 
-
+  /**
+   * Return true if this DSPublicKeyDetail object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,109 +200,23 @@ public class DSPublicKeyDetail {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("brand");
-    openapiFields.add("directoryServerId");
-    openapiFields.add("fromSDKVersion");
-    openapiFields.add("publicKey");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of DSPublicKeyDetail given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DSPublicKeyDetail
+   * @throws JsonProcessingException if the JSON string is invalid with respect to DSPublicKeyDetail
+   */
+  public static DSPublicKeyDetail fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DSPublicKeyDetail.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(DSPublicKeyDetail.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DSPublicKeyDetail
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (DSPublicKeyDetail.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DSPublicKeyDetail is not found in the empty JSON string", DSPublicKeyDetail.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!DSPublicKeyDetail.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `DSPublicKeyDetail` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field brand
-      if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
-      }
-      // validate the optional field directoryServerId
-      if (jsonObj.get("directoryServerId") != null && !jsonObj.get("directoryServerId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `directoryServerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("directoryServerId").toString()));
-      }
-      // validate the optional field fromSDKVersion
-      if (jsonObj.get("fromSDKVersion") != null && !jsonObj.get("fromSDKVersion").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fromSDKVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromSDKVersion").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DSPublicKeyDetail.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DSPublicKeyDetail' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DSPublicKeyDetail> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DSPublicKeyDetail.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<DSPublicKeyDetail>() {
-           @Override
-           public void write(JsonWriter out, DSPublicKeyDetail value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public DSPublicKeyDetail read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of DSPublicKeyDetail given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DSPublicKeyDetail
-  * @throws IOException if the JSON string is invalid with respect to DSPublicKeyDetail
-  */
-  public static DSPublicKeyDetail fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DSPublicKeyDetail.class);
-  }
-
- /**
+/**
   * Convert an instance of DSPublicKeyDetail to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

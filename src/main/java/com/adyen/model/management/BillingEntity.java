@@ -14,68 +14,51 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.Address;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * BillingEntity
  */
+@JsonPropertyOrder({
+  BillingEntity.JSON_PROPERTY_ADDRESS,
+  BillingEntity.JSON_PROPERTY_EMAIL,
+  BillingEntity.JSON_PROPERTY_ID,
+  BillingEntity.JSON_PROPERTY_NAME,
+  BillingEntity.JSON_PROPERTY_TAX_ID
+})
 
 public class BillingEntity {
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  public static final String JSON_PROPERTY_ADDRESS = "address";
   private Address address;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_TAX_ID = "taxId";
-  @SerializedName(SERIALIZED_NAME_TAX_ID)
+  public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
 
   public BillingEntity() { 
   }
 
   public BillingEntity address(Address address) {
-    
     this.address = address;
     return this;
   }
@@ -85,19 +68,22 @@ public class BillingEntity {
    * @return address
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getAddress() {
     return address;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
     this.address = address;
   }
 
 
   public BillingEntity email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -107,19 +93,22 @@ public class BillingEntity {
    * @return email
   **/
   @ApiModelProperty(value = "The email address of the billing entity.")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmail() {
     return email;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
 
   public BillingEntity id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -129,19 +118,22 @@ public class BillingEntity {
    * @return id
   **/
   @ApiModelProperty(value = "The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public BillingEntity name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -151,19 +143,22 @@ public class BillingEntity {
    * @return name
   **/
   @ApiModelProperty(value = "The unique name of the billing entity.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public BillingEntity taxId(String taxId) {
-    
     this.taxId = taxId;
     return this;
   }
@@ -173,18 +168,24 @@ public class BillingEntity {
    * @return taxId
   **/
   @ApiModelProperty(value = "The tax number of the billing entity.")
+  @JsonProperty(JSON_PROPERTY_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTaxId() {
     return taxId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
   }
 
 
-
+  /**
+   * Return true if this BillingEntity object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,118 +231,23 @@ public class BillingEntity {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("address");
-    openapiFields.add("email");
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("taxId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of BillingEntity given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BillingEntity
+   * @throws JsonProcessingException if the JSON string is invalid with respect to BillingEntity
+   */
+  public static BillingEntity fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BillingEntity.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(BillingEntity.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BillingEntity
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (BillingEntity.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BillingEntity is not found in the empty JSON string", BillingEntity.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BillingEntity.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BillingEntity` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field `address`
-      if (jsonObj.getAsJsonObject("address") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("address"));
-      }
-      // validate the optional field email
-      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field name
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field taxId
-      if (jsonObj.get("taxId") != null && !jsonObj.get("taxId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taxId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BillingEntity.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BillingEntity' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BillingEntity> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BillingEntity.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<BillingEntity>() {
-           @Override
-           public void write(JsonWriter out, BillingEntity value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public BillingEntity read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of BillingEntity given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BillingEntity
-  * @throws IOException if the JSON string is invalid with respect to BillingEntity
-  */
-  public static BillingEntity fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BillingEntity.class);
-  }
-
- /**
+/**
   * Convert an instance of BillingEntity to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

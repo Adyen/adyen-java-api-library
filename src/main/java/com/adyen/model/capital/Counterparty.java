@@ -15,59 +15,42 @@ package com.adyen.model.capital;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.capital.JSON;
 
 /**
  * Counterparty
  */
+@JsonPropertyOrder({
+  Counterparty.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
+  Counterparty.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
+  Counterparty.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID
+})
 
 public class Counterparty {
-  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_ID = "accountHolderId";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_ID)
+  public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
-  public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
-  @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
-  public static final String SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID)
+  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   private String transferInstrumentId;
 
   public Counterparty() { 
   }
 
   public Counterparty accountHolderId(String accountHolderId) {
-    
     this.accountHolderId = accountHolderId;
     return this;
   }
@@ -77,19 +60,22 @@ public class Counterparty {
    * @return accountHolderId
   **/
   @ApiModelProperty(value = "The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no `balanceAccountId` is provided.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountHolderId() {
     return accountHolderId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }
 
 
   public Counterparty balanceAccountId(String balanceAccountId) {
-    
     this.balanceAccountId = balanceAccountId;
     return this;
   }
@@ -99,19 +85,22 @@ public class Counterparty {
    * @return balanceAccountId
   **/
   @ApiModelProperty(value = "The identifier of the balance account that belongs to the receiving account holder.")
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
 
   public Counterparty transferInstrumentId(String transferInstrumentId) {
-    
     this.transferInstrumentId = transferInstrumentId;
     return this;
   }
@@ -121,18 +110,24 @@ public class Counterparty {
    * @return transferInstrumentId
   **/
   @ApiModelProperty(value = "The identifier of the transfer instrument that belongs to the legal entity of the account holder.")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }
 
 
-
+  /**
+   * Return true if this Counterparty object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,108 +169,23 @@ public class Counterparty {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accountHolderId");
-    openapiFields.add("balanceAccountId");
-    openapiFields.add("transferInstrumentId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of Counterparty given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Counterparty
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Counterparty
+   */
+  public static Counterparty fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Counterparty.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Counterparty.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Counterparty
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Counterparty.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Counterparty is not found in the empty JSON string", Counterparty.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Counterparty.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Counterparty` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field accountHolderId
-      if (jsonObj.get("accountHolderId") != null && !jsonObj.get("accountHolderId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountHolderId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderId").toString()));
-      }
-      // validate the optional field balanceAccountId
-      if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
-      }
-      // validate the optional field transferInstrumentId
-      if (jsonObj.get("transferInstrumentId") != null && !jsonObj.get("transferInstrumentId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `transferInstrumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transferInstrumentId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Counterparty.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Counterparty' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Counterparty> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Counterparty.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Counterparty>() {
-           @Override
-           public void write(JsonWriter out, Counterparty value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Counterparty read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Counterparty given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Counterparty
-  * @throws IOException if the JSON string is invalid with respect to Counterparty
-  */
-  public static Counterparty fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Counterparty.class);
-  }
-
- /**
+/**
   * Convert an instance of Counterparty to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

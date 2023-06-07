@@ -14,46 +14,31 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * ReleaseUpdateDetails
  */
+@JsonPropertyOrder({
+  ReleaseUpdateDetails.JSON_PROPERTY_TYPE,
+  ReleaseUpdateDetails.JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL
+})
 
 public class ReleaseUpdateDetails {
   /**
    * Type of terminal action: Update Release.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     RELEASEUPDATE("ReleaseUpdate");
 
@@ -63,6 +48,7 @@ public class ReleaseUpdateDetails {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -72,6 +58,7 @@ public class ReleaseUpdateDetails {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -80,34 +67,18 @@ public class ReleaseUpdateDetails {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.RELEASEUPDATE;
 
-  public static final String SERIALIZED_NAME_UPDATE_AT_FIRST_MAINTENANCE_CALL = "updateAtFirstMaintenanceCall";
-  @SerializedName(SERIALIZED_NAME_UPDATE_AT_FIRST_MAINTENANCE_CALL)
+  public static final String JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL = "updateAtFirstMaintenanceCall";
   private Boolean updateAtFirstMaintenanceCall;
 
   public ReleaseUpdateDetails() { 
   }
 
   public ReleaseUpdateDetails type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -117,19 +88,22 @@ public class ReleaseUpdateDetails {
    * @return type
   **/
   @ApiModelProperty(value = "Type of terminal action: Update Release.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public ReleaseUpdateDetails updateAtFirstMaintenanceCall(Boolean updateAtFirstMaintenanceCall) {
-    
     this.updateAtFirstMaintenanceCall = updateAtFirstMaintenanceCall;
     return this;
   }
@@ -139,18 +113,24 @@ public class ReleaseUpdateDetails {
    * @return updateAtFirstMaintenanceCall
   **/
   @ApiModelProperty(value = "Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.")
+  @JsonProperty(JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUpdateAtFirstMaintenanceCall() {
     return updateAtFirstMaintenanceCall;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateAtFirstMaintenanceCall(Boolean updateAtFirstMaintenanceCall) {
     this.updateAtFirstMaintenanceCall = updateAtFirstMaintenanceCall;
   }
 
 
-
+  /**
+   * Return true if this ReleaseUpdateDetails object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -190,102 +170,23 @@ public class ReleaseUpdateDetails {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("updateAtFirstMaintenanceCall");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ReleaseUpdateDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ReleaseUpdateDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ReleaseUpdateDetails
+   */
+  public static ReleaseUpdateDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ReleaseUpdateDetails.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ReleaseUpdateDetails.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReleaseUpdateDetails
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ReleaseUpdateDetails.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReleaseUpdateDetails is not found in the empty JSON string", ReleaseUpdateDetails.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ReleaseUpdateDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ReleaseUpdateDetails` properties.", entry.getKey()));
-        }
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReleaseUpdateDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReleaseUpdateDetails' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReleaseUpdateDetails> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReleaseUpdateDetails.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ReleaseUpdateDetails>() {
-           @Override
-           public void write(JsonWriter out, ReleaseUpdateDetails value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ReleaseUpdateDetails read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ReleaseUpdateDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ReleaseUpdateDetails
-  * @throws IOException if the JSON string is invalid with respect to ReleaseUpdateDetails
-  */
-  public static ReleaseUpdateDetails fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReleaseUpdateDetails.class);
-  }
-
- /**
+/**
   * Convert an instance of ReleaseUpdateDetails to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,71 +14,54 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * TestOutput
  */
+@JsonPropertyOrder({
+  TestOutput.JSON_PROPERTY_MERCHANT_ID,
+  TestOutput.JSON_PROPERTY_OUTPUT,
+  TestOutput.JSON_PROPERTY_REQUEST_SENT,
+  TestOutput.JSON_PROPERTY_RESPONSE_CODE,
+  TestOutput.JSON_PROPERTY_RESPONSE_TIME,
+  TestOutput.JSON_PROPERTY_STATUS
+})
 
 public class TestOutput {
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchantId";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
-  public static final String SERIALIZED_NAME_OUTPUT = "output";
-  @SerializedName(SERIALIZED_NAME_OUTPUT)
+  public static final String JSON_PROPERTY_OUTPUT = "output";
   private String output;
 
-  public static final String SERIALIZED_NAME_REQUEST_SENT = "requestSent";
-  @SerializedName(SERIALIZED_NAME_REQUEST_SENT)
+  public static final String JSON_PROPERTY_REQUEST_SENT = "requestSent";
   private String requestSent;
 
-  public static final String SERIALIZED_NAME_RESPONSE_CODE = "responseCode";
-  @SerializedName(SERIALIZED_NAME_RESPONSE_CODE)
+  public static final String JSON_PROPERTY_RESPONSE_CODE = "responseCode";
   private String responseCode;
 
-  public static final String SERIALIZED_NAME_RESPONSE_TIME = "responseTime";
-  @SerializedName(SERIALIZED_NAME_RESPONSE_TIME)
+  public static final String JSON_PROPERTY_RESPONSE_TIME = "responseTime";
   private String responseTime;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
   public TestOutput() { 
   }
 
   public TestOutput merchantId(String merchantId) {
-    
     this.merchantId = merchantId;
     return this;
   }
@@ -88,19 +71,22 @@ public class TestOutput {
    * @return merchantId
   **/
   @ApiModelProperty(value = "Unique identifier of the merchant account that the notification is about.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantId() {
     return merchantId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
 
   public TestOutput output(String output) {
-    
     this.output = output;
     return this;
   }
@@ -110,19 +96,22 @@ public class TestOutput {
    * @return output
   **/
   @ApiModelProperty(value = "The response your server returned for the test webhook.  Your server must respond with **[accepted]** for the test webhook to be successful (`data.status`: **success**). Find out more about [accepting notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)  You can use the value of this field together with the [`responseCode`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot unsuccessful test webhooks.")
+  @JsonProperty(JSON_PROPERTY_OUTPUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOutput() {
     return output;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OUTPUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutput(String output) {
     this.output = output;
   }
 
 
   public TestOutput requestSent(String requestSent) {
-    
     this.requestSent = requestSent;
     return this;
   }
@@ -132,19 +121,22 @@ public class TestOutput {
    * @return requestSent
   **/
   @ApiModelProperty(value = "The [body of the notification webhook](https://docs.adyen.com/development-resources/webhooks/understand-notifications#notification-structure) that was sent to your server.")
+  @JsonProperty(JSON_PROPERTY_REQUEST_SENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestSent() {
     return requestSent;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUEST_SENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestSent(String requestSent) {
     this.requestSent = requestSent;
   }
 
 
   public TestOutput responseCode(String responseCode) {
-    
     this.responseCode = responseCode;
     return this;
   }
@@ -154,19 +146,22 @@ public class TestOutput {
    * @return responseCode
   **/
   @ApiModelProperty(example = "200", value = "The HTTP response code for your server's response to the test webhook.  You can use the value of this field together with the the [`output`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field value to troubleshoot failed test webhooks.")
+  @JsonProperty(JSON_PROPERTY_RESPONSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResponseCode() {
     return responseCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESPONSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponseCode(String responseCode) {
     this.responseCode = responseCode;
   }
 
 
   public TestOutput responseTime(String responseTime) {
-    
     this.responseTime = responseTime;
     return this;
   }
@@ -176,19 +171,22 @@ public class TestOutput {
    * @return responseTime
   **/
   @ApiModelProperty(value = "The time between sending the test webhook and receiving the response from your server. You can use it as an indication of how long your server takes to process a webhook notification. Measured in milliseconds, for example **304 ms**.")
+  @JsonProperty(JSON_PROPERTY_RESPONSE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResponseTime() {
     return responseTime;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESPONSE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponseTime(String responseTime) {
     this.responseTime = responseTime;
   }
 
 
   public TestOutput status(String status) {
-    
     this.status = status;
     return this;
   }
@@ -198,18 +196,24 @@ public class TestOutput {
    * @return status
   **/
   @ApiModelProperty(required = true, value = "The status of the test request. Possible values are: * **success**, if `data.output`: **[accepted]** and `data.responseCode`: **200**. * **failed**, in all other cases.  You can use the value of the [`output`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field together with the [`responseCode`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot failed test webhooks.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
 
 
-
+  /**
+   * Return true if this TestOutput object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -257,131 +261,23 @@ public class TestOutput {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("merchantId");
-    openapiFields.add("output");
-    openapiFields.add("requestSent");
-    openapiFields.add("responseCode");
-    openapiFields.add("responseTime");
-    openapiFields.add("status");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
+/**
+   * Create an instance of TestOutput given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TestOutput
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TestOutput
+   */
+  public static TestOutput fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TestOutput.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TestOutput.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TestOutput
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TestOutput.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestOutput is not found in the empty JSON string", TestOutput.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TestOutput.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TestOutput` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestOutput.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field merchantId
-      if (jsonObj.get("merchantId") != null && !jsonObj.get("merchantId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantId").toString()));
-      }
-      // validate the optional field output
-      if (jsonObj.get("output") != null && !jsonObj.get("output").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `output` to be a primitive type in the JSON string but got `%s`", jsonObj.get("output").toString()));
-      }
-      // validate the optional field requestSent
-      if (jsonObj.get("requestSent") != null && !jsonObj.get("requestSent").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `requestSent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestSent").toString()));
-      }
-      // validate the optional field responseCode
-      if (jsonObj.get("responseCode") != null && !jsonObj.get("responseCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `responseCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseCode").toString()));
-      }
-      // validate the optional field responseTime
-      if (jsonObj.get("responseTime") != null && !jsonObj.get("responseTime").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `responseTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseTime").toString()));
-      }
-      // validate the optional field status
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestOutput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestOutput' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestOutput> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestOutput.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestOutput>() {
-           @Override
-           public void write(JsonWriter out, TestOutput value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestOutput read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TestOutput given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TestOutput
-  * @throws IOException if the JSON string is invalid with respect to TestOutput
-  */
-  public static TestOutput fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestOutput.class);
-  }
-
- /**
+/**
   * Convert an instance of TestOutput to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

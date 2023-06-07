@@ -14,55 +14,38 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * GooglePayInfo
  */
+@JsonPropertyOrder({
+  GooglePayInfo.JSON_PROPERTY_MERCHANT_ID,
+  GooglePayInfo.JSON_PROPERTY_REUSE_MERCHANT_ID
+})
 
 public class GooglePayInfo {
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchantId";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
-  public static final String SERIALIZED_NAME_REUSE_MERCHANT_ID = "reuseMerchantId";
-  @SerializedName(SERIALIZED_NAME_REUSE_MERCHANT_ID)
+  public static final String JSON_PROPERTY_REUSE_MERCHANT_ID = "reuseMerchantId";
   private Boolean reuseMerchantId;
 
   public GooglePayInfo() { 
   }
 
   public GooglePayInfo merchantId(String merchantId) {
-    
     this.merchantId = merchantId;
     return this;
   }
@@ -72,19 +55,22 @@ public class GooglePayInfo {
    * @return merchantId
   **/
   @ApiModelProperty(required = true, value = "Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantId() {
     return merchantId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
 
   public GooglePayInfo reuseMerchantId(Boolean reuseMerchantId) {
-    
     this.reuseMerchantId = reuseMerchantId;
     return this;
   }
@@ -94,18 +80,24 @@ public class GooglePayInfo {
    * @return reuseMerchantId
   **/
   @ApiModelProperty(value = "Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.")
+  @JsonProperty(JSON_PROPERTY_REUSE_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReuseMerchantId() {
     return reuseMerchantId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REUSE_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMerchantId(Boolean reuseMerchantId) {
     this.reuseMerchantId = reuseMerchantId;
   }
 
 
-
+  /**
+   * Return true if this GooglePayInfo object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,107 +137,23 @@ public class GooglePayInfo {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("merchantId");
-    openapiFields.add("reuseMerchantId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchantId");
+/**
+   * Create an instance of GooglePayInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GooglePayInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to GooglePayInfo
+   */
+  public static GooglePayInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, GooglePayInfo.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(GooglePayInfo.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GooglePayInfo
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GooglePayInfo.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GooglePayInfo is not found in the empty JSON string", GooglePayInfo.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GooglePayInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `GooglePayInfo` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GooglePayInfo.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field merchantId
-      if (jsonObj.get("merchantId") != null && !jsonObj.get("merchantId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GooglePayInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GooglePayInfo' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GooglePayInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GooglePayInfo.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<GooglePayInfo>() {
-           @Override
-           public void write(JsonWriter out, GooglePayInfo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public GooglePayInfo read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of GooglePayInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GooglePayInfo
-  * @throws IOException if the JSON string is invalid with respect to GooglePayInfo
-  */
-  public static GooglePayInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GooglePayInfo.class);
-  }
-
- /**
+/**
   * Convert an instance of GooglePayInfo to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

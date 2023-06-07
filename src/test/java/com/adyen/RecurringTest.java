@@ -90,6 +90,7 @@ public class RecurringTest extends BaseTest {
         assertEquals("cardAlias", recurringDetail.getAlias());
         assertEquals("1111", recurringDetail.getCard().getNumber());
         OffsetDateTime expectedDate = OffsetDateTime.parse("2017-03-01T11:53:11+01:00");
+        System.out.print(expectedDate);
         assertEquals(expectedDate, result.getCreationDate());
     }
 

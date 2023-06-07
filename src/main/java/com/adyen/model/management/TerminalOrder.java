@@ -14,84 +14,67 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.BillingEntity;
 import com.adyen.model.management.OrderItem;
 import com.adyen.model.management.ShippingLocation;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * TerminalOrder
  */
+@JsonPropertyOrder({
+  TerminalOrder.JSON_PROPERTY_BILLING_ENTITY,
+  TerminalOrder.JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE,
+  TerminalOrder.JSON_PROPERTY_ID,
+  TerminalOrder.JSON_PROPERTY_ITEMS,
+  TerminalOrder.JSON_PROPERTY_ORDER_DATE,
+  TerminalOrder.JSON_PROPERTY_SHIPPING_LOCATION,
+  TerminalOrder.JSON_PROPERTY_STATUS,
+  TerminalOrder.JSON_PROPERTY_TRACKING_URL
+})
 
 public class TerminalOrder {
-  public static final String SERIALIZED_NAME_BILLING_ENTITY = "billingEntity";
-  @SerializedName(SERIALIZED_NAME_BILLING_ENTITY)
+  public static final String JSON_PROPERTY_BILLING_ENTITY = "billingEntity";
   private BillingEntity billingEntity;
 
-  public static final String SERIALIZED_NAME_CUSTOMER_ORDER_REFERENCE = "customerOrderReference";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ORDER_REFERENCE)
+  public static final String JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE = "customerOrderReference";
   private String customerOrderReference;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
+  public static final String JSON_PROPERTY_ITEMS = "items";
   private List<OrderItem> items = null;
 
-  public static final String SERIALIZED_NAME_ORDER_DATE = "orderDate";
-  @SerializedName(SERIALIZED_NAME_ORDER_DATE)
+  public static final String JSON_PROPERTY_ORDER_DATE = "orderDate";
   private String orderDate;
 
-  public static final String SERIALIZED_NAME_SHIPPING_LOCATION = "shippingLocation";
-  @SerializedName(SERIALIZED_NAME_SHIPPING_LOCATION)
+  public static final String JSON_PROPERTY_SHIPPING_LOCATION = "shippingLocation";
   private ShippingLocation shippingLocation;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
-  public static final String SERIALIZED_NAME_TRACKING_URL = "trackingUrl";
-  @SerializedName(SERIALIZED_NAME_TRACKING_URL)
+  public static final String JSON_PROPERTY_TRACKING_URL = "trackingUrl";
   private String trackingUrl;
 
   public TerminalOrder() { 
   }
 
   public TerminalOrder billingEntity(BillingEntity billingEntity) {
-    
     this.billingEntity = billingEntity;
     return this;
   }
@@ -101,19 +84,22 @@ public class TerminalOrder {
    * @return billingEntity
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BillingEntity getBillingEntity() {
     return billingEntity;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntity(BillingEntity billingEntity) {
     this.billingEntity = billingEntity;
   }
 
 
   public TerminalOrder customerOrderReference(String customerOrderReference) {
-    
     this.customerOrderReference = customerOrderReference;
     return this;
   }
@@ -123,19 +109,22 @@ public class TerminalOrder {
    * @return customerOrderReference
   **/
   @ApiModelProperty(value = "The merchant-defined purchase order number. This will be printed on the packing list.")
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCustomerOrderReference() {
     return customerOrderReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
   }
 
 
   public TerminalOrder id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -145,19 +134,22 @@ public class TerminalOrder {
    * @return id
   **/
   @ApiModelProperty(value = "The unique identifier of the order.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public TerminalOrder items(List<OrderItem> items) {
-    
     this.items = items;
     return this;
   }
@@ -175,19 +167,22 @@ public class TerminalOrder {
    * @return items
   **/
   @ApiModelProperty(value = "The products included in the order.")
+  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<OrderItem> getItems() {
     return items;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
     this.items = items;
   }
 
 
   public TerminalOrder orderDate(String orderDate) {
-    
     this.orderDate = orderDate;
     return this;
   }
@@ -197,19 +192,22 @@ public class TerminalOrder {
    * @return orderDate
   **/
   @ApiModelProperty(value = "The date and time that the order was placed, in UTC ISO 8601 format. For example, \"2011-12-03T10:15:30Z\".")
+  @JsonProperty(JSON_PROPERTY_ORDER_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOrderDate() {
     return orderDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ORDER_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderDate(String orderDate) {
     this.orderDate = orderDate;
   }
 
 
   public TerminalOrder shippingLocation(ShippingLocation shippingLocation) {
-    
     this.shippingLocation = shippingLocation;
     return this;
   }
@@ -219,19 +217,22 @@ public class TerminalOrder {
    * @return shippingLocation
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ShippingLocation getShippingLocation() {
     return shippingLocation;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocation(ShippingLocation shippingLocation) {
     this.shippingLocation = shippingLocation;
   }
 
 
   public TerminalOrder status(String status) {
-    
     this.status = status;
     return this;
   }
@@ -241,19 +242,22 @@ public class TerminalOrder {
    * @return status
   **/
   @ApiModelProperty(value = "The processing status of the order.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
 
 
   public TerminalOrder trackingUrl(String trackingUrl) {
-    
     this.trackingUrl = trackingUrl;
     return this;
   }
@@ -263,18 +267,24 @@ public class TerminalOrder {
    * @return trackingUrl
   **/
   @ApiModelProperty(value = "The URL, provided by the carrier company, where the shipment can be tracked.")
+  @JsonProperty(JSON_PROPERTY_TRACKING_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTrackingUrl() {
     return trackingUrl;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRACKING_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingUrl(String trackingUrl) {
     this.trackingUrl = trackingUrl;
   }
 
 
-
+  /**
+   * Return true if this TerminalOrder object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -326,141 +336,23 @@ public class TerminalOrder {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("billingEntity");
-    openapiFields.add("customerOrderReference");
-    openapiFields.add("id");
-    openapiFields.add("items");
-    openapiFields.add("orderDate");
-    openapiFields.add("shippingLocation");
-    openapiFields.add("status");
-    openapiFields.add("trackingUrl");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of TerminalOrder given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TerminalOrder
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TerminalOrder
+   */
+  public static TerminalOrder fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TerminalOrder.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TerminalOrder.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TerminalOrder
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TerminalOrder.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TerminalOrder is not found in the empty JSON string", TerminalOrder.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TerminalOrder.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TerminalOrder` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field `billingEntity`
-      if (jsonObj.getAsJsonObject("billingEntity") != null) {
-        BillingEntity.validateJsonObject(jsonObj.getAsJsonObject("billingEntity"));
-      }
-      // validate the optional field customerOrderReference
-      if (jsonObj.get("customerOrderReference") != null && !jsonObj.get("customerOrderReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `customerOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerOrderReference").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      if (jsonArrayitems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("items").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
-        }
-
-        // validate the optional field `items` (array)
-        for (int i = 0; i < jsonArrayitems.size(); i++) {
-          OrderItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field orderDate
-      if (jsonObj.get("orderDate") != null && !jsonObj.get("orderDate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `orderDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderDate").toString()));
-      }
-      // validate the optional field `shippingLocation`
-      if (jsonObj.getAsJsonObject("shippingLocation") != null) {
-        ShippingLocation.validateJsonObject(jsonObj.getAsJsonObject("shippingLocation"));
-      }
-      // validate the optional field status
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      // validate the optional field trackingUrl
-      if (jsonObj.get("trackingUrl") != null && !jsonObj.get("trackingUrl").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `trackingUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trackingUrl").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TerminalOrder.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TerminalOrder' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TerminalOrder> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TerminalOrder.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TerminalOrder>() {
-           @Override
-           public void write(JsonWriter out, TerminalOrder value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TerminalOrder read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TerminalOrder given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TerminalOrder
-  * @throws IOException if the JSON string is invalid with respect to TerminalOrder
-  */
-  public static TerminalOrder fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TerminalOrder.class);
-  }
-
- /**
+/**
   * Convert an instance of TerminalOrder to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,66 +14,50 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.PaginationLinks;
 import com.adyen.model.management.PaymentMethodWrapper;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * PaymentMethodResponse
  */
+@JsonPropertyOrder({
+  PaymentMethodResponse.JSON_PROPERTY_LINKS,
+  PaymentMethodResponse.JSON_PROPERTY_DATA,
+  PaymentMethodResponse.JSON_PROPERTY_ITEMS_TOTAL,
+  PaymentMethodResponse.JSON_PROPERTY_PAGES_TOTAL,
+  PaymentMethodResponse.JSON_PROPERTY_TYPES_WITH_ERRORS
+})
 
 public class PaymentMethodResponse {
-  public static final String SERIALIZED_NAME_LINKS = "_links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
+  public static final String JSON_PROPERTY_LINKS = "_links";
   private PaginationLinks links;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
+  public static final String JSON_PROPERTY_DATA = "data";
   private List<PaymentMethodWrapper> data = null;
 
-  public static final String SERIALIZED_NAME_ITEMS_TOTAL = "itemsTotal";
-  @SerializedName(SERIALIZED_NAME_ITEMS_TOTAL)
+  public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
 
-  public static final String SERIALIZED_NAME_PAGES_TOTAL = "pagesTotal";
-  @SerializedName(SERIALIZED_NAME_PAGES_TOTAL)
+  public static final String JSON_PROPERTY_PAGES_TOTAL = "pagesTotal";
   private Integer pagesTotal;
 
   /**
    * Gets or Sets typesWithErrors
    */
-  @JsonAdapter(TypesWithErrorsEnum.Adapter.class)
   public enum TypesWithErrorsEnum {
     AFTERPAYTOUCH("afterpaytouch"),
     
@@ -181,6 +165,7 @@ public class PaymentMethodResponse {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -190,6 +175,7 @@ public class PaymentMethodResponse {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypesWithErrorsEnum fromValue(String value) {
       for (TypesWithErrorsEnum b : TypesWithErrorsEnum.values()) {
         if (b.value.equals(value)) {
@@ -198,30 +184,15 @@ public class PaymentMethodResponse {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypesWithErrorsEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypesWithErrorsEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypesWithErrorsEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypesWithErrorsEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPES_WITH_ERRORS = "typesWithErrors";
-  @SerializedName(SERIALIZED_NAME_TYPES_WITH_ERRORS)
+  public static final String JSON_PROPERTY_TYPES_WITH_ERRORS = "typesWithErrors";
   private List<TypesWithErrorsEnum> typesWithErrors = null;
 
   public PaymentMethodResponse() { 
   }
 
   public PaymentMethodResponse links(PaginationLinks links) {
-    
     this.links = links;
     return this;
   }
@@ -231,19 +202,22 @@ public class PaymentMethodResponse {
    * @return links
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PaginationLinks getLinks() {
     return links;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
     this.links = links;
   }
 
 
   public PaymentMethodResponse data(List<PaymentMethodWrapper> data) {
-    
     this.data = data;
     return this;
   }
@@ -261,19 +235,22 @@ public class PaymentMethodResponse {
    * @return data
   **/
   @ApiModelProperty(value = "Payment methods details.")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<PaymentMethodWrapper> getData() {
     return data;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PaymentMethodWrapper> data) {
     this.data = data;
   }
 
 
   public PaymentMethodResponse itemsTotal(Integer itemsTotal) {
-    
     this.itemsTotal = itemsTotal;
     return this;
   }
@@ -283,19 +260,22 @@ public class PaymentMethodResponse {
    * @return itemsTotal
   **/
   @ApiModelProperty(required = true, value = "Total number of items.")
+  @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getItemsTotal() {
     return itemsTotal;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
 
 
   public PaymentMethodResponse pagesTotal(Integer pagesTotal) {
-    
     this.pagesTotal = pagesTotal;
     return this;
   }
@@ -305,19 +285,22 @@ public class PaymentMethodResponse {
    * @return pagesTotal
   **/
   @ApiModelProperty(required = true, value = "Total number of pages.")
+  @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getPagesTotal() {
     return pagesTotal;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }
 
 
   public PaymentMethodResponse typesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
-    
     this.typesWithErrors = typesWithErrors;
     return this;
   }
@@ -335,18 +318,24 @@ public class PaymentMethodResponse {
    * @return typesWithErrors
   **/
   @ApiModelProperty(value = "Payment method types with errors.")
+  @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TypesWithErrorsEnum> getTypesWithErrors() {
     return typesWithErrors;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
     this.typesWithErrors = typesWithErrors;
   }
 
 
-
+  /**
+   * Return true if this PaymentMethodResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -392,127 +381,23 @@ public class PaymentMethodResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("_links");
-    openapiFields.add("data");
-    openapiFields.add("itemsTotal");
-    openapiFields.add("pagesTotal");
-    openapiFields.add("typesWithErrors");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("itemsTotal");
-    openapiRequiredFields.add("pagesTotal");
+/**
+   * Create an instance of PaymentMethodResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentMethodResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentMethodResponse
+   */
+  public static PaymentMethodResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentMethodResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentMethodResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentMethodResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentMethodResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentMethodResponse is not found in the empty JSON string", PaymentMethodResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentMethodResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentMethodResponse` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentMethodResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-        PaginationLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
-      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-      if (jsonArraydata != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("data").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
-        }
-
-        // validate the optional field `data` (array)
-        for (int i = 0; i < jsonArraydata.size(); i++) {
-          PaymentMethodWrapper.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        }
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("typesWithErrors") != null && !jsonObj.get("typesWithErrors").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `typesWithErrors` to be an array in the JSON string but got `%s`", jsonObj.get("typesWithErrors").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentMethodResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentMethodResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentMethodResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentMethodResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentMethodResponse>() {
-           @Override
-           public void write(JsonWriter out, PaymentMethodResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentMethodResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaymentMethodResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentMethodResponse
-  * @throws IOException if the JSON string is invalid with respect to PaymentMethodResponse
-  */
-  public static PaymentMethodResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentMethodResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of PaymentMethodResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

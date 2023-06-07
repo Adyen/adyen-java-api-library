@@ -14,111 +14,94 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * ReceiptPrinting
  */
+@JsonPropertyOrder({
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_APPROVED,
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_CANCELLED,
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED,
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED,
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_REFUND_APPROVED,
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_REFUND_REFUSED,
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_REFUSED,
+  ReceiptPrinting.JSON_PROPERTY_MERCHANT_VOID,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_APPROVED,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_CANCELLED,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_REFUND_APPROVED,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_REFUND_REFUSED,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_REFUSED,
+  ReceiptPrinting.JSON_PROPERTY_SHOPPER_VOID
+})
 
 public class ReceiptPrinting {
-  public static final String SERIALIZED_NAME_MERCHANT_APPROVED = "merchantApproved";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_APPROVED)
+  public static final String JSON_PROPERTY_MERCHANT_APPROVED = "merchantApproved";
   private Boolean merchantApproved;
 
-  public static final String SERIALIZED_NAME_MERCHANT_CANCELLED = "merchantCancelled";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_CANCELLED)
+  public static final String JSON_PROPERTY_MERCHANT_CANCELLED = "merchantCancelled";
   private Boolean merchantCancelled;
 
-  public static final String SERIALIZED_NAME_MERCHANT_CAPTURE_APPROVED = "merchantCaptureApproved";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_CAPTURE_APPROVED)
+  public static final String JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED = "merchantCaptureApproved";
   private Boolean merchantCaptureApproved;
 
-  public static final String SERIALIZED_NAME_MERCHANT_CAPTURE_REFUSED = "merchantCaptureRefused";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_CAPTURE_REFUSED)
+  public static final String JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED = "merchantCaptureRefused";
   private Boolean merchantCaptureRefused;
 
-  public static final String SERIALIZED_NAME_MERCHANT_REFUND_APPROVED = "merchantRefundApproved";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_REFUND_APPROVED)
+  public static final String JSON_PROPERTY_MERCHANT_REFUND_APPROVED = "merchantRefundApproved";
   private Boolean merchantRefundApproved;
 
-  public static final String SERIALIZED_NAME_MERCHANT_REFUND_REFUSED = "merchantRefundRefused";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_REFUND_REFUSED)
+  public static final String JSON_PROPERTY_MERCHANT_REFUND_REFUSED = "merchantRefundRefused";
   private Boolean merchantRefundRefused;
 
-  public static final String SERIALIZED_NAME_MERCHANT_REFUSED = "merchantRefused";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_REFUSED)
+  public static final String JSON_PROPERTY_MERCHANT_REFUSED = "merchantRefused";
   private Boolean merchantRefused;
 
-  public static final String SERIALIZED_NAME_MERCHANT_VOID = "merchantVoid";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_VOID)
+  public static final String JSON_PROPERTY_MERCHANT_VOID = "merchantVoid";
   private Boolean merchantVoid;
 
-  public static final String SERIALIZED_NAME_SHOPPER_APPROVED = "shopperApproved";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_APPROVED)
+  public static final String JSON_PROPERTY_SHOPPER_APPROVED = "shopperApproved";
   private Boolean shopperApproved;
 
-  public static final String SERIALIZED_NAME_SHOPPER_CANCELLED = "shopperCancelled";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_CANCELLED)
+  public static final String JSON_PROPERTY_SHOPPER_CANCELLED = "shopperCancelled";
   private Boolean shopperCancelled;
 
-  public static final String SERIALIZED_NAME_SHOPPER_CAPTURE_APPROVED = "shopperCaptureApproved";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_CAPTURE_APPROVED)
+  public static final String JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED = "shopperCaptureApproved";
   private Boolean shopperCaptureApproved;
 
-  public static final String SERIALIZED_NAME_SHOPPER_CAPTURE_REFUSED = "shopperCaptureRefused";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_CAPTURE_REFUSED)
+  public static final String JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED = "shopperCaptureRefused";
   private Boolean shopperCaptureRefused;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFUND_APPROVED = "shopperRefundApproved";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFUND_APPROVED)
+  public static final String JSON_PROPERTY_SHOPPER_REFUND_APPROVED = "shopperRefundApproved";
   private Boolean shopperRefundApproved;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFUND_REFUSED = "shopperRefundRefused";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFUND_REFUSED)
+  public static final String JSON_PROPERTY_SHOPPER_REFUND_REFUSED = "shopperRefundRefused";
   private Boolean shopperRefundRefused;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFUSED = "shopperRefused";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFUSED)
+  public static final String JSON_PROPERTY_SHOPPER_REFUSED = "shopperRefused";
   private Boolean shopperRefused;
 
-  public static final String SERIALIZED_NAME_SHOPPER_VOID = "shopperVoid";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_VOID)
+  public static final String JSON_PROPERTY_SHOPPER_VOID = "shopperVoid";
   private Boolean shopperVoid;
 
   public ReceiptPrinting() { 
   }
 
   public ReceiptPrinting merchantApproved(Boolean merchantApproved) {
-    
     this.merchantApproved = merchantApproved;
     return this;
   }
@@ -128,19 +111,22 @@ public class ReceiptPrinting {
    * @return merchantApproved
   **/
   @ApiModelProperty(value = "Print a merchant receipt when the payment is approved.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantApproved() {
     return merchantApproved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantApproved(Boolean merchantApproved) {
     this.merchantApproved = merchantApproved;
   }
 
 
   public ReceiptPrinting merchantCancelled(Boolean merchantCancelled) {
-    
     this.merchantCancelled = merchantCancelled;
     return this;
   }
@@ -150,19 +136,22 @@ public class ReceiptPrinting {
    * @return merchantCancelled
   **/
   @ApiModelProperty(value = "Print a merchant receipt when the transaction is cancelled.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CANCELLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantCancelled() {
     return merchantCancelled;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CANCELLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCancelled(Boolean merchantCancelled) {
     this.merchantCancelled = merchantCancelled;
   }
 
 
   public ReceiptPrinting merchantCaptureApproved(Boolean merchantCaptureApproved) {
-    
     this.merchantCaptureApproved = merchantCaptureApproved;
     return this;
   }
@@ -172,19 +161,22 @@ public class ReceiptPrinting {
    * @return merchantCaptureApproved
   **/
   @ApiModelProperty(value = "Print a merchant receipt when capturing the payment is approved.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantCaptureApproved() {
     return merchantCaptureApproved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureApproved(Boolean merchantCaptureApproved) {
     this.merchantCaptureApproved = merchantCaptureApproved;
   }
 
 
   public ReceiptPrinting merchantCaptureRefused(Boolean merchantCaptureRefused) {
-    
     this.merchantCaptureRefused = merchantCaptureRefused;
     return this;
   }
@@ -194,19 +186,22 @@ public class ReceiptPrinting {
    * @return merchantCaptureRefused
   **/
   @ApiModelProperty(value = "Print a merchant receipt when capturing the payment is refused.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantCaptureRefused() {
     return merchantCaptureRefused;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureRefused(Boolean merchantCaptureRefused) {
     this.merchantCaptureRefused = merchantCaptureRefused;
   }
 
 
   public ReceiptPrinting merchantRefundApproved(Boolean merchantRefundApproved) {
-    
     this.merchantRefundApproved = merchantRefundApproved;
     return this;
   }
@@ -216,19 +211,22 @@ public class ReceiptPrinting {
    * @return merchantRefundApproved
   **/
   @ApiModelProperty(value = "Print a merchant receipt when the refund is approved.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantRefundApproved() {
     return merchantRefundApproved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundApproved(Boolean merchantRefundApproved) {
     this.merchantRefundApproved = merchantRefundApproved;
   }
 
 
   public ReceiptPrinting merchantRefundRefused(Boolean merchantRefundRefused) {
-    
     this.merchantRefundRefused = merchantRefundRefused;
     return this;
   }
@@ -238,19 +236,22 @@ public class ReceiptPrinting {
    * @return merchantRefundRefused
   **/
   @ApiModelProperty(value = "Print a merchant receipt when the refund is refused.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantRefundRefused() {
     return merchantRefundRefused;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundRefused(Boolean merchantRefundRefused) {
     this.merchantRefundRefused = merchantRefundRefused;
   }
 
 
   public ReceiptPrinting merchantRefused(Boolean merchantRefused) {
-    
     this.merchantRefused = merchantRefused;
     return this;
   }
@@ -260,19 +261,22 @@ public class ReceiptPrinting {
    * @return merchantRefused
   **/
   @ApiModelProperty(value = "Print a merchant receipt when the payment is refused.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantRefused() {
     return merchantRefused;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefused(Boolean merchantRefused) {
     this.merchantRefused = merchantRefused;
   }
 
 
   public ReceiptPrinting merchantVoid(Boolean merchantVoid) {
-    
     this.merchantVoid = merchantVoid;
     return this;
   }
@@ -282,19 +286,22 @@ public class ReceiptPrinting {
    * @return merchantVoid
   **/
   @ApiModelProperty(value = "Print a merchant receipt when a previous transaction is voided.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_VOID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantVoid() {
     return merchantVoid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_VOID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantVoid(Boolean merchantVoid) {
     this.merchantVoid = merchantVoid;
   }
 
 
   public ReceiptPrinting shopperApproved(Boolean shopperApproved) {
-    
     this.shopperApproved = shopperApproved;
     return this;
   }
@@ -304,19 +311,22 @@ public class ReceiptPrinting {
    * @return shopperApproved
   **/
   @ApiModelProperty(value = "Print a shopper receipt when the payment is approved.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperApproved() {
     return shopperApproved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperApproved(Boolean shopperApproved) {
     this.shopperApproved = shopperApproved;
   }
 
 
   public ReceiptPrinting shopperCancelled(Boolean shopperCancelled) {
-    
     this.shopperCancelled = shopperCancelled;
     return this;
   }
@@ -326,19 +336,22 @@ public class ReceiptPrinting {
    * @return shopperCancelled
   **/
   @ApiModelProperty(value = "Print a shopper receipt when the transaction is cancelled.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CANCELLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperCancelled() {
     return shopperCancelled;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CANCELLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCancelled(Boolean shopperCancelled) {
     this.shopperCancelled = shopperCancelled;
   }
 
 
   public ReceiptPrinting shopperCaptureApproved(Boolean shopperCaptureApproved) {
-    
     this.shopperCaptureApproved = shopperCaptureApproved;
     return this;
   }
@@ -348,19 +361,22 @@ public class ReceiptPrinting {
    * @return shopperCaptureApproved
   **/
   @ApiModelProperty(value = "Print a shopper receipt when capturing the payment is approved.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperCaptureApproved() {
     return shopperCaptureApproved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureApproved(Boolean shopperCaptureApproved) {
     this.shopperCaptureApproved = shopperCaptureApproved;
   }
 
 
   public ReceiptPrinting shopperCaptureRefused(Boolean shopperCaptureRefused) {
-    
     this.shopperCaptureRefused = shopperCaptureRefused;
     return this;
   }
@@ -370,19 +386,22 @@ public class ReceiptPrinting {
    * @return shopperCaptureRefused
   **/
   @ApiModelProperty(value = "Print a shopper receipt when capturing the payment is refused.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperCaptureRefused() {
     return shopperCaptureRefused;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureRefused(Boolean shopperCaptureRefused) {
     this.shopperCaptureRefused = shopperCaptureRefused;
   }
 
 
   public ReceiptPrinting shopperRefundApproved(Boolean shopperRefundApproved) {
-    
     this.shopperRefundApproved = shopperRefundApproved;
     return this;
   }
@@ -392,19 +411,22 @@ public class ReceiptPrinting {
    * @return shopperRefundApproved
   **/
   @ApiModelProperty(value = "Print a shopper receipt when the refund is approved.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperRefundApproved() {
     return shopperRefundApproved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_APPROVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundApproved(Boolean shopperRefundApproved) {
     this.shopperRefundApproved = shopperRefundApproved;
   }
 
 
   public ReceiptPrinting shopperRefundRefused(Boolean shopperRefundRefused) {
-    
     this.shopperRefundRefused = shopperRefundRefused;
     return this;
   }
@@ -414,19 +436,22 @@ public class ReceiptPrinting {
    * @return shopperRefundRefused
   **/
   @ApiModelProperty(value = "Print a shopper receipt when the refund is refused.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperRefundRefused() {
     return shopperRefundRefused;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundRefused(Boolean shopperRefundRefused) {
     this.shopperRefundRefused = shopperRefundRefused;
   }
 
 
   public ReceiptPrinting shopperRefused(Boolean shopperRefused) {
-    
     this.shopperRefused = shopperRefused;
     return this;
   }
@@ -436,19 +461,22 @@ public class ReceiptPrinting {
    * @return shopperRefused
   **/
   @ApiModelProperty(value = "Print a shopper receipt when the payment is refused.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperRefused() {
     return shopperRefused;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFUSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefused(Boolean shopperRefused) {
     this.shopperRefused = shopperRefused;
   }
 
 
   public ReceiptPrinting shopperVoid(Boolean shopperVoid) {
-    
     this.shopperVoid = shopperVoid;
     return this;
   }
@@ -458,18 +486,24 @@ public class ReceiptPrinting {
    * @return shopperVoid
   **/
   @ApiModelProperty(value = "Print a shopper receipt when a previous transaction is voided.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_VOID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShopperVoid() {
     return shopperVoid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_VOID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperVoid(Boolean shopperVoid) {
     this.shopperVoid = shopperVoid;
   }
 
 
-
+  /**
+   * Return true if this ReceiptPrinting object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -537,109 +571,23 @@ public class ReceiptPrinting {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("merchantApproved");
-    openapiFields.add("merchantCancelled");
-    openapiFields.add("merchantCaptureApproved");
-    openapiFields.add("merchantCaptureRefused");
-    openapiFields.add("merchantRefundApproved");
-    openapiFields.add("merchantRefundRefused");
-    openapiFields.add("merchantRefused");
-    openapiFields.add("merchantVoid");
-    openapiFields.add("shopperApproved");
-    openapiFields.add("shopperCancelled");
-    openapiFields.add("shopperCaptureApproved");
-    openapiFields.add("shopperCaptureRefused");
-    openapiFields.add("shopperRefundApproved");
-    openapiFields.add("shopperRefundRefused");
-    openapiFields.add("shopperRefused");
-    openapiFields.add("shopperVoid");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ReceiptPrinting given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ReceiptPrinting
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ReceiptPrinting
+   */
+  public static ReceiptPrinting fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ReceiptPrinting.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ReceiptPrinting.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReceiptPrinting
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ReceiptPrinting.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReceiptPrinting is not found in the empty JSON string", ReceiptPrinting.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ReceiptPrinting.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ReceiptPrinting` properties.", entry.getKey()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReceiptPrinting.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReceiptPrinting' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReceiptPrinting> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReceiptPrinting.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ReceiptPrinting>() {
-           @Override
-           public void write(JsonWriter out, ReceiptPrinting value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ReceiptPrinting read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ReceiptPrinting given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ReceiptPrinting
-  * @throws IOException if the JSON string is invalid with respect to ReceiptPrinting
-  */
-  public static ReceiptPrinting fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReceiptPrinting.class);
-  }
-
- /**
+/**
   * Convert an instance of ReceiptPrinting to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

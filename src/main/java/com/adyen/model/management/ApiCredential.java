@@ -14,87 +14,70 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.management.AllowedOrigin;
 import com.adyen.model.management.ApiCredentialLinks;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.management.JSON;
 
 /**
  * ApiCredential
  */
+@JsonPropertyOrder({
+  ApiCredential.JSON_PROPERTY_LINKS,
+  ApiCredential.JSON_PROPERTY_ACTIVE,
+  ApiCredential.JSON_PROPERTY_ALLOWED_IP_ADDRESSES,
+  ApiCredential.JSON_PROPERTY_ALLOWED_ORIGINS,
+  ApiCredential.JSON_PROPERTY_CLIENT_KEY,
+  ApiCredential.JSON_PROPERTY_DESCRIPTION,
+  ApiCredential.JSON_PROPERTY_ID,
+  ApiCredential.JSON_PROPERTY_ROLES,
+  ApiCredential.JSON_PROPERTY_USERNAME
+})
 
 public class ApiCredential {
-  public static final String SERIALIZED_NAME_LINKS = "_links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
+  public static final String JSON_PROPERTY_LINKS = "_links";
   private ApiCredentialLinks links;
 
-  public static final String SERIALIZED_NAME_ACTIVE = "active";
-  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
-  public static final String SERIALIZED_NAME_ALLOWED_IP_ADDRESSES = "allowedIpAddresses";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_IP_ADDRESSES)
+  public static final String JSON_PROPERTY_ALLOWED_IP_ADDRESSES = "allowedIpAddresses";
   private List<String> allowedIpAddresses = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ALLOWED_ORIGINS = "allowedOrigins";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_ORIGINS)
+  public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowedOrigins";
   private List<AllowedOrigin> allowedOrigins = null;
 
-  public static final String SERIALIZED_NAME_CLIENT_KEY = "clientKey";
-  @SerializedName(SERIALIZED_NAME_CLIENT_KEY)
+  public static final String JSON_PROPERTY_CLIENT_KEY = "clientKey";
   private String clientKey;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_ROLES = "roles";
-  @SerializedName(SERIALIZED_NAME_ROLES)
+  public static final String JSON_PROPERTY_ROLES = "roles";
   private List<String> roles = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
+  public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
   public ApiCredential() { 
   }
 
   public ApiCredential links(ApiCredentialLinks links) {
-    
     this.links = links;
     return this;
   }
@@ -104,19 +87,22 @@ public class ApiCredential {
    * @return links
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiCredentialLinks getLinks() {
     return links;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(ApiCredentialLinks links) {
     this.links = links;
   }
 
 
   public ApiCredential active(Boolean active) {
-    
     this.active = active;
     return this;
   }
@@ -126,19 +112,22 @@ public class ApiCredential {
    * @return active
   **/
   @ApiModelProperty(required = true, value = "Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.")
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getActive() {
     return active;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
 
 
   public ApiCredential allowedIpAddresses(List<String> allowedIpAddresses) {
-    
     this.allowedIpAddresses = allowedIpAddresses;
     return this;
   }
@@ -153,19 +142,22 @@ public class ApiCredential {
    * @return allowedIpAddresses
   **/
   @ApiModelProperty(required = true, value = "List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.")
+  @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getAllowedIpAddresses() {
     return allowedIpAddresses;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
   }
 
 
   public ApiCredential allowedOrigins(List<AllowedOrigin> allowedOrigins) {
-    
     this.allowedOrigins = allowedOrigins;
     return this;
   }
@@ -183,19 +175,22 @@ public class ApiCredential {
    * @return allowedOrigins
   **/
   @ApiModelProperty(value = "List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.")
+  @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<AllowedOrigin> getAllowedOrigins() {
     return allowedOrigins;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<AllowedOrigin> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
   }
 
 
   public ApiCredential clientKey(String clientKey) {
-    
     this.clientKey = clientKey;
     return this;
   }
@@ -205,19 +200,22 @@ public class ApiCredential {
    * @return clientKey
   **/
   @ApiModelProperty(required = true, value = "Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.")
+  @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClientKey() {
     return clientKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
     this.clientKey = clientKey;
   }
 
 
   public ApiCredential description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -227,19 +225,22 @@ public class ApiCredential {
    * @return description
   **/
   @ApiModelProperty(value = "Description of the API credential.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public ApiCredential id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -249,19 +250,22 @@ public class ApiCredential {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "Unique identifier of the API credential.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public ApiCredential roles(List<String> roles) {
-    
     this.roles = roles;
     return this;
   }
@@ -276,19 +280,22 @@ public class ApiCredential {
    * @return roles
   **/
   @ApiModelProperty(required = true, value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.")
+  @JsonProperty(JSON_PROPERTY_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getRoles() {
     return roles;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
 
 
   public ApiCredential username(String username) {
-    
     this.username = username;
     return this;
   }
@@ -298,18 +305,24 @@ public class ApiCredential {
    * @return username
   **/
   @ApiModelProperty(required = true, value = "The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.")
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUsername() {
     return username;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
 
 
-
+  /**
+   * Return true if this ApiCredential object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -363,155 +376,23 @@ public class ApiCredential {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("_links");
-    openapiFields.add("active");
-    openapiFields.add("allowedIpAddresses");
-    openapiFields.add("allowedOrigins");
-    openapiFields.add("clientKey");
-    openapiFields.add("description");
-    openapiFields.add("id");
-    openapiFields.add("roles");
-    openapiFields.add("username");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("active");
-    openapiRequiredFields.add("allowedIpAddresses");
-    openapiRequiredFields.add("clientKey");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("roles");
-    openapiRequiredFields.add("username");
+/**
+   * Create an instance of ApiCredential given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ApiCredential
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ApiCredential
+   */
+  public static ApiCredential fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ApiCredential.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ApiCredential.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApiCredential
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ApiCredential.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiCredential is not found in the empty JSON string", ApiCredential.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ApiCredential.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ApiCredential` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiCredential.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-        ApiCredentialLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("allowedIpAddresses") != null && !jsonObj.get("allowedIpAddresses").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `allowedIpAddresses` to be an array in the JSON string but got `%s`", jsonObj.get("allowedIpAddresses").toString()));
-      }
-      JsonArray jsonArrayallowedOrigins = jsonObj.getAsJsonArray("allowedOrigins");
-      if (jsonArrayallowedOrigins != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("allowedOrigins").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `allowedOrigins` to be an array in the JSON string but got `%s`", jsonObj.get("allowedOrigins").toString()));
-        }
-
-        // validate the optional field `allowedOrigins` (array)
-        for (int i = 0; i < jsonArrayallowedOrigins.size(); i++) {
-          AllowedOrigin.validateJsonObject(jsonArrayallowedOrigins.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field clientKey
-      if (jsonObj.get("clientKey") != null && !jsonObj.get("clientKey").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `clientKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clientKey").toString()));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
-      }
-      // validate the optional field username
-      if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiCredential.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiCredential' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiCredential> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiCredential.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ApiCredential>() {
-           @Override
-           public void write(JsonWriter out, ApiCredential value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ApiCredential read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ApiCredential given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiCredential
-  * @throws IOException if the JSON string is invalid with respect to ApiCredential
-  */
-  public static ApiCredential fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApiCredential.class);
-  }
-
- /**
+/**
   * Convert an instance of ApiCredential to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
