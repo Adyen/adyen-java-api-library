@@ -108,12 +108,18 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
             }
 
             {{/oneOf}}
-            if (match == 1) {
-                {{classname}} ret = new {{classname}}();
-                ret.setActualInstance(deserialized);
-                return ret;
+            // Throw error if there is no match
+            if (match == 0) {
+                throw new IOException(String.format("Failed deserialization for {{classname}}: %d classes match result, expected 1", match));
             }
-            throw new IOException(String.format("Failed deserialization for {{classname}}: %d classes match result, expected 1", match));
+            // Log warning if there is more than one match
+            if (match > 1) {
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for {{classname}}: %d classes match result, expected 1", match));
+            }
+
+            {{classname}} ret = new {{classname}}();
+            ret.setActualInstance(deserialized);
+            return ret;
         }
 
         /**
