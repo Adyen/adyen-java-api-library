@@ -33,6 +33,7 @@ import com.adyen.util.DateUtil;
 import com.fasterxml.jackson.databind.JavaType;
 import com.google.gson.reflect.TypeToken;
 import okio.ByteString;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -165,6 +166,14 @@ public class PaymentTest extends BaseTest {
 
         assertAuthorised(paymentResult);
         assertNotNull(paymentResult.getPspReference());
+    }
+
+    @Test
+    public void TestCaptureDelayHoursSerialization() throws Exception {
+        PaymentRequest3d paymentRequest3d = create3DPaymentRequest();
+        paymentRequest3d.setCaptureDelayHours(0);
+        String jsonRequest = paymentRequest3d.toJson();
+        Assert.assertTrue(jsonRequest.contains("\"captureDelayHours\":0"));
     }
 
     /**
