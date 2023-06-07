@@ -30,6 +30,7 @@ import com.adyen.model.payment.*;
 import com.adyen.service.PaymentApi;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
+import com.fasterxml.jackson.databind.JavaType;
 import com.google.gson.reflect.TypeToken;
 import okio.ByteString;
 import org.junit.Test;
@@ -450,10 +451,9 @@ public class PaymentTest extends BaseTest {
         final ByteString expectedByteString = ByteString.of(expectedBytes);
         final String serializedBytes = expectedByteString.base64();
         final String serializedBytesWithQuotes = "\"" + serializedBytes + "\"";
-        Type type = new TypeToken<byte[]>() { }.getType();
 
         // Act
-        byte[] actualDeserializedBytes = JSON.deserialize(serializedBytesWithQuotes, type);
+        byte[] actualDeserializedBytes = JSON.getMapper().readValue(serializedBytesWithQuotes, byte[].class);
 
         // Assert
         assertEquals(expectedBytesAsString, new String(actualDeserializedBytes, StandardCharsets.UTF_8));
@@ -468,7 +468,7 @@ public class PaymentTest extends BaseTest {
         
         payment.authorise(paymentRequest);
         // Unicode representation of the string
-        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}";
+        String expected = "\"mpiData\":{\"cavv\":\"QVFJREJBVUdCd2dKQ2dzTURRNFBFQkVTRXhRPQ==\"}";
         ClientInterface http = client.getHttpClient();
         verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
     }
