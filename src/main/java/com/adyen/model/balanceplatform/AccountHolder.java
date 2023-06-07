@@ -258,6 +258,11 @@ public class AccountHolder {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public AccountHolder legalEntityId(String legalEntityId) {
@@ -398,6 +403,11 @@ public class AccountHolder {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+    this.verificationDeadlines = verificationDeadlines;
+  }
 
 
   /**

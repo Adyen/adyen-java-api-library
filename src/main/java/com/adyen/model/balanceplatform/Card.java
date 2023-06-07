@@ -422,6 +422,11 @@ public class Card {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNumber(String number) {
+    this.number = number;
+  }
 
 
   /**

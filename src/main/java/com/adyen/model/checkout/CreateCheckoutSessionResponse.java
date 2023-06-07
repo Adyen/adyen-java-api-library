@@ -1066,6 +1066,11 @@ public class CreateCheckoutSessionResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public CreateCheckoutSessionResponse installmentOptions(Map<String, CheckoutSessionInstallmentOption> installmentOptions) {

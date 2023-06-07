@@ -225,6 +225,11 @@ public class AccountHolderCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowed(Boolean allowed) {
+    this.allowed = allowed;
+  }
 
 
    /**
@@ -240,6 +245,11 @@ public class AccountHolderCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowedLevel(AllowedLevelEnum allowedLevel) {
+    this.allowedLevel = allowedLevel;
+  }
 
 
   public AccountHolderCapability allowedSettings(JSONObject allowedSettings) {
@@ -305,6 +315,11 @@ public class AccountHolderCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROBLEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProblems(List<Object> problems) {
+    this.problems = problems;
+  }
 
 
   public AccountHolderCapability requested(Boolean requested) {
@@ -428,6 +443,11 @@ public class AccountHolderCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationStatus(VerificationStatusEnum verificationStatus) {
+    this.verificationStatus = verificationStatus;
+  }
 
 
   /**

@@ -714,6 +714,11 @@ public class PaymentLinkResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public PaymentLinkResponse installmentOptions(Map<String, InstallmentOption> installmentOptions) {
@@ -1469,6 +1474,11 @@ public class PaymentLinkResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
 
   /**

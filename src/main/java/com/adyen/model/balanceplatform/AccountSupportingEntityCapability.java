@@ -209,6 +209,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowed(Boolean allowed) {
+    this.allowed = allowed;
+  }
 
 
    /**
@@ -224,6 +229,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowedLevel(AllowedLevelEnum allowedLevel) {
+    this.allowedLevel = allowedLevel;
+  }
 
 
   public AccountSupportingEntityCapability enabled(Boolean enabled) {
@@ -264,6 +274,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public AccountSupportingEntityCapability requested(Boolean requested) {
@@ -329,6 +344,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationStatus(VerificationStatusEnum verificationStatus) {
+    this.verificationStatus = verificationStatus;
+  }
 
 
   /**

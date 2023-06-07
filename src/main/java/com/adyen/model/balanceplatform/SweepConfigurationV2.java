@@ -426,6 +426,11 @@ public class SweepConfigurationV2 {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public SweepConfigurationV2 priorities(List<PrioritiesEnum> priorities) {
@@ -474,6 +479,11 @@ public class SweepConfigurationV2 {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReason(ReasonEnum reason) {
+    this.reason = reason;
+  }
 
 
   public SweepConfigurationV2 schedule(SweepConfigurationV2Schedule schedule) {

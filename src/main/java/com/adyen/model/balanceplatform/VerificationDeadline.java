@@ -202,6 +202,11 @@ public class VerificationDeadline {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCapabilities(List<CapabilitiesEnum> capabilities) {
+    this.capabilities = capabilities;
+  }
 
 
    /**
@@ -217,6 +222,11 @@ public class VerificationDeadline {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExpiresAt(OffsetDateTime expiresAt) {
+    this.expiresAt = expiresAt;
+  }
 
 
   /**
