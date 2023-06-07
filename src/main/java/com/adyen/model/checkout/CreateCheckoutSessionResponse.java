@@ -471,14 +471,6 @@ public class CreateCheckoutSessionResponse {
   public CreateCheckoutSessionResponse() { 
   }
 
-  @JsonCreator
-  public CreateCheckoutSessionResponse(
-    @JsonProperty(JSON_PROPERTY_ID) String id
-  ) {
-    this();
-    this.id = id;
-  }
-
   public CreateCheckoutSessionResponse accountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
     return this;
@@ -1052,6 +1044,11 @@ public class CreateCheckoutSessionResponse {
     this.fundRecipient = fundRecipient;
   }
 
+
+  public CreateCheckoutSessionResponse id(String id) {
+    this.id = id;
+    return this;
+  }
 
    /**
    * A unique identifier of the session.

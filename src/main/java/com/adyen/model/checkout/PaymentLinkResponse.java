@@ -375,16 +375,6 @@ public class PaymentLinkResponse {
   public PaymentLinkResponse() { 
   }
 
-  @JsonCreator
-  public PaymentLinkResponse(
-    @JsonProperty(JSON_PROPERTY_ID) String id, 
-    @JsonProperty(JSON_PROPERTY_URL) String url
-  ) {
-    this();
-    this.id = id;
-    this.url = url;
-  }
-
   public PaymentLinkResponse allowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
     return this;
@@ -700,6 +690,11 @@ public class PaymentLinkResponse {
     this.expiresAt = expiresAt;
   }
 
+
+  public PaymentLinkResponse id(String id) {
+    this.id = id;
+    return this;
+  }
 
    /**
    * A unique identifier of the payment link.
@@ -1460,6 +1455,11 @@ public class PaymentLinkResponse {
     this.updatedAt = updatedAt;
   }
 
+
+  public PaymentLinkResponse url(String url) {
+    this.url = url;
+    return this;
+  }
 
    /**
    * The URL at which the shopper can complete the payment.

@@ -90,22 +90,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   public {{classname}}() { {{#parent}}{{#parcelableModel}}
     super();{{/parcelableModel}}{{/parent}}{{#gson}}{{#discriminator}}
     this.{{{discriminatorName}}} = this.getClass().getSimpleName();{{/discriminator}}{{/gson}}
-  }{{#vendorExtensions.x-has-readonly-properties}}{{^withXml}}{{#jackson}}
-
-  @JsonCreator
-  public {{classname}}(
-  {{#readOnlyVars}}
-    {{#jackson}}@JsonProperty(JSON_PROPERTY_{{nameInSnakeCase}}){{/jackson}} {{{datatypeWithEnum}}} {{name}}{{^-last}}, {{/-last}}
-  {{/readOnlyVars}}
-  ) {
-    this();
-  {{#readOnlyVars}}
-    this.{{name}} = {{name}};
-  {{/readOnlyVars}}
-  }{{/jackson}}{{/withXml}}{{/vendorExtensions.x-has-readonly-properties}}
+  }
   {{#vars}}
 
-  {{^isReadOnly}}
   {{#vendorExtensions.x-enum-as-string}}
   public static final Set<String> {{{nameInSnakeCase}}}_VALUES = new HashSet<>(Arrays.asList(
     {{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}
@@ -178,7 +165,6 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   }
   {{/isMap}}
 
-  {{/isReadOnly}}
    /**
   {{#description}}
    * {{.}}
