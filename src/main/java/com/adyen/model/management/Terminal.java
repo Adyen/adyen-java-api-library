@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -50,10 +52,12 @@ import com.adyen.model.management.JSON;
 
 public class Terminal {
   public static final String SERIALIZED_NAME_ASSIGNED = "assigned";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ASSIGNED)
   private Boolean assigned;
 
   public static final String SERIALIZED_NAME_BLUETOOTH_IP = "bluetoothIp";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_BLUETOOTH_IP)
   private String bluetoothIp;
 
@@ -62,26 +66,32 @@ public class Terminal {
   private String bluetoothMac;
 
   public static final String SERIALIZED_NAME_CITY = "city";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 
   public static final String SERIALIZED_NAME_COMPANY_ACCOUNT = "companyAccount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_COMPANY_ACCOUNT)
   private String companyAccount;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
 
   public static final String SERIALIZED_NAME_DEVICE_MODEL = "deviceModel";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_DEVICE_MODEL)
   private String deviceModel;
 
   public static final String SERIALIZED_NAME_ETHERNET_IP = "ethernetIp";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ETHERNET_IP)
   private String ethernetIp;
 
   public static final String SERIALIZED_NAME_ETHERNET_MAC = "ethernetMac";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ETHERNET_MAC)
   private String ethernetMac;
 
@@ -90,6 +100,7 @@ public class Terminal {
   private String firmwareVersion;
 
   public static final String SERIALIZED_NAME_ICCID = "iccid";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ICCID)
   private String iccid;
 
@@ -98,14 +109,17 @@ public class Terminal {
   private String id;
 
   public static final String SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME = "lastActivityDateTime";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME)
   private OffsetDateTime lastActivityDateTime;
 
   public static final String SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME = "lastTransactionDateTime";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME)
   private OffsetDateTime lastTransactionDateTime;
 
   public static final String SERIALIZED_NAME_LINK_NEGOTIATION = "linkNegotiation";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_LINK_NEGOTIATION)
   private String linkNegotiation;
 
@@ -114,32 +128,39 @@ public class Terminal {
   private String serialNumber;
 
   public static final String SERIALIZED_NAME_SIM_STATUS = "simStatus";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_SIM_STATUS)
   private String simStatus;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
   public static final String SERIALIZED_NAME_STORE_STATUS = "storeStatus";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_STORE_STATUS)
   private String storeStatus;
 
   public static final String SERIALIZED_NAME_WIFI_IP = "wifiIp";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_WIFI_IP)
   private String wifiIp;
 
   public static final String SERIALIZED_NAME_WIFI_MAC = "wifiMac";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_WIFI_MAC)
   private String wifiMac;
 
   public static final String SERIALIZED_NAME_WIFI_SSID = "wifiSsid";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_WIFI_SSID)
   private String wifiSsid;
 
   public Terminal() { 
   }
 
+  @Deprecated
   public Terminal assigned(Boolean assigned) {
     
     this.assigned = assigned;
@@ -149,7 +170,9 @@ public class Terminal {
    /**
    * The [assignment status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api) of the terminal. If true, the terminal is assigned. If false, the terminal is in inventory and can&#39;t be boarded.
    * @return assigned
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The [assignment status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api) of the terminal. If true, the terminal is assigned. If false, the terminal is in inventory and can't be boarded.")
 
   public Boolean getAssigned() {
@@ -157,11 +180,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setAssigned(Boolean assigned) {
     this.assigned = assigned;
   }
 
 
+  @Deprecated
   public Terminal bluetoothIp(String bluetoothIp) {
     
     this.bluetoothIp = bluetoothIp;
@@ -171,7 +196,9 @@ public class Terminal {
    /**
    * The Bluetooth IP address of the terminal.
    * @return bluetoothIp
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The Bluetooth IP address of the terminal.")
 
   public String getBluetoothIp() {
@@ -179,6 +206,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setBluetoothIp(String bluetoothIp) {
     this.bluetoothIp = bluetoothIp;
   }
@@ -206,6 +234,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public Terminal city(String city) {
     
     this.city = city;
@@ -215,7 +244,9 @@ public class Terminal {
    /**
    * The city where the terminal is located.
    * @return city
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The city where the terminal is located.")
 
   public String getCity() {
@@ -223,11 +254,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setCity(String city) {
     this.city = city;
   }
 
 
+  @Deprecated
   public Terminal companyAccount(String companyAccount) {
     
     this.companyAccount = companyAccount;
@@ -237,7 +270,9 @@ public class Terminal {
    /**
    * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
    * @return companyAccount
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
 
   public String getCompanyAccount() {
@@ -245,11 +280,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
 
+  @Deprecated
   public Terminal countryCode(String countryCode) {
     
     this.countryCode = countryCode;
@@ -259,7 +296,9 @@ public class Terminal {
    /**
    * The country code of the country where the terminal is located.
    * @return countryCode
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The country code of the country where the terminal is located.")
 
   public String getCountryCode() {
@@ -267,11 +306,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
 
+  @Deprecated
   public Terminal deviceModel(String deviceModel) {
     
     this.deviceModel = deviceModel;
@@ -281,7 +322,9 @@ public class Terminal {
    /**
    * The model name of the terminal.
    * @return deviceModel
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The model name of the terminal.")
 
   public String getDeviceModel() {
@@ -289,11 +332,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setDeviceModel(String deviceModel) {
     this.deviceModel = deviceModel;
   }
 
 
+  @Deprecated
   public Terminal ethernetIp(String ethernetIp) {
     
     this.ethernetIp = ethernetIp;
@@ -303,7 +348,9 @@ public class Terminal {
    /**
    * The ethernet IP address of the terminal.
    * @return ethernetIp
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The ethernet IP address of the terminal.")
 
   public String getEthernetIp() {
@@ -311,11 +358,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setEthernetIp(String ethernetIp) {
     this.ethernetIp = ethernetIp;
   }
 
 
+  @Deprecated
   public Terminal ethernetMac(String ethernetMac) {
     
     this.ethernetMac = ethernetMac;
@@ -325,7 +374,9 @@ public class Terminal {
    /**
    * The ethernet MAC address of the terminal.
    * @return ethernetMac
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The ethernet MAC address of the terminal.")
 
   public String getEthernetMac() {
@@ -333,6 +384,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setEthernetMac(String ethernetMac) {
     this.ethernetMac = ethernetMac;
   }
@@ -360,6 +412,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public Terminal iccid(String iccid) {
     
     this.iccid = iccid;
@@ -369,7 +422,9 @@ public class Terminal {
    /**
    * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
    * @return iccid
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the SIM card in the terminal.")
 
   public String getIccid() {
@@ -377,6 +432,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setIccid(String iccid) {
     this.iccid = iccid;
   }
@@ -404,6 +460,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public Terminal lastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     
     this.lastActivityDateTime = lastActivityDateTime;
@@ -413,7 +470,9 @@ public class Terminal {
    /**
    * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    * @return lastActivityDateTime
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
 
   public OffsetDateTime getLastActivityDateTime() {
@@ -421,11 +480,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setLastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     this.lastActivityDateTime = lastActivityDateTime;
   }
 
 
+  @Deprecated
   public Terminal lastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     
     this.lastTransactionDateTime = lastTransactionDateTime;
@@ -435,7 +496,9 @@ public class Terminal {
    /**
    * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    * @return lastTransactionDateTime
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
 
   public OffsetDateTime getLastTransactionDateTime() {
@@ -443,11 +506,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setLastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     this.lastTransactionDateTime = lastTransactionDateTime;
   }
 
 
+  @Deprecated
   public Terminal linkNegotiation(String linkNegotiation) {
     
     this.linkNegotiation = linkNegotiation;
@@ -457,7 +522,9 @@ public class Terminal {
    /**
    * The Ethernet link negotiation that the terminal uses:  - &#x60;auto&#x60;: Auto-negotiation  - &#x60;100full&#x60;: 100 Mbps full duplex
    * @return linkNegotiation
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The Ethernet link negotiation that the terminal uses:  - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex")
 
   public String getLinkNegotiation() {
@@ -465,6 +532,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setLinkNegotiation(String linkNegotiation) {
     this.linkNegotiation = linkNegotiation;
   }
@@ -492,6 +560,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public Terminal simStatus(String simStatus) {
     
     this.simStatus = simStatus;
@@ -501,7 +570,9 @@ public class Terminal {
    /**
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.
    * @return simStatus
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.")
 
   public String getSimStatus() {
@@ -509,11 +580,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setSimStatus(String simStatus) {
     this.simStatus = simStatus;
   }
 
 
+  @Deprecated
   public Terminal status(String status) {
     
     this.status = status;
@@ -523,7 +596,9 @@ public class Terminal {
    /**
    * Indicates when the terminal was last online, whether the terminal is being reassigned, or whether the terminal is turned off. If the terminal was last online more that a week ago, it is also shown as turned off.
    * @return status
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "Indicates when the terminal was last online, whether the terminal is being reassigned, or whether the terminal is turned off. If the terminal was last online more that a week ago, it is also shown as turned off.")
 
   public String getStatus() {
@@ -531,11 +606,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setStatus(String status) {
     this.status = status;
   }
 
 
+  @Deprecated
   public Terminal storeStatus(String storeStatus) {
     
     this.storeStatus = storeStatus;
@@ -545,7 +622,9 @@ public class Terminal {
    /**
    * The status of the store that the terminal is assigned to.
    * @return storeStatus
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The status of the store that the terminal is assigned to.")
 
   public String getStoreStatus() {
@@ -553,11 +632,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setStoreStatus(String storeStatus) {
     this.storeStatus = storeStatus;
   }
 
 
+  @Deprecated
   public Terminal wifiIp(String wifiIp) {
     
     this.wifiIp = wifiIp;
@@ -567,7 +648,9 @@ public class Terminal {
    /**
    * The terminal&#39;s IP address in your Wi-Fi network.
    * @return wifiIp
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The terminal's IP address in your Wi-Fi network.")
 
   public String getWifiIp() {
@@ -575,11 +658,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setWifiIp(String wifiIp) {
     this.wifiIp = wifiIp;
   }
 
 
+  @Deprecated
   public Terminal wifiMac(String wifiMac) {
     
     this.wifiMac = wifiMac;
@@ -589,7 +674,9 @@ public class Terminal {
    /**
    * The terminal&#39;s MAC address in your Wi-Fi network.
    * @return wifiMac
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The terminal's MAC address in your Wi-Fi network.")
 
   public String getWifiMac() {
@@ -597,11 +684,13 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setWifiMac(String wifiMac) {
     this.wifiMac = wifiMac;
   }
 
 
+  @Deprecated
   public Terminal wifiSsid(String wifiSsid) {
     
     this.wifiSsid = wifiSsid;
@@ -611,7 +700,9 @@ public class Terminal {
    /**
    * The SSID of the Wi-Fi network that your terminal is connected to.
    * @return wifiSsid
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The SSID of the Wi-Fi network that your terminal is connected to.")
 
   public String getWifiSsid() {
@@ -619,6 +710,7 @@ public class Terminal {
   }
 
 
+  @Deprecated
   public void setWifiSsid(String wifiSsid) {
     this.wifiSsid = wifiSsid;
   }
@@ -737,6 +829,10 @@ public class Terminal {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Terminal.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -757,84 +853,84 @@ public class Terminal {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Terminal.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Terminal` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Terminal` properties.", entry.getKey()));
         }
       }
       // validate the optional field bluetoothIp
       if (jsonObj.get("bluetoothIp") != null && !jsonObj.get("bluetoothIp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bluetoothIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothIp").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `bluetoothIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothIp").toString()));
       }
       // validate the optional field bluetoothMac
       if (jsonObj.get("bluetoothMac") != null && !jsonObj.get("bluetoothMac").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bluetoothMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothMac").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `bluetoothMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothMac").toString()));
       }
       // validate the optional field city
       if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       // validate the optional field companyAccount
       if (jsonObj.get("companyAccount") != null && !jsonObj.get("companyAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
       }
       // validate the optional field countryCode
       if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
       // validate the optional field deviceModel
       if (jsonObj.get("deviceModel") != null && !jsonObj.get("deviceModel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deviceModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceModel").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `deviceModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceModel").toString()));
       }
       // validate the optional field ethernetIp
       if (jsonObj.get("ethernetIp") != null && !jsonObj.get("ethernetIp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ethernetIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetIp").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `ethernetIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetIp").toString()));
       }
       // validate the optional field ethernetMac
       if (jsonObj.get("ethernetMac") != null && !jsonObj.get("ethernetMac").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ethernetMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetMac").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `ethernetMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetMac").toString()));
       }
       // validate the optional field firmwareVersion
       if (jsonObj.get("firmwareVersion") != null && !jsonObj.get("firmwareVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `firmwareVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firmwareVersion").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `firmwareVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firmwareVersion").toString()));
       }
       // validate the optional field iccid
       if (jsonObj.get("iccid") != null && !jsonObj.get("iccid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `iccid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iccid").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `iccid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iccid").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field linkNegotiation
       if (jsonObj.get("linkNegotiation") != null && !jsonObj.get("linkNegotiation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `linkNegotiation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkNegotiation").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `linkNegotiation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkNegotiation").toString()));
       }
       // validate the optional field serialNumber
       if (jsonObj.get("serialNumber") != null && !jsonObj.get("serialNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `serialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serialNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `serialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serialNumber").toString()));
       }
       // validate the optional field simStatus
       if (jsonObj.get("simStatus") != null && !jsonObj.get("simStatus").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `simStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("simStatus").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `simStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("simStatus").toString()));
       }
       // validate the optional field status
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // validate the optional field storeStatus
       if (jsonObj.get("storeStatus") != null && !jsonObj.get("storeStatus").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storeStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeStatus").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `storeStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeStatus").toString()));
       }
       // validate the optional field wifiIp
       if (jsonObj.get("wifiIp") != null && !jsonObj.get("wifiIp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wifiIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiIp").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `wifiIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiIp").toString()));
       }
       // validate the optional field wifiMac
       if (jsonObj.get("wifiMac") != null && !jsonObj.get("wifiMac").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wifiMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiMac").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `wifiMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiMac").toString()));
       }
       // validate the optional field wifiSsid
       if (jsonObj.get("wifiSsid") != null && !jsonObj.get("wifiSsid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wifiSsid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiSsid").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `wifiSsid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiSsid").toString()));
       }
   }
 

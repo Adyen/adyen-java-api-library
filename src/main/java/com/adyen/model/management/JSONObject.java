@@ -15,6 +15,7 @@ package com.adyen.model.management;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.management.JSONPath;
+import com.adyen.model.management.JSONPathWrapper;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -53,7 +56,7 @@ import com.adyen.model.management.JSON;
 public class JSONObject {
   public static final String SERIALIZED_NAME_PATHS = "paths";
   @SerializedName(SERIALIZED_NAME_PATHS)
-  private List<JSONPath> paths = null;
+  private List<JSONPathWrapper> paths = null;
 
   public static final String SERIALIZED_NAME_ROOT_PATH = "rootPath";
   @SerializedName(SERIALIZED_NAME_ROOT_PATH)
@@ -62,13 +65,13 @@ public class JSONObject {
   public JSONObject() { 
   }
 
-  public JSONObject paths(List<JSONPath> paths) {
+  public JSONObject paths(List<JSONPathWrapper> paths) {
     
     this.paths = paths;
     return this;
   }
 
-  public JSONObject addPathsItem(JSONPath pathsItem) {
+  public JSONObject addPathsItem(JSONPathWrapper pathsItem) {
     if (this.paths == null) {
       this.paths = new ArrayList<>();
     }
@@ -82,12 +85,12 @@ public class JSONObject {
   **/
   @ApiModelProperty(value = "")
 
-  public List<JSONPath> getPaths() {
+  public List<JSONPathWrapper> getPaths() {
     return paths;
   }
 
 
-  public void setPaths(List<JSONPath> paths) {
+  public void setPaths(List<JSONPathWrapper> paths) {
     this.paths = paths;
   }
 
@@ -167,6 +170,10 @@ public class JSONObject {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(JSONObject.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -187,7 +194,7 @@ public class JSONObject {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!JSONObject.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JSONObject` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `JSONObject` properties.", entry.getKey()));
         }
       }
       JsonArray jsonArraypaths = jsonObj.getAsJsonArray("paths");
@@ -199,7 +206,7 @@ public class JSONObject {
 
         // validate the optional field `paths` (array)
         for (int i = 0; i < jsonArraypaths.size(); i++) {
-          JSONPath.validateJsonObject(jsonArraypaths.get(i).getAsJsonObject());
+          JSONPathWrapper.validateJsonObject(jsonArraypaths.get(i).getAsJsonObject());
         }
       }
       // validate the optional field `rootPath`

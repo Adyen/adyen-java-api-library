@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.transfers.JSON;
 
@@ -233,6 +235,10 @@ public class AULocalAccountIdentification {
     openapiRequiredFields.add("bsbCode");
     openapiRequiredFields.add("type");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(AULocalAccountIdentification.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -253,7 +259,7 @@ public class AULocalAccountIdentification {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AULocalAccountIdentification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AULocalAccountIdentification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AULocalAccountIdentification` properties.", entry.getKey()));
         }
       }
 
@@ -265,11 +271,11 @@ public class AULocalAccountIdentification {
       }
       // validate the optional field accountNumber
       if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
       }
       // validate the optional field bsbCode
       if (jsonObj.get("bsbCode") != null && !jsonObj.get("bsbCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bsbCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bsbCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `bsbCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bsbCode").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -203,6 +205,10 @@ public class ModelConfiguration {
     openapiRequiredFields.add("brand");
     openapiRequiredFields.add("currencies");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ModelConfiguration.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -223,7 +229,7 @@ public class ModelConfiguration {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ModelConfiguration.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ModelConfiguration` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ModelConfiguration` properties.", entry.getKey()));
         }
       }
 
@@ -235,7 +241,7 @@ public class ModelConfiguration {
       }
       // validate the optional field brand
       if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
       }
       JsonArray jsonArraycurrencies = jsonObj.getAsJsonArray("currencies");
       if (jsonArraycurrencies != null) {
@@ -251,7 +257,7 @@ public class ModelConfiguration {
       }
       // ensure the json data is an array
       if (jsonObj.get("sources") != null && !jsonObj.get("sources").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sources` to be an array in the JSON string but got `%s`", jsonObj.get("sources").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `sources` to be an array in the JSON string but got `%s`", jsonObj.get("sources").toString()));
       }
   }
 

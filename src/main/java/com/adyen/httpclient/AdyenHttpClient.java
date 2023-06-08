@@ -68,6 +68,7 @@ import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
 import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
 import static com.adyen.constants.ApiConstants.RequestProperty.CONTENT_TYPE;
 import static com.adyen.constants.ApiConstants.RequestProperty.IDEMPOTENCY_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.REQUESTED_VERIFICATION_CODE_HEADER;
 import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class AdyenHttpClient implements ClientInterface {
@@ -151,8 +152,17 @@ public class AdyenHttpClient implements ClientInterface {
         httpUriRequest.addHeader(ADYEN_LIBRARY_NAME, Client.LIB_NAME);
         httpUriRequest.addHeader(ADYEN_LIBRARY_VERSION, Client.LIB_VERSION);
 
-        if (requestOptions != null && requestOptions.getIdempotencyKey() != null) {
-            httpUriRequest.addHeader(IDEMPOTENCY_KEY, requestOptions.getIdempotencyKey());
+        if (requestOptions != null) {
+            if (requestOptions.getIdempotencyKey() != null) {
+                httpUriRequest.addHeader(IDEMPOTENCY_KEY, requestOptions.getIdempotencyKey());
+            }
+            if (requestOptions.getRequestedVerificationCodeHeader() != null) {
+                httpUriRequest.addHeader(REQUESTED_VERIFICATION_CODE_HEADER, requestOptions.getRequestedVerificationCodeHeader());
+            }
+
+            if (requestOptions.getAdditionalServiceHeaders() != null) {
+                requestOptions.getAdditionalServiceHeaders().forEach(httpUriRequest::addHeader);
+            }
         }
     }
 

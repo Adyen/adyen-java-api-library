@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -62,6 +64,10 @@ public class TerminalOrderRequest {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<OrderItem> items = null;
+
+  public static final String SERIALIZED_NAME_ORDER_TYPE = "orderType";
+  @SerializedName(SERIALIZED_NAME_ORDER_TYPE)
+  private String orderType;
 
   public static final String SERIALIZED_NAME_SHIPPING_LOCATION_ID = "shippingLocationId";
   @SerializedName(SERIALIZED_NAME_SHIPPING_LOCATION_ID)
@@ -148,6 +154,28 @@ public class TerminalOrderRequest {
   }
 
 
+  public TerminalOrderRequest orderType(String orderType) {
+    
+    this.orderType = orderType;
+    return this;
+  }
+
+   /**
+   * Type of order
+   * @return orderType
+  **/
+  @ApiModelProperty(value = "Type of order")
+
+  public String getOrderType() {
+    return orderType;
+  }
+
+
+  public void setOrderType(String orderType) {
+    this.orderType = orderType;
+  }
+
+
   public TerminalOrderRequest shippingLocationId(String shippingLocationId) {
     
     this.shippingLocationId = shippingLocationId;
@@ -205,13 +233,14 @@ public class TerminalOrderRequest {
     return Objects.equals(this.billingEntityId, terminalOrderRequest.billingEntityId) &&
         Objects.equals(this.customerOrderReference, terminalOrderRequest.customerOrderReference) &&
         Objects.equals(this.items, terminalOrderRequest.items) &&
+        Objects.equals(this.orderType, terminalOrderRequest.orderType) &&
         Objects.equals(this.shippingLocationId, terminalOrderRequest.shippingLocationId) &&
         Objects.equals(this.taxId, terminalOrderRequest.taxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingEntityId, customerOrderReference, items, shippingLocationId, taxId);
+    return Objects.hash(billingEntityId, customerOrderReference, items, orderType, shippingLocationId, taxId);
   }
 
   @Override
@@ -221,6 +250,7 @@ public class TerminalOrderRequest {
     sb.append("    billingEntityId: ").append(toIndentedString(billingEntityId)).append("\n");
     sb.append("    customerOrderReference: ").append(toIndentedString(customerOrderReference)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");
     sb.append("    shippingLocationId: ").append(toIndentedString(shippingLocationId)).append("\n");
     sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
     sb.append("}");
@@ -248,12 +278,17 @@ public class TerminalOrderRequest {
     openapiFields.add("billingEntityId");
     openapiFields.add("customerOrderReference");
     openapiFields.add("items");
+    openapiFields.add("orderType");
     openapiFields.add("shippingLocationId");
     openapiFields.add("taxId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TerminalOrderRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -274,16 +309,16 @@ public class TerminalOrderRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TerminalOrderRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalOrderRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TerminalOrderRequest` properties.", entry.getKey()));
         }
       }
       // validate the optional field billingEntityId
       if (jsonObj.get("billingEntityId") != null && !jsonObj.get("billingEntityId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingEntityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingEntityId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `billingEntityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingEntityId").toString()));
       }
       // validate the optional field customerOrderReference
       if (jsonObj.get("customerOrderReference") != null && !jsonObj.get("customerOrderReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customerOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerOrderReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `customerOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerOrderReference").toString()));
       }
       JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
       if (jsonArrayitems != null) {
@@ -297,13 +332,17 @@ public class TerminalOrderRequest {
           OrderItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
         }
       }
+      // validate the optional field orderType
+      if (jsonObj.get("orderType") != null && !jsonObj.get("orderType").isJsonPrimitive()) {
+        log.log(Level.WARNING, String.format("Expected the field `orderType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderType").toString()));
+      }
       // validate the optional field shippingLocationId
       if (jsonObj.get("shippingLocationId") != null && !jsonObj.get("shippingLocationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shippingLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shippingLocationId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shippingLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shippingLocationId").toString()));
       }
       // validate the optional field taxId
       if (jsonObj.get("taxId") != null && !jsonObj.get("taxId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taxId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taxId").toString()));
       }
   }
 

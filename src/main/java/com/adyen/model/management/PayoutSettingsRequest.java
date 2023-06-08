@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -186,6 +188,10 @@ public class PayoutSettingsRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("transferInstrumentId");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(PayoutSettingsRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -206,7 +212,7 @@ public class PayoutSettingsRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PayoutSettingsRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PayoutSettingsRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PayoutSettingsRequest` properties.", entry.getKey()));
         }
       }
 
@@ -218,11 +224,11 @@ public class PayoutSettingsRequest {
       }
       // validate the optional field enabledFromDate
       if (jsonObj.get("enabledFromDate") != null && !jsonObj.get("enabledFromDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enabledFromDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enabledFromDate").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `enabledFromDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enabledFromDate").toString()));
       }
       // validate the optional field transferInstrumentId
       if (jsonObj.get("transferInstrumentId") != null && !jsonObj.get("transferInstrumentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `transferInstrumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transferInstrumentId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `transferInstrumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transferInstrumentId").toString()));
       }
   }
 

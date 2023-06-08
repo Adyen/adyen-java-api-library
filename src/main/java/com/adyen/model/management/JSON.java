@@ -95,6 +95,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.AdditionalSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.AdditionalSettingsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Address.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.AfterpayTouchInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.AllowedOrigin.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.AllowedOriginsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Amount.CustomTypeAdapterFactory());
@@ -110,6 +111,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.BillingEntity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.CardholderReceipt.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.CartesBancairesInfo.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.ClearpayInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Company.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.CompanyApiCredential.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.CompanyLinks.CustomTypeAdapterFactory());
@@ -145,8 +147,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.InstallAndroidAppDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.InstallAndroidCertificateDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.InvalidField.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.InvalidFieldWrapper.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.JSONObject.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.JSONPath.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.JSONPathWrapper.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Key.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.KlarnaInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Links.CustomTypeAdapterFactory());
@@ -184,6 +188,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.PaymentMethod.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.PaymentMethodResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.PaymentMethodSetupInfo.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.PaymentMethodWrapper.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.PayoutSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.PayoutSettingsRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.PayoutSettingsResponse.CustomTypeAdapterFactory());
@@ -199,7 +204,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Settings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.ShippingLocation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.ShippingLocationsResponse.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.ShopperStatement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Signature.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.SofortInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Standalone.CustomTypeAdapterFactory());
@@ -225,6 +229,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.TestWebhookRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.TestWebhookResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.Timeouts.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.TwintInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.UninstallAndroidAppDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.UninstallAndroidCertificateDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.management.UpdatableAddress.CustomTypeAdapterFactory());

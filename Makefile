@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-modelGen:=balanceplatform binlookup checkout legalentitymanagement management payment payout recurring transfers
+modelGen:=balancecontrol balanceplatform binlookup capital checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -40,8 +40,12 @@ marketpay/fund: spec=FundService-v6
 marketpay/configuration: spec=NotificationConfigurationService-v6
 marketpay/webhooks: spec=MarketPayNotificationService-v6
 hop: spec=HopService-v6
+# Balance Webhooks
+configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
+reportwebhooks: spec=BalancePlatformReportNotification-v1
+transferwebhooks: spec=BalancePlatformTransferNotification-v3
 
-$(services): target/spec $(openapi-generator-jar)
+$(modelGen): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)
 	$(openapi-generator-cli) generate \
 		-i target/spec/json/$(spec).json \
@@ -64,7 +68,7 @@ $(services): target/spec $(openapi-generator-jar)
 	mv $(output)/$(models)/JSON.java $(models)/$@
 
 # Full service + models automation
-bigServices:=balanceplatform checkout storedValue payout management legalentitymanagement transfers
+bigServices:=balanceplatform checkout payout management legalentitymanagement transfers
 singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment capital
 
 services: $(bigServices) $(singleFileServices)
@@ -95,7 +99,8 @@ $(bigServices): target/spec $(openapi-generator-jar)
 	mv $(output)/src/main/java/com/adyen/service/$@ src/main/java/com/adyen/service/$@
 
 $(singleFileServices): target/spec $(openapi-generator-jar)
-	cat <<< "$$(jq 'del(.paths[][].tags)' target/spec/json/$(spec).json)" > target/spec/json/$(spec).json
+	jq -e 'del(.paths[][].tags)' target/spec/json/$(spec).json > target/spec/json/$(spec).tmp
+	mv target/spec/json/$(spec).tmp target/spec/json/$(spec).json 
 	rm -rf $(models)/$@ $(output)
 	rm -rf src/main/java/com/adyen/service/$@ $(output)
 	$(openapi-generator-cli) generate \

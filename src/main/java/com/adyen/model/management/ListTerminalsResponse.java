@@ -14,6 +14,7 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adyen.model.management.PaginationLinks;
 import com.adyen.model.management.Terminal;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -43,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -51,12 +54,46 @@ import com.adyen.model.management.JSON;
  */
 
 public class ListTerminalsResponse {
+  public static final String SERIALIZED_NAME_LINKS = "_links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private PaginationLinks links;
+
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private List<Terminal> data = null;
 
+  public static final String SERIALIZED_NAME_ITEMS_TOTAL = "itemsTotal";
+  @SerializedName(SERIALIZED_NAME_ITEMS_TOTAL)
+  private Integer itemsTotal;
+
+  public static final String SERIALIZED_NAME_PAGES_TOTAL = "pagesTotal";
+  @SerializedName(SERIALIZED_NAME_PAGES_TOTAL)
+  private Integer pagesTotal;
+
   public ListTerminalsResponse() { 
   }
+
+  public ListTerminalsResponse links(PaginationLinks links) {
+    
+    this.links = links;
+    return this;
+  }
+
+   /**
+   * Get links
+   * @return links
+  **/
+  @ApiModelProperty(value = "")
+
+  public PaginationLinks getLinks() {
+    return links;
+  }
+
+
+  public void setLinks(PaginationLinks links) {
+    this.links = links;
+  }
+
 
   public ListTerminalsResponse data(List<Terminal> data) {
     
@@ -88,6 +125,50 @@ public class ListTerminalsResponse {
   }
 
 
+  public ListTerminalsResponse itemsTotal(Integer itemsTotal) {
+    
+    this.itemsTotal = itemsTotal;
+    return this;
+  }
+
+   /**
+   * Total number of items.
+   * @return itemsTotal
+  **/
+  @ApiModelProperty(required = true, value = "Total number of items.")
+
+  public Integer getItemsTotal() {
+    return itemsTotal;
+  }
+
+
+  public void setItemsTotal(Integer itemsTotal) {
+    this.itemsTotal = itemsTotal;
+  }
+
+
+  public ListTerminalsResponse pagesTotal(Integer pagesTotal) {
+    
+    this.pagesTotal = pagesTotal;
+    return this;
+  }
+
+   /**
+   * Total number of pages.
+   * @return pagesTotal
+  **/
+  @ApiModelProperty(required = true, value = "Total number of pages.")
+
+  public Integer getPagesTotal() {
+    return pagesTotal;
+  }
+
+
+  public void setPagesTotal(Integer pagesTotal) {
+    this.pagesTotal = pagesTotal;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -98,19 +179,25 @@ public class ListTerminalsResponse {
       return false;
     }
     ListTerminalsResponse listTerminalsResponse = (ListTerminalsResponse) o;
-    return Objects.equals(this.data, listTerminalsResponse.data);
+    return Objects.equals(this.links, listTerminalsResponse.links) &&
+        Objects.equals(this.data, listTerminalsResponse.data) &&
+        Objects.equals(this.itemsTotal, listTerminalsResponse.itemsTotal) &&
+        Objects.equals(this.pagesTotal, listTerminalsResponse.pagesTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(links, data, itemsTotal, pagesTotal);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListTerminalsResponse {\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    itemsTotal: ").append(toIndentedString(itemsTotal)).append("\n");
+    sb.append("    pagesTotal: ").append(toIndentedString(pagesTotal)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -133,11 +220,20 @@ public class ListTerminalsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("_links");
     openapiFields.add("data");
+    openapiFields.add("itemsTotal");
+    openapiFields.add("pagesTotal");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("itemsTotal");
+    openapiRequiredFields.add("pagesTotal");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(ListTerminalsResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -158,8 +254,19 @@ public class ListTerminalsResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ListTerminalsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListTerminalsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ListTerminalsResponse` properties.", entry.getKey()));
         }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ListTerminalsResponse.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the optional field `_links`
+      if (jsonObj.getAsJsonObject("_links") != null) {
+        PaginationLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
       }
       JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
       if (jsonArraydata != null) {

@@ -54,6 +54,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -1249,10 +1251,10 @@ public class PaymentLinkResponse {
   }
 
    /**
-   * An array of objects specifying how the payment should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
+   * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    * @return splits
   **/
-  @ApiModelProperty(value = "An array of objects specifying how the payment should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
+  @ApiModelProperty(value = "An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
 
   public List<Split> getSplits() {
     return splits;
@@ -1588,6 +1590,10 @@ public class PaymentLinkResponse {
     openapiRequiredFields.add("status");
     openapiRequiredFields.add("url");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(PaymentLinkResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -1608,7 +1614,7 @@ public class PaymentLinkResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentLinkResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentLinkResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentLinkResponse` properties.", entry.getKey()));
         }
       }
 
@@ -1620,7 +1626,7 @@ public class PaymentLinkResponse {
       }
       // ensure the json data is an array
       if (jsonObj.get("allowedPaymentMethods") != null && !jsonObj.get("allowedPaymentMethods").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowedPaymentMethods` to be an array in the JSON string but got `%s`", jsonObj.get("allowedPaymentMethods").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `allowedPaymentMethods` to be an array in the JSON string but got `%s`", jsonObj.get("allowedPaymentMethods").toString()));
       }
       // validate the optional field `amount`
       if (jsonObj.getAsJsonObject("amount") != null) {
@@ -1636,11 +1642,11 @@ public class PaymentLinkResponse {
       }
       // ensure the json data is an array
       if (jsonObj.get("blockedPaymentMethods") != null && !jsonObj.get("blockedPaymentMethods").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `blockedPaymentMethods` to be an array in the JSON string but got `%s`", jsonObj.get("blockedPaymentMethods").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `blockedPaymentMethods` to be an array in the JSON string but got `%s`", jsonObj.get("blockedPaymentMethods").toString()));
       }
       // validate the optional field countryCode
       if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
       // validate the optional field `deliveryAddress`
       if (jsonObj.getAsJsonObject("deliveryAddress") != null) {
@@ -1648,15 +1654,15 @@ public class PaymentLinkResponse {
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field expiresAt
       if (jsonObj.get("expiresAt") != null && !jsonObj.get("expiresAt").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expiresAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiresAt").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `expiresAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiresAt").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       JsonArray jsonArraylineItems = jsonObj.getAsJsonArray("lineItems");
       if (jsonArraylineItems != null) {
@@ -1672,15 +1678,15 @@ public class PaymentLinkResponse {
       }
       // validate the optional field mcc
       if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
       }
       // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
       // validate the optional field merchantOrderReference
       if (jsonObj.get("merchantOrderReference") != null && !jsonObj.get("merchantOrderReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantOrderReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `merchantOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantOrderReference").toString()));
       }
       // ensure the field recurringProcessingModel can be parsed to an enum value
       if (jsonObj.get("recurringProcessingModel") != null) {
@@ -1691,15 +1697,15 @@ public class PaymentLinkResponse {
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("requiredShopperFields") != null && !jsonObj.get("requiredShopperFields").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `requiredShopperFields` to be an array in the JSON string but got `%s`", jsonObj.get("requiredShopperFields").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `requiredShopperFields` to be an array in the JSON string but got `%s`", jsonObj.get("requiredShopperFields").toString()));
       }
       // validate the optional field returnUrl
       if (jsonObj.get("returnUrl") != null && !jsonObj.get("returnUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `returnUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("returnUrl").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `returnUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("returnUrl").toString()));
       }
       // validate the optional field `riskData`
       if (jsonObj.getAsJsonObject("riskData") != null) {
@@ -1707,11 +1713,11 @@ public class PaymentLinkResponse {
       }
       // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
       // validate the optional field shopperLocale
       if (jsonObj.get("shopperLocale") != null && !jsonObj.get("shopperLocale").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperLocale").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shopperLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperLocale").toString()));
       }
       // validate the optional field `shopperName`
       if (jsonObj.getAsJsonObject("shopperName") != null) {
@@ -1719,15 +1725,15 @@ public class PaymentLinkResponse {
       }
       // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
       // validate the optional field shopperStatement
       if (jsonObj.get("shopperStatement") != null && !jsonObj.get("shopperStatement").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
       }
       // validate the optional field socialSecurityNumber
       if (jsonObj.get("socialSecurityNumber") != null && !jsonObj.get("socialSecurityNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `socialSecurityNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialSecurityNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `socialSecurityNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialSecurityNumber").toString()));
       }
       JsonArray jsonArraysplits = jsonObj.getAsJsonArray("splits");
       if (jsonArraysplits != null) {
@@ -1750,7 +1756,7 @@ public class PaymentLinkResponse {
       }
       // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
       }
       // ensure the field storePaymentMethodMode can be parsed to an enum value
       if (jsonObj.get("storePaymentMethodMode") != null) {
@@ -1761,15 +1767,15 @@ public class PaymentLinkResponse {
       }
       // validate the optional field telephoneNumber
       if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
       }
       // validate the optional field themeId
       if (jsonObj.get("themeId") != null && !jsonObj.get("themeId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `themeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("themeId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `themeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("themeId").toString()));
       }
       // validate the optional field url
       if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
   }
 

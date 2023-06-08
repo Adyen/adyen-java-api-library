@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -185,6 +187,10 @@ public class Settings {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(Settings.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -205,12 +211,12 @@ public class Settings {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Settings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Settings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Settings` properties.", entry.getKey()));
         }
       }
       // validate the optional field band
       if (jsonObj.get("band") != null && !jsonObj.get("band").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `band` to be a primitive type in the JSON string but got `%s`", jsonObj.get("band").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `band` to be a primitive type in the JSON string but got `%s`", jsonObj.get("band").toString()));
       }
   }
 

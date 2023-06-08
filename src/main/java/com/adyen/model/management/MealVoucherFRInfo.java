@@ -42,6 +42,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -195,6 +197,10 @@ public class MealVoucherFRInfo {
     openapiRequiredFields.add("siret");
     openapiRequiredFields.add("subTypes");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(MealVoucherFRInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -215,7 +221,7 @@ public class MealVoucherFRInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!MealVoucherFRInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MealVoucherFRInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `MealVoucherFRInfo` properties.", entry.getKey()));
         }
       }
 
@@ -227,15 +233,15 @@ public class MealVoucherFRInfo {
       }
       // validate the optional field conecsId
       if (jsonObj.get("conecsId") != null && !jsonObj.get("conecsId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conecsId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conecsId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `conecsId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conecsId").toString()));
       }
       // validate the optional field siret
       if (jsonObj.get("siret") != null && !jsonObj.get("siret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `siret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("siret").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `siret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("siret").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("subTypes") != null && !jsonObj.get("subTypes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subTypes` to be an array in the JSON string but got `%s`", jsonObj.get("subTypes").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `subTypes` to be an array in the JSON string but got `%s`", jsonObj.get("subTypes").toString()));
       }
   }
 

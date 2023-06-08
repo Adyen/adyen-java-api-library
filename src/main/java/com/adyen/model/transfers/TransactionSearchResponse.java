@@ -44,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.transfers.JSON;
 
@@ -168,6 +170,10 @@ public class TransactionSearchResponse {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(TransactionSearchResponse.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -188,7 +194,7 @@ public class TransactionSearchResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionSearchResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionSearchResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionSearchResponse` properties.", entry.getKey()));
         }
       }
       // validate the optional field `_links`

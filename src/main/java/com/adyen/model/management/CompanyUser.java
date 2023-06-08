@@ -44,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -64,13 +66,13 @@ public class CompanyUser {
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
 
+  public static final String SERIALIZED_NAME_APPS = "apps";
+  @SerializedName(SERIALIZED_NAME_APPS)
+  private List<String> apps = null;
+
   public static final String SERIALIZED_NAME_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
   @SerializedName(SERIALIZED_NAME_ASSOCIATED_MERCHANT_ACCOUNTS)
   private List<String> associatedMerchantAccounts = null;
-
-  public static final String SERIALIZED_NAME_AUTHN_APPS = "authnApps";
-  @SerializedName(SERIALIZED_NAME_AUTHN_APPS)
-  private List<String> authnApps = null;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -173,6 +175,36 @@ public class CompanyUser {
   }
 
 
+  public CompanyUser apps(List<String> apps) {
+    
+    this.apps = apps;
+    return this;
+  }
+
+  public CompanyUser addAppsItem(String appsItem) {
+    if (this.apps == null) {
+      this.apps = new ArrayList<>();
+    }
+    this.apps.add(appsItem);
+    return this;
+  }
+
+   /**
+   * Set of apps available to this user
+   * @return apps
+  **/
+  @ApiModelProperty(value = "Set of apps available to this user")
+
+  public List<String> getApps() {
+    return apps;
+  }
+
+
+  public void setApps(List<String> apps) {
+    this.apps = apps;
+  }
+
+
   public CompanyUser associatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     
     this.associatedMerchantAccounts = associatedMerchantAccounts;
@@ -200,36 +232,6 @@ public class CompanyUser {
 
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
-  }
-
-
-  public CompanyUser authnApps(List<String> authnApps) {
-    
-    this.authnApps = authnApps;
-    return this;
-  }
-
-  public CompanyUser addAuthnAppsItem(String authnAppsItem) {
-    if (this.authnApps == null) {
-      this.authnApps = new ArrayList<>();
-    }
-    this.authnApps.add(authnAppsItem);
-    return this;
-  }
-
-   /**
-   * Set of authn apps available to this user
-   * @return authnApps
-  **/
-  @ApiModelProperty(value = "Set of authn apps available to this user")
-
-  public List<String> getAuthnApps() {
-    return authnApps;
-  }
-
-
-  public void setAuthnApps(List<String> authnApps) {
-    this.authnApps = authnApps;
   }
 
 
@@ -383,8 +385,8 @@ public class CompanyUser {
     return Objects.equals(this.links, companyUser.links) &&
         Objects.equals(this.accountGroups, companyUser.accountGroups) &&
         Objects.equals(this.active, companyUser.active) &&
+        Objects.equals(this.apps, companyUser.apps) &&
         Objects.equals(this.associatedMerchantAccounts, companyUser.associatedMerchantAccounts) &&
-        Objects.equals(this.authnApps, companyUser.authnApps) &&
         Objects.equals(this.email, companyUser.email) &&
         Objects.equals(this.id, companyUser.id) &&
         Objects.equals(this.name, companyUser.name) &&
@@ -395,7 +397,7 @@ public class CompanyUser {
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, accountGroups, active, associatedMerchantAccounts, authnApps, email, id, name, roles, timeZoneCode, username);
+    return Objects.hash(links, accountGroups, active, apps, associatedMerchantAccounts, email, id, name, roles, timeZoneCode, username);
   }
 
   @Override
@@ -405,8 +407,8 @@ public class CompanyUser {
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    accountGroups: ").append(toIndentedString(accountGroups)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    apps: ").append(toIndentedString(apps)).append("\n");
     sb.append("    associatedMerchantAccounts: ").append(toIndentedString(associatedMerchantAccounts)).append("\n");
-    sb.append("    authnApps: ").append(toIndentedString(authnApps)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -438,8 +440,8 @@ public class CompanyUser {
     openapiFields.add("_links");
     openapiFields.add("accountGroups");
     openapiFields.add("active");
+    openapiFields.add("apps");
     openapiFields.add("associatedMerchantAccounts");
-    openapiFields.add("authnApps");
     openapiFields.add("email");
     openapiFields.add("id");
     openapiFields.add("name");
@@ -455,6 +457,10 @@ public class CompanyUser {
     openapiRequiredFields.add("timeZoneCode");
     openapiRequiredFields.add("username");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(CompanyUser.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -475,7 +481,7 @@ public class CompanyUser {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CompanyUser.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CompanyUser` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CompanyUser` properties.", entry.getKey()));
         }
       }
 
@@ -491,23 +497,23 @@ public class CompanyUser {
       }
       // ensure the json data is an array
       if (jsonObj.get("accountGroups") != null && !jsonObj.get("accountGroups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `accountGroups` to be an array in the JSON string but got `%s`", jsonObj.get("accountGroups").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("apps") != null && !jsonObj.get("apps").isJsonArray()) {
+        log.log(Level.WARNING, String.format("Expected the field `apps` to be an array in the JSON string but got `%s`", jsonObj.get("apps").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("associatedMerchantAccounts") != null && !jsonObj.get("associatedMerchantAccounts").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `associatedMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("associatedMerchantAccounts").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("authnApps") != null && !jsonObj.get("authnApps").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `authnApps` to be an array in the JSON string but got `%s`", jsonObj.get("authnApps").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `associatedMerchantAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("associatedMerchantAccounts").toString()));
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field `name`
       if (jsonObj.getAsJsonObject("name") != null) {
@@ -515,15 +521,15 @@ public class CompanyUser {
       }
       // ensure the json data is an array
       if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
       }
       // validate the optional field timeZoneCode
       if (jsonObj.get("timeZoneCode") != null && !jsonObj.get("timeZoneCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `timeZoneCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZoneCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `timeZoneCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZoneCode").toString()));
       }
       // validate the optional field username
       if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -158,6 +160,10 @@ public class SofortInfo {
     openapiRequiredFields.add("currencyCode");
     openapiRequiredFields.add("logo");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(SofortInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -178,7 +184,7 @@ public class SofortInfo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!SofortInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SofortInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `SofortInfo` properties.", entry.getKey()));
         }
       }
 
@@ -190,11 +196,11 @@ public class SofortInfo {
       }
       // validate the optional field currencyCode
       if (jsonObj.get("currencyCode") != null && !jsonObj.get("currencyCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currencyCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyCode").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `currencyCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyCode").toString()));
       }
       // validate the optional field logo
       if (jsonObj.get("logo") != null && !jsonObj.get("logo").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `logo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo").toString()));
       }
   }
 

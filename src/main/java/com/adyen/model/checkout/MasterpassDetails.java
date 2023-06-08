@@ -40,6 +40,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.checkout.JSON;
 
@@ -305,6 +307,10 @@ public class MasterpassDetails {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("masterpassTransactionId");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(MasterpassDetails.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -325,7 +331,7 @@ public class MasterpassDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!MasterpassDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MasterpassDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `MasterpassDetails` properties.", entry.getKey()));
         }
       }
 
@@ -337,7 +343,7 @@ public class MasterpassDetails {
       }
       // validate the optional field checkoutAttemptId
       if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field fundingSource can be parsed to an enum value
       if (jsonObj.get("fundingSource") != null) {
@@ -348,7 +354,7 @@ public class MasterpassDetails {
       }
       // validate the optional field masterpassTransactionId
       if (jsonObj.get("masterpassTransactionId") != null && !jsonObj.get("masterpassTransactionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `masterpassTransactionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("masterpassTransactionId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `masterpassTransactionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("masterpassTransactionId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

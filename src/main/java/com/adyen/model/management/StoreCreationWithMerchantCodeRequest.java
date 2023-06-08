@@ -44,6 +44,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.adyen.model.management.JSON;
 
@@ -128,10 +130,10 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
    /**
-   * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
+   * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
    * @return businessLineIds
   **/
-  @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.")
+  @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.")
 
   public List<String> getBusinessLineIds() {
     return businessLineIds;
@@ -238,10 +240,10 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
    /**
-   * Your reference to recognize the store by. Also known as the store code.  Allowed characters: Lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).
+   * Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference to recognize the store by. Also known as the store code.  Allowed characters: Lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).")
+  @ApiModelProperty(value = "Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).")
 
   public String getReference() {
     return reference;
@@ -376,6 +378,10 @@ public class StoreCreationWithMerchantCodeRequest {
     openapiRequiredFields.add("phoneNumber");
     openapiRequiredFields.add("shopperStatement");
   }
+  /**
+  * logger for Deserialization Errors
+  */
+  private static final Logger log = Logger.getLogger(StoreCreationWithMerchantCodeRequest.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -396,7 +402,7 @@ public class StoreCreationWithMerchantCodeRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!StoreCreationWithMerchantCodeRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoreCreationWithMerchantCodeRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StoreCreationWithMerchantCodeRequest` properties.", entry.getKey()));
         }
       }
 
@@ -412,31 +418,31 @@ public class StoreCreationWithMerchantCodeRequest {
       }
       // ensure the json data is an array
       if (jsonObj.get("businessLineIds") != null && !jsonObj.get("businessLineIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessLineIds` to be an array in the JSON string but got `%s`", jsonObj.get("businessLineIds").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `businessLineIds` to be an array in the JSON string but got `%s`", jsonObj.get("businessLineIds").toString()));
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field externalReferenceId
       if (jsonObj.get("externalReferenceId") != null && !jsonObj.get("externalReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `externalReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalReferenceId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `externalReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalReferenceId").toString()));
       }
       // validate the optional field merchantId
       if (jsonObj.get("merchantId") != null && !jsonObj.get("merchantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantId").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `merchantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantId").toString()));
       }
       // validate the optional field phoneNumber
       if (jsonObj.get("phoneNumber") != null && !jsonObj.get("phoneNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phoneNumber").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `phoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phoneNumber").toString()));
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
       // validate the optional field shopperStatement
       if (jsonObj.get("shopperStatement") != null && !jsonObj.get("shopperStatement").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
+        log.log(Level.WARNING, String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
       }
       // validate the optional field `splitConfiguration`
       if (jsonObj.getAsJsonObject("splitConfiguration") != null) {
