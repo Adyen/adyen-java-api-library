@@ -176,8 +176,16 @@ boolean authenticity = hmacValidator.validateHMAC(hmacKey, signKey, payload);
 ~~~~
 If this bool returns true, one can proceed to deserialize against the desired webhook type:
 ~~~~ java
-BankingWebhookHandler webhookHandler = new BankingWebhookHandler();
-AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest(payload);
+BankingWebhookHandler webhookHandler = new BankingWebhookHandler(payload);
+// onAccountHolderNotificationRequest
+webhookHandler.getAccountHolderNotificationRequest().ifPresent((AccountHolderNotificationRequest event) -> {
+    System.out.println(event.getData().getBalancePlatform());
+});
+// onBalanceAccountNotificationRequest
+webhookHandler.getBalanceAccountNotificationRequest().ifPresent((BalanceAccountNotificationRequest event) -> {
+    System.out.println(event.getData().getBalanceAccount());
+});
+
 ~~~~
 ### Proxy configuration
 You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.

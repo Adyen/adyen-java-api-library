@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import com.adyen.model.balanceplatform.BankAccountIdentificationValidationRequest;
 import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
 import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
 import com.adyen.model.nexo.DeviceType;
@@ -243,15 +244,19 @@ public class WebhookTest extends BaseTest {
 
     @Test
     public void testBankingWebhook() {
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler();
-        AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest("{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}");
-        Assert.assertEquals(accountHolderNotificationRequest.getData().getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
+        String jsonRequest = "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(jsonRequest);
+AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest().get();
+Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder().getId(), "AH00000000000000000000001");
     }
 
     @Test
     public void testBankingWebhookClassCastExceptionCast() {
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler();
-        assertThrows(ClassCastException.class, () -> webhookHandler.getBalanceAccountNotificationRequest("{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}"));
+        String jsonRequest = "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(jsonRequest);
+        Assert.assertTrue(webhookHandler.getAccountHolderNotificationRequest().isPresent());
+        Assert.assertFalse(webhookHandler.getCardOrderNotificationRequest().isPresent());
+        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
     }
 
     @Test
