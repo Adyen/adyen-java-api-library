@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-modelGen:=balancecontrol balanceplatform binlookup capital checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue
+modelGen:=balancecontrol balanceplatform binlookup capital checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -40,6 +40,10 @@ marketpay/fund: spec=FundService-v6
 marketpay/configuration: spec=NotificationConfigurationService-v6
 marketpay/webhooks: spec=MarketPayNotificationService-v6
 hop: spec=HopService-v6
+# Balance Webhooks
+configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
+reportwebhooks: spec=BalancePlatformReportNotification-v1
+transferwebhooks: spec=BalancePlatformTransferNotification-v3
 
 $(modelGen): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)
