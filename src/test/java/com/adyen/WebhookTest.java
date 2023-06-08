@@ -246,10 +246,8 @@ public class WebhookTest extends BaseTest {
     public void testBankingWebhook() {
         String jsonRequest = "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
         BankingWebhookHandler webhookHandler = new BankingWebhookHandler(jsonRequest);
-        if (webhookHandler.getAccountHolderNotificationRequest().isPresent()){
-            AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest().get();
-            Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder().getId(), "AH00000000000000000000001");
-        }
+AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest().get();
+Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder().getId(), "AH00000000000000000000001");
     }
 
     @Test
