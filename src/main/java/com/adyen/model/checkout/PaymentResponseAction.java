@@ -14,6 +14,8 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.CheckoutAwaitAction;
 import com.adyen.model.checkout.CheckoutNativeRedirectAction;
@@ -22,240 +24,280 @@ import com.adyen.model.checkout.CheckoutRedirectAction;
 import com.adyen.model.checkout.CheckoutSDKAction;
 import com.adyen.model.checkout.CheckoutThreeDS2Action;
 import com.adyen.model.checkout.CheckoutVoucherAction;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import jakarta.ws.rs.core.GenericType;
-
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.HashMap;
-import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-
-import com.adyen.model.checkout.JSON;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.adyen.service.JSON;
 
 
+@JsonDeserialize(using = PaymentResponseAction.PaymentResponseActionDeserializer.class)
+@JsonSerialize(using = PaymentResponseAction.PaymentResponseActionSerializer.class)
 public class PaymentResponseAction extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PaymentResponseAction.class.getName());
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
+    public static class PaymentResponseActionSerializer extends StdSerializer<PaymentResponseAction> {
+        public PaymentResponseActionSerializer(Class<PaymentResponseAction> t) {
+            super(t);
+        }
+
+        public PaymentResponseActionSerializer() {
+            this(null);
+        }
+
         @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!PaymentResponseAction.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'PaymentResponseAction' and its subtypes
+        public void serialize(PaymentResponseAction value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
+    public static class PaymentResponseActionDeserializer extends StdDeserializer<PaymentResponseAction> {
+        public PaymentResponseActionDeserializer() {
+            this(PaymentResponseAction.class);
+        }
+
+        public PaymentResponseActionDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public PaymentResponseAction deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // deserialize CheckoutAwaitAction
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutAwaitAction.class.equals(Integer.class) || CheckoutAwaitAction.class.equals(Long.class) || CheckoutAwaitAction.class.equals(Float.class) || CheckoutAwaitAction.class.equals(Double.class) || CheckoutAwaitAction.class.equals(Boolean.class) || CheckoutAwaitAction.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutAwaitAction.class.equals(Integer.class) || CheckoutAwaitAction.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutAwaitAction.class.equals(Float.class) || CheckoutAwaitAction.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutAwaitAction.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutAwaitAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutAwaitAction.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutAwaitAction'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutAwaitAction'", e);
             }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CheckoutAwaitAction> adapterCheckoutAwaitAction = gson.getDelegateAdapter(this, TypeToken.get(CheckoutAwaitAction.class));
-            final TypeAdapter<CheckoutNativeRedirectAction> adapterCheckoutNativeRedirectAction = gson.getDelegateAdapter(this, TypeToken.get(CheckoutNativeRedirectAction.class));
-            final TypeAdapter<CheckoutQrCodeAction> adapterCheckoutQrCodeAction = gson.getDelegateAdapter(this, TypeToken.get(CheckoutQrCodeAction.class));
-            final TypeAdapter<CheckoutRedirectAction> adapterCheckoutRedirectAction = gson.getDelegateAdapter(this, TypeToken.get(CheckoutRedirectAction.class));
-            final TypeAdapter<CheckoutSDKAction> adapterCheckoutSDKAction = gson.getDelegateAdapter(this, TypeToken.get(CheckoutSDKAction.class));
-            final TypeAdapter<CheckoutThreeDS2Action> adapterCheckoutThreeDS2Action = gson.getDelegateAdapter(this, TypeToken.get(CheckoutThreeDS2Action.class));
-            final TypeAdapter<CheckoutVoucherAction> adapterCheckoutVoucherAction = gson.getDelegateAdapter(this, TypeToken.get(CheckoutVoucherAction.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<PaymentResponseAction>() {
-                @Override
-                public void write(JsonWriter out, PaymentResponseAction value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
+            // deserialize CheckoutNativeRedirectAction
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutNativeRedirectAction.class.equals(Integer.class) || CheckoutNativeRedirectAction.class.equals(Long.class) || CheckoutNativeRedirectAction.class.equals(Float.class) || CheckoutNativeRedirectAction.class.equals(Double.class) || CheckoutNativeRedirectAction.class.equals(Boolean.class) || CheckoutNativeRedirectAction.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutNativeRedirectAction.class.equals(Integer.class) || CheckoutNativeRedirectAction.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutNativeRedirectAction.class.equals(Float.class) || CheckoutNativeRedirectAction.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutNativeRedirectAction.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutNativeRedirectAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
-
-                    // check if the actual instance is of the type `CheckoutAwaitAction`
-                    if (value.getActualInstance() instanceof CheckoutAwaitAction) {
-                        JsonObject obj = adapterCheckoutAwaitAction.toJsonTree((CheckoutAwaitAction)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CheckoutNativeRedirectAction`
-                    if (value.getActualInstance() instanceof CheckoutNativeRedirectAction) {
-                        JsonObject obj = adapterCheckoutNativeRedirectAction.toJsonTree((CheckoutNativeRedirectAction)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CheckoutQrCodeAction`
-                    if (value.getActualInstance() instanceof CheckoutQrCodeAction) {
-                        JsonObject obj = adapterCheckoutQrCodeAction.toJsonTree((CheckoutQrCodeAction)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CheckoutRedirectAction`
-                    if (value.getActualInstance() instanceof CheckoutRedirectAction) {
-                        JsonObject obj = adapterCheckoutRedirectAction.toJsonTree((CheckoutRedirectAction)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CheckoutSDKAction`
-                    if (value.getActualInstance() instanceof CheckoutSDKAction) {
-                        JsonObject obj = adapterCheckoutSDKAction.toJsonTree((CheckoutSDKAction)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CheckoutThreeDS2Action`
-                    if (value.getActualInstance() instanceof CheckoutThreeDS2Action) {
-                        JsonObject obj = adapterCheckoutThreeDS2Action.toJsonTree((CheckoutThreeDS2Action)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CheckoutVoucherAction`
-                    if (value.getActualInstance() instanceof CheckoutVoucherAction) {
-                        JsonObject obj = adapterCheckoutVoucherAction.toJsonTree((CheckoutVoucherAction)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CheckoutAwaitAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction");
                 }
-
-                @Override
-                public PaymentResponseAction read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
-
-                    int match = 0;
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
-
-                    // deserialize CheckoutAwaitAction
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CheckoutAwaitAction.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCheckoutAwaitAction;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CheckoutAwaitAction'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CheckoutAwaitAction failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CheckoutAwaitAction'", e);
-                    }
-
-                    // deserialize CheckoutNativeRedirectAction
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CheckoutNativeRedirectAction.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCheckoutNativeRedirectAction;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CheckoutNativeRedirectAction'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CheckoutNativeRedirectAction failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CheckoutNativeRedirectAction'", e);
-                    }
-
-                    // deserialize CheckoutQrCodeAction
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CheckoutQrCodeAction.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCheckoutQrCodeAction;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CheckoutQrCodeAction'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CheckoutQrCodeAction failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CheckoutQrCodeAction'", e);
-                    }
-
-                    // deserialize CheckoutRedirectAction
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CheckoutRedirectAction.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCheckoutRedirectAction;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CheckoutRedirectAction'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CheckoutRedirectAction failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CheckoutRedirectAction'", e);
-                    }
-
-                    // deserialize CheckoutSDKAction
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CheckoutSDKAction.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCheckoutSDKAction;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CheckoutSDKAction'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CheckoutSDKAction failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CheckoutSDKAction'", e);
-                    }
-
-                    // deserialize CheckoutThreeDS2Action
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CheckoutThreeDS2Action.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCheckoutThreeDS2Action;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CheckoutThreeDS2Action'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CheckoutThreeDS2Action failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CheckoutThreeDS2Action'", e);
-                    }
-
-                    // deserialize CheckoutVoucherAction
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CheckoutVoucherAction.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCheckoutVoucherAction;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CheckoutVoucherAction'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CheckoutVoucherAction failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CheckoutVoucherAction'", e);
-                    }
-
-                    if (match == 1) {
-                        PaymentResponseAction ret = new PaymentResponseAction();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
-                        return ret;
-                    }
-
-                    throw new IOException(String.format("Failed deserialization for PaymentResponseAction: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutNativeRedirectAction.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutNativeRedirectAction'");
                 }
-            }.nullSafe();
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutNativeRedirectAction'", e);
+            }
+
+            // deserialize CheckoutQrCodeAction
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutQrCodeAction.class.equals(Integer.class) || CheckoutQrCodeAction.class.equals(Long.class) || CheckoutQrCodeAction.class.equals(Float.class) || CheckoutQrCodeAction.class.equals(Double.class) || CheckoutQrCodeAction.class.equals(Boolean.class) || CheckoutQrCodeAction.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutQrCodeAction.class.equals(Integer.class) || CheckoutQrCodeAction.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutQrCodeAction.class.equals(Float.class) || CheckoutQrCodeAction.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutQrCodeAction.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutQrCodeAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutQrCodeAction.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutQrCodeAction'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutQrCodeAction'", e);
+            }
+
+            // deserialize CheckoutRedirectAction
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutRedirectAction.class.equals(Integer.class) || CheckoutRedirectAction.class.equals(Long.class) || CheckoutRedirectAction.class.equals(Float.class) || CheckoutRedirectAction.class.equals(Double.class) || CheckoutRedirectAction.class.equals(Boolean.class) || CheckoutRedirectAction.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutRedirectAction.class.equals(Integer.class) || CheckoutRedirectAction.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutRedirectAction.class.equals(Float.class) || CheckoutRedirectAction.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutRedirectAction.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutRedirectAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutRedirectAction.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutRedirectAction'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutRedirectAction'", e);
+            }
+
+            // deserialize CheckoutSDKAction
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutSDKAction.class.equals(Integer.class) || CheckoutSDKAction.class.equals(Long.class) || CheckoutSDKAction.class.equals(Float.class) || CheckoutSDKAction.class.equals(Double.class) || CheckoutSDKAction.class.equals(Boolean.class) || CheckoutSDKAction.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutSDKAction.class.equals(Integer.class) || CheckoutSDKAction.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutSDKAction.class.equals(Float.class) || CheckoutSDKAction.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutSDKAction.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutSDKAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutSDKAction.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutSDKAction'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutSDKAction'", e);
+            }
+
+            // deserialize CheckoutThreeDS2Action
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutThreeDS2Action.class.equals(Integer.class) || CheckoutThreeDS2Action.class.equals(Long.class) || CheckoutThreeDS2Action.class.equals(Float.class) || CheckoutThreeDS2Action.class.equals(Double.class) || CheckoutThreeDS2Action.class.equals(Boolean.class) || CheckoutThreeDS2Action.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutThreeDS2Action.class.equals(Integer.class) || CheckoutThreeDS2Action.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutThreeDS2Action.class.equals(Float.class) || CheckoutThreeDS2Action.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutThreeDS2Action.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutThreeDS2Action.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutThreeDS2Action.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutThreeDS2Action'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutThreeDS2Action'", e);
+            }
+
+            // deserialize CheckoutVoucherAction
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutVoucherAction.class.equals(Integer.class) || CheckoutVoucherAction.class.equals(Long.class) || CheckoutVoucherAction.class.equals(Float.class) || CheckoutVoucherAction.class.equals(Double.class) || CheckoutVoucherAction.class.equals(Boolean.class) || CheckoutVoucherAction.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutVoucherAction.class.equals(Integer.class) || CheckoutVoucherAction.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutVoucherAction.class.equals(Float.class) || CheckoutVoucherAction.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutVoucherAction.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutVoucherAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutVoucherAction.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutVoucherAction'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutVoucherAction'", e);
+            }
+
+            if (match == 1) {
+                PaymentResponseAction ret = new PaymentResponseAction();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for PaymentResponseAction: %d classes match result, expected 1", match));
+        }
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public PaymentResponseAction getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "PaymentResponseAction cannot be null");
         }
     }
 
@@ -316,6 +358,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         });
         schemas.put("CheckoutVoucherAction", new GenericType<CheckoutVoucherAction>() {
         });
+        JSON.registerDescendants(PaymentResponseAction.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -333,37 +376,37 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof CheckoutAwaitAction) {
+        if (JSON.isInstanceOf(CheckoutAwaitAction.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckoutNativeRedirectAction) {
+        if (JSON.isInstanceOf(CheckoutNativeRedirectAction.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckoutQrCodeAction) {
+        if (JSON.isInstanceOf(CheckoutQrCodeAction.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckoutRedirectAction) {
+        if (JSON.isInstanceOf(CheckoutRedirectAction.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckoutSDKAction) {
+        if (JSON.isInstanceOf(CheckoutSDKAction.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckoutThreeDS2Action) {
+        if (JSON.isInstanceOf(CheckoutThreeDS2Action.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckoutVoucherAction) {
+        if (JSON.isInstanceOf(CheckoutVoucherAction.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -459,103 +502,5 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         return (CheckoutVoucherAction)super.getActualInstance();
     }
 
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentResponseAction
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with CheckoutAwaitAction
-    try {
-      Logger.getLogger(CheckoutAwaitAction.class.getName()).setLevel(Level.OFF);
-      CheckoutAwaitAction.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CheckoutAwaitAction failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CheckoutNativeRedirectAction
-    try {
-      Logger.getLogger(CheckoutNativeRedirectAction.class.getName()).setLevel(Level.OFF);
-      CheckoutNativeRedirectAction.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CheckoutNativeRedirectAction failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CheckoutQrCodeAction
-    try {
-      Logger.getLogger(CheckoutQrCodeAction.class.getName()).setLevel(Level.OFF);
-      CheckoutQrCodeAction.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CheckoutQrCodeAction failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CheckoutRedirectAction
-    try {
-      Logger.getLogger(CheckoutRedirectAction.class.getName()).setLevel(Level.OFF);
-      CheckoutRedirectAction.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CheckoutRedirectAction failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CheckoutSDKAction
-    try {
-      Logger.getLogger(CheckoutSDKAction.class.getName()).setLevel(Level.OFF);
-      CheckoutSDKAction.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CheckoutSDKAction failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CheckoutThreeDS2Action
-    try {
-      Logger.getLogger(CheckoutThreeDS2Action.class.getName()).setLevel(Level.OFF);
-      CheckoutThreeDS2Action.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CheckoutThreeDS2Action failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CheckoutVoucherAction
-    try {
-      Logger.getLogger(CheckoutVoucherAction.class.getName()).setLevel(Level.OFF);
-      CheckoutVoucherAction.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CheckoutVoucherAction failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    if (validCount != 1) {
-      throw new IOException(String.format("The JSON string is invalid for PaymentResponseAction with oneOf schemas: CheckoutAwaitAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
-    }
-  }
-
- /**
-  * Create an instance of PaymentResponseAction given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentResponseAction
-  * @throws IOException if the JSON string is invalid with respect to PaymentResponseAction
-  */
-  public static PaymentResponseAction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentResponseAction.class);
-  }
-
- /**
-  * Convert an instance of PaymentResponseAction to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

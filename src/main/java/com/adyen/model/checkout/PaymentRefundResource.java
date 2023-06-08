@@ -14,63 +14,53 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Split;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * PaymentRefundResource
  */
+@JsonPropertyOrder({
+  PaymentRefundResource.JSON_PROPERTY_AMOUNT,
+  PaymentRefundResource.JSON_PROPERTY_LINE_ITEMS,
+  PaymentRefundResource.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentRefundResource.JSON_PROPERTY_MERCHANT_REFUND_REASON,
+  PaymentRefundResource.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
+  PaymentRefundResource.JSON_PROPERTY_PSP_REFERENCE,
+  PaymentRefundResource.JSON_PROPERTY_REFERENCE,
+  PaymentRefundResource.JSON_PROPERTY_SPLITS,
+  PaymentRefundResource.JSON_PROPERTY_STATUS
+})
 
 public class PaymentRefundResource {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_LINE_ITEMS = "lineItems";
-  @SerializedName(SERIALIZED_NAME_LINE_ITEMS)
+  public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems = null;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
   /**
    * Your reason for the refund request.
    */
-  @JsonAdapter(MerchantRefundReasonEnum.Adapter.class)
   public enum MerchantRefundReasonEnum {
     FRAUD("FRAUD"),
     
@@ -88,6 +78,7 @@ public class PaymentRefundResource {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -97,6 +88,7 @@ public class PaymentRefundResource {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static MerchantRefundReasonEnum fromValue(String value) {
       for (MerchantRefundReasonEnum b : MerchantRefundReasonEnum.values()) {
         if (b.value.equals(value)) {
@@ -105,45 +97,26 @@ public class PaymentRefundResource {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<MerchantRefundReasonEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final MerchantRefundReasonEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public MerchantRefundReasonEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return MerchantRefundReasonEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_MERCHANT_REFUND_REASON = "merchantRefundReason";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_REFUND_REASON)
+  public static final String JSON_PROPERTY_MERCHANT_REFUND_REASON = "merchantRefundReason";
   private MerchantRefundReasonEnum merchantRefundReason;
 
-  public static final String SERIALIZED_NAME_PAYMENT_PSP_REFERENCE = "paymentPspReference";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
   private String paymentPspReference;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SPLITS = "splits";
-  @SerializedName(SERIALIZED_NAME_SPLITS)
+  public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
   /**
    * The status of your request. This will always have the value **received**.
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     RECEIVED("received");
 
@@ -153,6 +126,7 @@ public class PaymentRefundResource {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -162,6 +136,7 @@ public class PaymentRefundResource {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -170,30 +145,15 @@ public class PaymentRefundResource {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
   public PaymentRefundResource() { 
   }
 
   public PaymentRefundResource amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -203,19 +163,22 @@ public class PaymentRefundResource {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public PaymentRefundResource lineItems(List<LineItem> lineItems) {
-    
     this.lineItems = lineItems;
     return this;
   }
@@ -233,19 +196,22 @@ public class PaymentRefundResource {
    * @return lineItems
   **/
   @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
+  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<LineItem> getLineItems() {
     return lineItems;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
 
 
   public PaymentRefundResource merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -255,19 +221,22 @@ public class PaymentRefundResource {
    * @return merchantAccount
   **/
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public PaymentRefundResource merchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
-    
     this.merchantRefundReason = merchantRefundReason;
     return this;
   }
@@ -277,19 +246,22 @@ public class PaymentRefundResource {
    * @return merchantRefundReason
   **/
   @ApiModelProperty(value = "Your reason for the refund request.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MerchantRefundReasonEnum getMerchantRefundReason() {
     return merchantRefundReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
     this.merchantRefundReason = merchantRefundReason;
   }
 
 
   public PaymentRefundResource paymentPspReference(String paymentPspReference) {
-    
     this.paymentPspReference = paymentPspReference;
     return this;
   }
@@ -299,19 +271,22 @@ public class PaymentRefundResource {
    * @return paymentPspReference
   **/
   @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to refund. ")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPaymentPspReference() {
     return paymentPspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPaymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
   }
 
 
   public PaymentRefundResource pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -321,19 +296,22 @@ public class PaymentRefundResource {
    * @return pspReference
   **/
   @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the refund request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public PaymentRefundResource reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -343,19 +321,22 @@ public class PaymentRefundResource {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the refund request.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public PaymentRefundResource splits(List<Split> splits) {
-    
     this.splits = splits;
     return this;
   }
@@ -373,19 +354,22 @@ public class PaymentRefundResource {
    * @return splits
   **/
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Split> getSplits() {
     return splits;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
   }
 
 
   public PaymentRefundResource status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -395,18 +379,24 @@ public class PaymentRefundResource {
    * @return status
   **/
   @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
-
+  /**
+   * Return true if this PaymentRefundResource object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -460,172 +450,23 @@ public class PaymentRefundResource {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("lineItems");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("merchantRefundReason");
-    openapiFields.add("paymentPspReference");
-    openapiFields.add("pspReference");
-    openapiFields.add("reference");
-    openapiFields.add("splits");
-    openapiFields.add("status");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("merchantAccount");
-    openapiRequiredFields.add("paymentPspReference");
-    openapiRequiredFields.add("pspReference");
-    openapiRequiredFields.add("status");
+/**
+   * Create an instance of PaymentRefundResource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentRefundResource
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentRefundResource
+   */
+  public static PaymentRefundResource fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentRefundResource.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentRefundResource.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentRefundResource
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentRefundResource.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentRefundResource is not found in the empty JSON string", PaymentRefundResource.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentRefundResource.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentRefundResource` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentRefundResource.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      JsonArray jsonArraylineItems = jsonObj.getAsJsonArray("lineItems");
-      if (jsonArraylineItems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("lineItems").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `lineItems` to be an array in the JSON string but got `%s`", jsonObj.get("lineItems").toString()));
-        }
-
-        // validate the optional field `lineItems` (array)
-        for (int i = 0; i < jsonArraylineItems.size(); i++) {
-          LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // ensure the field merchantRefundReason can be parsed to an enum value
-      if (jsonObj.get("merchantRefundReason") != null) {
-        if(!jsonObj.get("merchantRefundReason").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `merchantRefundReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantRefundReason").toString()));
-        }
-        MerchantRefundReasonEnum.fromValue(jsonObj.get("merchantRefundReason").getAsString());
-      }
-      // validate the optional field paymentPspReference
-      if (jsonObj.get("paymentPspReference") != null && !jsonObj.get("paymentPspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentPspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentPspReference").toString()));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      JsonArray jsonArraysplits = jsonObj.getAsJsonArray("splits");
-      if (jsonArraysplits != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("splits").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `splits` to be an array in the JSON string but got `%s`", jsonObj.get("splits").toString()));
-        }
-
-        // validate the optional field `splits` (array)
-        for (int i = 0; i < jsonArraysplits.size(); i++) {
-          Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        }
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentRefundResource.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentRefundResource' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentRefundResource> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentRefundResource.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentRefundResource>() {
-           @Override
-           public void write(JsonWriter out, PaymentRefundResource value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentRefundResource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaymentRefundResource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentRefundResource
-  * @throws IOException if the JSON string is invalid with respect to PaymentRefundResource
-  */
-  public static PaymentRefundResource fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentRefundResource.class);
-  }
-
- /**
+/**
   * Convert an instance of PaymentRefundResource to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

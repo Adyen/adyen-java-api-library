@@ -14,46 +14,42 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ThreeDSecureData
  */
+@JsonPropertyOrder({
+  ThreeDSecureData.JSON_PROPERTY_AUTHENTICATION_RESPONSE,
+  ThreeDSecureData.JSON_PROPERTY_CAVV,
+  ThreeDSecureData.JSON_PROPERTY_CAVV_ALGORITHM,
+  ThreeDSecureData.JSON_PROPERTY_CHALLENGE_CANCEL,
+  ThreeDSecureData.JSON_PROPERTY_DIRECTORY_RESPONSE,
+  ThreeDSecureData.JSON_PROPERTY_DS_TRANS_I_D,
+  ThreeDSecureData.JSON_PROPERTY_ECI,
+  ThreeDSecureData.JSON_PROPERTY_RISK_SCORE,
+  ThreeDSecureData.JSON_PROPERTY_THREE_D_S_VERSION,
+  ThreeDSecureData.JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE,
+  ThreeDSecureData.JSON_PROPERTY_TRANS_STATUS_REASON,
+  ThreeDSecureData.JSON_PROPERTY_XID
+})
 
 public class ThreeDSecureData {
   /**
    * In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.
    */
-  @JsonAdapter(AuthenticationResponseEnum.Adapter.class)
   public enum AuthenticationResponseEnum {
     Y("Y"),
     
@@ -69,6 +65,7 @@ public class ThreeDSecureData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -78,6 +75,7 @@ public class ThreeDSecureData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static AuthenticationResponseEnum fromValue(String value) {
       for (AuthenticationResponseEnum b : AuthenticationResponseEnum.values()) {
         if (b.value.equals(value)) {
@@ -86,37 +84,20 @@ public class ThreeDSecureData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<AuthenticationResponseEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AuthenticationResponseEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AuthenticationResponseEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return AuthenticationResponseEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_AUTHENTICATION_RESPONSE = "authenticationResponse";
-  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_RESPONSE)
+  public static final String JSON_PROPERTY_AUTHENTICATION_RESPONSE = "authenticationResponse";
   private AuthenticationResponseEnum authenticationResponse;
 
-  public static final String SERIALIZED_NAME_CAVV = "cavv";
-  @SerializedName(SERIALIZED_NAME_CAVV)
+  public static final String JSON_PROPERTY_CAVV = "cavv";
   private byte[] cavv;
 
-  public static final String SERIALIZED_NAME_CAVV_ALGORITHM = "cavvAlgorithm";
-  @SerializedName(SERIALIZED_NAME_CAVV_ALGORITHM)
+  public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
 
   /**
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    */
-  @JsonAdapter(ChallengeCancelEnum.Adapter.class)
   public enum ChallengeCancelEnum {
     _01("01"),
     
@@ -138,6 +119,7 @@ public class ThreeDSecureData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -147,6 +129,7 @@ public class ThreeDSecureData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ChallengeCancelEnum fromValue(String value) {
       for (ChallengeCancelEnum b : ChallengeCancelEnum.values()) {
         if (b.value.equals(value)) {
@@ -155,29 +138,14 @@ public class ThreeDSecureData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ChallengeCancelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ChallengeCancelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ChallengeCancelEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ChallengeCancelEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_CHALLENGE_CANCEL = "challengeCancel";
-  @SerializedName(SERIALIZED_NAME_CHALLENGE_CANCEL)
+  public static final String JSON_PROPERTY_CHALLENGE_CANCEL = "challengeCancel";
   private ChallengeCancelEnum challengeCancel;
 
   /**
    * In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.
    */
-  @JsonAdapter(DirectoryResponseEnum.Adapter.class)
   public enum DirectoryResponseEnum {
     A("A"),
     
@@ -201,6 +169,7 @@ public class ThreeDSecureData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -210,6 +179,7 @@ public class ThreeDSecureData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static DirectoryResponseEnum fromValue(String value) {
       for (DirectoryResponseEnum b : DirectoryResponseEnum.values()) {
         if (b.value.equals(value)) {
@@ -218,58 +188,36 @@ public class ThreeDSecureData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<DirectoryResponseEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DirectoryResponseEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DirectoryResponseEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return DirectoryResponseEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_DIRECTORY_RESPONSE = "directoryResponse";
-  @SerializedName(SERIALIZED_NAME_DIRECTORY_RESPONSE)
+  public static final String JSON_PROPERTY_DIRECTORY_RESPONSE = "directoryResponse";
   private DirectoryResponseEnum directoryResponse;
 
-  public static final String SERIALIZED_NAME_DS_TRANS_I_D = "dsTransID";
-  @SerializedName(SERIALIZED_NAME_DS_TRANS_I_D)
+  public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
 
-  public static final String SERIALIZED_NAME_ECI = "eci";
-  @SerializedName(SERIALIZED_NAME_ECI)
+  public static final String JSON_PROPERTY_ECI = "eci";
   private String eci;
 
-  public static final String SERIALIZED_NAME_RISK_SCORE = "riskScore";
-  @SerializedName(SERIALIZED_NAME_RISK_SCORE)
+  public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private String riskScore;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_VERSION = "threeDSVersion";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_VERSION)
+  public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private String threeDSVersion;
 
-  public static final String SERIALIZED_NAME_TOKEN_AUTHENTICATION_VERIFICATION_VALUE = "tokenAuthenticationVerificationValue";
-  @SerializedName(SERIALIZED_NAME_TOKEN_AUTHENTICATION_VERIFICATION_VALUE)
+  public static final String JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE = "tokenAuthenticationVerificationValue";
   private byte[] tokenAuthenticationVerificationValue;
 
-  public static final String SERIALIZED_NAME_TRANS_STATUS_REASON = "transStatusReason";
-  @SerializedName(SERIALIZED_NAME_TRANS_STATUS_REASON)
+  public static final String JSON_PROPERTY_TRANS_STATUS_REASON = "transStatusReason";
   private String transStatusReason;
 
-  public static final String SERIALIZED_NAME_XID = "xid";
-  @SerializedName(SERIALIZED_NAME_XID)
+  public static final String JSON_PROPERTY_XID = "xid";
   private byte[] xid;
 
   public ThreeDSecureData() { 
   }
 
   public ThreeDSecureData authenticationResponse(AuthenticationResponseEnum authenticationResponse) {
-    
     this.authenticationResponse = authenticationResponse;
     return this;
   }
@@ -279,19 +227,22 @@ public class ThreeDSecureData {
    * @return authenticationResponse
   **/
   @ApiModelProperty(value = "In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the `transStatus` from the challenge result. If the transaction was frictionless, omit this parameter.")
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AuthenticationResponseEnum getAuthenticationResponse() {
     return authenticationResponse;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationResponse(AuthenticationResponseEnum authenticationResponse) {
     this.authenticationResponse = authenticationResponse;
   }
 
 
   public ThreeDSecureData cavv(byte[] cavv) {
-    
     this.cavv = cavv;
     return this;
   }
@@ -301,19 +252,22 @@ public class ThreeDSecureData {
    * @return cavv
   **/
   @ApiModelProperty(value = "The cardholder authentication value (base64 encoded, 20 bytes in a decoded form).")
+  @JsonProperty(JSON_PROPERTY_CAVV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public byte[] getCavv() {
     return cavv;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAVV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(byte[] cavv) {
     this.cavv = cavv;
   }
 
 
   public ThreeDSecureData cavvAlgorithm(String cavvAlgorithm) {
-    
     this.cavvAlgorithm = cavvAlgorithm;
     return this;
   }
@@ -323,19 +277,22 @@ public class ThreeDSecureData {
    * @return cavvAlgorithm
   **/
   @ApiModelProperty(value = "The CAVV algorithm used. Include this only for 3D Secure 1.")
+  @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCavvAlgorithm() {
     return cavvAlgorithm;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
   }
 
 
   public ThreeDSecureData challengeCancel(ChallengeCancelEnum challengeCancel) {
-    
     this.challengeCancel = challengeCancel;
     return this;
   }
@@ -345,19 +302,22 @@ public class ThreeDSecureData {
    * @return challengeCancel
   **/
   @ApiModelProperty(value = "Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).")
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ChallengeCancelEnum getChallengeCancel() {
     return challengeCancel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
   }
 
 
   public ThreeDSecureData directoryResponse(DirectoryResponseEnum directoryResponse) {
-    
     this.directoryResponse = directoryResponse;
     return this;
   }
@@ -367,19 +327,22 @@ public class ThreeDSecureData {
    * @return directoryResponse
   **/
   @ApiModelProperty(value = "In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the `transStatus` from the `ARes`.")
+  @JsonProperty(JSON_PROPERTY_DIRECTORY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DirectoryResponseEnum getDirectoryResponse() {
     return directoryResponse;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DIRECTORY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectoryResponse(DirectoryResponseEnum directoryResponse) {
     this.directoryResponse = directoryResponse;
   }
 
 
   public ThreeDSecureData dsTransID(String dsTransID) {
-    
     this.dsTransID = dsTransID;
     return this;
   }
@@ -389,19 +352,22 @@ public class ThreeDSecureData {
    * @return dsTransID
   **/
   @ApiModelProperty(value = "Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.")
+  @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDsTransID() {
     return dsTransID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
   }
 
 
   public ThreeDSecureData eci(String eci) {
-    
     this.eci = eci;
     return this;
   }
@@ -411,19 +377,22 @@ public class ThreeDSecureData {
    * @return eci
   **/
   @ApiModelProperty(value = "The electronic commerce indicator.")
+  @JsonProperty(JSON_PROPERTY_ECI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEci() {
     return eci;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ECI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
   }
 
 
   public ThreeDSecureData riskScore(String riskScore) {
-    
     this.riskScore = riskScore;
     return this;
   }
@@ -433,19 +402,22 @@ public class ThreeDSecureData {
    * @return riskScore
   **/
   @ApiModelProperty(value = "Risk score calculated by Directory Server (DS). Required for Cartes Bancaires integrations.")
+  @JsonProperty(JSON_PROPERTY_RISK_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskScore() {
     return riskScore;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISK_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
     this.riskScore = riskScore;
   }
 
 
   public ThreeDSecureData threeDSVersion(String threeDSVersion) {
-    
     this.threeDSVersion = threeDSVersion;
     return this;
   }
@@ -455,19 +427,22 @@ public class ThreeDSecureData {
    * @return threeDSVersion
   **/
   @ApiModelProperty(value = "The version of the 3D Secure protocol.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSVersion() {
     return threeDSVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
   }
 
 
   public ThreeDSecureData tokenAuthenticationVerificationValue(byte[] tokenAuthenticationVerificationValue) {
-    
     this.tokenAuthenticationVerificationValue = tokenAuthenticationVerificationValue;
     return this;
   }
@@ -477,19 +452,22 @@ public class ThreeDSecureData {
    * @return tokenAuthenticationVerificationValue
   **/
   @ApiModelProperty(value = "Network token authentication verification value (TAVV). The network token cryptogram.")
+  @JsonProperty(JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public byte[] getTokenAuthenticationVerificationValue() {
     return tokenAuthenticationVerificationValue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenAuthenticationVerificationValue(byte[] tokenAuthenticationVerificationValue) {
     this.tokenAuthenticationVerificationValue = tokenAuthenticationVerificationValue;
   }
 
 
   public ThreeDSecureData transStatusReason(String transStatusReason) {
-    
     this.transStatusReason = transStatusReason;
     return this;
   }
@@ -499,19 +477,22 @@ public class ThreeDSecureData {
    * @return transStatusReason
   **/
   @ApiModelProperty(value = "Provides information on why the `transStatus` field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).")
+  @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTransStatusReason() {
     return transStatusReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
   }
 
 
   public ThreeDSecureData xid(byte[] xid) {
-    
     this.xid = xid;
     return this;
   }
@@ -521,18 +502,24 @@ public class ThreeDSecureData {
    * @return xid
   **/
   @ApiModelProperty(value = "Supported for 3D Secure 1. The transaction identifier (Base64-encoded, 20 bytes in a decoded form).")
+  @JsonProperty(JSON_PROPERTY_XID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public byte[] getXid() {
     return xid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_XID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(byte[] xid) {
     this.xid = xid;
   }
 
 
-
+  /**
+   * Return true if this ThreeDSecureData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -592,150 +579,23 @@ public class ThreeDSecureData {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("authenticationResponse");
-    openapiFields.add("cavv");
-    openapiFields.add("cavvAlgorithm");
-    openapiFields.add("challengeCancel");
-    openapiFields.add("directoryResponse");
-    openapiFields.add("dsTransID");
-    openapiFields.add("eci");
-    openapiFields.add("riskScore");
-    openapiFields.add("threeDSVersion");
-    openapiFields.add("tokenAuthenticationVerificationValue");
-    openapiFields.add("transStatusReason");
-    openapiFields.add("xid");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ThreeDSecureData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ThreeDSecureData
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDSecureData
+   */
+  public static ThreeDSecureData fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThreeDSecureData.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ThreeDSecureData.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ThreeDSecureData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ThreeDSecureData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSecureData is not found in the empty JSON string", ThreeDSecureData.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ThreeDSecureData.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDSecureData` properties.", entry.getKey()));
-        }
-      }
-      // ensure the field authenticationResponse can be parsed to an enum value
-      if (jsonObj.get("authenticationResponse") != null) {
-        if(!jsonObj.get("authenticationResponse").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `authenticationResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authenticationResponse").toString()));
-        }
-        AuthenticationResponseEnum.fromValue(jsonObj.get("authenticationResponse").getAsString());
-      }
-      // validate the optional field cavvAlgorithm
-      if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
-      }
-      // ensure the field challengeCancel can be parsed to an enum value
-      if (jsonObj.get("challengeCancel") != null) {
-        if(!jsonObj.get("challengeCancel").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `challengeCancel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeCancel").toString()));
-        }
-        ChallengeCancelEnum.fromValue(jsonObj.get("challengeCancel").getAsString());
-      }
-      // ensure the field directoryResponse can be parsed to an enum value
-      if (jsonObj.get("directoryResponse") != null) {
-        if(!jsonObj.get("directoryResponse").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `directoryResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("directoryResponse").toString()));
-        }
-        DirectoryResponseEnum.fromValue(jsonObj.get("directoryResponse").getAsString());
-      }
-      // validate the optional field dsTransID
-      if (jsonObj.get("dsTransID") != null && !jsonObj.get("dsTransID").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `dsTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dsTransID").toString()));
-      }
-      // validate the optional field eci
-      if (jsonObj.get("eci") != null && !jsonObj.get("eci").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `eci` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eci").toString()));
-      }
-      // validate the optional field riskScore
-      if (jsonObj.get("riskScore") != null && !jsonObj.get("riskScore").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskScore` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskScore").toString()));
-      }
-      // validate the optional field threeDSVersion
-      if (jsonObj.get("threeDSVersion") != null && !jsonObj.get("threeDSVersion").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
-      }
-      // validate the optional field transStatusReason
-      if (jsonObj.get("transStatusReason") != null && !jsonObj.get("transStatusReason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `transStatusReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transStatusReason").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ThreeDSecureData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ThreeDSecureData' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ThreeDSecureData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDSecureData.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ThreeDSecureData>() {
-           @Override
-           public void write(JsonWriter out, ThreeDSecureData value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ThreeDSecureData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ThreeDSecureData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ThreeDSecureData
-  * @throws IOException if the JSON string is invalid with respect to ThreeDSecureData
-  */
-  public static ThreeDSecureData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ThreeDSecureData.class);
-  }
-
- /**
+/**
   * Convert an instance of ThreeDSecureData to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,63 +14,48 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ServiceError2
  */
+@JsonPropertyOrder({
+  ServiceError2.JSON_PROPERTY_ERROR_CODE,
+  ServiceError2.JSON_PROPERTY_ERROR_TYPE,
+  ServiceError2.JSON_PROPERTY_MESSAGE,
+  ServiceError2.JSON_PROPERTY_PSP_REFERENCE
+})
+@JsonTypeName("ServiceError-2")
 
 public class ServiceError2 {
-  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
-  @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+  public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;
 
-  public static final String SERIALIZED_NAME_ERROR_TYPE = "errorType";
-  @SerializedName(SERIALIZED_NAME_ERROR_TYPE)
+  public static final String JSON_PROPERTY_ERROR_TYPE = "errorType";
   private String errorType;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
   public ServiceError2() { 
   }
 
   public ServiceError2 errorCode(String errorCode) {
-    
     this.errorCode = errorCode;
     return this;
   }
@@ -80,19 +65,22 @@ public class ServiceError2 {
    * @return errorCode
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getErrorCode() {
     return errorCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
 
 
   public ServiceError2 errorType(String errorType) {
-    
     this.errorType = errorType;
     return this;
   }
@@ -102,19 +90,22 @@ public class ServiceError2 {
    * @return errorType
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getErrorType() {
     return errorType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
     this.errorType = errorType;
   }
 
 
   public ServiceError2 message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -124,19 +115,22 @@ public class ServiceError2 {
    * @return message
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
     return message;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public ServiceError2 pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -146,18 +140,24 @@ public class ServiceError2 {
    * @return pspReference
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
-
+  /**
+   * Return true if this ServiceError-2 object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,113 +201,23 @@ public class ServiceError2 {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("errorCode");
-    openapiFields.add("errorType");
-    openapiFields.add("message");
-    openapiFields.add("pspReference");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ServiceError2 given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ServiceError2
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ServiceError2
+   */
+  public static ServiceError2 fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ServiceError2.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ServiceError2.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ServiceError2
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ServiceError2.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ServiceError2 is not found in the empty JSON string", ServiceError2.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ServiceError2.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ServiceError2` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field errorCode
-      if (jsonObj.get("errorCode") != null && !jsonObj.get("errorCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `errorCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorCode").toString()));
-      }
-      // validate the optional field errorType
-      if (jsonObj.get("errorType") != null && !jsonObj.get("errorType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `errorType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorType").toString()));
-      }
-      // validate the optional field message
-      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ServiceError2.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ServiceError2' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ServiceError2> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ServiceError2.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ServiceError2>() {
-           @Override
-           public void write(JsonWriter out, ServiceError2 value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ServiceError2 read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ServiceError2 given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ServiceError2
-  * @throws IOException if the JSON string is invalid with respect to ServiceError2
-  */
-  public static ServiceError2 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ServiceError2.class);
-  }
-
- /**
+/**
   * Convert an instance of ServiceError2 to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

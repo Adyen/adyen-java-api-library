@@ -14,91 +14,75 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.CardDetails;
 import com.adyen.model.checkout.Name;
 import com.adyen.model.checkout.SubMerchant;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * FundRecipient
  */
+@JsonPropertyOrder({
+  FundRecipient.JSON_PROPERTY_BILLING_ADDRESS,
+  FundRecipient.JSON_PROPERTY_PAYMENT_METHOD,
+  FundRecipient.JSON_PROPERTY_SHOPPER_EMAIL,
+  FundRecipient.JSON_PROPERTY_SHOPPER_NAME,
+  FundRecipient.JSON_PROPERTY_SHOPPER_REFERENCE,
+  FundRecipient.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  FundRecipient.JSON_PROPERTY_SUB_MERCHANT,
+  FundRecipient.JSON_PROPERTY_TELEPHONE_NUMBER,
+  FundRecipient.JSON_PROPERTY_WALLET_IDENTIFIER,
+  FundRecipient.JSON_PROPERTY_WALLET_OWNER_TAX_ID
+})
 
 public class FundRecipient {
-  public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
-  @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
+  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "paymentMethod";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
+  public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private CardDetails paymentMethod;
 
-  public static final String SERIALIZED_NAME_SHOPPER_EMAIL = "shopperEmail";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_EMAIL)
+  public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NAME = "shopperName";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NAME)
+  public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
-  public static final String SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
-  @SerializedName(SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID)
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT = "subMerchant";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT)
+  public static final String JSON_PROPERTY_SUB_MERCHANT = "subMerchant";
   private SubMerchant subMerchant;
 
-  public static final String SERIALIZED_NAME_TELEPHONE_NUMBER = "telephoneNumber";
-  @SerializedName(SERIALIZED_NAME_TELEPHONE_NUMBER)
+  public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
 
-  public static final String SERIALIZED_NAME_WALLET_IDENTIFIER = "walletIdentifier";
-  @SerializedName(SERIALIZED_NAME_WALLET_IDENTIFIER)
+  public static final String JSON_PROPERTY_WALLET_IDENTIFIER = "walletIdentifier";
   private String walletIdentifier;
 
-  public static final String SERIALIZED_NAME_WALLET_OWNER_TAX_ID = "walletOwnerTaxId";
-  @SerializedName(SERIALIZED_NAME_WALLET_OWNER_TAX_ID)
+  public static final String JSON_PROPERTY_WALLET_OWNER_TAX_ID = "walletOwnerTaxId";
   private String walletOwnerTaxId;
 
   public FundRecipient() { 
   }
 
   public FundRecipient billingAddress(Address billingAddress) {
-    
     this.billingAddress = billingAddress;
     return this;
   }
@@ -108,19 +92,22 @@ public class FundRecipient {
    * @return billingAddress
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getBillingAddress() {
     return billingAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
 
   public FundRecipient paymentMethod(CardDetails paymentMethod) {
-    
     this.paymentMethod = paymentMethod;
     return this;
   }
@@ -130,19 +117,22 @@ public class FundRecipient {
    * @return paymentMethod
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CardDetails getPaymentMethod() {
     return paymentMethod;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(CardDetails paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
 
   public FundRecipient shopperEmail(String shopperEmail) {
-    
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -152,19 +142,22 @@ public class FundRecipient {
    * @return shopperEmail
   **/
   @ApiModelProperty(value = "the email address of the person")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperEmail() {
     return shopperEmail;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
 
   public FundRecipient shopperName(Name shopperName) {
-    
     this.shopperName = shopperName;
     return this;
   }
@@ -174,19 +167,22 @@ public class FundRecipient {
    * @return shopperName
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Name getShopperName() {
     return shopperName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
 
   public FundRecipient shopperReference(String shopperReference) {
-    
     this.shopperReference = shopperReference;
     return this;
   }
@@ -196,19 +192,22 @@ public class FundRecipient {
    * @return shopperReference
   **/
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperReference() {
     return shopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
 
   public FundRecipient storedPaymentMethodId(String storedPaymentMethodId) {
-    
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
@@ -218,19 +217,22 @@ public class FundRecipient {
    * @return storedPaymentMethodId
   **/
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
 
   public FundRecipient subMerchant(SubMerchant subMerchant) {
-    
     this.subMerchant = subMerchant;
     return this;
   }
@@ -240,19 +242,22 @@ public class FundRecipient {
    * @return subMerchant
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubMerchant getSubMerchant() {
     return subMerchant;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchant(SubMerchant subMerchant) {
     this.subMerchant = subMerchant;
   }
 
 
   public FundRecipient telephoneNumber(String telephoneNumber) {
-    
     this.telephoneNumber = telephoneNumber;
     return this;
   }
@@ -262,19 +267,22 @@ public class FundRecipient {
    * @return telephoneNumber
   **/
   @ApiModelProperty(value = "the telephone number of the person")
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
 
 
   public FundRecipient walletIdentifier(String walletIdentifier) {
-    
     this.walletIdentifier = walletIdentifier;
     return this;
   }
@@ -284,19 +292,22 @@ public class FundRecipient {
    * @return walletIdentifier
   **/
   @ApiModelProperty(value = "indicates where the money is going")
+  @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWalletIdentifier() {
     return walletIdentifier;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletIdentifier(String walletIdentifier) {
     this.walletIdentifier = walletIdentifier;
   }
 
 
   public FundRecipient walletOwnerTaxId(String walletOwnerTaxId) {
-    
     this.walletOwnerTaxId = walletOwnerTaxId;
     return this;
   }
@@ -306,18 +317,24 @@ public class FundRecipient {
    * @return walletOwnerTaxId
   **/
   @ApiModelProperty(value = "indicates the tax identifier of the fund recepient")
+  @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWalletOwnerTaxId() {
     return walletOwnerTaxId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletOwnerTaxId(String walletOwnerTaxId) {
     this.walletOwnerTaxId = walletOwnerTaxId;
   }
 
 
-
+  /**
+   * Return true if this FundRecipient object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -373,143 +390,23 @@ public class FundRecipient {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("billingAddress");
-    openapiFields.add("paymentMethod");
-    openapiFields.add("shopperEmail");
-    openapiFields.add("shopperName");
-    openapiFields.add("shopperReference");
-    openapiFields.add("storedPaymentMethodId");
-    openapiFields.add("subMerchant");
-    openapiFields.add("telephoneNumber");
-    openapiFields.add("walletIdentifier");
-    openapiFields.add("walletOwnerTaxId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of FundRecipient given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of FundRecipient
+   * @throws JsonProcessingException if the JSON string is invalid with respect to FundRecipient
+   */
+  public static FundRecipient fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, FundRecipient.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(FundRecipient.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to FundRecipient
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (FundRecipient.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FundRecipient is not found in the empty JSON string", FundRecipient.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!FundRecipient.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `FundRecipient` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field `billingAddress`
-      if (jsonObj.getAsJsonObject("billingAddress") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("billingAddress"));
-      }
-      // validate the optional field `paymentMethod`
-      if (jsonObj.getAsJsonObject("paymentMethod") != null) {
-        CardDetails.validateJsonObject(jsonObj.getAsJsonObject("paymentMethod"));
-      }
-      // validate the optional field shopperEmail
-      if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
-      }
-      // validate the optional field `shopperName`
-      if (jsonObj.getAsJsonObject("shopperName") != null) {
-        Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
-      }
-      // validate the optional field shopperReference
-      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
-      }
-      // validate the optional field storedPaymentMethodId
-      if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
-      }
-      // validate the optional field `subMerchant`
-      if (jsonObj.getAsJsonObject("subMerchant") != null) {
-        SubMerchant.validateJsonObject(jsonObj.getAsJsonObject("subMerchant"));
-      }
-      // validate the optional field telephoneNumber
-      if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
-      }
-      // validate the optional field walletIdentifier
-      if (jsonObj.get("walletIdentifier") != null && !jsonObj.get("walletIdentifier").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `walletIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("walletIdentifier").toString()));
-      }
-      // validate the optional field walletOwnerTaxId
-      if (jsonObj.get("walletOwnerTaxId") != null && !jsonObj.get("walletOwnerTaxId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `walletOwnerTaxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("walletOwnerTaxId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FundRecipient.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FundRecipient' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FundRecipient> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FundRecipient.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<FundRecipient>() {
-           @Override
-           public void write(JsonWriter out, FundRecipient value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public FundRecipient read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of FundRecipient given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of FundRecipient
-  * @throws IOException if the JSON string is invalid with respect to FundRecipient
-  */
-  public static FundRecipient fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FundRecipient.class);
-  }
-
- /**
+/**
   * Convert an instance of FundRecipient to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

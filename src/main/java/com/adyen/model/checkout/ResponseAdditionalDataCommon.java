@@ -14,134 +14,155 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ResponseAdditionalDataCommon
  */
+@JsonPropertyOrder({
+  ResponseAdditionalDataCommon.JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_ACQUIRER_CODE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_ACQUIRER_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_ALIAS,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_ALIAS_TYPE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_AUTH_CODE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_AUTHORISATION_MID,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_AVS_RESULT,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_AVS_RESULT_RAW,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_BIC,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_CO_BRANDED_WITH,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_CVC_RESULT,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_CVC_RESULT_RAW,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_DS_TRANS_I_D,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_ECI,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_EXPIRY_DATE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_EXTRA_COSTS_CURRENCY,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_EXTRA_COSTS_VALUE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_FRAUD_MANUAL_REVIEW,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_FRAUD_RESULT_TYPE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_FUNDING_SOURCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_FUNDS_AVAILABILITY,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_INFERRED_REFUSAL_REASON,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_IS_CARD_COMMERCIAL,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_ISSUER_COUNTRY,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_LIABILITY_SHIFT,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_MERCHANT_ADVICE_CODE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_MERCHANT_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_NETWORK_TX_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_OWNER_NAME,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_PAYMENT_METHOD,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_PAYMENT_METHOD_VARIANT,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_PAYOUT_ELIGIBLE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_RECEIPT_FREE_TEXT,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_RECURRING_CONTRACT_TYPES,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_REFERRED,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_REFUSAL_REASON_RAW,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_REQUEST_AMOUNT,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_REQUEST_CURRENCY_CODE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_SHOPPER_INTERACTION,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_SHOPPER_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_TERMINAL_ID,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_AUTHENTICATED,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_OFFERED,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_OFFERED_RESPONSE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_S_VERSION,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_VISA_TRANSACTION_ID,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_XID
+})
 
 public class ResponseAdditionalDataCommon {
-  public static final String SERIALIZED_NAME_ACQUIRER_ACCOUNT_CODE = "acquirerAccountCode";
-  @SerializedName(SERIALIZED_NAME_ACQUIRER_ACCOUNT_CODE)
+  public static final String JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE = "acquirerAccountCode";
   private String acquirerAccountCode;
 
-  public static final String SERIALIZED_NAME_ACQUIRER_CODE = "acquirerCode";
-  @SerializedName(SERIALIZED_NAME_ACQUIRER_CODE)
+  public static final String JSON_PROPERTY_ACQUIRER_CODE = "acquirerCode";
   private String acquirerCode;
 
-  public static final String SERIALIZED_NAME_ACQUIRER_REFERENCE = "acquirerReference";
-  @SerializedName(SERIALIZED_NAME_ACQUIRER_REFERENCE)
+  public static final String JSON_PROPERTY_ACQUIRER_REFERENCE = "acquirerReference";
   private String acquirerReference;
 
-  public static final String SERIALIZED_NAME_ALIAS = "alias";
-  @SerializedName(SERIALIZED_NAME_ALIAS)
+  public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
-  public static final String SERIALIZED_NAME_ALIAS_TYPE = "aliasType";
-  @SerializedName(SERIALIZED_NAME_ALIAS_TYPE)
+  public static final String JSON_PROPERTY_ALIAS_TYPE = "aliasType";
   private String aliasType;
 
-  public static final String SERIALIZED_NAME_AUTH_CODE = "authCode";
-  @SerializedName(SERIALIZED_NAME_AUTH_CODE)
+  public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
   private String authCode;
 
-  public static final String SERIALIZED_NAME_AUTHORISATION_MID = "authorisationMid";
-  @SerializedName(SERIALIZED_NAME_AUTHORISATION_MID)
+  public static final String JSON_PROPERTY_AUTHORISATION_MID = "authorisationMid";
   private String authorisationMid;
 
-  public static final String SERIALIZED_NAME_AUTHORISED_AMOUNT_CURRENCY = "authorisedAmountCurrency";
-  @SerializedName(SERIALIZED_NAME_AUTHORISED_AMOUNT_CURRENCY)
+  public static final String JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY = "authorisedAmountCurrency";
   private String authorisedAmountCurrency;
 
-  public static final String SERIALIZED_NAME_AUTHORISED_AMOUNT_VALUE = "authorisedAmountValue";
-  @SerializedName(SERIALIZED_NAME_AUTHORISED_AMOUNT_VALUE)
+  public static final String JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE = "authorisedAmountValue";
   private String authorisedAmountValue;
 
-  public static final String SERIALIZED_NAME_AVS_RESULT = "avsResult";
-  @SerializedName(SERIALIZED_NAME_AVS_RESULT)
+  public static final String JSON_PROPERTY_AVS_RESULT = "avsResult";
   private String avsResult;
 
-  public static final String SERIALIZED_NAME_AVS_RESULT_RAW = "avsResultRaw";
-  @SerializedName(SERIALIZED_NAME_AVS_RESULT_RAW)
+  public static final String JSON_PROPERTY_AVS_RESULT_RAW = "avsResultRaw";
   private String avsResultRaw;
 
-  public static final String SERIALIZED_NAME_BIC = "bic";
-  @SerializedName(SERIALIZED_NAME_BIC)
+  public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
 
-  public static final String SERIALIZED_NAME_CO_BRANDED_WITH = "coBrandedWith";
-  @SerializedName(SERIALIZED_NAME_CO_BRANDED_WITH)
+  public static final String JSON_PROPERTY_CO_BRANDED_WITH = "coBrandedWith";
   private String coBrandedWith;
 
-  public static final String SERIALIZED_NAME_CVC_RESULT = "cvcResult";
-  @SerializedName(SERIALIZED_NAME_CVC_RESULT)
+  public static final String JSON_PROPERTY_CVC_RESULT = "cvcResult";
   private String cvcResult;
 
-  public static final String SERIALIZED_NAME_CVC_RESULT_RAW = "cvcResultRaw";
-  @SerializedName(SERIALIZED_NAME_CVC_RESULT_RAW)
+  public static final String JSON_PROPERTY_CVC_RESULT_RAW = "cvcResultRaw";
   private String cvcResultRaw;
 
-  public static final String SERIALIZED_NAME_DS_TRANS_I_D = "dsTransID";
-  @SerializedName(SERIALIZED_NAME_DS_TRANS_I_D)
+  public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
 
-  public static final String SERIALIZED_NAME_ECI = "eci";
-  @SerializedName(SERIALIZED_NAME_ECI)
+  public static final String JSON_PROPERTY_ECI = "eci";
   private String eci;
 
-  public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
-  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
+  public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
   private String expiryDate;
 
-  public static final String SERIALIZED_NAME_EXTRA_COSTS_CURRENCY = "extraCostsCurrency";
-  @SerializedName(SERIALIZED_NAME_EXTRA_COSTS_CURRENCY)
+  public static final String JSON_PROPERTY_EXTRA_COSTS_CURRENCY = "extraCostsCurrency";
   private String extraCostsCurrency;
 
-  public static final String SERIALIZED_NAME_EXTRA_COSTS_VALUE = "extraCostsValue";
-  @SerializedName(SERIALIZED_NAME_EXTRA_COSTS_VALUE)
+  public static final String JSON_PROPERTY_EXTRA_COSTS_VALUE = "extraCostsValue";
   private String extraCostsValue;
 
-  public static final String SERIALIZED_NAME_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME = "fraudCheck-[itemNr]-[FraudCheckname]";
-  @SerializedName(SERIALIZED_NAME_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME)
+  public static final String JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME = "fraudCheck-[itemNr]-[FraudCheckname]";
   private String fraudCheckItemNrFraudCheckname;
 
-  public static final String SERIALIZED_NAME_FRAUD_MANUAL_REVIEW = "fraudManualReview";
-  @SerializedName(SERIALIZED_NAME_FRAUD_MANUAL_REVIEW)
+  public static final String JSON_PROPERTY_FRAUD_MANUAL_REVIEW = "fraudManualReview";
   private String fraudManualReview;
 
   /**
    * The fraud result properties of the payment.
    */
-  @JsonAdapter(FraudResultTypeEnum.Adapter.class)
   public enum FraudResultTypeEnum {
     GREEN("GREEN"),
     
@@ -153,6 +174,7 @@ public class ResponseAdditionalDataCommon {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -162,6 +184,7 @@ public class ResponseAdditionalDataCommon {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static FraudResultTypeEnum fromValue(String value) {
       for (FraudResultTypeEnum b : FraudResultTypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -170,113 +193,77 @@ public class ResponseAdditionalDataCommon {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<FraudResultTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FraudResultTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public FraudResultTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return FraudResultTypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_FRAUD_RESULT_TYPE = "fraudResultType";
-  @SerializedName(SERIALIZED_NAME_FRAUD_RESULT_TYPE)
+  public static final String JSON_PROPERTY_FRAUD_RESULT_TYPE = "fraudResultType";
   private FraudResultTypeEnum fraudResultType;
 
-  public static final String SERIALIZED_NAME_FUNDING_SOURCE = "fundingSource";
-  @SerializedName(SERIALIZED_NAME_FUNDING_SOURCE)
+  public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
 
-  public static final String SERIALIZED_NAME_FUNDS_AVAILABILITY = "fundsAvailability";
-  @SerializedName(SERIALIZED_NAME_FUNDS_AVAILABILITY)
+  public static final String JSON_PROPERTY_FUNDS_AVAILABILITY = "fundsAvailability";
   private String fundsAvailability;
 
-  public static final String SERIALIZED_NAME_INFERRED_REFUSAL_REASON = "inferredRefusalReason";
-  @SerializedName(SERIALIZED_NAME_INFERRED_REFUSAL_REASON)
+  public static final String JSON_PROPERTY_INFERRED_REFUSAL_REASON = "inferredRefusalReason";
   private String inferredRefusalReason;
 
-  public static final String SERIALIZED_NAME_IS_CARD_COMMERCIAL = "isCardCommercial";
-  @SerializedName(SERIALIZED_NAME_IS_CARD_COMMERCIAL)
+  public static final String JSON_PROPERTY_IS_CARD_COMMERCIAL = "isCardCommercial";
   private String isCardCommercial;
 
-  public static final String SERIALIZED_NAME_ISSUER_COUNTRY = "issuerCountry";
-  @SerializedName(SERIALIZED_NAME_ISSUER_COUNTRY)
+  public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
   private String issuerCountry;
 
-  public static final String SERIALIZED_NAME_LIABILITY_SHIFT = "liabilityShift";
-  @SerializedName(SERIALIZED_NAME_LIABILITY_SHIFT)
+  public static final String JSON_PROPERTY_LIABILITY_SHIFT = "liabilityShift";
   private String liabilityShift;
 
-  public static final String SERIALIZED_NAME_MC_BANK_NET_REFERENCE_NUMBER = "mcBankNetReferenceNumber";
-  @SerializedName(SERIALIZED_NAME_MC_BANK_NET_REFERENCE_NUMBER)
+  public static final String JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER = "mcBankNetReferenceNumber";
   private String mcBankNetReferenceNumber;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ADVICE_CODE = "merchantAdviceCode";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ADVICE_CODE)
+  public static final String JSON_PROPERTY_MERCHANT_ADVICE_CODE = "merchantAdviceCode";
   private String merchantAdviceCode;
 
-  public static final String SERIALIZED_NAME_MERCHANT_REFERENCE = "merchantReference";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_REFERENCE)
+  public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
   private String merchantReference;
 
-  public static final String SERIALIZED_NAME_NETWORK_TX_REFERENCE = "networkTxReference";
-  @SerializedName(SERIALIZED_NAME_NETWORK_TX_REFERENCE)
+  public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
 
-  public static final String SERIALIZED_NAME_OWNER_NAME = "ownerName";
-  @SerializedName(SERIALIZED_NAME_OWNER_NAME)
+  public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
 
-  public static final String SERIALIZED_NAME_PAYMENT_ACCOUNT_REFERENCE = "paymentAccountReference";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_ACCOUNT_REFERENCE)
+  public static final String JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE = "paymentAccountReference";
   private String paymentAccountReference;
 
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "paymentMethod";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
+  public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
 
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD_VARIANT = "paymentMethodVariant";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD_VARIANT)
+  public static final String JSON_PROPERTY_PAYMENT_METHOD_VARIANT = "paymentMethodVariant";
   private String paymentMethodVariant;
 
-  public static final String SERIALIZED_NAME_PAYOUT_ELIGIBLE = "payoutEligible";
-  @SerializedName(SERIALIZED_NAME_PAYOUT_ELIGIBLE)
+  public static final String JSON_PROPERTY_PAYOUT_ELIGIBLE = "payoutEligible";
   private String payoutEligible;
 
-  public static final String SERIALIZED_NAME_REALTIME_ACCOUNT_UPDATER_STATUS = "realtimeAccountUpdaterStatus";
-  @SerializedName(SERIALIZED_NAME_REALTIME_ACCOUNT_UPDATER_STATUS)
+  public static final String JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS = "realtimeAccountUpdaterStatus";
   private String realtimeAccountUpdaterStatus;
 
-  public static final String SERIALIZED_NAME_RECEIPT_FREE_TEXT = "receiptFreeText";
-  @SerializedName(SERIALIZED_NAME_RECEIPT_FREE_TEXT)
+  public static final String JSON_PROPERTY_RECEIPT_FREE_TEXT = "receiptFreeText";
   private String receiptFreeText;
 
-  public static final String SERIALIZED_NAME_RECURRING_CONTRACT_TYPES = "recurring.contractTypes";
-  @SerializedName(SERIALIZED_NAME_RECURRING_CONTRACT_TYPES)
+  public static final String JSON_PROPERTY_RECURRING_CONTRACT_TYPES = "recurring.contractTypes";
   private String recurringContractTypes;
 
-  public static final String SERIALIZED_NAME_RECURRING_FIRST_PSP_REFERENCE = "recurring.firstPspReference";
-  @SerializedName(SERIALIZED_NAME_RECURRING_FIRST_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE = "recurring.firstPspReference";
   private String recurringFirstPspReference;
 
-  public static final String SERIALIZED_NAME_RECURRING_RECURRING_DETAIL_REFERENCE = "recurring.recurringDetailReference";
-  @SerializedName(SERIALIZED_NAME_RECURRING_RECURRING_DETAIL_REFERENCE)
+  public static final String JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE = "recurring.recurringDetailReference";
   private String recurringRecurringDetailReference;
 
-  public static final String SERIALIZED_NAME_RECURRING_SHOPPER_REFERENCE = "recurring.shopperReference";
-  @SerializedName(SERIALIZED_NAME_RECURRING_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE = "recurring.shopperReference";
   private String recurringShopperReference;
 
   /**
    * The processing model used for the recurring transaction.
    */
-  @JsonAdapter(RecurringProcessingModelEnum.Adapter.class)
   public enum RecurringProcessingModelEnum {
     CARDONFILE("CardOnFile"),
     
@@ -290,6 +277,7 @@ public class ResponseAdditionalDataCommon {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -299,6 +287,7 @@ public class ResponseAdditionalDataCommon {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static RecurringProcessingModelEnum fromValue(String value) {
       for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
         if (b.value.equals(value)) {
@@ -307,86 +296,57 @@ public class ResponseAdditionalDataCommon {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RecurringProcessingModelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return RecurringProcessingModelEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
-  @SerializedName(SERIALIZED_NAME_RECURRING_PROCESSING_MODEL)
+  public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
-  public static final String SERIALIZED_NAME_REFERRED = "referred";
-  @SerializedName(SERIALIZED_NAME_REFERRED)
+  public static final String JSON_PROPERTY_REFERRED = "referred";
   private String referred;
 
-  public static final String SERIALIZED_NAME_REFUSAL_REASON_RAW = "refusalReasonRaw";
-  @SerializedName(SERIALIZED_NAME_REFUSAL_REASON_RAW)
+  public static final String JSON_PROPERTY_REFUSAL_REASON_RAW = "refusalReasonRaw";
   private String refusalReasonRaw;
 
-  public static final String SERIALIZED_NAME_REQUEST_AMOUNT = "requestAmount";
-  @SerializedName(SERIALIZED_NAME_REQUEST_AMOUNT)
+  public static final String JSON_PROPERTY_REQUEST_AMOUNT = "requestAmount";
   private String requestAmount;
 
-  public static final String SERIALIZED_NAME_REQUEST_CURRENCY_CODE = "requestCurrencyCode";
-  @SerializedName(SERIALIZED_NAME_REQUEST_CURRENCY_CODE)
+  public static final String JSON_PROPERTY_REQUEST_CURRENCY_CODE = "requestCurrencyCode";
   private String requestCurrencyCode;
 
-  public static final String SERIALIZED_NAME_SHOPPER_INTERACTION = "shopperInteraction";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_INTERACTION)
+  public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private String shopperInteraction;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
-  public static final String SERIALIZED_NAME_TERMINAL_ID = "terminalId";
-  @SerializedName(SERIALIZED_NAME_TERMINAL_ID)
+  public static final String JSON_PROPERTY_TERMINAL_ID = "terminalId";
   private String terminalId;
 
-  public static final String SERIALIZED_NAME_THREE_D_AUTHENTICATED = "threeDAuthenticated";
-  @SerializedName(SERIALIZED_NAME_THREE_D_AUTHENTICATED)
+  public static final String JSON_PROPERTY_THREE_D_AUTHENTICATED = "threeDAuthenticated";
   private String threeDAuthenticated;
 
-  public static final String SERIALIZED_NAME_THREE_D_AUTHENTICATED_RESPONSE = "threeDAuthenticatedResponse";
-  @SerializedName(SERIALIZED_NAME_THREE_D_AUTHENTICATED_RESPONSE)
+  public static final String JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE = "threeDAuthenticatedResponse";
   private String threeDAuthenticatedResponse;
 
-  public static final String SERIALIZED_NAME_THREE_D_OFFERED = "threeDOffered";
-  @SerializedName(SERIALIZED_NAME_THREE_D_OFFERED)
+  public static final String JSON_PROPERTY_THREE_D_OFFERED = "threeDOffered";
   private String threeDOffered;
 
-  public static final String SERIALIZED_NAME_THREE_D_OFFERED_RESPONSE = "threeDOfferedResponse";
-  @SerializedName(SERIALIZED_NAME_THREE_D_OFFERED_RESPONSE)
+  public static final String JSON_PROPERTY_THREE_D_OFFERED_RESPONSE = "threeDOfferedResponse";
   private String threeDOfferedResponse;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_VERSION = "threeDSVersion";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_VERSION)
+  public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private String threeDSVersion;
 
-  public static final String SERIALIZED_NAME_VISA_TRANSACTION_ID = "visaTransactionId";
-  @SerializedName(SERIALIZED_NAME_VISA_TRANSACTION_ID)
+  public static final String JSON_PROPERTY_VISA_TRANSACTION_ID = "visaTransactionId";
   private String visaTransactionId;
 
-  public static final String SERIALIZED_NAME_XID = "xid";
-  @SerializedName(SERIALIZED_NAME_XID)
+  public static final String JSON_PROPERTY_XID = "xid";
   private String xid;
 
   public ResponseAdditionalDataCommon() { 
   }
 
   public ResponseAdditionalDataCommon acquirerAccountCode(String acquirerAccountCode) {
-    
     this.acquirerAccountCode = acquirerAccountCode;
     return this;
   }
@@ -396,19 +356,22 @@ public class ResponseAdditionalDataCommon {
    * @return acquirerAccountCode
   **/
   @ApiModelProperty(value = "The name of the Adyen acquirer account.  Example: PayPalSandbox_TestAcquirer  > Only relevant for PayPal transactions.")
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcquirerAccountCode() {
     return acquirerAccountCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerAccountCode(String acquirerAccountCode) {
     this.acquirerAccountCode = acquirerAccountCode;
   }
 
 
   public ResponseAdditionalDataCommon acquirerCode(String acquirerCode) {
-    
     this.acquirerCode = acquirerCode;
     return this;
   }
@@ -418,19 +381,22 @@ public class ResponseAdditionalDataCommon {
    * @return acquirerCode
   **/
   @ApiModelProperty(value = "The name of the acquirer processing the payment request.  Example: TestPmmAcquirer")
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcquirerCode() {
     return acquirerCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerCode(String acquirerCode) {
     this.acquirerCode = acquirerCode;
   }
 
 
   public ResponseAdditionalDataCommon acquirerReference(String acquirerReference) {
-    
     this.acquirerReference = acquirerReference;
     return this;
   }
@@ -440,19 +406,22 @@ public class ResponseAdditionalDataCommon {
    * @return acquirerReference
   **/
   @ApiModelProperty(value = "The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.  Example: 7C9N3FNBKT9")
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcquirerReference() {
     return acquirerReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerReference(String acquirerReference) {
     this.acquirerReference = acquirerReference;
   }
 
 
   public ResponseAdditionalDataCommon alias(String alias) {
-    
     this.alias = alias;
     return this;
   }
@@ -462,19 +431,22 @@ public class ResponseAdditionalDataCommon {
    * @return alias
   **/
   @ApiModelProperty(value = "The Adyen alias of the card.  Example: H167852639363479")
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAlias() {
     return alias;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlias(String alias) {
     this.alias = alias;
   }
 
 
   public ResponseAdditionalDataCommon aliasType(String aliasType) {
-    
     this.aliasType = aliasType;
     return this;
   }
@@ -484,19 +456,22 @@ public class ResponseAdditionalDataCommon {
    * @return aliasType
   **/
   @ApiModelProperty(value = "The type of the card alias.  Example: Default")
+  @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAliasType() {
     return aliasType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAliasType(String aliasType) {
     this.aliasType = aliasType;
   }
 
 
   public ResponseAdditionalDataCommon authCode(String authCode) {
-    
     this.authCode = authCode;
     return this;
   }
@@ -506,19 +481,22 @@ public class ResponseAdditionalDataCommon {
    * @return authCode
   **/
   @ApiModelProperty(value = "Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.  Example: 58747")
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthCode() {
     return authCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
     this.authCode = authCode;
   }
 
 
   public ResponseAdditionalDataCommon authorisationMid(String authorisationMid) {
-    
     this.authorisationMid = authorisationMid;
     return this;
   }
@@ -528,19 +506,22 @@ public class ResponseAdditionalDataCommon {
    * @return authorisationMid
   **/
   @ApiModelProperty(value = "Merchant ID known by the acquirer.")
+  @JsonProperty(JSON_PROPERTY_AUTHORISATION_MID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthorisationMid() {
     return authorisationMid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTHORISATION_MID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
   }
 
 
   public ResponseAdditionalDataCommon authorisedAmountCurrency(String authorisedAmountCurrency) {
-    
     this.authorisedAmountCurrency = authorisedAmountCurrency;
     return this;
   }
@@ -550,19 +531,22 @@ public class ResponseAdditionalDataCommon {
    * @return authorisedAmountCurrency
   **/
   @ApiModelProperty(value = "The currency of the authorised amount, as a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
+  @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthorisedAmountCurrency() {
     return authorisedAmountCurrency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountCurrency(String authorisedAmountCurrency) {
     this.authorisedAmountCurrency = authorisedAmountCurrency;
   }
 
 
   public ResponseAdditionalDataCommon authorisedAmountValue(String authorisedAmountValue) {
-    
     this.authorisedAmountValue = authorisedAmountValue;
     return this;
   }
@@ -572,19 +556,22 @@ public class ResponseAdditionalDataCommon {
    * @return authorisedAmountValue
   **/
   @ApiModelProperty(value = "Value of the amount authorised.  This amount is represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes).")
+  @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthorisedAmountValue() {
     return authorisedAmountValue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountValue(String authorisedAmountValue) {
     this.authorisedAmountValue = authorisedAmountValue;
   }
 
 
   public ResponseAdditionalDataCommon avsResult(String avsResult) {
-    
     this.avsResult = avsResult;
     return this;
   }
@@ -594,19 +581,22 @@ public class ResponseAdditionalDataCommon {
    * @return avsResult
   **/
   @ApiModelProperty(value = "The AVS result code of the payment, which provides information about the outcome of the AVS check.  For possible values, see [AVS](https://docs.adyen.com/risk-management/configure-standard-risk-rules/consistency-rules#billing-address-does-not-match-cardholder-address-avs).")
+  @JsonProperty(JSON_PROPERTY_AVS_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAvsResult() {
     return avsResult;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AVS_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResult(String avsResult) {
     this.avsResult = avsResult;
   }
 
 
   public ResponseAdditionalDataCommon avsResultRaw(String avsResultRaw) {
-    
     this.avsResultRaw = avsResultRaw;
     return this;
   }
@@ -616,19 +606,22 @@ public class ResponseAdditionalDataCommon {
    * @return avsResultRaw
   **/
   @ApiModelProperty(value = "Raw AVS result received from the acquirer, where available.  Example: D")
+  @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAvsResultRaw() {
     return avsResultRaw;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
   }
 
 
   public ResponseAdditionalDataCommon bic(String bic) {
-    
     this.bic = bic;
     return this;
   }
@@ -638,19 +631,22 @@ public class ResponseAdditionalDataCommon {
    * @return bic
   **/
   @ApiModelProperty(value = "BIC of a bank account.  Example: TESTNL01  > Only relevant for SEPA Direct Debit transactions.")
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBic() {
     return bic;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
   }
 
 
   public ResponseAdditionalDataCommon coBrandedWith(String coBrandedWith) {
-    
     this.coBrandedWith = coBrandedWith;
     return this;
   }
@@ -660,19 +656,22 @@ public class ResponseAdditionalDataCommon {
    * @return coBrandedWith
   **/
   @ApiModelProperty(value = "Includes the co-branded card information.")
+  @JsonProperty(JSON_PROPERTY_CO_BRANDED_WITH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCoBrandedWith() {
     return coBrandedWith;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CO_BRANDED_WITH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCoBrandedWith(String coBrandedWith) {
     this.coBrandedWith = coBrandedWith;
   }
 
 
   public ResponseAdditionalDataCommon cvcResult(String cvcResult) {
-    
     this.cvcResult = cvcResult;
     return this;
   }
@@ -682,19 +681,22 @@ public class ResponseAdditionalDataCommon {
    * @return cvcResult
   **/
   @ApiModelProperty(example = "1 Matches", value = "The result of CVC verification.")
+  @JsonProperty(JSON_PROPERTY_CVC_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCvcResult() {
     return cvcResult;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CVC_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResult(String cvcResult) {
     this.cvcResult = cvcResult;
   }
 
 
   public ResponseAdditionalDataCommon cvcResultRaw(String cvcResultRaw) {
-    
     this.cvcResultRaw = cvcResultRaw;
     return this;
   }
@@ -704,19 +706,22 @@ public class ResponseAdditionalDataCommon {
    * @return cvcResultRaw
   **/
   @ApiModelProperty(example = "M", value = "The raw result of CVC verification.")
+  @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCvcResultRaw() {
     return cvcResultRaw;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
   }
 
 
   public ResponseAdditionalDataCommon dsTransID(String dsTransID) {
-    
     this.dsTransID = dsTransID;
     return this;
   }
@@ -726,19 +731,22 @@ public class ResponseAdditionalDataCommon {
    * @return dsTransID
   **/
   @ApiModelProperty(value = "Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.")
+  @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDsTransID() {
     return dsTransID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
   }
 
 
   public ResponseAdditionalDataCommon eci(String eci) {
-    
     this.eci = eci;
     return this;
   }
@@ -748,19 +756,22 @@ public class ResponseAdditionalDataCommon {
    * @return eci
   **/
   @ApiModelProperty(value = "The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.  Example: 02")
+  @JsonProperty(JSON_PROPERTY_ECI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEci() {
     return eci;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ECI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
   }
 
 
   public ResponseAdditionalDataCommon expiryDate(String expiryDate) {
-    
     this.expiryDate = expiryDate;
     return this;
   }
@@ -770,19 +781,22 @@ public class ResponseAdditionalDataCommon {
    * @return expiryDate
   **/
   @ApiModelProperty(value = "The expiry date on the card.  Example: 6/2016  > Returned only in case of a card payment.")
+  @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpiryDate() {
     return expiryDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
   }
 
 
   public ResponseAdditionalDataCommon extraCostsCurrency(String extraCostsCurrency) {
-    
     this.extraCostsCurrency = extraCostsCurrency;
     return this;
   }
@@ -792,19 +806,22 @@ public class ResponseAdditionalDataCommon {
    * @return extraCostsCurrency
   **/
   @ApiModelProperty(value = "The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.  Example: EUR")
+  @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExtraCostsCurrency() {
     return extraCostsCurrency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsCurrency(String extraCostsCurrency) {
     this.extraCostsCurrency = extraCostsCurrency;
   }
 
 
   public ResponseAdditionalDataCommon extraCostsValue(String extraCostsValue) {
-    
     this.extraCostsValue = extraCostsValue;
     return this;
   }
@@ -814,19 +831,22 @@ public class ResponseAdditionalDataCommon {
    * @return extraCostsValue
   **/
   @ApiModelProperty(value = "The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.")
+  @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExtraCostsValue() {
     return extraCostsValue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsValue(String extraCostsValue) {
     this.extraCostsValue = extraCostsValue;
   }
 
 
   public ResponseAdditionalDataCommon fraudCheckItemNrFraudCheckname(String fraudCheckItemNrFraudCheckname) {
-    
     this.fraudCheckItemNrFraudCheckname = fraudCheckItemNrFraudCheckname;
     return this;
   }
@@ -836,19 +856,22 @@ public class ResponseAdditionalDataCommon {
    * @return fraudCheckItemNrFraudCheckname
   **/
   @ApiModelProperty(value = "The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.")
+  @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFraudCheckItemNrFraudCheckname() {
     return fraudCheckItemNrFraudCheckname;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudCheckItemNrFraudCheckname(String fraudCheckItemNrFraudCheckname) {
     this.fraudCheckItemNrFraudCheckname = fraudCheckItemNrFraudCheckname;
   }
 
 
   public ResponseAdditionalDataCommon fraudManualReview(String fraudManualReview) {
-    
     this.fraudManualReview = fraudManualReview;
     return this;
   }
@@ -858,19 +881,22 @@ public class ResponseAdditionalDataCommon {
    * @return fraudManualReview
   **/
   @ApiModelProperty(value = "Indicates if the payment is sent to manual review.")
+  @JsonProperty(JSON_PROPERTY_FRAUD_MANUAL_REVIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFraudManualReview() {
     return fraudManualReview;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FRAUD_MANUAL_REVIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudManualReview(String fraudManualReview) {
     this.fraudManualReview = fraudManualReview;
   }
 
 
   public ResponseAdditionalDataCommon fraudResultType(FraudResultTypeEnum fraudResultType) {
-    
     this.fraudResultType = fraudResultType;
     return this;
   }
@@ -880,19 +906,22 @@ public class ResponseAdditionalDataCommon {
    * @return fraudResultType
   **/
   @ApiModelProperty(value = "The fraud result properties of the payment.")
+  @JsonProperty(JSON_PROPERTY_FRAUD_RESULT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FraudResultTypeEnum getFraudResultType() {
     return fraudResultType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FRAUD_RESULT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResultType(FraudResultTypeEnum fraudResultType) {
     this.fraudResultType = fraudResultType;
   }
 
 
   public ResponseAdditionalDataCommon fundingSource(String fundingSource) {
-    
     this.fundingSource = fundingSource;
     return this;
   }
@@ -902,19 +931,22 @@ public class ResponseAdditionalDataCommon {
    * @return fundingSource
   **/
   @ApiModelProperty(value = "Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  > This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** > **Additional settings**.")
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFundingSource() {
     return fundingSource;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
   }
 
 
   public ResponseAdditionalDataCommon fundsAvailability(String fundsAvailability) {
-    
     this.fundsAvailability = fundsAvailability;
     return this;
   }
@@ -924,19 +956,22 @@ public class ResponseAdditionalDataCommon {
    * @return fundsAvailability
   **/
   @ApiModelProperty(value = "Indicates availability of funds.  Visa: * \"I\" (fast funds are supported) * \"N\" (otherwise)  Mastercard: * \"I\" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \"N\" (otherwise)  > Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \"Y\" or \"D\".")
+  @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFundsAvailability() {
     return fundsAvailability;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
   }
 
 
   public ResponseAdditionalDataCommon inferredRefusalReason(String inferredRefusalReason) {
-    
     this.inferredRefusalReason = inferredRefusalReason;
     return this;
   }
@@ -946,19 +981,22 @@ public class ResponseAdditionalDataCommon {
    * @return inferredRefusalReason
   **/
   @ApiModelProperty(value = "Provides the more granular indication of why a transaction was refused. When a transaction fails with either \"Refused\", \"Restricted Card\", \"Transaction Not Permitted\", \"Not supported\" or \"DeclinedNon Generic\" refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the `inferredRefusalReason`, field is populated and the `refusalReason`, is set to \"Not Supported\".  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card")
+  @JsonProperty(JSON_PROPERTY_INFERRED_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInferredRefusalReason() {
     return inferredRefusalReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INFERRED_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInferredRefusalReason(String inferredRefusalReason) {
     this.inferredRefusalReason = inferredRefusalReason;
   }
 
 
   public ResponseAdditionalDataCommon isCardCommercial(String isCardCommercial) {
-    
     this.isCardCommercial = isCardCommercial;
     return this;
   }
@@ -968,19 +1006,22 @@ public class ResponseAdditionalDataCommon {
    * @return isCardCommercial
   **/
   @ApiModelProperty(value = "Indicates if the card is used for business purposes only.")
+  @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIsCardCommercial() {
     return isCardCommercial;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCardCommercial(String isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
   }
 
 
   public ResponseAdditionalDataCommon issuerCountry(String issuerCountry) {
-    
     this.issuerCountry = issuerCountry;
     return this;
   }
@@ -990,19 +1031,22 @@ public class ResponseAdditionalDataCommon {
    * @return issuerCountry
   **/
   @ApiModelProperty(value = "The issuing country of the card based on the BIN list that Adyen maintains.  Example: JP")
+  @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuerCountry() {
     return issuerCountry;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
   }
 
 
   public ResponseAdditionalDataCommon liabilityShift(String liabilityShift) {
-    
     this.liabilityShift = liabilityShift;
     return this;
   }
@@ -1012,19 +1056,22 @@ public class ResponseAdditionalDataCommon {
    * @return liabilityShift
   **/
   @ApiModelProperty(value = "A Boolean value indicating whether a liability shift was offered for this payment.")
+  @JsonProperty(JSON_PROPERTY_LIABILITY_SHIFT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLiabilityShift() {
     return liabilityShift;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LIABILITY_SHIFT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLiabilityShift(String liabilityShift) {
     this.liabilityShift = liabilityShift;
   }
 
 
   public ResponseAdditionalDataCommon mcBankNetReferenceNumber(String mcBankNetReferenceNumber) {
-    
     this.mcBankNetReferenceNumber = mcBankNetReferenceNumber;
     return this;
   }
@@ -1034,19 +1081,22 @@ public class ResponseAdditionalDataCommon {
    * @return mcBankNetReferenceNumber
   **/
   @ApiModelProperty(value = "The `mcBankNetReferenceNumber`, is a minimum of six characters and a maximum of nine characters long.  > Contact Support Team to enable this field.")
+  @JsonProperty(JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMcBankNetReferenceNumber() {
     return mcBankNetReferenceNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcBankNetReferenceNumber(String mcBankNetReferenceNumber) {
     this.mcBankNetReferenceNumber = mcBankNetReferenceNumber;
   }
 
 
   public ResponseAdditionalDataCommon merchantAdviceCode(String merchantAdviceCode) {
-    
     this.merchantAdviceCode = merchantAdviceCode;
     return this;
   }
@@ -1056,19 +1106,22 @@ public class ResponseAdditionalDataCommon {
    * @return merchantAdviceCode
   **/
   @ApiModelProperty(value = "The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ADVICE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAdviceCode() {
     return merchantAdviceCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ADVICE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAdviceCode(String merchantAdviceCode) {
     this.merchantAdviceCode = merchantAdviceCode;
   }
 
 
   public ResponseAdditionalDataCommon merchantReference(String merchantReference) {
-    
     this.merchantReference = merchantReference;
     return this;
   }
@@ -1078,19 +1131,22 @@ public class ResponseAdditionalDataCommon {
    * @return merchantReference
   **/
   @ApiModelProperty(value = "The reference provided for the transaction.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantReference() {
     return merchantReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
 
   public ResponseAdditionalDataCommon networkTxReference(String networkTxReference) {
-    
     this.networkTxReference = networkTxReference;
     return this;
   }
@@ -1100,19 +1156,22 @@ public class ResponseAdditionalDataCommon {
    * @return networkTxReference
   **/
   @ApiModelProperty(value = "Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.")
+  @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNetworkTxReference() {
     return networkTxReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
   }
 
 
   public ResponseAdditionalDataCommon ownerName(String ownerName) {
-    
     this.ownerName = ownerName;
     return this;
   }
@@ -1122,19 +1181,22 @@ public class ResponseAdditionalDataCommon {
    * @return ownerName
   **/
   @ApiModelProperty(value = "The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.")
+  @JsonProperty(JSON_PROPERTY_OWNER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOwnerName() {
     return ownerName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OWNER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
   }
 
 
   public ResponseAdditionalDataCommon paymentAccountReference(String paymentAccountReference) {
-    
     this.paymentAccountReference = paymentAccountReference;
     return this;
   }
@@ -1144,19 +1206,22 @@ public class ResponseAdditionalDataCommon {
    * @return paymentAccountReference
   **/
   @ApiModelProperty(value = "The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentAccountReference() {
     return paymentAccountReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountReference(String paymentAccountReference) {
     this.paymentAccountReference = paymentAccountReference;
   }
 
 
   public ResponseAdditionalDataCommon paymentMethod(String paymentMethod) {
-    
     this.paymentMethod = paymentMethod;
     return this;
   }
@@ -1166,19 +1231,22 @@ public class ResponseAdditionalDataCommon {
    * @return paymentMethod
   **/
   @ApiModelProperty(value = "The payment method used in the transaction.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentMethod() {
     return paymentMethod;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
 
   public ResponseAdditionalDataCommon paymentMethodVariant(String paymentMethodVariant) {
-    
     this.paymentMethodVariant = paymentMethodVariant;
     return this;
   }
@@ -1188,19 +1256,22 @@ public class ResponseAdditionalDataCommon {
    * @return paymentMethodVariant
   **/
   @ApiModelProperty(value = "The Adyen sub-variant of the payment method used for the payment request.  For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).  Example: mcpro")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentMethodVariant() {
     return paymentMethodVariant;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
   }
 
 
   public ResponseAdditionalDataCommon payoutEligible(String payoutEligible) {
-    
     this.payoutEligible = payoutEligible;
     return this;
   }
@@ -1210,19 +1281,22 @@ public class ResponseAdditionalDataCommon {
    * @return payoutEligible
   **/
   @ApiModelProperty(value = "Indicates whether a payout is eligible or not for this card.  Visa: * \"Y\" * \"N\"  Mastercard: * \"Y\" (domestic and cross-border)  * \"D\" (only domestic) * \"N\" (no MoneySend) * \"U\" (unknown)")
+  @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPayoutEligible() {
     return payoutEligible;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
   }
 
 
   public ResponseAdditionalDataCommon realtimeAccountUpdaterStatus(String realtimeAccountUpdaterStatus) {
-    
     this.realtimeAccountUpdaterStatus = realtimeAccountUpdaterStatus;
     return this;
   }
@@ -1232,19 +1306,22 @@ public class ResponseAdditionalDataCommon {
    * @return realtimeAccountUpdaterStatus
   **/
   @ApiModelProperty(value = "The response code from the Real Time Account Updater service.  Possible return values are: * CardChanged * CardExpiryChanged * CloseAccount  * ContactCardAccountHolder")
+  @JsonProperty(JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRealtimeAccountUpdaterStatus() {
     return realtimeAccountUpdaterStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRealtimeAccountUpdaterStatus(String realtimeAccountUpdaterStatus) {
     this.realtimeAccountUpdaterStatus = realtimeAccountUpdaterStatus;
   }
 
 
   public ResponseAdditionalDataCommon receiptFreeText(String receiptFreeText) {
-    
     this.receiptFreeText = receiptFreeText;
     return this;
   }
@@ -1254,19 +1331,22 @@ public class ResponseAdditionalDataCommon {
    * @return receiptFreeText
   **/
   @ApiModelProperty(value = "Message to be displayed on the terminal.")
+  @JsonProperty(JSON_PROPERTY_RECEIPT_FREE_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReceiptFreeText() {
     return receiptFreeText;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECEIPT_FREE_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptFreeText(String receiptFreeText) {
     this.receiptFreeText = receiptFreeText;
   }
 
 
   public ResponseAdditionalDataCommon recurringContractTypes(String recurringContractTypes) {
-    
     this.recurringContractTypes = recurringContractTypes;
     return this;
   }
@@ -1276,19 +1356,22 @@ public class ResponseAdditionalDataCommon {
    * @return recurringContractTypes
   **/
   @ApiModelProperty(value = "The recurring contract types applicable to the transaction.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_CONTRACT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringContractTypes() {
     return recurringContractTypes;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_CONTRACT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringContractTypes(String recurringContractTypes) {
     this.recurringContractTypes = recurringContractTypes;
   }
 
 
   public ResponseAdditionalDataCommon recurringFirstPspReference(String recurringFirstPspReference) {
-    
     this.recurringFirstPspReference = recurringFirstPspReference;
     return this;
   }
@@ -1298,19 +1381,22 @@ public class ResponseAdditionalDataCommon {
    * @return recurringFirstPspReference
   **/
   @ApiModelProperty(value = "The `pspReference`, of the first recurring payment that created the recurring detail.  This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringFirstPspReference() {
     return recurringFirstPspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFirstPspReference(String recurringFirstPspReference) {
     this.recurringFirstPspReference = recurringFirstPspReference;
   }
 
 
   public ResponseAdditionalDataCommon recurringRecurringDetailReference(String recurringRecurringDetailReference) {
-    
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
     return this;
   }
@@ -1320,19 +1406,22 @@ public class ResponseAdditionalDataCommon {
    * @return recurringRecurringDetailReference
   **/
   @ApiModelProperty(value = "The reference that uniquely identifies the recurring transaction.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringRecurringDetailReference() {
     return recurringRecurringDetailReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringRecurringDetailReference(String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
   }
 
 
   public ResponseAdditionalDataCommon recurringShopperReference(String recurringShopperReference) {
-    
     this.recurringShopperReference = recurringShopperReference;
     return this;
   }
@@ -1342,19 +1431,22 @@ public class ResponseAdditionalDataCommon {
    * @return recurringShopperReference
   **/
   @ApiModelProperty(value = "The provided reference of the shopper for a recurring transaction.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringShopperReference() {
     return recurringShopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
   }
 
 
   public ResponseAdditionalDataCommon recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
-    
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
@@ -1364,19 +1456,22 @@ public class ResponseAdditionalDataCommon {
    * @return recurringProcessingModel
   **/
   @ApiModelProperty(value = "The processing model used for the recurring transaction.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
     return recurringProcessingModel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
   }
 
 
   public ResponseAdditionalDataCommon referred(String referred) {
-    
     this.referred = referred;
     return this;
   }
@@ -1386,19 +1481,22 @@ public class ResponseAdditionalDataCommon {
    * @return referred
   **/
   @ApiModelProperty(value = "If the payment is referred, this field is set to true.  This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.  Example: true")
+  @JsonProperty(JSON_PROPERTY_REFERRED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReferred() {
     return referred;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERRED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferred(String referred) {
     this.referred = referred;
   }
 
 
   public ResponseAdditionalDataCommon refusalReasonRaw(String refusalReasonRaw) {
-    
     this.refusalReasonRaw = refusalReasonRaw;
     return this;
   }
@@ -1408,19 +1506,22 @@ public class ResponseAdditionalDataCommon {
    * @return refusalReasonRaw
   **/
   @ApiModelProperty(value = "Raw refusal reason received from the acquirer, where available.  Example: AUTHORISED")
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_RAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRefusalReasonRaw() {
     return refusalReasonRaw;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_RAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReasonRaw(String refusalReasonRaw) {
     this.refusalReasonRaw = refusalReasonRaw;
   }
 
 
   public ResponseAdditionalDataCommon requestAmount(String requestAmount) {
-    
     this.requestAmount = requestAmount;
     return this;
   }
@@ -1430,19 +1531,22 @@ public class ResponseAdditionalDataCommon {
    * @return requestAmount
   **/
   @ApiModelProperty(value = "The amount of the payment request.")
+  @JsonProperty(JSON_PROPERTY_REQUEST_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestAmount() {
     return requestAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUEST_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestAmount(String requestAmount) {
     this.requestAmount = requestAmount;
   }
 
 
   public ResponseAdditionalDataCommon requestCurrencyCode(String requestCurrencyCode) {
-    
     this.requestCurrencyCode = requestCurrencyCode;
     return this;
   }
@@ -1452,19 +1556,22 @@ public class ResponseAdditionalDataCommon {
    * @return requestCurrencyCode
   **/
   @ApiModelProperty(value = "The currency of the payment request.")
+  @JsonProperty(JSON_PROPERTY_REQUEST_CURRENCY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestCurrencyCode() {
     return requestCurrencyCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUEST_CURRENCY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestCurrencyCode(String requestCurrencyCode) {
     this.requestCurrencyCode = requestCurrencyCode;
   }
 
 
   public ResponseAdditionalDataCommon shopperInteraction(String shopperInteraction) {
-    
     this.shopperInteraction = shopperInteraction;
     return this;
   }
@@ -1474,19 +1581,22 @@ public class ResponseAdditionalDataCommon {
    * @return shopperInteraction
   **/
   @ApiModelProperty(value = "The shopper interaction type of the payment request.  Example: Ecommerce")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperInteraction() {
     return shopperInteraction;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
 
 
   public ResponseAdditionalDataCommon shopperReference(String shopperReference) {
-    
     this.shopperReference = shopperReference;
     return this;
   }
@@ -1496,19 +1606,22 @@ public class ResponseAdditionalDataCommon {
    * @return shopperReference
   **/
   @ApiModelProperty(value = "The shopperReference passed in the payment request.  Example: AdyenTestShopperXX")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperReference() {
     return shopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
 
   public ResponseAdditionalDataCommon terminalId(String terminalId) {
-    
     this.terminalId = terminalId;
     return this;
   }
@@ -1518,19 +1631,22 @@ public class ResponseAdditionalDataCommon {
    * @return terminalId
   **/
   @ApiModelProperty(value = "The terminal ID used in a point-of-sale payment.  Example: 06022622")
+  @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTerminalId() {
     return terminalId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
   }
 
 
   public ResponseAdditionalDataCommon threeDAuthenticated(String threeDAuthenticated) {
-    
     this.threeDAuthenticated = threeDAuthenticated;
     return this;
   }
@@ -1540,19 +1656,22 @@ public class ResponseAdditionalDataCommon {
    * @return threeDAuthenticated
   **/
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS authentication was completed on this payment.  Example: true")
+  @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDAuthenticated() {
     return threeDAuthenticated;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
   }
 
 
   public ResponseAdditionalDataCommon threeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
-    
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
     return this;
   }
@@ -1562,19 +1681,22 @@ public class ResponseAdditionalDataCommon {
    * @return threeDAuthenticatedResponse
   **/
   @ApiModelProperty(value = "The raw 3DS authentication result from the card issuer.  Example: N")
+  @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDAuthenticatedResponse() {
     return threeDAuthenticatedResponse;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
   }
 
 
   public ResponseAdditionalDataCommon threeDOffered(String threeDOffered) {
-    
     this.threeDOffered = threeDOffered;
     return this;
   }
@@ -1584,19 +1706,22 @@ public class ResponseAdditionalDataCommon {
    * @return threeDOffered
   **/
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS was offered for this payment.  Example: true")
+  @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDOffered() {
     return threeDOffered;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
   }
 
 
   public ResponseAdditionalDataCommon threeDOfferedResponse(String threeDOfferedResponse) {
-    
     this.threeDOfferedResponse = threeDOfferedResponse;
     return this;
   }
@@ -1606,19 +1731,22 @@ public class ResponseAdditionalDataCommon {
    * @return threeDOfferedResponse
   **/
   @ApiModelProperty(value = "The raw enrollment result from the 3DS directory services of the card schemes.  Example: Y")
+  @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDOfferedResponse() {
     return threeDOfferedResponse;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
   }
 
 
   public ResponseAdditionalDataCommon threeDSVersion(String threeDSVersion) {
-    
     this.threeDSVersion = threeDSVersion;
     return this;
   }
@@ -1628,19 +1756,22 @@ public class ResponseAdditionalDataCommon {
    * @return threeDSVersion
   **/
   @ApiModelProperty(value = "The 3D Secure 2 version.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSVersion() {
     return threeDSVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
   }
 
 
   public ResponseAdditionalDataCommon visaTransactionId(String visaTransactionId) {
-    
     this.visaTransactionId = visaTransactionId;
     return this;
   }
@@ -1650,19 +1781,22 @@ public class ResponseAdditionalDataCommon {
    * @return visaTransactionId
   **/
   @ApiModelProperty(value = "The `visaTransactionId`, has a fixed length of 15 numeric characters.  > Contact Support Team to enable this field.")
+  @JsonProperty(JSON_PROPERTY_VISA_TRANSACTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getVisaTransactionId() {
     return visaTransactionId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VISA_TRANSACTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisaTransactionId(String visaTransactionId) {
     this.visaTransactionId = visaTransactionId;
   }
 
 
   public ResponseAdditionalDataCommon xid(String xid) {
-    
     this.xid = xid;
     return this;
   }
@@ -1672,18 +1806,24 @@ public class ResponseAdditionalDataCommon {
    * @return xid
   **/
   @ApiModelProperty(value = "The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'. If you want to submit the xid in your 3D Secure 1 request, use the `mpiData.xid`, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA=")
+  @JsonProperty(JSON_PROPERTY_XID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getXid() {
     return xid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_XID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(String xid) {
     this.xid = xid;
   }
 
 
-
+  /**
+   * Return true if this ResponseAdditionalDataCommon object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1837,394 +1977,23 @@ public class ResponseAdditionalDataCommon {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acquirerAccountCode");
-    openapiFields.add("acquirerCode");
-    openapiFields.add("acquirerReference");
-    openapiFields.add("alias");
-    openapiFields.add("aliasType");
-    openapiFields.add("authCode");
-    openapiFields.add("authorisationMid");
-    openapiFields.add("authorisedAmountCurrency");
-    openapiFields.add("authorisedAmountValue");
-    openapiFields.add("avsResult");
-    openapiFields.add("avsResultRaw");
-    openapiFields.add("bic");
-    openapiFields.add("coBrandedWith");
-    openapiFields.add("cvcResult");
-    openapiFields.add("cvcResultRaw");
-    openapiFields.add("dsTransID");
-    openapiFields.add("eci");
-    openapiFields.add("expiryDate");
-    openapiFields.add("extraCostsCurrency");
-    openapiFields.add("extraCostsValue");
-    openapiFields.add("fraudCheck-[itemNr]-[FraudCheckname]");
-    openapiFields.add("fraudManualReview");
-    openapiFields.add("fraudResultType");
-    openapiFields.add("fundingSource");
-    openapiFields.add("fundsAvailability");
-    openapiFields.add("inferredRefusalReason");
-    openapiFields.add("isCardCommercial");
-    openapiFields.add("issuerCountry");
-    openapiFields.add("liabilityShift");
-    openapiFields.add("mcBankNetReferenceNumber");
-    openapiFields.add("merchantAdviceCode");
-    openapiFields.add("merchantReference");
-    openapiFields.add("networkTxReference");
-    openapiFields.add("ownerName");
-    openapiFields.add("paymentAccountReference");
-    openapiFields.add("paymentMethod");
-    openapiFields.add("paymentMethodVariant");
-    openapiFields.add("payoutEligible");
-    openapiFields.add("realtimeAccountUpdaterStatus");
-    openapiFields.add("receiptFreeText");
-    openapiFields.add("recurring.contractTypes");
-    openapiFields.add("recurring.firstPspReference");
-    openapiFields.add("recurring.recurringDetailReference");
-    openapiFields.add("recurring.shopperReference");
-    openapiFields.add("recurringProcessingModel");
-    openapiFields.add("referred");
-    openapiFields.add("refusalReasonRaw");
-    openapiFields.add("requestAmount");
-    openapiFields.add("requestCurrencyCode");
-    openapiFields.add("shopperInteraction");
-    openapiFields.add("shopperReference");
-    openapiFields.add("terminalId");
-    openapiFields.add("threeDAuthenticated");
-    openapiFields.add("threeDAuthenticatedResponse");
-    openapiFields.add("threeDOffered");
-    openapiFields.add("threeDOfferedResponse");
-    openapiFields.add("threeDSVersion");
-    openapiFields.add("visaTransactionId");
-    openapiFields.add("xid");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ResponseAdditionalDataCommon given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ResponseAdditionalDataCommon
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ResponseAdditionalDataCommon
+   */
+  public static ResponseAdditionalDataCommon fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ResponseAdditionalDataCommon.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ResponseAdditionalDataCommon.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ResponseAdditionalDataCommon
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ResponseAdditionalDataCommon.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataCommon is not found in the empty JSON string", ResponseAdditionalDataCommon.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ResponseAdditionalDataCommon.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataCommon` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field acquirerAccountCode
-      if (jsonObj.get("acquirerAccountCode") != null && !jsonObj.get("acquirerAccountCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acquirerAccountCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquirerAccountCode").toString()));
-      }
-      // validate the optional field acquirerCode
-      if (jsonObj.get("acquirerCode") != null && !jsonObj.get("acquirerCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acquirerCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquirerCode").toString()));
-      }
-      // validate the optional field acquirerReference
-      if (jsonObj.get("acquirerReference") != null && !jsonObj.get("acquirerReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acquirerReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquirerReference").toString()));
-      }
-      // validate the optional field alias
-      if (jsonObj.get("alias") != null && !jsonObj.get("alias").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alias").toString()));
-      }
-      // validate the optional field aliasType
-      if (jsonObj.get("aliasType") != null && !jsonObj.get("aliasType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `aliasType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aliasType").toString()));
-      }
-      // validate the optional field authCode
-      if (jsonObj.get("authCode") != null && !jsonObj.get("authCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authCode").toString()));
-      }
-      // validate the optional field authorisationMid
-      if (jsonObj.get("authorisationMid") != null && !jsonObj.get("authorisationMid").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authorisationMid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorisationMid").toString()));
-      }
-      // validate the optional field authorisedAmountCurrency
-      if (jsonObj.get("authorisedAmountCurrency") != null && !jsonObj.get("authorisedAmountCurrency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authorisedAmountCurrency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorisedAmountCurrency").toString()));
-      }
-      // validate the optional field authorisedAmountValue
-      if (jsonObj.get("authorisedAmountValue") != null && !jsonObj.get("authorisedAmountValue").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authorisedAmountValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorisedAmountValue").toString()));
-      }
-      // validate the optional field avsResult
-      if (jsonObj.get("avsResult") != null && !jsonObj.get("avsResult").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `avsResult` to be a primitive type in the JSON string but got `%s`", jsonObj.get("avsResult").toString()));
-      }
-      // validate the optional field avsResultRaw
-      if (jsonObj.get("avsResultRaw") != null && !jsonObj.get("avsResultRaw").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `avsResultRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("avsResultRaw").toString()));
-      }
-      // validate the optional field bic
-      if (jsonObj.get("bic") != null && !jsonObj.get("bic").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bic` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bic").toString()));
-      }
-      // validate the optional field coBrandedWith
-      if (jsonObj.get("coBrandedWith") != null && !jsonObj.get("coBrandedWith").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `coBrandedWith` to be a primitive type in the JSON string but got `%s`", jsonObj.get("coBrandedWith").toString()));
-      }
-      // validate the optional field cvcResult
-      if (jsonObj.get("cvcResult") != null && !jsonObj.get("cvcResult").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cvcResult` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvcResult").toString()));
-      }
-      // validate the optional field cvcResultRaw
-      if (jsonObj.get("cvcResultRaw") != null && !jsonObj.get("cvcResultRaw").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cvcResultRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvcResultRaw").toString()));
-      }
-      // validate the optional field dsTransID
-      if (jsonObj.get("dsTransID") != null && !jsonObj.get("dsTransID").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `dsTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dsTransID").toString()));
-      }
-      // validate the optional field eci
-      if (jsonObj.get("eci") != null && !jsonObj.get("eci").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `eci` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eci").toString()));
-      }
-      // validate the optional field expiryDate
-      if (jsonObj.get("expiryDate") != null && !jsonObj.get("expiryDate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `expiryDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryDate").toString()));
-      }
-      // validate the optional field extraCostsCurrency
-      if (jsonObj.get("extraCostsCurrency") != null && !jsonObj.get("extraCostsCurrency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `extraCostsCurrency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extraCostsCurrency").toString()));
-      }
-      // validate the optional field extraCostsValue
-      if (jsonObj.get("extraCostsValue") != null && !jsonObj.get("extraCostsValue").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `extraCostsValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extraCostsValue").toString()));
-      }
-      // validate the optional field fraudCheck-[itemNr]-[FraudCheckname]
-      if (jsonObj.get("fraudCheck-[itemNr]-[FraudCheckname]") != null && !jsonObj.get("fraudCheck-[itemNr]-[FraudCheckname]").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fraudCheck-[itemNr]-[FraudCheckname]` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fraudCheck-[itemNr]-[FraudCheckname]").toString()));
-      }
-      // validate the optional field fraudManualReview
-      if (jsonObj.get("fraudManualReview") != null && !jsonObj.get("fraudManualReview").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fraudManualReview` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fraudManualReview").toString()));
-      }
-      // ensure the field fraudResultType can be parsed to an enum value
-      if (jsonObj.get("fraudResultType") != null) {
-        if(!jsonObj.get("fraudResultType").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `fraudResultType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fraudResultType").toString()));
-        }
-        FraudResultTypeEnum.fromValue(jsonObj.get("fraudResultType").getAsString());
-      }
-      // validate the optional field fundingSource
-      if (jsonObj.get("fundingSource") != null && !jsonObj.get("fundingSource").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
-      }
-      // validate the optional field fundsAvailability
-      if (jsonObj.get("fundsAvailability") != null && !jsonObj.get("fundsAvailability").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fundsAvailability` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundsAvailability").toString()));
-      }
-      // validate the optional field inferredRefusalReason
-      if (jsonObj.get("inferredRefusalReason") != null && !jsonObj.get("inferredRefusalReason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `inferredRefusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("inferredRefusalReason").toString()));
-      }
-      // validate the optional field isCardCommercial
-      if (jsonObj.get("isCardCommercial") != null && !jsonObj.get("isCardCommercial").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `isCardCommercial` to be a primitive type in the JSON string but got `%s`", jsonObj.get("isCardCommercial").toString()));
-      }
-      // validate the optional field issuerCountry
-      if (jsonObj.get("issuerCountry") != null && !jsonObj.get("issuerCountry").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuerCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerCountry").toString()));
-      }
-      // validate the optional field liabilityShift
-      if (jsonObj.get("liabilityShift") != null && !jsonObj.get("liabilityShift").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `liabilityShift` to be a primitive type in the JSON string but got `%s`", jsonObj.get("liabilityShift").toString()));
-      }
-      // validate the optional field mcBankNetReferenceNumber
-      if (jsonObj.get("mcBankNetReferenceNumber") != null && !jsonObj.get("mcBankNetReferenceNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `mcBankNetReferenceNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcBankNetReferenceNumber").toString()));
-      }
-      // validate the optional field merchantAdviceCode
-      if (jsonObj.get("merchantAdviceCode") != null && !jsonObj.get("merchantAdviceCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAdviceCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAdviceCode").toString()));
-      }
-      // validate the optional field merchantReference
-      if (jsonObj.get("merchantReference") != null && !jsonObj.get("merchantReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantReference").toString()));
-      }
-      // validate the optional field networkTxReference
-      if (jsonObj.get("networkTxReference") != null && !jsonObj.get("networkTxReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `networkTxReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkTxReference").toString()));
-      }
-      // validate the optional field ownerName
-      if (jsonObj.get("ownerName") != null && !jsonObj.get("ownerName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ownerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerName").toString()));
-      }
-      // validate the optional field paymentAccountReference
-      if (jsonObj.get("paymentAccountReference") != null && !jsonObj.get("paymentAccountReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentAccountReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentAccountReference").toString()));
-      }
-      // validate the optional field paymentMethod
-      if (jsonObj.get("paymentMethod") != null && !jsonObj.get("paymentMethod").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentMethod").toString()));
-      }
-      // validate the optional field paymentMethodVariant
-      if (jsonObj.get("paymentMethodVariant") != null && !jsonObj.get("paymentMethodVariant").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentMethodVariant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentMethodVariant").toString()));
-      }
-      // validate the optional field payoutEligible
-      if (jsonObj.get("payoutEligible") != null && !jsonObj.get("payoutEligible").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `payoutEligible` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payoutEligible").toString()));
-      }
-      // validate the optional field realtimeAccountUpdaterStatus
-      if (jsonObj.get("realtimeAccountUpdaterStatus") != null && !jsonObj.get("realtimeAccountUpdaterStatus").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `realtimeAccountUpdaterStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("realtimeAccountUpdaterStatus").toString()));
-      }
-      // validate the optional field receiptFreeText
-      if (jsonObj.get("receiptFreeText") != null && !jsonObj.get("receiptFreeText").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `receiptFreeText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiptFreeText").toString()));
-      }
-      // validate the optional field recurring.contractTypes
-      if (jsonObj.get("recurring.contractTypes") != null && !jsonObj.get("recurring.contractTypes").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurring.contractTypes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurring.contractTypes").toString()));
-      }
-      // validate the optional field recurring.firstPspReference
-      if (jsonObj.get("recurring.firstPspReference") != null && !jsonObj.get("recurring.firstPspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurring.firstPspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurring.firstPspReference").toString()));
-      }
-      // validate the optional field recurring.recurringDetailReference
-      if (jsonObj.get("recurring.recurringDetailReference") != null && !jsonObj.get("recurring.recurringDetailReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurring.recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurring.recurringDetailReference").toString()));
-      }
-      // validate the optional field recurring.shopperReference
-      if (jsonObj.get("recurring.shopperReference") != null && !jsonObj.get("recurring.shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurring.shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurring.shopperReference").toString()));
-      }
-      // ensure the field recurringProcessingModel can be parsed to an enum value
-      if (jsonObj.get("recurringProcessingModel") != null) {
-        if(!jsonObj.get("recurringProcessingModel").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `recurringProcessingModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringProcessingModel").toString()));
-        }
-        RecurringProcessingModelEnum.fromValue(jsonObj.get("recurringProcessingModel").getAsString());
-      }
-      // validate the optional field referred
-      if (jsonObj.get("referred") != null && !jsonObj.get("referred").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `referred` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referred").toString()));
-      }
-      // validate the optional field refusalReasonRaw
-      if (jsonObj.get("refusalReasonRaw") != null && !jsonObj.get("refusalReasonRaw").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `refusalReasonRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReasonRaw").toString()));
-      }
-      // validate the optional field requestAmount
-      if (jsonObj.get("requestAmount") != null && !jsonObj.get("requestAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `requestAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestAmount").toString()));
-      }
-      // validate the optional field requestCurrencyCode
-      if (jsonObj.get("requestCurrencyCode") != null && !jsonObj.get("requestCurrencyCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `requestCurrencyCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestCurrencyCode").toString()));
-      }
-      // validate the optional field shopperInteraction
-      if (jsonObj.get("shopperInteraction") != null && !jsonObj.get("shopperInteraction").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
-      }
-      // validate the optional field shopperReference
-      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
-      }
-      // validate the optional field terminalId
-      if (jsonObj.get("terminalId") != null && !jsonObj.get("terminalId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `terminalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminalId").toString()));
-      }
-      // validate the optional field threeDAuthenticated
-      if (jsonObj.get("threeDAuthenticated") != null && !jsonObj.get("threeDAuthenticated").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDAuthenticated` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDAuthenticated").toString()));
-      }
-      // validate the optional field threeDAuthenticatedResponse
-      if (jsonObj.get("threeDAuthenticatedResponse") != null && !jsonObj.get("threeDAuthenticatedResponse").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDAuthenticatedResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDAuthenticatedResponse").toString()));
-      }
-      // validate the optional field threeDOffered
-      if (jsonObj.get("threeDOffered") != null && !jsonObj.get("threeDOffered").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDOffered` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDOffered").toString()));
-      }
-      // validate the optional field threeDOfferedResponse
-      if (jsonObj.get("threeDOfferedResponse") != null && !jsonObj.get("threeDOfferedResponse").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDOfferedResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDOfferedResponse").toString()));
-      }
-      // validate the optional field threeDSVersion
-      if (jsonObj.get("threeDSVersion") != null && !jsonObj.get("threeDSVersion").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
-      }
-      // validate the optional field visaTransactionId
-      if (jsonObj.get("visaTransactionId") != null && !jsonObj.get("visaTransactionId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `visaTransactionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visaTransactionId").toString()));
-      }
-      // validate the optional field xid
-      if (jsonObj.get("xid") != null && !jsonObj.get("xid").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `xid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xid").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ResponseAdditionalDataCommon.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ResponseAdditionalDataCommon' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ResponseAdditionalDataCommon> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ResponseAdditionalDataCommon.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ResponseAdditionalDataCommon>() {
-           @Override
-           public void write(JsonWriter out, ResponseAdditionalDataCommon value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ResponseAdditionalDataCommon read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ResponseAdditionalDataCommon given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ResponseAdditionalDataCommon
-  * @throws IOException if the JSON string is invalid with respect to ResponseAdditionalDataCommon
-  */
-  public static ResponseAdditionalDataCommon fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ResponseAdditionalDataCommon.class);
-  }
-
- /**
+/**
   * Convert an instance of ResponseAdditionalDataCommon to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,48 +14,35 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * CheckoutSessionInstallmentOption
  */
+@JsonPropertyOrder({
+  CheckoutSessionInstallmentOption.JSON_PROPERTY_PLANS,
+  CheckoutSessionInstallmentOption.JSON_PROPERTY_PRESELECTED_VALUE,
+  CheckoutSessionInstallmentOption.JSON_PROPERTY_VALUES
+})
 
 public class CheckoutSessionInstallmentOption {
   /**
    * Gets or Sets plans
    */
-  @JsonAdapter(PlansEnum.Adapter.class)
   public enum PlansEnum {
     REGULAR("regular"),
     
@@ -67,6 +54,7 @@ public class CheckoutSessionInstallmentOption {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -76,6 +64,7 @@ public class CheckoutSessionInstallmentOption {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static PlansEnum fromValue(String value) {
       for (PlansEnum b : PlansEnum.values()) {
         if (b.value.equals(value)) {
@@ -84,38 +73,21 @@ public class CheckoutSessionInstallmentOption {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<PlansEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PlansEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public PlansEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return PlansEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_PLANS = "plans";
-  @SerializedName(SERIALIZED_NAME_PLANS)
+  public static final String JSON_PROPERTY_PLANS = "plans";
   private List<PlansEnum> plans = null;
 
-  public static final String SERIALIZED_NAME_PRESELECTED_VALUE = "preselectedValue";
-  @SerializedName(SERIALIZED_NAME_PRESELECTED_VALUE)
+  public static final String JSON_PROPERTY_PRESELECTED_VALUE = "preselectedValue";
   private Integer preselectedValue;
 
-  public static final String SERIALIZED_NAME_VALUES = "values";
-  @SerializedName(SERIALIZED_NAME_VALUES)
+  public static final String JSON_PROPERTY_VALUES = "values";
   private List<Integer> values = null;
 
   public CheckoutSessionInstallmentOption() { 
   }
 
   public CheckoutSessionInstallmentOption plans(List<PlansEnum> plans) {
-    
     this.plans = plans;
     return this;
   }
@@ -133,19 +105,22 @@ public class CheckoutSessionInstallmentOption {
    * @return plans
   **/
   @ApiModelProperty(value = "Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**")
+  @JsonProperty(JSON_PROPERTY_PLANS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<PlansEnum> getPlans() {
     return plans;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PLANS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlans(List<PlansEnum> plans) {
     this.plans = plans;
   }
 
 
   public CheckoutSessionInstallmentOption preselectedValue(Integer preselectedValue) {
-    
     this.preselectedValue = preselectedValue;
     return this;
   }
@@ -155,19 +130,22 @@ public class CheckoutSessionInstallmentOption {
    * @return preselectedValue
   **/
   @ApiModelProperty(value = "Preselected number of installments offered for this payment method.")
+  @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getPreselectedValue() {
     return preselectedValue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreselectedValue(Integer preselectedValue) {
     this.preselectedValue = preselectedValue;
   }
 
 
   public CheckoutSessionInstallmentOption values(List<Integer> values) {
-    
     this.values = values;
     return this;
   }
@@ -185,18 +163,24 @@ public class CheckoutSessionInstallmentOption {
    * @return values
   **/
   @ApiModelProperty(value = "An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.")
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Integer> getValues() {
     return values;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Integer> values) {
     this.values = values;
   }
 
 
-
+  /**
+   * Return true if this CheckoutSessionInstallmentOption object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -238,104 +222,23 @@ public class CheckoutSessionInstallmentOption {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("plans");
-    openapiFields.add("preselectedValue");
-    openapiFields.add("values");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of CheckoutSessionInstallmentOption given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CheckoutSessionInstallmentOption
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutSessionInstallmentOption
+   */
+  public static CheckoutSessionInstallmentOption fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CheckoutSessionInstallmentOption.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CheckoutSessionInstallmentOption.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CheckoutSessionInstallmentOption
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CheckoutSessionInstallmentOption.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CheckoutSessionInstallmentOption is not found in the empty JSON string", CheckoutSessionInstallmentOption.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CheckoutSessionInstallmentOption.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CheckoutSessionInstallmentOption` properties.", entry.getKey()));
-        }
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("plans") != null && !jsonObj.get("plans").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `plans` to be an array in the JSON string but got `%s`", jsonObj.get("plans").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("values") != null && !jsonObj.get("values").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `values` to be an array in the JSON string but got `%s`", jsonObj.get("values").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CheckoutSessionInstallmentOption.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CheckoutSessionInstallmentOption' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CheckoutSessionInstallmentOption> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CheckoutSessionInstallmentOption.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CheckoutSessionInstallmentOption>() {
-           @Override
-           public void write(JsonWriter out, CheckoutSessionInstallmentOption value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CheckoutSessionInstallmentOption read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CheckoutSessionInstallmentOption given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CheckoutSessionInstallmentOption
-  * @throws IOException if the JSON string is invalid with respect to CheckoutSessionInstallmentOption
-  */
-  public static CheckoutSessionInstallmentOption fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CheckoutSessionInstallmentOption.class);
-  }
-
- /**
+/**
   * Convert an instance of CheckoutSessionInstallmentOption to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

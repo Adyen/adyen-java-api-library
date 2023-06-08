@@ -14,63 +14,48 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * PayUUpiDetails
  */
+@JsonPropertyOrder({
+  PayUUpiDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  PayUUpiDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  PayUUpiDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
+  PayUUpiDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  PayUUpiDetails.JSON_PROPERTY_TYPE,
+  PayUUpiDetails.JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS
+})
 
 public class PayUUpiDetails {
-  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
-  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
-  public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NOTIFICATION_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
   private String shopperNotificationReference;
 
-  public static final String SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
-  @SerializedName(SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID)
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
   /**
    * **payu_IN_upi**
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     PAYU_IN_UPI("payu_IN_upi");
 
@@ -80,6 +65,7 @@ public class PayUUpiDetails {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -89,6 +75,7 @@ public class PayUUpiDetails {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -97,34 +84,18 @@ public class PayUUpiDetails {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.PAYU_IN_UPI;
 
-  public static final String SERIALIZED_NAME_VIRTUAL_PAYMENT_ADDRESS = "virtualPaymentAddress";
-  @SerializedName(SERIALIZED_NAME_VIRTUAL_PAYMENT_ADDRESS)
+  public static final String JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS = "virtualPaymentAddress";
   private String virtualPaymentAddress;
 
   public PayUUpiDetails() { 
   }
 
   public PayUUpiDetails checkoutAttemptId(String checkoutAttemptId) {
-    
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
@@ -134,20 +105,22 @@ public class PayUUpiDetails {
    * @return checkoutAttemptId
   **/
   @ApiModelProperty(value = "The checkout attempt identifier.")
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
 
-  @Deprecated
   public PayUUpiDetails recurringDetailReference(String recurringDetailReference) {
-    
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
@@ -159,20 +132,22 @@ public class PayUUpiDetails {
   **/
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
 
   public PayUUpiDetails shopperNotificationReference(String shopperNotificationReference) {
-    
     this.shopperNotificationReference = shopperNotificationReference;
     return this;
   }
@@ -182,19 +157,22 @@ public class PayUUpiDetails {
    * @return shopperNotificationReference
   **/
   @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperNotificationReference() {
     return shopperNotificationReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
   }
 
 
   public PayUUpiDetails storedPaymentMethodId(String storedPaymentMethodId) {
-    
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
@@ -204,19 +182,22 @@ public class PayUUpiDetails {
    * @return storedPaymentMethodId
   **/
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
 
   public PayUUpiDetails type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -226,19 +207,22 @@ public class PayUUpiDetails {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "**payu_IN_upi**")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public PayUUpiDetails virtualPaymentAddress(String virtualPaymentAddress) {
-    
     this.virtualPaymentAddress = virtualPaymentAddress;
     return this;
   }
@@ -248,18 +232,24 @@ public class PayUUpiDetails {
    * @return virtualPaymentAddress
   **/
   @ApiModelProperty(value = "The virtual payment address for UPI.")
+  @JsonProperty(JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getVirtualPaymentAddress() {
     return virtualPaymentAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVirtualPaymentAddress(String virtualPaymentAddress) {
     this.virtualPaymentAddress = virtualPaymentAddress;
   }
 
 
-
+  /**
+   * Return true if this PayUUpiDetails object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -307,134 +297,23 @@ public class PayUUpiDetails {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("checkoutAttemptId");
-    openapiFields.add("recurringDetailReference");
-    openapiFields.add("shopperNotificationReference");
-    openapiFields.add("storedPaymentMethodId");
-    openapiFields.add("type");
-    openapiFields.add("virtualPaymentAddress");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of PayUUpiDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PayUUpiDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PayUUpiDetails
+   */
+  public static PayUUpiDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PayUUpiDetails.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PayUUpiDetails.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PayUUpiDetails
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PayUUpiDetails.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PayUUpiDetails is not found in the empty JSON string", PayUUpiDetails.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PayUUpiDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PayUUpiDetails` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PayUUpiDetails.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field checkoutAttemptId
-      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
-      }
-      // validate the optional field recurringDetailReference
-      if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
-      }
-      // validate the optional field shopperNotificationReference
-      if (jsonObj.get("shopperNotificationReference") != null && !jsonObj.get("shopperNotificationReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperNotificationReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperNotificationReference").toString()));
-      }
-      // validate the optional field storedPaymentMethodId
-      if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-      // validate the optional field virtualPaymentAddress
-      if (jsonObj.get("virtualPaymentAddress") != null && !jsonObj.get("virtualPaymentAddress").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `virtualPaymentAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("virtualPaymentAddress").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PayUUpiDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PayUUpiDetails' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PayUUpiDetails> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PayUUpiDetails.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PayUUpiDetails>() {
-           @Override
-           public void write(JsonWriter out, PayUUpiDetails value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PayUUpiDetails read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PayUUpiDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PayUUpiDetails
-  * @throws IOException if the JSON string is invalid with respect to PayUUpiDetails
-  */
-  public static PayUUpiDetails fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PayUUpiDetails.class);
-  }
-
- /**
+/**
   * Convert an instance of PayUUpiDetails to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

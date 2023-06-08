@@ -14,95 +14,79 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ResponseAdditionalDataInstallments
  */
+@JsonPropertyOrder({
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS,
+  ResponseAdditionalDataInstallments.JSON_PROPERTY_INSTALLMENTS_VALUE
+})
 
 public class ResponseAdditionalDataInstallments {
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE = "installmentPaymentData.installmentType";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE = "installmentPaymentData.installmentType";
   private String installmentPaymentDataInstallmentType;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE = "installmentPaymentData.option[itemNr].annualPercentageRate";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE = "installmentPaymentData.option[itemNr].annualPercentageRate";
   private String installmentPaymentDataOptionItemNrAnnualPercentageRate;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT = "installmentPaymentData.option[itemNr].firstInstallmentAmount";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT = "installmentPaymentData.option[itemNr].firstInstallmentAmount";
   private String installmentPaymentDataOptionItemNrFirstInstallmentAmount;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE = "installmentPaymentData.option[itemNr].installmentFee";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE = "installmentPaymentData.option[itemNr].installmentFee";
   private String installmentPaymentDataOptionItemNrInstallmentFee;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE = "installmentPaymentData.option[itemNr].interestRate";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE = "installmentPaymentData.option[itemNr].interestRate";
   private String installmentPaymentDataOptionItemNrInterestRate;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS = "installmentPaymentData.option[itemNr].maximumNumberOfInstallments";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS = "installmentPaymentData.option[itemNr].maximumNumberOfInstallments";
   private String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS = "installmentPaymentData.option[itemNr].minimumNumberOfInstallments";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS = "installmentPaymentData.option[itemNr].minimumNumberOfInstallments";
   private String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS = "installmentPaymentData.option[itemNr].numberOfInstallments";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS = "installmentPaymentData.option[itemNr].numberOfInstallments";
   private String installmentPaymentDataOptionItemNrNumberOfInstallments;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT = "installmentPaymentData.option[itemNr].subsequentInstallmentAmount";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT = "installmentPaymentData.option[itemNr].subsequentInstallmentAmount";
   private String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE = "installmentPaymentData.option[itemNr].totalAmountDue";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE = "installmentPaymentData.option[itemNr].totalAmountDue";
   private String installmentPaymentDataOptionItemNrTotalAmountDue;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS = "installmentPaymentData.paymentOptions";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS)
+  public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS = "installmentPaymentData.paymentOptions";
   private String installmentPaymentDataPaymentOptions;
 
-  public static final String SERIALIZED_NAME_INSTALLMENTS_VALUE = "installments.value";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENTS_VALUE)
+  public static final String JSON_PROPERTY_INSTALLMENTS_VALUE = "installments.value";
   private String installmentsValue;
 
   public ResponseAdditionalDataInstallments() { 
   }
 
   public ResponseAdditionalDataInstallments installmentPaymentDataInstallmentType(String installmentPaymentDataInstallmentType) {
-    
     this.installmentPaymentDataInstallmentType = installmentPaymentDataInstallmentType;
     return this;
   }
@@ -112,19 +96,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataInstallmentType
   **/
   @ApiModelProperty(value = "Type of installment. The value of `installmentType` should be **IssuerFinanced**.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataInstallmentType() {
     return installmentPaymentDataInstallmentType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataInstallmentType(String installmentPaymentDataInstallmentType) {
     this.installmentPaymentDataInstallmentType = installmentPaymentDataInstallmentType;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrAnnualPercentageRate(String installmentPaymentDataOptionItemNrAnnualPercentageRate) {
-    
     this.installmentPaymentDataOptionItemNrAnnualPercentageRate = installmentPaymentDataOptionItemNrAnnualPercentageRate;
     return this;
   }
@@ -134,19 +121,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrAnnualPercentageRate
   **/
   @ApiModelProperty(value = "Annual interest rate.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrAnnualPercentageRate() {
     return installmentPaymentDataOptionItemNrAnnualPercentageRate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrAnnualPercentageRate(String installmentPaymentDataOptionItemNrAnnualPercentageRate) {
     this.installmentPaymentDataOptionItemNrAnnualPercentageRate = installmentPaymentDataOptionItemNrAnnualPercentageRate;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrFirstInstallmentAmount(String installmentPaymentDataOptionItemNrFirstInstallmentAmount) {
-    
     this.installmentPaymentDataOptionItemNrFirstInstallmentAmount = installmentPaymentDataOptionItemNrFirstInstallmentAmount;
     return this;
   }
@@ -156,19 +146,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrFirstInstallmentAmount
   **/
   @ApiModelProperty(value = "First Installment Amount in minor units.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrFirstInstallmentAmount() {
     return installmentPaymentDataOptionItemNrFirstInstallmentAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrFirstInstallmentAmount(String installmentPaymentDataOptionItemNrFirstInstallmentAmount) {
     this.installmentPaymentDataOptionItemNrFirstInstallmentAmount = installmentPaymentDataOptionItemNrFirstInstallmentAmount;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrInstallmentFee(String installmentPaymentDataOptionItemNrInstallmentFee) {
-    
     this.installmentPaymentDataOptionItemNrInstallmentFee = installmentPaymentDataOptionItemNrInstallmentFee;
     return this;
   }
@@ -178,19 +171,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrInstallmentFee
   **/
   @ApiModelProperty(value = "Installment fee amount in minor units.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrInstallmentFee() {
     return installmentPaymentDataOptionItemNrInstallmentFee;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrInstallmentFee(String installmentPaymentDataOptionItemNrInstallmentFee) {
     this.installmentPaymentDataOptionItemNrInstallmentFee = installmentPaymentDataOptionItemNrInstallmentFee;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrInterestRate(String installmentPaymentDataOptionItemNrInterestRate) {
-    
     this.installmentPaymentDataOptionItemNrInterestRate = installmentPaymentDataOptionItemNrInterestRate;
     return this;
   }
@@ -200,19 +196,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrInterestRate
   **/
   @ApiModelProperty(value = "Interest rate for the installment period.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrInterestRate() {
     return installmentPaymentDataOptionItemNrInterestRate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrInterestRate(String installmentPaymentDataOptionItemNrInterestRate) {
     this.installmentPaymentDataOptionItemNrInterestRate = installmentPaymentDataOptionItemNrInterestRate;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrMaximumNumberOfInstallments(String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments) {
-    
     this.installmentPaymentDataOptionItemNrMaximumNumberOfInstallments = installmentPaymentDataOptionItemNrMaximumNumberOfInstallments;
     return this;
   }
@@ -222,19 +221,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrMaximumNumberOfInstallments
   **/
   @ApiModelProperty(value = "Maximum number of installments possible for this payment.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments() {
     return installmentPaymentDataOptionItemNrMaximumNumberOfInstallments;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments(String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrMaximumNumberOfInstallments = installmentPaymentDataOptionItemNrMaximumNumberOfInstallments;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrMinimumNumberOfInstallments(String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments) {
-    
     this.installmentPaymentDataOptionItemNrMinimumNumberOfInstallments = installmentPaymentDataOptionItemNrMinimumNumberOfInstallments;
     return this;
   }
@@ -244,19 +246,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrMinimumNumberOfInstallments
   **/
   @ApiModelProperty(value = "Minimum number of installments possible for this payment.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments() {
     return installmentPaymentDataOptionItemNrMinimumNumberOfInstallments;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments(String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrMinimumNumberOfInstallments = installmentPaymentDataOptionItemNrMinimumNumberOfInstallments;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrNumberOfInstallments(String installmentPaymentDataOptionItemNrNumberOfInstallments) {
-    
     this.installmentPaymentDataOptionItemNrNumberOfInstallments = installmentPaymentDataOptionItemNrNumberOfInstallments;
     return this;
   }
@@ -266,19 +271,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrNumberOfInstallments
   **/
   @ApiModelProperty(value = "Total number of installments possible for this payment.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrNumberOfInstallments() {
     return installmentPaymentDataOptionItemNrNumberOfInstallments;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrNumberOfInstallments(String installmentPaymentDataOptionItemNrNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrNumberOfInstallments = installmentPaymentDataOptionItemNrNumberOfInstallments;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrSubsequentInstallmentAmount(String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount) {
-    
     this.installmentPaymentDataOptionItemNrSubsequentInstallmentAmount = installmentPaymentDataOptionItemNrSubsequentInstallmentAmount;
     return this;
   }
@@ -288,19 +296,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrSubsequentInstallmentAmount
   **/
   @ApiModelProperty(value = "Subsequent Installment Amount in minor units.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount() {
     return installmentPaymentDataOptionItemNrSubsequentInstallmentAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount(String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount) {
     this.installmentPaymentDataOptionItemNrSubsequentInstallmentAmount = installmentPaymentDataOptionItemNrSubsequentInstallmentAmount;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrTotalAmountDue(String installmentPaymentDataOptionItemNrTotalAmountDue) {
-    
     this.installmentPaymentDataOptionItemNrTotalAmountDue = installmentPaymentDataOptionItemNrTotalAmountDue;
     return this;
   }
@@ -310,19 +321,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataOptionItemNrTotalAmountDue
   **/
   @ApiModelProperty(value = "Total amount in minor units.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataOptionItemNrTotalAmountDue() {
     return installmentPaymentDataOptionItemNrTotalAmountDue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrTotalAmountDue(String installmentPaymentDataOptionItemNrTotalAmountDue) {
     this.installmentPaymentDataOptionItemNrTotalAmountDue = installmentPaymentDataOptionItemNrTotalAmountDue;
   }
 
 
   public ResponseAdditionalDataInstallments installmentPaymentDataPaymentOptions(String installmentPaymentDataPaymentOptions) {
-    
     this.installmentPaymentDataPaymentOptions = installmentPaymentDataPaymentOptions;
     return this;
   }
@@ -332,19 +346,22 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentPaymentDataPaymentOptions
   **/
   @ApiModelProperty(value = "Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentPaymentDataPaymentOptions() {
     return installmentPaymentDataPaymentOptions;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataPaymentOptions(String installmentPaymentDataPaymentOptions) {
     this.installmentPaymentDataPaymentOptions = installmentPaymentDataPaymentOptions;
   }
 
 
   public ResponseAdditionalDataInstallments installmentsValue(String installmentsValue) {
-    
     this.installmentsValue = installmentsValue;
     return this;
   }
@@ -354,18 +371,24 @@ public class ResponseAdditionalDataInstallments {
    * @return installmentsValue
   **/
   @ApiModelProperty(value = "The number of installments that the payment amount should be charged with.  Example: 5 > Only relevant for card payments in countries that support installments.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENTS_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstallmentsValue() {
     return installmentsValue;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENTS_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentsValue(String installmentsValue) {
     this.installmentsValue = installmentsValue;
   }
 
 
-
+  /**
+   * Return true if this ResponseAdditionalDataInstallments object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -425,153 +448,23 @@ public class ResponseAdditionalDataInstallments {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("installmentPaymentData.installmentType");
-    openapiFields.add("installmentPaymentData.option[itemNr].annualPercentageRate");
-    openapiFields.add("installmentPaymentData.option[itemNr].firstInstallmentAmount");
-    openapiFields.add("installmentPaymentData.option[itemNr].installmentFee");
-    openapiFields.add("installmentPaymentData.option[itemNr].interestRate");
-    openapiFields.add("installmentPaymentData.option[itemNr].maximumNumberOfInstallments");
-    openapiFields.add("installmentPaymentData.option[itemNr].minimumNumberOfInstallments");
-    openapiFields.add("installmentPaymentData.option[itemNr].numberOfInstallments");
-    openapiFields.add("installmentPaymentData.option[itemNr].subsequentInstallmentAmount");
-    openapiFields.add("installmentPaymentData.option[itemNr].totalAmountDue");
-    openapiFields.add("installmentPaymentData.paymentOptions");
-    openapiFields.add("installments.value");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ResponseAdditionalDataInstallments given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ResponseAdditionalDataInstallments
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ResponseAdditionalDataInstallments
+   */
+  public static ResponseAdditionalDataInstallments fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ResponseAdditionalDataInstallments.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ResponseAdditionalDataInstallments.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ResponseAdditionalDataInstallments
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ResponseAdditionalDataInstallments.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataInstallments is not found in the empty JSON string", ResponseAdditionalDataInstallments.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ResponseAdditionalDataInstallments.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataInstallments` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field installmentPaymentData.installmentType
-      if (jsonObj.get("installmentPaymentData.installmentType") != null && !jsonObj.get("installmentPaymentData.installmentType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.installmentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.installmentType").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].annualPercentageRate
-      if (jsonObj.get("installmentPaymentData.option[itemNr].annualPercentageRate") != null && !jsonObj.get("installmentPaymentData.option[itemNr].annualPercentageRate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].annualPercentageRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].annualPercentageRate").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].firstInstallmentAmount
-      if (jsonObj.get("installmentPaymentData.option[itemNr].firstInstallmentAmount") != null && !jsonObj.get("installmentPaymentData.option[itemNr].firstInstallmentAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].firstInstallmentAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].firstInstallmentAmount").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].installmentFee
-      if (jsonObj.get("installmentPaymentData.option[itemNr].installmentFee") != null && !jsonObj.get("installmentPaymentData.option[itemNr].installmentFee").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].installmentFee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].installmentFee").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].interestRate
-      if (jsonObj.get("installmentPaymentData.option[itemNr].interestRate") != null && !jsonObj.get("installmentPaymentData.option[itemNr].interestRate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].interestRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].interestRate").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].maximumNumberOfInstallments
-      if (jsonObj.get("installmentPaymentData.option[itemNr].maximumNumberOfInstallments") != null && !jsonObj.get("installmentPaymentData.option[itemNr].maximumNumberOfInstallments").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].maximumNumberOfInstallments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].maximumNumberOfInstallments").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].minimumNumberOfInstallments
-      if (jsonObj.get("installmentPaymentData.option[itemNr].minimumNumberOfInstallments") != null && !jsonObj.get("installmentPaymentData.option[itemNr].minimumNumberOfInstallments").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].minimumNumberOfInstallments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].minimumNumberOfInstallments").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].numberOfInstallments
-      if (jsonObj.get("installmentPaymentData.option[itemNr].numberOfInstallments") != null && !jsonObj.get("installmentPaymentData.option[itemNr].numberOfInstallments").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].numberOfInstallments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].numberOfInstallments").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].subsequentInstallmentAmount
-      if (jsonObj.get("installmentPaymentData.option[itemNr].subsequentInstallmentAmount") != null && !jsonObj.get("installmentPaymentData.option[itemNr].subsequentInstallmentAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].subsequentInstallmentAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].subsequentInstallmentAmount").toString()));
-      }
-      // validate the optional field installmentPaymentData.option[itemNr].totalAmountDue
-      if (jsonObj.get("installmentPaymentData.option[itemNr].totalAmountDue") != null && !jsonObj.get("installmentPaymentData.option[itemNr].totalAmountDue").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.option[itemNr].totalAmountDue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].totalAmountDue").toString()));
-      }
-      // validate the optional field installmentPaymentData.paymentOptions
-      if (jsonObj.get("installmentPaymentData.paymentOptions") != null && !jsonObj.get("installmentPaymentData.paymentOptions").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installmentPaymentData.paymentOptions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.paymentOptions").toString()));
-      }
-      // validate the optional field installments.value
-      if (jsonObj.get("installments.value") != null && !jsonObj.get("installments.value").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `installments.value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installments.value").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ResponseAdditionalDataInstallments.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ResponseAdditionalDataInstallments' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ResponseAdditionalDataInstallments> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ResponseAdditionalDataInstallments.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ResponseAdditionalDataInstallments>() {
-           @Override
-           public void write(JsonWriter out, ResponseAdditionalDataInstallments value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ResponseAdditionalDataInstallments read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ResponseAdditionalDataInstallments given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ResponseAdditionalDataInstallments
-  * @throws IOException if the JSON string is invalid with respect to ResponseAdditionalDataInstallments
-  */
-  public static ResponseAdditionalDataInstallments fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ResponseAdditionalDataInstallments.class);
-  }
-
- /**
+/**
   * Convert an instance of ResponseAdditionalDataInstallments to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

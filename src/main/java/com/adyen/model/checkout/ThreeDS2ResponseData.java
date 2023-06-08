@@ -14,123 +14,107 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ThreeDS2ResponseData
  */
+@JsonPropertyOrder({
+  ThreeDS2ResponseData.JSON_PROPERTY_ACS_CHALLENGE_MANDATED,
+  ThreeDS2ResponseData.JSON_PROPERTY_ACS_OPERATOR_I_D,
+  ThreeDS2ResponseData.JSON_PROPERTY_ACS_REFERENCE_NUMBER,
+  ThreeDS2ResponseData.JSON_PROPERTY_ACS_SIGNED_CONTENT,
+  ThreeDS2ResponseData.JSON_PROPERTY_ACS_TRANS_I_D,
+  ThreeDS2ResponseData.JSON_PROPERTY_ACS_U_R_L,
+  ThreeDS2ResponseData.JSON_PROPERTY_AUTHENTICATION_TYPE,
+  ThreeDS2ResponseData.JSON_PROPERTY_CARD_HOLDER_INFO,
+  ThreeDS2ResponseData.JSON_PROPERTY_CAVV_ALGORITHM,
+  ThreeDS2ResponseData.JSON_PROPERTY_CHALLENGE_INDICATOR,
+  ThreeDS2ResponseData.JSON_PROPERTY_DS_REFERENCE_NUMBER,
+  ThreeDS2ResponseData.JSON_PROPERTY_DS_TRANS_I_D,
+  ThreeDS2ResponseData.JSON_PROPERTY_EXEMPTION_INDICATOR,
+  ThreeDS2ResponseData.JSON_PROPERTY_MESSAGE_VERSION,
+  ThreeDS2ResponseData.JSON_PROPERTY_RISK_SCORE,
+  ThreeDS2ResponseData.JSON_PROPERTY_SDK_EPHEM_PUB_KEY,
+  ThreeDS2ResponseData.JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D,
+  ThreeDS2ResponseData.JSON_PROPERTY_TRANS_STATUS,
+  ThreeDS2ResponseData.JSON_PROPERTY_TRANS_STATUS_REASON
+})
 
 public class ThreeDS2ResponseData {
-  public static final String SERIALIZED_NAME_ACS_CHALLENGE_MANDATED = "acsChallengeMandated";
-  @SerializedName(SERIALIZED_NAME_ACS_CHALLENGE_MANDATED)
+  public static final String JSON_PROPERTY_ACS_CHALLENGE_MANDATED = "acsChallengeMandated";
   private String acsChallengeMandated;
 
-  public static final String SERIALIZED_NAME_ACS_OPERATOR_I_D = "acsOperatorID";
-  @SerializedName(SERIALIZED_NAME_ACS_OPERATOR_I_D)
+  public static final String JSON_PROPERTY_ACS_OPERATOR_I_D = "acsOperatorID";
   private String acsOperatorID;
 
-  public static final String SERIALIZED_NAME_ACS_REFERENCE_NUMBER = "acsReferenceNumber";
-  @SerializedName(SERIALIZED_NAME_ACS_REFERENCE_NUMBER)
+  public static final String JSON_PROPERTY_ACS_REFERENCE_NUMBER = "acsReferenceNumber";
   private String acsReferenceNumber;
 
-  public static final String SERIALIZED_NAME_ACS_SIGNED_CONTENT = "acsSignedContent";
-  @SerializedName(SERIALIZED_NAME_ACS_SIGNED_CONTENT)
+  public static final String JSON_PROPERTY_ACS_SIGNED_CONTENT = "acsSignedContent";
   private String acsSignedContent;
 
-  public static final String SERIALIZED_NAME_ACS_TRANS_I_D = "acsTransID";
-  @SerializedName(SERIALIZED_NAME_ACS_TRANS_I_D)
+  public static final String JSON_PROPERTY_ACS_TRANS_I_D = "acsTransID";
   private String acsTransID;
 
-  public static final String SERIALIZED_NAME_ACS_U_R_L = "acsURL";
-  @SerializedName(SERIALIZED_NAME_ACS_U_R_L)
+  public static final String JSON_PROPERTY_ACS_U_R_L = "acsURL";
   private String acsURL;
 
-  public static final String SERIALIZED_NAME_AUTHENTICATION_TYPE = "authenticationType";
-  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_TYPE)
+  public static final String JSON_PROPERTY_AUTHENTICATION_TYPE = "authenticationType";
   private String authenticationType;
 
-  public static final String SERIALIZED_NAME_CARD_HOLDER_INFO = "cardHolderInfo";
-  @SerializedName(SERIALIZED_NAME_CARD_HOLDER_INFO)
+  public static final String JSON_PROPERTY_CARD_HOLDER_INFO = "cardHolderInfo";
   private String cardHolderInfo;
 
-  public static final String SERIALIZED_NAME_CAVV_ALGORITHM = "cavvAlgorithm";
-  @SerializedName(SERIALIZED_NAME_CAVV_ALGORITHM)
+  public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
 
-  public static final String SERIALIZED_NAME_CHALLENGE_INDICATOR = "challengeIndicator";
-  @SerializedName(SERIALIZED_NAME_CHALLENGE_INDICATOR)
+  public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
   private String challengeIndicator;
 
-  public static final String SERIALIZED_NAME_DS_REFERENCE_NUMBER = "dsReferenceNumber";
-  @SerializedName(SERIALIZED_NAME_DS_REFERENCE_NUMBER)
+  public static final String JSON_PROPERTY_DS_REFERENCE_NUMBER = "dsReferenceNumber";
   private String dsReferenceNumber;
 
-  public static final String SERIALIZED_NAME_DS_TRANS_I_D = "dsTransID";
-  @SerializedName(SERIALIZED_NAME_DS_TRANS_I_D)
+  public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
 
-  public static final String SERIALIZED_NAME_EXEMPTION_INDICATOR = "exemptionIndicator";
-  @SerializedName(SERIALIZED_NAME_EXEMPTION_INDICATOR)
+  public static final String JSON_PROPERTY_EXEMPTION_INDICATOR = "exemptionIndicator";
   private String exemptionIndicator;
 
-  public static final String SERIALIZED_NAME_MESSAGE_VERSION = "messageVersion";
-  @SerializedName(SERIALIZED_NAME_MESSAGE_VERSION)
+  public static final String JSON_PROPERTY_MESSAGE_VERSION = "messageVersion";
   private String messageVersion;
 
-  public static final String SERIALIZED_NAME_RISK_SCORE = "riskScore";
-  @SerializedName(SERIALIZED_NAME_RISK_SCORE)
+  public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private String riskScore;
 
-  public static final String SERIALIZED_NAME_SDK_EPHEM_PUB_KEY = "sdkEphemPubKey";
-  @SerializedName(SERIALIZED_NAME_SDK_EPHEM_PUB_KEY)
+  public static final String JSON_PROPERTY_SDK_EPHEM_PUB_KEY = "sdkEphemPubKey";
   private String sdkEphemPubKey;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_SERVER_TRANS_I_D = "threeDSServerTransID";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_SERVER_TRANS_I_D)
+  public static final String JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D = "threeDSServerTransID";
   private String threeDSServerTransID;
 
-  public static final String SERIALIZED_NAME_TRANS_STATUS = "transStatus";
-  @SerializedName(SERIALIZED_NAME_TRANS_STATUS)
+  public static final String JSON_PROPERTY_TRANS_STATUS = "transStatus";
   private String transStatus;
 
-  public static final String SERIALIZED_NAME_TRANS_STATUS_REASON = "transStatusReason";
-  @SerializedName(SERIALIZED_NAME_TRANS_STATUS_REASON)
+  public static final String JSON_PROPERTY_TRANS_STATUS_REASON = "transStatusReason";
   private String transStatusReason;
 
   public ThreeDS2ResponseData() { 
   }
 
   public ThreeDS2ResponseData acsChallengeMandated(String acsChallengeMandated) {
-    
     this.acsChallengeMandated = acsChallengeMandated;
     return this;
   }
@@ -140,19 +124,22 @@ public class ThreeDS2ResponseData {
    * @return acsChallengeMandated
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACS_CHALLENGE_MANDATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcsChallengeMandated() {
     return acsChallengeMandated;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACS_CHALLENGE_MANDATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsChallengeMandated(String acsChallengeMandated) {
     this.acsChallengeMandated = acsChallengeMandated;
   }
 
 
   public ThreeDS2ResponseData acsOperatorID(String acsOperatorID) {
-    
     this.acsOperatorID = acsOperatorID;
     return this;
   }
@@ -162,19 +149,22 @@ public class ThreeDS2ResponseData {
    * @return acsOperatorID
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACS_OPERATOR_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcsOperatorID() {
     return acsOperatorID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACS_OPERATOR_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsOperatorID(String acsOperatorID) {
     this.acsOperatorID = acsOperatorID;
   }
 
 
   public ThreeDS2ResponseData acsReferenceNumber(String acsReferenceNumber) {
-    
     this.acsReferenceNumber = acsReferenceNumber;
     return this;
   }
@@ -184,19 +174,22 @@ public class ThreeDS2ResponseData {
    * @return acsReferenceNumber
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACS_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcsReferenceNumber() {
     return acsReferenceNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACS_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsReferenceNumber(String acsReferenceNumber) {
     this.acsReferenceNumber = acsReferenceNumber;
   }
 
 
   public ThreeDS2ResponseData acsSignedContent(String acsSignedContent) {
-    
     this.acsSignedContent = acsSignedContent;
     return this;
   }
@@ -206,19 +199,22 @@ public class ThreeDS2ResponseData {
    * @return acsSignedContent
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACS_SIGNED_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcsSignedContent() {
     return acsSignedContent;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACS_SIGNED_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsSignedContent(String acsSignedContent) {
     this.acsSignedContent = acsSignedContent;
   }
 
 
   public ThreeDS2ResponseData acsTransID(String acsTransID) {
-    
     this.acsTransID = acsTransID;
     return this;
   }
@@ -228,19 +224,22 @@ public class ThreeDS2ResponseData {
    * @return acsTransID
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcsTransID() {
     return acsTransID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsTransID(String acsTransID) {
     this.acsTransID = acsTransID;
   }
 
 
   public ThreeDS2ResponseData acsURL(String acsURL) {
-    
     this.acsURL = acsURL;
     return this;
   }
@@ -250,19 +249,22 @@ public class ThreeDS2ResponseData {
    * @return acsURL
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACS_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcsURL() {
     return acsURL;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACS_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsURL(String acsURL) {
     this.acsURL = acsURL;
   }
 
 
   public ThreeDS2ResponseData authenticationType(String authenticationType) {
-    
     this.authenticationType = authenticationType;
     return this;
   }
@@ -272,19 +274,22 @@ public class ThreeDS2ResponseData {
    * @return authenticationType
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthenticationType() {
     return authenticationType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationType(String authenticationType) {
     this.authenticationType = authenticationType;
   }
 
 
   public ThreeDS2ResponseData cardHolderInfo(String cardHolderInfo) {
-    
     this.cardHolderInfo = cardHolderInfo;
     return this;
   }
@@ -294,19 +299,22 @@ public class ThreeDS2ResponseData {
    * @return cardHolderInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCardHolderInfo() {
     return cardHolderInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderInfo(String cardHolderInfo) {
     this.cardHolderInfo = cardHolderInfo;
   }
 
 
   public ThreeDS2ResponseData cavvAlgorithm(String cavvAlgorithm) {
-    
     this.cavvAlgorithm = cavvAlgorithm;
     return this;
   }
@@ -316,19 +324,22 @@ public class ThreeDS2ResponseData {
    * @return cavvAlgorithm
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCavvAlgorithm() {
     return cavvAlgorithm;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
   }
 
 
   public ThreeDS2ResponseData challengeIndicator(String challengeIndicator) {
-    
     this.challengeIndicator = challengeIndicator;
     return this;
   }
@@ -338,19 +349,22 @@ public class ThreeDS2ResponseData {
    * @return challengeIndicator
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getChallengeIndicator() {
     return challengeIndicator;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(String challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
   }
 
 
   public ThreeDS2ResponseData dsReferenceNumber(String dsReferenceNumber) {
-    
     this.dsReferenceNumber = dsReferenceNumber;
     return this;
   }
@@ -360,19 +374,22 @@ public class ThreeDS2ResponseData {
    * @return dsReferenceNumber
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DS_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDsReferenceNumber() {
     return dsReferenceNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DS_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsReferenceNumber(String dsReferenceNumber) {
     this.dsReferenceNumber = dsReferenceNumber;
   }
 
 
   public ThreeDS2ResponseData dsTransID(String dsTransID) {
-    
     this.dsTransID = dsTransID;
     return this;
   }
@@ -382,19 +399,22 @@ public class ThreeDS2ResponseData {
    * @return dsTransID
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDsTransID() {
     return dsTransID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
   }
 
 
   public ThreeDS2ResponseData exemptionIndicator(String exemptionIndicator) {
-    
     this.exemptionIndicator = exemptionIndicator;
     return this;
   }
@@ -404,19 +424,22 @@ public class ThreeDS2ResponseData {
    * @return exemptionIndicator
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExemptionIndicator() {
     return exemptionIndicator;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExemptionIndicator(String exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
   }
 
 
   public ThreeDS2ResponseData messageVersion(String messageVersion) {
-    
     this.messageVersion = messageVersion;
     return this;
   }
@@ -426,19 +449,22 @@ public class ThreeDS2ResponseData {
    * @return messageVersion
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessageVersion() {
     return messageVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
   }
 
 
   public ThreeDS2ResponseData riskScore(String riskScore) {
-    
     this.riskScore = riskScore;
     return this;
   }
@@ -448,19 +474,22 @@ public class ThreeDS2ResponseData {
    * @return riskScore
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RISK_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskScore() {
     return riskScore;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISK_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
     this.riskScore = riskScore;
   }
 
 
   public ThreeDS2ResponseData sdkEphemPubKey(String sdkEphemPubKey) {
-    
     this.sdkEphemPubKey = sdkEphemPubKey;
     return this;
   }
@@ -470,19 +499,22 @@ public class ThreeDS2ResponseData {
    * @return sdkEphemPubKey
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSdkEphemPubKey() {
     return sdkEphemPubKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkEphemPubKey(String sdkEphemPubKey) {
     this.sdkEphemPubKey = sdkEphemPubKey;
   }
 
 
   public ThreeDS2ResponseData threeDSServerTransID(String threeDSServerTransID) {
-    
     this.threeDSServerTransID = threeDSServerTransID;
     return this;
   }
@@ -492,19 +524,22 @@ public class ThreeDS2ResponseData {
    * @return threeDSServerTransID
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSServerTransID() {
     return threeDSServerTransID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
   }
 
 
   public ThreeDS2ResponseData transStatus(String transStatus) {
-    
     this.transStatus = transStatus;
     return this;
   }
@@ -514,19 +549,22 @@ public class ThreeDS2ResponseData {
    * @return transStatus
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTransStatus() {
     return transStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatus(String transStatus) {
     this.transStatus = transStatus;
   }
 
 
   public ThreeDS2ResponseData transStatusReason(String transStatusReason) {
-    
     this.transStatusReason = transStatusReason;
     return this;
   }
@@ -536,18 +574,24 @@ public class ThreeDS2ResponseData {
    * @return transStatusReason
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTransStatusReason() {
     return transStatusReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
   }
 
 
-
+  /**
+   * Return true if this ThreeDS2ResponseData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -621,188 +665,23 @@ public class ThreeDS2ResponseData {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acsChallengeMandated");
-    openapiFields.add("acsOperatorID");
-    openapiFields.add("acsReferenceNumber");
-    openapiFields.add("acsSignedContent");
-    openapiFields.add("acsTransID");
-    openapiFields.add("acsURL");
-    openapiFields.add("authenticationType");
-    openapiFields.add("cardHolderInfo");
-    openapiFields.add("cavvAlgorithm");
-    openapiFields.add("challengeIndicator");
-    openapiFields.add("dsReferenceNumber");
-    openapiFields.add("dsTransID");
-    openapiFields.add("exemptionIndicator");
-    openapiFields.add("messageVersion");
-    openapiFields.add("riskScore");
-    openapiFields.add("sdkEphemPubKey");
-    openapiFields.add("threeDSServerTransID");
-    openapiFields.add("transStatus");
-    openapiFields.add("transStatusReason");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ThreeDS2ResponseData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ThreeDS2ResponseData
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDS2ResponseData
+   */
+  public static ThreeDS2ResponseData fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThreeDS2ResponseData.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ThreeDS2ResponseData.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ThreeDS2ResponseData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ThreeDS2ResponseData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2ResponseData is not found in the empty JSON string", ThreeDS2ResponseData.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ThreeDS2ResponseData.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2ResponseData` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field acsChallengeMandated
-      if (jsonObj.get("acsChallengeMandated") != null && !jsonObj.get("acsChallengeMandated").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acsChallengeMandated` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsChallengeMandated").toString()));
-      }
-      // validate the optional field acsOperatorID
-      if (jsonObj.get("acsOperatorID") != null && !jsonObj.get("acsOperatorID").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acsOperatorID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsOperatorID").toString()));
-      }
-      // validate the optional field acsReferenceNumber
-      if (jsonObj.get("acsReferenceNumber") != null && !jsonObj.get("acsReferenceNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acsReferenceNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsReferenceNumber").toString()));
-      }
-      // validate the optional field acsSignedContent
-      if (jsonObj.get("acsSignedContent") != null && !jsonObj.get("acsSignedContent").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acsSignedContent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsSignedContent").toString()));
-      }
-      // validate the optional field acsTransID
-      if (jsonObj.get("acsTransID") != null && !jsonObj.get("acsTransID").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acsTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsTransID").toString()));
-      }
-      // validate the optional field acsURL
-      if (jsonObj.get("acsURL") != null && !jsonObj.get("acsURL").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acsURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsURL").toString()));
-      }
-      // validate the optional field authenticationType
-      if (jsonObj.get("authenticationType") != null && !jsonObj.get("authenticationType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authenticationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authenticationType").toString()));
-      }
-      // validate the optional field cardHolderInfo
-      if (jsonObj.get("cardHolderInfo") != null && !jsonObj.get("cardHolderInfo").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cardHolderInfo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardHolderInfo").toString()));
-      }
-      // validate the optional field cavvAlgorithm
-      if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
-      }
-      // validate the optional field challengeIndicator
-      if (jsonObj.get("challengeIndicator") != null && !jsonObj.get("challengeIndicator").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `challengeIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeIndicator").toString()));
-      }
-      // validate the optional field dsReferenceNumber
-      if (jsonObj.get("dsReferenceNumber") != null && !jsonObj.get("dsReferenceNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `dsReferenceNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dsReferenceNumber").toString()));
-      }
-      // validate the optional field dsTransID
-      if (jsonObj.get("dsTransID") != null && !jsonObj.get("dsTransID").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `dsTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dsTransID").toString()));
-      }
-      // validate the optional field exemptionIndicator
-      if (jsonObj.get("exemptionIndicator") != null && !jsonObj.get("exemptionIndicator").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `exemptionIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptionIndicator").toString()));
-      }
-      // validate the optional field messageVersion
-      if (jsonObj.get("messageVersion") != null && !jsonObj.get("messageVersion").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `messageVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("messageVersion").toString()));
-      }
-      // validate the optional field riskScore
-      if (jsonObj.get("riskScore") != null && !jsonObj.get("riskScore").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskScore` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskScore").toString()));
-      }
-      // validate the optional field sdkEphemPubKey
-      if (jsonObj.get("sdkEphemPubKey") != null && !jsonObj.get("sdkEphemPubKey").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `sdkEphemPubKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkEphemPubKey").toString()));
-      }
-      // validate the optional field threeDSServerTransID
-      if (jsonObj.get("threeDSServerTransID") != null && !jsonObj.get("threeDSServerTransID").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDSServerTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSServerTransID").toString()));
-      }
-      // validate the optional field transStatus
-      if (jsonObj.get("transStatus") != null && !jsonObj.get("transStatus").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `transStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transStatus").toString()));
-      }
-      // validate the optional field transStatusReason
-      if (jsonObj.get("transStatusReason") != null && !jsonObj.get("transStatusReason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `transStatusReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transStatusReason").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ThreeDS2ResponseData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ThreeDS2ResponseData' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ThreeDS2ResponseData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDS2ResponseData.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ThreeDS2ResponseData>() {
-           @Override
-           public void write(JsonWriter out, ThreeDS2ResponseData value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ThreeDS2ResponseData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ThreeDS2ResponseData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ThreeDS2ResponseData
-  * @throws IOException if the JSON string is invalid with respect to ThreeDS2ResponseData
-  */
-  public static ThreeDS2ResponseData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ThreeDS2ResponseData.class);
-  }
-
- /**
+/**
   * Convert an instance of ThreeDS2ResponseData to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

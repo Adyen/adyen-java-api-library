@@ -14,46 +14,34 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.adyen.service.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ThreeDSRequestData
  */
+@JsonPropertyOrder({
+  ThreeDSRequestData.JSON_PROPERTY_CHALLENGE_WINDOW_SIZE,
+  ThreeDSRequestData.JSON_PROPERTY_DATA_ONLY,
+  ThreeDSRequestData.JSON_PROPERTY_NATIVE_THREE_D_S,
+  ThreeDSRequestData.JSON_PROPERTY_THREE_D_S_VERSION
+})
 
 public class ThreeDSRequestData {
   /**
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    */
-  @JsonAdapter(ChallengeWindowSizeEnum.Adapter.class)
   public enum ChallengeWindowSizeEnum {
     _01("01"),
     
@@ -71,6 +59,7 @@ public class ThreeDSRequestData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -80,6 +69,7 @@ public class ThreeDSRequestData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ChallengeWindowSizeEnum fromValue(String value) {
       for (ChallengeWindowSizeEnum b : ChallengeWindowSizeEnum.values()) {
         if (b.value.equals(value)) {
@@ -88,29 +78,14 @@ public class ThreeDSRequestData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ChallengeWindowSizeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ChallengeWindowSizeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ChallengeWindowSizeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ChallengeWindowSizeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_CHALLENGE_WINDOW_SIZE = "challengeWindowSize";
-  @SerializedName(SERIALIZED_NAME_CHALLENGE_WINDOW_SIZE)
+  public static final String JSON_PROPERTY_CHALLENGE_WINDOW_SIZE = "challengeWindowSize";
   private ChallengeWindowSizeEnum challengeWindowSize;
 
   /**
    * Flag for data only flow.
    */
-  @JsonAdapter(DataOnlyEnum.Adapter.class)
   public enum DataOnlyEnum {
     FALSE("false"),
     
@@ -122,6 +97,7 @@ public class ThreeDSRequestData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -131,6 +107,7 @@ public class ThreeDSRequestData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static DataOnlyEnum fromValue(String value) {
       for (DataOnlyEnum b : DataOnlyEnum.values()) {
         if (b.value.equals(value)) {
@@ -139,29 +116,14 @@ public class ThreeDSRequestData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<DataOnlyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DataOnlyEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DataOnlyEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return DataOnlyEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_DATA_ONLY = "dataOnly";
-  @SerializedName(SERIALIZED_NAME_DATA_ONLY)
+  public static final String JSON_PROPERTY_DATA_ONLY = "dataOnly";
   private DataOnlyEnum dataOnly;
 
   /**
    * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available.
    */
-  @JsonAdapter(NativeThreeDSEnum.Adapter.class)
   public enum NativeThreeDSEnum {
     PREFERRED("preferred");
 
@@ -171,6 +133,7 @@ public class ThreeDSRequestData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -180,6 +143,7 @@ public class ThreeDSRequestData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static NativeThreeDSEnum fromValue(String value) {
       for (NativeThreeDSEnum b : NativeThreeDSEnum.values()) {
         if (b.value.equals(value)) {
@@ -188,29 +152,14 @@ public class ThreeDSRequestData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<NativeThreeDSEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NativeThreeDSEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public NativeThreeDSEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return NativeThreeDSEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_NATIVE_THREE_D_S = "nativeThreeDS";
-  @SerializedName(SERIALIZED_NAME_NATIVE_THREE_D_S)
+  public static final String JSON_PROPERTY_NATIVE_THREE_D_S = "nativeThreeDS";
   private NativeThreeDSEnum nativeThreeDS;
 
   /**
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    */
-  @JsonAdapter(ThreeDSVersionEnum.Adapter.class)
   public enum ThreeDSVersionEnum {
     _1_0("2.1.0"),
     
@@ -222,6 +171,7 @@ public class ThreeDSRequestData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -231,6 +181,7 @@ public class ThreeDSRequestData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ThreeDSVersionEnum fromValue(String value) {
       for (ThreeDSVersionEnum b : ThreeDSVersionEnum.values()) {
         if (b.value.equals(value)) {
@@ -239,30 +190,15 @@ public class ThreeDSRequestData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ThreeDSVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ThreeDSVersionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ThreeDSVersionEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ThreeDSVersionEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_THREE_D_S_VERSION = "threeDSVersion";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_VERSION)
+  public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private ThreeDSVersionEnum threeDSVersion;
 
   public ThreeDSRequestData() { 
   }
 
   public ThreeDSRequestData challengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
-    
     this.challengeWindowSize = challengeWindowSize;
     return this;
   }
@@ -272,19 +208,22 @@ public class ThreeDSRequestData {
    * @return challengeWindowSize
   **/
   @ApiModelProperty(value = "Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen")
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_WINDOW_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ChallengeWindowSizeEnum getChallengeWindowSize() {
     return challengeWindowSize;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_WINDOW_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
     this.challengeWindowSize = challengeWindowSize;
   }
 
 
   public ThreeDSRequestData dataOnly(DataOnlyEnum dataOnly) {
-    
     this.dataOnly = dataOnly;
     return this;
   }
@@ -294,19 +233,22 @@ public class ThreeDSRequestData {
    * @return dataOnly
   **/
   @ApiModelProperty(value = "Flag for data only flow.")
+  @JsonProperty(JSON_PROPERTY_DATA_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DataOnlyEnum getDataOnly() {
     return dataOnly;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DATA_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataOnly(DataOnlyEnum dataOnly) {
     this.dataOnly = dataOnly;
   }
 
 
   public ThreeDSRequestData nativeThreeDS(NativeThreeDSEnum nativeThreeDS) {
-    
     this.nativeThreeDS = nativeThreeDS;
     return this;
   }
@@ -316,19 +258,22 @@ public class ThreeDSRequestData {
    * @return nativeThreeDS
   **/
   @ApiModelProperty(value = "Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available.")
+  @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public NativeThreeDSEnum getNativeThreeDS() {
     return nativeThreeDS;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNativeThreeDS(NativeThreeDSEnum nativeThreeDS) {
     this.nativeThreeDS = nativeThreeDS;
   }
 
 
   public ThreeDSRequestData threeDSVersion(ThreeDSVersionEnum threeDSVersion) {
-    
     this.threeDSVersion = threeDSVersion;
     return this;
   }
@@ -338,18 +283,24 @@ public class ThreeDSRequestData {
    * @return threeDSVersion
   **/
   @ApiModelProperty(value = "The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ThreeDSVersionEnum getThreeDSVersion() {
     return threeDSVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(ThreeDSVersionEnum threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
   }
 
 
-
+  /**
+   * Return true if this ThreeDSRequestData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -393,125 +344,23 @@ public class ThreeDSRequestData {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("challengeWindowSize");
-    openapiFields.add("dataOnly");
-    openapiFields.add("nativeThreeDS");
-    openapiFields.add("threeDSVersion");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ThreeDSRequestData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ThreeDSRequestData
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDSRequestData
+   */
+  public static ThreeDSRequestData fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThreeDSRequestData.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ThreeDSRequestData.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ThreeDSRequestData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ThreeDSRequestData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSRequestData is not found in the empty JSON string", ThreeDSRequestData.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ThreeDSRequestData.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDSRequestData` properties.", entry.getKey()));
-        }
-      }
-      // ensure the field challengeWindowSize can be parsed to an enum value
-      if (jsonObj.get("challengeWindowSize") != null) {
-        if(!jsonObj.get("challengeWindowSize").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `challengeWindowSize` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeWindowSize").toString()));
-        }
-        ChallengeWindowSizeEnum.fromValue(jsonObj.get("challengeWindowSize").getAsString());
-      }
-      // ensure the field dataOnly can be parsed to an enum value
-      if (jsonObj.get("dataOnly") != null) {
-        if(!jsonObj.get("dataOnly").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `dataOnly` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dataOnly").toString()));
-        }
-        DataOnlyEnum.fromValue(jsonObj.get("dataOnly").getAsString());
-      }
-      // ensure the field nativeThreeDS can be parsed to an enum value
-      if (jsonObj.get("nativeThreeDS") != null) {
-        if(!jsonObj.get("nativeThreeDS").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `nativeThreeDS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nativeThreeDS").toString()));
-        }
-        NativeThreeDSEnum.fromValue(jsonObj.get("nativeThreeDS").getAsString());
-      }
-      // ensure the field threeDSVersion can be parsed to an enum value
-      if (jsonObj.get("threeDSVersion") != null) {
-        if(!jsonObj.get("threeDSVersion").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
-        }
-        ThreeDSVersionEnum.fromValue(jsonObj.get("threeDSVersion").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ThreeDSRequestData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ThreeDSRequestData' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ThreeDSRequestData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDSRequestData.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ThreeDSRequestData>() {
-           @Override
-           public void write(JsonWriter out, ThreeDSRequestData value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ThreeDSRequestData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ThreeDSRequestData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ThreeDSRequestData
-  * @throws IOException if the JSON string is invalid with respect to ThreeDSRequestData
-  */
-  public static ThreeDSRequestData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ThreeDSRequestData.class);
-  }
-
- /**
+/**
   * Convert an instance of ThreeDSRequestData to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

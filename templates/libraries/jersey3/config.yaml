@@ -1,0 +1,6 @@
+templateDir: ./templates/libraries/okhttp-gson
+files:
+  api_single.mustache:
+    folder: api
+    templateType: API
+    destinationFilename: Single.java
