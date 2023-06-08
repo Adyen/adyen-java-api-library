@@ -61,7 +61,6 @@ $(modelGen): target/spec $(openapi-generator-jar)
 		--global-property modelTests=false \
 		--inline-schema-name-mappings PaymentDonationRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
-		--additional-properties=serializationLibrary=gson \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=resourceClass=$(resourceClass)Resource
 	mv $(output)/$(models)/$@ $(models)/$@

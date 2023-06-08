@@ -14,61 +14,44 @@ package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.transferwebhooks.TransactionRuleReference;
 import com.adyen.model.transferwebhooks.TransactionRuleSource;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transferwebhooks.JSON;
 
 /**
  * TransactionEventViolation
  */
+@JsonPropertyOrder({
+  TransactionEventViolation.JSON_PROPERTY_REASON,
+  TransactionEventViolation.JSON_PROPERTY_TRANSACTION_RULE,
+  TransactionEventViolation.JSON_PROPERTY_TRANSACTION_RULE_SOURCE
+})
 
 public class TransactionEventViolation {
-  public static final String SERIALIZED_NAME_REASON = "reason";
-  @SerializedName(SERIALIZED_NAME_REASON)
+  public static final String JSON_PROPERTY_REASON = "reason";
   private String reason;
 
-  public static final String SERIALIZED_NAME_TRANSACTION_RULE = "transactionRule";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_RULE)
+  public static final String JSON_PROPERTY_TRANSACTION_RULE = "transactionRule";
   private TransactionRuleReference transactionRule;
 
-  public static final String SERIALIZED_NAME_TRANSACTION_RULE_SOURCE = "transactionRuleSource";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_RULE_SOURCE)
+  public static final String JSON_PROPERTY_TRANSACTION_RULE_SOURCE = "transactionRuleSource";
   private TransactionRuleSource transactionRuleSource;
 
   public TransactionEventViolation() { 
   }
 
   public TransactionEventViolation reason(String reason) {
-    
     this.reason = reason;
     return this;
   }
@@ -78,19 +61,22 @@ public class TransactionEventViolation {
    * @return reason
   **/
   @ApiModelProperty(value = "An explanation about why the transaction rule failed.")
+  @JsonProperty(JSON_PROPERTY_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReason() {
     return reason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
     this.reason = reason;
   }
 
 
   public TransactionEventViolation transactionRule(TransactionRuleReference transactionRule) {
-    
     this.transactionRule = transactionRule;
     return this;
   }
@@ -100,19 +86,22 @@ public class TransactionEventViolation {
    * @return transactionRule
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TransactionRuleReference getTransactionRule() {
     return transactionRule;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRule(TransactionRuleReference transactionRule) {
     this.transactionRule = transactionRule;
   }
 
 
   public TransactionEventViolation transactionRuleSource(TransactionRuleSource transactionRuleSource) {
-    
     this.transactionRuleSource = transactionRuleSource;
     return this;
   }
@@ -122,18 +111,24 @@ public class TransactionEventViolation {
    * @return transactionRuleSource
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TransactionRuleSource getTransactionRuleSource() {
     return transactionRuleSource;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRuleSource(TransactionRuleSource transactionRuleSource) {
     this.transactionRuleSource = transactionRuleSource;
   }
 
 
-
+  /**
+   * Return true if this TransactionEventViolation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -175,108 +170,23 @@ public class TransactionEventViolation {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("reason");
-    openapiFields.add("transactionRule");
-    openapiFields.add("transactionRuleSource");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of TransactionEventViolation given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TransactionEventViolation
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TransactionEventViolation
+   */
+  public static TransactionEventViolation fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TransactionEventViolation.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TransactionEventViolation.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TransactionEventViolation
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TransactionEventViolation.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionEventViolation is not found in the empty JSON string", TransactionEventViolation.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TransactionEventViolation.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionEventViolation` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field reason
-      if (jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
-      }
-      // validate the optional field `transactionRule`
-      if (jsonObj.getAsJsonObject("transactionRule") != null) {
-        TransactionRuleReference.validateJsonObject(jsonObj.getAsJsonObject("transactionRule"));
-      }
-      // validate the optional field `transactionRuleSource`
-      if (jsonObj.getAsJsonObject("transactionRuleSource") != null) {
-        TransactionRuleSource.validateJsonObject(jsonObj.getAsJsonObject("transactionRuleSource"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TransactionEventViolation.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TransactionEventViolation' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TransactionEventViolation> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionEventViolation.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TransactionEventViolation>() {
-           @Override
-           public void write(JsonWriter out, TransactionEventViolation value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TransactionEventViolation read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TransactionEventViolation given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TransactionEventViolation
-  * @throws IOException if the JSON string is invalid with respect to TransactionEventViolation
-  */
-  public static TransactionEventViolation fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TransactionEventViolation.class);
-  }
-
- /**
+/**
   * Convert an instance of TransactionEventViolation to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

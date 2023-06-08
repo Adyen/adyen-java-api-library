@@ -14,63 +14,46 @@ package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transferwebhooks.JSON;
 
 /**
  * BalanceMutation
  */
+@JsonPropertyOrder({
+  BalanceMutation.JSON_PROPERTY_BALANCE,
+  BalanceMutation.JSON_PROPERTY_CURRENCY,
+  BalanceMutation.JSON_PROPERTY_RECEIVED,
+  BalanceMutation.JSON_PROPERTY_RESERVED
+})
 
 public class BalanceMutation {
-  public static final String SERIALIZED_NAME_BALANCE = "balance";
-  @SerializedName(SERIALIZED_NAME_BALANCE)
+  public static final String JSON_PROPERTY_BALANCE = "balance";
   private Long balance;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
-  public static final String SERIALIZED_NAME_RECEIVED = "received";
-  @SerializedName(SERIALIZED_NAME_RECEIVED)
+  public static final String JSON_PROPERTY_RECEIVED = "received";
   private Long received;
 
-  public static final String SERIALIZED_NAME_RESERVED = "reserved";
-  @SerializedName(SERIALIZED_NAME_RESERVED)
+  public static final String JSON_PROPERTY_RESERVED = "reserved";
   private Long reserved;
 
   public BalanceMutation() { 
   }
 
   public BalanceMutation balance(Long balance) {
-    
     this.balance = balance;
     return this;
   }
@@ -80,19 +63,22 @@ public class BalanceMutation {
    * @return balance
   **/
   @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the balance accounting register.")
+  @JsonProperty(JSON_PROPERTY_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getBalance() {
     return balance;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
     this.balance = balance;
   }
 
 
   public BalanceMutation currency(String currency) {
-    
     this.currency = currency;
     return this;
   }
@@ -102,19 +88,22 @@ public class BalanceMutation {
    * @return currency
   **/
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCurrency() {
     return currency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
 
   public BalanceMutation received(Long received) {
-    
     this.received = received;
     return this;
   }
@@ -124,19 +113,22 @@ public class BalanceMutation {
    * @return received
   **/
   @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the received accounting register.")
+  @JsonProperty(JSON_PROPERTY_RECEIVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getReceived() {
     return received;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECEIVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceived(Long received) {
     this.received = received;
   }
 
 
   public BalanceMutation reserved(Long reserved) {
-    
     this.reserved = reserved;
     return this;
   }
@@ -146,18 +138,24 @@ public class BalanceMutation {
    * @return reserved
   **/
   @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the reserved accounting register.")
+  @JsonProperty(JSON_PROPERTY_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getReserved() {
     return reserved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
     this.reserved = reserved;
   }
 
 
-
+  /**
+   * Return true if this BalanceMutation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,101 +199,23 @@ public class BalanceMutation {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("balance");
-    openapiFields.add("currency");
-    openapiFields.add("received");
-    openapiFields.add("reserved");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of BalanceMutation given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BalanceMutation
+   * @throws JsonProcessingException if the JSON string is invalid with respect to BalanceMutation
+   */
+  public static BalanceMutation fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BalanceMutation.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(BalanceMutation.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BalanceMutation
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (BalanceMutation.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BalanceMutation is not found in the empty JSON string", BalanceMutation.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BalanceMutation.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BalanceMutation` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field currency
-      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BalanceMutation.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BalanceMutation' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BalanceMutation> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BalanceMutation.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<BalanceMutation>() {
-           @Override
-           public void write(JsonWriter out, BalanceMutation value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public BalanceMutation read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of BalanceMutation given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BalanceMutation
-  * @throws IOException if the JSON string is invalid with respect to BalanceMutation
-  */
-  public static BalanceMutation fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BalanceMutation.class);
-  }
-
- /**
+/**
   * Convert an instance of BalanceMutation to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

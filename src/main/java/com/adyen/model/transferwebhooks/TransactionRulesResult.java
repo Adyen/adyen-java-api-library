@@ -14,66 +14,49 @@ package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.transferwebhooks.TransactionEventViolation;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transferwebhooks.JSON;
 
 /**
  * TransactionRulesResult
  */
+@JsonPropertyOrder({
+  TransactionRulesResult.JSON_PROPERTY_ADVICE,
+  TransactionRulesResult.JSON_PROPERTY_ALL_RULES_PASSED,
+  TransactionRulesResult.JSON_PROPERTY_FAILED_TRANSACTION_RULES,
+  TransactionRulesResult.JSON_PROPERTY_SCORE
+})
 
 public class TransactionRulesResult {
-  public static final String SERIALIZED_NAME_ADVICE = "advice";
-  @SerializedName(SERIALIZED_NAME_ADVICE)
+  public static final String JSON_PROPERTY_ADVICE = "advice";
   private String advice;
 
-  public static final String SERIALIZED_NAME_ALL_RULES_PASSED = "allRulesPassed";
-  @SerializedName(SERIALIZED_NAME_ALL_RULES_PASSED)
+  public static final String JSON_PROPERTY_ALL_RULES_PASSED = "allRulesPassed";
   private Boolean allRulesPassed;
 
-  public static final String SERIALIZED_NAME_FAILED_TRANSACTION_RULES = "failedTransactionRules";
-  @SerializedName(SERIALIZED_NAME_FAILED_TRANSACTION_RULES)
+  public static final String JSON_PROPERTY_FAILED_TRANSACTION_RULES = "failedTransactionRules";
   private List<TransactionEventViolation> failedTransactionRules = null;
 
-  public static final String SERIALIZED_NAME_SCORE = "score";
-  @SerializedName(SERIALIZED_NAME_SCORE)
+  public static final String JSON_PROPERTY_SCORE = "score";
   private Integer score;
 
   public TransactionRulesResult() { 
   }
 
   public TransactionRulesResult advice(String advice) {
-    
     this.advice = advice;
     return this;
   }
@@ -83,19 +66,22 @@ public class TransactionRulesResult {
    * @return advice
   **/
   @ApiModelProperty(value = "The advice given by the Risk analysis.")
+  @JsonProperty(JSON_PROPERTY_ADVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAdvice() {
     return advice;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdvice(String advice) {
     this.advice = advice;
   }
 
 
   public TransactionRulesResult allRulesPassed(Boolean allRulesPassed) {
-    
     this.allRulesPassed = allRulesPassed;
     return this;
   }
@@ -105,19 +91,22 @@ public class TransactionRulesResult {
    * @return allRulesPassed
   **/
   @ApiModelProperty(value = "Indicates whether the transaction passed the evaluation for all transaction rules.")
+  @JsonProperty(JSON_PROPERTY_ALL_RULES_PASSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllRulesPassed() {
     return allRulesPassed;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALL_RULES_PASSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllRulesPassed(Boolean allRulesPassed) {
     this.allRulesPassed = allRulesPassed;
   }
 
 
   public TransactionRulesResult failedTransactionRules(List<TransactionEventViolation> failedTransactionRules) {
-    
     this.failedTransactionRules = failedTransactionRules;
     return this;
   }
@@ -135,19 +124,22 @@ public class TransactionRulesResult {
    * @return failedTransactionRules
   **/
   @ApiModelProperty(value = "Array containing all the transaction rules that the transaction violated. This list is only sent when `allRulesPassed` is **false**.")
+  @JsonProperty(JSON_PROPERTY_FAILED_TRANSACTION_RULES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TransactionEventViolation> getFailedTransactionRules() {
     return failedTransactionRules;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FAILED_TRANSACTION_RULES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFailedTransactionRules(List<TransactionEventViolation> failedTransactionRules) {
     this.failedTransactionRules = failedTransactionRules;
   }
 
 
   public TransactionRulesResult score(Integer score) {
-    
     this.score = score;
     return this;
   }
@@ -157,18 +149,24 @@ public class TransactionRulesResult {
    * @return score
   **/
   @ApiModelProperty(value = "The score of the Risk analysis.")
+  @JsonProperty(JSON_PROPERTY_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getScore() {
     return score;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
   }
 
 
-
+  /**
+   * Return true if this TransactionRulesResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -212,113 +210,23 @@ public class TransactionRulesResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("advice");
-    openapiFields.add("allRulesPassed");
-    openapiFields.add("failedTransactionRules");
-    openapiFields.add("score");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of TransactionRulesResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TransactionRulesResult
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TransactionRulesResult
+   */
+  public static TransactionRulesResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TransactionRulesResult.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TransactionRulesResult.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TransactionRulesResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TransactionRulesResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRulesResult is not found in the empty JSON string", TransactionRulesResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TransactionRulesResult.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionRulesResult` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field advice
-      if (jsonObj.get("advice") != null && !jsonObj.get("advice").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `advice` to be a primitive type in the JSON string but got `%s`", jsonObj.get("advice").toString()));
-      }
-      JsonArray jsonArrayfailedTransactionRules = jsonObj.getAsJsonArray("failedTransactionRules");
-      if (jsonArrayfailedTransactionRules != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("failedTransactionRules").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `failedTransactionRules` to be an array in the JSON string but got `%s`", jsonObj.get("failedTransactionRules").toString()));
-        }
-
-        // validate the optional field `failedTransactionRules` (array)
-        for (int i = 0; i < jsonArrayfailedTransactionRules.size(); i++) {
-          TransactionEventViolation.validateJsonObject(jsonArrayfailedTransactionRules.get(i).getAsJsonObject());
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TransactionRulesResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TransactionRulesResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TransactionRulesResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionRulesResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TransactionRulesResult>() {
-           @Override
-           public void write(JsonWriter out, TransactionRulesResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TransactionRulesResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TransactionRulesResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TransactionRulesResult
-  * @throws IOException if the JSON string is invalid with respect to TransactionRulesResult
-  */
-  public static TransactionRulesResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TransactionRulesResult.class);
-  }
-
- /**
+/**
   * Convert an instance of TransactionRulesResult to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
