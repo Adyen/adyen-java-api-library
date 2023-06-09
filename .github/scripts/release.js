@@ -40,7 +40,7 @@ exports.updatePythonVersion = async (version) => {
 exports.pomJavaVersion = () => {
     const fs = require('fs');
     const re = /<version>(\d{1,2}.\d.\d)<\/version>\n.*<name>Adyen Java API Library<\/name>/;
-    data = fs.readFileSync("setup.py", 'utf-8');
+    data = fs.readFileSync("pom.xml", 'utf-8');
     version = data.match(re)[1];
     return version;
 }
