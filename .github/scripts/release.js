@@ -57,7 +57,6 @@ exports.updateJavaVersion = async (version) => {
   fs.writeFileSync('pom.xml', newVersion, 'utf-8');
 }
 
-
 // Next semantic version number
 exports.nextVersion = (current, increment) => {
   let [major, minor, patch] = current.split('.');
