@@ -36,7 +36,7 @@ jobs:
         with:
           script: |
             const release = require('./.github/scripts/release.js')
-            await release.updatePythonVersion("${{steps.release.outputs.nextVersion}}");
+            await release.updateJavaVersion("${{steps.release.outputs.nextVersion}}");
       - name: Delete the release script
         run: |
           rm -f ./.github/scripts/release.js
