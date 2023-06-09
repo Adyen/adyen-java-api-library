@@ -1,0 +1,63 @@
+name: Release request
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+      - name: Reset promotion branch
+        run: |
+          git fetch origin develop:develop
+          git reset --hard develop
+#      - name: Get the release script
+#        run: |
+#          wget https://raw.githubusercontent.com/Adyen/adyen-node-api-library/develop/.github/scripts/release.js -P ./.github/scripts
+      - name: Prepare release request
+        uses: actions/github-script@v6
+        id: release
+        with:
+          script: |
+            const release = require('./.github/scripts/release.js')
+            const options = { github, context, core, getCurrentVersion: release.pomJavaVersion };
+            await release.bump(options);
+      - name: Bump version
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const release = require('./.github/scripts/release.js')
+            await release.updatePythonVersion("${{steps.release.outputs.nextVersion}}");
+      - name: Delete the release script
+        run: |
+          rm -f ./.github/scripts/release.js
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@284f54f989303d2699d373481a0cfa13ad5a6666 # v5.0.1
+        with:
+          token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
+          committer: ${{ secrets.ADYEN_AUTOMATION_BOT_EMAIL }}
+          author: ${{ secrets.ADYEN_AUTOMATION_BOT_EMAIL }}
+          branch: automation/release
+          title: Release v${{steps.release.outputs.nextVersion}}
+          body: |
+            Merged pull requests to be released:
+            ${{steps.release.outputs.changelog}}
+          commit-message: "chore(release): bump to ${{steps.release.outputs.nextVersion}}"
+          delete-branch: true
+      - name: Enable Pull Request Automerge
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@a660677d5469627102a1c1e11409dd063606628d # v3.0.0
+        with:
+          token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: merge
