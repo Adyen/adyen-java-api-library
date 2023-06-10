@@ -36,22 +36,16 @@ import java.io.IOException;
  */
 public class WebhookHandler {
     private static final Gson GSON = new Gson();
-    private final Gson marketPayGson;
     private final Gson terminalGson;
 
     public WebhookHandler() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(GenericWebhook.class, new MarketPayNotificationMessageDeserializer());
-        marketPayGson = gsonBuilder.create();
         terminalGson = TerminalAPIGsonBuilder.create();
     }
 
     public NotificationRequest handleNotificationJson(String json) throws IOException {
         return NotificationRequest.fromJson(json);
-    }
-
-    public GenericWebhook handleMarketpayNotificationJson(String json) {
-        return marketPayGson.fromJson(json, GenericWebhook.class);
     }
 
     // Note that terminal notifications are structured as TerminalAPIRequest objects
