@@ -133,13 +133,18 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data does not match schema 'SweepSchedule'", e);
                     }
 
-                    if (match == 1) {
-                        SweepConfigurationV2Schedule ret = new SweepConfigurationV2Schedule();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
-                        return ret;
+                    // Throw exception in case no suitable deserialization candidate has been found
+                    if (match == 0) {
+                        throw new IOException(String.format("Failed deserialization for SweepConfigurationV2Schedule: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                    }
+                    // Log warning in case multiple deserialization candidates have been found
+                    if (match > 1) {
+                        log.log(Level.WARNING, String.format("Multiple deserialization targets for SweepConfigurationV2Schedule: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
                     }
 
-                    throw new IOException(String.format("Failed deserialization for SweepConfigurationV2Schedule: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                    SweepConfigurationV2Schedule ret = new SweepConfigurationV2Schedule();
+                    ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
+                    return ret;
                 }
             }.nullSafe();
         }
@@ -259,8 +264,12 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
       errorMessages.add(String.format("Deserialization for SweepSchedule failed with `%s`.", e.getMessage()));
       // continue to the next one
     }
-    if (validCount != 1) {
+    if (validCount == 0) {
       throw new IOException(String.format("The JSON string is invalid for SweepConfigurationV2Schedule with oneOf schemas: CronSweepSchedule, SweepSchedule. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
+    }
+
+    if (validCount > 1) {
+      log.log(Level.WARNING, String.format("The JSON string is invalid for SweepConfigurationV2Schedule with oneOf schemas: CronSweepSchedule, SweepSchedule. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
     }
   }
 
