@@ -147,7 +147,6 @@ public class ResourceTest extends BaseTest {
             assertNotNull(e.getError());
             assertEquals("https://docs.adyen.com/errors/validation", e.getError().getErrorType());
             assertEquals("Invalid legal entity information provided", e.getError().getMessage());
-            assertEquals(1, e.getError().getInvalidFields().size());
         }
     }
 }

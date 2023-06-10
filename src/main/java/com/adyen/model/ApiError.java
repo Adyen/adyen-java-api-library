@@ -20,7 +20,6 @@
  */
 package com.adyen.model;
 
-import com.adyen.model.marketpay.ErrorFieldType;
 import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
@@ -49,9 +48,6 @@ public class ApiError {
 
     @SerializedName("pspReference")
     private String pspReference = null;
-
-    @SerializedName("invalidFields")
-    private List<ErrorFieldType> invalidFields = null;
 
     public int getStatus() {
         return status;
@@ -93,14 +89,6 @@ public class ApiError {
         this.pspReference = pspReference;
     }
 
-    public List<ErrorFieldType> getInvalidFields() {
-        return invalidFields;
-    }
-
-    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
-        this.invalidFields = invalidFields;
-    }
-
     /**
      * Create an instance of ApiError given an JSON string
      * @param jsonString
@@ -138,7 +126,6 @@ public class ApiError {
                 apiError.errorType = getStringValue(jsonObject, "type");
                 apiError.status = getIntValue(jsonObject, "status");
                 apiError.message = getStringValue(jsonObject, "detail");
-                apiError.invalidFields = getListValue(jsonObject, "invalidFields");
                 apiError.errorCode = getStringValue(jsonObject, "errorCode");
             } else {
                 // map ServiceError to ApiError
@@ -172,7 +159,6 @@ public class ApiError {
         sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("}");
         return sb.toString();
     }
