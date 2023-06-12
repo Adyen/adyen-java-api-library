@@ -20,23 +20,24 @@ jobs:
         run: |
           git fetch origin develop:develop
           git reset --hard develop
-#      - name: Get the release script
-#        run: |
-#          wget https://raw.githubusercontent.com/Adyen/adyen-node-api-library/develop/.github/scripts/release.js -P ./.github/scripts
+      - name: Get the release script
+        run: |
+          wget https://raw.githubusercontent.com/Adyen/adyen-node-api-library/develop/.github/scripts/release.js -P ./.github/scripts
       - name: Prepare release request
         uses: actions/github-script@v6
         id: release
         with:
           script: |
+            const helper = require('./.github/scripts/helper.js')
             const release = require('./.github/scripts/release.js')
-            const options = { github, context, core, getCurrentVersion: release.pomJavaVersion };
+            const options = { github, context, core, getCurrentVersion: helper.pomJavaVersion };
             await release.bump(options);
       - name: Bump version
         uses: actions/github-script@v6
         with:
           script: |
-            const release = require('./.github/scripts/release.js')
-            await release.updateJavaVersion("${{steps.release.outputs.nextVersion}}");
+            const helper = require('./.github/scripts/helper.js')
+            await helper.updateJavaVersion("${{steps.release.outputs.nextVersion}}");
       - name: Delete the release script
         run: |
           rm -f ./.github/scripts/release.js
