@@ -53,7 +53,7 @@ exports.updateJavaVersion = async (version) => {
   fs.writeFileSync('src/main/java/com/adyen/Client.java', newVersion, 'utf-8');
 
   data = fs.readFileSync('pom.xml', 'utf-8');
-  newVersion = data.replace(/<version>(\d{1,2}.\d.\d)<\/version>\n.*<name>Adyen Java API Library<\/name>/, version);
+  newVersion = data.replace(/(<version>)(\d{1,2}.\d.\d)(<\/version>\n.*<name>Adyen Java API Library<\/name>)/, "$1" + version + "$3");
   fs.writeFileSync('pom.xml', newVersion, 'utf-8');
 }
 
