@@ -5,14 +5,18 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.*;
 
 import com.adyen.service.balanceplatform.*;
+import com.google.gson.JsonSyntaxException;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 
 public class BalancePlatformTest extends BaseTest {
@@ -197,6 +201,7 @@ public class BalancePlatformTest extends BaseTest {
                 "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
                 "  },\n" +
                 "  \"currency\": \"EUR\",\n" +
+                "  \"ignoredField\": \"I'm not part of the specs yet, and that's OK\",\n" +
                 "  \"id\": \"SWPC4227C224555B5FTD2NT2JV4WN5\",\n" +
                 "  \"schedule\": {\n" +
                 "    \"type\": \"balance\"\n" +
@@ -205,6 +210,27 @@ public class BalancePlatformTest extends BaseTest {
         
         assertThat(request.getSchedule().getActualInstance(), instanceOf(SweepSchedule.class));
         assertEquals(SweepSchedule.TypeEnum.BALANCE, request.getSchedule().getSweepSchedule().getType());
+    }
+
+    @Test
+    public void sweepScheduleUnknownFieldTest() {
+        JsonSyntaxException err = assertThrows(JsonSyntaxException.class, () -> {
+            SweepConfigurationV2.fromJson("{\n" +
+                    "  \"counterparty\": {\n" +
+                    "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
+                    "  },\n" +
+                    "  \"currency\": \"EUR\",\n" +
+                    "  \"id\": \"SWPC4227C224555B5FTD2NT2JV4WN5\",\n" +
+                    "  \"schedule\": {\n" +
+                    "    \"type\": \"balance\",\n" +
+                    "    \"troubleMaker\": \"I'm not part of the specs yet, and that's not cool bro\"\n" +
+                    "  }\n" +
+                    "}");
+        });
+        String msg = err.getMessage();
+        
+        assertTrue(msg.contains("0 class(es) match the result, expected 1"));
+        assertTrue(msg.contains("The field `troubleMaker` in the JSON string is not defined"));
     }
 
     @Test
