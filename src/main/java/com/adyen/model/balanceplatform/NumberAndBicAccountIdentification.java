@@ -265,18 +265,18 @@ public class NumberAndBicAccountIdentification {
     openapiRequiredFields.add("bic");
     openapiRequiredFields.add("type");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(NumberAndBicAccountIdentification.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to NumberAndBicAccountIdentification
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (NumberAndBicAccountIdentification.openapiRequiredFields.isEmpty()) {
           return;
@@ -284,13 +284,14 @@ public class NumberAndBicAccountIdentification {
           throw new IllegalArgumentException(String.format("The required field(s) %s in NumberAndBicAccountIdentification is not found in the empty JSON string", NumberAndBicAccountIdentification.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!NumberAndBicAccountIdentification.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `NumberAndBicAccountIdentification` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!NumberAndBicAccountIdentification.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NumberAndBicAccountIdentification` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -301,7 +302,7 @@ public class NumberAndBicAccountIdentification {
       }
       // validate the optional field accountNumber
       if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
       }
       // validate the optional field `additionalBankIdentification`
       if (jsonObj.getAsJsonObject("additionalBankIdentification") != null) {
@@ -309,7 +310,7 @@ public class NumberAndBicAccountIdentification {
       }
       // validate the optional field bic
       if (jsonObj.get("bic") != null && !jsonObj.get("bic").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bic` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bic").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `bic` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bic").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

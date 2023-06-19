@@ -201,7 +201,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize AULocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        AULocalAccountIdentification.validateJsonObject(jsonObject);
+                        AULocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterAULocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'AULocalAccountIdentification'");
@@ -214,7 +214,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize CALocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CALocalAccountIdentification.validateJsonObject(jsonObject);
+                        CALocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterCALocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'CALocalAccountIdentification'");
@@ -227,7 +227,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize CZLocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CZLocalAccountIdentification.validateJsonObject(jsonObject);
+                        CZLocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterCZLocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'CZLocalAccountIdentification'");
@@ -240,7 +240,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize HULocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        HULocalAccountIdentification.validateJsonObject(jsonObject);
+                        HULocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterHULocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'HULocalAccountIdentification'");
@@ -253,7 +253,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize IbanAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        IbanAccountIdentification.validateJsonObject(jsonObject);
+                        IbanAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterIbanAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
@@ -266,7 +266,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize NOLocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        NOLocalAccountIdentification.validateJsonObject(jsonObject);
+                        NOLocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterNOLocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'NOLocalAccountIdentification'");
@@ -279,7 +279,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize NumberAndBicAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        NumberAndBicAccountIdentification.validateJsonObject(jsonObject);
+                        NumberAndBicAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterNumberAndBicAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'NumberAndBicAccountIdentification'");
@@ -292,7 +292,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize PLLocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        PLLocalAccountIdentification.validateJsonObject(jsonObject);
+                        PLLocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterPLLocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'PLLocalAccountIdentification'");
@@ -305,7 +305,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize SELocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        SELocalAccountIdentification.validateJsonObject(jsonObject);
+                        SELocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterSELocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'SELocalAccountIdentification'");
@@ -318,7 +318,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize SGLocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        SGLocalAccountIdentification.validateJsonObject(jsonObject);
+                        SGLocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterSGLocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'SGLocalAccountIdentification'");
@@ -331,7 +331,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize UKLocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        UKLocalAccountIdentification.validateJsonObject(jsonObject);
+                        UKLocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterUKLocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'UKLocalAccountIdentification'");
@@ -344,7 +344,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                     // deserialize USLocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        USLocalAccountIdentification.validateJsonObject(jsonObject);
+                        USLocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterUSLocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'USLocalAccountIdentification'");
@@ -354,18 +354,13 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
                         log.log(Level.FINER, "Input data does not match schema 'USLocalAccountIdentification'", e);
                     }
 
-                    // Throw exception in case no suitable deserialization candidate has been found
-                    if (match == 0) {
-                        throw new IOException(String.format("Failed deserialization for BankAccountIdentificationValidationRequestAccountIdentification: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
-                    }
-                    // Log warning in case multiple deserialization candidates have been found
-                    if (match > 1) {
-                        log.log(Level.WARNING, String.format("Multiple deserialization targets for BankAccountIdentificationValidationRequestAccountIdentification: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                    if (match == 1) {
+                        BankAccountIdentificationValidationRequestAccountIdentification ret = new BankAccountIdentificationValidationRequestAccountIdentification();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
+                        return ret;
                     }
 
-                    BankAccountIdentificationValidationRequestAccountIdentification ret = new BankAccountIdentificationValidationRequestAccountIdentification();
-                    ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
-                    return ret;
+                    throw new IOException(String.format("Failed deserialization for BankAccountIdentificationValidationRequestAccountIdentification: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
                 }
             }.nullSafe();
         }
@@ -700,7 +695,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with AULocalAccountIdentification
     try {
       Logger.getLogger(AULocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      AULocalAccountIdentification.validateJsonObject(jsonObj);
+      AULocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for AULocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -709,7 +704,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with CALocalAccountIdentification
     try {
       Logger.getLogger(CALocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      CALocalAccountIdentification.validateJsonObject(jsonObj);
+      CALocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for CALocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -718,7 +713,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with CZLocalAccountIdentification
     try {
       Logger.getLogger(CZLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      CZLocalAccountIdentification.validateJsonObject(jsonObj);
+      CZLocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for CZLocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -727,7 +722,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with HULocalAccountIdentification
     try {
       Logger.getLogger(HULocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      HULocalAccountIdentification.validateJsonObject(jsonObj);
+      HULocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for HULocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -736,7 +731,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with IbanAccountIdentification
     try {
       Logger.getLogger(IbanAccountIdentification.class.getName()).setLevel(Level.OFF);
-      IbanAccountIdentification.validateJsonObject(jsonObj);
+      IbanAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for IbanAccountIdentification failed with `%s`.", e.getMessage()));
@@ -745,7 +740,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with NOLocalAccountIdentification
     try {
       Logger.getLogger(NOLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      NOLocalAccountIdentification.validateJsonObject(jsonObj);
+      NOLocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for NOLocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -754,7 +749,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with NumberAndBicAccountIdentification
     try {
       Logger.getLogger(NumberAndBicAccountIdentification.class.getName()).setLevel(Level.OFF);
-      NumberAndBicAccountIdentification.validateJsonObject(jsonObj);
+      NumberAndBicAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for NumberAndBicAccountIdentification failed with `%s`.", e.getMessage()));
@@ -763,7 +758,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with PLLocalAccountIdentification
     try {
       Logger.getLogger(PLLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      PLLocalAccountIdentification.validateJsonObject(jsonObj);
+      PLLocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for PLLocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -772,7 +767,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with SELocalAccountIdentification
     try {
       Logger.getLogger(SELocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      SELocalAccountIdentification.validateJsonObject(jsonObj);
+      SELocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for SELocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -781,7 +776,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with SGLocalAccountIdentification
     try {
       Logger.getLogger(SGLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      SGLocalAccountIdentification.validateJsonObject(jsonObj);
+      SGLocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for SGLocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -790,7 +785,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with UKLocalAccountIdentification
     try {
       Logger.getLogger(UKLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      UKLocalAccountIdentification.validateJsonObject(jsonObj);
+      UKLocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for UKLocalAccountIdentification failed with `%s`.", e.getMessage()));
@@ -799,18 +794,14 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     // validate the json string with USLocalAccountIdentification
     try {
       Logger.getLogger(USLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      USLocalAccountIdentification.validateJsonObject(jsonObj);
+      USLocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for USLocalAccountIdentification failed with `%s`.", e.getMessage()));
       // continue to the next one
     }
-    if (validCount == 0) {
+    if (validCount != 1) {
       throw new IOException(String.format("The JSON string is invalid for BankAccountIdentificationValidationRequestAccountIdentification with oneOf schemas: AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
-    }
-
-    if (validCount > 1) {
-      log.log(Level.WARNING, String.format("The JSON string is invalid for BankAccountIdentificationValidationRequestAccountIdentification with oneOf schemas: AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
     }
   }
 

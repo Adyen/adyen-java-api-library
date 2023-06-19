@@ -158,18 +158,18 @@ public class TimeOfDay {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TimeOfDay.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to TimeOfDay
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (TimeOfDay.openapiRequiredFields.isEmpty()) {
           return;
@@ -177,21 +177,22 @@ public class TimeOfDay {
           throw new IllegalArgumentException(String.format("The required field(s) %s in TimeOfDay is not found in the empty JSON string", TimeOfDay.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TimeOfDay.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TimeOfDay` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!TimeOfDay.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TimeOfDay` properties.", entry.getKey()));
+            }
+          }
       }
       // validate the optional field endTime
       if (jsonObj.get("endTime") != null && !jsonObj.get("endTime").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `endTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endTime").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `endTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endTime").toString()));
       }
       // validate the optional field startTime
       if (jsonObj.get("startTime") != null && !jsonObj.get("startTime").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `startTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startTime").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `startTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startTime").toString()));
       }
   }
 

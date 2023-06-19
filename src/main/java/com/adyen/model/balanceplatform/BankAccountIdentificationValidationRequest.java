@@ -131,18 +131,18 @@ public class BankAccountIdentificationValidationRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("accountIdentification");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(BankAccountIdentificationValidationRequest.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to BankAccountIdentificationValidationRequest
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (BankAccountIdentificationValidationRequest.openapiRequiredFields.isEmpty()) {
           return;
@@ -150,13 +150,14 @@ public class BankAccountIdentificationValidationRequest {
           throw new IllegalArgumentException(String.format("The required field(s) %s in BankAccountIdentificationValidationRequest is not found in the empty JSON string", BankAccountIdentificationValidationRequest.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BankAccountIdentificationValidationRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BankAccountIdentificationValidationRequest` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!BankAccountIdentificationValidationRequest.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BankAccountIdentificationValidationRequest` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string

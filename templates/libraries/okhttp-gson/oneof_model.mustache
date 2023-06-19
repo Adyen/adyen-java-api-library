@@ -102,7 +102,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     // deserialize {{{.}}}
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        {{.}}.validateJsonObject(jsonObject);
+                        {{.}}.validateJsonObject(jsonObject, true);
                         actualAdapter = adapter{{.}};
                         match++;
                         log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
@@ -113,18 +113,13 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     }
 
                     {{/oneOf}}
-                    // Throw exception in case no suitable deserialization candidate has been found
-                    if (match == 0) {
-                        throw new IOException(String.format("Failed deserialization for {{classname}}: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
-                    }
-                    // Log warning in case multiple deserialization candidates have been found
-                    if (match > 1) {
-                        log.log(Level.WARNING, String.format("Multiple deserialization targets for {{classname}}: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                    if (match == 1) {
+                        {{classname}} ret = new {{classname}}();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
+                        return ret;
                     }
 
-                    {{classname}} ret = new {{classname}}();
-                    ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
-                    return ret;
+                    throw new IOException(String.format("Failed deserialization for {{classname}}: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
                 }
             }.nullSafe();
         }
@@ -222,19 +217,15 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     // validate the json string with {{{.}}}
     try {
       Logger.getLogger({{{.}}}.class.getName()).setLevel(Level.OFF);
-      {{{.}}}.validateJsonObject(jsonObj);
+      {{{.}}}.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for {{{.}}} failed with `%s`.", e.getMessage()));
       // continue to the next one
     }
     {{/oneOf}}
-    if (validCount == 0) {
+    if (validCount != 1) {
       throw new IOException(String.format("The JSON string is invalid for {{classname}} with oneOf schemas: {{#oneOf}}{{{.}}}{{^-last}}, {{/-last}}{{/oneOf}}. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
-    }
-
-    if (validCount > 1) {
-      log.log(Level.WARNING, String.format("The JSON string is invalid for {{classname}} with oneOf schemas: {{#oneOf}}{{{.}}}{{^-last}}, {{/-last}}{{/oneOf}}. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
     }
   }
 

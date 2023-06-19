@@ -10,6 +10,8 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
@@ -185,6 +187,73 @@ public class BalancePlatformTest extends BaseTest {
         SweepConfigurationV2 response = service.createSweep("AH32272223222B59K6ZKBBFNQ", request);
         assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getId());
         assertEquals(SweepConfigurationV2.StatusEnum.ACTIVE, response.getStatus());
+    }
+
+    @Test
+    public void sweepScheduleTest() throws Exception {
+        // response -> from json
+        SweepConfigurationV2 request = SweepConfigurationV2.fromJson("{\n" +
+                "  \"counterparty\": {\n" +
+                "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
+                "  },\n" +
+                "  \"currency\": \"EUR\",\n" +
+                "  \"id\": \"SWPC4227C224555B5FTD2NT2JV4WN5\",\n" +
+                "  \"schedule\": {\n" +
+                "    \"type\": \"balance\"\n" +
+                "  }\n" +
+                "}");
+        
+        assertThat(request.getSchedule().getActualInstance(), instanceOf(SweepSchedule.class));
+        assertEquals(SweepSchedule.TypeEnum.BALANCE, request.getSchedule().getSweepSchedule().getType());
+    }
+
+    @Test
+    public void cronSweepScheduleTest() throws Exception {
+        // response -> from json
+        SweepConfigurationV2 request = SweepConfigurationV2.fromJson("{\n" +
+                "  \"counterparty\": {\n" +
+                "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
+                "  },\n" +
+                "  \"currency\": \"EUR\",\n" +
+                "  \"id\": \"SWPC4227C224555B5FTD2NT2JV4WN5\",\n" +
+                "  \"schedule\": {\n" +
+                "    \"type\": \"cron\",\n" +
+                "    \"cronExpression\": \"*/5 * * * *\"\n" +
+                "  }\n" +
+                "}");
+        
+        assertThat(request.getSchedule().getActualInstance(), instanceOf(CronSweepSchedule.class));
+        assertEquals(CronSweepSchedule.TypeEnum.CRON, request.getSchedule().getCronSweepSchedule().getType());
+        assertEquals("*/5 * * * *", request.getSchedule().getCronSweepSchedule().getCronExpression());
+    }
+
+    @Test
+    public void cronSweepScheduleToJsonTest() {
+        SweepConfigurationV2 request = new SweepConfigurationV2();
+        request.setType(SweepConfigurationV2.TypeEnum.PULL);
+        CronSweepSchedule cron = new CronSweepSchedule();
+        cron.setType(CronSweepSchedule.TypeEnum.CRON);
+        cron.setCronExpression("6 6 6");
+        request.setSchedule(new SweepConfigurationV2Schedule(cron));
+        
+        // request to json
+        String json = request.toJson();
+        
+        assertEquals("{\"schedule\":{\"cronExpression\":\"6 6 6\",\"type\":\"cron\"},\"type\":\"pull\"}", json);
+    }
+
+    @Test
+    public void sweepScheduleToJsonTest() {
+        SweepConfigurationV2 request = new SweepConfigurationV2();
+        request.setType(SweepConfigurationV2.TypeEnum.PUSH);
+        SweepSchedule schedule = new SweepSchedule();
+        schedule.setType(SweepSchedule.TypeEnum.DAILY);
+        request.setSchedule(new SweepConfigurationV2Schedule(schedule));
+
+        // request to json
+        String json = request.toJson();
+
+        assertEquals("{\"schedule\":{\"type\":\"daily\"},\"type\":\"push\"}", json);
     }
 
     @Test

@@ -364,18 +364,18 @@ public class CapabilitySettings {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CapabilitySettings.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to CapabilitySettings
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (CapabilitySettings.openapiRequiredFields.isEmpty()) {
           return;
@@ -383,17 +383,18 @@ public class CapabilitySettings {
           throw new IllegalArgumentException(String.format("The required field(s) %s in CapabilitySettings is not found in the empty JSON string", CapabilitySettings.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CapabilitySettings.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CapabilitySettings` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!CapabilitySettings.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CapabilitySettings` properties.", entry.getKey()));
+            }
+          }
       }
       // ensure the json data is an array
       if (jsonObj.get("fundingSource") != null && !jsonObj.get("fundingSource").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `fundingSource` to be an array in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be an array in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
       }
       // ensure the field interval can be parsed to an enum value
       if (jsonObj.get("interval") != null) {

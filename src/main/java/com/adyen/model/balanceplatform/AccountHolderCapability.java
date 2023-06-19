@@ -533,18 +533,18 @@ public class AccountHolderCapability {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AccountHolderCapability.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to AccountHolderCapability
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (AccountHolderCapability.openapiRequiredFields.isEmpty()) {
           return;
@@ -552,13 +552,14 @@ public class AccountHolderCapability {
           throw new IllegalArgumentException(String.format("The required field(s) %s in AccountHolderCapability is not found in the empty JSON string", AccountHolderCapability.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AccountHolderCapability.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AccountHolderCapability` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!AccountHolderCapability.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountHolderCapability` properties.", entry.getKey()));
+            }
+          }
       }
       // ensure the field allowedLevel can be parsed to an enum value
       if (jsonObj.get("allowedLevel") != null) {
@@ -573,7 +574,7 @@ public class AccountHolderCapability {
       }
       // ensure the json data is an array
       if (jsonObj.get("problems") != null && !jsonObj.get("problems").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `problems` to be an array in the JSON string but got `%s`", jsonObj.get("problems").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `problems` to be an array in the JSON string but got `%s`", jsonObj.get("problems").toString()));
       }
       // ensure the field requestedLevel can be parsed to an enum value
       if (jsonObj.get("requestedLevel") != null) {
