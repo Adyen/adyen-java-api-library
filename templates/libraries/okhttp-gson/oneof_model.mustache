@@ -102,7 +102,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     // deserialize {{{.}}}
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        {{.}}.validateJsonObject(jsonObject);
+                        {{.}}.validateJsonObject(jsonObject, true);
                         actualAdapter = adapter{{.}};
                         match++;
                         log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
@@ -217,7 +217,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     // validate the json string with {{{.}}}
     try {
       Logger.getLogger({{{.}}}.class.getName()).setLevel(Level.OFF);
-      {{{.}}}.validateJsonObject(jsonObj);
+      {{{.}}}.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for {{{.}}} failed with `%s`.", e.getMessage()));

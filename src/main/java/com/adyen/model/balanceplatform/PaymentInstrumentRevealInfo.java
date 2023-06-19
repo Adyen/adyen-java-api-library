@@ -191,18 +191,18 @@ public class PaymentInstrumentRevealInfo {
     openapiRequiredFields.add("expiration");
     openapiRequiredFields.add("pan");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentInstrumentRevealInfo.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to PaymentInstrumentRevealInfo
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (PaymentInstrumentRevealInfo.openapiRequiredFields.isEmpty()) {
           return;
@@ -210,13 +210,14 @@ public class PaymentInstrumentRevealInfo {
           throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentInstrumentRevealInfo is not found in the empty JSON string", PaymentInstrumentRevealInfo.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentInstrumentRevealInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentRevealInfo` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!PaymentInstrumentRevealInfo.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentRevealInfo` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -227,7 +228,7 @@ public class PaymentInstrumentRevealInfo {
       }
       // validate the optional field cvc
       if (jsonObj.get("cvc") != null && !jsonObj.get("cvc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
       }
       // validate the optional field `expiration`
       if (jsonObj.getAsJsonObject("expiration") != null) {
@@ -235,7 +236,7 @@ public class PaymentInstrumentRevealInfo {
       }
       // validate the optional field pan
       if (jsonObj.get("pan") != null && !jsonObj.get("pan").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `pan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan").toString()));
       }
   }
 

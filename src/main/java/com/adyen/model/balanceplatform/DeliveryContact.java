@@ -279,18 +279,18 @@ public class DeliveryContact {
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("name");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(DeliveryContact.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to DeliveryContact
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (DeliveryContact.openapiRequiredFields.isEmpty()) {
           return;
@@ -298,13 +298,14 @@ public class DeliveryContact {
           throw new IllegalArgumentException(String.format("The required field(s) %s in DeliveryContact is not found in the empty JSON string", DeliveryContact.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!DeliveryContact.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `DeliveryContact` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!DeliveryContact.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeliveryContact` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -319,11 +320,11 @@ public class DeliveryContact {
       }
       // validate the optional field email
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       // validate the optional field fullPhoneNumber
       if (jsonObj.get("fullPhoneNumber") != null && !jsonObj.get("fullPhoneNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fullPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fullPhoneNumber").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `fullPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fullPhoneNumber").toString()));
       }
       // validate the optional field `name`
       if (jsonObj.getAsJsonObject("name") != null) {
@@ -335,7 +336,7 @@ public class DeliveryContact {
       }
       // validate the optional field webAddress
       if (jsonObj.get("webAddress") != null && !jsonObj.get("webAddress").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `webAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddress").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `webAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddress").toString()));
       }
   }
 
