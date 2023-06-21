@@ -110,7 +110,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
                     // deserialize IbanAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        IbanAccountIdentification.validateJsonObject(jsonObject);
+                        IbanAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterIbanAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
@@ -123,7 +123,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
                     // deserialize USLocalAccountIdentification
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        USLocalAccountIdentification.validateJsonObject(jsonObject);
+                        USLocalAccountIdentification.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterUSLocalAccountIdentification;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'USLocalAccountIdentification'");
@@ -244,7 +244,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
     // validate the json string with IbanAccountIdentification
     try {
       Logger.getLogger(IbanAccountIdentification.class.getName()).setLevel(Level.OFF);
-      IbanAccountIdentification.validateJsonObject(jsonObj);
+      IbanAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for IbanAccountIdentification failed with `%s`.", e.getMessage()));
@@ -253,7 +253,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
     // validate the json string with USLocalAccountIdentification
     try {
       Logger.getLogger(USLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      USLocalAccountIdentification.validateJsonObject(jsonObj);
+      USLocalAccountIdentification.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for USLocalAccountIdentification failed with `%s`.", e.getMessage()));

@@ -236,18 +236,18 @@ public class CapitalGrantAccount {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CapitalGrantAccount.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to CapitalGrantAccount
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (CapitalGrantAccount.openapiRequiredFields.isEmpty()) {
           return;
@@ -255,13 +255,14 @@ public class CapitalGrantAccount {
           throw new IllegalArgumentException(String.format("The required field(s) %s in CapitalGrantAccount is not found in the empty JSON string", CapitalGrantAccount.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CapitalGrantAccount.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CapitalGrantAccount` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!CapitalGrantAccount.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CapitalGrantAccount` properties.", entry.getKey()));
+            }
+          }
       }
       JsonArray jsonArraybalances = jsonObj.getAsJsonArray("balances");
       if (jsonArraybalances != null) {
@@ -277,11 +278,11 @@ public class CapitalGrantAccount {
       }
       // validate the optional field fundingBalanceAccountId
       if (jsonObj.get("fundingBalanceAccountId") != null && !jsonObj.get("fundingBalanceAccountId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fundingBalanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingBalanceAccountId").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `fundingBalanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingBalanceAccountId").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       JsonArray jsonArraylimits = jsonObj.getAsJsonArray("limits");
       if (jsonArraylimits != null) {

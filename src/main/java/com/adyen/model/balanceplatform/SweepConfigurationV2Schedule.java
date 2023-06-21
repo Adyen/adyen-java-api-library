@@ -110,7 +110,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
                     // deserialize CronSweepSchedule
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CronSweepSchedule.validateJsonObject(jsonObject);
+                        CronSweepSchedule.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterCronSweepSchedule;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'CronSweepSchedule'");
@@ -123,7 +123,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
                     // deserialize SweepSchedule
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        SweepSchedule.validateJsonObject(jsonObject);
+                        SweepSchedule.validateJsonObject(jsonObject, true);
                         actualAdapter = adapterSweepSchedule;
                         match++;
                         log.log(Level.FINER, "Input data matches schema 'SweepSchedule'");
@@ -244,7 +244,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
     // validate the json string with CronSweepSchedule
     try {
       Logger.getLogger(CronSweepSchedule.class.getName()).setLevel(Level.OFF);
-      CronSweepSchedule.validateJsonObject(jsonObj);
+      CronSweepSchedule.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for CronSweepSchedule failed with `%s`.", e.getMessage()));
@@ -253,7 +253,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
     // validate the json string with SweepSchedule
     try {
       Logger.getLogger(SweepSchedule.class.getName()).setLevel(Level.OFF);
-      SweepSchedule.validateJsonObject(jsonObj);
+      SweepSchedule.validateJsonObject(jsonObj, true);
       validCount++;
     } catch (Exception e) {
       errorMessages.add(String.format("Deserialization for SweepSchedule failed with `%s`.", e.getMessage()));
