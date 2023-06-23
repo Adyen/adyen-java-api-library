@@ -228,7 +228,7 @@ public class ThreeDS2RequestData {
   private String merchantName;
 
   public static final String JSON_PROPERTY_MESSAGE_VERSION = "messageVersion";
-  private String messageVersion = "2.1.0";
+  private String messageVersion;
 
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
   private Phone mobilePhone;

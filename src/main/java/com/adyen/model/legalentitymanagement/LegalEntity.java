@@ -25,6 +25,7 @@ import com.adyen.model.legalentitymanagement.LegalEntityCapability;
 import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
 import com.adyen.model.legalentitymanagement.TransferInstrumentReference;
+import com.adyen.model.legalentitymanagement.VerificationDeadline;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -55,7 +56,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntity.JSON_PROPERTY_REFERENCE,
   LegalEntity.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
   LegalEntity.JSON_PROPERTY_TRANSFER_INSTRUMENTS,
-  LegalEntity.JSON_PROPERTY_TYPE
+  LegalEntity.JSON_PROPERTY_TYPE,
+  LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES
 })
 
 public class LegalEntity {
@@ -135,6 +137,9 @@ public class LegalEntity {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
+  private List<VerificationDeadline> verificationDeadlines = null;
 
   public LegalEntity() { 
   }
@@ -489,6 +494,39 @@ public class LegalEntity {
   }
 
 
+  public LegalEntity verificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+    this.verificationDeadlines = verificationDeadlines;
+    return this;
+  }
+
+  public LegalEntity addVerificationDeadlinesItem(VerificationDeadline verificationDeadlinesItem) {
+    if (this.verificationDeadlines == null) {
+      this.verificationDeadlines = new ArrayList<>();
+    }
+    this.verificationDeadlines.add(verificationDeadlinesItem);
+    return this;
+  }
+
+   /**
+   * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
+   * @return verificationDeadlines
+  **/
+  @ApiModelProperty(value = "List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<VerificationDeadline> getVerificationDeadlines() {
+    return verificationDeadlines;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+    this.verificationDeadlines = verificationDeadlines;
+  }
+
+
   /**
    * Return true if this LegalEntity object is equal to o.
    */
@@ -512,12 +550,13 @@ public class LegalEntity {
         Objects.equals(this.reference, legalEntity.reference) &&
         Objects.equals(this.soleProprietorship, legalEntity.soleProprietorship) &&
         Objects.equals(this.transferInstruments, legalEntity.transferInstruments) &&
-        Objects.equals(this.type, legalEntity.type);
+        Objects.equals(this.type, legalEntity.type) &&
+        Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, type);
+    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, type, verificationDeadlines);
   }
 
   @Override
@@ -536,6 +575,7 @@ public class LegalEntity {
     sb.append("    soleProprietorship: ").append(toIndentedString(soleProprietorship)).append("\n");
     sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    verificationDeadlines: ").append(toIndentedString(verificationDeadlines)).append("\n");
     sb.append("}");
     return sb.toString();
   }

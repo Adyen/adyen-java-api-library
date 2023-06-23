@@ -48,7 +48,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -91,6 +93,10 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // Local Object Mapper that forces strict validation
+            ObjectMapper localObjectMapper = JSON.getMapper();
+            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
             // deserialize CronSweepSchedule
             try {
                 boolean attemptParsing = true;
@@ -106,8 +112,9 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CronSweepSchedule.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CronSweepSchedule.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CronSweepSchedule.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CronSweepSchedule'");
@@ -116,6 +123,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CronSweepSchedule'", e);
             }
+
 
             // deserialize SweepSchedule
             try {
@@ -132,8 +140,9 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(SweepSchedule.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(SweepSchedule.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), SweepSchedule.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'SweepSchedule'");
@@ -152,6 +161,7 @@ public class SweepConfigurationV2Schedule extends AbstractOpenApiSchema {
                 log.log(Level.WARNING, String.format("Warning, indecisive deserialization for SweepConfigurationV2Schedule: %d classes match result, expected 1", match));
             }
 
+            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             SweepConfigurationV2Schedule ret = new SweepConfigurationV2Schedule();
             ret.setActualInstance(deserialized);
             return ret;

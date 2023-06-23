@@ -5,12 +5,12 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.*;
 
 import com.adyen.service.balanceplatform.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.gson.JsonSyntaxException;
-import org.junit.Rule;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -168,10 +168,12 @@ public class BalancePlatformTest extends BaseTest {
         assertEquals("BA32272223222B5FTD2KR6TJD", response.getSweeps().get(0).getCounterparty().getBalanceAccountId());
     }
 
+    // This test deserialises both models for the SweepConfiguration (SweepSchedule and CronSweepSchedule)
     @Test
     public void BalanceAccountsCreateSweepTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
         BalanceAccountsApi service = new BalanceAccountsApi(client);
+
         SweepConfigurationV2 request = SweepConfigurationV2.fromJson("{\n" +
                 "  \"counterparty\": {\n" +
                 "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
@@ -191,6 +193,7 @@ public class BalancePlatformTest extends BaseTest {
         SweepConfigurationV2 response = service.createSweep("AH32272223222B59K6ZKBBFNQ", request);
         assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getId());
         assertEquals(SweepConfigurationV2.StatusEnum.ACTIVE, response.getStatus());
+        assertEquals("*/5 * * * *", response.getSchedule().getCronSweepSchedule().getCronExpression());
     }
 
     @Test
@@ -207,14 +210,14 @@ public class BalancePlatformTest extends BaseTest {
                 "    \"type\": \"balance\"\n" +
                 "  }\n" +
                 "}");
-        
+
         assertThat(request.getSchedule().getActualInstance(), instanceOf(SweepSchedule.class));
         assertEquals(SweepSchedule.TypeEnum.BALANCE, request.getSchedule().getSweepSchedule().getType());
     }
 
     @Test
     public void sweepScheduleUnknownFieldTest() {
-        JsonSyntaxException err = assertThrows(JsonSyntaxException.class, () -> {
+        JsonMappingException err = assertThrows(JsonMappingException.class, () -> {
             SweepConfigurationV2.fromJson("{\n" +
                     "  \"counterparty\": {\n" +
                     "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
@@ -227,10 +230,7 @@ public class BalancePlatformTest extends BaseTest {
                     "  }\n" +
                     "}");
         });
-        String msg = err.getMessage();
-        
-        assertTrue(msg.contains("0 class(es) match the result, expected 1"));
-        assertTrue(msg.contains("The field `troubleMaker` in the JSON string is not defined"));
+        assertEquals("Unexpected IOException (of type java.io.IOException): Failed deserialization for SweepConfigurationV2Schedule: 0 classes match result, expected 1",err.getMessage());
     }
 
     @Test
@@ -247,29 +247,29 @@ public class BalancePlatformTest extends BaseTest {
                 "    \"cronExpression\": \"*/5 * * * *\"\n" +
                 "  }\n" +
                 "}");
-        
+
         assertThat(request.getSchedule().getActualInstance(), instanceOf(CronSweepSchedule.class));
         assertEquals(CronSweepSchedule.TypeEnum.CRON, request.getSchedule().getCronSweepSchedule().getType());
         assertEquals("*/5 * * * *", request.getSchedule().getCronSweepSchedule().getCronExpression());
     }
 
     @Test
-    public void cronSweepScheduleToJsonTest() {
+    public void cronSweepScheduleToJsonTest() throws JsonProcessingException {
         SweepConfigurationV2 request = new SweepConfigurationV2();
         request.setType(SweepConfigurationV2.TypeEnum.PULL);
         CronSweepSchedule cron = new CronSweepSchedule();
         cron.setType(CronSweepSchedule.TypeEnum.CRON);
         cron.setCronExpression("6 6 6");
         request.setSchedule(new SweepConfigurationV2Schedule(cron));
-        
+
         // request to json
         String json = request.toJson();
-        
+
         assertEquals("{\"schedule\":{\"cronExpression\":\"6 6 6\",\"type\":\"cron\"},\"type\":\"pull\"}", json);
     }
 
     @Test
-    public void sweepScheduleToJsonTest() {
+    public void sweepScheduleToJsonTest() throws JsonProcessingException {
         SweepConfigurationV2 request = new SweepConfigurationV2();
         request.setType(SweepConfigurationV2.TypeEnum.PUSH);
         SweepSchedule schedule = new SweepSchedule();
@@ -281,6 +281,7 @@ public class BalancePlatformTest extends BaseTest {
 
         assertEquals("{\"schedule\":{\"type\":\"daily\"},\"type\":\"push\"}", json);
     }
+
 
     @Test
     public void BalanceAccountsDeleteSweepTest() throws Exception {

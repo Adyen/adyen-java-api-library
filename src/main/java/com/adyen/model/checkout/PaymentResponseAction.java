@@ -57,7 +57,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -100,6 +102,10 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // Local Object Mapper that forces strict validation
+            ObjectMapper localObjectMapper = JSON.getMapper();
+            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
             // deserialize CheckoutAwaitAction
             try {
                 boolean attemptParsing = true;
@@ -115,8 +121,9 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CheckoutAwaitAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutAwaitAction.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CheckoutAwaitAction.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutAwaitAction'");
@@ -125,6 +132,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutAwaitAction'", e);
             }
+
 
             // deserialize CheckoutNativeRedirectAction
             try {
@@ -141,8 +149,9 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CheckoutNativeRedirectAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutNativeRedirectAction.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CheckoutNativeRedirectAction.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutNativeRedirectAction'");
@@ -151,6 +160,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutNativeRedirectAction'", e);
             }
+
 
             // deserialize CheckoutQrCodeAction
             try {
@@ -167,8 +177,9 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CheckoutQrCodeAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutQrCodeAction.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CheckoutQrCodeAction.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutQrCodeAction'");
@@ -177,6 +188,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutQrCodeAction'", e);
             }
+
 
             // deserialize CheckoutRedirectAction
             try {
@@ -193,8 +205,9 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CheckoutRedirectAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutRedirectAction.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CheckoutRedirectAction.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutRedirectAction'");
@@ -203,6 +216,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutRedirectAction'", e);
             }
+
 
             // deserialize CheckoutSDKAction
             try {
@@ -219,8 +233,9 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CheckoutSDKAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutSDKAction.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CheckoutSDKAction.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutSDKAction'");
@@ -229,6 +244,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutSDKAction'", e);
             }
+
 
             // deserialize CheckoutThreeDS2Action
             try {
@@ -245,8 +261,9 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CheckoutThreeDS2Action.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutThreeDS2Action.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CheckoutThreeDS2Action.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutThreeDS2Action'");
@@ -255,6 +272,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutThreeDS2Action'", e);
             }
+
 
             // deserialize CheckoutVoucherAction
             try {
@@ -271,8 +289,9 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
                 boolean typeMatch = Arrays.stream(CheckoutVoucherAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing && typeMatch) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutVoucherAction.class);
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CheckoutVoucherAction.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CheckoutVoucherAction'");
@@ -291,6 +310,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 log.log(Level.WARNING, String.format("Warning, indecisive deserialization for PaymentResponseAction: %d classes match result, expected 1", match));
             }
 
+            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             PaymentResponseAction ret = new PaymentResponseAction();
             ret.setActualInstance(deserialized);
             return ret;

@@ -189,6 +189,10 @@ public class VerificationErrorRecursive {
   public enum TypeEnum {
     DATAMISSING("dataMissing"),
     
+    DATAREVIEW("dataReview"),
+    
+    DECLINED("declined"),
+    
     INVALIDINPUT("invalidInput"),
     
     PENDINGSTATUS("pendingStatus");
