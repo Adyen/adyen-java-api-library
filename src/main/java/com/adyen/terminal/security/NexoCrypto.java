@@ -37,12 +37,13 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.Provider;
+import java.security.SecureRandom;
 
 import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
 
@@ -50,12 +51,16 @@ public class NexoCrypto {
 
     private static SecureRandom secureRandom = new SecureRandom();
     private static final Provider PROVIDER = secureRandom.getProvider();
+    private final SecurityKey securityKey;
+    private volatile NexoDerivedKey nexoDerivedKey;
 
-    public SaleToPOISecuredMessage encrypt(
-            String saleToPoiMessageJson, MessageHeader messageHeader, SecurityKey securityKey) throws Exception {
+    public NexoCrypto(SecurityKey securityKey) throws NexoCryptoException {
         validateSecurityKey(securityKey);
+        this.securityKey = securityKey;
+    }
 
-        NexoDerivedKey derivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
+    public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader) throws Exception {
+        NexoDerivedKey derivedKey = getNexoDerivedKey();
         byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
         byte[] ivNonce = generateRandomIvNonce();
         byte[] encryptedSaleToPoiMessage = crypt(saleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.ENCRYPT_MODE);
@@ -76,11 +81,9 @@ public class NexoCrypto {
         return saleToPoiSecuredMessage;
     }
 
-    public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage, SecurityKey securityKey) throws Exception {
-        validateSecurityKey(securityKey);
-
+    public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
+        NexoDerivedKey derivedKey = getNexoDerivedKey();
         byte[] encryptedSaleToPoiMessageByteArray = Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
-        NexoDerivedKey derivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
         byte[] decryptedSaleToPoiMessageByteArray = crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
 
@@ -99,6 +102,17 @@ public class NexoCrypto {
                 || securityKey.getAdyenCryptoVersion() == null) {
             throw new NexoCryptoException("Invalid Security Key");
         }
+    }
+
+    private NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
+        if (nexoDerivedKey == null) {
+            synchronized (this) {
+                if (nexoDerivedKey == null) {
+                    nexoDerivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
+                }
+            }
+        }
+        return nexoDerivedKey;
     }
 
     /**

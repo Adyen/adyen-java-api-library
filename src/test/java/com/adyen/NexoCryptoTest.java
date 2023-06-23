@@ -56,9 +56,9 @@ public class NexoCryptoTest extends BaseTest {
         MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
         String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
 
-        NexoCrypto nexoCrypto = new NexoCrypto();
+        NexoCrypto nexoCrypto = new NexoCrypto(testSecurityKey);
 
-        SaleToPOISecuredMessage encryptedMessage = nexoCrypto.encrypt(requestJson, messageHeader, testSecurityKey);
+        SaleToPOISecuredMessage encryptedMessage = nexoCrypto.encrypt(requestJson, messageHeader);
         assertNotNull(encryptedMessage);
         assertNotNull(encryptedMessage.getNexoBlob());
         assertNotNull(encryptedMessage.getMessageHeader());
@@ -71,21 +71,17 @@ public class NexoCryptoTest extends BaseTest {
         MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
         String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
 
-        NexoCrypto nexoCrypto = new NexoCrypto();
+        NexoCrypto nexoCrypto = new NexoCrypto(testSecurityKey);
 
-        SaleToPOISecuredMessage encryptedMessage = nexoCrypto.encrypt(requestJson, messageHeader, testSecurityKey);
-        String decryptedMessage = nexoCrypto.decrypt(encryptedMessage, testSecurityKey);
+        SaleToPOISecuredMessage encryptedMessage = nexoCrypto.encrypt(requestJson, messageHeader);
+        String decryptedMessage = nexoCrypto.decrypt(encryptedMessage);
         assertNotNull(decryptedMessage);
         assertEquals(requestJson, decryptedMessage);
     }
 
     @Test(expected = NexoCryptoException.class)
     public void testEncryptionWithInvalidSecurityKey() throws Exception {
-        TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
-        MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
-        String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
-
-        new NexoCrypto().encrypt(requestJson, messageHeader, new SecurityKey());
+        new NexoCrypto(new SecurityKey());
     }
 
     @Test(expected = NexoCryptoException.class)
@@ -94,14 +90,14 @@ public class NexoCryptoTest extends BaseTest {
         MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
         String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
 
-        NexoCrypto nexoCrypto = new NexoCrypto();
+        NexoCrypto nexoCrypto = new NexoCrypto(testSecurityKey);
 
-        SaleToPOISecuredMessage encryptedMessage = nexoCrypto.encrypt(requestJson, messageHeader, testSecurityKey);
+        SaleToPOISecuredMessage encryptedMessage = nexoCrypto.encrypt(requestJson, messageHeader);
 
         byte[] modifiedHmac = new byte[32];
         new Random().nextBytes(modifiedHmac);
         encryptedMessage.getSecurityTrailer().setHmac(modifiedHmac);
 
-        nexoCrypto.decrypt(encryptedMessage, testSecurityKey);
+        nexoCrypto.decrypt(encryptedMessage);
     }
 }
