@@ -30,6 +30,7 @@ import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.service.resource.terminal.local.LocalRequest;
 import com.adyen.terminal.security.NexoCrypto;
+import com.adyen.terminal.security.exception.NexoCryptoException;
 import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -41,10 +42,10 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
     private final NexoCrypto nexoCrypto;
     private final Gson terminalApiGson;
 
-    public TerminalLocalAPI(Client client) {
+    public TerminalLocalAPI(Client client, SecurityKey securityKey) throws NexoCryptoException {
         super(client);
         localRequest = new LocalRequest(this);
-        nexoCrypto = new NexoCrypto();
+        nexoCrypto = new NexoCrypto(securityKey);
         terminalApiGson = TerminalAPIGsonBuilder.create();
     }
 
@@ -55,9 +56,9 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
      * @return TerminalAPIResponse
      * @throws Exception exception
      */
-    public TerminalAPIResponse request(TerminalAPIRequest terminalAPIRequest, SecurityKey securityKey) throws Exception {
+    public TerminalAPIResponse request(TerminalAPIRequest terminalAPIRequest) throws Exception {
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
-        SaleToPOISecuredMessage saleToPOISecuredRequest = nexoCrypto.encrypt(jsonRequest, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader(), securityKey);
+        SaleToPOISecuredMessage saleToPOISecuredRequest = nexoCrypto.encrypt(jsonRequest, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader());
 
         TerminalAPISecuredRequest securedPaymentRequest = new TerminalAPISecuredRequest();
         securedPaymentRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
@@ -72,7 +73,7 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
         TerminalAPISecuredResponse securedPaymentResponse = terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPISecuredResponse>() {
         }.getType());
         SaleToPOISecuredMessage saleToPOISecuredResponse = securedPaymentResponse.getSaleToPOIResponse();
-        String jsonDecryptedResponse = nexoCrypto.decrypt(saleToPOISecuredResponse, securityKey);
+        String jsonDecryptedResponse = nexoCrypto.decrypt(saleToPOISecuredResponse);
         return terminalApiGson.fromJson(jsonDecryptedResponse, new TypeToken<TerminalAPIResponse>() {
         }.getType());
     }
