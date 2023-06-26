@@ -832,6 +832,7 @@ public class PaymentRequest {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONVERSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConversionId(String conversionId) {
@@ -2116,6 +2117,7 @@ public class PaymentRequest {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {

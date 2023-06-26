@@ -122,6 +122,7 @@ public class AdditionalData3DSecure {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ALLOW3_D_S2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllow3DS2(String allow3DS2) {
@@ -174,6 +175,7 @@ public class AdditionalData3DSecure {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_EXECUTE_THREE_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExecuteThreeD(String executeThreeD) {

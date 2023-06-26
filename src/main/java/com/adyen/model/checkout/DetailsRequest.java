@@ -150,6 +150,7 @@ public class DetailsRequest {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {

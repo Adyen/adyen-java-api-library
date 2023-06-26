@@ -220,6 +220,7 @@ public class RatepayDetails {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {

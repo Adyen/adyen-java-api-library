@@ -580,6 +580,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {
@@ -607,6 +608,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {

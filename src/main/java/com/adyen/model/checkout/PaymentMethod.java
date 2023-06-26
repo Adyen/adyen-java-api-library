@@ -282,6 +282,7 @@ public class PaymentMethod {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInputDetails(List<InputDetail> inputDetails) {

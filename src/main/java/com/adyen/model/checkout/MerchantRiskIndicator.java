@@ -249,6 +249,7 @@ public class MerchantRiskIndicator {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmail(String deliveryEmail) {

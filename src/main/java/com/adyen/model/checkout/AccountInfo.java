@@ -572,6 +572,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(String homePhone) {
@@ -599,6 +600,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(String mobilePhone) {
@@ -826,6 +828,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(String workPhone) {

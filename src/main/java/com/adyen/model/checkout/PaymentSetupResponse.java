@@ -101,6 +101,7 @@ public class PaymentSetupResponse {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetails(List<RecurringDetail> recurringDetails) {

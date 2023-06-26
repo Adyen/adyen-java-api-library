@@ -162,6 +162,7 @@ public class ZipDetails {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {

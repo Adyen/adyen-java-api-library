@@ -263,6 +263,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
@@ -565,6 +566,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
