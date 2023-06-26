@@ -6,18 +6,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import java.security.KeyStore;
+import javax.net.ssl.SSLContext;
 
 public class ClientTest {
 
     @Mock
-    private KeyStore trustStore;
-
-    @Mock
-    private KeyStore clientKeyStore;
-
-    @Mock
-    private String clientKeyStorePassword;
+    private SSLContext clientCertificateAuthSSLContext;
 
     @Mock
     private String apiKey;
@@ -55,13 +49,13 @@ public class ClientTest {
 
     @Test
     public void testClientCertificateAuth() {
-        Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, null);
+        Client client = new Client(clientCertificateAuthSSLContext, apiKey, null);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
     }
 
     @Test
     public void testClientCertificateAuth_AU() {
-        Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, Region.AU);
+        Client client = new Client(clientCertificateAuthSSLContext, apiKey, Region.AU);
 
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
         Assert.assertEquals("https://checkoutcert-live-au.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
@@ -70,7 +64,7 @@ public class ClientTest {
 
     @Test
     public void testClientCertificateAuth_US() {
-        Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, Region.US);
+        Client client = new Client(clientCertificateAuthSSLContext, apiKey, Region.US);
 
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
         Assert.assertEquals("https://checkoutcert-live-us.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());

@@ -213,6 +213,69 @@ System.setProperty("https.proxyUser", "squid");
 System.setProperty("https.proxyPassword", "ward");
 ~~~~
 
+### Client certificate authentication
+~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import java.security.KeyStore;
+
+// Initialize a KeyManagerFactory with the client KeyStore and password
+KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+keyManagerFactory.init(clientKeyStore, clientKeyStorePassword);
+
+// Create a TrustManagerFactory that trusts the CAs in our Trust KeyStore
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(trustStore);
+
+// Create an SSLContext with the desired protocol that uses our KeyManagers and TrustManagers
+SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null);
+
+Client client = new Client(sslContext, apiKey, region);
+// Use the client
+~~~~
+
+### Local terminal API
+~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.enums.Environment;
+import com.adyen.httpclient.TerminalLocalAPIHostnameVerifier;
+import com.adyen.service.TerminalLocalAPI;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import java.security.KeyStore;
+import java.security.SecureRandom;
+
+// Create a KeyStore for the terminal certificate
+KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+keyStore.load(null, null);
+keyStore.setCertificateEntry("adyenRootCertificate", adyenRootCertificate);
+
+// Create a TrustManagerFactory that trusts the CAs in our KeyStore
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(keyStore);
+
+// Create an SSLContext with the desired protocol that uses our TrustManagers
+SSLContext sslContext = SSLContext.getInstance("SSL");
+sslContext.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom());
+
+// Configure a client for TerminalLocalAPI
+Config config = new Config();
+config.setEnvironment(environment);
+config.setTerminalApiLocalEndpoint("https://" + terminalIpAddress);
+config.setSSLContext(sslContext);
+config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(environment));
+Client client = new Client(config);
+
+TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
+// Use TerminalLocalAPI
+~~~~
+
 ### Example integrations
  
 For a closer look at how our Java library works, you can clone one of our example integrations:
