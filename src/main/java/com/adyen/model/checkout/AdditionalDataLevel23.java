@@ -14,115 +14,98 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataLevel23
  */
+@JsonPropertyOrder({
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE,
+  AdditionalDataLevel23.JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT
+})
 
 public class AdditionalDataLevel23 {
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE = "enhancedSchemeData.customerReference";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE = "enhancedSchemeData.customerReference";
   private String enhancedSchemeDataCustomerReference;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE = "enhancedSchemeData.destinationCountryCode";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE = "enhancedSchemeData.destinationCountryCode";
   private String enhancedSchemeDataDestinationCountryCode;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE = "enhancedSchemeData.destinationPostalCode";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE = "enhancedSchemeData.destinationPostalCode";
   private String enhancedSchemeDataDestinationPostalCode;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE = "enhancedSchemeData.destinationStateProvinceCode";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE = "enhancedSchemeData.destinationStateProvinceCode";
   private String enhancedSchemeDataDestinationStateProvinceCode;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DUTY_AMOUNT = "enhancedSchemeData.dutyAmount";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_DUTY_AMOUNT)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT = "enhancedSchemeData.dutyAmount";
   private String enhancedSchemeDataDutyAmount;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT = "enhancedSchemeData.freightAmount";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT = "enhancedSchemeData.freightAmount";
   private String enhancedSchemeDataFreightAmount;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE = "enhancedSchemeData.itemDetailLine[itemNr].commodityCode";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE = "enhancedSchemeData.itemDetailLine[itemNr].commodityCode";
   private String enhancedSchemeDataItemDetailLineItemNrCommodityCode;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION = "enhancedSchemeData.itemDetailLine[itemNr].description";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION = "enhancedSchemeData.itemDetailLine[itemNr].description";
   private String enhancedSchemeDataItemDetailLineItemNrDescription;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT = "enhancedSchemeData.itemDetailLine[itemNr].discountAmount";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT = "enhancedSchemeData.itemDetailLine[itemNr].discountAmount";
   private String enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE = "enhancedSchemeData.itemDetailLine[itemNr].productCode";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE = "enhancedSchemeData.itemDetailLine[itemNr].productCode";
   private String enhancedSchemeDataItemDetailLineItemNrProductCode;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY = "enhancedSchemeData.itemDetailLine[itemNr].quantity";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY = "enhancedSchemeData.itemDetailLine[itemNr].quantity";
   private String enhancedSchemeDataItemDetailLineItemNrQuantity;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT = "enhancedSchemeData.itemDetailLine[itemNr].totalAmount";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT = "enhancedSchemeData.itemDetailLine[itemNr].totalAmount";
   private String enhancedSchemeDataItemDetailLineItemNrTotalAmount;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE = "enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE = "enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure";
   private String enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE = "enhancedSchemeData.itemDetailLine[itemNr].unitPrice";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE = "enhancedSchemeData.itemDetailLine[itemNr].unitPrice";
   private String enhancedSchemeDataItemDetailLineItemNrUnitPrice;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ORDER_DATE = "enhancedSchemeData.orderDate";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_ORDER_DATE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE = "enhancedSchemeData.orderDate";
   private String enhancedSchemeDataOrderDate;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE = "enhancedSchemeData.shipFromPostalCode";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE = "enhancedSchemeData.shipFromPostalCode";
   private String enhancedSchemeDataShipFromPostalCode;
 
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT = "enhancedSchemeData.totalTaxAmount";
-  @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT = "enhancedSchemeData.totalTaxAmount";
   private String enhancedSchemeDataTotalTaxAmount;
 
   public AdditionalDataLevel23() { 
   }
 
   public AdditionalDataLevel23 enhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
-    
     this.enhancedSchemeDataCustomerReference = enhancedSchemeDataCustomerReference;
     return this;
   }
@@ -132,19 +115,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataCustomerReference
   **/
   @ApiModelProperty(value = "The customer code, if supplied by a customer.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataCustomerReference() {
     return enhancedSchemeDataCustomerReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
     this.enhancedSchemeDataCustomerReference = enhancedSchemeDataCustomerReference;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataDestinationCountryCode(String enhancedSchemeDataDestinationCountryCode) {
-    
     this.enhancedSchemeDataDestinationCountryCode = enhancedSchemeDataDestinationCountryCode;
     return this;
   }
@@ -154,19 +140,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataDestinationCountryCode
   **/
   @ApiModelProperty(value = "The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address.  Encoding: ASCII  Fixed length: 3 characters")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataDestinationCountryCode() {
     return enhancedSchemeDataDestinationCountryCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDestinationCountryCode(String enhancedSchemeDataDestinationCountryCode) {
     this.enhancedSchemeDataDestinationCountryCode = enhancedSchemeDataDestinationCountryCode;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataDestinationPostalCode(String enhancedSchemeDataDestinationPostalCode) {
-    
     this.enhancedSchemeDataDestinationPostalCode = enhancedSchemeDataDestinationPostalCode;
     return this;
   }
@@ -176,19 +165,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataDestinationPostalCode
   **/
   @ApiModelProperty(value = "The postal code of the destination address.  Encoding: ASCII  Max length: 10 characters  Must not start with a space")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataDestinationPostalCode() {
     return enhancedSchemeDataDestinationPostalCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDestinationPostalCode(String enhancedSchemeDataDestinationPostalCode) {
     this.enhancedSchemeDataDestinationPostalCode = enhancedSchemeDataDestinationPostalCode;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataDestinationStateProvinceCode(String enhancedSchemeDataDestinationStateProvinceCode) {
-    
     this.enhancedSchemeDataDestinationStateProvinceCode = enhancedSchemeDataDestinationStateProvinceCode;
     return this;
   }
@@ -198,19 +190,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataDestinationStateProvinceCode
   **/
   @ApiModelProperty(value = "Destination state or province code.  Encoding: ASCII  Max length: 3 characters  Must not start with a space")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataDestinationStateProvinceCode() {
     return enhancedSchemeDataDestinationStateProvinceCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDestinationStateProvinceCode(String enhancedSchemeDataDestinationStateProvinceCode) {
     this.enhancedSchemeDataDestinationStateProvinceCode = enhancedSchemeDataDestinationStateProvinceCode;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataDutyAmount(String enhancedSchemeDataDutyAmount) {
-    
     this.enhancedSchemeDataDutyAmount = enhancedSchemeDataDutyAmount;
     return this;
   }
@@ -220,19 +215,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataDutyAmount
   **/
   @ApiModelProperty(value = "The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataDutyAmount() {
     return enhancedSchemeDataDutyAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDutyAmount(String enhancedSchemeDataDutyAmount) {
     this.enhancedSchemeDataDutyAmount = enhancedSchemeDataDutyAmount;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataFreightAmount(String enhancedSchemeDataFreightAmount) {
-    
     this.enhancedSchemeDataFreightAmount = enhancedSchemeDataFreightAmount;
     return this;
   }
@@ -242,19 +240,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataFreightAmount
   **/
   @ApiModelProperty(value = "The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataFreightAmount() {
     return enhancedSchemeDataFreightAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataFreightAmount(String enhancedSchemeDataFreightAmount) {
     this.enhancedSchemeDataFreightAmount = enhancedSchemeDataFreightAmount;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrCommodityCode(String enhancedSchemeDataItemDetailLineItemNrCommodityCode) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrCommodityCode = enhancedSchemeDataItemDetailLineItemNrCommodityCode;
     return this;
   }
@@ -264,19 +265,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrCommodityCode
   **/
   @ApiModelProperty(value = "The [UNSPC commodity code](https://www.unspsc.org/) of the item.  Encoding: ASCII  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrCommodityCode() {
     return enhancedSchemeDataItemDetailLineItemNrCommodityCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrCommodityCode(String enhancedSchemeDataItemDetailLineItemNrCommodityCode) {
     this.enhancedSchemeDataItemDetailLineItemNrCommodityCode = enhancedSchemeDataItemDetailLineItemNrCommodityCode;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrDescription(String enhancedSchemeDataItemDetailLineItemNrDescription) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrDescription = enhancedSchemeDataItemDetailLineItemNrDescription;
     return this;
   }
@@ -286,19 +290,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrDescription
   **/
   @ApiModelProperty(value = "A description of the item.  Encoding: ASCII  Max length: 26 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrDescription() {
     return enhancedSchemeDataItemDetailLineItemNrDescription;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrDescription(String enhancedSchemeDataItemDetailLineItemNrDescription) {
     this.enhancedSchemeDataItemDetailLineItemNrDescription = enhancedSchemeDataItemDetailLineItemNrDescription;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrDiscountAmount(String enhancedSchemeDataItemDetailLineItemNrDiscountAmount) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrDiscountAmount = enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
     return this;
   }
@@ -308,19 +315,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrDiscountAmount
   **/
   @ApiModelProperty(value = "The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrDiscountAmount() {
     return enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrDiscountAmount(String enhancedSchemeDataItemDetailLineItemNrDiscountAmount) {
     this.enhancedSchemeDataItemDetailLineItemNrDiscountAmount = enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrProductCode(String enhancedSchemeDataItemDetailLineItemNrProductCode) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrProductCode = enhancedSchemeDataItemDetailLineItemNrProductCode;
     return this;
   }
@@ -330,19 +340,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrProductCode
   **/
   @ApiModelProperty(value = "The product code.  Encoding: ASCII.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrProductCode() {
     return enhancedSchemeDataItemDetailLineItemNrProductCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrProductCode(String enhancedSchemeDataItemDetailLineItemNrProductCode) {
     this.enhancedSchemeDataItemDetailLineItemNrProductCode = enhancedSchemeDataItemDetailLineItemNrProductCode;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrQuantity(String enhancedSchemeDataItemDetailLineItemNrQuantity) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrQuantity = enhancedSchemeDataItemDetailLineItemNrQuantity;
     return this;
   }
@@ -352,19 +365,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrQuantity
   **/
   @ApiModelProperty(value = "The number of items. Must be an integer greater than zero.  Encoding: Numeric  Max length: 12 characters  Must not start with a space or be all spaces  ")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrQuantity() {
     return enhancedSchemeDataItemDetailLineItemNrQuantity;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrQuantity(String enhancedSchemeDataItemDetailLineItemNrQuantity) {
     this.enhancedSchemeDataItemDetailLineItemNrQuantity = enhancedSchemeDataItemDetailLineItemNrQuantity;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrTotalAmount(String enhancedSchemeDataItemDetailLineItemNrTotalAmount) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrTotalAmount = enhancedSchemeDataItemDetailLineItemNrTotalAmount;
     return this;
   }
@@ -374,19 +390,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrTotalAmount
   **/
   @ApiModelProperty(value = "The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrTotalAmount() {
     return enhancedSchemeDataItemDetailLineItemNrTotalAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrTotalAmount(String enhancedSchemeDataItemDetailLineItemNrTotalAmount) {
     this.enhancedSchemeDataItemDetailLineItemNrTotalAmount = enhancedSchemeDataItemDetailLineItemNrTotalAmount;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure(String enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure = enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
     return this;
   }
@@ -396,19 +415,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure
   **/
   @ApiModelProperty(value = "The unit of measurement for an item.  Encoding: ASCII  Max length: 3 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure() {
     return enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure(String enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure) {
     this.enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure = enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrUnitPrice(String enhancedSchemeDataItemDetailLineItemNrUnitPrice) {
-    
     this.enhancedSchemeDataItemDetailLineItemNrUnitPrice = enhancedSchemeDataItemDetailLineItemNrUnitPrice;
     return this;
   }
@@ -418,19 +440,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataItemDetailLineItemNrUnitPrice
   **/
   @ApiModelProperty(value = "The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataItemDetailLineItemNrUnitPrice() {
     return enhancedSchemeDataItemDetailLineItemNrUnitPrice;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrUnitPrice(String enhancedSchemeDataItemDetailLineItemNrUnitPrice) {
     this.enhancedSchemeDataItemDetailLineItemNrUnitPrice = enhancedSchemeDataItemDetailLineItemNrUnitPrice;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataOrderDate(String enhancedSchemeDataOrderDate) {
-    
     this.enhancedSchemeDataOrderDate = enhancedSchemeDataOrderDate;
     return this;
   }
@@ -440,19 +465,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataOrderDate
   **/
   @ApiModelProperty(value = "The order date. * Format: `ddMMyy`  Encoding: ASCII  Max length: 6 characters")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataOrderDate() {
     return enhancedSchemeDataOrderDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataOrderDate(String enhancedSchemeDataOrderDate) {
     this.enhancedSchemeDataOrderDate = enhancedSchemeDataOrderDate;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataShipFromPostalCode(String enhancedSchemeDataShipFromPostalCode) {
-    
     this.enhancedSchemeDataShipFromPostalCode = enhancedSchemeDataShipFromPostalCode;
     return this;
   }
@@ -462,19 +490,22 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataShipFromPostalCode
   **/
   @ApiModelProperty(value = "The postal code of the address the item is shipped from.  Encoding: ASCII  Max length: 10 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataShipFromPostalCode() {
     return enhancedSchemeDataShipFromPostalCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataShipFromPostalCode(String enhancedSchemeDataShipFromPostalCode) {
     this.enhancedSchemeDataShipFromPostalCode = enhancedSchemeDataShipFromPostalCode;
   }
 
 
   public AdditionalDataLevel23 enhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {
-    
     this.enhancedSchemeDataTotalTaxAmount = enhancedSchemeDataTotalTaxAmount;
     return this;
   }
@@ -484,18 +515,24 @@ public class AdditionalDataLevel23 {
    * @return enhancedSchemeDataTotalTaxAmount
   **/
   @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters  ")
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEnhancedSchemeDataTotalTaxAmount() {
     return enhancedSchemeDataTotalTaxAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {
     this.enhancedSchemeDataTotalTaxAmount = enhancedSchemeDataTotalTaxAmount;
   }
 
 
-
+  /**
+   * Return true if this AdditionalDataLevel23 object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -565,178 +602,23 @@ public class AdditionalDataLevel23 {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("enhancedSchemeData.customerReference");
-    openapiFields.add("enhancedSchemeData.destinationCountryCode");
-    openapiFields.add("enhancedSchemeData.destinationPostalCode");
-    openapiFields.add("enhancedSchemeData.destinationStateProvinceCode");
-    openapiFields.add("enhancedSchemeData.dutyAmount");
-    openapiFields.add("enhancedSchemeData.freightAmount");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].commodityCode");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].description");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].discountAmount");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].productCode");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].quantity");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].totalAmount");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure");
-    openapiFields.add("enhancedSchemeData.itemDetailLine[itemNr].unitPrice");
-    openapiFields.add("enhancedSchemeData.orderDate");
-    openapiFields.add("enhancedSchemeData.shipFromPostalCode");
-    openapiFields.add("enhancedSchemeData.totalTaxAmount");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of AdditionalDataLevel23 given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AdditionalDataLevel23
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AdditionalDataLevel23
+   */
+  public static AdditionalDataLevel23 fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AdditionalDataLevel23.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AdditionalDataLevel23.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AdditionalDataLevel23
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AdditionalDataLevel23.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataLevel23 is not found in the empty JSON string", AdditionalDataLevel23.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AdditionalDataLevel23.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field enhancedSchemeData.customerReference
-      if (jsonObj.get("enhancedSchemeData.customerReference") != null && !jsonObj.get("enhancedSchemeData.customerReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.customerReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.customerReference").toString()));
-      }
-      // validate the optional field enhancedSchemeData.destinationCountryCode
-      if (jsonObj.get("enhancedSchemeData.destinationCountryCode") != null && !jsonObj.get("enhancedSchemeData.destinationCountryCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.destinationCountryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.destinationCountryCode").toString()));
-      }
-      // validate the optional field enhancedSchemeData.destinationPostalCode
-      if (jsonObj.get("enhancedSchemeData.destinationPostalCode") != null && !jsonObj.get("enhancedSchemeData.destinationPostalCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.destinationPostalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.destinationPostalCode").toString()));
-      }
-      // validate the optional field enhancedSchemeData.destinationStateProvinceCode
-      if (jsonObj.get("enhancedSchemeData.destinationStateProvinceCode") != null && !jsonObj.get("enhancedSchemeData.destinationStateProvinceCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.destinationStateProvinceCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.destinationStateProvinceCode").toString()));
-      }
-      // validate the optional field enhancedSchemeData.dutyAmount
-      if (jsonObj.get("enhancedSchemeData.dutyAmount") != null && !jsonObj.get("enhancedSchemeData.dutyAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.dutyAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.dutyAmount").toString()));
-      }
-      // validate the optional field enhancedSchemeData.freightAmount
-      if (jsonObj.get("enhancedSchemeData.freightAmount") != null && !jsonObj.get("enhancedSchemeData.freightAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.freightAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.freightAmount").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].commodityCode
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].commodityCode") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].commodityCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].commodityCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].commodityCode").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].description
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].description") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].description").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].discountAmount
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].discountAmount") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].discountAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].discountAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].discountAmount").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].productCode
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].productCode") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].productCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].productCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].productCode").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].quantity
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].quantity") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].quantity").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].quantity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].quantity").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].totalAmount
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].totalAmount") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].totalAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].totalAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].totalAmount").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure").toString()));
-      }
-      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].unitPrice
-      if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitPrice") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitPrice").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].unitPrice` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitPrice").toString()));
-      }
-      // validate the optional field enhancedSchemeData.orderDate
-      if (jsonObj.get("enhancedSchemeData.orderDate") != null && !jsonObj.get("enhancedSchemeData.orderDate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.orderDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.orderDate").toString()));
-      }
-      // validate the optional field enhancedSchemeData.shipFromPostalCode
-      if (jsonObj.get("enhancedSchemeData.shipFromPostalCode") != null && !jsonObj.get("enhancedSchemeData.shipFromPostalCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.shipFromPostalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.shipFromPostalCode").toString()));
-      }
-      // validate the optional field enhancedSchemeData.totalTaxAmount
-      if (jsonObj.get("enhancedSchemeData.totalTaxAmount") != null && !jsonObj.get("enhancedSchemeData.totalTaxAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `enhancedSchemeData.totalTaxAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.totalTaxAmount").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AdditionalDataLevel23.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AdditionalDataLevel23' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AdditionalDataLevel23> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AdditionalDataLevel23.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AdditionalDataLevel23>() {
-           @Override
-           public void write(JsonWriter out, AdditionalDataLevel23 value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AdditionalDataLevel23 read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AdditionalDataLevel23 given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AdditionalDataLevel23
-  * @throws IOException if the JSON string is invalid with respect to AdditionalDataLevel23
-  */
-  public static AdditionalDataLevel23 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AdditionalDataLevel23.class);
-  }
-
- /**
+/**
   * Convert an instance of AdditionalDataLevel23 to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

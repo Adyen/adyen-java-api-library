@@ -14,54 +14,38 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * MolPayDetails
  */
+@JsonPropertyOrder({
+  MolPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  MolPayDetails.JSON_PROPERTY_ISSUER,
+  MolPayDetails.JSON_PROPERTY_TYPE
+})
 
 public class MolPayDetails {
-  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
-  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
-  public static final String SERIALIZED_NAME_ISSUER = "issuer";
-  @SerializedName(SERIALIZED_NAME_ISSUER)
+  public static final String JSON_PROPERTY_ISSUER = "issuer";
   private String issuer;
 
   /**
    * **molpay**
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     FPX_MY("molpay_ebanking_fpx_MY"),
     
@@ -73,6 +57,7 @@ public class MolPayDetails {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -82,6 +67,7 @@ public class MolPayDetails {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -90,30 +76,15 @@ public class MolPayDetails {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public MolPayDetails() { 
   }
 
   public MolPayDetails checkoutAttemptId(String checkoutAttemptId) {
-    
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
@@ -123,19 +94,22 @@ public class MolPayDetails {
    * @return checkoutAttemptId
   **/
   @ApiModelProperty(value = "The checkout attempt identifier.")
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
 
   public MolPayDetails issuer(String issuer) {
-    
     this.issuer = issuer;
     return this;
   }
@@ -145,19 +119,22 @@ public class MolPayDetails {
    * @return issuer
   **/
   @ApiModelProperty(required = true, value = "The shopper's bank. Specify this with the issuer value that corresponds to this bank.")
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuer() {
     return issuer;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
 
 
   public MolPayDetails type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -167,18 +144,24 @@ public class MolPayDetails {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "**molpay**")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this MolPayDetails object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -220,120 +203,23 @@ public class MolPayDetails {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("checkoutAttemptId");
-    openapiFields.add("issuer");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("issuer");
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of MolPayDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MolPayDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to MolPayDetails
+   */
+  public static MolPayDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, MolPayDetails.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(MolPayDetails.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to MolPayDetails
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (MolPayDetails.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MolPayDetails is not found in the empty JSON string", MolPayDetails.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!MolPayDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `MolPayDetails` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MolPayDetails.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field checkoutAttemptId
-      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
-      }
-      // validate the optional field issuer
-      if (jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MolPayDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MolPayDetails' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MolPayDetails> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MolPayDetails.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<MolPayDetails>() {
-           @Override
-           public void write(JsonWriter out, MolPayDetails value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public MolPayDetails read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of MolPayDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of MolPayDetails
-  * @throws IOException if the JSON string is invalid with respect to MolPayDetails
-  */
-  public static MolPayDetails fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MolPayDetails.class);
-  }
-
- /**
+/**
   * Convert an instance of MolPayDetails to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

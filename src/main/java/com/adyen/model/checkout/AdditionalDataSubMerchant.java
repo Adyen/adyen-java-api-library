@@ -14,87 +14,70 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataSubMerchant
  */
+@JsonPropertyOrder({
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID
+})
 
 public class AdditionalDataSubMerchant {
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS = "subMerchant.numberOfSubSellers";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS = "subMerchant.numberOfSubSellers";
   private String subMerchantNumberOfSubSellers;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY = "subMerchant.subSeller[subSellerNr].city";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY = "subMerchant.subSeller[subSellerNr].city";
   private String subMerchantSubSellerSubSellerNrCity;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY = "subMerchant.subSeller[subSellerNr].country";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY = "subMerchant.subSeller[subSellerNr].country";
   private String subMerchantSubSellerSubSellerNrCountry;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID = "subMerchant.subSeller[subSellerNr].id";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID = "subMerchant.subSeller[subSellerNr].id";
   private String subMerchantSubSellerSubSellerNrId;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC = "subMerchant.subSeller[subSellerNr].mcc";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC = "subMerchant.subSeller[subSellerNr].mcc";
   private String subMerchantSubSellerSubSellerNrMcc;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME = "subMerchant.subSeller[subSellerNr].name";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME = "subMerchant.subSeller[subSellerNr].name";
   private String subMerchantSubSellerSubSellerNrName;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE = "subMerchant.subSeller[subSellerNr].postalCode";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE = "subMerchant.subSeller[subSellerNr].postalCode";
   private String subMerchantSubSellerSubSellerNrPostalCode;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE = "subMerchant.subSeller[subSellerNr].state";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE = "subMerchant.subSeller[subSellerNr].state";
   private String subMerchantSubSellerSubSellerNrState;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET = "subMerchant.subSeller[subSellerNr].street";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET = "subMerchant.subSeller[subSellerNr].street";
   private String subMerchantSubSellerSubSellerNrStreet;
 
-  public static final String SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID = "subMerchant.subSeller[subSellerNr].taxId";
-  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID)
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID = "subMerchant.subSeller[subSellerNr].taxId";
   private String subMerchantSubSellerSubSellerNrTaxId;
 
   public AdditionalDataSubMerchant() { 
   }
 
   public AdditionalDataSubMerchant subMerchantNumberOfSubSellers(String subMerchantNumberOfSubSellers) {
-    
     this.subMerchantNumberOfSubSellers = subMerchantNumberOfSubSellers;
     return this;
   }
@@ -104,19 +87,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantNumberOfSubSellers
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. Indicates the number of sub-merchants contained in the request. For example, **3**.")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantNumberOfSubSellers() {
     return subMerchantNumberOfSubSellers;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantNumberOfSubSellers(String subMerchantNumberOfSubSellers) {
     this.subMerchantNumberOfSubSellers = subMerchantNumberOfSubSellers;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrCity(String subMerchantSubSellerSubSellerNrCity) {
-    
     this.subMerchantSubSellerSubSellerNrCity = subMerchantSubSellerSubSellerNrCity;
     return this;
   }
@@ -126,19 +112,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrCity
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The city of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 13 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrCity() {
     return subMerchantSubSellerSubSellerNrCity;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrCity(String subMerchantSubSellerSubSellerNrCity) {
     this.subMerchantSubSellerSubSellerNrCity = subMerchantSubSellerSubSellerNrCity;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrCountry(String subMerchantSubSellerSubSellerNrCountry) {
-    
     this.subMerchantSubSellerSubSellerNrCountry = subMerchantSubSellerSubSellerNrCountry;
     return this;
   }
@@ -148,19 +137,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrCountry
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The three-letter country code of the sub-merchant's address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrCountry() {
     return subMerchantSubSellerSubSellerNrCountry;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrCountry(String subMerchantSubSellerSubSellerNrCountry) {
     this.subMerchantSubSellerSubSellerNrCountry = subMerchantSubSellerSubSellerNrCountry;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrId(String subMerchantSubSellerSubSellerNrId) {
-    
     this.subMerchantSubSellerSubSellerNrId = subMerchantSubSellerSubSellerNrId;
     return this;
   }
@@ -170,19 +162,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrId
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrId() {
     return subMerchantSubSellerSubSellerNrId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrId(String subMerchantSubSellerSubSellerNrId) {
     this.subMerchantSubSellerSubSellerNrId = subMerchantSubSellerSubSellerNrId;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrMcc(String subMerchantSubSellerSubSellerNrMcc) {
-    
     this.subMerchantSubSellerSubSellerNrMcc = subMerchantSubSellerSubSellerNrMcc;
     return this;
   }
@@ -192,19 +187,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrMcc
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrMcc() {
     return subMerchantSubSellerSubSellerNrMcc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrMcc(String subMerchantSubSellerSubSellerNrMcc) {
     this.subMerchantSubSellerSubSellerNrMcc = subMerchantSubSellerSubSellerNrMcc;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrName(String subMerchantSubSellerSubSellerNrName) {
-    
     this.subMerchantSubSellerSubSellerNrName = subMerchantSubSellerSubSellerNrName;
     return this;
   }
@@ -214,19 +212,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrName
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrName() {
     return subMerchantSubSellerSubSellerNrName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrName(String subMerchantSubSellerSubSellerNrName) {
     this.subMerchantSubSellerSubSellerNrName = subMerchantSubSellerSubSellerNrName;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrPostalCode(String subMerchantSubSellerSubSellerNrPostalCode) {
-    
     this.subMerchantSubSellerSubSellerNrPostalCode = subMerchantSubSellerSubSellerNrPostalCode;
     return this;
   }
@@ -236,19 +237,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrPostalCode
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The postal code of the sub-merchant's address, without dashes. * Format: Numeric * Fixed length: 8 digits")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrPostalCode() {
     return subMerchantSubSellerSubSellerNrPostalCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrPostalCode(String subMerchantSubSellerSubSellerNrPostalCode) {
     this.subMerchantSubSellerSubSellerNrPostalCode = subMerchantSubSellerSubSellerNrPostalCode;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrState(String subMerchantSubSellerSubSellerNrState) {
-    
     this.subMerchantSubSellerSubSellerNrState = subMerchantSubSellerSubSellerNrState;
     return this;
   }
@@ -258,19 +262,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrState
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The state code of the sub-merchant's address, if applicable to the country. * Format: Alphanumeric * Maximum length: 2 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrState() {
     return subMerchantSubSellerSubSellerNrState;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrState(String subMerchantSubSellerSubSellerNrState) {
     this.subMerchantSubSellerSubSellerNrState = subMerchantSubSellerSubSellerNrState;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrStreet(String subMerchantSubSellerSubSellerNrStreet) {
-    
     this.subMerchantSubSellerSubSellerNrStreet = subMerchantSubSellerSubSellerNrStreet;
     return this;
   }
@@ -280,19 +287,22 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrStreet
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The street name and house number of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 60 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrStreet() {
     return subMerchantSubSellerSubSellerNrStreet;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrStreet(String subMerchantSubSellerSubSellerNrStreet) {
     this.subMerchantSubSellerSubSellerNrStreet = subMerchantSubSellerSubSellerNrStreet;
   }
 
 
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrTaxId(String subMerchantSubSellerSubSellerNrTaxId) {
-    
     this.subMerchantSubSellerSubSellerNrTaxId = subMerchantSubSellerSubSellerNrTaxId;
     return this;
   }
@@ -302,18 +312,24 @@ public class AdditionalDataSubMerchant {
    * @return subMerchantSubSellerSubSellerNrTaxId
   **/
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubMerchantSubSellerSubSellerNrTaxId() {
     return subMerchantSubSellerSubSellerNrTaxId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrTaxId(String subMerchantSubSellerSubSellerNrTaxId) {
     this.subMerchantSubSellerSubSellerNrTaxId = subMerchantSubSellerSubSellerNrTaxId;
   }
 
 
-
+  /**
+   * Return true if this AdditionalDataSubMerchant object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -369,143 +385,23 @@ public class AdditionalDataSubMerchant {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("subMerchant.numberOfSubSellers");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].city");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].country");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].id");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].mcc");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].name");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].postalCode");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].state");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].street");
-    openapiFields.add("subMerchant.subSeller[subSellerNr].taxId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of AdditionalDataSubMerchant given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AdditionalDataSubMerchant
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AdditionalDataSubMerchant
+   */
+  public static AdditionalDataSubMerchant fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AdditionalDataSubMerchant.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AdditionalDataSubMerchant.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AdditionalDataSubMerchant
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AdditionalDataSubMerchant.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataSubMerchant is not found in the empty JSON string", AdditionalDataSubMerchant.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AdditionalDataSubMerchant.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataSubMerchant` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field subMerchant.numberOfSubSellers
-      if (jsonObj.get("subMerchant.numberOfSubSellers") != null && !jsonObj.get("subMerchant.numberOfSubSellers").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.numberOfSubSellers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.numberOfSubSellers").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].city
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].city") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].city").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].city").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].country
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].country") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].country").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].country").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].id
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].id") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].id").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].mcc
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].mcc") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].mcc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].mcc").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].name
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].name") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].name").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].postalCode
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].postalCode") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].postalCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].postalCode").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].state
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].state") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].state").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].state").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].street
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].street") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].street").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].street` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].street").toString()));
-      }
-      // validate the optional field subMerchant.subSeller[subSellerNr].taxId
-      if (jsonObj.get("subMerchant.subSeller[subSellerNr].taxId") != null && !jsonObj.get("subMerchant.subSeller[subSellerNr].taxId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `subMerchant.subSeller[subSellerNr].taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchant.subSeller[subSellerNr].taxId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AdditionalDataSubMerchant.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AdditionalDataSubMerchant' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AdditionalDataSubMerchant> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AdditionalDataSubMerchant.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AdditionalDataSubMerchant>() {
-           @Override
-           public void write(JsonWriter out, AdditionalDataSubMerchant value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AdditionalDataSubMerchant read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AdditionalDataSubMerchant given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AdditionalDataSubMerchant
-  * @throws IOException if the JSON string is invalid with respect to AdditionalDataSubMerchant
-  */
-  public static AdditionalDataSubMerchant fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AdditionalDataSubMerchant.class);
-  }
-
- /**
+/**
   * Convert an instance of AdditionalDataSubMerchant to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
