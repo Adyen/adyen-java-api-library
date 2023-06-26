@@ -60,7 +60,7 @@ public class CreateApplePaySessionRequest {
   **/
   @ApiModelProperty(required = true, value = "This is the name that your shoppers will see in the Apple Pay interface.  The value returned as `configuration.merchantName` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDisplayName() {
     return displayName;
@@ -68,7 +68,7 @@ public class CreateApplePaySessionRequest {
 
 
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
@@ -85,7 +85,7 @@ public class CreateApplePaySessionRequest {
   **/
   @ApiModelProperty(required = true, value = "The domain name you provided when you added Apple Pay in your Customer Area.  This must match the `window.location.hostname` of the web shop.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDomainName() {
     return domainName;
@@ -93,7 +93,7 @@ public class CreateApplePaySessionRequest {
 
 
   @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomainName(String domainName) {
     this.domainName = domainName;
   }
@@ -110,7 +110,7 @@ public class CreateApplePaySessionRequest {
   **/
   @ApiModelProperty(required = true, value = "Your merchant identifier registered with Apple Pay.  Use the value of the `configuration.merchantId` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantIdentifier() {
     return merchantIdentifier;
@@ -118,7 +118,7 @@ public class CreateApplePaySessionRequest {
 
 
   @JsonProperty(JSON_PROPERTY_MERCHANT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantIdentifier(String merchantIdentifier) {
     this.merchantIdentifier = merchantIdentifier;
   }

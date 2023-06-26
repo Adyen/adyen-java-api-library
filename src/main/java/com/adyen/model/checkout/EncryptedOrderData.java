@@ -56,7 +56,7 @@ public class EncryptedOrderData {
   **/
   @ApiModelProperty(required = true, value = "The encrypted order data.")
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOrderData() {
     return orderData;
@@ -64,7 +64,7 @@ public class EncryptedOrderData {
 
 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
   }
@@ -81,7 +81,7 @@ public class EncryptedOrderData {
   **/
   @ApiModelProperty(required = true, value = "The `pspReference` that belongs to the order.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
@@ -89,7 +89,7 @@ public class EncryptedOrderData {
 
 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }

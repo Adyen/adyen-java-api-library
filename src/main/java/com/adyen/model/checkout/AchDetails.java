@@ -119,7 +119,7 @@ public class AchDetails {
   **/
   @ApiModelProperty(required = true, value = "The bank account number (without separators).")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBankAccountNumber() {
     return bankAccountNumber;
@@ -127,7 +127,7 @@ public class AchDetails {
 
 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
   }

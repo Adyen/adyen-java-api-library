@@ -59,7 +59,7 @@ public class CheckoutUtilityRequest {
   **/
   @ApiModelProperty(required = true, value = "The list of origin domains, for which origin keys are requested.")
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getOriginDomains() {
     return originDomains;
@@ -67,7 +67,7 @@ public class CheckoutUtilityRequest {
 
 
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginDomains(List<String> originDomains) {
     this.originDomains = originDomains;
   }

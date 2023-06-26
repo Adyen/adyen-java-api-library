@@ -625,7 +625,7 @@ public class ThreeDS2RequestData {
   **/
   @ApiModelProperty(required = true, value = "The environment of the shopper. Allowed values: * `app` * `browser`")
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDeviceChannel() {
     return deviceChannel;
@@ -633,7 +633,7 @@ public class ThreeDS2RequestData {
 
 
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceChannel(String deviceChannel) {
     this.deviceChannel = deviceChannel;
   }

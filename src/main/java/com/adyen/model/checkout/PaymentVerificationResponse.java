@@ -209,7 +209,7 @@ public class PaymentVerificationResponse {
   **/
   @ApiModelProperty(required = true, value = "A unique value that you provided in the initial `/paymentSession` request as a `reference` field.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantReference() {
     return merchantReference;
@@ -217,7 +217,7 @@ public class PaymentVerificationResponse {
 
 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
   }
@@ -384,7 +384,7 @@ public class PaymentVerificationResponse {
   **/
   @ApiModelProperty(required = true, value = "The shopperLocale value provided in the payment request.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperLocale() {
     return shopperLocale;
@@ -392,7 +392,7 @@ public class PaymentVerificationResponse {
 
 
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
   }

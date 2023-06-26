@@ -188,7 +188,7 @@ public class GooglePayDetails {
   **/
   @ApiModelProperty(required = true, value = "The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.")
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGooglePayToken() {
     return googlePayToken;
@@ -196,7 +196,7 @@ public class GooglePayDetails {
 
 
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePayToken(String googlePayToken) {
     this.googlePayToken = googlePayToken;
   }

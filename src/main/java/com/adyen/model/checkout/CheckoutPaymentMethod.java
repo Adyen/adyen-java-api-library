@@ -1142,12 +1142,18 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'ZipDetails'", e);
             }
 
-            if (match == 1) {
-                CheckoutPaymentMethod ret = new CheckoutPaymentMethod();
-                ret.setActualInstance(deserialized);
-                return ret;
+            // Throw error if there is no match
+            if (match == 0) {
+                throw new IOException(String.format("Failed deserialization for CheckoutPaymentMethod: %d classes match result, expected 1", match));
             }
-            throw new IOException(String.format("Failed deserialization for CheckoutPaymentMethod: %d classes match result, expected 1", match));
+            // Log warning if there is more than one match
+            if (match > 1) {
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for CheckoutPaymentMethod: %d classes match result, expected 1", match));
+            }
+
+            CheckoutPaymentMethod ret = new CheckoutPaymentMethod();
+            ret.setActualInstance(deserialized);
+            return ret;
         }
 
         /**

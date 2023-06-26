@@ -159,7 +159,7 @@ public class CheckoutCreateOrderResponse {
   **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
@@ -167,7 +167,7 @@ public class CheckoutCreateOrderResponse {
 
 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -184,7 +184,7 @@ public class CheckoutCreateOrderResponse {
   **/
   @ApiModelProperty(required = true, value = "The date that the order will expire.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpiresAt() {
     return expiresAt;
@@ -192,7 +192,7 @@ public class CheckoutCreateOrderResponse {
 
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
@@ -234,7 +234,7 @@ public class CheckoutCreateOrderResponse {
   **/
   @ApiModelProperty(required = true, value = "The encrypted data that will be used by merchant for adding payments to the order.")
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOrderData() {
     return orderData;
@@ -242,7 +242,7 @@ public class CheckoutCreateOrderResponse {
 
 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
   }
@@ -334,7 +334,7 @@ public class CheckoutCreateOrderResponse {
   **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getRemainingAmount() {
     return remainingAmount;
@@ -342,7 +342,7 @@ public class CheckoutCreateOrderResponse {
 
 
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
   }
@@ -359,7 +359,7 @@ public class CheckoutCreateOrderResponse {
   **/
   @ApiModelProperty(required = true, value = "The result of the order creation request.  The value is always **Success**.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ResultCodeEnum getResultCode() {
     return resultCode;
@@ -367,7 +367,7 @@ public class CheckoutCreateOrderResponse {
 
 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }

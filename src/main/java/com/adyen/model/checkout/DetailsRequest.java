@@ -91,7 +91,7 @@ public class DetailsRequest {
   **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PaymentCompletionDetails getDetails() {
     return details;
@@ -99,7 +99,7 @@ public class DetailsRequest {
 
 
   @JsonProperty(JSON_PROPERTY_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(PaymentCompletionDetails details) {
     this.details = details;
   }

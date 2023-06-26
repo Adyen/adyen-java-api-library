@@ -282,12 +282,18 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutVoucherAction'", e);
             }
 
-            if (match == 1) {
-                PaymentResponseAction ret = new PaymentResponseAction();
-                ret.setActualInstance(deserialized);
-                return ret;
+            // Throw error if there is no match
+            if (match == 0) {
+                throw new IOException(String.format("Failed deserialization for PaymentResponseAction: %d classes match result, expected 1", match));
             }
-            throw new IOException(String.format("Failed deserialization for PaymentResponseAction: %d classes match result, expected 1", match));
+            // Log warning if there is more than one match
+            if (match > 1) {
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for PaymentResponseAction: %d classes match result, expected 1", match));
+            }
+
+            PaymentResponseAction ret = new PaymentResponseAction();
+            ret.setActualInstance(deserialized);
+            return ret;
         }
 
         /**

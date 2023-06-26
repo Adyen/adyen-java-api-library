@@ -158,14 +158,14 @@ public class LegalEntityManagementTest extends BaseTest {
         DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"dGhpc2lzYW5iYXNlNjRzdHJpbmc=\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
                 "        \"pageType\": \"string\"\n" +
                 "    },\n" +
                 "    \"attachments\": [{\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"dGhpc2lzYW5iYXNlNjRzdHJpbmc=\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
@@ -204,14 +204,14 @@ public class LegalEntityManagementTest extends BaseTest {
         DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"dGhpc2lzYW5iYXNlNjRzdHJpbmc=\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
                 "        \"pageType\": \"string\"\n" +
                 "    },\n" +
                 "    \"attachments\": [{\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"dGhpc2lzYW5iYXNlNjRzdHJpbmc=\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
@@ -295,14 +295,14 @@ public class LegalEntityManagementTest extends BaseTest {
         DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"dGhpc2lzYW5iYXNlNjRzdHJpbmc=\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
                 "        \"pageType\": \"string\"\n" +
                 "    },\n" +
                 "    \"attachments\": [{\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"dGhpc2lzYW5iYXNlNjRzdHJpbmc=\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
@@ -322,7 +322,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
         Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
-        assertEquals("Thisisanbase64encodedstring", new String(response.getAttachments().get(0).getContent()));
+        assertEquals("thisisanbase64string", new String(response.getAttachments().get(0).getContent()));
     }
 
     @Test
@@ -342,7 +342,7 @@ public class LegalEntityManagementTest extends BaseTest {
                     "  \"paramNotInSpec\":false\n " +
                     "}");
         } catch (Exception ex){
-            Assert.fail();
+            throw ex;
         }
     }
 }

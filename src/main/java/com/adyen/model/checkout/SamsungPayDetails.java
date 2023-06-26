@@ -215,7 +215,7 @@ public class SamsungPayDetails {
   **/
   @ApiModelProperty(required = true, value = "The payload you received from the Samsung Pay SDK response.")
   @JsonProperty(JSON_PROPERTY_SAMSUNG_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSamsungPayToken() {
     return samsungPayToken;
@@ -223,7 +223,7 @@ public class SamsungPayDetails {
 
 
   @JsonProperty(JSON_PROPERTY_SAMSUNG_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSamsungPayToken(String samsungPayToken) {
     this.samsungPayToken = samsungPayToken;
   }

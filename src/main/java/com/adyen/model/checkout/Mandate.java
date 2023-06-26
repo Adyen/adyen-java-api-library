@@ -199,7 +199,7 @@ public class Mandate {
   **/
   @ApiModelProperty(required = true, value = "The billing amount (in minor units) of the recurring transactions.")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAmount() {
     return amount;
@@ -207,7 +207,7 @@ public class Mandate {
 
 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(String amount) {
     this.amount = amount;
   }
@@ -299,7 +299,7 @@ public class Mandate {
   **/
   @ApiModelProperty(required = true, value = "End date of the billing plan, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEndsAt() {
     return endsAt;
@@ -307,7 +307,7 @@ public class Mandate {
 
 
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
     this.endsAt = endsAt;
   }
@@ -324,7 +324,7 @@ public class Mandate {
   **/
   @ApiModelProperty(required = true, value = "The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FrequencyEnum getFrequency() {
     return frequency;
@@ -332,7 +332,7 @@ public class Mandate {
 
 
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
     this.frequency = frequency;
   }

@@ -735,7 +735,7 @@ public class AdditionalDataAirline {
   **/
   @ApiModelProperty(required = true, value = "The passenger's name, initials, and title. * Format: last name + first name or initials + title * Example: *FLYER / MARY MS* * minLength: 1 character * maxLength: 20 characters * If you send more than 20 characters, the name is truncated * Must not be all spaces * Must not be all zeros")
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlinePassengerName() {
     return airlinePassengerName;
@@ -743,7 +743,7 @@ public class AdditionalDataAirline {
 
 
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerName(String airlinePassengerName) {
     this.airlinePassengerName = airlinePassengerName;
   }

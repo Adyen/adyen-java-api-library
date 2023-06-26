@@ -52,7 +52,7 @@ public class InstallmentsNumber {
   **/
   @ApiModelProperty(required = true, value = "Maximum number of installments")
   @JsonProperty(JSON_PROPERTY_MAX_NUMBER_OF_INSTALLMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMaxNumberOfInstallments() {
     return maxNumberOfInstallments;
@@ -60,7 +60,7 @@ public class InstallmentsNumber {
 
 
   @JsonProperty(JSON_PROPERTY_MAX_NUMBER_OF_INSTALLMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxNumberOfInstallments(Integer maxNumberOfInstallments) {
     this.maxNumberOfInstallments = maxNumberOfInstallments;
   }

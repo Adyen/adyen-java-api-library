@@ -132,7 +132,7 @@ public class SepaDirectDebitDetails {
   **/
   @ApiModelProperty(required = true, value = "The International Bank Account Number (IBAN).")
   @JsonProperty(JSON_PROPERTY_IBAN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIban() {
     return iban;
@@ -140,7 +140,7 @@ public class SepaDirectDebitDetails {
 
 
   @JsonProperty(JSON_PROPERTY_IBAN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
   }
@@ -157,7 +157,7 @@ public class SepaDirectDebitDetails {
   **/
   @ApiModelProperty(required = true, value = "The name of the bank account holder.")
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOwnerName() {
     return ownerName;
@@ -165,7 +165,7 @@ public class SepaDirectDebitDetails {
 
 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
   }

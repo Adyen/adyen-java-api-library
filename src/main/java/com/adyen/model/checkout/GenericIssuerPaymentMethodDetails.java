@@ -132,7 +132,7 @@ public class GenericIssuerPaymentMethodDetails {
   **/
   @ApiModelProperty(required = true, value = "The issuer id of the shopper's selected bank.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuer() {
     return issuer;
@@ -140,7 +140,7 @@ public class GenericIssuerPaymentMethodDetails {
 
 
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
@@ -209,7 +209,7 @@ public class GenericIssuerPaymentMethodDetails {
   **/
   @ApiModelProperty(required = true, value = "**genericissuer**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
@@ -217,7 +217,7 @@ public class GenericIssuerPaymentMethodDetails {
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

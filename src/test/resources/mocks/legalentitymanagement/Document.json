@@ -1,13 +1,13 @@
 {
   "attachment": {
-    "content": "string",
+    "content": "dGhpc2lzYW5iYXNlNjRzdHJpbmc=",
     "contentType": "string",
     "filename": "string",
     "pageName": "string",
     "pageType": "string"
   },
   "attachments": [{
-    "content": "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n",
+    "content": "dGhpc2lzYW5iYXNlNjRzdHJpbmc=",
     "contentType": "string",
     "filename": "string",
     "pageName": "string",

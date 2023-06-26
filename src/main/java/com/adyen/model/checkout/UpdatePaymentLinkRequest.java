@@ -85,7 +85,7 @@ public class UpdatePaymentLinkRequest {
   **/
   @ApiModelProperty(required = true, value = "Status of the payment link. Possible values: * **expired**")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
@@ -93,7 +93,7 @@ public class UpdatePaymentLinkRequest {
 
 
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
