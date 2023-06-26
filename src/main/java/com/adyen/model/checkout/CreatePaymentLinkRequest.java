@@ -14,6 +14,8 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
@@ -22,128 +24,128 @@ import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Name;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.Split;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * CreatePaymentLinkRequest
  */
+@JsonPropertyOrder({
+  CreatePaymentLinkRequest.JSON_PROPERTY_ALLOWED_PAYMENT_METHODS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_AMOUNT,
+  CreatePaymentLinkRequest.JSON_PROPERTY_APPLICATION_INFO,
+  CreatePaymentLinkRequest.JSON_PROPERTY_BILLING_ADDRESS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_BLOCKED_PAYMENT_METHODS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_COUNTRY_CODE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_DATE_OF_BIRTH,
+  CreatePaymentLinkRequest.JSON_PROPERTY_DELIVER_AT,
+  CreatePaymentLinkRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_DESCRIPTION,
+  CreatePaymentLinkRequest.JSON_PROPERTY_EXPIRES_AT,
+  CreatePaymentLinkRequest.JSON_PROPERTY_INSTALLMENT_OPTIONS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_LINE_ITEMS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_MANUAL_CAPTURE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_MCC,
+  CreatePaymentLinkRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreatePaymentLinkRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_METADATA,
+  CreatePaymentLinkRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
+  CreatePaymentLinkRequest.JSON_PROPERTY_REFERENCE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_RETURN_URL,
+  CreatePaymentLinkRequest.JSON_PROPERTY_REUSABLE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_RISK_DATA,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_EMAIL,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_LOCALE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_NAME,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES,
+  CreatePaymentLinkRequest.JSON_PROPERTY_SPLITS,
+  CreatePaymentLinkRequest.JSON_PROPERTY_STORE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
+  CreatePaymentLinkRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
+  CreatePaymentLinkRequest.JSON_PROPERTY_THEME_ID
+})
 
 public class CreatePaymentLinkRequest {
-  public static final String SERIALIZED_NAME_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_PAYMENT_METHODS)
+  public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
   private List<String> allowedPaymentMethods = null;
 
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_APPLICATION_INFO = "applicationInfo";
-  @SerializedName(SERIALIZED_NAME_APPLICATION_INFO)
+  public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
 
-  public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
-  @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
+  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
-  public static final String SERIALIZED_NAME_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
-  @SerializedName(SERIALIZED_NAME_BLOCKED_PAYMENT_METHODS)
+  public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
   private List<String> blockedPaymentMethods = null;
 
-  public static final String SERIALIZED_NAME_CAPTURE_DELAY_HOURS = "captureDelayHours";
-  @SerializedName(SERIALIZED_NAME_CAPTURE_DELAY_HOURS)
+  public static final String JSON_PROPERTY_CAPTURE_DELAY_HOURS = "captureDelayHours";
   private Integer captureDelayHours;
 
-  public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
-  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
-  public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
-  @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
+  public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
 
-  public static final String SERIALIZED_NAME_DELIVER_AT = "deliverAt";
-  @SerializedName(SERIALIZED_NAME_DELIVER_AT)
+  public static final String JSON_PROPERTY_DELIVER_AT = "deliverAt";
   private OffsetDateTime deliverAt;
 
-  public static final String SERIALIZED_NAME_DELIVERY_ADDRESS = "deliveryAddress";
-  @SerializedName(SERIALIZED_NAME_DELIVERY_ADDRESS)
+  public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
   private Address deliveryAddress;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_EXPIRES_AT = "expiresAt";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private String expiresAt;
 
-  public static final String SERIALIZED_NAME_INSTALLMENT_OPTIONS = "installmentOptions";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENT_OPTIONS)
+  public static final String JSON_PROPERTY_INSTALLMENT_OPTIONS = "installmentOptions";
   private Map<String, InstallmentOption> installmentOptions = null;
 
-  public static final String SERIALIZED_NAME_LINE_ITEMS = "lineItems";
-  @SerializedName(SERIALIZED_NAME_LINE_ITEMS)
+  public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems = null;
 
-  public static final String SERIALIZED_NAME_MANUAL_CAPTURE = "manualCapture";
-  @SerializedName(SERIALIZED_NAME_MANUAL_CAPTURE)
+  public static final String JSON_PROPERTY_MANUAL_CAPTURE = "manualCapture";
   private Boolean manualCapture;
 
-  public static final String SERIALIZED_NAME_MCC = "mcc";
-  @SerializedName(SERIALIZED_NAME_MCC)
+  public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ORDER_REFERENCE = "merchantOrderReference";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_REFERENCE)
+  public static final String JSON_PROPERTY_MERCHANT_ORDER_REFERENCE = "merchantOrderReference";
   private String merchantOrderReference;
 
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
+  public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details. Possible values: * **Subscription** – A transaction for a fixed or variable amount, which follows a fixed schedule. * **CardOnFile** – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * **UnscheduledCardOnFile** – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    */
-  @JsonAdapter(RecurringProcessingModelEnum.Adapter.class)
   public enum RecurringProcessingModelEnum {
     CARDONFILE("CardOnFile"),
     
@@ -157,6 +159,7 @@ public class CreatePaymentLinkRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -166,6 +169,7 @@ public class CreatePaymentLinkRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static RecurringProcessingModelEnum fromValue(String value) {
       for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
         if (b.value.equals(value)) {
@@ -174,33 +178,17 @@ public class CreatePaymentLinkRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RecurringProcessingModelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return RecurringProcessingModelEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
-  @SerializedName(SERIALIZED_NAME_RECURRING_PROCESSING_MODEL)
+  public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
   /**
    * Gets or Sets requiredShopperFields
    */
-  @JsonAdapter(RequiredShopperFieldsEnum.Adapter.class)
   public enum RequiredShopperFieldsEnum {
     BILLINGADDRESS("billingAddress"),
     
@@ -218,6 +206,7 @@ public class CreatePaymentLinkRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -227,6 +216,7 @@ public class CreatePaymentLinkRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static RequiredShopperFieldsEnum fromValue(String value) {
       for (RequiredShopperFieldsEnum b : RequiredShopperFieldsEnum.values()) {
         if (b.value.equals(value)) {
@@ -235,81 +225,53 @@ public class CreatePaymentLinkRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<RequiredShopperFieldsEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RequiredShopperFieldsEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public RequiredShopperFieldsEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return RequiredShopperFieldsEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_REQUIRED_SHOPPER_FIELDS = "requiredShopperFields";
-  @SerializedName(SERIALIZED_NAME_REQUIRED_SHOPPER_FIELDS)
+  public static final String JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS = "requiredShopperFields";
   private List<RequiredShopperFieldsEnum> requiredShopperFields = null;
 
-  public static final String SERIALIZED_NAME_RETURN_URL = "returnUrl";
-  @SerializedName(SERIALIZED_NAME_RETURN_URL)
+  public static final String JSON_PROPERTY_RETURN_URL = "returnUrl";
   private String returnUrl;
 
-  public static final String SERIALIZED_NAME_REUSABLE = "reusable";
-  @SerializedName(SERIALIZED_NAME_REUSABLE)
+  public static final String JSON_PROPERTY_REUSABLE = "reusable";
   private Boolean reusable;
 
-  public static final String SERIALIZED_NAME_RISK_DATA = "riskData";
-  @SerializedName(SERIALIZED_NAME_RISK_DATA)
+  public static final String JSON_PROPERTY_RISK_DATA = "riskData";
   private RiskData riskData;
 
-  public static final String SERIALIZED_NAME_SHOPPER_EMAIL = "shopperEmail";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_EMAIL)
+  public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
-  public static final String SERIALIZED_NAME_SHOPPER_LOCALE = "shopperLocale";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_LOCALE)
+  public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NAME = "shopperName";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NAME)
+  public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_STATEMENT = "shopperStatement";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_STATEMENT)
+  public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
 
-  public static final String SERIALIZED_NAME_SHOW_REMOVE_PAYMENT_METHOD_BUTTON = "showRemovePaymentMethodButton";
-  @SerializedName(SERIALIZED_NAME_SHOW_REMOVE_PAYMENT_METHOD_BUTTON)
+  public static final String JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON = "showRemovePaymentMethodButton";
   private Boolean showRemovePaymentMethodButton = true;
 
-  public static final String SERIALIZED_NAME_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
-  @SerializedName(SERIALIZED_NAME_SOCIAL_SECURITY_NUMBER)
+  public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
-  public static final String SERIALIZED_NAME_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
-  @SerializedName(SERIALIZED_NAME_SPLIT_CARD_FUNDING_SOURCES)
+  public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
   private Boolean splitCardFundingSources = false;
 
-  public static final String SERIALIZED_NAME_SPLITS = "splits";
-  @SerializedName(SERIALIZED_NAME_SPLITS)
+  public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
-  public static final String SERIALIZED_NAME_STORE = "store";
-  @SerializedName(SERIALIZED_NAME_STORE)
+  public static final String JSON_PROPERTY_STORE = "store";
   private String store;
 
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.
    */
-  @JsonAdapter(StorePaymentMethodModeEnum.Adapter.class)
   public enum StorePaymentMethodModeEnum {
     ASKFORCONSENT("askForConsent"),
     
@@ -323,6 +285,7 @@ public class CreatePaymentLinkRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -332,6 +295,7 @@ public class CreatePaymentLinkRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StorePaymentMethodModeEnum fromValue(String value) {
       for (StorePaymentMethodModeEnum b : StorePaymentMethodModeEnum.values()) {
         if (b.value.equals(value)) {
@@ -340,38 +304,21 @@ public class CreatePaymentLinkRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StorePaymentMethodModeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StorePaymentMethodModeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StorePaymentMethodModeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StorePaymentMethodModeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STORE_PAYMENT_METHOD_MODE = "storePaymentMethodMode";
-  @SerializedName(SERIALIZED_NAME_STORE_PAYMENT_METHOD_MODE)
+  public static final String JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE = "storePaymentMethodMode";
   private StorePaymentMethodModeEnum storePaymentMethodMode;
 
-  public static final String SERIALIZED_NAME_TELEPHONE_NUMBER = "telephoneNumber";
-  @SerializedName(SERIALIZED_NAME_TELEPHONE_NUMBER)
+  public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
 
-  public static final String SERIALIZED_NAME_THEME_ID = "themeId";
-  @SerializedName(SERIALIZED_NAME_THEME_ID)
+  public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
 
   public CreatePaymentLinkRequest() { 
   }
 
   public CreatePaymentLinkRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
-    
     this.allowedPaymentMethods = allowedPaymentMethods;
     return this;
   }
@@ -389,19 +336,22 @@ public class CreatePaymentLinkRequest {
    * @return allowedPaymentMethods
   **/
   @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getAllowedPaymentMethods() {
     return allowedPaymentMethods;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
   }
 
 
   public CreatePaymentLinkRequest amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -411,19 +361,22 @@ public class CreatePaymentLinkRequest {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public CreatePaymentLinkRequest applicationInfo(ApplicationInfo applicationInfo) {
-    
     this.applicationInfo = applicationInfo;
     return this;
   }
@@ -433,19 +386,22 @@ public class CreatePaymentLinkRequest {
    * @return applicationInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApplicationInfo getApplicationInfo() {
     return applicationInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
   }
 
 
   public CreatePaymentLinkRequest billingAddress(Address billingAddress) {
-    
     this.billingAddress = billingAddress;
     return this;
   }
@@ -455,19 +411,22 @@ public class CreatePaymentLinkRequest {
    * @return billingAddress
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getBillingAddress() {
     return billingAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
 
   public CreatePaymentLinkRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
-    
     this.blockedPaymentMethods = blockedPaymentMethods;
     return this;
   }
@@ -485,19 +444,22 @@ public class CreatePaymentLinkRequest {
    * @return blockedPaymentMethods
   **/
   @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getBlockedPaymentMethods() {
     return blockedPaymentMethods;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
   }
 
 
   public CreatePaymentLinkRequest captureDelayHours(Integer captureDelayHours) {
-    
     this.captureDelayHours = captureDelayHours;
     return this;
   }
@@ -507,19 +469,22 @@ public class CreatePaymentLinkRequest {
    * @return captureDelayHours
   **/
   @ApiModelProperty(value = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
+  @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCaptureDelayHours() {
     return captureDelayHours;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
   }
 
 
   public CreatePaymentLinkRequest countryCode(String countryCode) {
-    
     this.countryCode = countryCode;
     return this;
   }
@@ -529,19 +494,22 @@ public class CreatePaymentLinkRequest {
    * @return countryCode
   **/
   @ApiModelProperty(value = "The shopper's two-letter country code.")
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCountryCode() {
     return countryCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
 
   public CreatePaymentLinkRequest dateOfBirth(LocalDate dateOfBirth) {
-    
     this.dateOfBirth = dateOfBirth;
     return this;
   }
@@ -551,19 +519,22 @@ public class CreatePaymentLinkRequest {
    * @return dateOfBirth
   **/
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
+  @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
 
   public CreatePaymentLinkRequest deliverAt(OffsetDateTime deliverAt) {
-    
     this.deliverAt = deliverAt;
     return this;
   }
@@ -573,19 +544,22 @@ public class CreatePaymentLinkRequest {
    * @return deliverAt
   **/
   @ApiModelProperty(value = "The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.")
+  @JsonProperty(JSON_PROPERTY_DELIVER_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getDeliverAt() {
     return deliverAt;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DELIVER_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
   }
 
 
   public CreatePaymentLinkRequest deliveryAddress(Address deliveryAddress) {
-    
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -595,19 +569,22 @@ public class CreatePaymentLinkRequest {
    * @return deliveryAddress
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getDeliveryAddress() {
     return deliveryAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
   }
 
 
   public CreatePaymentLinkRequest description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -617,19 +594,22 @@ public class CreatePaymentLinkRequest {
    * @return description
   **/
   @ApiModelProperty(value = "A short description visible on the payment page. Maximum length: 280 characters.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public CreatePaymentLinkRequest expiresAt(String expiresAt) {
-    
     this.expiresAt = expiresAt;
     return this;
   }
@@ -639,19 +619,22 @@ public class CreatePaymentLinkRequest {
    * @return expiresAt
   **/
   @ApiModelProperty(value = "The date when the payment link expires.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.  The maximum expiry date is 70 days after the payment link is created.  If not provided, the payment link expires 24 hours after it was created.")
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpiresAt() {
     return expiresAt;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
 
   public CreatePaymentLinkRequest installmentOptions(Map<String, InstallmentOption> installmentOptions) {
-    
     this.installmentOptions = installmentOptions;
     return this;
   }
@@ -669,19 +652,22 @@ public class CreatePaymentLinkRequest {
    * @return installmentOptions
   **/
   @ApiModelProperty(value = "A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, InstallmentOption> getInstallmentOptions() {
     return installmentOptions;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENT_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentOptions(Map<String, InstallmentOption> installmentOptions) {
     this.installmentOptions = installmentOptions;
   }
 
 
   public CreatePaymentLinkRequest lineItems(List<LineItem> lineItems) {
-    
     this.lineItems = lineItems;
     return this;
   }
@@ -699,19 +685,22 @@ public class CreatePaymentLinkRequest {
    * @return lineItems
   **/
   @ApiModelProperty(value = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, and Zip.")
+  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<LineItem> getLineItems() {
     return lineItems;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
 
 
   public CreatePaymentLinkRequest manualCapture(Boolean manualCapture) {
-    
     this.manualCapture = manualCapture;
     return this;
   }
@@ -721,19 +710,22 @@ public class CreatePaymentLinkRequest {
    * @return manualCapture
   **/
   @ApiModelProperty(value = "Indicates if the payment must be [captured manually](https://docs.adyen.com/online-payments/capture).")
+  @JsonProperty(JSON_PROPERTY_MANUAL_CAPTURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getManualCapture() {
     return manualCapture;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MANUAL_CAPTURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManualCapture(Boolean manualCapture) {
     this.manualCapture = manualCapture;
   }
 
 
   public CreatePaymentLinkRequest mcc(String mcc) {
-    
     this.mcc = mcc;
     return this;
   }
@@ -743,19 +735,22 @@ public class CreatePaymentLinkRequest {
    * @return mcc
   **/
   @ApiModelProperty(value = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMcc() {
     return mcc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
 
   public CreatePaymentLinkRequest merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -765,19 +760,22 @@ public class CreatePaymentLinkRequest {
    * @return merchantAccount
   **/
   @ApiModelProperty(required = true, value = "The merchant account identifier for which the payment link is created.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public CreatePaymentLinkRequest merchantOrderReference(String merchantOrderReference) {
-    
     this.merchantOrderReference = merchantOrderReference;
     return this;
   }
@@ -787,19 +785,22 @@ public class CreatePaymentLinkRequest {
    * @return merchantOrderReference
   **/
   @ApiModelProperty(value = "This reference allows linking multiple transactions to each other for reporting purposes (for example, order auth-rate). The reference should be unique per billing cycle.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantOrderReference() {
     return merchantOrderReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
   }
 
 
   public CreatePaymentLinkRequest metadata(Map<String, String> metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -817,19 +818,22 @@ public class CreatePaymentLinkRequest {
    * @return metadata
   **/
   @ApiModelProperty(value = "Metadata consists of entries, each of which includes a key and a value. Limitations: * Maximum 20 key-value pairs per request. Otherwise, error \"177\" occurs: \"Metadata size exceeds limit\" * Maximum 20 characters per key. Otherwise, error \"178\" occurs: \"Metadata key size exceeds limit\" * A key cannot have the name `checkout.linkId`. Any value that you provide with this key is going to be replaced by the real payment link ID.")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getMetadata() {
     return metadata;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
 
   public CreatePaymentLinkRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
-    
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
@@ -839,19 +843,22 @@ public class CreatePaymentLinkRequest {
    * @return recurringProcessingModel
   **/
   @ApiModelProperty(value = "Defines a recurring payment type. Required when creating a token to store payment details. Possible values: * **Subscription** – A transaction for a fixed or variable amount, which follows a fixed schedule. * **CardOnFile** – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * **UnscheduledCardOnFile** – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
+  @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
     return recurringProcessingModel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
   }
 
 
   public CreatePaymentLinkRequest reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -861,19 +868,22 @@ public class CreatePaymentLinkRequest {
    * @return reference
   **/
   @ApiModelProperty(required = true, value = "A reference that is used to uniquely identify the payment in future communications about the payment status.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public CreatePaymentLinkRequest requiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
-    
     this.requiredShopperFields = requiredShopperFields;
     return this;
   }
@@ -891,19 +901,22 @@ public class CreatePaymentLinkRequest {
    * @return requiredShopperFields
   **/
   @ApiModelProperty(value = "List of fields that the shopper has to provide on the payment page before completing the payment. For more information, refer to [Provide shopper information](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#shopper-information).  Possible values: * **billingAddress** – The address where to send the invoice. * **deliveryAddress** – The address where the purchased goods should be delivered. * **shopperEmail** – The shopper's email address. * **shopperName** – The shopper's full name. * **telephoneNumber** – The shopper's phone number. ")
+  @JsonProperty(JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<RequiredShopperFieldsEnum> getRequiredShopperFields() {
     return requiredShopperFields;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
     this.requiredShopperFields = requiredShopperFields;
   }
 
 
   public CreatePaymentLinkRequest returnUrl(String returnUrl) {
-    
     this.returnUrl = returnUrl;
     return this;
   }
@@ -913,19 +926,22 @@ public class CreatePaymentLinkRequest {
    * @return returnUrl
   **/
   @ApiModelProperty(value = "Website URL used for redirection after payment is completed. If provided, a **Continue** button will be shown on the payment page. If shoppers select the button, they are redirected to the specified URL.")
+  @JsonProperty(JSON_PROPERTY_RETURN_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReturnUrl() {
     return returnUrl;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RETURN_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
   }
 
 
   public CreatePaymentLinkRequest reusable(Boolean reusable) {
-    
     this.reusable = reusable;
     return this;
   }
@@ -935,19 +951,22 @@ public class CreatePaymentLinkRequest {
    * @return reusable
   **/
   @ApiModelProperty(value = "Indicates whether the payment link can be reused for multiple payments. If not provided, this defaults to **false** which means the link can be used for one successful payment only.")
+  @JsonProperty(JSON_PROPERTY_REUSABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReusable() {
     return reusable;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REUSABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReusable(Boolean reusable) {
     this.reusable = reusable;
   }
 
 
   public CreatePaymentLinkRequest riskData(RiskData riskData) {
-    
     this.riskData = riskData;
     return this;
   }
@@ -957,19 +976,22 @@ public class CreatePaymentLinkRequest {
    * @return riskData
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RISK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RiskData getRiskData() {
     return riskData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskData(RiskData riskData) {
     this.riskData = riskData;
   }
 
 
   public CreatePaymentLinkRequest shopperEmail(String shopperEmail) {
-    
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -979,19 +1001,22 @@ public class CreatePaymentLinkRequest {
    * @return shopperEmail
   **/
   @ApiModelProperty(value = "The shopper's email address.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperEmail() {
     return shopperEmail;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
 
   public CreatePaymentLinkRequest shopperLocale(String shopperLocale) {
-    
     this.shopperLocale = shopperLocale;
     return this;
   }
@@ -1001,19 +1026,22 @@ public class CreatePaymentLinkRequest {
    * @return shopperLocale
   **/
   @ApiModelProperty(value = "The language to be used in the payment page, specified by a combination of a language and country code. For example, `en-US`.  For a list of shopper locales that Pay by Link supports, refer to [Language and localization](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#language).")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperLocale() {
     return shopperLocale;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
   }
 
 
   public CreatePaymentLinkRequest shopperName(Name shopperName) {
-    
     this.shopperName = shopperName;
     return this;
   }
@@ -1023,19 +1051,22 @@ public class CreatePaymentLinkRequest {
    * @return shopperName
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Name getShopperName() {
     return shopperName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
 
   public CreatePaymentLinkRequest shopperReference(String shopperReference) {
-    
     this.shopperReference = shopperReference;
     return this;
   }
@@ -1045,19 +1076,22 @@ public class CreatePaymentLinkRequest {
    * @return shopperReference
   **/
   @ApiModelProperty(value = "Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperReference() {
     return shopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
 
   public CreatePaymentLinkRequest shopperStatement(String shopperStatement) {
-    
     this.shopperStatement = shopperStatement;
     return this;
   }
@@ -1067,19 +1101,22 @@ public class CreatePaymentLinkRequest {
    * @return shopperStatement
   **/
   @ApiModelProperty(value = "The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperStatement() {
     return shopperStatement;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
   }
 
 
   public CreatePaymentLinkRequest showRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
-    
     this.showRemovePaymentMethodButton = showRemovePaymentMethodButton;
     return this;
   }
@@ -1089,19 +1126,22 @@ public class CreatePaymentLinkRequest {
    * @return showRemovePaymentMethodButton
   **/
   @ApiModelProperty(value = "Set to **false** to hide the button that lets the shopper remove a stored payment method.")
+  @JsonProperty(JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowRemovePaymentMethodButton() {
     return showRemovePaymentMethodButton;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
     this.showRemovePaymentMethodButton = showRemovePaymentMethodButton;
   }
 
 
   public CreatePaymentLinkRequest socialSecurityNumber(String socialSecurityNumber) {
-    
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
@@ -1111,19 +1151,22 @@ public class CreatePaymentLinkRequest {
    * @return socialSecurityNumber
   **/
   @ApiModelProperty(value = "The shopper's social security number.")
+  @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
   }
 
 
   public CreatePaymentLinkRequest splitCardFundingSources(Boolean splitCardFundingSources) {
-    
     this.splitCardFundingSources = splitCardFundingSources;
     return this;
   }
@@ -1133,19 +1176,22 @@ public class CreatePaymentLinkRequest {
    * @return splitCardFundingSources
   **/
   @ApiModelProperty(value = "Boolean value indicating whether the card payment method should be split into separate debit and credit options.")
+  @JsonProperty(JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSplitCardFundingSources() {
     return splitCardFundingSources;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
   }
 
 
   public CreatePaymentLinkRequest splits(List<Split> splits) {
-    
     this.splits = splits;
     return this;
   }
@@ -1163,19 +1209,22 @@ public class CreatePaymentLinkRequest {
    * @return splits
   **/
   @ApiModelProperty(value = "An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Split> getSplits() {
     return splits;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
   }
 
 
   public CreatePaymentLinkRequest store(String store) {
-    
     this.store = store;
     return this;
   }
@@ -1185,19 +1234,22 @@ public class CreatePaymentLinkRequest {
    * @return store
   **/
   @ApiModelProperty(value = "The physical store, for which this payment is processed.")
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStore() {
     return store;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
 
 
   public CreatePaymentLinkRequest storePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
-    
     this.storePaymentMethodMode = storePaymentMethodMode;
     return this;
   }
@@ -1207,19 +1259,22 @@ public class CreatePaymentLinkRequest {
    * @return storePaymentMethodMode
   **/
   @ApiModelProperty(value = "Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the `shopperReference` is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the `shopperReference` is provided, the details will be stored without asking the shopper for consent.")
+  @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StorePaymentMethodModeEnum getStorePaymentMethodMode() {
     return storePaymentMethodMode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
     this.storePaymentMethodMode = storePaymentMethodMode;
   }
 
 
   public CreatePaymentLinkRequest telephoneNumber(String telephoneNumber) {
-    
     this.telephoneNumber = telephoneNumber;
     return this;
   }
@@ -1229,19 +1284,22 @@ public class CreatePaymentLinkRequest {
    * @return telephoneNumber
   **/
   @ApiModelProperty(value = "The shopper's telephone number.")
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
 
 
   public CreatePaymentLinkRequest themeId(String themeId) {
-    
     this.themeId = themeId;
     return this;
   }
@@ -1251,18 +1309,24 @@ public class CreatePaymentLinkRequest {
    * @return themeId
   **/
   @ApiModelProperty(value = "A [theme](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#themes) to customize the appearance of the payment page. If not specified, the payment page is rendered according to the theme set as default in your Customer Area.")
+  @JsonProperty(JSON_PROPERTY_THEME_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThemeId() {
     return themeId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THEME_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {
     this.themeId = themeId;
   }
 
 
-
+  /**
+   * Return true if this CreatePaymentLinkRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1374,279 +1438,23 @@ public class CreatePaymentLinkRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowedPaymentMethods");
-    openapiFields.add("amount");
-    openapiFields.add("applicationInfo");
-    openapiFields.add("billingAddress");
-    openapiFields.add("blockedPaymentMethods");
-    openapiFields.add("captureDelayHours");
-    openapiFields.add("countryCode");
-    openapiFields.add("dateOfBirth");
-    openapiFields.add("deliverAt");
-    openapiFields.add("deliveryAddress");
-    openapiFields.add("description");
-    openapiFields.add("expiresAt");
-    openapiFields.add("installmentOptions");
-    openapiFields.add("lineItems");
-    openapiFields.add("manualCapture");
-    openapiFields.add("mcc");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("merchantOrderReference");
-    openapiFields.add("metadata");
-    openapiFields.add("recurringProcessingModel");
-    openapiFields.add("reference");
-    openapiFields.add("requiredShopperFields");
-    openapiFields.add("returnUrl");
-    openapiFields.add("reusable");
-    openapiFields.add("riskData");
-    openapiFields.add("shopperEmail");
-    openapiFields.add("shopperLocale");
-    openapiFields.add("shopperName");
-    openapiFields.add("shopperReference");
-    openapiFields.add("shopperStatement");
-    openapiFields.add("showRemovePaymentMethodButton");
-    openapiFields.add("socialSecurityNumber");
-    openapiFields.add("splitCardFundingSources");
-    openapiFields.add("splits");
-    openapiFields.add("store");
-    openapiFields.add("storePaymentMethodMode");
-    openapiFields.add("telephoneNumber");
-    openapiFields.add("themeId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("merchantAccount");
-    openapiRequiredFields.add("reference");
+/**
+   * Create an instance of CreatePaymentLinkRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CreatePaymentLinkRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePaymentLinkRequest
+   */
+  public static CreatePaymentLinkRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreatePaymentLinkRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CreatePaymentLinkRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreatePaymentLinkRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CreatePaymentLinkRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentLinkRequest is not found in the empty JSON string", CreatePaymentLinkRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CreatePaymentLinkRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CreatePaymentLinkRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreatePaymentLinkRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("allowedPaymentMethods") != null && !jsonObj.get("allowedPaymentMethods").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `allowedPaymentMethods` to be an array in the JSON string but got `%s`", jsonObj.get("allowedPaymentMethods").toString()));
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // validate the optional field `applicationInfo`
-      if (jsonObj.getAsJsonObject("applicationInfo") != null) {
-        ApplicationInfo.validateJsonObject(jsonObj.getAsJsonObject("applicationInfo"));
-      }
-      // validate the optional field `billingAddress`
-      if (jsonObj.getAsJsonObject("billingAddress") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("billingAddress"));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("blockedPaymentMethods") != null && !jsonObj.get("blockedPaymentMethods").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `blockedPaymentMethods` to be an array in the JSON string but got `%s`", jsonObj.get("blockedPaymentMethods").toString()));
-      }
-      // validate the optional field countryCode
-      if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
-      }
-      // validate the optional field `deliveryAddress`
-      if (jsonObj.getAsJsonObject("deliveryAddress") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("deliveryAddress"));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field expiresAt
-      if (jsonObj.get("expiresAt") != null && !jsonObj.get("expiresAt").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `expiresAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiresAt").toString()));
-      }
-      JsonArray jsonArraylineItems = jsonObj.getAsJsonArray("lineItems");
-      if (jsonArraylineItems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("lineItems").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `lineItems` to be an array in the JSON string but got `%s`", jsonObj.get("lineItems").toString()));
-        }
-
-        // validate the optional field `lineItems` (array)
-        for (int i = 0; i < jsonArraylineItems.size(); i++) {
-          LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field mcc
-      if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field merchantOrderReference
-      if (jsonObj.get("merchantOrderReference") != null && !jsonObj.get("merchantOrderReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantOrderReference").toString()));
-      }
-      // ensure the field recurringProcessingModel can be parsed to an enum value
-      if (jsonObj.get("recurringProcessingModel") != null) {
-        if(!jsonObj.get("recurringProcessingModel").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `recurringProcessingModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringProcessingModel").toString()));
-        }
-        RecurringProcessingModelEnum.fromValue(jsonObj.get("recurringProcessingModel").getAsString());
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("requiredShopperFields") != null && !jsonObj.get("requiredShopperFields").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `requiredShopperFields` to be an array in the JSON string but got `%s`", jsonObj.get("requiredShopperFields").toString()));
-      }
-      // validate the optional field returnUrl
-      if (jsonObj.get("returnUrl") != null && !jsonObj.get("returnUrl").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `returnUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("returnUrl").toString()));
-      }
-      // validate the optional field `riskData`
-      if (jsonObj.getAsJsonObject("riskData") != null) {
-        RiskData.validateJsonObject(jsonObj.getAsJsonObject("riskData"));
-      }
-      // validate the optional field shopperEmail
-      if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
-      }
-      // validate the optional field shopperLocale
-      if (jsonObj.get("shopperLocale") != null && !jsonObj.get("shopperLocale").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperLocale").toString()));
-      }
-      // validate the optional field `shopperName`
-      if (jsonObj.getAsJsonObject("shopperName") != null) {
-        Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
-      }
-      // validate the optional field shopperReference
-      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
-      }
-      // validate the optional field shopperStatement
-      if (jsonObj.get("shopperStatement") != null && !jsonObj.get("shopperStatement").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
-      }
-      // validate the optional field socialSecurityNumber
-      if (jsonObj.get("socialSecurityNumber") != null && !jsonObj.get("socialSecurityNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `socialSecurityNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialSecurityNumber").toString()));
-      }
-      JsonArray jsonArraysplits = jsonObj.getAsJsonArray("splits");
-      if (jsonArraysplits != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("splits").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `splits` to be an array in the JSON string but got `%s`", jsonObj.get("splits").toString()));
-        }
-
-        // validate the optional field `splits` (array)
-        for (int i = 0; i < jsonArraysplits.size(); i++) {
-          Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field store
-      if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
-      }
-      // ensure the field storePaymentMethodMode can be parsed to an enum value
-      if (jsonObj.get("storePaymentMethodMode") != null) {
-        if(!jsonObj.get("storePaymentMethodMode").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `storePaymentMethodMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storePaymentMethodMode").toString()));
-        }
-        StorePaymentMethodModeEnum.fromValue(jsonObj.get("storePaymentMethodMode").getAsString());
-      }
-      // validate the optional field telephoneNumber
-      if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
-      }
-      // validate the optional field themeId
-      if (jsonObj.get("themeId") != null && !jsonObj.get("themeId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `themeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("themeId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreatePaymentLinkRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreatePaymentLinkRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreatePaymentLinkRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreatePaymentLinkRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreatePaymentLinkRequest>() {
-           @Override
-           public void write(JsonWriter out, CreatePaymentLinkRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreatePaymentLinkRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CreatePaymentLinkRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreatePaymentLinkRequest
-  * @throws IOException if the JSON string is invalid with respect to CreatePaymentLinkRequest
-  */
-  public static CreatePaymentLinkRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreatePaymentLinkRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of CreatePaymentLinkRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

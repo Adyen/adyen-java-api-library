@@ -14,52 +14,48 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * MerchantRiskIndicator
  */
+@JsonPropertyOrder({
+  MerchantRiskIndicator.JSON_PROPERTY_ADDRESS_MATCH,
+  MerchantRiskIndicator.JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR,
+  MerchantRiskIndicator.JSON_PROPERTY_DELIVERY_EMAIL,
+  MerchantRiskIndicator.JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS,
+  MerchantRiskIndicator.JSON_PROPERTY_DELIVERY_TIMEFRAME,
+  MerchantRiskIndicator.JSON_PROPERTY_GIFT_CARD_AMOUNT,
+  MerchantRiskIndicator.JSON_PROPERTY_GIFT_CARD_COUNT,
+  MerchantRiskIndicator.JSON_PROPERTY_GIFT_CARD_CURR,
+  MerchantRiskIndicator.JSON_PROPERTY_PRE_ORDER_DATE,
+  MerchantRiskIndicator.JSON_PROPERTY_PRE_ORDER_PURCHASE,
+  MerchantRiskIndicator.JSON_PROPERTY_PRE_ORDER_PURCHASE_IND,
+  MerchantRiskIndicator.JSON_PROPERTY_REORDER_ITEMS,
+  MerchantRiskIndicator.JSON_PROPERTY_REORDER_ITEMS_IND,
+  MerchantRiskIndicator.JSON_PROPERTY_SHIP_INDICATOR
+})
 
 public class MerchantRiskIndicator {
-  public static final String SERIALIZED_NAME_ADDRESS_MATCH = "addressMatch";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_MATCH)
+  public static final String JSON_PROPERTY_ADDRESS_MATCH = "addressMatch";
   private Boolean addressMatch;
 
   /**
    * Indicator regarding the delivery address. Allowed values: * &#x60;shipToBillingAddress&#x60; * &#x60;shipToVerifiedAddress&#x60; * &#x60;shipToNewAddress&#x60; * &#x60;shipToStore&#x60; * &#x60;digitalGoods&#x60; * &#x60;goodsNotShipped&#x60; * &#x60;other&#x60;
    */
-  @JsonAdapter(DeliveryAddressIndicatorEnum.Adapter.class)
   public enum DeliveryAddressIndicatorEnum {
     SHIPTOBILLINGADDRESS("shipToBillingAddress"),
     
@@ -81,6 +77,7 @@ public class MerchantRiskIndicator {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -90,6 +87,7 @@ public class MerchantRiskIndicator {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static DeliveryAddressIndicatorEnum fromValue(String value) {
       for (DeliveryAddressIndicatorEnum b : DeliveryAddressIndicatorEnum.values()) {
         if (b.value.equals(value)) {
@@ -98,38 +96,20 @@ public class MerchantRiskIndicator {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<DeliveryAddressIndicatorEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DeliveryAddressIndicatorEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DeliveryAddressIndicatorEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return DeliveryAddressIndicatorEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_DELIVERY_ADDRESS_INDICATOR = "deliveryAddressIndicator";
-  @SerializedName(SERIALIZED_NAME_DELIVERY_ADDRESS_INDICATOR)
+  public static final String JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR = "deliveryAddressIndicator";
   private DeliveryAddressIndicatorEnum deliveryAddressIndicator;
 
-  public static final String SERIALIZED_NAME_DELIVERY_EMAIL = "deliveryEmail";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_DELIVERY_EMAIL)
+  public static final String JSON_PROPERTY_DELIVERY_EMAIL = "deliveryEmail";
   private String deliveryEmail;
 
-  public static final String SERIALIZED_NAME_DELIVERY_EMAIL_ADDRESS = "deliveryEmailAddress";
-  @SerializedName(SERIALIZED_NAME_DELIVERY_EMAIL_ADDRESS)
+  public static final String JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS = "deliveryEmailAddress";
   private String deliveryEmailAddress;
 
   /**
    * The estimated delivery time for the shopper to receive the goods. Allowed values: * &#x60;electronicDelivery&#x60; * &#x60;sameDayShipping&#x60; * &#x60;overnightShipping&#x60; * &#x60;twoOrMoreDaysShipping&#x60;
    */
-  @JsonAdapter(DeliveryTimeframeEnum.Adapter.class)
   public enum DeliveryTimeframeEnum {
     ELECTRONICDELIVERY("electronicDelivery"),
     
@@ -145,6 +125,7 @@ public class MerchantRiskIndicator {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -154,6 +135,7 @@ public class MerchantRiskIndicator {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static DeliveryTimeframeEnum fromValue(String value) {
       for (DeliveryTimeframeEnum b : DeliveryTimeframeEnum.values()) {
         if (b.value.equals(value)) {
@@ -162,66 +144,42 @@ public class MerchantRiskIndicator {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<DeliveryTimeframeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DeliveryTimeframeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DeliveryTimeframeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return DeliveryTimeframeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_DELIVERY_TIMEFRAME = "deliveryTimeframe";
-  @SerializedName(SERIALIZED_NAME_DELIVERY_TIMEFRAME)
+  public static final String JSON_PROPERTY_DELIVERY_TIMEFRAME = "deliveryTimeframe";
   private DeliveryTimeframeEnum deliveryTimeframe;
 
-  public static final String SERIALIZED_NAME_GIFT_CARD_AMOUNT = "giftCardAmount";
-  @SerializedName(SERIALIZED_NAME_GIFT_CARD_AMOUNT)
+  public static final String JSON_PROPERTY_GIFT_CARD_AMOUNT = "giftCardAmount";
   private Amount giftCardAmount;
 
-  public static final String SERIALIZED_NAME_GIFT_CARD_COUNT = "giftCardCount";
-  @SerializedName(SERIALIZED_NAME_GIFT_CARD_COUNT)
+  public static final String JSON_PROPERTY_GIFT_CARD_COUNT = "giftCardCount";
   private Integer giftCardCount;
 
-  public static final String SERIALIZED_NAME_GIFT_CARD_CURR = "giftCardCurr";
-  @SerializedName(SERIALIZED_NAME_GIFT_CARD_CURR)
+  public static final String JSON_PROPERTY_GIFT_CARD_CURR = "giftCardCurr";
   private String giftCardCurr;
 
-  public static final String SERIALIZED_NAME_PRE_ORDER_DATE = "preOrderDate";
-  @SerializedName(SERIALIZED_NAME_PRE_ORDER_DATE)
+  public static final String JSON_PROPERTY_PRE_ORDER_DATE = "preOrderDate";
   private OffsetDateTime preOrderDate;
 
-  public static final String SERIALIZED_NAME_PRE_ORDER_PURCHASE = "preOrderPurchase";
-  @SerializedName(SERIALIZED_NAME_PRE_ORDER_PURCHASE)
+  public static final String JSON_PROPERTY_PRE_ORDER_PURCHASE = "preOrderPurchase";
   private Boolean preOrderPurchase;
 
-  public static final String SERIALIZED_NAME_PRE_ORDER_PURCHASE_IND = "preOrderPurchaseInd";
-  @SerializedName(SERIALIZED_NAME_PRE_ORDER_PURCHASE_IND)
+  public static final String JSON_PROPERTY_PRE_ORDER_PURCHASE_IND = "preOrderPurchaseInd";
   private String preOrderPurchaseInd;
 
-  public static final String SERIALIZED_NAME_REORDER_ITEMS = "reorderItems";
-  @SerializedName(SERIALIZED_NAME_REORDER_ITEMS)
+  public static final String JSON_PROPERTY_REORDER_ITEMS = "reorderItems";
   private Boolean reorderItems;
 
-  public static final String SERIALIZED_NAME_REORDER_ITEMS_IND = "reorderItemsInd";
-  @SerializedName(SERIALIZED_NAME_REORDER_ITEMS_IND)
+  public static final String JSON_PROPERTY_REORDER_ITEMS_IND = "reorderItemsInd";
   private String reorderItemsInd;
 
-  public static final String SERIALIZED_NAME_SHIP_INDICATOR = "shipIndicator";
-  @SerializedName(SERIALIZED_NAME_SHIP_INDICATOR)
+  public static final String JSON_PROPERTY_SHIP_INDICATOR = "shipIndicator";
   private String shipIndicator;
 
   public MerchantRiskIndicator() { 
   }
 
   public MerchantRiskIndicator addressMatch(Boolean addressMatch) {
-    
     this.addressMatch = addressMatch;
     return this;
   }
@@ -231,19 +189,22 @@ public class MerchantRiskIndicator {
    * @return addressMatch
   **/
   @ApiModelProperty(value = "Whether the chosen delivery address is identical to the billing address.")
+  @JsonProperty(JSON_PROPERTY_ADDRESS_MATCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAddressMatch() {
     return addressMatch;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDRESS_MATCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddressMatch(Boolean addressMatch) {
     this.addressMatch = addressMatch;
   }
 
 
   public MerchantRiskIndicator deliveryAddressIndicator(DeliveryAddressIndicatorEnum deliveryAddressIndicator) {
-    
     this.deliveryAddressIndicator = deliveryAddressIndicator;
     return this;
   }
@@ -253,20 +214,22 @@ public class MerchantRiskIndicator {
    * @return deliveryAddressIndicator
   **/
   @ApiModelProperty(value = "Indicator regarding the delivery address. Allowed values: * `shipToBillingAddress` * `shipToVerifiedAddress` * `shipToNewAddress` * `shipToStore` * `digitalGoods` * `goodsNotShipped` * `other`")
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DeliveryAddressIndicatorEnum getDeliveryAddressIndicator() {
     return deliveryAddressIndicator;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddressIndicator(DeliveryAddressIndicatorEnum deliveryAddressIndicator) {
     this.deliveryAddressIndicator = deliveryAddressIndicator;
   }
 
 
-  @Deprecated
   public MerchantRiskIndicator deliveryEmail(String deliveryEmail) {
-    
     this.deliveryEmail = deliveryEmail;
     return this;
   }
@@ -278,20 +241,22 @@ public class MerchantRiskIndicator {
   **/
   @Deprecated
   @ApiModelProperty(value = "The delivery email address (for digital goods).")
+  @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDeliveryEmail() {
     return deliveryEmail;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmail(String deliveryEmail) {
     this.deliveryEmail = deliveryEmail;
   }
 
 
   public MerchantRiskIndicator deliveryEmailAddress(String deliveryEmailAddress) {
-    
     this.deliveryEmailAddress = deliveryEmailAddress;
     return this;
   }
@@ -301,19 +266,22 @@ public class MerchantRiskIndicator {
    * @return deliveryEmailAddress
   **/
   @ApiModelProperty(value = "For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters.")
+  @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDeliveryEmailAddress() {
     return deliveryEmailAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmailAddress(String deliveryEmailAddress) {
     this.deliveryEmailAddress = deliveryEmailAddress;
   }
 
 
   public MerchantRiskIndicator deliveryTimeframe(DeliveryTimeframeEnum deliveryTimeframe) {
-    
     this.deliveryTimeframe = deliveryTimeframe;
     return this;
   }
@@ -323,19 +291,22 @@ public class MerchantRiskIndicator {
    * @return deliveryTimeframe
   **/
   @ApiModelProperty(value = "The estimated delivery time for the shopper to receive the goods. Allowed values: * `electronicDelivery` * `sameDayShipping` * `overnightShipping` * `twoOrMoreDaysShipping`")
+  @JsonProperty(JSON_PROPERTY_DELIVERY_TIMEFRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DeliveryTimeframeEnum getDeliveryTimeframe() {
     return deliveryTimeframe;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DELIVERY_TIMEFRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryTimeframe(DeliveryTimeframeEnum deliveryTimeframe) {
     this.deliveryTimeframe = deliveryTimeframe;
   }
 
 
   public MerchantRiskIndicator giftCardAmount(Amount giftCardAmount) {
-    
     this.giftCardAmount = giftCardAmount;
     return this;
   }
@@ -345,19 +316,22 @@ public class MerchantRiskIndicator {
    * @return giftCardAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GIFT_CARD_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getGiftCardAmount() {
     return giftCardAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GIFT_CARD_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardAmount(Amount giftCardAmount) {
     this.giftCardAmount = giftCardAmount;
   }
 
 
   public MerchantRiskIndicator giftCardCount(Integer giftCardCount) {
-    
     this.giftCardCount = giftCardCount;
     return this;
   }
@@ -367,19 +341,22 @@ public class MerchantRiskIndicator {
    * @return giftCardCount
   **/
   @ApiModelProperty(value = "For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.")
+  @JsonProperty(JSON_PROPERTY_GIFT_CARD_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getGiftCardCount() {
     return giftCardCount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GIFT_CARD_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCount(Integer giftCardCount) {
     this.giftCardCount = giftCardCount;
   }
 
 
   public MerchantRiskIndicator giftCardCurr(String giftCardCurr) {
-    
     this.giftCardCurr = giftCardCurr;
     return this;
   }
@@ -389,19 +366,22 @@ public class MerchantRiskIndicator {
    * @return giftCardCurr
   **/
   @ApiModelProperty(value = "For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification.")
+  @JsonProperty(JSON_PROPERTY_GIFT_CARD_CURR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGiftCardCurr() {
     return giftCardCurr;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GIFT_CARD_CURR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCurr(String giftCardCurr) {
     this.giftCardCurr = giftCardCurr;
   }
 
 
   public MerchantRiskIndicator preOrderDate(OffsetDateTime preOrderDate) {
-    
     this.preOrderDate = preOrderDate;
     return this;
   }
@@ -411,19 +391,22 @@ public class MerchantRiskIndicator {
    * @return preOrderDate
   **/
   @ApiModelProperty(value = "For pre-order purchases, the expected date this product will be available to the shopper.")
+  @JsonProperty(JSON_PROPERTY_PRE_ORDER_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getPreOrderDate() {
     return preOrderDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRE_ORDER_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderDate(OffsetDateTime preOrderDate) {
     this.preOrderDate = preOrderDate;
   }
 
 
   public MerchantRiskIndicator preOrderPurchase(Boolean preOrderPurchase) {
-    
     this.preOrderPurchase = preOrderPurchase;
     return this;
   }
@@ -433,19 +416,22 @@ public class MerchantRiskIndicator {
    * @return preOrderPurchase
   **/
   @ApiModelProperty(value = "Indicator for whether this transaction is for pre-ordering a product.")
+  @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPreOrderPurchase() {
     return preOrderPurchase;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchase(Boolean preOrderPurchase) {
     this.preOrderPurchase = preOrderPurchase;
   }
 
 
   public MerchantRiskIndicator preOrderPurchaseInd(String preOrderPurchaseInd) {
-    
     this.preOrderPurchaseInd = preOrderPurchaseInd;
     return this;
   }
@@ -455,19 +441,22 @@ public class MerchantRiskIndicator {
    * @return preOrderPurchaseInd
   **/
   @ApiModelProperty(value = "Indicates whether Cardholder is placing an order for merchandise with a future availability or release date.")
+  @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPreOrderPurchaseInd() {
     return preOrderPurchaseInd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchaseInd(String preOrderPurchaseInd) {
     this.preOrderPurchaseInd = preOrderPurchaseInd;
   }
 
 
   public MerchantRiskIndicator reorderItems(Boolean reorderItems) {
-    
     this.reorderItems = reorderItems;
     return this;
   }
@@ -477,19 +466,22 @@ public class MerchantRiskIndicator {
    * @return reorderItems
   **/
   @ApiModelProperty(value = "Indicator for whether the shopper has already purchased the same items in the past.")
+  @JsonProperty(JSON_PROPERTY_REORDER_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReorderItems() {
     return reorderItems;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REORDER_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItems(Boolean reorderItems) {
     this.reorderItems = reorderItems;
   }
 
 
   public MerchantRiskIndicator reorderItemsInd(String reorderItemsInd) {
-    
     this.reorderItemsInd = reorderItemsInd;
     return this;
   }
@@ -499,19 +491,22 @@ public class MerchantRiskIndicator {
    * @return reorderItemsInd
   **/
   @ApiModelProperty(value = "Indicates whether the cardholder is reordering previously purchased merchandise.")
+  @JsonProperty(JSON_PROPERTY_REORDER_ITEMS_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReorderItemsInd() {
     return reorderItemsInd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REORDER_ITEMS_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItemsInd(String reorderItemsInd) {
     this.reorderItemsInd = reorderItemsInd;
   }
 
 
   public MerchantRiskIndicator shipIndicator(String shipIndicator) {
-    
     this.shipIndicator = shipIndicator;
     return this;
   }
@@ -521,18 +516,24 @@ public class MerchantRiskIndicator {
    * @return shipIndicator
   **/
   @ApiModelProperty(value = "Indicates shipping method chosen for the transaction.")
+  @JsonProperty(JSON_PROPERTY_SHIP_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShipIndicator() {
     return shipIndicator;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHIP_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipIndicator(String shipIndicator) {
     this.shipIndicator = shipIndicator;
   }
 
 
-
+  /**
+   * Return true if this MerchantRiskIndicator object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -596,149 +597,23 @@ public class MerchantRiskIndicator {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("addressMatch");
-    openapiFields.add("deliveryAddressIndicator");
-    openapiFields.add("deliveryEmail");
-    openapiFields.add("deliveryEmailAddress");
-    openapiFields.add("deliveryTimeframe");
-    openapiFields.add("giftCardAmount");
-    openapiFields.add("giftCardCount");
-    openapiFields.add("giftCardCurr");
-    openapiFields.add("preOrderDate");
-    openapiFields.add("preOrderPurchase");
-    openapiFields.add("preOrderPurchaseInd");
-    openapiFields.add("reorderItems");
-    openapiFields.add("reorderItemsInd");
-    openapiFields.add("shipIndicator");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of MerchantRiskIndicator given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MerchantRiskIndicator
+   * @throws JsonProcessingException if the JSON string is invalid with respect to MerchantRiskIndicator
+   */
+  public static MerchantRiskIndicator fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, MerchantRiskIndicator.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(MerchantRiskIndicator.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to MerchantRiskIndicator
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (MerchantRiskIndicator.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantRiskIndicator is not found in the empty JSON string", MerchantRiskIndicator.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!MerchantRiskIndicator.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `MerchantRiskIndicator` properties.", entry.getKey()));
-        }
-      }
-      // ensure the field deliveryAddressIndicator can be parsed to an enum value
-      if (jsonObj.get("deliveryAddressIndicator") != null) {
-        if(!jsonObj.get("deliveryAddressIndicator").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `deliveryAddressIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryAddressIndicator").toString()));
-        }
-        DeliveryAddressIndicatorEnum.fromValue(jsonObj.get("deliveryAddressIndicator").getAsString());
-      }
-      // validate the optional field deliveryEmail
-      if (jsonObj.get("deliveryEmail") != null && !jsonObj.get("deliveryEmail").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `deliveryEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryEmail").toString()));
-      }
-      // validate the optional field deliveryEmailAddress
-      if (jsonObj.get("deliveryEmailAddress") != null && !jsonObj.get("deliveryEmailAddress").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `deliveryEmailAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryEmailAddress").toString()));
-      }
-      // ensure the field deliveryTimeframe can be parsed to an enum value
-      if (jsonObj.get("deliveryTimeframe") != null) {
-        if(!jsonObj.get("deliveryTimeframe").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `deliveryTimeframe` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryTimeframe").toString()));
-        }
-        DeliveryTimeframeEnum.fromValue(jsonObj.get("deliveryTimeframe").getAsString());
-      }
-      // validate the optional field `giftCardAmount`
-      if (jsonObj.getAsJsonObject("giftCardAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("giftCardAmount"));
-      }
-      // validate the optional field giftCardCurr
-      if (jsonObj.get("giftCardCurr") != null && !jsonObj.get("giftCardCurr").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `giftCardCurr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("giftCardCurr").toString()));
-      }
-      // validate the optional field preOrderPurchaseInd
-      if (jsonObj.get("preOrderPurchaseInd") != null && !jsonObj.get("preOrderPurchaseInd").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `preOrderPurchaseInd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preOrderPurchaseInd").toString()));
-      }
-      // validate the optional field reorderItemsInd
-      if (jsonObj.get("reorderItemsInd") != null && !jsonObj.get("reorderItemsInd").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reorderItemsInd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reorderItemsInd").toString()));
-      }
-      // validate the optional field shipIndicator
-      if (jsonObj.get("shipIndicator") != null && !jsonObj.get("shipIndicator").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shipIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shipIndicator").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MerchantRiskIndicator.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MerchantRiskIndicator' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MerchantRiskIndicator> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MerchantRiskIndicator.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<MerchantRiskIndicator>() {
-           @Override
-           public void write(JsonWriter out, MerchantRiskIndicator value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public MerchantRiskIndicator read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of MerchantRiskIndicator given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of MerchantRiskIndicator
-  * @throws IOException if the JSON string is invalid with respect to MerchantRiskIndicator
-  */
-  public static MerchantRiskIndicator fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MerchantRiskIndicator.class);
-  }
-
- /**
+/**
   * Convert an instance of MerchantRiskIndicator to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

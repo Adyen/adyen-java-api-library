@@ -14,87 +14,78 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * CardDetails
  */
+@JsonPropertyOrder({
+  CardDetails.JSON_PROPERTY_BRAND,
+  CardDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  CardDetails.JSON_PROPERTY_CUPSECUREPLUS_SMSCODE,
+  CardDetails.JSON_PROPERTY_CVC,
+  CardDetails.JSON_PROPERTY_ENCRYPTED_CARD_NUMBER,
+  CardDetails.JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH,
+  CardDetails.JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR,
+  CardDetails.JSON_PROPERTY_ENCRYPTED_SECURITY_CODE,
+  CardDetails.JSON_PROPERTY_EXPIRY_MONTH,
+  CardDetails.JSON_PROPERTY_EXPIRY_YEAR,
+  CardDetails.JSON_PROPERTY_FUNDING_SOURCE,
+  CardDetails.JSON_PROPERTY_HOLDER_NAME,
+  CardDetails.JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE,
+  CardDetails.JSON_PROPERTY_NUMBER,
+  CardDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  CardDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
+  CardDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  CardDetails.JSON_PROPERTY_THREE_D_S2_SDK_VERSION,
+  CardDetails.JSON_PROPERTY_TYPE
+})
 
 public class CardDetails {
-  public static final String SERIALIZED_NAME_BRAND = "brand";
-  @SerializedName(SERIALIZED_NAME_BRAND)
+  public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
-  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
-  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
-  public static final String SERIALIZED_NAME_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_CUPSECUREPLUS_SMSCODE)
+  public static final String JSON_PROPERTY_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
   private String cupsecureplusSmscode;
 
-  public static final String SERIALIZED_NAME_CVC = "cvc";
-  @SerializedName(SERIALIZED_NAME_CVC)
+  public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
 
-  public static final String SERIALIZED_NAME_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTED_CARD_NUMBER)
+  public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
 
-  public static final String SERIALIZED_NAME_ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTED_EXPIRY_MONTH)
+  public static final String JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
   private String encryptedExpiryMonth;
 
-  public static final String SERIALIZED_NAME_ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTED_EXPIRY_YEAR)
+  public static final String JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
   private String encryptedExpiryYear;
 
-  public static final String SERIALIZED_NAME_ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTED_SECURITY_CODE)
+  public static final String JSON_PROPERTY_ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
   private String encryptedSecurityCode;
 
-  public static final String SERIALIZED_NAME_EXPIRY_MONTH = "expiryMonth";
-  @SerializedName(SERIALIZED_NAME_EXPIRY_MONTH)
+  public static final String JSON_PROPERTY_EXPIRY_MONTH = "expiryMonth";
   private String expiryMonth;
 
-  public static final String SERIALIZED_NAME_EXPIRY_YEAR = "expiryYear";
-  @SerializedName(SERIALIZED_NAME_EXPIRY_YEAR)
+  public static final String JSON_PROPERTY_EXPIRY_YEAR = "expiryYear";
   private String expiryYear;
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
-  @JsonAdapter(FundingSourceEnum.Adapter.class)
   public enum FundingSourceEnum {
     DEBIT("debit");
 
@@ -104,6 +95,7 @@ public class CardDetails {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -113,6 +105,7 @@ public class CardDetails {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static FundingSourceEnum fromValue(String value) {
       for (FundingSourceEnum b : FundingSourceEnum.values()) {
         if (b.value.equals(value)) {
@@ -121,58 +114,35 @@ public class CardDetails {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<FundingSourceEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return FundingSourceEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_FUNDING_SOURCE = "fundingSource";
-  @SerializedName(SERIALIZED_NAME_FUNDING_SOURCE)
+  public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
 
-  public static final String SERIALIZED_NAME_HOLDER_NAME = "holderName";
-  @SerializedName(SERIALIZED_NAME_HOLDER_NAME)
+  public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
   private String holderName;
 
-  public static final String SERIALIZED_NAME_NETWORK_PAYMENT_REFERENCE = "networkPaymentReference";
-  @SerializedName(SERIALIZED_NAME_NETWORK_PAYMENT_REFERENCE)
+  public static final String JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE = "networkPaymentReference";
   private String networkPaymentReference;
 
-  public static final String SERIALIZED_NAME_NUMBER = "number";
-  @SerializedName(SERIALIZED_NAME_NUMBER)
+  public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
 
-  public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NOTIFICATION_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
   private String shopperNotificationReference;
 
-  public static final String SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
-  @SerializedName(SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID)
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
-  public static final String SERIALIZED_NAME_THREE_D_S2_SDK_VERSION = "threeDS2SdkVersion";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S2_SDK_VERSION)
+  public static final String JSON_PROPERTY_THREE_D_S2_SDK_VERSION = "threeDS2SdkVersion";
   private String threeDS2SdkVersion;
 
   /**
    * Default payment method details. Common for scheme payment methods, and for simple payment method details.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     SCHEME("scheme"),
     
@@ -196,6 +166,7 @@ public class CardDetails {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -205,6 +176,7 @@ public class CardDetails {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -213,30 +185,15 @@ public class CardDetails {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.SCHEME;
 
   public CardDetails() { 
   }
 
   public CardDetails brand(String brand) {
-    
     this.brand = brand;
     return this;
   }
@@ -246,19 +203,22 @@ public class CardDetails {
    * @return brand
   **/
   @ApiModelProperty(value = "Secondary brand of the card. For example: **plastix**, **hmclub**.")
+  @JsonProperty(JSON_PROPERTY_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBrand() {
     return brand;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
 
   public CardDetails checkoutAttemptId(String checkoutAttemptId) {
-    
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
@@ -268,20 +228,22 @@ public class CardDetails {
    * @return checkoutAttemptId
   **/
   @ApiModelProperty(value = "The checkout attempt identifier.")
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
 
-  @Deprecated
   public CardDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
-    
     this.cupsecureplusSmscode = cupsecureplusSmscode;
     return this;
   }
@@ -293,20 +255,22 @@ public class CardDetails {
   **/
   @Deprecated
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCupsecureplusSmscode() {
     return cupsecureplusSmscode;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
   }
 
 
   public CardDetails cvc(String cvc) {
-    
     this.cvc = cvc;
     return this;
   }
@@ -316,19 +280,22 @@ public class CardDetails {
    * @return cvc
   **/
   @ApiModelProperty(value = "The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
+  @JsonProperty(JSON_PROPERTY_CVC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCvc() {
     return cvc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CVC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
   }
 
 
   public CardDetails encryptedCardNumber(String encryptedCardNumber) {
-    
     this.encryptedCardNumber = encryptedCardNumber;
     return this;
   }
@@ -338,19 +305,22 @@ public class CardDetails {
    * @return encryptedCardNumber
   **/
   @ApiModelProperty(value = "The encrypted card number.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEncryptedCardNumber() {
     return encryptedCardNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
   }
 
 
   public CardDetails encryptedExpiryMonth(String encryptedExpiryMonth) {
-    
     this.encryptedExpiryMonth = encryptedExpiryMonth;
     return this;
   }
@@ -360,19 +330,22 @@ public class CardDetails {
    * @return encryptedExpiryMonth
   **/
   @ApiModelProperty(value = "The encrypted card expiry month.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEncryptedExpiryMonth() {
     return encryptedExpiryMonth;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryMonth(String encryptedExpiryMonth) {
     this.encryptedExpiryMonth = encryptedExpiryMonth;
   }
 
 
   public CardDetails encryptedExpiryYear(String encryptedExpiryYear) {
-    
     this.encryptedExpiryYear = encryptedExpiryYear;
     return this;
   }
@@ -382,19 +355,22 @@ public class CardDetails {
    * @return encryptedExpiryYear
   **/
   @ApiModelProperty(value = "The encrypted card expiry year.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEncryptedExpiryYear() {
     return encryptedExpiryYear;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryYear(String encryptedExpiryYear) {
     this.encryptedExpiryYear = encryptedExpiryYear;
   }
 
 
   public CardDetails encryptedSecurityCode(String encryptedSecurityCode) {
-    
     this.encryptedSecurityCode = encryptedSecurityCode;
     return this;
   }
@@ -404,19 +380,22 @@ public class CardDetails {
    * @return encryptedSecurityCode
   **/
   @ApiModelProperty(value = "The encrypted card verification code.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEncryptedSecurityCode() {
     return encryptedSecurityCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedSecurityCode(String encryptedSecurityCode) {
     this.encryptedSecurityCode = encryptedSecurityCode;
   }
 
 
   public CardDetails expiryMonth(String expiryMonth) {
-    
     this.expiryMonth = expiryMonth;
     return this;
   }
@@ -426,19 +405,22 @@ public class CardDetails {
    * @return expiryMonth
   **/
   @ApiModelProperty(value = "The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
+  @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpiryMonth() {
     return expiryMonth;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
   }
 
 
   public CardDetails expiryYear(String expiryYear) {
-    
     this.expiryYear = expiryYear;
     return this;
   }
@@ -448,19 +430,22 @@ public class CardDetails {
    * @return expiryYear
   **/
   @ApiModelProperty(value = "The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
+  @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpiryYear() {
     return expiryYear;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
   }
 
 
   public CardDetails fundingSource(FundingSourceEnum fundingSource) {
-    
     this.fundingSource = fundingSource;
     return this;
   }
@@ -470,19 +455,22 @@ public class CardDetails {
    * @return fundingSource
   **/
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FundingSourceEnum getFundingSource() {
     return fundingSource;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
   }
 
 
   public CardDetails holderName(String holderName) {
-    
     this.holderName = holderName;
     return this;
   }
@@ -492,19 +480,22 @@ public class CardDetails {
    * @return holderName
   **/
   @ApiModelProperty(value = "The name of the card holder.")
+  @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getHolderName() {
     return holderName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
     this.holderName = holderName;
   }
 
 
   public CardDetails networkPaymentReference(String networkPaymentReference) {
-    
     this.networkPaymentReference = networkPaymentReference;
     return this;
   }
@@ -514,19 +505,22 @@ public class CardDetails {
    * @return networkPaymentReference
   **/
   @ApiModelProperty(value = "The network token reference. This is the [`networkTxReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment.")
+  @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNetworkPaymentReference() {
     return networkPaymentReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkPaymentReference(String networkPaymentReference) {
     this.networkPaymentReference = networkPaymentReference;
   }
 
 
   public CardDetails number(String number) {
-    
     this.number = number;
     return this;
   }
@@ -536,20 +530,22 @@ public class CardDetails {
    * @return number
   **/
   @ApiModelProperty(value = "The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
+  @JsonProperty(JSON_PROPERTY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNumber() {
     return number;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
   }
 
 
-  @Deprecated
   public CardDetails recurringDetailReference(String recurringDetailReference) {
-    
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
@@ -561,20 +557,22 @@ public class CardDetails {
   **/
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
 
   public CardDetails shopperNotificationReference(String shopperNotificationReference) {
-    
     this.shopperNotificationReference = shopperNotificationReference;
     return this;
   }
@@ -584,19 +582,22 @@ public class CardDetails {
    * @return shopperNotificationReference
   **/
   @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used only for recurring payments in India.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperNotificationReference() {
     return shopperNotificationReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
   }
 
 
   public CardDetails storedPaymentMethodId(String storedPaymentMethodId) {
-    
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
@@ -606,19 +607,22 @@ public class CardDetails {
    * @return storedPaymentMethodId
   **/
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
 
   public CardDetails threeDS2SdkVersion(String threeDS2SdkVersion) {
-    
     this.threeDS2SdkVersion = threeDS2SdkVersion;
     return this;
   }
@@ -628,19 +632,22 @@ public class CardDetails {
    * @return threeDS2SdkVersion
   **/
   @ApiModelProperty(value = "Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDS2SdkVersion() {
     return threeDS2SdkVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2SdkVersion(String threeDS2SdkVersion) {
     this.threeDS2SdkVersion = threeDS2SdkVersion;
   }
 
 
   public CardDetails type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -650,18 +657,24 @@ public class CardDetails {
    * @return type
   **/
   @ApiModelProperty(value = "Default payment method details. Common for scheme payment methods, and for simple payment method details.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this CardDetails object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -735,194 +748,23 @@ public class CardDetails {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("brand");
-    openapiFields.add("checkoutAttemptId");
-    openapiFields.add("cupsecureplus.smscode");
-    openapiFields.add("cvc");
-    openapiFields.add("encryptedCardNumber");
-    openapiFields.add("encryptedExpiryMonth");
-    openapiFields.add("encryptedExpiryYear");
-    openapiFields.add("encryptedSecurityCode");
-    openapiFields.add("expiryMonth");
-    openapiFields.add("expiryYear");
-    openapiFields.add("fundingSource");
-    openapiFields.add("holderName");
-    openapiFields.add("networkPaymentReference");
-    openapiFields.add("number");
-    openapiFields.add("recurringDetailReference");
-    openapiFields.add("shopperNotificationReference");
-    openapiFields.add("storedPaymentMethodId");
-    openapiFields.add("threeDS2SdkVersion");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of CardDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CardDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CardDetails
+   */
+  public static CardDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CardDetails.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CardDetails.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CardDetails
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CardDetails.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CardDetails is not found in the empty JSON string", CardDetails.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CardDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field brand
-      if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
-      }
-      // validate the optional field checkoutAttemptId
-      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
-      }
-      // validate the optional field cupsecureplus.smscode
-      if (jsonObj.get("cupsecureplus.smscode") != null && !jsonObj.get("cupsecureplus.smscode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cupsecureplus.smscode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cupsecureplus.smscode").toString()));
-      }
-      // validate the optional field cvc
-      if (jsonObj.get("cvc") != null && !jsonObj.get("cvc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
-      }
-      // validate the optional field encryptedCardNumber
-      if (jsonObj.get("encryptedCardNumber") != null && !jsonObj.get("encryptedCardNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `encryptedCardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedCardNumber").toString()));
-      }
-      // validate the optional field encryptedExpiryMonth
-      if (jsonObj.get("encryptedExpiryMonth") != null && !jsonObj.get("encryptedExpiryMonth").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `encryptedExpiryMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedExpiryMonth").toString()));
-      }
-      // validate the optional field encryptedExpiryYear
-      if (jsonObj.get("encryptedExpiryYear") != null && !jsonObj.get("encryptedExpiryYear").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `encryptedExpiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedExpiryYear").toString()));
-      }
-      // validate the optional field encryptedSecurityCode
-      if (jsonObj.get("encryptedSecurityCode") != null && !jsonObj.get("encryptedSecurityCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `encryptedSecurityCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedSecurityCode").toString()));
-      }
-      // validate the optional field expiryMonth
-      if (jsonObj.get("expiryMonth") != null && !jsonObj.get("expiryMonth").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `expiryMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryMonth").toString()));
-      }
-      // validate the optional field expiryYear
-      if (jsonObj.get("expiryYear") != null && !jsonObj.get("expiryYear").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `expiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryYear").toString()));
-      }
-      // ensure the field fundingSource can be parsed to an enum value
-      if (jsonObj.get("fundingSource") != null) {
-        if(!jsonObj.get("fundingSource").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
-        }
-        FundingSourceEnum.fromValue(jsonObj.get("fundingSource").getAsString());
-      }
-      // validate the optional field holderName
-      if (jsonObj.get("holderName") != null && !jsonObj.get("holderName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `holderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderName").toString()));
-      }
-      // validate the optional field networkPaymentReference
-      if (jsonObj.get("networkPaymentReference") != null && !jsonObj.get("networkPaymentReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `networkPaymentReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkPaymentReference").toString()));
-      }
-      // validate the optional field number
-      if (jsonObj.get("number") != null && !jsonObj.get("number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
-      }
-      // validate the optional field recurringDetailReference
-      if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
-      }
-      // validate the optional field shopperNotificationReference
-      if (jsonObj.get("shopperNotificationReference") != null && !jsonObj.get("shopperNotificationReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperNotificationReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperNotificationReference").toString()));
-      }
-      // validate the optional field storedPaymentMethodId
-      if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
-      }
-      // validate the optional field threeDS2SdkVersion
-      if (jsonObj.get("threeDS2SdkVersion") != null && !jsonObj.get("threeDS2SdkVersion").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDS2SdkVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDS2SdkVersion").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CardDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CardDetails' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CardDetails> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CardDetails.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CardDetails>() {
-           @Override
-           public void write(JsonWriter out, CardDetails value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CardDetails read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CardDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CardDetails
-  * @throws IOException if the JSON string is invalid with respect to CardDetails
-  */
-  public static CardDetails fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CardDetails.class);
-  }
-
- /**
+/**
   * Convert an instance of CardDetails to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

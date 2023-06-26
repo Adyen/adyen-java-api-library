@@ -14,65 +14,54 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.InputDetail;
 import com.adyen.model.checkout.PaymentMethodGroup;
 import com.adyen.model.checkout.PaymentMethodIssuer;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * PaymentMethod
  */
+@JsonPropertyOrder({
+  PaymentMethod.JSON_PROPERTY_BRAND,
+  PaymentMethod.JSON_PROPERTY_BRANDS,
+  PaymentMethod.JSON_PROPERTY_CONFIGURATION,
+  PaymentMethod.JSON_PROPERTY_FUNDING_SOURCE,
+  PaymentMethod.JSON_PROPERTY_GROUP,
+  PaymentMethod.JSON_PROPERTY_INPUT_DETAILS,
+  PaymentMethod.JSON_PROPERTY_ISSUERS,
+  PaymentMethod.JSON_PROPERTY_NAME,
+  PaymentMethod.JSON_PROPERTY_TYPE
+})
 
 public class PaymentMethod {
-  public static final String SERIALIZED_NAME_BRAND = "brand";
-  @SerializedName(SERIALIZED_NAME_BRAND)
+  public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
-  public static final String SERIALIZED_NAME_BRANDS = "brands";
-  @SerializedName(SERIALIZED_NAME_BRANDS)
+  public static final String JSON_PROPERTY_BRANDS = "brands";
   private List<String> brands = null;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION)
+  public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
   private Map<String, String> configuration = null;
 
   /**
    * The funding source of the payment method.
    */
-  @JsonAdapter(FundingSourceEnum.Adapter.class)
   public enum FundingSourceEnum {
     DEBIT("debit");
 
@@ -82,6 +71,7 @@ public class PaymentMethod {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -91,6 +81,7 @@ public class PaymentMethod {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static FundingSourceEnum fromValue(String value) {
       for (FundingSourceEnum b : FundingSourceEnum.values()) {
         if (b.value.equals(value)) {
@@ -99,51 +90,30 @@ public class PaymentMethod {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<FundingSourceEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return FundingSourceEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_FUNDING_SOURCE = "fundingSource";
-  @SerializedName(SERIALIZED_NAME_FUNDING_SOURCE)
+  public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
 
-  public static final String SERIALIZED_NAME_GROUP = "group";
-  @SerializedName(SERIALIZED_NAME_GROUP)
+  public static final String JSON_PROPERTY_GROUP = "group";
   private PaymentMethodGroup group;
 
-  public static final String SERIALIZED_NAME_INPUT_DETAILS = "inputDetails";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_INPUT_DETAILS)
+  public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
   private List<InputDetail> inputDetails = null;
 
-  public static final String SERIALIZED_NAME_ISSUERS = "issuers";
-  @SerializedName(SERIALIZED_NAME_ISSUERS)
+  public static final String JSON_PROPERTY_ISSUERS = "issuers";
   private List<PaymentMethodIssuer> issuers = null;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
   public PaymentMethod() { 
   }
 
   public PaymentMethod brand(String brand) {
-    
     this.brand = brand;
     return this;
   }
@@ -153,19 +123,22 @@ public class PaymentMethod {
    * @return brand
   **/
   @ApiModelProperty(value = "Brand for the selected gift card. For example: plastix, hmclub.")
+  @JsonProperty(JSON_PROPERTY_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBrand() {
     return brand;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
 
   public PaymentMethod brands(List<String> brands) {
-    
     this.brands = brands;
     return this;
   }
@@ -183,19 +156,22 @@ public class PaymentMethod {
    * @return brands
   **/
   @ApiModelProperty(value = "List of possible brands. For example: visa, mc.")
+  @JsonProperty(JSON_PROPERTY_BRANDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getBrands() {
     return brands;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BRANDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
     this.brands = brands;
   }
 
 
   public PaymentMethod configuration(Map<String, String> configuration) {
-    
     this.configuration = configuration;
     return this;
   }
@@ -213,19 +189,22 @@ public class PaymentMethod {
    * @return configuration
   **/
   @ApiModelProperty(value = "The configuration of the payment method.")
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getConfiguration() {
     return configuration;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
     this.configuration = configuration;
   }
 
 
   public PaymentMethod fundingSource(FundingSourceEnum fundingSource) {
-    
     this.fundingSource = fundingSource;
     return this;
   }
@@ -235,19 +214,22 @@ public class PaymentMethod {
    * @return fundingSource
   **/
   @ApiModelProperty(value = "The funding source of the payment method.")
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FundingSourceEnum getFundingSource() {
     return fundingSource;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
   }
 
 
   public PaymentMethod group(PaymentMethodGroup group) {
-    
     this.group = group;
     return this;
   }
@@ -257,20 +239,22 @@ public class PaymentMethod {
    * @return group
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PaymentMethodGroup getGroup() {
     return group;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(PaymentMethodGroup group) {
     this.group = group;
   }
 
 
-  @Deprecated
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
-    
     this.inputDetails = inputDetails;
     return this;
   }
@@ -290,20 +274,22 @@ public class PaymentMethod {
   **/
   @Deprecated
   @ApiModelProperty(value = "All input details to be provided to complete the payment with this payment method.")
+  @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<InputDetail> getInputDetails() {
     return inputDetails;
   }
 
 
-  @Deprecated
+  @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
   }
 
 
   public PaymentMethod issuers(List<PaymentMethodIssuer> issuers) {
-    
     this.issuers = issuers;
     return this;
   }
@@ -321,19 +307,22 @@ public class PaymentMethod {
    * @return issuers
   **/
   @ApiModelProperty(value = "A list of issuers for this payment method.")
+  @JsonProperty(JSON_PROPERTY_ISSUERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<PaymentMethodIssuer> getIssuers() {
     return issuers;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuers(List<PaymentMethodIssuer> issuers) {
     this.issuers = issuers;
   }
 
 
   public PaymentMethod name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -343,19 +332,22 @@ public class PaymentMethod {
    * @return name
   **/
   @ApiModelProperty(value = "The displayable name of this payment method.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public PaymentMethod type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -365,18 +357,24 @@ public class PaymentMethod {
    * @return type
   **/
   @ApiModelProperty(value = "The unique payment method code.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this PaymentMethod object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -430,153 +428,23 @@ public class PaymentMethod {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("brand");
-    openapiFields.add("brands");
-    openapiFields.add("configuration");
-    openapiFields.add("fundingSource");
-    openapiFields.add("group");
-    openapiFields.add("inputDetails");
-    openapiFields.add("issuers");
-    openapiFields.add("name");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of PaymentMethod given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentMethod
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentMethod
+   */
+  public static PaymentMethod fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentMethod.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentMethod.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentMethod
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentMethod.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentMethod is not found in the empty JSON string", PaymentMethod.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentMethod.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentMethod` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field brand
-      if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("brands") != null && !jsonObj.get("brands").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `brands` to be an array in the JSON string but got `%s`", jsonObj.get("brands").toString()));
-      }
-      // ensure the field fundingSource can be parsed to an enum value
-      if (jsonObj.get("fundingSource") != null) {
-        if(!jsonObj.get("fundingSource").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
-        }
-        FundingSourceEnum.fromValue(jsonObj.get("fundingSource").getAsString());
-      }
-      // validate the optional field `group`
-      if (jsonObj.getAsJsonObject("group") != null) {
-        PaymentMethodGroup.validateJsonObject(jsonObj.getAsJsonObject("group"));
-      }
-      JsonArray jsonArrayinputDetails = jsonObj.getAsJsonArray("inputDetails");
-      if (jsonArrayinputDetails != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("inputDetails").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `inputDetails` to be an array in the JSON string but got `%s`", jsonObj.get("inputDetails").toString()));
-        }
-
-        // validate the optional field `inputDetails` (array)
-        for (int i = 0; i < jsonArrayinputDetails.size(); i++) {
-          InputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
-        }
-      }
-      JsonArray jsonArrayissuers = jsonObj.getAsJsonArray("issuers");
-      if (jsonArrayissuers != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("issuers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `issuers` to be an array in the JSON string but got `%s`", jsonObj.get("issuers").toString()));
-        }
-
-        // validate the optional field `issuers` (array)
-        for (int i = 0; i < jsonArrayissuers.size(); i++) {
-          PaymentMethodIssuer.validateJsonObject(jsonArrayissuers.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field name
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field type
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentMethod.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentMethod' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentMethod> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentMethod.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentMethod>() {
-           @Override
-           public void write(JsonWriter out, PaymentMethod value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentMethod read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaymentMethod given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentMethod
-  * @throws IOException if the JSON string is invalid with respect to PaymentMethod
-  */
-  public static PaymentMethod fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentMethod.class);
-  }
-
- /**
+/**
   * Convert an instance of PaymentMethod to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

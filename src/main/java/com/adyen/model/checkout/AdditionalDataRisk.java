@@ -14,131 +14,114 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataRisk
  */
+@JsonPropertyOrder({
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE,
+  AdditionalDataRisk.JSON_PROPERTY_RISKDATA_SKIP_RISK
+})
 
 public class AdditionalDataRisk {
-  public static final String SERIALIZED_NAME_RISKDATA_CUSTOM_FIELD_NAME = "riskdata.[customFieldName]";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_CUSTOM_FIELD_NAME)
+  public static final String JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME = "riskdata.[customFieldName]";
   private String riskdataCustomFieldName;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM = "riskdata.basket.item[itemNr].amountPerItem";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM = "riskdata.basket.item[itemNr].amountPerItem";
   private String riskdataBasketItemItemNrAmountPerItem;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND = "riskdata.basket.item[itemNr].brand";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND = "riskdata.basket.item[itemNr].brand";
   private String riskdataBasketItemItemNrBrand;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY = "riskdata.basket.item[itemNr].category";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY = "riskdata.basket.item[itemNr].category";
   private String riskdataBasketItemItemNrCategory;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR = "riskdata.basket.item[itemNr].color";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR = "riskdata.basket.item[itemNr].color";
   private String riskdataBasketItemItemNrColor;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY = "riskdata.basket.item[itemNr].currency";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY = "riskdata.basket.item[itemNr].currency";
   private String riskdataBasketItemItemNrCurrency;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D = "riskdata.basket.item[itemNr].itemID";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D = "riskdata.basket.item[itemNr].itemID";
   private String riskdataBasketItemItemNrItemID;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER = "riskdata.basket.item[itemNr].manufacturer";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER = "riskdata.basket.item[itemNr].manufacturer";
   private String riskdataBasketItemItemNrManufacturer;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE = "riskdata.basket.item[itemNr].productTitle";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE = "riskdata.basket.item[itemNr].productTitle";
   private String riskdataBasketItemItemNrProductTitle;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY = "riskdata.basket.item[itemNr].quantity";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY = "riskdata.basket.item[itemNr].quantity";
   private String riskdataBasketItemItemNrQuantity;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL = "riskdata.basket.item[itemNr].receiverEmail";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL = "riskdata.basket.item[itemNr].receiverEmail";
   private String riskdataBasketItemItemNrReceiverEmail;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE = "riskdata.basket.item[itemNr].size";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE = "riskdata.basket.item[itemNr].size";
   private String riskdataBasketItemItemNrSize;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_SKU = "riskdata.basket.item[itemNr].sku";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_SKU)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU = "riskdata.basket.item[itemNr].sku";
   private String riskdataBasketItemItemNrSku;
 
-  public static final String SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_UPC = "riskdata.basket.item[itemNr].upc";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_BASKET_ITEM_ITEM_NR_UPC)
+  public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC = "riskdata.basket.item[itemNr].upc";
   private String riskdataBasketItemItemNrUpc;
 
-  public static final String SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE = "riskdata.promotions.promotion[itemNr].promotionCode";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE)
+  public static final String JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE = "riskdata.promotions.promotion[itemNr].promotionCode";
   private String riskdataPromotionsPromotionItemNrPromotionCode;
 
-  public static final String SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT = "riskdata.promotions.promotion[itemNr].promotionDiscountAmount";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT)
+  public static final String JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT = "riskdata.promotions.promotion[itemNr].promotionDiscountAmount";
   private String riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
 
-  public static final String SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY = "riskdata.promotions.promotion[itemNr].promotionDiscountCurrency";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY)
+  public static final String JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY = "riskdata.promotions.promotion[itemNr].promotionDiscountCurrency";
   private String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
 
-  public static final String SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE = "riskdata.promotions.promotion[itemNr].promotionDiscountPercentage";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE)
+  public static final String JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE = "riskdata.promotions.promotion[itemNr].promotionDiscountPercentage";
   private String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
 
-  public static final String SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME = "riskdata.promotions.promotion[itemNr].promotionName";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME)
+  public static final String JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME = "riskdata.promotions.promotion[itemNr].promotionName";
   private String riskdataPromotionsPromotionItemNrPromotionName;
 
-  public static final String SERIALIZED_NAME_RISKDATA_RISK_PROFILE_REFERENCE = "riskdata.riskProfileReference";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_RISK_PROFILE_REFERENCE)
+  public static final String JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE = "riskdata.riskProfileReference";
   private String riskdataRiskProfileReference;
 
-  public static final String SERIALIZED_NAME_RISKDATA_SKIP_RISK = "riskdata.skipRisk";
-  @SerializedName(SERIALIZED_NAME_RISKDATA_SKIP_RISK)
+  public static final String JSON_PROPERTY_RISKDATA_SKIP_RISK = "riskdata.skipRisk";
   private String riskdataSkipRisk;
 
   public AdditionalDataRisk() { 
   }
 
   public AdditionalDataRisk riskdataCustomFieldName(String riskdataCustomFieldName) {
-    
     this.riskdataCustomFieldName = riskdataCustomFieldName;
     return this;
   }
@@ -148,19 +131,22 @@ public class AdditionalDataRisk {
    * @return riskdataCustomFieldName
   **/
   @ApiModelProperty(value = "The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataCustomFieldName() {
     return riskdataCustomFieldName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataCustomFieldName(String riskdataCustomFieldName) {
     this.riskdataCustomFieldName = riskdataCustomFieldName;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrAmountPerItem(String riskdataBasketItemItemNrAmountPerItem) {
-    
     this.riskdataBasketItemItemNrAmountPerItem = riskdataBasketItemItemNrAmountPerItem;
     return this;
   }
@@ -170,19 +156,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrAmountPerItem
   **/
   @ApiModelProperty(value = "The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrAmountPerItem() {
     return riskdataBasketItemItemNrAmountPerItem;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrAmountPerItem(String riskdataBasketItemItemNrAmountPerItem) {
     this.riskdataBasketItemItemNrAmountPerItem = riskdataBasketItemItemNrAmountPerItem;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrBrand(String riskdataBasketItemItemNrBrand) {
-    
     this.riskdataBasketItemItemNrBrand = riskdataBasketItemItemNrBrand;
     return this;
   }
@@ -192,19 +181,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrBrand
   **/
   @ApiModelProperty(value = "Brand of the item.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrBrand() {
     return riskdataBasketItemItemNrBrand;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrBrand(String riskdataBasketItemItemNrBrand) {
     this.riskdataBasketItemItemNrBrand = riskdataBasketItemItemNrBrand;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrCategory(String riskdataBasketItemItemNrCategory) {
-    
     this.riskdataBasketItemItemNrCategory = riskdataBasketItemItemNrCategory;
     return this;
   }
@@ -214,19 +206,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrCategory
   **/
   @ApiModelProperty(value = "Category of the item.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrCategory() {
     return riskdataBasketItemItemNrCategory;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCategory(String riskdataBasketItemItemNrCategory) {
     this.riskdataBasketItemItemNrCategory = riskdataBasketItemItemNrCategory;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrColor(String riskdataBasketItemItemNrColor) {
-    
     this.riskdataBasketItemItemNrColor = riskdataBasketItemItemNrColor;
     return this;
   }
@@ -236,19 +231,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrColor
   **/
   @ApiModelProperty(value = "Color of the item.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrColor() {
     return riskdataBasketItemItemNrColor;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrColor(String riskdataBasketItemItemNrColor) {
     this.riskdataBasketItemItemNrColor = riskdataBasketItemItemNrColor;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrCurrency(String riskdataBasketItemItemNrCurrency) {
-    
     this.riskdataBasketItemItemNrCurrency = riskdataBasketItemItemNrCurrency;
     return this;
   }
@@ -258,19 +256,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrCurrency
   **/
   @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrCurrency() {
     return riskdataBasketItemItemNrCurrency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCurrency(String riskdataBasketItemItemNrCurrency) {
     this.riskdataBasketItemItemNrCurrency = riskdataBasketItemItemNrCurrency;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrItemID(String riskdataBasketItemItemNrItemID) {
-    
     this.riskdataBasketItemItemNrItemID = riskdataBasketItemItemNrItemID;
     return this;
   }
@@ -280,19 +281,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrItemID
   **/
   @ApiModelProperty(value = "ID of the item.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrItemID() {
     return riskdataBasketItemItemNrItemID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrItemID(String riskdataBasketItemItemNrItemID) {
     this.riskdataBasketItemItemNrItemID = riskdataBasketItemItemNrItemID;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrManufacturer(String riskdataBasketItemItemNrManufacturer) {
-    
     this.riskdataBasketItemItemNrManufacturer = riskdataBasketItemItemNrManufacturer;
     return this;
   }
@@ -302,19 +306,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrManufacturer
   **/
   @ApiModelProperty(value = "Manufacturer of the item.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrManufacturer() {
     return riskdataBasketItemItemNrManufacturer;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrManufacturer(String riskdataBasketItemItemNrManufacturer) {
     this.riskdataBasketItemItemNrManufacturer = riskdataBasketItemItemNrManufacturer;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrProductTitle(String riskdataBasketItemItemNrProductTitle) {
-    
     this.riskdataBasketItemItemNrProductTitle = riskdataBasketItemItemNrProductTitle;
     return this;
   }
@@ -324,19 +331,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrProductTitle
   **/
   @ApiModelProperty(value = "A text description of the product the invoice line refers to.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrProductTitle() {
     return riskdataBasketItemItemNrProductTitle;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrProductTitle(String riskdataBasketItemItemNrProductTitle) {
     this.riskdataBasketItemItemNrProductTitle = riskdataBasketItemItemNrProductTitle;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrQuantity(String riskdataBasketItemItemNrQuantity) {
-    
     this.riskdataBasketItemItemNrQuantity = riskdataBasketItemItemNrQuantity;
     return this;
   }
@@ -346,19 +356,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrQuantity
   **/
   @ApiModelProperty(value = "Quantity of the item purchased.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrQuantity() {
     return riskdataBasketItemItemNrQuantity;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrQuantity(String riskdataBasketItemItemNrQuantity) {
     this.riskdataBasketItemItemNrQuantity = riskdataBasketItemItemNrQuantity;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrReceiverEmail(String riskdataBasketItemItemNrReceiverEmail) {
-    
     this.riskdataBasketItemItemNrReceiverEmail = riskdataBasketItemItemNrReceiverEmail;
     return this;
   }
@@ -368,19 +381,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrReceiverEmail
   **/
   @ApiModelProperty(value = "Email associated with the given product in the basket (usually in electronic gift cards).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrReceiverEmail() {
     return riskdataBasketItemItemNrReceiverEmail;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrReceiverEmail(String riskdataBasketItemItemNrReceiverEmail) {
     this.riskdataBasketItemItemNrReceiverEmail = riskdataBasketItemItemNrReceiverEmail;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrSize(String riskdataBasketItemItemNrSize) {
-    
     this.riskdataBasketItemItemNrSize = riskdataBasketItemItemNrSize;
     return this;
   }
@@ -390,19 +406,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrSize
   **/
   @ApiModelProperty(value = "Size of the item.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrSize() {
     return riskdataBasketItemItemNrSize;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSize(String riskdataBasketItemItemNrSize) {
     this.riskdataBasketItemItemNrSize = riskdataBasketItemItemNrSize;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrSku(String riskdataBasketItemItemNrSku) {
-    
     this.riskdataBasketItemItemNrSku = riskdataBasketItemItemNrSku;
     return this;
   }
@@ -412,19 +431,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrSku
   **/
   @ApiModelProperty(value = "[Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrSku() {
     return riskdataBasketItemItemNrSku;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSku(String riskdataBasketItemItemNrSku) {
     this.riskdataBasketItemItemNrSku = riskdataBasketItemItemNrSku;
   }
 
 
   public AdditionalDataRisk riskdataBasketItemItemNrUpc(String riskdataBasketItemItemNrUpc) {
-    
     this.riskdataBasketItemItemNrUpc = riskdataBasketItemItemNrUpc;
     return this;
   }
@@ -434,19 +456,22 @@ public class AdditionalDataRisk {
    * @return riskdataBasketItemItemNrUpc
   **/
   @ApiModelProperty(value = "[Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataBasketItemItemNrUpc() {
     return riskdataBasketItemItemNrUpc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrUpc(String riskdataBasketItemItemNrUpc) {
     this.riskdataBasketItemItemNrUpc = riskdataBasketItemItemNrUpc;
   }
 
 
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionCode(String riskdataPromotionsPromotionItemNrPromotionCode) {
-    
     this.riskdataPromotionsPromotionItemNrPromotionCode = riskdataPromotionsPromotionItemNrPromotionCode;
     return this;
   }
@@ -456,19 +481,22 @@ public class AdditionalDataRisk {
    * @return riskdataPromotionsPromotionItemNrPromotionCode
   **/
   @ApiModelProperty(value = "Code of the promotion.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataPromotionsPromotionItemNrPromotionCode() {
     return riskdataPromotionsPromotionItemNrPromotionCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionCode(String riskdataPromotionsPromotionItemNrPromotionCode) {
     this.riskdataPromotionsPromotionItemNrPromotionCode = riskdataPromotionsPromotionItemNrPromotionCode;
   }
 
 
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionDiscountAmount(String riskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
-    
     this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount = riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
     return this;
   }
@@ -478,19 +506,22 @@ public class AdditionalDataRisk {
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountAmount
   **/
   @ApiModelProperty(value = "The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountAmount() {
     return riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountAmount(String riskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount = riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
   }
 
 
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionDiscountCurrency(String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
-    
     this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency = riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
     return this;
   }
@@ -500,19 +531,22 @@ public class AdditionalDataRisk {
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
   **/
   @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency() {
     return riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency(String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency = riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
   }
 
 
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionDiscountPercentage(String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
-    
     this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage = riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
     return this;
   }
@@ -522,19 +556,22 @@ public class AdditionalDataRisk {
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
   **/
   @ApiModelProperty(value = "Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage() {
     return riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage(String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage = riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
   }
 
 
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionName(String riskdataPromotionsPromotionItemNrPromotionName) {
-    
     this.riskdataPromotionsPromotionItemNrPromotionName = riskdataPromotionsPromotionItemNrPromotionName;
     return this;
   }
@@ -544,19 +581,22 @@ public class AdditionalDataRisk {
    * @return riskdataPromotionsPromotionItemNrPromotionName
   **/
   @ApiModelProperty(value = "Name of the promotion.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataPromotionsPromotionItemNrPromotionName() {
     return riskdataPromotionsPromotionItemNrPromotionName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionName(String riskdataPromotionsPromotionItemNrPromotionName) {
     this.riskdataPromotionsPromotionItemNrPromotionName = riskdataPromotionsPromotionItemNrPromotionName;
   }
 
 
   public AdditionalDataRisk riskdataRiskProfileReference(String riskdataRiskProfileReference) {
-    
     this.riskdataRiskProfileReference = riskdataRiskProfileReference;
     return this;
   }
@@ -566,19 +606,22 @@ public class AdditionalDataRisk {
    * @return riskdataRiskProfileReference
   **/
   @ApiModelProperty(value = "Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataRiskProfileReference() {
     return riskdataRiskProfileReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataRiskProfileReference(String riskdataRiskProfileReference) {
     this.riskdataRiskProfileReference = riskdataRiskProfileReference;
   }
 
 
   public AdditionalDataRisk riskdataSkipRisk(String riskdataSkipRisk) {
-    
     this.riskdataSkipRisk = riskdataSkipRisk;
     return this;
   }
@@ -588,18 +631,24 @@ public class AdditionalDataRisk {
    * @return riskdataSkipRisk
   **/
   @ApiModelProperty(value = "If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.")
+  @JsonProperty(JSON_PROPERTY_RISKDATA_SKIP_RISK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRiskdataSkipRisk() {
     return riskdataSkipRisk;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RISKDATA_SKIP_RISK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataSkipRisk(String riskdataSkipRisk) {
     this.riskdataSkipRisk = riskdataSkipRisk;
   }
 
 
-
+  /**
+   * Return true if this AdditionalDataRisk object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -677,198 +726,23 @@ public class AdditionalDataRisk {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("riskdata.[customFieldName]");
-    openapiFields.add("riskdata.basket.item[itemNr].amountPerItem");
-    openapiFields.add("riskdata.basket.item[itemNr].brand");
-    openapiFields.add("riskdata.basket.item[itemNr].category");
-    openapiFields.add("riskdata.basket.item[itemNr].color");
-    openapiFields.add("riskdata.basket.item[itemNr].currency");
-    openapiFields.add("riskdata.basket.item[itemNr].itemID");
-    openapiFields.add("riskdata.basket.item[itemNr].manufacturer");
-    openapiFields.add("riskdata.basket.item[itemNr].productTitle");
-    openapiFields.add("riskdata.basket.item[itemNr].quantity");
-    openapiFields.add("riskdata.basket.item[itemNr].receiverEmail");
-    openapiFields.add("riskdata.basket.item[itemNr].size");
-    openapiFields.add("riskdata.basket.item[itemNr].sku");
-    openapiFields.add("riskdata.basket.item[itemNr].upc");
-    openapiFields.add("riskdata.promotions.promotion[itemNr].promotionCode");
-    openapiFields.add("riskdata.promotions.promotion[itemNr].promotionDiscountAmount");
-    openapiFields.add("riskdata.promotions.promotion[itemNr].promotionDiscountCurrency");
-    openapiFields.add("riskdata.promotions.promotion[itemNr].promotionDiscountPercentage");
-    openapiFields.add("riskdata.promotions.promotion[itemNr].promotionName");
-    openapiFields.add("riskdata.riskProfileReference");
-    openapiFields.add("riskdata.skipRisk");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of AdditionalDataRisk given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AdditionalDataRisk
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AdditionalDataRisk
+   */
+  public static AdditionalDataRisk fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AdditionalDataRisk.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AdditionalDataRisk.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AdditionalDataRisk
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AdditionalDataRisk.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataRisk is not found in the empty JSON string", AdditionalDataRisk.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AdditionalDataRisk.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRisk` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field riskdata.[customFieldName]
-      if (jsonObj.get("riskdata.[customFieldName]") != null && !jsonObj.get("riskdata.[customFieldName]").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.[customFieldName]` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.[customFieldName]").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].amountPerItem
-      if (jsonObj.get("riskdata.basket.item[itemNr].amountPerItem") != null && !jsonObj.get("riskdata.basket.item[itemNr].amountPerItem").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].amountPerItem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].amountPerItem").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].brand
-      if (jsonObj.get("riskdata.basket.item[itemNr].brand") != null && !jsonObj.get("riskdata.basket.item[itemNr].brand").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].brand").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].category
-      if (jsonObj.get("riskdata.basket.item[itemNr].category") != null && !jsonObj.get("riskdata.basket.item[itemNr].category").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].category").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].color
-      if (jsonObj.get("riskdata.basket.item[itemNr].color") != null && !jsonObj.get("riskdata.basket.item[itemNr].color").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].color` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].color").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].currency
-      if (jsonObj.get("riskdata.basket.item[itemNr].currency") != null && !jsonObj.get("riskdata.basket.item[itemNr].currency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].currency").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].itemID
-      if (jsonObj.get("riskdata.basket.item[itemNr].itemID") != null && !jsonObj.get("riskdata.basket.item[itemNr].itemID").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].itemID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].itemID").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].manufacturer
-      if (jsonObj.get("riskdata.basket.item[itemNr].manufacturer") != null && !jsonObj.get("riskdata.basket.item[itemNr].manufacturer").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].manufacturer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].manufacturer").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].productTitle
-      if (jsonObj.get("riskdata.basket.item[itemNr].productTitle") != null && !jsonObj.get("riskdata.basket.item[itemNr].productTitle").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].productTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].productTitle").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].quantity
-      if (jsonObj.get("riskdata.basket.item[itemNr].quantity") != null && !jsonObj.get("riskdata.basket.item[itemNr].quantity").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].quantity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].quantity").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].receiverEmail
-      if (jsonObj.get("riskdata.basket.item[itemNr].receiverEmail") != null && !jsonObj.get("riskdata.basket.item[itemNr].receiverEmail").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].receiverEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].receiverEmail").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].size
-      if (jsonObj.get("riskdata.basket.item[itemNr].size") != null && !jsonObj.get("riskdata.basket.item[itemNr].size").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].size` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].size").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].sku
-      if (jsonObj.get("riskdata.basket.item[itemNr].sku") != null && !jsonObj.get("riskdata.basket.item[itemNr].sku").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].sku").toString()));
-      }
-      // validate the optional field riskdata.basket.item[itemNr].upc
-      if (jsonObj.get("riskdata.basket.item[itemNr].upc") != null && !jsonObj.get("riskdata.basket.item[itemNr].upc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.basket.item[itemNr].upc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].upc").toString()));
-      }
-      // validate the optional field riskdata.promotions.promotion[itemNr].promotionCode
-      if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionCode") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionCode").toString()));
-      }
-      // validate the optional field riskdata.promotions.promotion[itemNr].promotionDiscountAmount
-      if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountAmount") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionDiscountAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountAmount").toString()));
-      }
-      // validate the optional field riskdata.promotions.promotion[itemNr].promotionDiscountCurrency
-      if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountCurrency") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountCurrency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionDiscountCurrency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountCurrency").toString()));
-      }
-      // validate the optional field riskdata.promotions.promotion[itemNr].promotionDiscountPercentage
-      if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountPercentage") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountPercentage").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionDiscountPercentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountPercentage").toString()));
-      }
-      // validate the optional field riskdata.promotions.promotion[itemNr].promotionName
-      if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionName") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionName").toString()));
-      }
-      // validate the optional field riskdata.riskProfileReference
-      if (jsonObj.get("riskdata.riskProfileReference") != null && !jsonObj.get("riskdata.riskProfileReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.riskProfileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.riskProfileReference").toString()));
-      }
-      // validate the optional field riskdata.skipRisk
-      if (jsonObj.get("riskdata.skipRisk") != null && !jsonObj.get("riskdata.skipRisk").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `riskdata.skipRisk` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.skipRisk").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AdditionalDataRisk.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AdditionalDataRisk' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AdditionalDataRisk> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AdditionalDataRisk.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AdditionalDataRisk>() {
-           @Override
-           public void write(JsonWriter out, AdditionalDataRisk value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AdditionalDataRisk read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AdditionalDataRisk given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AdditionalDataRisk
-  * @throws IOException if the JSON string is invalid with respect to AdditionalDataRisk
-  */
-  public static AdditionalDataRisk fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AdditionalDataRisk.class);
-  }
-
- /**
+/**
   * Convert an instance of AdditionalDataRisk to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
