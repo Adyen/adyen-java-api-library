@@ -14,119 +14,104 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * CheckoutVoucherAction
  */
+@JsonPropertyOrder({
+  CheckoutVoucherAction.JSON_PROPERTY_ALTERNATIVE_REFERENCE,
+  CheckoutVoucherAction.JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER,
+  CheckoutVoucherAction.JSON_PROPERTY_DOWNLOAD_URL,
+  CheckoutVoucherAction.JSON_PROPERTY_ENTITY,
+  CheckoutVoucherAction.JSON_PROPERTY_EXPIRES_AT,
+  CheckoutVoucherAction.JSON_PROPERTY_INITIAL_AMOUNT,
+  CheckoutVoucherAction.JSON_PROPERTY_INSTRUCTIONS_URL,
+  CheckoutVoucherAction.JSON_PROPERTY_ISSUER,
+  CheckoutVoucherAction.JSON_PROPERTY_MASKED_TELEPHONE_NUMBER,
+  CheckoutVoucherAction.JSON_PROPERTY_MERCHANT_NAME,
+  CheckoutVoucherAction.JSON_PROPERTY_MERCHANT_REFERENCE,
+  CheckoutVoucherAction.JSON_PROPERTY_PAYMENT_DATA,
+  CheckoutVoucherAction.JSON_PROPERTY_PAYMENT_METHOD_TYPE,
+  CheckoutVoucherAction.JSON_PROPERTY_REFERENCE,
+  CheckoutVoucherAction.JSON_PROPERTY_SHOPPER_EMAIL,
+  CheckoutVoucherAction.JSON_PROPERTY_SHOPPER_NAME,
+  CheckoutVoucherAction.JSON_PROPERTY_SURCHARGE,
+  CheckoutVoucherAction.JSON_PROPERTY_TOTAL_AMOUNT,
+  CheckoutVoucherAction.JSON_PROPERTY_TYPE,
+  CheckoutVoucherAction.JSON_PROPERTY_URL
+})
 
 public class CheckoutVoucherAction {
-  public static final String SERIALIZED_NAME_ALTERNATIVE_REFERENCE = "alternativeReference";
-  @SerializedName(SERIALIZED_NAME_ALTERNATIVE_REFERENCE)
+  public static final String JSON_PROPERTY_ALTERNATIVE_REFERENCE = "alternativeReference";
   private String alternativeReference;
 
-  public static final String SERIALIZED_NAME_COLLECTION_INSTITUTION_NUMBER = "collectionInstitutionNumber";
-  @SerializedName(SERIALIZED_NAME_COLLECTION_INSTITUTION_NUMBER)
+  public static final String JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER = "collectionInstitutionNumber";
   private String collectionInstitutionNumber;
 
-  public static final String SERIALIZED_NAME_DOWNLOAD_URL = "downloadUrl";
-  @SerializedName(SERIALIZED_NAME_DOWNLOAD_URL)
+  public static final String JSON_PROPERTY_DOWNLOAD_URL = "downloadUrl";
   private String downloadUrl;
 
-  public static final String SERIALIZED_NAME_ENTITY = "entity";
-  @SerializedName(SERIALIZED_NAME_ENTITY)
+  public static final String JSON_PROPERTY_ENTITY = "entity";
   private String entity;
 
-  public static final String SERIALIZED_NAME_EXPIRES_AT = "expiresAt";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private String expiresAt;
 
-  public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initialAmount";
-  @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
+  public static final String JSON_PROPERTY_INITIAL_AMOUNT = "initialAmount";
   private Amount initialAmount;
 
-  public static final String SERIALIZED_NAME_INSTRUCTIONS_URL = "instructionsUrl";
-  @SerializedName(SERIALIZED_NAME_INSTRUCTIONS_URL)
+  public static final String JSON_PROPERTY_INSTRUCTIONS_URL = "instructionsUrl";
   private String instructionsUrl;
 
-  public static final String SERIALIZED_NAME_ISSUER = "issuer";
-  @SerializedName(SERIALIZED_NAME_ISSUER)
+  public static final String JSON_PROPERTY_ISSUER = "issuer";
   private String issuer;
 
-  public static final String SERIALIZED_NAME_MASKED_TELEPHONE_NUMBER = "maskedTelephoneNumber";
-  @SerializedName(SERIALIZED_NAME_MASKED_TELEPHONE_NUMBER)
+  public static final String JSON_PROPERTY_MASKED_TELEPHONE_NUMBER = "maskedTelephoneNumber";
   private String maskedTelephoneNumber;
 
-  public static final String SERIALIZED_NAME_MERCHANT_NAME = "merchantName";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_NAME)
+  public static final String JSON_PROPERTY_MERCHANT_NAME = "merchantName";
   private String merchantName;
 
-  public static final String SERIALIZED_NAME_MERCHANT_REFERENCE = "merchantReference";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_REFERENCE)
+  public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
   private String merchantReference;
 
-  public static final String SERIALIZED_NAME_PAYMENT_DATA = "paymentData";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_DATA)
+  public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
 
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD_TYPE = "paymentMethodType";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD_TYPE)
+  public static final String JSON_PROPERTY_PAYMENT_METHOD_TYPE = "paymentMethodType";
   private String paymentMethodType;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_EMAIL = "shopperEmail";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_EMAIL)
+  public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NAME = "shopperName";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NAME)
+  public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private String shopperName;
 
-  public static final String SERIALIZED_NAME_SURCHARGE = "surcharge";
-  @SerializedName(SERIALIZED_NAME_SURCHARGE)
+  public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private Amount surcharge;
 
-  public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "totalAmount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
+  public static final String JSON_PROPERTY_TOTAL_AMOUNT = "totalAmount";
   private Amount totalAmount;
 
   /**
    * **voucher**
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     VOUCHER("voucher");
 
@@ -136,6 +121,7 @@ public class CheckoutVoucherAction {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -145,6 +131,7 @@ public class CheckoutVoucherAction {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -153,34 +140,18 @@ public class CheckoutVoucherAction {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
   public CheckoutVoucherAction() { 
   }
 
   public CheckoutVoucherAction alternativeReference(String alternativeReference) {
-    
     this.alternativeReference = alternativeReference;
     return this;
   }
@@ -190,19 +161,22 @@ public class CheckoutVoucherAction {
    * @return alternativeReference
   **/
   @ApiModelProperty(value = "The voucher alternative reference code.")
+  @JsonProperty(JSON_PROPERTY_ALTERNATIVE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAlternativeReference() {
     return alternativeReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALTERNATIVE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlternativeReference(String alternativeReference) {
     this.alternativeReference = alternativeReference;
   }
 
 
   public CheckoutVoucherAction collectionInstitutionNumber(String collectionInstitutionNumber) {
-    
     this.collectionInstitutionNumber = collectionInstitutionNumber;
     return this;
   }
@@ -212,19 +186,22 @@ public class CheckoutVoucherAction {
    * @return collectionInstitutionNumber
   **/
   @ApiModelProperty(value = "A collection institution number (store number) for Econtext Pay-Easy ATM.")
+  @JsonProperty(JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCollectionInstitutionNumber() {
     return collectionInstitutionNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCollectionInstitutionNumber(String collectionInstitutionNumber) {
     this.collectionInstitutionNumber = collectionInstitutionNumber;
   }
 
 
   public CheckoutVoucherAction downloadUrl(String downloadUrl) {
-    
     this.downloadUrl = downloadUrl;
     return this;
   }
@@ -234,19 +211,22 @@ public class CheckoutVoucherAction {
    * @return downloadUrl
   **/
   @ApiModelProperty(value = "The URL to download the voucher.")
+  @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDownloadUrl() {
     return downloadUrl;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
   }
 
 
   public CheckoutVoucherAction entity(String entity) {
-    
     this.entity = entity;
     return this;
   }
@@ -256,19 +236,22 @@ public class CheckoutVoucherAction {
    * @return entity
   **/
   @ApiModelProperty(value = "An entity number of Multibanco.")
+  @JsonProperty(JSON_PROPERTY_ENTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEntity() {
     return entity;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(String entity) {
     this.entity = entity;
   }
 
 
   public CheckoutVoucherAction expiresAt(String expiresAt) {
-    
     this.expiresAt = expiresAt;
     return this;
   }
@@ -278,19 +261,22 @@ public class CheckoutVoucherAction {
    * @return expiresAt
   **/
   @ApiModelProperty(value = "The date time of the voucher expiry.")
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpiresAt() {
     return expiresAt;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
 
   public CheckoutVoucherAction initialAmount(Amount initialAmount) {
-    
     this.initialAmount = initialAmount;
     return this;
   }
@@ -300,19 +286,22 @@ public class CheckoutVoucherAction {
    * @return initialAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INITIAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getInitialAmount() {
     return initialAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INITIAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInitialAmount(Amount initialAmount) {
     this.initialAmount = initialAmount;
   }
 
 
   public CheckoutVoucherAction instructionsUrl(String instructionsUrl) {
-    
     this.instructionsUrl = instructionsUrl;
     return this;
   }
@@ -322,19 +311,22 @@ public class CheckoutVoucherAction {
    * @return instructionsUrl
   **/
   @ApiModelProperty(value = "The URL to the detailed instructions to make payment using the voucher.")
+  @JsonProperty(JSON_PROPERTY_INSTRUCTIONS_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstructionsUrl() {
     return instructionsUrl;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTRUCTIONS_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstructionsUrl(String instructionsUrl) {
     this.instructionsUrl = instructionsUrl;
   }
 
 
   public CheckoutVoucherAction issuer(String issuer) {
-    
     this.issuer = issuer;
     return this;
   }
@@ -344,19 +336,22 @@ public class CheckoutVoucherAction {
    * @return issuer
   **/
   @ApiModelProperty(value = "The issuer of the voucher.")
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuer() {
     return issuer;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
 
 
   public CheckoutVoucherAction maskedTelephoneNumber(String maskedTelephoneNumber) {
-    
     this.maskedTelephoneNumber = maskedTelephoneNumber;
     return this;
   }
@@ -366,19 +361,22 @@ public class CheckoutVoucherAction {
    * @return maskedTelephoneNumber
   **/
   @ApiModelProperty(value = "The shopper telephone number (partially masked).")
+  @JsonProperty(JSON_PROPERTY_MASKED_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMaskedTelephoneNumber() {
     return maskedTelephoneNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MASKED_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaskedTelephoneNumber(String maskedTelephoneNumber) {
     this.maskedTelephoneNumber = maskedTelephoneNumber;
   }
 
 
   public CheckoutVoucherAction merchantName(String merchantName) {
-    
     this.merchantName = merchantName;
     return this;
   }
@@ -388,19 +386,22 @@ public class CheckoutVoucherAction {
    * @return merchantName
   **/
   @ApiModelProperty(value = "The merchant name.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantName() {
     return merchantName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
   }
 
 
   public CheckoutVoucherAction merchantReference(String merchantReference) {
-    
     this.merchantReference = merchantReference;
     return this;
   }
@@ -410,19 +411,22 @@ public class CheckoutVoucherAction {
    * @return merchantReference
   **/
   @ApiModelProperty(value = "The merchant reference.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantReference() {
     return merchantReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
 
   public CheckoutVoucherAction paymentData(String paymentData) {
-    
     this.paymentData = paymentData;
     return this;
   }
@@ -432,19 +436,22 @@ public class CheckoutVoucherAction {
    * @return paymentData
   **/
   @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentData() {
     return paymentData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
 
 
   public CheckoutVoucherAction paymentMethodType(String paymentMethodType) {
-    
     this.paymentMethodType = paymentMethodType;
     return this;
   }
@@ -454,19 +461,22 @@ public class CheckoutVoucherAction {
    * @return paymentMethodType
   **/
   @ApiModelProperty(value = "Specifies the payment method.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentMethodType() {
     return paymentMethodType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
   }
 
 
   public CheckoutVoucherAction reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -476,19 +486,22 @@ public class CheckoutVoucherAction {
    * @return reference
   **/
   @ApiModelProperty(value = "The voucher reference code.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public CheckoutVoucherAction shopperEmail(String shopperEmail) {
-    
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -498,19 +511,22 @@ public class CheckoutVoucherAction {
    * @return shopperEmail
   **/
   @ApiModelProperty(value = "The shopper email.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperEmail() {
     return shopperEmail;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
 
   public CheckoutVoucherAction shopperName(String shopperName) {
-    
     this.shopperName = shopperName;
     return this;
   }
@@ -520,19 +536,22 @@ public class CheckoutVoucherAction {
    * @return shopperName
   **/
   @ApiModelProperty(value = "The shopper name.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperName() {
     return shopperName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(String shopperName) {
     this.shopperName = shopperName;
   }
 
 
   public CheckoutVoucherAction surcharge(Amount surcharge) {
-    
     this.surcharge = surcharge;
     return this;
   }
@@ -542,19 +561,22 @@ public class CheckoutVoucherAction {
    * @return surcharge
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getSurcharge() {
     return surcharge;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Amount surcharge) {
     this.surcharge = surcharge;
   }
 
 
   public CheckoutVoucherAction totalAmount(Amount totalAmount) {
-    
     this.totalAmount = totalAmount;
     return this;
   }
@@ -564,19 +586,22 @@ public class CheckoutVoucherAction {
    * @return totalAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getTotalAmount() {
     return totalAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
   }
 
 
   public CheckoutVoucherAction type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -586,19 +611,22 @@ public class CheckoutVoucherAction {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "**voucher**")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public CheckoutVoucherAction url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -608,18 +636,24 @@ public class CheckoutVoucherAction {
    * @return url
   **/
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUrl() {
     return url;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
 
 
-
+  /**
+   * Return true if this CheckoutVoucherAction object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -695,204 +729,23 @@ public class CheckoutVoucherAction {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("alternativeReference");
-    openapiFields.add("collectionInstitutionNumber");
-    openapiFields.add("downloadUrl");
-    openapiFields.add("entity");
-    openapiFields.add("expiresAt");
-    openapiFields.add("initialAmount");
-    openapiFields.add("instructionsUrl");
-    openapiFields.add("issuer");
-    openapiFields.add("maskedTelephoneNumber");
-    openapiFields.add("merchantName");
-    openapiFields.add("merchantReference");
-    openapiFields.add("paymentData");
-    openapiFields.add("paymentMethodType");
-    openapiFields.add("reference");
-    openapiFields.add("shopperEmail");
-    openapiFields.add("shopperName");
-    openapiFields.add("surcharge");
-    openapiFields.add("totalAmount");
-    openapiFields.add("type");
-    openapiFields.add("url");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of CheckoutVoucherAction given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CheckoutVoucherAction
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutVoucherAction
+   */
+  public static CheckoutVoucherAction fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CheckoutVoucherAction.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CheckoutVoucherAction.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CheckoutVoucherAction
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CheckoutVoucherAction.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CheckoutVoucherAction is not found in the empty JSON string", CheckoutVoucherAction.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CheckoutVoucherAction.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CheckoutVoucherAction` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CheckoutVoucherAction.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field alternativeReference
-      if (jsonObj.get("alternativeReference") != null && !jsonObj.get("alternativeReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `alternativeReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alternativeReference").toString()));
-      }
-      // validate the optional field collectionInstitutionNumber
-      if (jsonObj.get("collectionInstitutionNumber") != null && !jsonObj.get("collectionInstitutionNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `collectionInstitutionNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collectionInstitutionNumber").toString()));
-      }
-      // validate the optional field downloadUrl
-      if (jsonObj.get("downloadUrl") != null && !jsonObj.get("downloadUrl").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `downloadUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("downloadUrl").toString()));
-      }
-      // validate the optional field entity
-      if (jsonObj.get("entity") != null && !jsonObj.get("entity").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `entity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity").toString()));
-      }
-      // validate the optional field expiresAt
-      if (jsonObj.get("expiresAt") != null && !jsonObj.get("expiresAt").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `expiresAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiresAt").toString()));
-      }
-      // validate the optional field `initialAmount`
-      if (jsonObj.getAsJsonObject("initialAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("initialAmount"));
-      }
-      // validate the optional field instructionsUrl
-      if (jsonObj.get("instructionsUrl") != null && !jsonObj.get("instructionsUrl").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `instructionsUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instructionsUrl").toString()));
-      }
-      // validate the optional field issuer
-      if (jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
-      }
-      // validate the optional field maskedTelephoneNumber
-      if (jsonObj.get("maskedTelephoneNumber") != null && !jsonObj.get("maskedTelephoneNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `maskedTelephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("maskedTelephoneNumber").toString()));
-      }
-      // validate the optional field merchantName
-      if (jsonObj.get("merchantName") != null && !jsonObj.get("merchantName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantName").toString()));
-      }
-      // validate the optional field merchantReference
-      if (jsonObj.get("merchantReference") != null && !jsonObj.get("merchantReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantReference").toString()));
-      }
-      // validate the optional field paymentData
-      if (jsonObj.get("paymentData") != null && !jsonObj.get("paymentData").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentData").toString()));
-      }
-      // validate the optional field paymentMethodType
-      if (jsonObj.get("paymentMethodType") != null && !jsonObj.get("paymentMethodType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentMethodType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentMethodType").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field shopperEmail
-      if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
-      }
-      // validate the optional field shopperName
-      if (jsonObj.get("shopperName") != null && !jsonObj.get("shopperName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperName").toString()));
-      }
-      // validate the optional field `surcharge`
-      if (jsonObj.getAsJsonObject("surcharge") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("surcharge"));
-      }
-      // validate the optional field `totalAmount`
-      if (jsonObj.getAsJsonObject("totalAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("totalAmount"));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-      // validate the optional field url
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CheckoutVoucherAction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CheckoutVoucherAction' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CheckoutVoucherAction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CheckoutVoucherAction.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CheckoutVoucherAction>() {
-           @Override
-           public void write(JsonWriter out, CheckoutVoucherAction value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CheckoutVoucherAction read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CheckoutVoucherAction given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CheckoutVoucherAction
-  * @throws IOException if the JSON string is invalid with respect to CheckoutVoucherAction
-  */
-  public static CheckoutVoucherAction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CheckoutVoucherAction.class);
-  }
-
- /**
+/**
   * Convert an instance of CheckoutVoucherAction to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

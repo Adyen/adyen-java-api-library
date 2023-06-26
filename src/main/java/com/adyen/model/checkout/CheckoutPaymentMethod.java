@@ -14,6 +14,8 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.AchDetails;
 import com.adyen.model.checkout.AfterpayDetails;
 import com.adyen.model.checkout.AmazonPayDetails;
@@ -53,909 +55,1197 @@ import com.adyen.model.checkout.VisaCheckoutDetails;
 import com.adyen.model.checkout.WeChatPayDetails;
 import com.adyen.model.checkout.WeChatPayMiniProgramDetails;
 import com.adyen.model.checkout.ZipDetails;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import jakarta.ws.rs.core.GenericType;
-
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.HashMap;
-import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-
-import com.adyen.model.checkout.JSON;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 
+@JsonDeserialize(using = CheckoutPaymentMethod.CheckoutPaymentMethodDeserializer.class)
+@JsonSerialize(using = CheckoutPaymentMethod.CheckoutPaymentMethodSerializer.class)
 public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CheckoutPaymentMethod.class.getName());
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
+    public static class CheckoutPaymentMethodSerializer extends StdSerializer<CheckoutPaymentMethod> {
+        public CheckoutPaymentMethodSerializer(Class<CheckoutPaymentMethod> t) {
+            super(t);
+        }
+
+        public CheckoutPaymentMethodSerializer() {
+            this(null);
+        }
+
         @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CheckoutPaymentMethod.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CheckoutPaymentMethod' and its subtypes
+        public void serialize(CheckoutPaymentMethod value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
+    public static class CheckoutPaymentMethodDeserializer extends StdDeserializer<CheckoutPaymentMethod> {
+        public CheckoutPaymentMethodDeserializer() {
+            this(CheckoutPaymentMethod.class);
+        }
+
+        public CheckoutPaymentMethodDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public CheckoutPaymentMethod deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // Local Object Mapper that forces strict validation
+            ObjectMapper localObjectMapper = JSON.getMapper();
+            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+            // deserialize AchDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AchDetails.class.equals(Integer.class) || AchDetails.class.equals(Long.class) || AchDetails.class.equals(Float.class) || AchDetails.class.equals(Double.class) || AchDetails.class.equals(Boolean.class) || AchDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AchDetails.class.equals(Integer.class) || AchDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AchDetails.class.equals(Float.class) || AchDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AchDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AchDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(AchDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), AchDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AchDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AchDetails'", e);
             }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AchDetails> adapterAchDetails = gson.getDelegateAdapter(this, TypeToken.get(AchDetails.class));
-            final TypeAdapter<AfterpayDetails> adapterAfterpayDetails = gson.getDelegateAdapter(this, TypeToken.get(AfterpayDetails.class));
-            final TypeAdapter<AmazonPayDetails> adapterAmazonPayDetails = gson.getDelegateAdapter(this, TypeToken.get(AmazonPayDetails.class));
-            final TypeAdapter<AndroidPayDetails> adapterAndroidPayDetails = gson.getDelegateAdapter(this, TypeToken.get(AndroidPayDetails.class));
-            final TypeAdapter<ApplePayDetails> adapterApplePayDetails = gson.getDelegateAdapter(this, TypeToken.get(ApplePayDetails.class));
-            final TypeAdapter<BacsDirectDebitDetails> adapterBacsDirectDebitDetails = gson.getDelegateAdapter(this, TypeToken.get(BacsDirectDebitDetails.class));
-            final TypeAdapter<BillDeskDetails> adapterBillDeskDetails = gson.getDelegateAdapter(this, TypeToken.get(BillDeskDetails.class));
-            final TypeAdapter<BlikDetails> adapterBlikDetails = gson.getDelegateAdapter(this, TypeToken.get(BlikDetails.class));
-            final TypeAdapter<CardDetails> adapterCardDetails = gson.getDelegateAdapter(this, TypeToken.get(CardDetails.class));
-            final TypeAdapter<CellulantDetails> adapterCellulantDetails = gson.getDelegateAdapter(this, TypeToken.get(CellulantDetails.class));
-            final TypeAdapter<DokuDetails> adapterDokuDetails = gson.getDelegateAdapter(this, TypeToken.get(DokuDetails.class));
-            final TypeAdapter<DotpayDetails> adapterDotpayDetails = gson.getDelegateAdapter(this, TypeToken.get(DotpayDetails.class));
-            final TypeAdapter<DragonpayDetails> adapterDragonpayDetails = gson.getDelegateAdapter(this, TypeToken.get(DragonpayDetails.class));
-            final TypeAdapter<EcontextVoucherDetails> adapterEcontextVoucherDetails = gson.getDelegateAdapter(this, TypeToken.get(EcontextVoucherDetails.class));
-            final TypeAdapter<GenericIssuerPaymentMethodDetails> adapterGenericIssuerPaymentMethodDetails = gson.getDelegateAdapter(this, TypeToken.get(GenericIssuerPaymentMethodDetails.class));
-            final TypeAdapter<GiropayDetails> adapterGiropayDetails = gson.getDelegateAdapter(this, TypeToken.get(GiropayDetails.class));
-            final TypeAdapter<GooglePayDetails> adapterGooglePayDetails = gson.getDelegateAdapter(this, TypeToken.get(GooglePayDetails.class));
-            final TypeAdapter<IdealDetails> adapterIdealDetails = gson.getDelegateAdapter(this, TypeToken.get(IdealDetails.class));
-            final TypeAdapter<KlarnaDetails> adapterKlarnaDetails = gson.getDelegateAdapter(this, TypeToken.get(KlarnaDetails.class));
-            final TypeAdapter<MasterpassDetails> adapterMasterpassDetails = gson.getDelegateAdapter(this, TypeToken.get(MasterpassDetails.class));
-            final TypeAdapter<MbwayDetails> adapterMbwayDetails = gson.getDelegateAdapter(this, TypeToken.get(MbwayDetails.class));
-            final TypeAdapter<MobilePayDetails> adapterMobilePayDetails = gson.getDelegateAdapter(this, TypeToken.get(MobilePayDetails.class));
-            final TypeAdapter<MolPayDetails> adapterMolPayDetails = gson.getDelegateAdapter(this, TypeToken.get(MolPayDetails.class));
-            final TypeAdapter<OpenInvoiceDetails> adapterOpenInvoiceDetails = gson.getDelegateAdapter(this, TypeToken.get(OpenInvoiceDetails.class));
-            final TypeAdapter<PayPalDetails> adapterPayPalDetails = gson.getDelegateAdapter(this, TypeToken.get(PayPalDetails.class));
-            final TypeAdapter<PayUUpiDetails> adapterPayUUpiDetails = gson.getDelegateAdapter(this, TypeToken.get(PayUUpiDetails.class));
-            final TypeAdapter<PayWithGoogleDetails> adapterPayWithGoogleDetails = gson.getDelegateAdapter(this, TypeToken.get(PayWithGoogleDetails.class));
-            final TypeAdapter<PaymentDetails> adapterPaymentDetails = gson.getDelegateAdapter(this, TypeToken.get(PaymentDetails.class));
-            final TypeAdapter<RatepayDetails> adapterRatepayDetails = gson.getDelegateAdapter(this, TypeToken.get(RatepayDetails.class));
-            final TypeAdapter<SamsungPayDetails> adapterSamsungPayDetails = gson.getDelegateAdapter(this, TypeToken.get(SamsungPayDetails.class));
-            final TypeAdapter<SepaDirectDebitDetails> adapterSepaDirectDebitDetails = gson.getDelegateAdapter(this, TypeToken.get(SepaDirectDebitDetails.class));
-            final TypeAdapter<StoredPaymentMethodDetails> adapterStoredPaymentMethodDetails = gson.getDelegateAdapter(this, TypeToken.get(StoredPaymentMethodDetails.class));
-            final TypeAdapter<UpiCollectDetails> adapterUpiCollectDetails = gson.getDelegateAdapter(this, TypeToken.get(UpiCollectDetails.class));
-            final TypeAdapter<UpiIntentDetails> adapterUpiIntentDetails = gson.getDelegateAdapter(this, TypeToken.get(UpiIntentDetails.class));
-            final TypeAdapter<VippsDetails> adapterVippsDetails = gson.getDelegateAdapter(this, TypeToken.get(VippsDetails.class));
-            final TypeAdapter<VisaCheckoutDetails> adapterVisaCheckoutDetails = gson.getDelegateAdapter(this, TypeToken.get(VisaCheckoutDetails.class));
-            final TypeAdapter<WeChatPayDetails> adapterWeChatPayDetails = gson.getDelegateAdapter(this, TypeToken.get(WeChatPayDetails.class));
-            final TypeAdapter<WeChatPayMiniProgramDetails> adapterWeChatPayMiniProgramDetails = gson.getDelegateAdapter(this, TypeToken.get(WeChatPayMiniProgramDetails.class));
-            final TypeAdapter<ZipDetails> adapterZipDetails = gson.getDelegateAdapter(this, TypeToken.get(ZipDetails.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<CheckoutPaymentMethod>() {
-                @Override
-                public void write(JsonWriter out, CheckoutPaymentMethod value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
+
+            // deserialize AfterpayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AfterpayDetails.class.equals(Integer.class) || AfterpayDetails.class.equals(Long.class) || AfterpayDetails.class.equals(Float.class) || AfterpayDetails.class.equals(Double.class) || AfterpayDetails.class.equals(Boolean.class) || AfterpayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AfterpayDetails.class.equals(Integer.class) || AfterpayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AfterpayDetails.class.equals(Float.class) || AfterpayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AfterpayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AfterpayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
-
-                    // check if the actual instance is of the type `AchDetails`
-                    if (value.getActualInstance() instanceof AchDetails) {
-                        JsonObject obj = adapterAchDetails.toJsonTree((AchDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `AfterpayDetails`
-                    if (value.getActualInstance() instanceof AfterpayDetails) {
-                        JsonObject obj = adapterAfterpayDetails.toJsonTree((AfterpayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `AmazonPayDetails`
-                    if (value.getActualInstance() instanceof AmazonPayDetails) {
-                        JsonObject obj = adapterAmazonPayDetails.toJsonTree((AmazonPayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `AndroidPayDetails`
-                    if (value.getActualInstance() instanceof AndroidPayDetails) {
-                        JsonObject obj = adapterAndroidPayDetails.toJsonTree((AndroidPayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `ApplePayDetails`
-                    if (value.getActualInstance() instanceof ApplePayDetails) {
-                        JsonObject obj = adapterApplePayDetails.toJsonTree((ApplePayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `BacsDirectDebitDetails`
-                    if (value.getActualInstance() instanceof BacsDirectDebitDetails) {
-                        JsonObject obj = adapterBacsDirectDebitDetails.toJsonTree((BacsDirectDebitDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `BillDeskDetails`
-                    if (value.getActualInstance() instanceof BillDeskDetails) {
-                        JsonObject obj = adapterBillDeskDetails.toJsonTree((BillDeskDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `BlikDetails`
-                    if (value.getActualInstance() instanceof BlikDetails) {
-                        JsonObject obj = adapterBlikDetails.toJsonTree((BlikDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CardDetails`
-                    if (value.getActualInstance() instanceof CardDetails) {
-                        JsonObject obj = adapterCardDetails.toJsonTree((CardDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CellulantDetails`
-                    if (value.getActualInstance() instanceof CellulantDetails) {
-                        JsonObject obj = adapterCellulantDetails.toJsonTree((CellulantDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `DokuDetails`
-                    if (value.getActualInstance() instanceof DokuDetails) {
-                        JsonObject obj = adapterDokuDetails.toJsonTree((DokuDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `DotpayDetails`
-                    if (value.getActualInstance() instanceof DotpayDetails) {
-                        JsonObject obj = adapterDotpayDetails.toJsonTree((DotpayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `DragonpayDetails`
-                    if (value.getActualInstance() instanceof DragonpayDetails) {
-                        JsonObject obj = adapterDragonpayDetails.toJsonTree((DragonpayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `EcontextVoucherDetails`
-                    if (value.getActualInstance() instanceof EcontextVoucherDetails) {
-                        JsonObject obj = adapterEcontextVoucherDetails.toJsonTree((EcontextVoucherDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `GenericIssuerPaymentMethodDetails`
-                    if (value.getActualInstance() instanceof GenericIssuerPaymentMethodDetails) {
-                        JsonObject obj = adapterGenericIssuerPaymentMethodDetails.toJsonTree((GenericIssuerPaymentMethodDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `GiropayDetails`
-                    if (value.getActualInstance() instanceof GiropayDetails) {
-                        JsonObject obj = adapterGiropayDetails.toJsonTree((GiropayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `GooglePayDetails`
-                    if (value.getActualInstance() instanceof GooglePayDetails) {
-                        JsonObject obj = adapterGooglePayDetails.toJsonTree((GooglePayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `IdealDetails`
-                    if (value.getActualInstance() instanceof IdealDetails) {
-                        JsonObject obj = adapterIdealDetails.toJsonTree((IdealDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `KlarnaDetails`
-                    if (value.getActualInstance() instanceof KlarnaDetails) {
-                        JsonObject obj = adapterKlarnaDetails.toJsonTree((KlarnaDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `MasterpassDetails`
-                    if (value.getActualInstance() instanceof MasterpassDetails) {
-                        JsonObject obj = adapterMasterpassDetails.toJsonTree((MasterpassDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `MbwayDetails`
-                    if (value.getActualInstance() instanceof MbwayDetails) {
-                        JsonObject obj = adapterMbwayDetails.toJsonTree((MbwayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `MobilePayDetails`
-                    if (value.getActualInstance() instanceof MobilePayDetails) {
-                        JsonObject obj = adapterMobilePayDetails.toJsonTree((MobilePayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `MolPayDetails`
-                    if (value.getActualInstance() instanceof MolPayDetails) {
-                        JsonObject obj = adapterMolPayDetails.toJsonTree((MolPayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `OpenInvoiceDetails`
-                    if (value.getActualInstance() instanceof OpenInvoiceDetails) {
-                        JsonObject obj = adapterOpenInvoiceDetails.toJsonTree((OpenInvoiceDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `PayPalDetails`
-                    if (value.getActualInstance() instanceof PayPalDetails) {
-                        JsonObject obj = adapterPayPalDetails.toJsonTree((PayPalDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `PayUUpiDetails`
-                    if (value.getActualInstance() instanceof PayUUpiDetails) {
-                        JsonObject obj = adapterPayUUpiDetails.toJsonTree((PayUUpiDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `PayWithGoogleDetails`
-                    if (value.getActualInstance() instanceof PayWithGoogleDetails) {
-                        JsonObject obj = adapterPayWithGoogleDetails.toJsonTree((PayWithGoogleDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `PaymentDetails`
-                    if (value.getActualInstance() instanceof PaymentDetails) {
-                        JsonObject obj = adapterPaymentDetails.toJsonTree((PaymentDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `RatepayDetails`
-                    if (value.getActualInstance() instanceof RatepayDetails) {
-                        JsonObject obj = adapterRatepayDetails.toJsonTree((RatepayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `SamsungPayDetails`
-                    if (value.getActualInstance() instanceof SamsungPayDetails) {
-                        JsonObject obj = adapterSamsungPayDetails.toJsonTree((SamsungPayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `SepaDirectDebitDetails`
-                    if (value.getActualInstance() instanceof SepaDirectDebitDetails) {
-                        JsonObject obj = adapterSepaDirectDebitDetails.toJsonTree((SepaDirectDebitDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `StoredPaymentMethodDetails`
-                    if (value.getActualInstance() instanceof StoredPaymentMethodDetails) {
-                        JsonObject obj = adapterStoredPaymentMethodDetails.toJsonTree((StoredPaymentMethodDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `UpiCollectDetails`
-                    if (value.getActualInstance() instanceof UpiCollectDetails) {
-                        JsonObject obj = adapterUpiCollectDetails.toJsonTree((UpiCollectDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `UpiIntentDetails`
-                    if (value.getActualInstance() instanceof UpiIntentDetails) {
-                        JsonObject obj = adapterUpiIntentDetails.toJsonTree((UpiIntentDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `VippsDetails`
-                    if (value.getActualInstance() instanceof VippsDetails) {
-                        JsonObject obj = adapterVippsDetails.toJsonTree((VippsDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `VisaCheckoutDetails`
-                    if (value.getActualInstance() instanceof VisaCheckoutDetails) {
-                        JsonObject obj = adapterVisaCheckoutDetails.toJsonTree((VisaCheckoutDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `WeChatPayDetails`
-                    if (value.getActualInstance() instanceof WeChatPayDetails) {
-                        JsonObject obj = adapterWeChatPayDetails.toJsonTree((WeChatPayDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `WeChatPayMiniProgramDetails`
-                    if (value.getActualInstance() instanceof WeChatPayMiniProgramDetails) {
-                        JsonObject obj = adapterWeChatPayMiniProgramDetails.toJsonTree((WeChatPayMiniProgramDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `ZipDetails`
-                    if (value.getActualInstance() instanceof ZipDetails) {
-                        JsonObject obj = adapterZipDetails.toJsonTree((ZipDetails)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AchDetails, AfterpayDetails, AmazonPayDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CellulantDetails, DokuDetails, DotpayDetails, DragonpayDetails, EcontextVoucherDetails, GenericIssuerPaymentMethodDetails, GiropayDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayPalDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, RatepayDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
                 }
-
-                @Override
-                public CheckoutPaymentMethod read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
-
-                    int match = 0;
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
-
-                    // deserialize AchDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        AchDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterAchDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'AchDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for AchDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'AchDetails'", e);
-                    }
-
-                    // deserialize AfterpayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        AfterpayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterAfterpayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'AfterpayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for AfterpayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'AfterpayDetails'", e);
-                    }
-
-                    // deserialize AmazonPayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        AmazonPayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterAmazonPayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'AmazonPayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for AmazonPayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'AmazonPayDetails'", e);
-                    }
-
-                    // deserialize AndroidPayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        AndroidPayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterAndroidPayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'AndroidPayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for AndroidPayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'AndroidPayDetails'", e);
-                    }
-
-                    // deserialize ApplePayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        ApplePayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterApplePayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'ApplePayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for ApplePayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ApplePayDetails'", e);
-                    }
-
-                    // deserialize BacsDirectDebitDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        BacsDirectDebitDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterBacsDirectDebitDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'BacsDirectDebitDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for BacsDirectDebitDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'BacsDirectDebitDetails'", e);
-                    }
-
-                    // deserialize BillDeskDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        BillDeskDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterBillDeskDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'BillDeskDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for BillDeskDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'BillDeskDetails'", e);
-                    }
-
-                    // deserialize BlikDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        BlikDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterBlikDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'BlikDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for BlikDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'BlikDetails'", e);
-                    }
-
-                    // deserialize CardDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CardDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCardDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CardDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CardDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CardDetails'", e);
-                    }
-
-                    // deserialize CellulantDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CellulantDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterCellulantDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CellulantDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CellulantDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CellulantDetails'", e);
-                    }
-
-                    // deserialize DokuDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        DokuDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterDokuDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'DokuDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for DokuDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'DokuDetails'", e);
-                    }
-
-                    // deserialize DotpayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        DotpayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterDotpayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'DotpayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for DotpayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'DotpayDetails'", e);
-                    }
-
-                    // deserialize DragonpayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        DragonpayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterDragonpayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'DragonpayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for DragonpayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'DragonpayDetails'", e);
-                    }
-
-                    // deserialize EcontextVoucherDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        EcontextVoucherDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterEcontextVoucherDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'EcontextVoucherDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for EcontextVoucherDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'EcontextVoucherDetails'", e);
-                    }
-
-                    // deserialize GenericIssuerPaymentMethodDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        GenericIssuerPaymentMethodDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterGenericIssuerPaymentMethodDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'GenericIssuerPaymentMethodDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GenericIssuerPaymentMethodDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'GenericIssuerPaymentMethodDetails'", e);
-                    }
-
-                    // deserialize GiropayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        GiropayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterGiropayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'GiropayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GiropayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'GiropayDetails'", e);
-                    }
-
-                    // deserialize GooglePayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        GooglePayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterGooglePayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'GooglePayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GooglePayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'GooglePayDetails'", e);
-                    }
-
-                    // deserialize IdealDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        IdealDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterIdealDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'IdealDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for IdealDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'IdealDetails'", e);
-                    }
-
-                    // deserialize KlarnaDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        KlarnaDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterKlarnaDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'KlarnaDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for KlarnaDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'KlarnaDetails'", e);
-                    }
-
-                    // deserialize MasterpassDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        MasterpassDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterMasterpassDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'MasterpassDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for MasterpassDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MasterpassDetails'", e);
-                    }
-
-                    // deserialize MbwayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        MbwayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterMbwayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'MbwayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for MbwayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MbwayDetails'", e);
-                    }
-
-                    // deserialize MobilePayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        MobilePayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterMobilePayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'MobilePayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for MobilePayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MobilePayDetails'", e);
-                    }
-
-                    // deserialize MolPayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        MolPayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterMolPayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'MolPayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for MolPayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MolPayDetails'", e);
-                    }
-
-                    // deserialize OpenInvoiceDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        OpenInvoiceDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterOpenInvoiceDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'OpenInvoiceDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for OpenInvoiceDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'OpenInvoiceDetails'", e);
-                    }
-
-                    // deserialize PayPalDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PayPalDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterPayPalDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'PayPalDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PayPalDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PayPalDetails'", e);
-                    }
-
-                    // deserialize PayUUpiDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PayUUpiDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterPayUUpiDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'PayUUpiDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PayUUpiDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PayUUpiDetails'", e);
-                    }
-
-                    // deserialize PayWithGoogleDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PayWithGoogleDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterPayWithGoogleDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'PayWithGoogleDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PayWithGoogleDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PayWithGoogleDetails'", e);
-                    }
-
-                    // deserialize PaymentDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PaymentDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterPaymentDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'PaymentDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PaymentDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PaymentDetails'", e);
-                    }
-
-                    // deserialize RatepayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        RatepayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterRatepayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'RatepayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for RatepayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'RatepayDetails'", e);
-                    }
-
-                    // deserialize SamsungPayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SamsungPayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterSamsungPayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SamsungPayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SamsungPayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SamsungPayDetails'", e);
-                    }
-
-                    // deserialize SepaDirectDebitDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SepaDirectDebitDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterSepaDirectDebitDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SepaDirectDebitDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SepaDirectDebitDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SepaDirectDebitDetails'", e);
-                    }
-
-                    // deserialize StoredPaymentMethodDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        StoredPaymentMethodDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterStoredPaymentMethodDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'StoredPaymentMethodDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for StoredPaymentMethodDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'StoredPaymentMethodDetails'", e);
-                    }
-
-                    // deserialize UpiCollectDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        UpiCollectDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterUpiCollectDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'UpiCollectDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for UpiCollectDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'UpiCollectDetails'", e);
-                    }
-
-                    // deserialize UpiIntentDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        UpiIntentDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterUpiIntentDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'UpiIntentDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for UpiIntentDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'UpiIntentDetails'", e);
-                    }
-
-                    // deserialize VippsDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        VippsDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterVippsDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'VippsDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for VippsDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'VippsDetails'", e);
-                    }
-
-                    // deserialize VisaCheckoutDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        VisaCheckoutDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterVisaCheckoutDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'VisaCheckoutDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for VisaCheckoutDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'VisaCheckoutDetails'", e);
-                    }
-
-                    // deserialize WeChatPayDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        WeChatPayDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterWeChatPayDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'WeChatPayDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for WeChatPayDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'WeChatPayDetails'", e);
-                    }
-
-                    // deserialize WeChatPayMiniProgramDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        WeChatPayMiniProgramDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterWeChatPayMiniProgramDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'WeChatPayMiniProgramDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for WeChatPayMiniProgramDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'WeChatPayMiniProgramDetails'", e);
-                    }
-
-                    // deserialize ZipDetails
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        ZipDetails.validateJsonObject(jsonObject);
-                        actualAdapter = adapterZipDetails;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'ZipDetails'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for ZipDetails failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ZipDetails'", e);
-                    }
-
-                    if (match == 1) {
-                        CheckoutPaymentMethod ret = new CheckoutPaymentMethod();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
-                        return ret;
-                    }
-
-                    throw new IOException(String.format("Failed deserialization for CheckoutPaymentMethod: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(AfterpayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), AfterpayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AfterpayDetails'");
                 }
-            }.nullSafe();
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AfterpayDetails'", e);
+            }
+
+
+            // deserialize AmazonPayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AmazonPayDetails.class.equals(Integer.class) || AmazonPayDetails.class.equals(Long.class) || AmazonPayDetails.class.equals(Float.class) || AmazonPayDetails.class.equals(Double.class) || AmazonPayDetails.class.equals(Boolean.class) || AmazonPayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AmazonPayDetails.class.equals(Integer.class) || AmazonPayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AmazonPayDetails.class.equals(Float.class) || AmazonPayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AmazonPayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AmazonPayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(AmazonPayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), AmazonPayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AmazonPayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AmazonPayDetails'", e);
+            }
+
+
+            // deserialize AndroidPayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AndroidPayDetails.class.equals(Integer.class) || AndroidPayDetails.class.equals(Long.class) || AndroidPayDetails.class.equals(Float.class) || AndroidPayDetails.class.equals(Double.class) || AndroidPayDetails.class.equals(Boolean.class) || AndroidPayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AndroidPayDetails.class.equals(Integer.class) || AndroidPayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AndroidPayDetails.class.equals(Float.class) || AndroidPayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AndroidPayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AndroidPayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(AndroidPayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), AndroidPayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AndroidPayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AndroidPayDetails'", e);
+            }
+
+
+            // deserialize ApplePayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ApplePayDetails.class.equals(Integer.class) || ApplePayDetails.class.equals(Long.class) || ApplePayDetails.class.equals(Float.class) || ApplePayDetails.class.equals(Double.class) || ApplePayDetails.class.equals(Boolean.class) || ApplePayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ApplePayDetails.class.equals(Integer.class) || ApplePayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ApplePayDetails.class.equals(Float.class) || ApplePayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ApplePayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ApplePayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(ApplePayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), ApplePayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ApplePayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ApplePayDetails'", e);
+            }
+
+
+            // deserialize BacsDirectDebitDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (BacsDirectDebitDetails.class.equals(Integer.class) || BacsDirectDebitDetails.class.equals(Long.class) || BacsDirectDebitDetails.class.equals(Float.class) || BacsDirectDebitDetails.class.equals(Double.class) || BacsDirectDebitDetails.class.equals(Boolean.class) || BacsDirectDebitDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((BacsDirectDebitDetails.class.equals(Integer.class) || BacsDirectDebitDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((BacsDirectDebitDetails.class.equals(Float.class) || BacsDirectDebitDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (BacsDirectDebitDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (BacsDirectDebitDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(BacsDirectDebitDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), BacsDirectDebitDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'BacsDirectDebitDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'BacsDirectDebitDetails'", e);
+            }
+
+
+            // deserialize BillDeskDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (BillDeskDetails.class.equals(Integer.class) || BillDeskDetails.class.equals(Long.class) || BillDeskDetails.class.equals(Float.class) || BillDeskDetails.class.equals(Double.class) || BillDeskDetails.class.equals(Boolean.class) || BillDeskDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((BillDeskDetails.class.equals(Integer.class) || BillDeskDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((BillDeskDetails.class.equals(Float.class) || BillDeskDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (BillDeskDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (BillDeskDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(BillDeskDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), BillDeskDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'BillDeskDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'BillDeskDetails'", e);
+            }
+
+
+            // deserialize BlikDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (BlikDetails.class.equals(Integer.class) || BlikDetails.class.equals(Long.class) || BlikDetails.class.equals(Float.class) || BlikDetails.class.equals(Double.class) || BlikDetails.class.equals(Boolean.class) || BlikDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((BlikDetails.class.equals(Integer.class) || BlikDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((BlikDetails.class.equals(Float.class) || BlikDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (BlikDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (BlikDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(BlikDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), BlikDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'BlikDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'BlikDetails'", e);
+            }
+
+
+            // deserialize CardDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CardDetails.class.equals(Integer.class) || CardDetails.class.equals(Long.class) || CardDetails.class.equals(Float.class) || CardDetails.class.equals(Double.class) || CardDetails.class.equals(Boolean.class) || CardDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CardDetails.class.equals(Integer.class) || CardDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CardDetails.class.equals(Float.class) || CardDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CardDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CardDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CardDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CardDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CardDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CardDetails'", e);
+            }
+
+
+            // deserialize CellulantDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CellulantDetails.class.equals(Integer.class) || CellulantDetails.class.equals(Long.class) || CellulantDetails.class.equals(Float.class) || CellulantDetails.class.equals(Double.class) || CellulantDetails.class.equals(Boolean.class) || CellulantDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CellulantDetails.class.equals(Integer.class) || CellulantDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CellulantDetails.class.equals(Float.class) || CellulantDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CellulantDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CellulantDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CellulantDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), CellulantDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CellulantDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CellulantDetails'", e);
+            }
+
+
+            // deserialize DokuDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (DokuDetails.class.equals(Integer.class) || DokuDetails.class.equals(Long.class) || DokuDetails.class.equals(Float.class) || DokuDetails.class.equals(Double.class) || DokuDetails.class.equals(Boolean.class) || DokuDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((DokuDetails.class.equals(Integer.class) || DokuDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((DokuDetails.class.equals(Float.class) || DokuDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (DokuDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (DokuDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(DokuDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), DokuDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'DokuDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'DokuDetails'", e);
+            }
+
+
+            // deserialize DotpayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (DotpayDetails.class.equals(Integer.class) || DotpayDetails.class.equals(Long.class) || DotpayDetails.class.equals(Float.class) || DotpayDetails.class.equals(Double.class) || DotpayDetails.class.equals(Boolean.class) || DotpayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((DotpayDetails.class.equals(Integer.class) || DotpayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((DotpayDetails.class.equals(Float.class) || DotpayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (DotpayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (DotpayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(DotpayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), DotpayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'DotpayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'DotpayDetails'", e);
+            }
+
+
+            // deserialize DragonpayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (DragonpayDetails.class.equals(Integer.class) || DragonpayDetails.class.equals(Long.class) || DragonpayDetails.class.equals(Float.class) || DragonpayDetails.class.equals(Double.class) || DragonpayDetails.class.equals(Boolean.class) || DragonpayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((DragonpayDetails.class.equals(Integer.class) || DragonpayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((DragonpayDetails.class.equals(Float.class) || DragonpayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (DragonpayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (DragonpayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(DragonpayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), DragonpayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'DragonpayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'DragonpayDetails'", e);
+            }
+
+
+            // deserialize EcontextVoucherDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (EcontextVoucherDetails.class.equals(Integer.class) || EcontextVoucherDetails.class.equals(Long.class) || EcontextVoucherDetails.class.equals(Float.class) || EcontextVoucherDetails.class.equals(Double.class) || EcontextVoucherDetails.class.equals(Boolean.class) || EcontextVoucherDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((EcontextVoucherDetails.class.equals(Integer.class) || EcontextVoucherDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((EcontextVoucherDetails.class.equals(Float.class) || EcontextVoucherDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (EcontextVoucherDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (EcontextVoucherDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(EcontextVoucherDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), EcontextVoucherDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'EcontextVoucherDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'EcontextVoucherDetails'", e);
+            }
+
+
+            // deserialize GenericIssuerPaymentMethodDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (GenericIssuerPaymentMethodDetails.class.equals(Integer.class) || GenericIssuerPaymentMethodDetails.class.equals(Long.class) || GenericIssuerPaymentMethodDetails.class.equals(Float.class) || GenericIssuerPaymentMethodDetails.class.equals(Double.class) || GenericIssuerPaymentMethodDetails.class.equals(Boolean.class) || GenericIssuerPaymentMethodDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((GenericIssuerPaymentMethodDetails.class.equals(Integer.class) || GenericIssuerPaymentMethodDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((GenericIssuerPaymentMethodDetails.class.equals(Float.class) || GenericIssuerPaymentMethodDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (GenericIssuerPaymentMethodDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (GenericIssuerPaymentMethodDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(GenericIssuerPaymentMethodDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), GenericIssuerPaymentMethodDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'GenericIssuerPaymentMethodDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'GenericIssuerPaymentMethodDetails'", e);
+            }
+
+
+            // deserialize GiropayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (GiropayDetails.class.equals(Integer.class) || GiropayDetails.class.equals(Long.class) || GiropayDetails.class.equals(Float.class) || GiropayDetails.class.equals(Double.class) || GiropayDetails.class.equals(Boolean.class) || GiropayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((GiropayDetails.class.equals(Integer.class) || GiropayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((GiropayDetails.class.equals(Float.class) || GiropayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (GiropayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (GiropayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(GiropayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), GiropayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'GiropayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'GiropayDetails'", e);
+            }
+
+
+            // deserialize GooglePayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (GooglePayDetails.class.equals(Integer.class) || GooglePayDetails.class.equals(Long.class) || GooglePayDetails.class.equals(Float.class) || GooglePayDetails.class.equals(Double.class) || GooglePayDetails.class.equals(Boolean.class) || GooglePayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((GooglePayDetails.class.equals(Integer.class) || GooglePayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((GooglePayDetails.class.equals(Float.class) || GooglePayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (GooglePayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (GooglePayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(GooglePayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), GooglePayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'GooglePayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'GooglePayDetails'", e);
+            }
+
+
+            // deserialize IdealDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (IdealDetails.class.equals(Integer.class) || IdealDetails.class.equals(Long.class) || IdealDetails.class.equals(Float.class) || IdealDetails.class.equals(Double.class) || IdealDetails.class.equals(Boolean.class) || IdealDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((IdealDetails.class.equals(Integer.class) || IdealDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((IdealDetails.class.equals(Float.class) || IdealDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (IdealDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (IdealDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(IdealDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), IdealDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'IdealDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'IdealDetails'", e);
+            }
+
+
+            // deserialize KlarnaDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (KlarnaDetails.class.equals(Integer.class) || KlarnaDetails.class.equals(Long.class) || KlarnaDetails.class.equals(Float.class) || KlarnaDetails.class.equals(Double.class) || KlarnaDetails.class.equals(Boolean.class) || KlarnaDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((KlarnaDetails.class.equals(Integer.class) || KlarnaDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((KlarnaDetails.class.equals(Float.class) || KlarnaDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (KlarnaDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (KlarnaDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(KlarnaDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), KlarnaDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'KlarnaDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'KlarnaDetails'", e);
+            }
+
+
+            // deserialize MasterpassDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (MasterpassDetails.class.equals(Integer.class) || MasterpassDetails.class.equals(Long.class) || MasterpassDetails.class.equals(Float.class) || MasterpassDetails.class.equals(Double.class) || MasterpassDetails.class.equals(Boolean.class) || MasterpassDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((MasterpassDetails.class.equals(Integer.class) || MasterpassDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((MasterpassDetails.class.equals(Float.class) || MasterpassDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (MasterpassDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (MasterpassDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(MasterpassDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), MasterpassDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'MasterpassDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'MasterpassDetails'", e);
+            }
+
+
+            // deserialize MbwayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (MbwayDetails.class.equals(Integer.class) || MbwayDetails.class.equals(Long.class) || MbwayDetails.class.equals(Float.class) || MbwayDetails.class.equals(Double.class) || MbwayDetails.class.equals(Boolean.class) || MbwayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((MbwayDetails.class.equals(Integer.class) || MbwayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((MbwayDetails.class.equals(Float.class) || MbwayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (MbwayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (MbwayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(MbwayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), MbwayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'MbwayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'MbwayDetails'", e);
+            }
+
+
+            // deserialize MobilePayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (MobilePayDetails.class.equals(Integer.class) || MobilePayDetails.class.equals(Long.class) || MobilePayDetails.class.equals(Float.class) || MobilePayDetails.class.equals(Double.class) || MobilePayDetails.class.equals(Boolean.class) || MobilePayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((MobilePayDetails.class.equals(Integer.class) || MobilePayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((MobilePayDetails.class.equals(Float.class) || MobilePayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (MobilePayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (MobilePayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(MobilePayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), MobilePayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'MobilePayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'MobilePayDetails'", e);
+            }
+
+
+            // deserialize MolPayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (MolPayDetails.class.equals(Integer.class) || MolPayDetails.class.equals(Long.class) || MolPayDetails.class.equals(Float.class) || MolPayDetails.class.equals(Double.class) || MolPayDetails.class.equals(Boolean.class) || MolPayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((MolPayDetails.class.equals(Integer.class) || MolPayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((MolPayDetails.class.equals(Float.class) || MolPayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (MolPayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (MolPayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(MolPayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), MolPayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'MolPayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'MolPayDetails'", e);
+            }
+
+
+            // deserialize OpenInvoiceDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (OpenInvoiceDetails.class.equals(Integer.class) || OpenInvoiceDetails.class.equals(Long.class) || OpenInvoiceDetails.class.equals(Float.class) || OpenInvoiceDetails.class.equals(Double.class) || OpenInvoiceDetails.class.equals(Boolean.class) || OpenInvoiceDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((OpenInvoiceDetails.class.equals(Integer.class) || OpenInvoiceDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((OpenInvoiceDetails.class.equals(Float.class) || OpenInvoiceDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (OpenInvoiceDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (OpenInvoiceDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(OpenInvoiceDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), OpenInvoiceDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'OpenInvoiceDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'OpenInvoiceDetails'", e);
+            }
+
+
+            // deserialize PayPalDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (PayPalDetails.class.equals(Integer.class) || PayPalDetails.class.equals(Long.class) || PayPalDetails.class.equals(Float.class) || PayPalDetails.class.equals(Double.class) || PayPalDetails.class.equals(Boolean.class) || PayPalDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((PayPalDetails.class.equals(Integer.class) || PayPalDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((PayPalDetails.class.equals(Float.class) || PayPalDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (PayPalDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (PayPalDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(PayPalDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), PayPalDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'PayPalDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'PayPalDetails'", e);
+            }
+
+
+            // deserialize PayUUpiDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (PayUUpiDetails.class.equals(Integer.class) || PayUUpiDetails.class.equals(Long.class) || PayUUpiDetails.class.equals(Float.class) || PayUUpiDetails.class.equals(Double.class) || PayUUpiDetails.class.equals(Boolean.class) || PayUUpiDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((PayUUpiDetails.class.equals(Integer.class) || PayUUpiDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((PayUUpiDetails.class.equals(Float.class) || PayUUpiDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (PayUUpiDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (PayUUpiDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(PayUUpiDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), PayUUpiDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'PayUUpiDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'PayUUpiDetails'", e);
+            }
+
+
+            // deserialize PayWithGoogleDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (PayWithGoogleDetails.class.equals(Integer.class) || PayWithGoogleDetails.class.equals(Long.class) || PayWithGoogleDetails.class.equals(Float.class) || PayWithGoogleDetails.class.equals(Double.class) || PayWithGoogleDetails.class.equals(Boolean.class) || PayWithGoogleDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((PayWithGoogleDetails.class.equals(Integer.class) || PayWithGoogleDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((PayWithGoogleDetails.class.equals(Float.class) || PayWithGoogleDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (PayWithGoogleDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (PayWithGoogleDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(PayWithGoogleDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), PayWithGoogleDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'PayWithGoogleDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'PayWithGoogleDetails'", e);
+            }
+
+
+            // deserialize PaymentDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (PaymentDetails.class.equals(Integer.class) || PaymentDetails.class.equals(Long.class) || PaymentDetails.class.equals(Float.class) || PaymentDetails.class.equals(Double.class) || PaymentDetails.class.equals(Boolean.class) || PaymentDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((PaymentDetails.class.equals(Integer.class) || PaymentDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((PaymentDetails.class.equals(Float.class) || PaymentDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (PaymentDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (PaymentDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(PaymentDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), PaymentDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'PaymentDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'PaymentDetails'", e);
+            }
+
+
+            // deserialize RatepayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (RatepayDetails.class.equals(Integer.class) || RatepayDetails.class.equals(Long.class) || RatepayDetails.class.equals(Float.class) || RatepayDetails.class.equals(Double.class) || RatepayDetails.class.equals(Boolean.class) || RatepayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((RatepayDetails.class.equals(Integer.class) || RatepayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((RatepayDetails.class.equals(Float.class) || RatepayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (RatepayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (RatepayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(RatepayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), RatepayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'RatepayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'RatepayDetails'", e);
+            }
+
+
+            // deserialize SamsungPayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (SamsungPayDetails.class.equals(Integer.class) || SamsungPayDetails.class.equals(Long.class) || SamsungPayDetails.class.equals(Float.class) || SamsungPayDetails.class.equals(Double.class) || SamsungPayDetails.class.equals(Boolean.class) || SamsungPayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((SamsungPayDetails.class.equals(Integer.class) || SamsungPayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((SamsungPayDetails.class.equals(Float.class) || SamsungPayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (SamsungPayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (SamsungPayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(SamsungPayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), SamsungPayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'SamsungPayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SamsungPayDetails'", e);
+            }
+
+
+            // deserialize SepaDirectDebitDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (SepaDirectDebitDetails.class.equals(Integer.class) || SepaDirectDebitDetails.class.equals(Long.class) || SepaDirectDebitDetails.class.equals(Float.class) || SepaDirectDebitDetails.class.equals(Double.class) || SepaDirectDebitDetails.class.equals(Boolean.class) || SepaDirectDebitDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((SepaDirectDebitDetails.class.equals(Integer.class) || SepaDirectDebitDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((SepaDirectDebitDetails.class.equals(Float.class) || SepaDirectDebitDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (SepaDirectDebitDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (SepaDirectDebitDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(SepaDirectDebitDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), SepaDirectDebitDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'SepaDirectDebitDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SepaDirectDebitDetails'", e);
+            }
+
+
+            // deserialize StoredPaymentMethodDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (StoredPaymentMethodDetails.class.equals(Integer.class) || StoredPaymentMethodDetails.class.equals(Long.class) || StoredPaymentMethodDetails.class.equals(Float.class) || StoredPaymentMethodDetails.class.equals(Double.class) || StoredPaymentMethodDetails.class.equals(Boolean.class) || StoredPaymentMethodDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((StoredPaymentMethodDetails.class.equals(Integer.class) || StoredPaymentMethodDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((StoredPaymentMethodDetails.class.equals(Float.class) || StoredPaymentMethodDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (StoredPaymentMethodDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (StoredPaymentMethodDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(StoredPaymentMethodDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), StoredPaymentMethodDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'StoredPaymentMethodDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'StoredPaymentMethodDetails'", e);
+            }
+
+
+            // deserialize UpiCollectDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (UpiCollectDetails.class.equals(Integer.class) || UpiCollectDetails.class.equals(Long.class) || UpiCollectDetails.class.equals(Float.class) || UpiCollectDetails.class.equals(Double.class) || UpiCollectDetails.class.equals(Boolean.class) || UpiCollectDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((UpiCollectDetails.class.equals(Integer.class) || UpiCollectDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((UpiCollectDetails.class.equals(Float.class) || UpiCollectDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (UpiCollectDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (UpiCollectDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(UpiCollectDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), UpiCollectDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'UpiCollectDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'UpiCollectDetails'", e);
+            }
+
+
+            // deserialize UpiIntentDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (UpiIntentDetails.class.equals(Integer.class) || UpiIntentDetails.class.equals(Long.class) || UpiIntentDetails.class.equals(Float.class) || UpiIntentDetails.class.equals(Double.class) || UpiIntentDetails.class.equals(Boolean.class) || UpiIntentDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((UpiIntentDetails.class.equals(Integer.class) || UpiIntentDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((UpiIntentDetails.class.equals(Float.class) || UpiIntentDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (UpiIntentDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (UpiIntentDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(UpiIntentDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), UpiIntentDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'UpiIntentDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'UpiIntentDetails'", e);
+            }
+
+
+            // deserialize VippsDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (VippsDetails.class.equals(Integer.class) || VippsDetails.class.equals(Long.class) || VippsDetails.class.equals(Float.class) || VippsDetails.class.equals(Double.class) || VippsDetails.class.equals(Boolean.class) || VippsDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((VippsDetails.class.equals(Integer.class) || VippsDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((VippsDetails.class.equals(Float.class) || VippsDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (VippsDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (VippsDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(VippsDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), VippsDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'VippsDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'VippsDetails'", e);
+            }
+
+
+            // deserialize VisaCheckoutDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (VisaCheckoutDetails.class.equals(Integer.class) || VisaCheckoutDetails.class.equals(Long.class) || VisaCheckoutDetails.class.equals(Float.class) || VisaCheckoutDetails.class.equals(Double.class) || VisaCheckoutDetails.class.equals(Boolean.class) || VisaCheckoutDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((VisaCheckoutDetails.class.equals(Integer.class) || VisaCheckoutDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((VisaCheckoutDetails.class.equals(Float.class) || VisaCheckoutDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (VisaCheckoutDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (VisaCheckoutDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(VisaCheckoutDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), VisaCheckoutDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'VisaCheckoutDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'VisaCheckoutDetails'", e);
+            }
+
+
+            // deserialize WeChatPayDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (WeChatPayDetails.class.equals(Integer.class) || WeChatPayDetails.class.equals(Long.class) || WeChatPayDetails.class.equals(Float.class) || WeChatPayDetails.class.equals(Double.class) || WeChatPayDetails.class.equals(Boolean.class) || WeChatPayDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((WeChatPayDetails.class.equals(Integer.class) || WeChatPayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((WeChatPayDetails.class.equals(Float.class) || WeChatPayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (WeChatPayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (WeChatPayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(WeChatPayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), WeChatPayDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'WeChatPayDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'WeChatPayDetails'", e);
+            }
+
+
+            // deserialize WeChatPayMiniProgramDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (WeChatPayMiniProgramDetails.class.equals(Integer.class) || WeChatPayMiniProgramDetails.class.equals(Long.class) || WeChatPayMiniProgramDetails.class.equals(Float.class) || WeChatPayMiniProgramDetails.class.equals(Double.class) || WeChatPayMiniProgramDetails.class.equals(Boolean.class) || WeChatPayMiniProgramDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((WeChatPayMiniProgramDetails.class.equals(Integer.class) || WeChatPayMiniProgramDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((WeChatPayMiniProgramDetails.class.equals(Float.class) || WeChatPayMiniProgramDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (WeChatPayMiniProgramDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (WeChatPayMiniProgramDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(WeChatPayMiniProgramDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), WeChatPayMiniProgramDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'WeChatPayMiniProgramDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'WeChatPayMiniProgramDetails'", e);
+            }
+
+
+            // deserialize ZipDetails
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ZipDetails.class.equals(Integer.class) || ZipDetails.class.equals(Long.class) || ZipDetails.class.equals(Float.class) || ZipDetails.class.equals(Double.class) || ZipDetails.class.equals(Boolean.class) || ZipDetails.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ZipDetails.class.equals(Integer.class) || ZipDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ZipDetails.class.equals(Float.class) || ZipDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ZipDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ZipDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(ZipDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = localObjectMapper.readValue(tree.toString(), ZipDetails.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ZipDetails'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ZipDetails'", e);
+            }
+
+            // Throw error if there is no match
+            if (match == 0) {
+                throw new IOException(String.format("Failed deserialization for CheckoutPaymentMethod: %d classes match result, expected 1", match));
+            }
+            // Log warning if there is more than one match
+            if (match > 1) {
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for CheckoutPaymentMethod: %d classes match result, expected 1", match));
+            }
+
+            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            CheckoutPaymentMethod ret = new CheckoutPaymentMethod();
+            ret.setActualInstance(deserialized);
+            return ret;
+        }
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public CheckoutPaymentMethod getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "CheckoutPaymentMethod cannot be null");
         }
     }
 
@@ -1240,6 +1530,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         });
         schemas.put("ZipDetails", new GenericType<ZipDetails>() {
         });
+        JSON.registerDescendants(CheckoutPaymentMethod.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -1257,197 +1548,197 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof AchDetails) {
+        if (JSON.isInstanceOf(AchDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AfterpayDetails) {
+        if (JSON.isInstanceOf(AfterpayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AmazonPayDetails) {
+        if (JSON.isInstanceOf(AmazonPayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AndroidPayDetails) {
+        if (JSON.isInstanceOf(AndroidPayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ApplePayDetails) {
+        if (JSON.isInstanceOf(ApplePayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof BacsDirectDebitDetails) {
+        if (JSON.isInstanceOf(BacsDirectDebitDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof BillDeskDetails) {
+        if (JSON.isInstanceOf(BillDeskDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof BlikDetails) {
+        if (JSON.isInstanceOf(BlikDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CardDetails) {
+        if (JSON.isInstanceOf(CardDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CellulantDetails) {
+        if (JSON.isInstanceOf(CellulantDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof DokuDetails) {
+        if (JSON.isInstanceOf(DokuDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof DotpayDetails) {
+        if (JSON.isInstanceOf(DotpayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof DragonpayDetails) {
+        if (JSON.isInstanceOf(DragonpayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof EcontextVoucherDetails) {
+        if (JSON.isInstanceOf(EcontextVoucherDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof GenericIssuerPaymentMethodDetails) {
+        if (JSON.isInstanceOf(GenericIssuerPaymentMethodDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof GiropayDetails) {
+        if (JSON.isInstanceOf(GiropayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof GooglePayDetails) {
+        if (JSON.isInstanceOf(GooglePayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof IdealDetails) {
+        if (JSON.isInstanceOf(IdealDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof KlarnaDetails) {
+        if (JSON.isInstanceOf(KlarnaDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof MasterpassDetails) {
+        if (JSON.isInstanceOf(MasterpassDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof MbwayDetails) {
+        if (JSON.isInstanceOf(MbwayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof MobilePayDetails) {
+        if (JSON.isInstanceOf(MobilePayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof MolPayDetails) {
+        if (JSON.isInstanceOf(MolPayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof OpenInvoiceDetails) {
+        if (JSON.isInstanceOf(OpenInvoiceDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof PayPalDetails) {
+        if (JSON.isInstanceOf(PayPalDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof PayUUpiDetails) {
+        if (JSON.isInstanceOf(PayUUpiDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof PayWithGoogleDetails) {
+        if (JSON.isInstanceOf(PayWithGoogleDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof PaymentDetails) {
+        if (JSON.isInstanceOf(PaymentDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof RatepayDetails) {
+        if (JSON.isInstanceOf(RatepayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof SamsungPayDetails) {
+        if (JSON.isInstanceOf(SamsungPayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof SepaDirectDebitDetails) {
+        if (JSON.isInstanceOf(SepaDirectDebitDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof StoredPaymentMethodDetails) {
+        if (JSON.isInstanceOf(StoredPaymentMethodDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof UpiCollectDetails) {
+        if (JSON.isInstanceOf(UpiCollectDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof UpiIntentDetails) {
+        if (JSON.isInstanceOf(UpiIntentDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof VippsDetails) {
+        if (JSON.isInstanceOf(VippsDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof VisaCheckoutDetails) {
+        if (JSON.isInstanceOf(VisaCheckoutDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof WeChatPayDetails) {
+        if (JSON.isInstanceOf(WeChatPayDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof WeChatPayMiniProgramDetails) {
+        if (JSON.isInstanceOf(WeChatPayMiniProgramDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ZipDetails) {
+        if (JSON.isInstanceOf(ZipDetails.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -1895,391 +2186,5 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         return (ZipDetails)super.getActualInstance();
     }
 
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CheckoutPaymentMethod
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with AchDetails
-    try {
-      Logger.getLogger(AchDetails.class.getName()).setLevel(Level.OFF);
-      AchDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for AchDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with AfterpayDetails
-    try {
-      Logger.getLogger(AfterpayDetails.class.getName()).setLevel(Level.OFF);
-      AfterpayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for AfterpayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with AmazonPayDetails
-    try {
-      Logger.getLogger(AmazonPayDetails.class.getName()).setLevel(Level.OFF);
-      AmazonPayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for AmazonPayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with AndroidPayDetails
-    try {
-      Logger.getLogger(AndroidPayDetails.class.getName()).setLevel(Level.OFF);
-      AndroidPayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for AndroidPayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with ApplePayDetails
-    try {
-      Logger.getLogger(ApplePayDetails.class.getName()).setLevel(Level.OFF);
-      ApplePayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for ApplePayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with BacsDirectDebitDetails
-    try {
-      Logger.getLogger(BacsDirectDebitDetails.class.getName()).setLevel(Level.OFF);
-      BacsDirectDebitDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for BacsDirectDebitDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with BillDeskDetails
-    try {
-      Logger.getLogger(BillDeskDetails.class.getName()).setLevel(Level.OFF);
-      BillDeskDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for BillDeskDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with BlikDetails
-    try {
-      Logger.getLogger(BlikDetails.class.getName()).setLevel(Level.OFF);
-      BlikDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for BlikDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CardDetails
-    try {
-      Logger.getLogger(CardDetails.class.getName()).setLevel(Level.OFF);
-      CardDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CardDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CellulantDetails
-    try {
-      Logger.getLogger(CellulantDetails.class.getName()).setLevel(Level.OFF);
-      CellulantDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CellulantDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with DokuDetails
-    try {
-      Logger.getLogger(DokuDetails.class.getName()).setLevel(Level.OFF);
-      DokuDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for DokuDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with DotpayDetails
-    try {
-      Logger.getLogger(DotpayDetails.class.getName()).setLevel(Level.OFF);
-      DotpayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for DotpayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with DragonpayDetails
-    try {
-      Logger.getLogger(DragonpayDetails.class.getName()).setLevel(Level.OFF);
-      DragonpayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for DragonpayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with EcontextVoucherDetails
-    try {
-      Logger.getLogger(EcontextVoucherDetails.class.getName()).setLevel(Level.OFF);
-      EcontextVoucherDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for EcontextVoucherDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with GenericIssuerPaymentMethodDetails
-    try {
-      Logger.getLogger(GenericIssuerPaymentMethodDetails.class.getName()).setLevel(Level.OFF);
-      GenericIssuerPaymentMethodDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for GenericIssuerPaymentMethodDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with GiropayDetails
-    try {
-      Logger.getLogger(GiropayDetails.class.getName()).setLevel(Level.OFF);
-      GiropayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for GiropayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with GooglePayDetails
-    try {
-      Logger.getLogger(GooglePayDetails.class.getName()).setLevel(Level.OFF);
-      GooglePayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for GooglePayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with IdealDetails
-    try {
-      Logger.getLogger(IdealDetails.class.getName()).setLevel(Level.OFF);
-      IdealDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for IdealDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with KlarnaDetails
-    try {
-      Logger.getLogger(KlarnaDetails.class.getName()).setLevel(Level.OFF);
-      KlarnaDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for KlarnaDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with MasterpassDetails
-    try {
-      Logger.getLogger(MasterpassDetails.class.getName()).setLevel(Level.OFF);
-      MasterpassDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for MasterpassDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with MbwayDetails
-    try {
-      Logger.getLogger(MbwayDetails.class.getName()).setLevel(Level.OFF);
-      MbwayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for MbwayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with MobilePayDetails
-    try {
-      Logger.getLogger(MobilePayDetails.class.getName()).setLevel(Level.OFF);
-      MobilePayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for MobilePayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with MolPayDetails
-    try {
-      Logger.getLogger(MolPayDetails.class.getName()).setLevel(Level.OFF);
-      MolPayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for MolPayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with OpenInvoiceDetails
-    try {
-      Logger.getLogger(OpenInvoiceDetails.class.getName()).setLevel(Level.OFF);
-      OpenInvoiceDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for OpenInvoiceDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PayPalDetails
-    try {
-      Logger.getLogger(PayPalDetails.class.getName()).setLevel(Level.OFF);
-      PayPalDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PayPalDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PayUUpiDetails
-    try {
-      Logger.getLogger(PayUUpiDetails.class.getName()).setLevel(Level.OFF);
-      PayUUpiDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PayUUpiDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PayWithGoogleDetails
-    try {
-      Logger.getLogger(PayWithGoogleDetails.class.getName()).setLevel(Level.OFF);
-      PayWithGoogleDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PayWithGoogleDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PaymentDetails
-    try {
-      Logger.getLogger(PaymentDetails.class.getName()).setLevel(Level.OFF);
-      PaymentDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PaymentDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with RatepayDetails
-    try {
-      Logger.getLogger(RatepayDetails.class.getName()).setLevel(Level.OFF);
-      RatepayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for RatepayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with SamsungPayDetails
-    try {
-      Logger.getLogger(SamsungPayDetails.class.getName()).setLevel(Level.OFF);
-      SamsungPayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for SamsungPayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with SepaDirectDebitDetails
-    try {
-      Logger.getLogger(SepaDirectDebitDetails.class.getName()).setLevel(Level.OFF);
-      SepaDirectDebitDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for SepaDirectDebitDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with StoredPaymentMethodDetails
-    try {
-      Logger.getLogger(StoredPaymentMethodDetails.class.getName()).setLevel(Level.OFF);
-      StoredPaymentMethodDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for StoredPaymentMethodDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with UpiCollectDetails
-    try {
-      Logger.getLogger(UpiCollectDetails.class.getName()).setLevel(Level.OFF);
-      UpiCollectDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for UpiCollectDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with UpiIntentDetails
-    try {
-      Logger.getLogger(UpiIntentDetails.class.getName()).setLevel(Level.OFF);
-      UpiIntentDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for UpiIntentDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with VippsDetails
-    try {
-      Logger.getLogger(VippsDetails.class.getName()).setLevel(Level.OFF);
-      VippsDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for VippsDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with VisaCheckoutDetails
-    try {
-      Logger.getLogger(VisaCheckoutDetails.class.getName()).setLevel(Level.OFF);
-      VisaCheckoutDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for VisaCheckoutDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with WeChatPayDetails
-    try {
-      Logger.getLogger(WeChatPayDetails.class.getName()).setLevel(Level.OFF);
-      WeChatPayDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for WeChatPayDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with WeChatPayMiniProgramDetails
-    try {
-      Logger.getLogger(WeChatPayMiniProgramDetails.class.getName()).setLevel(Level.OFF);
-      WeChatPayMiniProgramDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for WeChatPayMiniProgramDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with ZipDetails
-    try {
-      Logger.getLogger(ZipDetails.class.getName()).setLevel(Level.OFF);
-      ZipDetails.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for ZipDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    if (validCount != 1) {
-      throw new IOException(String.format("The JSON string is invalid for CheckoutPaymentMethod with oneOf schemas: AchDetails, AfterpayDetails, AmazonPayDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CellulantDetails, DokuDetails, DotpayDetails, DragonpayDetails, EcontextVoucherDetails, GenericIssuerPaymentMethodDetails, GiropayDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayPalDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, RatepayDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
-    }
-  }
-
- /**
-  * Create an instance of CheckoutPaymentMethod given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CheckoutPaymentMethod
-  * @throws IOException if the JSON string is invalid with respect to CheckoutPaymentMethod
-  */
-  public static CheckoutPaymentMethod fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CheckoutPaymentMethod.class);
-  }
-
- /**
-  * Convert an instance of CheckoutPaymentMethod to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 
