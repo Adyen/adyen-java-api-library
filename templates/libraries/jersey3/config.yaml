@@ -1,0 +1,6 @@
+templateDir: ./templates/libraries/jersey3
+files:
+  api_single.mustache:
+    folder: api
+    templateType: API
+    destinationFilename: Single.java

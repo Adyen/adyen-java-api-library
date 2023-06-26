@@ -14,159 +14,142 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataAirline
  */
+@JsonPropertyOrder({
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_AGENCY_INVOICE_NUMBER,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_AIRLINE_CODE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_BOARDING_FEE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_FLIGHT_DATE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_NAME,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_TICKET_NUMBER,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME
+})
 
 public class AdditionalDataAirline {
-  public static final String SERIALIZED_NAME_AIRLINE_AGENCY_INVOICE_NUMBER = "airline.agency_invoice_number";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_AGENCY_INVOICE_NUMBER)
+  public static final String JSON_PROPERTY_AIRLINE_AGENCY_INVOICE_NUMBER = "airline.agency_invoice_number";
   private String airlineAgencyInvoiceNumber;
 
-  public static final String SERIALIZED_NAME_AIRLINE_AGENCY_PLAN_NAME = "airline.agency_plan_name";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_AGENCY_PLAN_NAME)
+  public static final String JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME = "airline.agency_plan_name";
   private String airlineAgencyPlanName;
 
-  public static final String SERIALIZED_NAME_AIRLINE_AIRLINE_CODE = "airline.airline_code";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_AIRLINE_CODE)
+  public static final String JSON_PROPERTY_AIRLINE_AIRLINE_CODE = "airline.airline_code";
   private String airlineAirlineCode;
 
-  public static final String SERIALIZED_NAME_AIRLINE_AIRLINE_DESIGNATOR_CODE = "airline.airline_designator_code";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_AIRLINE_DESIGNATOR_CODE)
+  public static final String JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE = "airline.airline_designator_code";
   private String airlineAirlineDesignatorCode;
 
-  public static final String SERIALIZED_NAME_AIRLINE_BOARDING_FEE = "airline.boarding_fee";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_BOARDING_FEE)
+  public static final String JSON_PROPERTY_AIRLINE_BOARDING_FEE = "airline.boarding_fee";
   private String airlineBoardingFee;
 
-  public static final String SERIALIZED_NAME_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM = "airline.computerized_reservation_system";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM)
+  public static final String JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM = "airline.computerized_reservation_system";
   private String airlineComputerizedReservationSystem;
 
-  public static final String SERIALIZED_NAME_AIRLINE_CUSTOMER_REFERENCE_NUMBER = "airline.customer_reference_number";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_CUSTOMER_REFERENCE_NUMBER)
+  public static final String JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER = "airline.customer_reference_number";
   private String airlineCustomerReferenceNumber;
 
-  public static final String SERIALIZED_NAME_AIRLINE_DOCUMENT_TYPE = "airline.document_type";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_DOCUMENT_TYPE)
+  public static final String JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE = "airline.document_type";
   private String airlineDocumentType;
 
-  public static final String SERIALIZED_NAME_AIRLINE_FLIGHT_DATE = "airline.flight_date";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_FLIGHT_DATE)
+  public static final String JSON_PROPERTY_AIRLINE_FLIGHT_DATE = "airline.flight_date";
   private String airlineFlightDate;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_CARRIER_CODE = "airline.leg.carrier_code";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_CARRIER_CODE)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE = "airline.leg.carrier_code";
   private String airlineLegCarrierCode;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_CLASS_OF_TRAVEL = "airline.leg.class_of_travel";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_CLASS_OF_TRAVEL)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL = "airline.leg.class_of_travel";
   private String airlineLegClassOfTravel;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_DATE_OF_TRAVEL = "airline.leg.date_of_travel";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_DATE_OF_TRAVEL)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL = "airline.leg.date_of_travel";
   private String airlineLegDateOfTravel;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_DEPART_AIRPORT = "airline.leg.depart_airport";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_DEPART_AIRPORT)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT = "airline.leg.depart_airport";
   private String airlineLegDepartAirport;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_DEPART_TAX = "airline.leg.depart_tax";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_DEPART_TAX)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX = "airline.leg.depart_tax";
   private String airlineLegDepartTax;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_DESTINATION_CODE = "airline.leg.destination_code";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_DESTINATION_CODE)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE = "airline.leg.destination_code";
   private String airlineLegDestinationCode;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_FARE_BASE_CODE = "airline.leg.fare_base_code";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_FARE_BASE_CODE)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE = "airline.leg.fare_base_code";
   private String airlineLegFareBaseCode;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_FLIGHT_NUMBER = "airline.leg.flight_number";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_FLIGHT_NUMBER)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER = "airline.leg.flight_number";
   private String airlineLegFlightNumber;
 
-  public static final String SERIALIZED_NAME_AIRLINE_LEG_STOP_OVER_CODE = "airline.leg.stop_over_code";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_LEG_STOP_OVER_CODE)
+  public static final String JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE = "airline.leg.stop_over_code";
   private String airlineLegStopOverCode;
 
-  public static final String SERIALIZED_NAME_AIRLINE_PASSENGER_DATE_OF_BIRTH = "airline.passenger.date_of_birth";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_PASSENGER_DATE_OF_BIRTH)
+  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH = "airline.passenger.date_of_birth";
   private String airlinePassengerDateOfBirth;
 
-  public static final String SERIALIZED_NAME_AIRLINE_PASSENGER_FIRST_NAME = "airline.passenger.first_name";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_PASSENGER_FIRST_NAME)
+  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME = "airline.passenger.first_name";
   private String airlinePassengerFirstName;
 
-  public static final String SERIALIZED_NAME_AIRLINE_PASSENGER_LAST_NAME = "airline.passenger.last_name";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_PASSENGER_LAST_NAME)
+  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME = "airline.passenger.last_name";
   private String airlinePassengerLastName;
 
-  public static final String SERIALIZED_NAME_AIRLINE_PASSENGER_TELEPHONE_NUMBER = "airline.passenger.telephone_number";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_PASSENGER_TELEPHONE_NUMBER)
+  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER = "airline.passenger.telephone_number";
   private String airlinePassengerTelephoneNumber;
 
-  public static final String SERIALIZED_NAME_AIRLINE_PASSENGER_TRAVELLER_TYPE = "airline.passenger.traveller_type";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_PASSENGER_TRAVELLER_TYPE)
+  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE = "airline.passenger.traveller_type";
   private String airlinePassengerTravellerType;
 
-  public static final String SERIALIZED_NAME_AIRLINE_PASSENGER_NAME = "airline.passenger_name";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_PASSENGER_NAME)
+  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_NAME = "airline.passenger_name";
   private String airlinePassengerName;
 
-  public static final String SERIALIZED_NAME_AIRLINE_TICKET_ISSUE_ADDRESS = "airline.ticket_issue_address";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_TICKET_ISSUE_ADDRESS)
+  public static final String JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS = "airline.ticket_issue_address";
   private String airlineTicketIssueAddress;
 
-  public static final String SERIALIZED_NAME_AIRLINE_TICKET_NUMBER = "airline.ticket_number";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_TICKET_NUMBER)
+  public static final String JSON_PROPERTY_AIRLINE_TICKET_NUMBER = "airline.ticket_number";
   private String airlineTicketNumber;
 
-  public static final String SERIALIZED_NAME_AIRLINE_TRAVEL_AGENCY_CODE = "airline.travel_agency_code";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_TRAVEL_AGENCY_CODE)
+  public static final String JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE = "airline.travel_agency_code";
   private String airlineTravelAgencyCode;
 
-  public static final String SERIALIZED_NAME_AIRLINE_TRAVEL_AGENCY_NAME = "airline.travel_agency_name";
-  @SerializedName(SERIALIZED_NAME_AIRLINE_TRAVEL_AGENCY_NAME)
+  public static final String JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME = "airline.travel_agency_name";
   private String airlineTravelAgencyName;
 
   public AdditionalDataAirline() { 
   }
 
   public AdditionalDataAirline airlineAgencyInvoiceNumber(String airlineAgencyInvoiceNumber) {
-    
     this.airlineAgencyInvoiceNumber = airlineAgencyInvoiceNumber;
     return this;
   }
@@ -176,19 +159,22 @@ public class AdditionalDataAirline {
    * @return airlineAgencyInvoiceNumber
   **/
   @ApiModelProperty(value = "The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_INVOICE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineAgencyInvoiceNumber() {
     return airlineAgencyInvoiceNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_INVOICE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAgencyInvoiceNumber(String airlineAgencyInvoiceNumber) {
     this.airlineAgencyInvoiceNumber = airlineAgencyInvoiceNumber;
   }
 
 
   public AdditionalDataAirline airlineAgencyPlanName(String airlineAgencyPlanName) {
-    
     this.airlineAgencyPlanName = airlineAgencyPlanName;
     return this;
   }
@@ -198,19 +184,22 @@ public class AdditionalDataAirline {
    * @return airlineAgencyPlanName
   **/
   @ApiModelProperty(value = "The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineAgencyPlanName() {
     return airlineAgencyPlanName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAgencyPlanName(String airlineAgencyPlanName) {
     this.airlineAgencyPlanName = airlineAgencyPlanName;
   }
 
 
   public AdditionalDataAirline airlineAirlineCode(String airlineAirlineCode) {
-    
     this.airlineAirlineCode = airlineAirlineCode;
     return this;
   }
@@ -220,19 +209,22 @@ public class AdditionalDataAirline {
    * @return airlineAirlineCode
   **/
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX) that identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM = 074 * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineAirlineCode() {
     return airlineAirlineCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAirlineCode(String airlineAirlineCode) {
     this.airlineAirlineCode = airlineAirlineCode;
   }
 
 
   public AdditionalDataAirline airlineAirlineDesignatorCode(String airlineAirlineDesignatorCode) {
-    
     this.airlineAirlineDesignatorCode = airlineAirlineDesignatorCode;
     return this;
   }
@@ -242,19 +234,22 @@ public class AdditionalDataAirline {
    * @return airlineAirlineDesignatorCode
   **/
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. * Encoding: ASCII * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineAirlineDesignatorCode() {
     return airlineAirlineDesignatorCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAirlineDesignatorCode(String airlineAirlineDesignatorCode) {
     this.airlineAirlineDesignatorCode = airlineAirlineDesignatorCode;
   }
 
 
   public AdditionalDataAirline airlineBoardingFee(String airlineBoardingFee) {
-    
     this.airlineBoardingFee = airlineBoardingFee;
     return this;
   }
@@ -264,19 +259,22 @@ public class AdditionalDataAirline {
    * @return airlineBoardingFee
   **/
   @ApiModelProperty(value = "The amount charged for boarding the plane, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 character * maxLength: 18 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_BOARDING_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineBoardingFee() {
     return airlineBoardingFee;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_BOARDING_FEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineBoardingFee(String airlineBoardingFee) {
     this.airlineBoardingFee = airlineBoardingFee;
   }
 
 
   public AdditionalDataAirline airlineComputerizedReservationSystem(String airlineComputerizedReservationSystem) {
-    
     this.airlineComputerizedReservationSystem = airlineComputerizedReservationSystem;
     return this;
   }
@@ -286,19 +284,22 @@ public class AdditionalDataAirline {
    * @return airlineComputerizedReservationSystem
   **/
   @ApiModelProperty(value = "The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Encoding: ASCII * minLength: 4 characters * maxLength: 4 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineComputerizedReservationSystem() {
     return airlineComputerizedReservationSystem;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineComputerizedReservationSystem(String airlineComputerizedReservationSystem) {
     this.airlineComputerizedReservationSystem = airlineComputerizedReservationSystem;
   }
 
 
   public AdditionalDataAirline airlineCustomerReferenceNumber(String airlineCustomerReferenceNumber) {
-    
     this.airlineCustomerReferenceNumber = airlineCustomerReferenceNumber;
     return this;
   }
@@ -308,19 +309,22 @@ public class AdditionalDataAirline {
    * @return airlineCustomerReferenceNumber
   **/
   @ApiModelProperty(value = "The alphanumeric customer reference number. * Encoding: ASCII * maxLength: 20 characters * If you send more than 20 characters, the customer reference number is truncated * Must not be all spaces")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineCustomerReferenceNumber() {
     return airlineCustomerReferenceNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineCustomerReferenceNumber(String airlineCustomerReferenceNumber) {
     this.airlineCustomerReferenceNumber = airlineCustomerReferenceNumber;
   }
 
 
   public AdditionalDataAirline airlineDocumentType(String airlineDocumentType) {
-    
     this.airlineDocumentType = airlineDocumentType;
     return this;
   }
@@ -330,19 +334,22 @@ public class AdditionalDataAirline {
    * @return airlineDocumentType
   **/
   @ApiModelProperty(value = "A code that identifies the type of item bought. The description of the code can appear on credit card statements. * Encoding: ASCII * Example: Passenger ticket = 01 * minLength: 2 characters * maxLength: 2 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineDocumentType() {
     return airlineDocumentType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineDocumentType(String airlineDocumentType) {
     this.airlineDocumentType = airlineDocumentType;
   }
 
 
   public AdditionalDataAirline airlineFlightDate(String airlineFlightDate) {
-    
     this.airlineFlightDate = airlineFlightDate;
     return this;
   }
@@ -352,19 +359,22 @@ public class AdditionalDataAirline {
    * @return airlineFlightDate
   **/
   @ApiModelProperty(value = "The flight departure date. Local time `(HH:mm)` is optional. * Date format: `yyyy-MM-dd` * Date and time format: `yyyy-MM-dd HH:mm` * minLength: 10 characters * maxLength: 16 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_FLIGHT_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineFlightDate() {
     return airlineFlightDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_FLIGHT_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineFlightDate(String airlineFlightDate) {
     this.airlineFlightDate = airlineFlightDate;
   }
 
 
   public AdditionalDataAirline airlineLegCarrierCode(String airlineLegCarrierCode) {
-    
     this.airlineLegCarrierCode = airlineLegCarrierCode;
     return this;
   }
@@ -374,19 +384,22 @@ public class AdditionalDataAirline {
    * @return airlineLegCarrierCode
   **/
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegCarrierCode() {
     return airlineLegCarrierCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegCarrierCode(String airlineLegCarrierCode) {
     this.airlineLegCarrierCode = airlineLegCarrierCode;
   }
 
 
   public AdditionalDataAirline airlineLegClassOfTravel(String airlineLegClassOfTravel) {
-    
     this.airlineLegClassOfTravel = airlineLegClassOfTravel;
     return this;
   }
@@ -396,19 +409,22 @@ public class AdditionalDataAirline {
    * @return airlineLegClassOfTravel
   **/
   @ApiModelProperty(value = "A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegClassOfTravel() {
     return airlineLegClassOfTravel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegClassOfTravel(String airlineLegClassOfTravel) {
     this.airlineLegClassOfTravel = airlineLegClassOfTravel;
   }
 
 
   public AdditionalDataAirline airlineLegDateOfTravel(String airlineLegDateOfTravel) {
-    
     this.airlineLegDateOfTravel = airlineLegDateOfTravel;
     return this;
   }
@@ -418,19 +434,22 @@ public class AdditionalDataAirline {
    * @return airlineLegDateOfTravel
   **/
   @ApiModelProperty(value = "  Date and time of travel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format `yyyy-MM-dd HH:mm`. * Encoding: ASCII * minLength: 16 characters * maxLength: 16 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegDateOfTravel() {
     return airlineLegDateOfTravel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDateOfTravel(String airlineLegDateOfTravel) {
     this.airlineLegDateOfTravel = airlineLegDateOfTravel;
   }
 
 
   public AdditionalDataAirline airlineLegDepartAirport(String airlineLegDepartAirport) {
-    
     this.airlineLegDepartAirport = airlineLegDepartAirport;
     return this;
   }
@@ -440,19 +459,22 @@ public class AdditionalDataAirline {
    * @return airlineLegDepartAirport
   **/
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam = AMS * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegDepartAirport() {
     return airlineLegDepartAirport;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDepartAirport(String airlineLegDepartAirport) {
     this.airlineLegDepartAirport = airlineLegDepartAirport;
   }
 
 
   public AdditionalDataAirline airlineLegDepartTax(String airlineLegDepartTax) {
-    
     this.airlineLegDepartTax = airlineLegDepartTax;
     return this;
   }
@@ -462,19 +484,22 @@ public class AdditionalDataAirline {
    * @return airlineLegDepartTax
   **/
   @ApiModelProperty(value = "The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 12 * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegDepartTax() {
     return airlineLegDepartTax;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDepartTax(String airlineLegDepartTax) {
     this.airlineLegDepartTax = airlineLegDepartTax;
   }
 
 
   public AdditionalDataAirline airlineLegDestinationCode(String airlineLegDestinationCode) {
-    
     this.airlineLegDestinationCode = airlineLegDestinationCode;
     return this;
   }
@@ -484,19 +509,22 @@ public class AdditionalDataAirline {
    * @return airlineLegDestinationCode
   **/
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam = AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegDestinationCode() {
     return airlineLegDestinationCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDestinationCode(String airlineLegDestinationCode) {
     this.airlineLegDestinationCode = airlineLegDestinationCode;
   }
 
 
   public AdditionalDataAirline airlineLegFareBaseCode(String airlineLegFareBaseCode) {
-    
     this.airlineLegFareBaseCode = airlineLegFareBaseCode;
     return this;
   }
@@ -506,19 +534,22 @@ public class AdditionalDataAirline {
    * @return airlineLegFareBaseCode
   **/
   @ApiModelProperty(value = "The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegFareBaseCode() {
     return airlineLegFareBaseCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegFareBaseCode(String airlineLegFareBaseCode) {
     this.airlineLegFareBaseCode = airlineLegFareBaseCode;
   }
 
 
   public AdditionalDataAirline airlineLegFlightNumber(String airlineLegFlightNumber) {
-    
     this.airlineLegFlightNumber = airlineLegFlightNumber;
     return this;
   }
@@ -528,19 +559,22 @@ public class AdditionalDataAirline {
    * @return airlineLegFlightNumber
   **/
   @ApiModelProperty(value = "The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegFlightNumber() {
     return airlineLegFlightNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegFlightNumber(String airlineLegFlightNumber) {
     this.airlineLegFlightNumber = airlineLegFlightNumber;
   }
 
 
   public AdditionalDataAirline airlineLegStopOverCode(String airlineLegStopOverCode) {
-    
     this.airlineLegStopOverCode = airlineLegStopOverCode;
     return this;
   }
@@ -550,19 +584,22 @@ public class AdditionalDataAirline {
    * @return airlineLegStopOverCode
   **/
   @ApiModelProperty(value = "A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineLegStopOverCode() {
     return airlineLegStopOverCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegStopOverCode(String airlineLegStopOverCode) {
     this.airlineLegStopOverCode = airlineLegStopOverCode;
   }
 
 
   public AdditionalDataAirline airlinePassengerDateOfBirth(String airlinePassengerDateOfBirth) {
-    
     this.airlinePassengerDateOfBirth = airlinePassengerDateOfBirth;
     return this;
   }
@@ -572,19 +609,22 @@ public class AdditionalDataAirline {
    * @return airlinePassengerDateOfBirth
   **/
   @ApiModelProperty(value = "The passenger's date of birth.  Date format: `yyyy-MM-dd` * minLength: 10 * maxLength: 10")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlinePassengerDateOfBirth() {
     return airlinePassengerDateOfBirth;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerDateOfBirth(String airlinePassengerDateOfBirth) {
     this.airlinePassengerDateOfBirth = airlinePassengerDateOfBirth;
   }
 
 
   public AdditionalDataAirline airlinePassengerFirstName(String airlinePassengerFirstName) {
-    
     this.airlinePassengerFirstName = airlinePassengerFirstName;
     return this;
   }
@@ -594,19 +634,22 @@ public class AdditionalDataAirline {
    * @return airlinePassengerFirstName
   **/
   @ApiModelProperty(value = "The passenger's first name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlinePassengerFirstName() {
     return airlinePassengerFirstName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerFirstName(String airlinePassengerFirstName) {
     this.airlinePassengerFirstName = airlinePassengerFirstName;
   }
 
 
   public AdditionalDataAirline airlinePassengerLastName(String airlinePassengerLastName) {
-    
     this.airlinePassengerLastName = airlinePassengerLastName;
     return this;
   }
@@ -616,19 +659,22 @@ public class AdditionalDataAirline {
    * @return airlinePassengerLastName
   **/
   @ApiModelProperty(value = "The passenger's last name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlinePassengerLastName() {
     return airlinePassengerLastName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerLastName(String airlinePassengerLastName) {
     this.airlinePassengerLastName = airlinePassengerLastName;
   }
 
 
   public AdditionalDataAirline airlinePassengerTelephoneNumber(String airlinePassengerTelephoneNumber) {
-    
     this.airlinePassengerTelephoneNumber = airlinePassengerTelephoneNumber;
     return this;
   }
@@ -638,19 +684,22 @@ public class AdditionalDataAirline {
    * @return airlinePassengerTelephoneNumber
   **/
   @ApiModelProperty(value = "The passenger's telephone number, including country code. This is an alphanumeric field that can include the '+' and '-' signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlinePassengerTelephoneNumber() {
     return airlinePassengerTelephoneNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerTelephoneNumber(String airlinePassengerTelephoneNumber) {
     this.airlinePassengerTelephoneNumber = airlinePassengerTelephoneNumber;
   }
 
 
   public AdditionalDataAirline airlinePassengerTravellerType(String airlinePassengerTravellerType) {
-    
     this.airlinePassengerTravellerType = airlinePassengerTravellerType;
     return this;
   }
@@ -660,19 +709,22 @@ public class AdditionalDataAirline {
    * @return airlinePassengerTravellerType
   **/
   @ApiModelProperty(value = "The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlinePassengerTravellerType() {
     return airlinePassengerTravellerType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerTravellerType(String airlinePassengerTravellerType) {
     this.airlinePassengerTravellerType = airlinePassengerTravellerType;
   }
 
 
   public AdditionalDataAirline airlinePassengerName(String airlinePassengerName) {
-    
     this.airlinePassengerName = airlinePassengerName;
     return this;
   }
@@ -682,19 +734,22 @@ public class AdditionalDataAirline {
    * @return airlinePassengerName
   **/
   @ApiModelProperty(required = true, value = "The passenger's name, initials, and title. * Format: last name + first name or initials + title * Example: *FLYER / MARY MS* * minLength: 1 character * maxLength: 20 characters * If you send more than 20 characters, the name is truncated * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlinePassengerName() {
     return airlinePassengerName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerName(String airlinePassengerName) {
     this.airlinePassengerName = airlinePassengerName;
   }
 
 
   public AdditionalDataAirline airlineTicketIssueAddress(String airlineTicketIssueAddress) {
-    
     this.airlineTicketIssueAddress = airlineTicketIssueAddress;
     return this;
   }
@@ -704,19 +759,22 @@ public class AdditionalDataAirline {
    * @return airlineTicketIssueAddress
   **/
   @ApiModelProperty(value = "The address of the organization that issued the ticket. * minLength: 0 characters * maxLength: 16 characters")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineTicketIssueAddress() {
     return airlineTicketIssueAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTicketIssueAddress(String airlineTicketIssueAddress) {
     this.airlineTicketIssueAddress = airlineTicketIssueAddress;
   }
 
 
   public AdditionalDataAirline airlineTicketNumber(String airlineTicketNumber) {
-    
     this.airlineTicketNumber = airlineTicketNumber;
     return this;
   }
@@ -726,19 +784,22 @@ public class AdditionalDataAirline {
    * @return airlineTicketNumber
   **/
   @ApiModelProperty(value = "The ticket's unique identifier. * minLength: 1 character * maxLength: 15 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineTicketNumber() {
     return airlineTicketNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTicketNumber(String airlineTicketNumber) {
     this.airlineTicketNumber = airlineTicketNumber;
   }
 
 
   public AdditionalDataAirline airlineTravelAgencyCode(String airlineTravelAgencyCode) {
-    
     this.airlineTravelAgencyCode = airlineTravelAgencyCode;
     return this;
   }
@@ -748,19 +809,22 @@ public class AdditionalDataAirline {
    * @return airlineTravelAgencyCode
   **/
   @ApiModelProperty(value = "The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineTravelAgencyCode() {
     return airlineTravelAgencyCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTravelAgencyCode(String airlineTravelAgencyCode) {
     this.airlineTravelAgencyCode = airlineTravelAgencyCode;
   }
 
 
   public AdditionalDataAirline airlineTravelAgencyName(String airlineTravelAgencyName) {
-    
     this.airlineTravelAgencyName = airlineTravelAgencyName;
     return this;
   }
@@ -770,18 +834,24 @@ public class AdditionalDataAirline {
    * @return airlineTravelAgencyName
   **/
   @ApiModelProperty(value = "The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not be all spaces * Must not be all zeros")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAirlineTravelAgencyName() {
     return airlineTravelAgencyName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTravelAgencyName(String airlineTravelAgencyName) {
     this.airlineTravelAgencyName = airlineTravelAgencyName;
   }
 
 
-
+  /**
+   * Return true if this AdditionalDataAirline object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -873,241 +943,23 @@ public class AdditionalDataAirline {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("airline.agency_invoice_number");
-    openapiFields.add("airline.agency_plan_name");
-    openapiFields.add("airline.airline_code");
-    openapiFields.add("airline.airline_designator_code");
-    openapiFields.add("airline.boarding_fee");
-    openapiFields.add("airline.computerized_reservation_system");
-    openapiFields.add("airline.customer_reference_number");
-    openapiFields.add("airline.document_type");
-    openapiFields.add("airline.flight_date");
-    openapiFields.add("airline.leg.carrier_code");
-    openapiFields.add("airline.leg.class_of_travel");
-    openapiFields.add("airline.leg.date_of_travel");
-    openapiFields.add("airline.leg.depart_airport");
-    openapiFields.add("airline.leg.depart_tax");
-    openapiFields.add("airline.leg.destination_code");
-    openapiFields.add("airline.leg.fare_base_code");
-    openapiFields.add("airline.leg.flight_number");
-    openapiFields.add("airline.leg.stop_over_code");
-    openapiFields.add("airline.passenger.date_of_birth");
-    openapiFields.add("airline.passenger.first_name");
-    openapiFields.add("airline.passenger.last_name");
-    openapiFields.add("airline.passenger.telephone_number");
-    openapiFields.add("airline.passenger.traveller_type");
-    openapiFields.add("airline.passenger_name");
-    openapiFields.add("airline.ticket_issue_address");
-    openapiFields.add("airline.ticket_number");
-    openapiFields.add("airline.travel_agency_code");
-    openapiFields.add("airline.travel_agency_name");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("airline.passenger_name");
+/**
+   * Create an instance of AdditionalDataAirline given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AdditionalDataAirline
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AdditionalDataAirline
+   */
+  public static AdditionalDataAirline fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AdditionalDataAirline.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AdditionalDataAirline.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AdditionalDataAirline
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AdditionalDataAirline.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataAirline is not found in the empty JSON string", AdditionalDataAirline.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AdditionalDataAirline.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataAirline` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AdditionalDataAirline.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field airline.agency_invoice_number
-      if (jsonObj.get("airline.agency_invoice_number") != null && !jsonObj.get("airline.agency_invoice_number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.agency_invoice_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.agency_invoice_number").toString()));
-      }
-      // validate the optional field airline.agency_plan_name
-      if (jsonObj.get("airline.agency_plan_name") != null && !jsonObj.get("airline.agency_plan_name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.agency_plan_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.agency_plan_name").toString()));
-      }
-      // validate the optional field airline.airline_code
-      if (jsonObj.get("airline.airline_code") != null && !jsonObj.get("airline.airline_code").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.airline_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.airline_code").toString()));
-      }
-      // validate the optional field airline.airline_designator_code
-      if (jsonObj.get("airline.airline_designator_code") != null && !jsonObj.get("airline.airline_designator_code").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.airline_designator_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.airline_designator_code").toString()));
-      }
-      // validate the optional field airline.boarding_fee
-      if (jsonObj.get("airline.boarding_fee") != null && !jsonObj.get("airline.boarding_fee").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.boarding_fee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.boarding_fee").toString()));
-      }
-      // validate the optional field airline.computerized_reservation_system
-      if (jsonObj.get("airline.computerized_reservation_system") != null && !jsonObj.get("airline.computerized_reservation_system").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.computerized_reservation_system` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.computerized_reservation_system").toString()));
-      }
-      // validate the optional field airline.customer_reference_number
-      if (jsonObj.get("airline.customer_reference_number") != null && !jsonObj.get("airline.customer_reference_number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.customer_reference_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.customer_reference_number").toString()));
-      }
-      // validate the optional field airline.document_type
-      if (jsonObj.get("airline.document_type") != null && !jsonObj.get("airline.document_type").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.document_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.document_type").toString()));
-      }
-      // validate the optional field airline.flight_date
-      if (jsonObj.get("airline.flight_date") != null && !jsonObj.get("airline.flight_date").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.flight_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.flight_date").toString()));
-      }
-      // validate the optional field airline.leg.carrier_code
-      if (jsonObj.get("airline.leg.carrier_code") != null && !jsonObj.get("airline.leg.carrier_code").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.carrier_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.carrier_code").toString()));
-      }
-      // validate the optional field airline.leg.class_of_travel
-      if (jsonObj.get("airline.leg.class_of_travel") != null && !jsonObj.get("airline.leg.class_of_travel").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.class_of_travel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.class_of_travel").toString()));
-      }
-      // validate the optional field airline.leg.date_of_travel
-      if (jsonObj.get("airline.leg.date_of_travel") != null && !jsonObj.get("airline.leg.date_of_travel").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.date_of_travel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.date_of_travel").toString()));
-      }
-      // validate the optional field airline.leg.depart_airport
-      if (jsonObj.get("airline.leg.depart_airport") != null && !jsonObj.get("airline.leg.depart_airport").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.depart_airport` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.depart_airport").toString()));
-      }
-      // validate the optional field airline.leg.depart_tax
-      if (jsonObj.get("airline.leg.depart_tax") != null && !jsonObj.get("airline.leg.depart_tax").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.depart_tax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.depart_tax").toString()));
-      }
-      // validate the optional field airline.leg.destination_code
-      if (jsonObj.get("airline.leg.destination_code") != null && !jsonObj.get("airline.leg.destination_code").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.destination_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.destination_code").toString()));
-      }
-      // validate the optional field airline.leg.fare_base_code
-      if (jsonObj.get("airline.leg.fare_base_code") != null && !jsonObj.get("airline.leg.fare_base_code").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.fare_base_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.fare_base_code").toString()));
-      }
-      // validate the optional field airline.leg.flight_number
-      if (jsonObj.get("airline.leg.flight_number") != null && !jsonObj.get("airline.leg.flight_number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.flight_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.flight_number").toString()));
-      }
-      // validate the optional field airline.leg.stop_over_code
-      if (jsonObj.get("airline.leg.stop_over_code") != null && !jsonObj.get("airline.leg.stop_over_code").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.leg.stop_over_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.stop_over_code").toString()));
-      }
-      // validate the optional field airline.passenger.date_of_birth
-      if (jsonObj.get("airline.passenger.date_of_birth") != null && !jsonObj.get("airline.passenger.date_of_birth").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.passenger.date_of_birth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.date_of_birth").toString()));
-      }
-      // validate the optional field airline.passenger.first_name
-      if (jsonObj.get("airline.passenger.first_name") != null && !jsonObj.get("airline.passenger.first_name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.passenger.first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.first_name").toString()));
-      }
-      // validate the optional field airline.passenger.last_name
-      if (jsonObj.get("airline.passenger.last_name") != null && !jsonObj.get("airline.passenger.last_name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.passenger.last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.last_name").toString()));
-      }
-      // validate the optional field airline.passenger.telephone_number
-      if (jsonObj.get("airline.passenger.telephone_number") != null && !jsonObj.get("airline.passenger.telephone_number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.passenger.telephone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.telephone_number").toString()));
-      }
-      // validate the optional field airline.passenger.traveller_type
-      if (jsonObj.get("airline.passenger.traveller_type") != null && !jsonObj.get("airline.passenger.traveller_type").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.passenger.traveller_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.traveller_type").toString()));
-      }
-      // validate the optional field airline.passenger_name
-      if (jsonObj.get("airline.passenger_name") != null && !jsonObj.get("airline.passenger_name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.passenger_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger_name").toString()));
-      }
-      // validate the optional field airline.ticket_issue_address
-      if (jsonObj.get("airline.ticket_issue_address") != null && !jsonObj.get("airline.ticket_issue_address").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.ticket_issue_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.ticket_issue_address").toString()));
-      }
-      // validate the optional field airline.ticket_number
-      if (jsonObj.get("airline.ticket_number") != null && !jsonObj.get("airline.ticket_number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.ticket_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.ticket_number").toString()));
-      }
-      // validate the optional field airline.travel_agency_code
-      if (jsonObj.get("airline.travel_agency_code") != null && !jsonObj.get("airline.travel_agency_code").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.travel_agency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.travel_agency_code").toString()));
-      }
-      // validate the optional field airline.travel_agency_name
-      if (jsonObj.get("airline.travel_agency_name") != null && !jsonObj.get("airline.travel_agency_name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `airline.travel_agency_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.travel_agency_name").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AdditionalDataAirline.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AdditionalDataAirline' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AdditionalDataAirline> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AdditionalDataAirline.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AdditionalDataAirline>() {
-           @Override
-           public void write(JsonWriter out, AdditionalDataAirline value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AdditionalDataAirline read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AdditionalDataAirline given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AdditionalDataAirline
-  * @throws IOException if the JSON string is invalid with respect to AdditionalDataAirline
-  */
-  public static AdditionalDataAirline fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AdditionalDataAirline.class);
-  }
-
- /**
+/**
   * Convert an instance of AdditionalDataAirline to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
