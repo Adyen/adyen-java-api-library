@@ -14,56 +14,75 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.AcctInfo;
 import com.adyen.model.checkout.DeviceRenderOptions;
 import com.adyen.model.checkout.Phone;
 import com.adyen.model.checkout.SDKEphemPubKey;
 import com.adyen.model.checkout.ThreeDSRequestorAuthenticationInfo;
 import com.adyen.model.checkout.ThreeDSRequestorPriorAuthenticationInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ThreeDS2RequestData2
  */
+@JsonPropertyOrder({
+  ThreeDS2RequestData2.JSON_PROPERTY_ACCT_INFO,
+  ThreeDS2RequestData2.JSON_PROPERTY_ACCT_TYPE,
+  ThreeDS2RequestData2.JSON_PROPERTY_ACQUIRER_B_I_N,
+  ThreeDS2RequestData2.JSON_PROPERTY_ACQUIRER_MERCHANT_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_ADDR_MATCH,
+  ThreeDS2RequestData2.JSON_PROPERTY_AUTHENTICATION_ONLY,
+  ThreeDS2RequestData2.JSON_PROPERTY_CHALLENGE_INDICATOR,
+  ThreeDS2RequestData2.JSON_PROPERTY_DEVICE_RENDER_OPTIONS,
+  ThreeDS2RequestData2.JSON_PROPERTY_HOME_PHONE,
+  ThreeDS2RequestData2.JSON_PROPERTY_MCC,
+  ThreeDS2RequestData2.JSON_PROPERTY_MERCHANT_NAME,
+  ThreeDS2RequestData2.JSON_PROPERTY_MESSAGE_VERSION,
+  ThreeDS2RequestData2.JSON_PROPERTY_MOBILE_PHONE,
+  ThreeDS2RequestData2.JSON_PROPERTY_NOTIFICATION_U_R_L,
+  ThreeDS2RequestData2.JSON_PROPERTY_PAY_TOKEN_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE,
+  ThreeDS2RequestData2.JSON_PROPERTY_PURCHASE_INSTAL_DATA,
+  ThreeDS2RequestData2.JSON_PROPERTY_RECURRING_EXPIRY,
+  ThreeDS2RequestData2.JSON_PROPERTY_RECURRING_FREQUENCY,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_APP_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_EPHEM_PUB_KEY,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_MAX_TIMEOUT,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_REFERENCE_NUMBER,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_TRANS_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_COMP_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L,
+  ThreeDS2RequestData2.JSON_PROPERTY_TRANS_TYPE,
+  ThreeDS2RequestData2.JSON_PROPERTY_TRANSACTION_TYPE,
+  ThreeDS2RequestData2.JSON_PROPERTY_WHITE_LIST_STATUS,
+  ThreeDS2RequestData2.JSON_PROPERTY_WORK_PHONE
+})
+@JsonTypeName("ThreeDS2RequestData-2")
 
 public class ThreeDS2RequestData2 {
-  public static final String SERIALIZED_NAME_ACCT_INFO = "acctInfo";
-  @SerializedName(SERIALIZED_NAME_ACCT_INFO)
+  public static final String JSON_PROPERTY_ACCT_INFO = "acctInfo";
   private AcctInfo acctInfo;
 
   /**
    * Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
    */
-  @JsonAdapter(AcctTypeEnum.Adapter.class)
   public enum AcctTypeEnum {
     _01("01"),
     
@@ -77,6 +96,7 @@ public class ThreeDS2RequestData2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -86,6 +106,7 @@ public class ThreeDS2RequestData2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static AcctTypeEnum fromValue(String value) {
       for (AcctTypeEnum b : AcctTypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -94,37 +115,20 @@ public class ThreeDS2RequestData2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<AcctTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AcctTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AcctTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return AcctTypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_ACCT_TYPE = "acctType";
-  @SerializedName(SERIALIZED_NAME_ACCT_TYPE)
+  public static final String JSON_PROPERTY_ACCT_TYPE = "acctType";
   private AcctTypeEnum acctType;
 
-  public static final String SERIALIZED_NAME_ACQUIRER_B_I_N = "acquirerBIN";
-  @SerializedName(SERIALIZED_NAME_ACQUIRER_B_I_N)
+  public static final String JSON_PROPERTY_ACQUIRER_B_I_N = "acquirerBIN";
   private String acquirerBIN;
 
-  public static final String SERIALIZED_NAME_ACQUIRER_MERCHANT_I_D = "acquirerMerchantID";
-  @SerializedName(SERIALIZED_NAME_ACQUIRER_MERCHANT_I_D)
+  public static final String JSON_PROPERTY_ACQUIRER_MERCHANT_I_D = "acquirerMerchantID";
   private String acquirerMerchantID;
 
   /**
    * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
    */
-  @JsonAdapter(AddrMatchEnum.Adapter.class)
   public enum AddrMatchEnum {
     Y("Y"),
     
@@ -136,6 +140,7 @@ public class ThreeDS2RequestData2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -145,6 +150,7 @@ public class ThreeDS2RequestData2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static AddrMatchEnum fromValue(String value) {
       for (AddrMatchEnum b : AddrMatchEnum.values()) {
         if (b.value.equals(value)) {
@@ -153,34 +159,17 @@ public class ThreeDS2RequestData2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<AddrMatchEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AddrMatchEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AddrMatchEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return AddrMatchEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_ADDR_MATCH = "addrMatch";
-  @SerializedName(SERIALIZED_NAME_ADDR_MATCH)
+  public static final String JSON_PROPERTY_ADDR_MATCH = "addrMatch";
   private AddrMatchEnum addrMatch;
 
-  public static final String SERIALIZED_NAME_AUTHENTICATION_ONLY = "authenticationOnly";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_ONLY)
+  public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
   private Boolean authenticationOnly = false;
 
   /**
    * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
    */
-  @JsonAdapter(ChallengeIndicatorEnum.Adapter.class)
   public enum ChallengeIndicatorEnum {
     NOPREFERENCE("noPreference"),
     
@@ -196,6 +185,7 @@ public class ThreeDS2RequestData2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -205,6 +195,7 @@ public class ThreeDS2RequestData2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ChallengeIndicatorEnum fromValue(String value) {
       for (ChallengeIndicatorEnum b : ChallengeIndicatorEnum.values()) {
         if (b.value.equals(value)) {
@@ -213,110 +204,74 @@ public class ThreeDS2RequestData2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ChallengeIndicatorEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ChallengeIndicatorEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ChallengeIndicatorEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ChallengeIndicatorEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_CHALLENGE_INDICATOR = "challengeIndicator";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_CHALLENGE_INDICATOR)
+  public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
   private ChallengeIndicatorEnum challengeIndicator;
 
-  public static final String SERIALIZED_NAME_DEVICE_RENDER_OPTIONS = "deviceRenderOptions";
-  @SerializedName(SERIALIZED_NAME_DEVICE_RENDER_OPTIONS)
+  public static final String JSON_PROPERTY_DEVICE_RENDER_OPTIONS = "deviceRenderOptions";
   private DeviceRenderOptions deviceRenderOptions;
 
-  public static final String SERIALIZED_NAME_HOME_PHONE = "homePhone";
-  @SerializedName(SERIALIZED_NAME_HOME_PHONE)
+  public static final String JSON_PROPERTY_HOME_PHONE = "homePhone";
   private Phone homePhone;
 
-  public static final String SERIALIZED_NAME_MCC = "mcc";
-  @SerializedName(SERIALIZED_NAME_MCC)
+  public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
 
-  public static final String SERIALIZED_NAME_MERCHANT_NAME = "merchantName";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_NAME)
+  public static final String JSON_PROPERTY_MERCHANT_NAME = "merchantName";
   private String merchantName;
 
-  public static final String SERIALIZED_NAME_MESSAGE_VERSION = "messageVersion";
-  @SerializedName(SERIALIZED_NAME_MESSAGE_VERSION)
+  public static final String JSON_PROPERTY_MESSAGE_VERSION = "messageVersion";
   private String messageVersion;
 
-  public static final String SERIALIZED_NAME_MOBILE_PHONE = "mobilePhone";
-  @SerializedName(SERIALIZED_NAME_MOBILE_PHONE)
+  public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
   private Phone mobilePhone;
 
-  public static final String SERIALIZED_NAME_NOTIFICATION_U_R_L = "notificationURL";
-  @SerializedName(SERIALIZED_NAME_NOTIFICATION_U_R_L)
+  public static final String JSON_PROPERTY_NOTIFICATION_U_R_L = "notificationURL";
   private String notificationURL;
 
-  public static final String SERIALIZED_NAME_PAY_TOKEN_IND = "payTokenInd";
-  @SerializedName(SERIALIZED_NAME_PAY_TOKEN_IND)
+  public static final String JSON_PROPERTY_PAY_TOKEN_IND = "payTokenInd";
   private Boolean payTokenInd;
 
-  public static final String SERIALIZED_NAME_PAYMENT_AUTHENTICATION_USE_CASE = "paymentAuthenticationUseCase";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_AUTHENTICATION_USE_CASE)
+  public static final String JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE = "paymentAuthenticationUseCase";
   private String paymentAuthenticationUseCase;
 
-  public static final String SERIALIZED_NAME_PURCHASE_INSTAL_DATA = "purchaseInstalData";
-  @SerializedName(SERIALIZED_NAME_PURCHASE_INSTAL_DATA)
+  public static final String JSON_PROPERTY_PURCHASE_INSTAL_DATA = "purchaseInstalData";
   private String purchaseInstalData;
 
-  public static final String SERIALIZED_NAME_RECURRING_EXPIRY = "recurringExpiry";
-  @SerializedName(SERIALIZED_NAME_RECURRING_EXPIRY)
+  public static final String JSON_PROPERTY_RECURRING_EXPIRY = "recurringExpiry";
   private String recurringExpiry;
 
-  public static final String SERIALIZED_NAME_RECURRING_FREQUENCY = "recurringFrequency";
-  @SerializedName(SERIALIZED_NAME_RECURRING_FREQUENCY)
+  public static final String JSON_PROPERTY_RECURRING_FREQUENCY = "recurringFrequency";
   private String recurringFrequency;
 
-  public static final String SERIALIZED_NAME_SDK_APP_I_D = "sdkAppID";
-  @SerializedName(SERIALIZED_NAME_SDK_APP_I_D)
+  public static final String JSON_PROPERTY_SDK_APP_I_D = "sdkAppID";
   private String sdkAppID;
 
-  public static final String SERIALIZED_NAME_SDK_EPHEM_PUB_KEY = "sdkEphemPubKey";
-  @SerializedName(SERIALIZED_NAME_SDK_EPHEM_PUB_KEY)
+  public static final String JSON_PROPERTY_SDK_EPHEM_PUB_KEY = "sdkEphemPubKey";
   private SDKEphemPubKey sdkEphemPubKey;
 
-  public static final String SERIALIZED_NAME_SDK_MAX_TIMEOUT = "sdkMaxTimeout";
-  @SerializedName(SERIALIZED_NAME_SDK_MAX_TIMEOUT)
+  public static final String JSON_PROPERTY_SDK_MAX_TIMEOUT = "sdkMaxTimeout";
   private Integer sdkMaxTimeout = 60;
 
-  public static final String SERIALIZED_NAME_SDK_REFERENCE_NUMBER = "sdkReferenceNumber";
-  @SerializedName(SERIALIZED_NAME_SDK_REFERENCE_NUMBER)
+  public static final String JSON_PROPERTY_SDK_REFERENCE_NUMBER = "sdkReferenceNumber";
   private String sdkReferenceNumber;
 
-  public static final String SERIALIZED_NAME_SDK_TRANS_I_D = "sdkTransID";
-  @SerializedName(SERIALIZED_NAME_SDK_TRANS_I_D)
+  public static final String JSON_PROPERTY_SDK_TRANS_I_D = "sdkTransID";
   private String sdkTransID;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_COMP_IND = "threeDSCompInd";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_COMP_IND)
+  public static final String JSON_PROPERTY_THREE_D_S_COMP_IND = "threeDSCompInd";
   private String threeDSCompInd;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_REQUESTOR_AUTHENTICATION_IND = "threeDSRequestorAuthenticationInd";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_REQUESTOR_AUTHENTICATION_IND)
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND = "threeDSRequestorAuthenticationInd";
   private String threeDSRequestorAuthenticationInd;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO = "threeDSRequestorAuthenticationInfo";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO)
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO = "threeDSRequestorAuthenticationInfo";
   private ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo;
 
   /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    */
-  @JsonAdapter(ThreeDSRequestorChallengeIndEnum.Adapter.class)
   public enum ThreeDSRequestorChallengeIndEnum {
     _01("01"),
     
@@ -336,6 +291,7 @@ public class ThreeDS2RequestData2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -345,6 +301,7 @@ public class ThreeDS2RequestData2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ThreeDSRequestorChallengeIndEnum fromValue(String value) {
       for (ThreeDSRequestorChallengeIndEnum b : ThreeDSRequestorChallengeIndEnum.values()) {
         if (b.value.equals(value)) {
@@ -353,45 +310,26 @@ public class ThreeDS2RequestData2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ThreeDSRequestorChallengeIndEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ThreeDSRequestorChallengeIndEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ThreeDSRequestorChallengeIndEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ThreeDSRequestorChallengeIndEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_THREE_D_S_REQUESTOR_CHALLENGE_IND = "threeDSRequestorChallengeInd";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_REQUESTOR_CHALLENGE_IND)
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND = "threeDSRequestorChallengeInd";
   private ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_REQUESTOR_I_D = "threeDSRequestorID";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_REQUESTOR_I_D)
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D = "threeDSRequestorID";
   private String threeDSRequestorID;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_REQUESTOR_NAME = "threeDSRequestorName";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_REQUESTOR_NAME)
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME = "threeDSRequestorName";
   private String threeDSRequestorName;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO = "threeDSRequestorPriorAuthenticationInfo";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO)
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO = "threeDSRequestorPriorAuthenticationInfo";
   private ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_REQUESTOR_U_R_L = "threeDSRequestorURL";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_REQUESTOR_U_R_L)
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L = "threeDSRequestorURL";
   private String threeDSRequestorURL;
 
   /**
    * Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
    */
-  @JsonAdapter(TransTypeEnum.Adapter.class)
   public enum TransTypeEnum {
     _01("01"),
     
@@ -409,6 +347,7 @@ public class ThreeDS2RequestData2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -418,6 +357,7 @@ public class ThreeDS2RequestData2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TransTypeEnum fromValue(String value) {
       for (TransTypeEnum b : TransTypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -426,29 +366,14 @@ public class ThreeDS2RequestData2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TransTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TransTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TransTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TransTypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TRANS_TYPE = "transType";
-  @SerializedName(SERIALIZED_NAME_TRANS_TYPE)
+  public static final String JSON_PROPERTY_TRANS_TYPE = "transType";
   private TransTypeEnum transType;
 
   /**
    * Identify the type of the transaction being authenticated.
    */
-  @JsonAdapter(TransactionTypeEnum.Adapter.class)
   public enum TransactionTypeEnum {
     GOODSORSERVICEPURCHASE("goodsOrServicePurchase"),
     
@@ -466,6 +391,7 @@ public class ThreeDS2RequestData2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -475,6 +401,7 @@ public class ThreeDS2RequestData2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TransactionTypeEnum fromValue(String value) {
       for (TransactionTypeEnum b : TransactionTypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -483,38 +410,21 @@ public class ThreeDS2RequestData2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TransactionTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TransactionTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TransactionTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TransactionTypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TRANSACTION_TYPE = "transactionType";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_TYPE)
+  public static final String JSON_PROPERTY_TRANSACTION_TYPE = "transactionType";
   private TransactionTypeEnum transactionType;
 
-  public static final String SERIALIZED_NAME_WHITE_LIST_STATUS = "whiteListStatus";
-  @SerializedName(SERIALIZED_NAME_WHITE_LIST_STATUS)
+  public static final String JSON_PROPERTY_WHITE_LIST_STATUS = "whiteListStatus";
   private String whiteListStatus;
 
-  public static final String SERIALIZED_NAME_WORK_PHONE = "workPhone";
-  @SerializedName(SERIALIZED_NAME_WORK_PHONE)
+  public static final String JSON_PROPERTY_WORK_PHONE = "workPhone";
   private Phone workPhone;
 
   public ThreeDS2RequestData2() { 
   }
 
   public ThreeDS2RequestData2 acctInfo(AcctInfo acctInfo) {
-    
     this.acctInfo = acctInfo;
     return this;
   }
@@ -524,19 +434,22 @@ public class ThreeDS2RequestData2 {
    * @return acctInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCT_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AcctInfo getAcctInfo() {
     return acctInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCT_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcctInfo(AcctInfo acctInfo) {
     this.acctInfo = acctInfo;
   }
 
 
   public ThreeDS2RequestData2 acctType(AcctTypeEnum acctType) {
-    
     this.acctType = acctType;
     return this;
   }
@@ -546,19 +459,22 @@ public class ThreeDS2RequestData2 {
    * @return acctType
   **/
   @ApiModelProperty(value = "Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit")
+  @JsonProperty(JSON_PROPERTY_ACCT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AcctTypeEnum getAcctType() {
     return acctType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcctType(AcctTypeEnum acctType) {
     this.acctType = acctType;
   }
 
 
   public ThreeDS2RequestData2 acquirerBIN(String acquirerBIN) {
-    
     this.acquirerBIN = acquirerBIN;
     return this;
   }
@@ -568,19 +484,22 @@ public class ThreeDS2RequestData2 {
    * @return acquirerBIN
   **/
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.")
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_B_I_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcquirerBIN() {
     return acquirerBIN;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_B_I_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerBIN(String acquirerBIN) {
     this.acquirerBIN = acquirerBIN;
   }
 
 
   public ThreeDS2RequestData2 acquirerMerchantID(String acquirerMerchantID) {
-    
     this.acquirerMerchantID = acquirerMerchantID;
     return this;
   }
@@ -590,19 +509,22 @@ public class ThreeDS2RequestData2 {
    * @return acquirerMerchantID
   **/
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant's acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.")
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_MERCHANT_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcquirerMerchantID() {
     return acquirerMerchantID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_MERCHANT_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerMerchantID(String acquirerMerchantID) {
     this.acquirerMerchantID = acquirerMerchantID;
   }
 
 
   public ThreeDS2RequestData2 addrMatch(AddrMatchEnum addrMatch) {
-    
     this.addrMatch = addrMatch;
     return this;
   }
@@ -612,20 +534,22 @@ public class ThreeDS2RequestData2 {
    * @return addrMatch
   **/
   @ApiModelProperty(value = "Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.")
+  @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AddrMatchEnum getAddrMatch() {
     return addrMatch;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddrMatch(AddrMatchEnum addrMatch) {
     this.addrMatch = addrMatch;
   }
 
 
-  @Deprecated
   public ThreeDS2RequestData2 authenticationOnly(Boolean authenticationOnly) {
-    
     this.authenticationOnly = authenticationOnly;
     return this;
   }
@@ -637,6 +561,8 @@ public class ThreeDS2RequestData2 {
   **/
   @Deprecated
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAuthenticationOnly() {
     return authenticationOnly;
@@ -644,14 +570,14 @@ public class ThreeDS2RequestData2 {
 
 
   @Deprecated
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
   }
 
 
-  @Deprecated
   public ThreeDS2RequestData2 challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
-    
     this.challengeIndicator = challengeIndicator;
     return this;
   }
@@ -663,6 +589,8 @@ public class ThreeDS2RequestData2 {
   **/
   @Deprecated
   @ApiModelProperty(value = "Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * `noPreference` * `requestNoChallenge` * `requestChallenge` * `requestChallengeAsMandate` ")
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ChallengeIndicatorEnum getChallengeIndicator() {
     return challengeIndicator;
@@ -670,13 +598,14 @@ public class ThreeDS2RequestData2 {
 
 
   @Deprecated
+  @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
   }
 
 
   public ThreeDS2RequestData2 deviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
-    
     this.deviceRenderOptions = deviceRenderOptions;
     return this;
   }
@@ -686,19 +615,22 @@ public class ThreeDS2RequestData2 {
    * @return deviceRenderOptions
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DEVICE_RENDER_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DeviceRenderOptions getDeviceRenderOptions() {
     return deviceRenderOptions;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DEVICE_RENDER_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
     this.deviceRenderOptions = deviceRenderOptions;
   }
 
 
   public ThreeDS2RequestData2 homePhone(Phone homePhone) {
-    
     this.homePhone = homePhone;
     return this;
   }
@@ -708,19 +640,22 @@ public class ThreeDS2RequestData2 {
    * @return homePhone
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HOME_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Phone getHomePhone() {
     return homePhone;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HOME_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(Phone homePhone) {
     this.homePhone = homePhone;
   }
 
 
   public ThreeDS2RequestData2 mcc(String mcc) {
-    
     this.mcc = mcc;
     return this;
   }
@@ -730,19 +665,22 @@ public class ThreeDS2RequestData2 {
    * @return mcc
   **/
   @ApiModelProperty(value = "Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The `mcc` is a four-digit code with which the previously given `acquirerMerchantID` is registered at the scheme.")
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMcc() {
     return mcc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
 
   public ThreeDS2RequestData2 merchantName(String merchantName) {
-    
     this.merchantName = merchantName;
     return this;
   }
@@ -752,19 +690,22 @@ public class ThreeDS2RequestData2 {
    * @return merchantName
   **/
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. > Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantName() {
     return merchantName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
   }
 
 
   public ThreeDS2RequestData2 messageVersion(String messageVersion) {
-    
     this.messageVersion = messageVersion;
     return this;
   }
@@ -774,19 +715,22 @@ public class ThreeDS2RequestData2 {
    * @return messageVersion
   **/
   @ApiModelProperty(value = "The `messageVersion` value indicating the 3D Secure 2 protocol version.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessageVersion() {
     return messageVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
   }
 
 
   public ThreeDS2RequestData2 mobilePhone(Phone mobilePhone) {
-    
     this.mobilePhone = mobilePhone;
     return this;
   }
@@ -796,19 +740,22 @@ public class ThreeDS2RequestData2 {
    * @return mobilePhone
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Phone getMobilePhone() {
     return mobilePhone;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
   }
 
 
   public ThreeDS2RequestData2 notificationURL(String notificationURL) {
-    
     this.notificationURL = notificationURL;
     return this;
   }
@@ -818,19 +765,22 @@ public class ThreeDS2RequestData2 {
    * @return notificationURL
   **/
   @ApiModelProperty(value = "URL to where the issuer should send the `CRes`. Required if you are not using components for `channel` **Web** or if you are using classic integration `deviceChannel` **browser**.")
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNotificationURL() {
     return notificationURL;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotificationURL(String notificationURL) {
     this.notificationURL = notificationURL;
   }
 
 
   public ThreeDS2RequestData2 payTokenInd(Boolean payTokenInd) {
-    
     this.payTokenInd = payTokenInd;
     return this;
   }
@@ -840,19 +790,22 @@ public class ThreeDS2RequestData2 {
    * @return payTokenInd
   **/
   @ApiModelProperty(value = "Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.")
+  @JsonProperty(JSON_PROPERTY_PAY_TOKEN_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPayTokenInd() {
     return payTokenInd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAY_TOKEN_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayTokenInd(Boolean payTokenInd) {
     this.payTokenInd = payTokenInd;
   }
 
 
   public ThreeDS2RequestData2 paymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
-    
     this.paymentAuthenticationUseCase = paymentAuthenticationUseCase;
     return this;
   }
@@ -862,19 +815,22 @@ public class ThreeDS2RequestData2 {
    * @return paymentAuthenticationUseCase
   **/
   @ApiModelProperty(value = "Indicates the type of payment for which an authentication is requested (message extension)")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentAuthenticationUseCase() {
     return paymentAuthenticationUseCase;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
     this.paymentAuthenticationUseCase = paymentAuthenticationUseCase;
   }
 
 
   public ThreeDS2RequestData2 purchaseInstalData(String purchaseInstalData) {
-    
     this.purchaseInstalData = purchaseInstalData;
     return this;
   }
@@ -884,19 +840,22 @@ public class ThreeDS2RequestData2 {
    * @return purchaseInstalData
   **/
   @ApiModelProperty(value = "Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.")
+  @JsonProperty(JSON_PROPERTY_PURCHASE_INSTAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPurchaseInstalData() {
     return purchaseInstalData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PURCHASE_INSTAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchaseInstalData(String purchaseInstalData) {
     this.purchaseInstalData = purchaseInstalData;
   }
 
 
   public ThreeDS2RequestData2 recurringExpiry(String recurringExpiry) {
-    
     this.recurringExpiry = recurringExpiry;
     return this;
   }
@@ -906,19 +865,22 @@ public class ThreeDS2RequestData2 {
    * @return recurringExpiry
   **/
   @ApiModelProperty(value = "Date after which no further authorisations shall be performed. Format: YYYYMMDD")
+  @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringExpiry() {
     return recurringExpiry;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringExpiry(String recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
   }
 
 
   public ThreeDS2RequestData2 recurringFrequency(String recurringFrequency) {
-    
     this.recurringFrequency = recurringFrequency;
     return this;
   }
@@ -928,19 +890,22 @@ public class ThreeDS2RequestData2 {
    * @return recurringFrequency
   **/
   @ApiModelProperty(value = "Indicates the minimum number of days between authorisations. Maximum length: 4 characters.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringFrequency() {
     return recurringFrequency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
   }
 
 
   public ThreeDS2RequestData2 sdkAppID(String sdkAppID) {
-    
     this.sdkAppID = sdkAppID;
     return this;
   }
@@ -950,19 +915,22 @@ public class ThreeDS2RequestData2 {
    * @return sdkAppID
   **/
   @ApiModelProperty(value = "The `sdkAppID` value as received from the 3D Secure 2 SDK.")
+  @JsonProperty(JSON_PROPERTY_SDK_APP_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSdkAppID() {
     return sdkAppID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SDK_APP_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkAppID(String sdkAppID) {
     this.sdkAppID = sdkAppID;
   }
 
 
   public ThreeDS2RequestData2 sdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
-    
     this.sdkEphemPubKey = sdkEphemPubKey;
     return this;
   }
@@ -972,19 +940,22 @@ public class ThreeDS2RequestData2 {
    * @return sdkEphemPubKey
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SDKEphemPubKey getSdkEphemPubKey() {
     return sdkEphemPubKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
     this.sdkEphemPubKey = sdkEphemPubKey;
   }
 
 
   public ThreeDS2RequestData2 sdkMaxTimeout(Integer sdkMaxTimeout) {
-    
     this.sdkMaxTimeout = sdkMaxTimeout;
     return this;
   }
@@ -994,19 +965,22 @@ public class ThreeDS2RequestData2 {
    * @return sdkMaxTimeout
   **/
   @ApiModelProperty(value = "The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for `deviceChannel` set to **app**. Defaults to **60** minutes.")
+  @JsonProperty(JSON_PROPERTY_SDK_MAX_TIMEOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSdkMaxTimeout() {
     return sdkMaxTimeout;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SDK_MAX_TIMEOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkMaxTimeout(Integer sdkMaxTimeout) {
     this.sdkMaxTimeout = sdkMaxTimeout;
   }
 
 
   public ThreeDS2RequestData2 sdkReferenceNumber(String sdkReferenceNumber) {
-    
     this.sdkReferenceNumber = sdkReferenceNumber;
     return this;
   }
@@ -1016,19 +990,22 @@ public class ThreeDS2RequestData2 {
    * @return sdkReferenceNumber
   **/
   @ApiModelProperty(value = "The `sdkReferenceNumber` value as received from the 3D Secure 2 SDK.")
+  @JsonProperty(JSON_PROPERTY_SDK_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSdkReferenceNumber() {
     return sdkReferenceNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SDK_REFERENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkReferenceNumber(String sdkReferenceNumber) {
     this.sdkReferenceNumber = sdkReferenceNumber;
   }
 
 
   public ThreeDS2RequestData2 sdkTransID(String sdkTransID) {
-    
     this.sdkTransID = sdkTransID;
     return this;
   }
@@ -1038,19 +1015,22 @@ public class ThreeDS2RequestData2 {
    * @return sdkTransID
   **/
   @ApiModelProperty(value = "The `sdkTransID` value as received from the 3D Secure 2 SDK.")
+  @JsonProperty(JSON_PROPERTY_SDK_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSdkTransID() {
     return sdkTransID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SDK_TRANS_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkTransID(String sdkTransID) {
     this.sdkTransID = sdkTransID;
   }
 
 
   public ThreeDS2RequestData2 threeDSCompInd(String threeDSCompInd) {
-    
     this.threeDSCompInd = threeDSCompInd;
     return this;
   }
@@ -1060,19 +1040,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSCompInd
   **/
   @ApiModelProperty(value = "Completion indicator for the device fingerprinting.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_COMP_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSCompInd() {
     return threeDSCompInd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_COMP_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSCompInd(String threeDSCompInd) {
     this.threeDSCompInd = threeDSCompInd;
   }
 
 
   public ThreeDS2RequestData2 threeDSRequestorAuthenticationInd(String threeDSRequestorAuthenticationInd) {
-    
     this.threeDSRequestorAuthenticationInd = threeDSRequestorAuthenticationInd;
     return this;
   }
@@ -1082,19 +1065,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSRequestorAuthenticationInd
   **/
   @ApiModelProperty(value = "Indicates the type of Authentication request.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSRequestorAuthenticationInd() {
     return threeDSRequestorAuthenticationInd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorAuthenticationInd(String threeDSRequestorAuthenticationInd) {
     this.threeDSRequestorAuthenticationInd = threeDSRequestorAuthenticationInd;
   }
 
 
   public ThreeDS2RequestData2 threeDSRequestorAuthenticationInfo(ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
-    
     this.threeDSRequestorAuthenticationInfo = threeDSRequestorAuthenticationInfo;
     return this;
   }
@@ -1104,19 +1090,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSRequestorAuthenticationInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ThreeDSRequestorAuthenticationInfo getThreeDSRequestorAuthenticationInfo() {
     return threeDSRequestorAuthenticationInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorAuthenticationInfo(ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
     this.threeDSRequestorAuthenticationInfo = threeDSRequestorAuthenticationInfo;
   }
 
 
   public ThreeDS2RequestData2 threeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
-    
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
     return this;
   }
@@ -1126,19 +1115,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSRequestorChallengeInd
   **/
   @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
     return threeDSRequestorChallengeInd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
   }
 
 
   public ThreeDS2RequestData2 threeDSRequestorID(String threeDSRequestorID) {
-    
     this.threeDSRequestorID = threeDSRequestorID;
     return this;
   }
@@ -1148,19 +1140,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSRequestorID
   **/
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSRequestorID() {
     return threeDSRequestorID;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorID(String threeDSRequestorID) {
     this.threeDSRequestorID = threeDSRequestorID;
   }
 
 
   public ThreeDS2RequestData2 threeDSRequestorName(String threeDSRequestorName) {
-    
     this.threeDSRequestorName = threeDSRequestorName;
     return this;
   }
@@ -1170,19 +1165,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSRequestorName
   **/
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSRequestorName() {
     return threeDSRequestorName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorName(String threeDSRequestorName) {
     this.threeDSRequestorName = threeDSRequestorName;
   }
 
 
   public ThreeDS2RequestData2 threeDSRequestorPriorAuthenticationInfo(ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
-    
     this.threeDSRequestorPriorAuthenticationInfo = threeDSRequestorPriorAuthenticationInfo;
     return this;
   }
@@ -1192,19 +1190,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSRequestorPriorAuthenticationInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ThreeDSRequestorPriorAuthenticationInfo getThreeDSRequestorPriorAuthenticationInfo() {
     return threeDSRequestorPriorAuthenticationInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorPriorAuthenticationInfo(ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
     this.threeDSRequestorPriorAuthenticationInfo = threeDSRequestorPriorAuthenticationInfo;
   }
 
 
   public ThreeDS2RequestData2 threeDSRequestorURL(String threeDSRequestorURL) {
-    
     this.threeDSRequestorURL = threeDSRequestorURL;
     return this;
   }
@@ -1214,19 +1215,22 @@ public class ThreeDS2RequestData2 {
    * @return threeDSRequestorURL
   **/
   @ApiModelProperty(value = "URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSRequestorURL() {
     return threeDSRequestorURL;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorURL(String threeDSRequestorURL) {
     this.threeDSRequestorURL = threeDSRequestorURL;
   }
 
 
   public ThreeDS2RequestData2 transType(TransTypeEnum transType) {
-    
     this.transType = transType;
     return this;
   }
@@ -1236,19 +1240,22 @@ public class ThreeDS2RequestData2 {
    * @return transType
   **/
   @ApiModelProperty(value = "Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load")
+  @JsonProperty(JSON_PROPERTY_TRANS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TransTypeEnum getTransType() {
     return transType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransType(TransTypeEnum transType) {
     this.transType = transType;
   }
 
 
   public ThreeDS2RequestData2 transactionType(TransactionTypeEnum transactionType) {
-    
     this.transactionType = transactionType;
     return this;
   }
@@ -1258,19 +1265,22 @@ public class ThreeDS2RequestData2 {
    * @return transactionType
   **/
   @ApiModelProperty(value = "Identify the type of the transaction being authenticated.")
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TransactionTypeEnum getTransactionType() {
     return transactionType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionType(TransactionTypeEnum transactionType) {
     this.transactionType = transactionType;
   }
 
 
   public ThreeDS2RequestData2 whiteListStatus(String whiteListStatus) {
-    
     this.whiteListStatus = whiteListStatus;
     return this;
   }
@@ -1280,19 +1290,22 @@ public class ThreeDS2RequestData2 {
    * @return whiteListStatus
   **/
   @ApiModelProperty(value = "The `whiteListStatus` value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.")
+  @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWhiteListStatus() {
     return whiteListStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
   }
 
 
   public ThreeDS2RequestData2 workPhone(Phone workPhone) {
-    
     this.workPhone = workPhone;
     return this;
   }
@@ -1302,18 +1315,24 @@ public class ThreeDS2RequestData2 {
    * @return workPhone
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WORK_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Phone getWorkPhone() {
     return workPhone;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORK_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(Phone workPhone) {
     this.workPhone = workPhone;
   }
 
 
-
+  /**
+   * Return true if this ThreeDS2RequestData-2 object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1421,280 +1440,23 @@ public class ThreeDS2RequestData2 {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acctInfo");
-    openapiFields.add("acctType");
-    openapiFields.add("acquirerBIN");
-    openapiFields.add("acquirerMerchantID");
-    openapiFields.add("addrMatch");
-    openapiFields.add("authenticationOnly");
-    openapiFields.add("challengeIndicator");
-    openapiFields.add("deviceRenderOptions");
-    openapiFields.add("homePhone");
-    openapiFields.add("mcc");
-    openapiFields.add("merchantName");
-    openapiFields.add("messageVersion");
-    openapiFields.add("mobilePhone");
-    openapiFields.add("notificationURL");
-    openapiFields.add("payTokenInd");
-    openapiFields.add("paymentAuthenticationUseCase");
-    openapiFields.add("purchaseInstalData");
-    openapiFields.add("recurringExpiry");
-    openapiFields.add("recurringFrequency");
-    openapiFields.add("sdkAppID");
-    openapiFields.add("sdkEphemPubKey");
-    openapiFields.add("sdkMaxTimeout");
-    openapiFields.add("sdkReferenceNumber");
-    openapiFields.add("sdkTransID");
-    openapiFields.add("threeDSCompInd");
-    openapiFields.add("threeDSRequestorAuthenticationInd");
-    openapiFields.add("threeDSRequestorAuthenticationInfo");
-    openapiFields.add("threeDSRequestorChallengeInd");
-    openapiFields.add("threeDSRequestorID");
-    openapiFields.add("threeDSRequestorName");
-    openapiFields.add("threeDSRequestorPriorAuthenticationInfo");
-    openapiFields.add("threeDSRequestorURL");
-    openapiFields.add("transType");
-    openapiFields.add("transactionType");
-    openapiFields.add("whiteListStatus");
-    openapiFields.add("workPhone");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ThreeDS2RequestData2 given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ThreeDS2RequestData2
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDS2RequestData2
+   */
+  public static ThreeDS2RequestData2 fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThreeDS2RequestData2.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to ThreeDS2RequestData2
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (ThreeDS2RequestData2.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2RequestData2 is not found in the empty JSON string", ThreeDS2RequestData2.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!ThreeDS2RequestData2.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2RequestData2` properties.", entry.getKey()));
-            }
-          }
-      }
-      // validate the optional field `acctInfo`
-      if (jsonObj.getAsJsonObject("acctInfo") != null) {
-        AcctInfo.validateJsonObject(jsonObj.getAsJsonObject("acctInfo"));
-      }
-      // ensure the field acctType can be parsed to an enum value
-      if (jsonObj.get("acctType") != null) {
-        if(!jsonObj.get("acctType").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `acctType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acctType").toString()));
-        }
-        AcctTypeEnum.fromValue(jsonObj.get("acctType").getAsString());
-      }
-      // validate the optional field acquirerBIN
-      if (jsonObj.get("acquirerBIN") != null && !jsonObj.get("acquirerBIN").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `acquirerBIN` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquirerBIN").toString()));
-      }
-      // validate the optional field acquirerMerchantID
-      if (jsonObj.get("acquirerMerchantID") != null && !jsonObj.get("acquirerMerchantID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `acquirerMerchantID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquirerMerchantID").toString()));
-      }
-      // ensure the field addrMatch can be parsed to an enum value
-      if (jsonObj.get("addrMatch") != null) {
-        if(!jsonObj.get("addrMatch").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `addrMatch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("addrMatch").toString()));
-        }
-        AddrMatchEnum.fromValue(jsonObj.get("addrMatch").getAsString());
-      }
-      // ensure the field challengeIndicator can be parsed to an enum value
-      if (jsonObj.get("challengeIndicator") != null) {
-        if(!jsonObj.get("challengeIndicator").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `challengeIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeIndicator").toString()));
-        }
-        ChallengeIndicatorEnum.fromValue(jsonObj.get("challengeIndicator").getAsString());
-      }
-      // validate the optional field `deviceRenderOptions`
-      if (jsonObj.getAsJsonObject("deviceRenderOptions") != null) {
-        DeviceRenderOptions.validateJsonObject(jsonObj.getAsJsonObject("deviceRenderOptions"));
-      }
-      // validate the optional field `homePhone`
-      if (jsonObj.getAsJsonObject("homePhone") != null) {
-        Phone.validateJsonObject(jsonObj.getAsJsonObject("homePhone"));
-      }
-      // validate the optional field mcc
-      if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
-      }
-      // validate the optional field merchantName
-      if (jsonObj.get("merchantName") != null && !jsonObj.get("merchantName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantName").toString()));
-      }
-      // validate the optional field messageVersion
-      if (jsonObj.get("messageVersion") != null && !jsonObj.get("messageVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `messageVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("messageVersion").toString()));
-      }
-      // validate the optional field `mobilePhone`
-      if (jsonObj.getAsJsonObject("mobilePhone") != null) {
-        Phone.validateJsonObject(jsonObj.getAsJsonObject("mobilePhone"));
-      }
-      // validate the optional field notificationURL
-      if (jsonObj.get("notificationURL") != null && !jsonObj.get("notificationURL").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `notificationURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("notificationURL").toString()));
-      }
-      // validate the optional field paymentAuthenticationUseCase
-      if (jsonObj.get("paymentAuthenticationUseCase") != null && !jsonObj.get("paymentAuthenticationUseCase").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `paymentAuthenticationUseCase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentAuthenticationUseCase").toString()));
-      }
-      // validate the optional field purchaseInstalData
-      if (jsonObj.get("purchaseInstalData") != null && !jsonObj.get("purchaseInstalData").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `purchaseInstalData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("purchaseInstalData").toString()));
-      }
-      // validate the optional field recurringExpiry
-      if (jsonObj.get("recurringExpiry") != null && !jsonObj.get("recurringExpiry").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recurringExpiry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringExpiry").toString()));
-      }
-      // validate the optional field recurringFrequency
-      if (jsonObj.get("recurringFrequency") != null && !jsonObj.get("recurringFrequency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recurringFrequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringFrequency").toString()));
-      }
-      // validate the optional field sdkAppID
-      if (jsonObj.get("sdkAppID") != null && !jsonObj.get("sdkAppID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sdkAppID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkAppID").toString()));
-      }
-      // validate the optional field `sdkEphemPubKey`
-      if (jsonObj.getAsJsonObject("sdkEphemPubKey") != null) {
-        SDKEphemPubKey.validateJsonObject(jsonObj.getAsJsonObject("sdkEphemPubKey"));
-      }
-      // validate the optional field sdkReferenceNumber
-      if (jsonObj.get("sdkReferenceNumber") != null && !jsonObj.get("sdkReferenceNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sdkReferenceNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkReferenceNumber").toString()));
-      }
-      // validate the optional field sdkTransID
-      if (jsonObj.get("sdkTransID") != null && !jsonObj.get("sdkTransID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sdkTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkTransID").toString()));
-      }
-      // validate the optional field threeDSCompInd
-      if (jsonObj.get("threeDSCompInd") != null && !jsonObj.get("threeDSCompInd").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSCompInd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSCompInd").toString()));
-      }
-      // validate the optional field threeDSRequestorAuthenticationInd
-      if (jsonObj.get("threeDSRequestorAuthenticationInd") != null && !jsonObj.get("threeDSRequestorAuthenticationInd").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSRequestorAuthenticationInd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSRequestorAuthenticationInd").toString()));
-      }
-      // validate the optional field `threeDSRequestorAuthenticationInfo`
-      if (jsonObj.getAsJsonObject("threeDSRequestorAuthenticationInfo") != null) {
-        ThreeDSRequestorAuthenticationInfo.validateJsonObject(jsonObj.getAsJsonObject("threeDSRequestorAuthenticationInfo"));
-      }
-      // ensure the field threeDSRequestorChallengeInd can be parsed to an enum value
-      if (jsonObj.get("threeDSRequestorChallengeInd") != null) {
-        if(!jsonObj.get("threeDSRequestorChallengeInd").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `threeDSRequestorChallengeInd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSRequestorChallengeInd").toString()));
-        }
-        ThreeDSRequestorChallengeIndEnum.fromValue(jsonObj.get("threeDSRequestorChallengeInd").getAsString());
-      }
-      // validate the optional field threeDSRequestorID
-      if (jsonObj.get("threeDSRequestorID") != null && !jsonObj.get("threeDSRequestorID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSRequestorID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSRequestorID").toString()));
-      }
-      // validate the optional field threeDSRequestorName
-      if (jsonObj.get("threeDSRequestorName") != null && !jsonObj.get("threeDSRequestorName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSRequestorName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSRequestorName").toString()));
-      }
-      // validate the optional field `threeDSRequestorPriorAuthenticationInfo`
-      if (jsonObj.getAsJsonObject("threeDSRequestorPriorAuthenticationInfo") != null) {
-        ThreeDSRequestorPriorAuthenticationInfo.validateJsonObject(jsonObj.getAsJsonObject("threeDSRequestorPriorAuthenticationInfo"));
-      }
-      // validate the optional field threeDSRequestorURL
-      if (jsonObj.get("threeDSRequestorURL") != null && !jsonObj.get("threeDSRequestorURL").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSRequestorURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSRequestorURL").toString()));
-      }
-      // ensure the field transType can be parsed to an enum value
-      if (jsonObj.get("transType") != null) {
-        if(!jsonObj.get("transType").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `transType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transType").toString()));
-        }
-        TransTypeEnum.fromValue(jsonObj.get("transType").getAsString());
-      }
-      // ensure the field transactionType can be parsed to an enum value
-      if (jsonObj.get("transactionType") != null) {
-        if(!jsonObj.get("transactionType").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `transactionType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionType").toString()));
-        }
-        TransactionTypeEnum.fromValue(jsonObj.get("transactionType").getAsString());
-      }
-      // validate the optional field whiteListStatus
-      if (jsonObj.get("whiteListStatus") != null && !jsonObj.get("whiteListStatus").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `whiteListStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("whiteListStatus").toString()));
-      }
-      // validate the optional field `workPhone`
-      if (jsonObj.getAsJsonObject("workPhone") != null) {
-        Phone.validateJsonObject(jsonObj.getAsJsonObject("workPhone"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ThreeDS2RequestData2.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ThreeDS2RequestData2' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ThreeDS2RequestData2> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDS2RequestData2.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ThreeDS2RequestData2>() {
-           @Override
-           public void write(JsonWriter out, ThreeDS2RequestData2 value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ThreeDS2RequestData2 read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ThreeDS2RequestData2 given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ThreeDS2RequestData2
-  * @throws IOException if the JSON string is invalid with respect to ThreeDS2RequestData2
-  */
-  public static ThreeDS2RequestData2 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ThreeDS2RequestData2.class);
-  }
-
- /**
+/**
   * Convert an instance of ThreeDS2RequestData2 to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
