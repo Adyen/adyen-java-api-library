@@ -15,6 +15,7 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adyen.model.transfers.Amount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,8 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,44 +48,36 @@ import java.util.logging.Logger;
 import com.adyen.model.transfers.JSON;
 
 /**
- * JSONPath
+ * Fee
  */
 
-public class JSONPath {
-  public static final String SERIALIZED_NAME_CONTENT = "content";
-  @SerializedName(SERIALIZED_NAME_CONTENT)
-  private List<String> content = null;
+public class Fee {
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private Amount amount;
 
-  public JSONPath() { 
+  public Fee() { 
   }
 
-  public JSONPath content(List<String> content) {
+  public Fee amount(Amount amount) {
     
-    this.content = content;
-    return this;
-  }
-
-  public JSONPath addContentItem(String contentItem) {
-    if (this.content == null) {
-      this.content = new ArrayList<>();
-    }
-    this.content.add(contentItem);
+    this.amount = amount;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * Get amount
+   * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
-  public List<String> getContent() {
-    return content;
+  public Amount getAmount() {
+    return amount;
   }
 
 
-  public void setContent(List<String> content) {
-    this.content = content;
+  public void setAmount(Amount amount) {
+    this.amount = amount;
   }
 
 
@@ -99,20 +90,20 @@ public class JSONPath {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JSONPath jsONPath = (JSONPath) o;
-    return Objects.equals(this.content, jsONPath.content);
+    Fee fee = (Fee) o;
+    return Objects.equals(this.amount, fee.amount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content);
+    return Objects.hash(amount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class JSONPath {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("class Fee {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -135,41 +126,49 @@ public class JSONPath {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("content");
+    openapiFields.add("amount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("amount");
   }
   /**
   * logger for Deserialization Errors
   */
-  private static final Logger log = Logger.getLogger(JSONPath.class.getName());
+  private static final Logger log = Logger.getLogger(Fee.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JSONPath
+  * @throws IOException if the JSON Object is invalid with respect to Fee
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (JSONPath.openapiRequiredFields.isEmpty()) {
+        if (Fee.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JSONPath is not found in the empty JSON string", JSONPath.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Fee is not found in the empty JSON string", Fee.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!JSONPath.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `JSONPath` properties.", entry.getKey()));
+        if (!Fee.openapiFields.contains(entry.getKey())) {
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Fee` properties.", entry.getKey()));
         }
       }
-      // ensure the json data is an array
-      if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `content` to be an array in the JSON string but got `%s`", jsonObj.get("content").toString()));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : Fee.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the optional field `amount`
+      if (jsonObj.getAsJsonObject("amount") != null) {
+        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
       }
   }
 
@@ -177,22 +176,22 @@ public class JSONPath {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!JSONPath.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'JSONPath' and its subtypes
+       if (!Fee.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Fee' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<JSONPath> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(JSONPath.class));
+       final TypeAdapter<Fee> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Fee.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<JSONPath>() {
+       return (TypeAdapter<T>) new TypeAdapter<Fee>() {
            @Override
-           public void write(JsonWriter out, JSONPath value) throws IOException {
+           public void write(JsonWriter out, Fee value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public JSONPath read(JsonReader in) throws IOException {
+           public Fee read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -203,18 +202,18 @@ public class JSONPath {
   }
 
  /**
-  * Create an instance of JSONPath given an JSON string
+  * Create an instance of Fee given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of JSONPath
-  * @throws IOException if the JSON string is invalid with respect to JSONPath
+  * @return An instance of Fee
+  * @throws IOException if the JSON string is invalid with respect to Fee
   */
-  public static JSONPath fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, JSONPath.class);
+  public static Fee fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Fee.class);
   }
 
  /**
-  * Convert an instance of JSONPath to an JSON string
+  * Convert an instance of Fee to an JSON string
   *
   * @return JSON string
   */

@@ -15,8 +15,6 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.transfers.BankAccountV3;
-import com.adyen.model.transfers.MerchantData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,40 +47,58 @@ import java.util.logging.Logger;
 import com.adyen.model.transfers.JSON;
 
 /**
- * CounterpartyV3
+ * Counterparty2
  */
 
-public class CounterpartyV3 {
+public class Counterparty2 {
+  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_ID = "accountHolderId";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_ID)
+  private String accountHolderId;
+
   public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
   @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
   private String balanceAccountId;
-
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bankAccount";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
-  private BankAccountV3 bankAccount;
-
-  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
-  @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private MerchantData merchant;
 
   public static final String SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   @SerializedName(SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID)
   private String transferInstrumentId;
 
-  public CounterpartyV3() { 
+  public Counterparty2() { 
   }
 
-  public CounterpartyV3 balanceAccountId(String balanceAccountId) {
+  public Counterparty2 accountHolderId(String accountHolderId) {
+    
+    this.accountHolderId = accountHolderId;
+    return this;
+  }
+
+   /**
+   * The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
+   * @return accountHolderId
+  **/
+  @ApiModelProperty(value = "The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no `balanceAccountId` is provided.")
+
+  public String getAccountHolderId() {
+    return accountHolderId;
+  }
+
+
+  public void setAccountHolderId(String accountHolderId) {
+    this.accountHolderId = accountHolderId;
+  }
+
+
+  public Counterparty2 balanceAccountId(String balanceAccountId) {
     
     this.balanceAccountId = balanceAccountId;
     return this;
   }
 
    /**
-   * Unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
+   * The identifier of the balance account that belongs to the receiving account holder.
    * @return balanceAccountId
   **/
-  @ApiModelProperty(value = "Unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
+  @ApiModelProperty(value = "The identifier of the balance account that belongs to the receiving account holder.")
 
   public String getBalanceAccountId() {
     return balanceAccountId;
@@ -94,61 +110,17 @@ public class CounterpartyV3 {
   }
 
 
-  public CounterpartyV3 bankAccount(BankAccountV3 bankAccount) {
-    
-    this.bankAccount = bankAccount;
-    return this;
-  }
-
-   /**
-   * Get bankAccount
-   * @return bankAccount
-  **/
-  @ApiModelProperty(value = "")
-
-  public BankAccountV3 getBankAccount() {
-    return bankAccount;
-  }
-
-
-  public void setBankAccount(BankAccountV3 bankAccount) {
-    this.bankAccount = bankAccount;
-  }
-
-
-  public CounterpartyV3 merchant(MerchantData merchant) {
-    
-    this.merchant = merchant;
-    return this;
-  }
-
-   /**
-   * Get merchant
-   * @return merchant
-  **/
-  @ApiModelProperty(value = "")
-
-  public MerchantData getMerchant() {
-    return merchant;
-  }
-
-
-  public void setMerchant(MerchantData merchant) {
-    this.merchant = merchant;
-  }
-
-
-  public CounterpartyV3 transferInstrumentId(String transferInstrumentId) {
+  public Counterparty2 transferInstrumentId(String transferInstrumentId) {
     
     this.transferInstrumentId = transferInstrumentId;
     return this;
   }
 
    /**
-   * Unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * The identifier of the transfer instrument that belongs to the legal entity of the account holder.
    * @return transferInstrumentId
   **/
-  @ApiModelProperty(value = "Unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
+  @ApiModelProperty(value = "The identifier of the transfer instrument that belongs to the legal entity of the account holder.")
 
   public String getTransferInstrumentId() {
     return transferInstrumentId;
@@ -169,25 +141,23 @@ public class CounterpartyV3 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CounterpartyV3 counterpartyV3 = (CounterpartyV3) o;
-    return Objects.equals(this.balanceAccountId, counterpartyV3.balanceAccountId) &&
-        Objects.equals(this.bankAccount, counterpartyV3.bankAccount) &&
-        Objects.equals(this.merchant, counterpartyV3.merchant) &&
-        Objects.equals(this.transferInstrumentId, counterpartyV3.transferInstrumentId);
+    Counterparty2 counterparty2 = (Counterparty2) o;
+    return Objects.equals(this.accountHolderId, counterparty2.accountHolderId) &&
+        Objects.equals(this.balanceAccountId, counterparty2.balanceAccountId) &&
+        Objects.equals(this.transferInstrumentId, counterparty2.transferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, bankAccount, merchant, transferInstrumentId);
+    return Objects.hash(accountHolderId, balanceAccountId, transferInstrumentId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CounterpartyV3 {\n");
+    sb.append("class Counterparty2 {\n");
+    sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
     sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
-    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
-    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    transferInstrumentId: ").append(toIndentedString(transferInstrumentId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -211,9 +181,8 @@ public class CounterpartyV3 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("accountHolderId");
     openapiFields.add("balanceAccountId");
-    openapiFields.add("bankAccount");
-    openapiFields.add("merchant");
     openapiFields.add("transferInstrumentId");
 
     // a set of required properties/fields (JSON key names)
@@ -222,41 +191,37 @@ public class CounterpartyV3 {
   /**
   * logger for Deserialization Errors
   */
-  private static final Logger log = Logger.getLogger(CounterpartyV3.class.getName());
+  private static final Logger log = Logger.getLogger(Counterparty2.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CounterpartyV3
+  * @throws IOException if the JSON Object is invalid with respect to Counterparty2
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (CounterpartyV3.openapiRequiredFields.isEmpty()) {
+        if (Counterparty2.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CounterpartyV3 is not found in the empty JSON string", CounterpartyV3.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Counterparty2 is not found in the empty JSON string", Counterparty2.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!CounterpartyV3.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CounterpartyV3` properties.", entry.getKey()));
+        if (!Counterparty2.openapiFields.contains(entry.getKey())) {
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Counterparty2` properties.", entry.getKey()));
         }
+      }
+      // validate the optional field accountHolderId
+      if (jsonObj.get("accountHolderId") != null && !jsonObj.get("accountHolderId").isJsonPrimitive()) {
+        log.log(Level.WARNING, String.format("Expected the field `accountHolderId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderId").toString()));
       }
       // validate the optional field balanceAccountId
       if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
         log.log(Level.WARNING, String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
-      }
-      // validate the optional field `bankAccount`
-      if (jsonObj.getAsJsonObject("bankAccount") != null) {
-        BankAccountV3.validateJsonObject(jsonObj.getAsJsonObject("bankAccount"));
-      }
-      // validate the optional field `merchant`
-      if (jsonObj.getAsJsonObject("merchant") != null) {
-        MerchantData.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
       }
       // validate the optional field transferInstrumentId
       if (jsonObj.get("transferInstrumentId") != null && !jsonObj.get("transferInstrumentId").isJsonPrimitive()) {
@@ -268,22 +233,22 @@ public class CounterpartyV3 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CounterpartyV3.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CounterpartyV3' and its subtypes
+       if (!Counterparty2.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Counterparty2' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CounterpartyV3> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CounterpartyV3.class));
+       final TypeAdapter<Counterparty2> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Counterparty2.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CounterpartyV3>() {
+       return (TypeAdapter<T>) new TypeAdapter<Counterparty2>() {
            @Override
-           public void write(JsonWriter out, CounterpartyV3 value) throws IOException {
+           public void write(JsonWriter out, Counterparty2 value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CounterpartyV3 read(JsonReader in) throws IOException {
+           public Counterparty2 read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -294,18 +259,18 @@ public class CounterpartyV3 {
   }
 
  /**
-  * Create an instance of CounterpartyV3 given an JSON string
+  * Create an instance of Counterparty2 given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CounterpartyV3
-  * @throws IOException if the JSON string is invalid with respect to CounterpartyV3
+  * @return An instance of Counterparty2
+  * @throws IOException if the JSON string is invalid with respect to Counterparty2
   */
-  public static CounterpartyV3 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CounterpartyV3.class);
+  public static Counterparty2 fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Counterparty2.class);
   }
 
  /**
-  * Convert an instance of CounterpartyV3 to an JSON string
+  * Convert an instance of Counterparty2 to an JSON string
   *
   * @return JSON string
   */

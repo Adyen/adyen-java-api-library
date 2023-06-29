@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,44 +47,62 @@ import java.util.logging.Logger;
 import com.adyen.model.transfers.JSON;
 
 /**
- * JSONPath
+ * RepaymentTerm
  */
 
-public class JSONPath {
-  public static final String SERIALIZED_NAME_CONTENT = "content";
-  @SerializedName(SERIALIZED_NAME_CONTENT)
-  private List<String> content = null;
+public class RepaymentTerm {
+  public static final String SERIALIZED_NAME_ESTIMATED_DAYS = "estimatedDays";
+  @SerializedName(SERIALIZED_NAME_ESTIMATED_DAYS)
+  private Integer estimatedDays;
 
-  public JSONPath() { 
+  public static final String SERIALIZED_NAME_MAXIMUM_DAYS = "maximumDays";
+  @SerializedName(SERIALIZED_NAME_MAXIMUM_DAYS)
+  private Integer maximumDays;
+
+  public RepaymentTerm() { 
   }
 
-  public JSONPath content(List<String> content) {
+  public RepaymentTerm estimatedDays(Integer estimatedDays) {
     
-    this.content = content;
-    return this;
-  }
-
-  public JSONPath addContentItem(String contentItem) {
-    if (this.content == null) {
-      this.content = new ArrayList<>();
-    }
-    this.content.add(contentItem);
+    this.estimatedDays = estimatedDays;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * The estimated term for repaying the grant, in days.
+   * @return estimatedDays
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "The estimated term for repaying the grant, in days.")
 
-  public List<String> getContent() {
-    return content;
+  public Integer getEstimatedDays() {
+    return estimatedDays;
   }
 
 
-  public void setContent(List<String> content) {
-    this.content = content;
+  public void setEstimatedDays(Integer estimatedDays) {
+    this.estimatedDays = estimatedDays;
+  }
+
+
+  public RepaymentTerm maximumDays(Integer maximumDays) {
+    
+    this.maximumDays = maximumDays;
+    return this;
+  }
+
+   /**
+   * The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
+   * @return maximumDays
+  **/
+  @ApiModelProperty(value = "The maximum term for repaying the grant, in days. Only applies when `contractType` is **loan**.")
+
+  public Integer getMaximumDays() {
+    return maximumDays;
+  }
+
+
+  public void setMaximumDays(Integer maximumDays) {
+    this.maximumDays = maximumDays;
   }
 
 
@@ -99,20 +115,22 @@ public class JSONPath {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JSONPath jsONPath = (JSONPath) o;
-    return Objects.equals(this.content, jsONPath.content);
+    RepaymentTerm repaymentTerm = (RepaymentTerm) o;
+    return Objects.equals(this.estimatedDays, repaymentTerm.estimatedDays) &&
+        Objects.equals(this.maximumDays, repaymentTerm.maximumDays);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content);
+    return Objects.hash(estimatedDays, maximumDays);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class JSONPath {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("class RepaymentTerm {\n");
+    sb.append("    estimatedDays: ").append(toIndentedString(estimatedDays)).append("\n");
+    sb.append("    maximumDays: ").append(toIndentedString(maximumDays)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -135,41 +153,46 @@ public class JSONPath {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("content");
+    openapiFields.add("estimatedDays");
+    openapiFields.add("maximumDays");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("estimatedDays");
   }
   /**
   * logger for Deserialization Errors
   */
-  private static final Logger log = Logger.getLogger(JSONPath.class.getName());
+  private static final Logger log = Logger.getLogger(RepaymentTerm.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JSONPath
+  * @throws IOException if the JSON Object is invalid with respect to RepaymentTerm
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (JSONPath.openapiRequiredFields.isEmpty()) {
+        if (RepaymentTerm.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JSONPath is not found in the empty JSON string", JSONPath.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RepaymentTerm is not found in the empty JSON string", RepaymentTerm.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!JSONPath.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `JSONPath` properties.", entry.getKey()));
+        if (!RepaymentTerm.openapiFields.contains(entry.getKey())) {
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `RepaymentTerm` properties.", entry.getKey()));
         }
       }
-      // ensure the json data is an array
-      if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `content` to be an array in the JSON string but got `%s`", jsonObj.get("content").toString()));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : RepaymentTerm.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
       }
   }
 
@@ -177,22 +200,22 @@ public class JSONPath {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!JSONPath.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'JSONPath' and its subtypes
+       if (!RepaymentTerm.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RepaymentTerm' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<JSONPath> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(JSONPath.class));
+       final TypeAdapter<RepaymentTerm> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RepaymentTerm.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<JSONPath>() {
+       return (TypeAdapter<T>) new TypeAdapter<RepaymentTerm>() {
            @Override
-           public void write(JsonWriter out, JSONPath value) throws IOException {
+           public void write(JsonWriter out, RepaymentTerm value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public JSONPath read(JsonReader in) throws IOException {
+           public RepaymentTerm read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -203,18 +226,18 @@ public class JSONPath {
   }
 
  /**
-  * Create an instance of JSONPath given an JSON string
+  * Create an instance of RepaymentTerm given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of JSONPath
-  * @throws IOException if the JSON string is invalid with respect to JSONPath
+  * @return An instance of RepaymentTerm
+  * @throws IOException if the JSON string is invalid with respect to RepaymentTerm
   */
-  public static JSONPath fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, JSONPath.class);
+  public static RepaymentTerm fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RepaymentTerm.class);
   }
 
  /**
-  * Convert an instance of JSONPath to an JSON string
+  * Convert an instance of RepaymentTerm to an JSON string
   *
   * @return JSON string
   */

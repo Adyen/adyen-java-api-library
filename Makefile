@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-modelGen:=balancecontrol balanceplatform binlookup capital checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue
+modelGen:=balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -19,8 +19,6 @@ binlookup: smallServiceName=BinLookupApi
 checkout: spec=CheckoutService-v70
 dataprotection: spec=DataProtectionService-v1
 dataprotection: smallServiceName=DataProtectionApi
-capital: spec=GrantService-v3
-capital: smallServiceName=CapitalApi
 storedvalue: spec=StoredValueService-v46
 storedvalue: smallServiceName=StoredValueApi
 posterminalmanagement: spec=TfmAPIService-v1
@@ -64,8 +62,8 @@ $(modelGen): target/spec $(openapi-generator-jar)
 	mv $(output)/$(models)/JSON.java $(models)/$@
 
 # Full service + models automation
-bigServices:=balanceplatform checkout payout management legalentitymanagement transfers
-singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment capital
+bigServices:=balanceplatform checkout payout management legalentitymanagement
+singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment transfers
 
 services: $(bigServices) $(singleFileServices)
 

@@ -15,6 +15,7 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adyen.model.transfers.Counterparty2;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,8 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,44 +48,88 @@ import java.util.logging.Logger;
 import com.adyen.model.transfers.JSON;
 
 /**
- * JSONPath
+ * CapitalGrantInfo
  */
 
-public class JSONPath {
-  public static final String SERIALIZED_NAME_CONTENT = "content";
-  @SerializedName(SERIALIZED_NAME_CONTENT)
-  private List<String> content = null;
+public class CapitalGrantInfo {
+  public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
+  @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
+  private Counterparty2 counterparty;
 
-  public JSONPath() { 
+  public static final String SERIALIZED_NAME_GRANT_ACCOUNT_ID = "grantAccountId";
+  @SerializedName(SERIALIZED_NAME_GRANT_ACCOUNT_ID)
+  private String grantAccountId;
+
+  public static final String SERIALIZED_NAME_GRANT_OFFER_ID = "grantOfferId";
+  @SerializedName(SERIALIZED_NAME_GRANT_OFFER_ID)
+  private String grantOfferId;
+
+  public CapitalGrantInfo() { 
   }
 
-  public JSONPath content(List<String> content) {
+  public CapitalGrantInfo counterparty(Counterparty2 counterparty) {
     
-    this.content = content;
-    return this;
-  }
-
-  public JSONPath addContentItem(String contentItem) {
-    if (this.content == null) {
-      this.content = new ArrayList<>();
-    }
-    this.content.add(contentItem);
+    this.counterparty = counterparty;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * Get counterparty
+   * @return counterparty
   **/
   @ApiModelProperty(value = "")
 
-  public List<String> getContent() {
-    return content;
+  public Counterparty2 getCounterparty() {
+    return counterparty;
   }
 
 
-  public void setContent(List<String> content) {
-    this.content = content;
+  public void setCounterparty(Counterparty2 counterparty) {
+    this.counterparty = counterparty;
+  }
+
+
+  public CapitalGrantInfo grantAccountId(String grantAccountId) {
+    
+    this.grantAccountId = grantAccountId;
+    return this;
+  }
+
+   /**
+   * The identifier of the grant account used for the grant.
+   * @return grantAccountId
+  **/
+  @ApiModelProperty(required = true, value = "The identifier of the grant account used for the grant.")
+
+  public String getGrantAccountId() {
+    return grantAccountId;
+  }
+
+
+  public void setGrantAccountId(String grantAccountId) {
+    this.grantAccountId = grantAccountId;
+  }
+
+
+  public CapitalGrantInfo grantOfferId(String grantOfferId) {
+    
+    this.grantOfferId = grantOfferId;
+    return this;
+  }
+
+   /**
+   * The identifier of the grant offer that has been selected and from which the grant details will be used.
+   * @return grantOfferId
+  **/
+  @ApiModelProperty(required = true, value = "The identifier of the grant offer that has been selected and from which the grant details will be used.")
+
+  public String getGrantOfferId() {
+    return grantOfferId;
+  }
+
+
+  public void setGrantOfferId(String grantOfferId) {
+    this.grantOfferId = grantOfferId;
   }
 
 
@@ -99,20 +142,24 @@ public class JSONPath {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JSONPath jsONPath = (JSONPath) o;
-    return Objects.equals(this.content, jsONPath.content);
+    CapitalGrantInfo capitalGrantInfo = (CapitalGrantInfo) o;
+    return Objects.equals(this.counterparty, capitalGrantInfo.counterparty) &&
+        Objects.equals(this.grantAccountId, capitalGrantInfo.grantAccountId) &&
+        Objects.equals(this.grantOfferId, capitalGrantInfo.grantOfferId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content);
+    return Objects.hash(counterparty, grantAccountId, grantOfferId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class JSONPath {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("class CapitalGrantInfo {\n");
+    sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
+    sb.append("    grantAccountId: ").append(toIndentedString(grantAccountId)).append("\n");
+    sb.append("    grantOfferId: ").append(toIndentedString(grantOfferId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -135,41 +182,60 @@ public class JSONPath {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("content");
+    openapiFields.add("counterparty");
+    openapiFields.add("grantAccountId");
+    openapiFields.add("grantOfferId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("grantAccountId");
+    openapiRequiredFields.add("grantOfferId");
   }
   /**
   * logger for Deserialization Errors
   */
-  private static final Logger log = Logger.getLogger(JSONPath.class.getName());
+  private static final Logger log = Logger.getLogger(CapitalGrantInfo.class.getName());
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JSONPath
+  * @throws IOException if the JSON Object is invalid with respect to CapitalGrantInfo
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (JSONPath.openapiRequiredFields.isEmpty()) {
+        if (CapitalGrantInfo.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JSONPath is not found in the empty JSON string", JSONPath.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CapitalGrantInfo is not found in the empty JSON string", CapitalGrantInfo.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!JSONPath.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `JSONPath` properties.", entry.getKey()));
+        if (!CapitalGrantInfo.openapiFields.contains(entry.getKey())) {
+          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CapitalGrantInfo` properties.", entry.getKey()));
         }
       }
-      // ensure the json data is an array
-      if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `content` to be an array in the JSON string but got `%s`", jsonObj.get("content").toString()));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CapitalGrantInfo.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the optional field `counterparty`
+      if (jsonObj.getAsJsonObject("counterparty") != null) {
+        Counterparty2.validateJsonObject(jsonObj.getAsJsonObject("counterparty"));
+      }
+      // validate the optional field grantAccountId
+      if (jsonObj.get("grantAccountId") != null && !jsonObj.get("grantAccountId").isJsonPrimitive()) {
+        log.log(Level.WARNING, String.format("Expected the field `grantAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grantAccountId").toString()));
+      }
+      // validate the optional field grantOfferId
+      if (jsonObj.get("grantOfferId") != null && !jsonObj.get("grantOfferId").isJsonPrimitive()) {
+        log.log(Level.WARNING, String.format("Expected the field `grantOfferId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grantOfferId").toString()));
       }
   }
 
@@ -177,22 +243,22 @@ public class JSONPath {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!JSONPath.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'JSONPath' and its subtypes
+       if (!CapitalGrantInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CapitalGrantInfo' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<JSONPath> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(JSONPath.class));
+       final TypeAdapter<CapitalGrantInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CapitalGrantInfo.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<JSONPath>() {
+       return (TypeAdapter<T>) new TypeAdapter<CapitalGrantInfo>() {
            @Override
-           public void write(JsonWriter out, JSONPath value) throws IOException {
+           public void write(JsonWriter out, CapitalGrantInfo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public JSONPath read(JsonReader in) throws IOException {
+           public CapitalGrantInfo read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -203,18 +269,18 @@ public class JSONPath {
   }
 
  /**
-  * Create an instance of JSONPath given an JSON string
+  * Create an instance of CapitalGrantInfo given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of JSONPath
-  * @throws IOException if the JSON string is invalid with respect to JSONPath
+  * @return An instance of CapitalGrantInfo
+  * @throws IOException if the JSON string is invalid with respect to CapitalGrantInfo
   */
-  public static JSONPath fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, JSONPath.class);
+  public static CapitalGrantInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CapitalGrantInfo.class);
   }
 
  /**
-  * Convert an instance of JSONPath to an JSON string
+  * Convert an instance of CapitalGrantInfo to an JSON string
   *
   * @return JSON string
   */
