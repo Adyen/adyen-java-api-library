@@ -235,18 +235,18 @@ public class UKLocalAccountIdentification {
     openapiRequiredFields.add("sortCode");
     openapiRequiredFields.add("type");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(UKLocalAccountIdentification.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to UKLocalAccountIdentification
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (UKLocalAccountIdentification.openapiRequiredFields.isEmpty()) {
           return;
@@ -254,13 +254,14 @@ public class UKLocalAccountIdentification {
           throw new IllegalArgumentException(String.format("The required field(s) %s in UKLocalAccountIdentification is not found in the empty JSON string", UKLocalAccountIdentification.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UKLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `UKLocalAccountIdentification` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!UKLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UKLocalAccountIdentification` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -271,11 +272,11 @@ public class UKLocalAccountIdentification {
       }
       // validate the optional field accountNumber
       if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
       }
       // validate the optional field sortCode
       if (jsonObj.get("sortCode") != null && !jsonObj.get("sortCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `sortCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sortCode").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `sortCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sortCode").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

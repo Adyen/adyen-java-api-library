@@ -212,18 +212,18 @@ public class CronSweepSchedule {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("cronExpression");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CronSweepSchedule.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to CronSweepSchedule
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (CronSweepSchedule.openapiRequiredFields.isEmpty()) {
           return;
@@ -231,13 +231,14 @@ public class CronSweepSchedule {
           throw new IllegalArgumentException(String.format("The required field(s) %s in CronSweepSchedule is not found in the empty JSON string", CronSweepSchedule.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CronSweepSchedule.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CronSweepSchedule` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!CronSweepSchedule.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CronSweepSchedule` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -248,7 +249,7 @@ public class CronSweepSchedule {
       }
       // validate the optional field cronExpression
       if (jsonObj.get("cronExpression") != null && !jsonObj.get("cronExpression").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cronExpression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cronExpression").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `cronExpression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cronExpression").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

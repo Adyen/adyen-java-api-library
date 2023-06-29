@@ -709,18 +709,18 @@ public class TransactionRule {
     openapiRequiredFields.add("ruleRestrictions");
     openapiRequiredFields.add("type");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TransactionRule.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to TransactionRule
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (TransactionRule.openapiRequiredFields.isEmpty()) {
           return;
@@ -728,13 +728,14 @@ public class TransactionRule {
           throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRule is not found in the empty JSON string", TransactionRule.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TransactionRule.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TransactionRule` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!TransactionRule.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRule` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -745,15 +746,15 @@ public class TransactionRule {
       }
       // validate the optional field aggregationLevel
       if (jsonObj.get("aggregationLevel") != null && !jsonObj.get("aggregationLevel").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `aggregationLevel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggregationLevel").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `aggregationLevel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggregationLevel").toString()));
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field endDate
       if (jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `endDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endDate").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `endDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endDate").toString()));
       }
       // validate the optional field `entityKey`
       if (jsonObj.getAsJsonObject("entityKey") != null) {
@@ -761,7 +762,7 @@ public class TransactionRule {
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field `interval`
       if (jsonObj.getAsJsonObject("interval") != null) {
@@ -776,7 +777,7 @@ public class TransactionRule {
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
       // ensure the field requestType can be parsed to an enum value
       if (jsonObj.get("requestType") != null) {
@@ -791,7 +792,7 @@ public class TransactionRule {
       }
       // validate the optional field startDate
       if (jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `startDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startDate").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `startDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startDate").toString()));
       }
       // ensure the field status can be parsed to an enum value
       if (jsonObj.get("status") != null) {

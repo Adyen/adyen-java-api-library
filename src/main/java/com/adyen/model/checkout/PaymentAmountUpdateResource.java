@@ -14,54 +14,44 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.Split;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * PaymentAmountUpdateResource
  */
+@JsonPropertyOrder({
+  PaymentAmountUpdateResource.JSON_PROPERTY_AMOUNT,
+  PaymentAmountUpdateResource.JSON_PROPERTY_INDUSTRY_USAGE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentAmountUpdateResource.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_PSP_REFERENCE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_REFERENCE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_SPLITS,
+  PaymentAmountUpdateResource.JSON_PROPERTY_STATUS
+})
 
 public class PaymentAmountUpdateResource {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
   /**
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    */
-  @JsonAdapter(IndustryUsageEnum.Adapter.class)
   public enum IndustryUsageEnum {
     DELAYEDCHARGE("delayedCharge"),
     
@@ -75,6 +65,7 @@ public class PaymentAmountUpdateResource {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -84,6 +75,7 @@ public class PaymentAmountUpdateResource {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static IndustryUsageEnum fromValue(String value) {
       for (IndustryUsageEnum b : IndustryUsageEnum.values()) {
         if (b.value.equals(value)) {
@@ -92,49 +84,29 @@ public class PaymentAmountUpdateResource {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<IndustryUsageEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final IndustryUsageEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public IndustryUsageEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return IndustryUsageEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_INDUSTRY_USAGE = "industryUsage";
-  @SerializedName(SERIALIZED_NAME_INDUSTRY_USAGE)
+  public static final String JSON_PROPERTY_INDUSTRY_USAGE = "industryUsage";
   private IndustryUsageEnum industryUsage;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_PAYMENT_PSP_REFERENCE = "paymentPspReference";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
   private String paymentPspReference;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SPLITS = "splits";
-  @SerializedName(SERIALIZED_NAME_SPLITS)
+  public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
   /**
    * The status of your request. This will always have the value **received**.
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     RECEIVED("received");
 
@@ -144,6 +116,7 @@ public class PaymentAmountUpdateResource {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -153,6 +126,7 @@ public class PaymentAmountUpdateResource {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -161,30 +135,15 @@ public class PaymentAmountUpdateResource {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
   public PaymentAmountUpdateResource() { 
   }
 
   public PaymentAmountUpdateResource amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -194,19 +153,22 @@ public class PaymentAmountUpdateResource {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public PaymentAmountUpdateResource industryUsage(IndustryUsageEnum industryUsage) {
-    
     this.industryUsage = industryUsage;
     return this;
   }
@@ -216,19 +178,22 @@ public class PaymentAmountUpdateResource {
    * @return industryUsage
   **/
   @ApiModelProperty(value = "The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**")
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public IndustryUsageEnum getIndustryUsage() {
     return industryUsage;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
   }
 
 
   public PaymentAmountUpdateResource merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -238,19 +203,22 @@ public class PaymentAmountUpdateResource {
    * @return merchantAccount
   **/
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public PaymentAmountUpdateResource paymentPspReference(String paymentPspReference) {
-    
     this.paymentPspReference = paymentPspReference;
     return this;
   }
@@ -260,19 +228,22 @@ public class PaymentAmountUpdateResource {
    * @return paymentPspReference
   **/
   @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update. ")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentPspReference() {
     return paymentPspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
   }
 
 
   public PaymentAmountUpdateResource pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -282,19 +253,22 @@ public class PaymentAmountUpdateResource {
    * @return pspReference
   **/
   @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the amount update request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public PaymentAmountUpdateResource reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -304,19 +278,22 @@ public class PaymentAmountUpdateResource {
    * @return reference
   **/
   @ApiModelProperty(required = true, value = "Your reference for the amount update request. Maximum length: 80 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public PaymentAmountUpdateResource splits(List<Split> splits) {
-    
     this.splits = splits;
     return this;
   }
@@ -334,19 +311,22 @@ public class PaymentAmountUpdateResource {
    * @return splits
   **/
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Split> getSplits() {
     return splits;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
   }
 
 
   public PaymentAmountUpdateResource status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -356,18 +336,24 @@ public class PaymentAmountUpdateResource {
    * @return status
   **/
   @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
-
+  /**
+   * Return true if this PaymentAmountUpdateResource object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -419,160 +405,23 @@ public class PaymentAmountUpdateResource {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("industryUsage");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("paymentPspReference");
-    openapiFields.add("pspReference");
-    openapiFields.add("reference");
-    openapiFields.add("splits");
-    openapiFields.add("status");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("merchantAccount");
-    openapiRequiredFields.add("paymentPspReference");
-    openapiRequiredFields.add("pspReference");
-    openapiRequiredFields.add("reference");
-    openapiRequiredFields.add("status");
+/**
+   * Create an instance of PaymentAmountUpdateResource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentAmountUpdateResource
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentAmountUpdateResource
+   */
+  public static PaymentAmountUpdateResource fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentAmountUpdateResource.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentAmountUpdateResource.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentAmountUpdateResource
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentAmountUpdateResource.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentAmountUpdateResource is not found in the empty JSON string", PaymentAmountUpdateResource.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentAmountUpdateResource.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentAmountUpdateResource` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentAmountUpdateResource.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // ensure the field industryUsage can be parsed to an enum value
-      if (jsonObj.get("industryUsage") != null) {
-        if(!jsonObj.get("industryUsage").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `industryUsage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("industryUsage").toString()));
-        }
-        IndustryUsageEnum.fromValue(jsonObj.get("industryUsage").getAsString());
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field paymentPspReference
-      if (jsonObj.get("paymentPspReference") != null && !jsonObj.get("paymentPspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentPspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentPspReference").toString()));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      JsonArray jsonArraysplits = jsonObj.getAsJsonArray("splits");
-      if (jsonArraysplits != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("splits").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `splits` to be an array in the JSON string but got `%s`", jsonObj.get("splits").toString()));
-        }
-
-        // validate the optional field `splits` (array)
-        for (int i = 0; i < jsonArraysplits.size(); i++) {
-          Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        }
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentAmountUpdateResource.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentAmountUpdateResource' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentAmountUpdateResource> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentAmountUpdateResource.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentAmountUpdateResource>() {
-           @Override
-           public void write(JsonWriter out, PaymentAmountUpdateResource value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentAmountUpdateResource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaymentAmountUpdateResource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentAmountUpdateResource
-  * @throws IOException if the JSON string is invalid with respect to PaymentAmountUpdateResource
-  */
-  public static PaymentAmountUpdateResource fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentAmountUpdateResource.class);
-  }
-
- /**
+/**
   * Convert an instance of PaymentAmountUpdateResource to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
