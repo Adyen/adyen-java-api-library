@@ -34,51 +34,49 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * ThreeDS2RequestData
+ * ThreeDS2RequestData2
  */
 @JsonPropertyOrder({
-  ThreeDS2RequestData.JSON_PROPERTY_ACCT_INFO,
-  ThreeDS2RequestData.JSON_PROPERTY_ACCT_TYPE,
-  ThreeDS2RequestData.JSON_PROPERTY_ACQUIRER_B_I_N,
-  ThreeDS2RequestData.JSON_PROPERTY_ACQUIRER_MERCHANT_I_D,
-  ThreeDS2RequestData.JSON_PROPERTY_ADDR_MATCH,
-  ThreeDS2RequestData.JSON_PROPERTY_AUTHENTICATION_ONLY,
-  ThreeDS2RequestData.JSON_PROPERTY_CHALLENGE_INDICATOR,
-  ThreeDS2RequestData.JSON_PROPERTY_DEVICE_CHANNEL,
-  ThreeDS2RequestData.JSON_PROPERTY_DEVICE_RENDER_OPTIONS,
-  ThreeDS2RequestData.JSON_PROPERTY_HOME_PHONE,
-  ThreeDS2RequestData.JSON_PROPERTY_MCC,
-  ThreeDS2RequestData.JSON_PROPERTY_MERCHANT_NAME,
-  ThreeDS2RequestData.JSON_PROPERTY_MESSAGE_VERSION,
-  ThreeDS2RequestData.JSON_PROPERTY_MOBILE_PHONE,
-  ThreeDS2RequestData.JSON_PROPERTY_NOTIFICATION_U_R_L,
-  ThreeDS2RequestData.JSON_PROPERTY_PAY_TOKEN_IND,
-  ThreeDS2RequestData.JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE,
-  ThreeDS2RequestData.JSON_PROPERTY_PURCHASE_INSTAL_DATA,
-  ThreeDS2RequestData.JSON_PROPERTY_RECURRING_EXPIRY,
-  ThreeDS2RequestData.JSON_PROPERTY_RECURRING_FREQUENCY,
-  ThreeDS2RequestData.JSON_PROPERTY_SDK_APP_I_D,
-  ThreeDS2RequestData.JSON_PROPERTY_SDK_ENC_DATA,
-  ThreeDS2RequestData.JSON_PROPERTY_SDK_EPHEM_PUB_KEY,
-  ThreeDS2RequestData.JSON_PROPERTY_SDK_MAX_TIMEOUT,
-  ThreeDS2RequestData.JSON_PROPERTY_SDK_REFERENCE_NUMBER,
-  ThreeDS2RequestData.JSON_PROPERTY_SDK_TRANS_I_D,
-  ThreeDS2RequestData.JSON_PROPERTY_SDK_VERSION,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_COMP_IND,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO,
-  ThreeDS2RequestData.JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L,
-  ThreeDS2RequestData.JSON_PROPERTY_TRANS_TYPE,
-  ThreeDS2RequestData.JSON_PROPERTY_TRANSACTION_TYPE,
-  ThreeDS2RequestData.JSON_PROPERTY_WHITE_LIST_STATUS,
-  ThreeDS2RequestData.JSON_PROPERTY_WORK_PHONE
+  ThreeDS2RequestData2.JSON_PROPERTY_ACCT_INFO,
+  ThreeDS2RequestData2.JSON_PROPERTY_ACCT_TYPE,
+  ThreeDS2RequestData2.JSON_PROPERTY_ACQUIRER_B_I_N,
+  ThreeDS2RequestData2.JSON_PROPERTY_ACQUIRER_MERCHANT_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_ADDR_MATCH,
+  ThreeDS2RequestData2.JSON_PROPERTY_AUTHENTICATION_ONLY,
+  ThreeDS2RequestData2.JSON_PROPERTY_CHALLENGE_INDICATOR,
+  ThreeDS2RequestData2.JSON_PROPERTY_DEVICE_RENDER_OPTIONS,
+  ThreeDS2RequestData2.JSON_PROPERTY_HOME_PHONE,
+  ThreeDS2RequestData2.JSON_PROPERTY_MCC,
+  ThreeDS2RequestData2.JSON_PROPERTY_MERCHANT_NAME,
+  ThreeDS2RequestData2.JSON_PROPERTY_MESSAGE_VERSION,
+  ThreeDS2RequestData2.JSON_PROPERTY_MOBILE_PHONE,
+  ThreeDS2RequestData2.JSON_PROPERTY_NOTIFICATION_U_R_L,
+  ThreeDS2RequestData2.JSON_PROPERTY_PAY_TOKEN_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE,
+  ThreeDS2RequestData2.JSON_PROPERTY_PURCHASE_INSTAL_DATA,
+  ThreeDS2RequestData2.JSON_PROPERTY_RECURRING_EXPIRY,
+  ThreeDS2RequestData2.JSON_PROPERTY_RECURRING_FREQUENCY,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_APP_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_EPHEM_PUB_KEY,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_MAX_TIMEOUT,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_REFERENCE_NUMBER,
+  ThreeDS2RequestData2.JSON_PROPERTY_SDK_TRANS_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_COMP_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO,
+  ThreeDS2RequestData2.JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L,
+  ThreeDS2RequestData2.JSON_PROPERTY_TRANS_TYPE,
+  ThreeDS2RequestData2.JSON_PROPERTY_TRANSACTION_TYPE,
+  ThreeDS2RequestData2.JSON_PROPERTY_WHITE_LIST_STATUS,
+  ThreeDS2RequestData2.JSON_PROPERTY_WORK_PHONE
 })
+@JsonTypeName("ThreeDS2RequestData-2")
 
-public class ThreeDS2RequestData {
+public class ThreeDS2RequestData2 {
   public static final String JSON_PROPERTY_ACCT_INFO = "acctInfo";
   private AcctInfo acctInfo;
 
@@ -211,9 +209,6 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
   private ChallengeIndicatorEnum challengeIndicator;
 
-  public static final String JSON_PROPERTY_DEVICE_CHANNEL = "deviceChannel";
-  private String deviceChannel;
-
   public static final String JSON_PROPERTY_DEVICE_RENDER_OPTIONS = "deviceRenderOptions";
   private DeviceRenderOptions deviceRenderOptions;
 
@@ -253,9 +248,6 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_SDK_APP_I_D = "sdkAppID";
   private String sdkAppID;
 
-  public static final String JSON_PROPERTY_SDK_ENC_DATA = "sdkEncData";
-  private String sdkEncData;
-
   public static final String JSON_PROPERTY_SDK_EPHEM_PUB_KEY = "sdkEphemPubKey";
   private SDKEphemPubKey sdkEphemPubKey;
 
@@ -267,9 +259,6 @@ public class ThreeDS2RequestData {
 
   public static final String JSON_PROPERTY_SDK_TRANS_I_D = "sdkTransID";
   private String sdkTransID;
-
-  public static final String JSON_PROPERTY_SDK_VERSION = "sdkVersion";
-  private String sdkVersion;
 
   public static final String JSON_PROPERTY_THREE_D_S_COMP_IND = "threeDSCompInd";
   private String threeDSCompInd;
@@ -432,10 +421,10 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_WORK_PHONE = "workPhone";
   private Phone workPhone;
 
-  public ThreeDS2RequestData() { 
+  public ThreeDS2RequestData2() { 
   }
 
-  public ThreeDS2RequestData acctInfo(AcctInfo acctInfo) {
+  public ThreeDS2RequestData2 acctInfo(AcctInfo acctInfo) {
     this.acctInfo = acctInfo;
     return this;
   }
@@ -460,7 +449,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData acctType(AcctTypeEnum acctType) {
+  public ThreeDS2RequestData2 acctType(AcctTypeEnum acctType) {
     this.acctType = acctType;
     return this;
   }
@@ -485,7 +474,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData acquirerBIN(String acquirerBIN) {
+  public ThreeDS2RequestData2 acquirerBIN(String acquirerBIN) {
     this.acquirerBIN = acquirerBIN;
     return this;
   }
@@ -510,7 +499,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData acquirerMerchantID(String acquirerMerchantID) {
+  public ThreeDS2RequestData2 acquirerMerchantID(String acquirerMerchantID) {
     this.acquirerMerchantID = acquirerMerchantID;
     return this;
   }
@@ -535,7 +524,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData addrMatch(AddrMatchEnum addrMatch) {
+  public ThreeDS2RequestData2 addrMatch(AddrMatchEnum addrMatch) {
     this.addrMatch = addrMatch;
     return this;
   }
@@ -560,7 +549,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
+  public ThreeDS2RequestData2 authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
     return this;
   }
@@ -588,7 +577,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
+  public ThreeDS2RequestData2 challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
     return this;
   }
@@ -616,32 +605,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData deviceChannel(String deviceChannel) {
-    this.deviceChannel = deviceChannel;
-    return this;
-  }
-
-   /**
-   * The environment of the shopper. Allowed values: * &#x60;app&#x60; * &#x60;browser&#x60;
-   * @return deviceChannel
-  **/
-  @ApiModelProperty(required = true, value = "The environment of the shopper. Allowed values: * `app` * `browser`")
-  @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDeviceChannel() {
-    return deviceChannel;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeviceChannel(String deviceChannel) {
-    this.deviceChannel = deviceChannel;
-  }
-
-
-  public ThreeDS2RequestData deviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
+  public ThreeDS2RequestData2 deviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
     this.deviceRenderOptions = deviceRenderOptions;
     return this;
   }
@@ -666,7 +630,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData homePhone(Phone homePhone) {
+  public ThreeDS2RequestData2 homePhone(Phone homePhone) {
     this.homePhone = homePhone;
     return this;
   }
@@ -691,7 +655,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData mcc(String mcc) {
+  public ThreeDS2RequestData2 mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
@@ -716,7 +680,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData merchantName(String merchantName) {
+  public ThreeDS2RequestData2 merchantName(String merchantName) {
     this.merchantName = merchantName;
     return this;
   }
@@ -741,7 +705,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData messageVersion(String messageVersion) {
+  public ThreeDS2RequestData2 messageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
     return this;
   }
@@ -766,7 +730,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData mobilePhone(Phone mobilePhone) {
+  public ThreeDS2RequestData2 mobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
     return this;
   }
@@ -791,7 +755,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData notificationURL(String notificationURL) {
+  public ThreeDS2RequestData2 notificationURL(String notificationURL) {
     this.notificationURL = notificationURL;
     return this;
   }
@@ -816,7 +780,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData payTokenInd(Boolean payTokenInd) {
+  public ThreeDS2RequestData2 payTokenInd(Boolean payTokenInd) {
     this.payTokenInd = payTokenInd;
     return this;
   }
@@ -841,7 +805,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData paymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
+  public ThreeDS2RequestData2 paymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
     this.paymentAuthenticationUseCase = paymentAuthenticationUseCase;
     return this;
   }
@@ -866,7 +830,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData purchaseInstalData(String purchaseInstalData) {
+  public ThreeDS2RequestData2 purchaseInstalData(String purchaseInstalData) {
     this.purchaseInstalData = purchaseInstalData;
     return this;
   }
@@ -891,7 +855,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData recurringExpiry(String recurringExpiry) {
+  public ThreeDS2RequestData2 recurringExpiry(String recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
     return this;
   }
@@ -916,7 +880,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData recurringFrequency(String recurringFrequency) {
+  public ThreeDS2RequestData2 recurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
     return this;
   }
@@ -941,16 +905,16 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData sdkAppID(String sdkAppID) {
+  public ThreeDS2RequestData2 sdkAppID(String sdkAppID) {
     this.sdkAppID = sdkAppID;
     return this;
   }
 
    /**
-   * The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK. Required for &#x60;deviceChannel&#x60; set to **app**.
+   * The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK.
    * @return sdkAppID
   **/
-  @ApiModelProperty(value = "The `sdkAppID` value as received from the 3D Secure 2 SDK. Required for `deviceChannel` set to **app**.")
+  @ApiModelProperty(value = "The `sdkAppID` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_SDK_APP_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -966,32 +930,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData sdkEncData(String sdkEncData) {
-    this.sdkEncData = sdkEncData;
-    return this;
-  }
-
-   /**
-   * The &#x60;sdkEncData&#x60; value as received from the 3D Secure 2 SDK. Required for &#x60;deviceChannel&#x60; set to **app**.
-   * @return sdkEncData
-  **/
-  @ApiModelProperty(value = "The `sdkEncData` value as received from the 3D Secure 2 SDK. Required for `deviceChannel` set to **app**.")
-  @JsonProperty(JSON_PROPERTY_SDK_ENC_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSdkEncData() {
-    return sdkEncData;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SDK_ENC_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSdkEncData(String sdkEncData) {
-    this.sdkEncData = sdkEncData;
-  }
-
-
-  public ThreeDS2RequestData sdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
+  public ThreeDS2RequestData2 sdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
     this.sdkEphemPubKey = sdkEphemPubKey;
     return this;
   }
@@ -1016,7 +955,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData sdkMaxTimeout(Integer sdkMaxTimeout) {
+  public ThreeDS2RequestData2 sdkMaxTimeout(Integer sdkMaxTimeout) {
     this.sdkMaxTimeout = sdkMaxTimeout;
     return this;
   }
@@ -1041,16 +980,16 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData sdkReferenceNumber(String sdkReferenceNumber) {
+  public ThreeDS2RequestData2 sdkReferenceNumber(String sdkReferenceNumber) {
     this.sdkReferenceNumber = sdkReferenceNumber;
     return this;
   }
 
    /**
-   * The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK. Only for &#x60;deviceChannel&#x60; set to **app**.
+   * The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK.
    * @return sdkReferenceNumber
   **/
-  @ApiModelProperty(value = "The `sdkReferenceNumber` value as received from the 3D Secure 2 SDK. Only for `deviceChannel` set to **app**.")
+  @ApiModelProperty(value = "The `sdkReferenceNumber` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_SDK_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1066,16 +1005,16 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData sdkTransID(String sdkTransID) {
+  public ThreeDS2RequestData2 sdkTransID(String sdkTransID) {
     this.sdkTransID = sdkTransID;
     return this;
   }
 
    /**
-   * The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK. Only for &#x60;deviceChannel&#x60; set to **app**.
+   * The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK.
    * @return sdkTransID
   **/
-  @ApiModelProperty(value = "The `sdkTransID` value as received from the 3D Secure 2 SDK. Only for `deviceChannel` set to **app**.")
+  @ApiModelProperty(value = "The `sdkTransID` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_SDK_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1091,32 +1030,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData sdkVersion(String sdkVersion) {
-    this.sdkVersion = sdkVersion;
-    return this;
-  }
-
-   /**
-   * Version of the 3D Secure 2 mobile SDK.  Only for &#x60;deviceChannel&#x60; set to **app**.
-   * @return sdkVersion
-  **/
-  @ApiModelProperty(value = "Version of the 3D Secure 2 mobile SDK.  Only for `deviceChannel` set to **app**.")
-  @JsonProperty(JSON_PROPERTY_SDK_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSdkVersion() {
-    return sdkVersion;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SDK_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSdkVersion(String sdkVersion) {
-    this.sdkVersion = sdkVersion;
-  }
-
-
-  public ThreeDS2RequestData threeDSCompInd(String threeDSCompInd) {
+  public ThreeDS2RequestData2 threeDSCompInd(String threeDSCompInd) {
     this.threeDSCompInd = threeDSCompInd;
     return this;
   }
@@ -1141,7 +1055,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData threeDSRequestorAuthenticationInd(String threeDSRequestorAuthenticationInd) {
+  public ThreeDS2RequestData2 threeDSRequestorAuthenticationInd(String threeDSRequestorAuthenticationInd) {
     this.threeDSRequestorAuthenticationInd = threeDSRequestorAuthenticationInd;
     return this;
   }
@@ -1166,7 +1080,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData threeDSRequestorAuthenticationInfo(ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
+  public ThreeDS2RequestData2 threeDSRequestorAuthenticationInfo(ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
     this.threeDSRequestorAuthenticationInfo = threeDSRequestorAuthenticationInfo;
     return this;
   }
@@ -1191,7 +1105,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData threeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
+  public ThreeDS2RequestData2 threeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
     return this;
   }
@@ -1216,7 +1130,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData threeDSRequestorID(String threeDSRequestorID) {
+  public ThreeDS2RequestData2 threeDSRequestorID(String threeDSRequestorID) {
     this.threeDSRequestorID = threeDSRequestorID;
     return this;
   }
@@ -1241,7 +1155,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData threeDSRequestorName(String threeDSRequestorName) {
+  public ThreeDS2RequestData2 threeDSRequestorName(String threeDSRequestorName) {
     this.threeDSRequestorName = threeDSRequestorName;
     return this;
   }
@@ -1266,7 +1180,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData threeDSRequestorPriorAuthenticationInfo(ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
+  public ThreeDS2RequestData2 threeDSRequestorPriorAuthenticationInfo(ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
     this.threeDSRequestorPriorAuthenticationInfo = threeDSRequestorPriorAuthenticationInfo;
     return this;
   }
@@ -1291,7 +1205,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData threeDSRequestorURL(String threeDSRequestorURL) {
+  public ThreeDS2RequestData2 threeDSRequestorURL(String threeDSRequestorURL) {
     this.threeDSRequestorURL = threeDSRequestorURL;
     return this;
   }
@@ -1316,7 +1230,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData transType(TransTypeEnum transType) {
+  public ThreeDS2RequestData2 transType(TransTypeEnum transType) {
     this.transType = transType;
     return this;
   }
@@ -1341,7 +1255,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData transactionType(TransactionTypeEnum transactionType) {
+  public ThreeDS2RequestData2 transactionType(TransactionTypeEnum transactionType) {
     this.transactionType = transactionType;
     return this;
   }
@@ -1366,7 +1280,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData whiteListStatus(String whiteListStatus) {
+  public ThreeDS2RequestData2 whiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
     return this;
   }
@@ -1391,7 +1305,7 @@ public class ThreeDS2RequestData {
   }
 
 
-  public ThreeDS2RequestData workPhone(Phone workPhone) {
+  public ThreeDS2RequestData2 workPhone(Phone workPhone) {
     this.workPhone = workPhone;
     return this;
   }
@@ -1417,7 +1331,7 @@ public class ThreeDS2RequestData {
 
 
   /**
-   * Return true if this ThreeDS2RequestData object is equal to o.
+   * Return true if this ThreeDS2RequestData-2 object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -1427,57 +1341,54 @@ public class ThreeDS2RequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ThreeDS2RequestData threeDS2RequestData = (ThreeDS2RequestData) o;
-    return Objects.equals(this.acctInfo, threeDS2RequestData.acctInfo) &&
-        Objects.equals(this.acctType, threeDS2RequestData.acctType) &&
-        Objects.equals(this.acquirerBIN, threeDS2RequestData.acquirerBIN) &&
-        Objects.equals(this.acquirerMerchantID, threeDS2RequestData.acquirerMerchantID) &&
-        Objects.equals(this.addrMatch, threeDS2RequestData.addrMatch) &&
-        Objects.equals(this.authenticationOnly, threeDS2RequestData.authenticationOnly) &&
-        Objects.equals(this.challengeIndicator, threeDS2RequestData.challengeIndicator) &&
-        Objects.equals(this.deviceChannel, threeDS2RequestData.deviceChannel) &&
-        Objects.equals(this.deviceRenderOptions, threeDS2RequestData.deviceRenderOptions) &&
-        Objects.equals(this.homePhone, threeDS2RequestData.homePhone) &&
-        Objects.equals(this.mcc, threeDS2RequestData.mcc) &&
-        Objects.equals(this.merchantName, threeDS2RequestData.merchantName) &&
-        Objects.equals(this.messageVersion, threeDS2RequestData.messageVersion) &&
-        Objects.equals(this.mobilePhone, threeDS2RequestData.mobilePhone) &&
-        Objects.equals(this.notificationURL, threeDS2RequestData.notificationURL) &&
-        Objects.equals(this.payTokenInd, threeDS2RequestData.payTokenInd) &&
-        Objects.equals(this.paymentAuthenticationUseCase, threeDS2RequestData.paymentAuthenticationUseCase) &&
-        Objects.equals(this.purchaseInstalData, threeDS2RequestData.purchaseInstalData) &&
-        Objects.equals(this.recurringExpiry, threeDS2RequestData.recurringExpiry) &&
-        Objects.equals(this.recurringFrequency, threeDS2RequestData.recurringFrequency) &&
-        Objects.equals(this.sdkAppID, threeDS2RequestData.sdkAppID) &&
-        Objects.equals(this.sdkEncData, threeDS2RequestData.sdkEncData) &&
-        Objects.equals(this.sdkEphemPubKey, threeDS2RequestData.sdkEphemPubKey) &&
-        Objects.equals(this.sdkMaxTimeout, threeDS2RequestData.sdkMaxTimeout) &&
-        Objects.equals(this.sdkReferenceNumber, threeDS2RequestData.sdkReferenceNumber) &&
-        Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID) &&
-        Objects.equals(this.sdkVersion, threeDS2RequestData.sdkVersion) &&
-        Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd) &&
-        Objects.equals(this.threeDSRequestorAuthenticationInd, threeDS2RequestData.threeDSRequestorAuthenticationInd) &&
-        Objects.equals(this.threeDSRequestorAuthenticationInfo, threeDS2RequestData.threeDSRequestorAuthenticationInfo) &&
-        Objects.equals(this.threeDSRequestorChallengeInd, threeDS2RequestData.threeDSRequestorChallengeInd) &&
-        Objects.equals(this.threeDSRequestorID, threeDS2RequestData.threeDSRequestorID) &&
-        Objects.equals(this.threeDSRequestorName, threeDS2RequestData.threeDSRequestorName) &&
-        Objects.equals(this.threeDSRequestorPriorAuthenticationInfo, threeDS2RequestData.threeDSRequestorPriorAuthenticationInfo) &&
-        Objects.equals(this.threeDSRequestorURL, threeDS2RequestData.threeDSRequestorURL) &&
-        Objects.equals(this.transType, threeDS2RequestData.transType) &&
-        Objects.equals(this.transactionType, threeDS2RequestData.transactionType) &&
-        Objects.equals(this.whiteListStatus, threeDS2RequestData.whiteListStatus) &&
-        Objects.equals(this.workPhone, threeDS2RequestData.workPhone);
+    ThreeDS2RequestData2 threeDS2RequestData2 = (ThreeDS2RequestData2) o;
+    return Objects.equals(this.acctInfo, threeDS2RequestData2.acctInfo) &&
+        Objects.equals(this.acctType, threeDS2RequestData2.acctType) &&
+        Objects.equals(this.acquirerBIN, threeDS2RequestData2.acquirerBIN) &&
+        Objects.equals(this.acquirerMerchantID, threeDS2RequestData2.acquirerMerchantID) &&
+        Objects.equals(this.addrMatch, threeDS2RequestData2.addrMatch) &&
+        Objects.equals(this.authenticationOnly, threeDS2RequestData2.authenticationOnly) &&
+        Objects.equals(this.challengeIndicator, threeDS2RequestData2.challengeIndicator) &&
+        Objects.equals(this.deviceRenderOptions, threeDS2RequestData2.deviceRenderOptions) &&
+        Objects.equals(this.homePhone, threeDS2RequestData2.homePhone) &&
+        Objects.equals(this.mcc, threeDS2RequestData2.mcc) &&
+        Objects.equals(this.merchantName, threeDS2RequestData2.merchantName) &&
+        Objects.equals(this.messageVersion, threeDS2RequestData2.messageVersion) &&
+        Objects.equals(this.mobilePhone, threeDS2RequestData2.mobilePhone) &&
+        Objects.equals(this.notificationURL, threeDS2RequestData2.notificationURL) &&
+        Objects.equals(this.payTokenInd, threeDS2RequestData2.payTokenInd) &&
+        Objects.equals(this.paymentAuthenticationUseCase, threeDS2RequestData2.paymentAuthenticationUseCase) &&
+        Objects.equals(this.purchaseInstalData, threeDS2RequestData2.purchaseInstalData) &&
+        Objects.equals(this.recurringExpiry, threeDS2RequestData2.recurringExpiry) &&
+        Objects.equals(this.recurringFrequency, threeDS2RequestData2.recurringFrequency) &&
+        Objects.equals(this.sdkAppID, threeDS2RequestData2.sdkAppID) &&
+        Objects.equals(this.sdkEphemPubKey, threeDS2RequestData2.sdkEphemPubKey) &&
+        Objects.equals(this.sdkMaxTimeout, threeDS2RequestData2.sdkMaxTimeout) &&
+        Objects.equals(this.sdkReferenceNumber, threeDS2RequestData2.sdkReferenceNumber) &&
+        Objects.equals(this.sdkTransID, threeDS2RequestData2.sdkTransID) &&
+        Objects.equals(this.threeDSCompInd, threeDS2RequestData2.threeDSCompInd) &&
+        Objects.equals(this.threeDSRequestorAuthenticationInd, threeDS2RequestData2.threeDSRequestorAuthenticationInd) &&
+        Objects.equals(this.threeDSRequestorAuthenticationInfo, threeDS2RequestData2.threeDSRequestorAuthenticationInfo) &&
+        Objects.equals(this.threeDSRequestorChallengeInd, threeDS2RequestData2.threeDSRequestorChallengeInd) &&
+        Objects.equals(this.threeDSRequestorID, threeDS2RequestData2.threeDSRequestorID) &&
+        Objects.equals(this.threeDSRequestorName, threeDS2RequestData2.threeDSRequestorName) &&
+        Objects.equals(this.threeDSRequestorPriorAuthenticationInfo, threeDS2RequestData2.threeDSRequestorPriorAuthenticationInfo) &&
+        Objects.equals(this.threeDSRequestorURL, threeDS2RequestData2.threeDSRequestorURL) &&
+        Objects.equals(this.transType, threeDS2RequestData2.transType) &&
+        Objects.equals(this.transactionType, threeDS2RequestData2.transactionType) &&
+        Objects.equals(this.whiteListStatus, threeDS2RequestData2.whiteListStatus) &&
+        Objects.equals(this.workPhone, threeDS2RequestData2.workPhone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acctInfo, acctType, acquirerBIN, acquirerMerchantID, addrMatch, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, homePhone, mcc, merchantName, messageVersion, mobilePhone, notificationURL, payTokenInd, paymentAuthenticationUseCase, purchaseInstalData, recurringExpiry, recurringFrequency, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, sdkVersion, threeDSCompInd, threeDSRequestorAuthenticationInd, threeDSRequestorAuthenticationInfo, threeDSRequestorChallengeInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorPriorAuthenticationInfo, threeDSRequestorURL, transType, transactionType, whiteListStatus, workPhone);
+    return Objects.hash(acctInfo, acctType, acquirerBIN, acquirerMerchantID, addrMatch, authenticationOnly, challengeIndicator, deviceRenderOptions, homePhone, mcc, merchantName, messageVersion, mobilePhone, notificationURL, payTokenInd, paymentAuthenticationUseCase, purchaseInstalData, recurringExpiry, recurringFrequency, sdkAppID, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, threeDSCompInd, threeDSRequestorAuthenticationInd, threeDSRequestorAuthenticationInfo, threeDSRequestorChallengeInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorPriorAuthenticationInfo, threeDSRequestorURL, transType, transactionType, whiteListStatus, workPhone);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ThreeDS2RequestData {\n");
+    sb.append("class ThreeDS2RequestData2 {\n");
     sb.append("    acctInfo: ").append(toIndentedString(acctInfo)).append("\n");
     sb.append("    acctType: ").append(toIndentedString(acctType)).append("\n");
     sb.append("    acquirerBIN: ").append(toIndentedString(acquirerBIN)).append("\n");
@@ -1485,7 +1396,6 @@ public class ThreeDS2RequestData {
     sb.append("    addrMatch: ").append(toIndentedString(addrMatch)).append("\n");
     sb.append("    authenticationOnly: ").append(toIndentedString(authenticationOnly)).append("\n");
     sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
-    sb.append("    deviceChannel: ").append(toIndentedString(deviceChannel)).append("\n");
     sb.append("    deviceRenderOptions: ").append(toIndentedString(deviceRenderOptions)).append("\n");
     sb.append("    homePhone: ").append(toIndentedString(homePhone)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
@@ -1499,12 +1409,10 @@ public class ThreeDS2RequestData {
     sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
     sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
     sb.append("    sdkAppID: ").append(toIndentedString(sdkAppID)).append("\n");
-    sb.append("    sdkEncData: ").append(toIndentedString(sdkEncData)).append("\n");
     sb.append("    sdkEphemPubKey: ").append(toIndentedString(sdkEphemPubKey)).append("\n");
     sb.append("    sdkMaxTimeout: ").append(toIndentedString(sdkMaxTimeout)).append("\n");
     sb.append("    sdkReferenceNumber: ").append(toIndentedString(sdkReferenceNumber)).append("\n");
     sb.append("    sdkTransID: ").append(toIndentedString(sdkTransID)).append("\n");
-    sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append("\n");
     sb.append("    threeDSCompInd: ").append(toIndentedString(threeDSCompInd)).append("\n");
     sb.append("    threeDSRequestorAuthenticationInd: ").append(toIndentedString(threeDSRequestorAuthenticationInd)).append("\n");
     sb.append("    threeDSRequestorAuthenticationInfo: ").append(toIndentedString(threeDSRequestorAuthenticationInfo)).append("\n");
@@ -1533,17 +1441,17 @@ public class ThreeDS2RequestData {
   }
 
 /**
-   * Create an instance of ThreeDS2RequestData given an JSON string
+   * Create an instance of ThreeDS2RequestData2 given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ThreeDS2RequestData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDS2RequestData
+   * @return An instance of ThreeDS2RequestData2
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDS2RequestData2
    */
-  public static ThreeDS2RequestData fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, ThreeDS2RequestData.class);
+  public static ThreeDS2RequestData2 fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThreeDS2RequestData2.class);
   }
 /**
-  * Convert an instance of ThreeDS2RequestData to an JSON string
+  * Convert an instance of ThreeDS2RequestData2 to an JSON string
   *
   * @return JSON string
   */

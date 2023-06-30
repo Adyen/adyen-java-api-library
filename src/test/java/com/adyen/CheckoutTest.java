@@ -70,7 +70,7 @@ public class CheckoutTest extends BaseTest {
                 .encryptedExpiryMonth("08")
                 .encryptedExpiryYear("2018");
         cardDetails.setType(CardDetails.TypeEnum.SCHEME);
-        PaymentRequest paymentRequest = new PaymentRequest();
+        CheckoutPaymentRequest paymentRequest = new CheckoutPaymentRequest();
         paymentRequest.setAmount(amount);
         paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(cardDetails));
         PaymentsApi checkout = new PaymentsApi(client);
@@ -81,24 +81,24 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Should be able to stringify and parse paymentMethod in PaymentRequest (test oneOf serialization and deserialization)
+     * Should be able to stringify and parse paymentMethod in CheckoutPaymentRequest (test oneOf serialization and deserialization)
      */
     @Test
-    public void TestPaymentRequestSerialization() throws Exception {
+    public void TestCheckoutPaymentRequestSerialization() throws Exception {
         String paymentRequestJson = getFileContents("mocks/checkout/paymentRequest.json");
         IdealDetails idealDetails = new IdealDetails();
         idealDetails.setIssuer("issuerName");
         Amount amount = new Amount().currency("EUR").value(1000L);
-        PaymentRequest paymentRequest = new PaymentRequest();
+        CheckoutPaymentRequest paymentRequest = new CheckoutPaymentRequest();
         paymentRequest.setAmount(amount);
         paymentRequest.setMerchantAccount("myMerchantAccount");
         paymentRequest.setReference("merchantReference");
         paymentRequest.setReturnUrl("http://return.com");
         paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(idealDetails));
 
-        PaymentRequest parsedPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
-        assertEquals(IdealDetails.TypeEnum.IDEAL, parsedPaymentRequest.getPaymentMethod().getIdealDetails().getType());
-        assertEquals("EUR", parsedPaymentRequest.getAmount().getCurrency());
+        CheckoutPaymentRequest parsedCheckoutPaymentRequest = CheckoutPaymentRequest.fromJson(paymentRequestJson);
+        assertEquals(IdealDetails.TypeEnum.IDEAL, parsedCheckoutPaymentRequest.getPaymentMethod().getIdealDetails().getType());
+        assertEquals("EUR", parsedCheckoutPaymentRequest.getAmount().getCurrency());
     }
 
     /**
@@ -286,7 +286,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestDonationsSuccessCall() throws Exception {
         Client client =  createMockClientFromFile("mocks/checkout/donationResponse.json");
-        PaymentDonationRequest paymentDonationRequest = new PaymentDonationRequest();
+        CheckoutDonationPaymentRequest paymentDonationRequest = new CheckoutDonationPaymentRequest();
         Amount amount = new Amount().currency("EUR").value(1000L);
         paymentDonationRequest.setAmount(amount);
         paymentDonationRequest.setDonationAccount("YOUR_DONATION_ACCOUNT");

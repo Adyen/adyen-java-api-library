@@ -5,7 +5,7 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreatePaymentLinkRequest;
 import com.adyen.model.checkout.PaymentSetupRequest;
-import com.adyen.model.checkout.PaymentRequest;
+import com.adyen.model.checkout.CheckoutPaymentRequest;
 import com.adyen.service.checkout.ClassicCheckoutSdkApi;
 import com.adyen.service.checkout.PaymentLinksApi;
 import com.adyen.service.checkout.PaymentsApi;
@@ -89,9 +89,9 @@ public class DateSerializationTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
         PaymentsApi checkout = new PaymentsApi(client);
 
-        PaymentRequest request = new PaymentRequest();
+        CheckoutPaymentRequest request = new CheckoutPaymentRequest();
 
-        request.setDateOfBirth(date().toLocalDate());
+        request.setDateOfBirth(date());
         request.setDeliveryDate(date());
 
         checkout.payments(request);
