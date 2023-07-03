@@ -1,24 +1,11 @@
 /*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
  * Adyen Java API Library
  *
  * Copyright (c) 2017 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.marketpay;
+package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -105,7 +92,7 @@ public class ErrorFieldType {
         }
         ErrorFieldType errorFieldType = (ErrorFieldType) o;
         return Objects.equals(this.errorDescription, errorFieldType.errorDescription) && Objects.equals(this.errorCode, errorFieldType.errorCode) && Objects.equals(this.fieldType,
-                                                                                                                                                                    errorFieldType.fieldType);
+                errorFieldType.fieldType);
     }
 
     @Override
@@ -127,4 +114,3 @@ public class ErrorFieldType {
     }
 
 }
-

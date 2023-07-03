@@ -27,12 +27,15 @@ import com.adyen.model.checkoututility.OriginKeysRequest;
 import com.adyen.model.checkoututility.OriginKeysResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.checkoututility.OriginKeys;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
 public class CheckoutUtility extends ApiKeyAuthenticatedService {
 
+    protected static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
     private final OriginKeys originKeys;
 
     public CheckoutUtility(Client client) {

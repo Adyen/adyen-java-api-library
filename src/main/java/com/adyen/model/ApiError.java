@@ -20,7 +20,7 @@
  */
 package com.adyen.model;
 
-import com.adyen.model.marketpay.ErrorFieldType;
+import com.adyen.model.ErrorFieldType;
 import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
