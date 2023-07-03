@@ -14,79 +14,63 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Individual;
 import com.adyen.model.legalentitymanagement.LegalEntityAssociation;
 import com.adyen.model.legalentitymanagement.LegalEntityCapability;
 import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * LegalEntityInfo
  */
+@JsonPropertyOrder({
+  LegalEntityInfo.JSON_PROPERTY_CAPABILITIES,
+  LegalEntityInfo.JSON_PROPERTY_ENTITY_ASSOCIATIONS,
+  LegalEntityInfo.JSON_PROPERTY_INDIVIDUAL,
+  LegalEntityInfo.JSON_PROPERTY_ORGANIZATION,
+  LegalEntityInfo.JSON_PROPERTY_REFERENCE,
+  LegalEntityInfo.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
+  LegalEntityInfo.JSON_PROPERTY_TYPE
+})
 
 public class LegalEntityInfo {
-  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
-  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
+  public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, LegalEntityCapability> capabilities = null;
 
-  public static final String SERIALIZED_NAME_ENTITY_ASSOCIATIONS = "entityAssociations";
-  @SerializedName(SERIALIZED_NAME_ENTITY_ASSOCIATIONS)
+  public static final String JSON_PROPERTY_ENTITY_ASSOCIATIONS = "entityAssociations";
   private List<LegalEntityAssociation> entityAssociations = null;
 
-  public static final String SERIALIZED_NAME_INDIVIDUAL = "individual";
-  @SerializedName(SERIALIZED_NAME_INDIVIDUAL)
+  public static final String JSON_PROPERTY_INDIVIDUAL = "individual";
   private Individual individual;
 
-  public static final String SERIALIZED_NAME_ORGANIZATION = "organization";
-  @SerializedName(SERIALIZED_NAME_ORGANIZATION)
+  public static final String JSON_PROPERTY_ORGANIZATION = "organization";
   private Organization organization;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SOLE_PROPRIETORSHIP = "soleProprietorship";
-  @SerializedName(SERIALIZED_NAME_SOLE_PROPRIETORSHIP)
+  public static final String JSON_PROPERTY_SOLE_PROPRIETORSHIP = "soleProprietorship";
   private SoleProprietorship soleProprietorship;
 
   /**
    * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     INDIVIDUAL("individual"),
     
@@ -104,6 +88,7 @@ public class LegalEntityInfo {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -113,6 +98,7 @@ public class LegalEntityInfo {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -121,34 +107,25 @@ public class LegalEntityInfo {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public LegalEntityInfo() { 
   }
 
-  
-  public LegalEntityInfo(
-     Map<String, LegalEntityCapability> capabilities
-  ) {
-    this();
+  public LegalEntityInfo capabilities(Map<String, LegalEntityCapability> capabilities) {
     this.capabilities = capabilities;
+    return this;
+  }
+
+  public LegalEntityInfo putCapabilitiesItem(String key, LegalEntityCapability capabilitiesItem) {
+    if (this.capabilities == null) {
+      this.capabilities = new HashMap<>();
+    }
+    this.capabilities.put(key, capabilitiesItem);
+    return this;
   }
 
    /**
@@ -156,16 +133,22 @@ public class LegalEntityInfo {
    * @return capabilities
   **/
   @ApiModelProperty(value = "Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.")
+  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, LegalEntityCapability> getCapabilities() {
     return capabilities;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCapabilities(Map<String, LegalEntityCapability> capabilities) {
+    this.capabilities = capabilities;
+  }
 
 
   public LegalEntityInfo entityAssociations(List<LegalEntityAssociation> entityAssociations) {
-    
     this.entityAssociations = entityAssociations;
     return this;
   }
@@ -183,19 +166,22 @@ public class LegalEntityInfo {
    * @return entityAssociations
   **/
   @ApiModelProperty(value = "List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.")
+  @JsonProperty(JSON_PROPERTY_ENTITY_ASSOCIATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<LegalEntityAssociation> getEntityAssociations() {
     return entityAssociations;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENTITY_ASSOCIATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityAssociations(List<LegalEntityAssociation> entityAssociations) {
     this.entityAssociations = entityAssociations;
   }
 
 
   public LegalEntityInfo individual(Individual individual) {
-    
     this.individual = individual;
     return this;
   }
@@ -205,19 +191,22 @@ public class LegalEntityInfo {
    * @return individual
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Individual getIndividual() {
     return individual;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndividual(Individual individual) {
     this.individual = individual;
   }
 
 
   public LegalEntityInfo organization(Organization organization) {
-    
     this.organization = organization;
     return this;
   }
@@ -227,19 +216,22 @@ public class LegalEntityInfo {
    * @return organization
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ORGANIZATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Organization getOrganization() {
     return organization;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ORGANIZATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrganization(Organization organization) {
     this.organization = organization;
   }
 
 
   public LegalEntityInfo reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -249,19 +241,22 @@ public class LegalEntityInfo {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the legal entity, maximum 150 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public LegalEntityInfo soleProprietorship(SoleProprietorship soleProprietorship) {
-    
     this.soleProprietorship = soleProprietorship;
     return this;
   }
@@ -271,19 +266,22 @@ public class LegalEntityInfo {
    * @return soleProprietorship
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SoleProprietorship getSoleProprietorship() {
     return soleProprietorship;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSoleProprietorship(SoleProprietorship soleProprietorship) {
     this.soleProprietorship = soleProprietorship;
   }
 
 
   public LegalEntityInfo type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -293,18 +291,24 @@ public class LegalEntityInfo {
    * @return type
   **/
   @ApiModelProperty(value = "The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this LegalEntityInfo object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -354,135 +358,23 @@ public class LegalEntityInfo {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("capabilities");
-    openapiFields.add("entityAssociations");
-    openapiFields.add("individual");
-    openapiFields.add("organization");
-    openapiFields.add("reference");
-    openapiFields.add("soleProprietorship");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of LegalEntityInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of LegalEntityInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to LegalEntityInfo
+   */
+  public static LegalEntityInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, LegalEntityInfo.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(LegalEntityInfo.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to LegalEntityInfo
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (LegalEntityInfo.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LegalEntityInfo is not found in the empty JSON string", LegalEntityInfo.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!LegalEntityInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `LegalEntityInfo` properties.", entry.getKey()));
-        }
-      }
-      JsonArray jsonArrayentityAssociations = jsonObj.getAsJsonArray("entityAssociations");
-      if (jsonArrayentityAssociations != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("entityAssociations").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `entityAssociations` to be an array in the JSON string but got `%s`", jsonObj.get("entityAssociations").toString()));
-        }
-
-        // validate the optional field `entityAssociations` (array)
-        for (int i = 0; i < jsonArrayentityAssociations.size(); i++) {
-          LegalEntityAssociation.validateJsonObject(jsonArrayentityAssociations.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field `individual`
-      if (jsonObj.getAsJsonObject("individual") != null) {
-        Individual.validateJsonObject(jsonObj.getAsJsonObject("individual"));
-      }
-      // validate the optional field `organization`
-      if (jsonObj.getAsJsonObject("organization") != null) {
-        Organization.validateJsonObject(jsonObj.getAsJsonObject("organization"));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field `soleProprietorship`
-      if (jsonObj.getAsJsonObject("soleProprietorship") != null) {
-        SoleProprietorship.validateJsonObject(jsonObj.getAsJsonObject("soleProprietorship"));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!LegalEntityInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LegalEntityInfo' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<LegalEntityInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(LegalEntityInfo.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<LegalEntityInfo>() {
-           @Override
-           public void write(JsonWriter out, LegalEntityInfo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public LegalEntityInfo read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of LegalEntityInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of LegalEntityInfo
-  * @throws IOException if the JSON string is invalid with respect to LegalEntityInfo
-  */
-  public static LegalEntityInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, LegalEntityInfo.class);
-  }
-
- /**
+/**
   * Convert an instance of LegalEntityInfo to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,55 +14,38 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * AcceptTermsOfServiceRequest
  */
+@JsonPropertyOrder({
+  AcceptTermsOfServiceRequest.JSON_PROPERTY_ACCEPTED_BY,
+  AcceptTermsOfServiceRequest.JSON_PROPERTY_IP_ADDRESS
+})
 
 public class AcceptTermsOfServiceRequest {
-  public static final String SERIALIZED_NAME_ACCEPTED_BY = "acceptedBy";
-  @SerializedName(SERIALIZED_NAME_ACCEPTED_BY)
+  public static final String JSON_PROPERTY_ACCEPTED_BY = "acceptedBy";
   private String acceptedBy;
 
-  public static final String SERIALIZED_NAME_IP_ADDRESS = "ipAddress";
-  @SerializedName(SERIALIZED_NAME_IP_ADDRESS)
+  public static final String JSON_PROPERTY_IP_ADDRESS = "ipAddress";
   private String ipAddress;
 
   public AcceptTermsOfServiceRequest() { 
   }
 
   public AcceptTermsOfServiceRequest acceptedBy(String acceptedBy) {
-    
     this.acceptedBy = acceptedBy;
     return this;
   }
@@ -71,20 +54,23 @@ public class AcceptTermsOfServiceRequest {
    * The unique identifier of the user accepting the Terms of Service.
    * @return acceptedBy
   **/
-  @ApiModelProperty(value = "The unique identifier of the user accepting the Terms of Service.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the user accepting the Terms of Service.")
+  @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcceptedBy() {
     return acceptedBy;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
   }
 
 
   public AcceptTermsOfServiceRequest ipAddress(String ipAddress) {
-    
     this.ipAddress = ipAddress;
     return this;
   }
@@ -94,18 +80,24 @@ public class AcceptTermsOfServiceRequest {
    * @return ipAddress
   **/
   @ApiModelProperty(value = "The IP address of the user accepting the Terms of Service.")
+  @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIpAddress() {
     return ipAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
   }
 
 
-
+  /**
+   * Return true if this AcceptTermsOfServiceRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,103 +137,23 @@ public class AcceptTermsOfServiceRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acceptedBy");
-    openapiFields.add("ipAddress");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of AcceptTermsOfServiceRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AcceptTermsOfServiceRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AcceptTermsOfServiceRequest
+   */
+  public static AcceptTermsOfServiceRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AcceptTermsOfServiceRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AcceptTermsOfServiceRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AcceptTermsOfServiceRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AcceptTermsOfServiceRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AcceptTermsOfServiceRequest is not found in the empty JSON string", AcceptTermsOfServiceRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AcceptTermsOfServiceRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AcceptTermsOfServiceRequest` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field acceptedBy
-      if (jsonObj.get("acceptedBy") != null && !jsonObj.get("acceptedBy").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acceptedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acceptedBy").toString()));
-      }
-      // validate the optional field ipAddress
-      if (jsonObj.get("ipAddress") != null && !jsonObj.get("ipAddress").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ipAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ipAddress").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AcceptTermsOfServiceRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AcceptTermsOfServiceRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AcceptTermsOfServiceRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AcceptTermsOfServiceRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AcceptTermsOfServiceRequest>() {
-           @Override
-           public void write(JsonWriter out, AcceptTermsOfServiceRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AcceptTermsOfServiceRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AcceptTermsOfServiceRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AcceptTermsOfServiceRequest
-  * @throws IOException if the JSON string is invalid with respect to AcceptTermsOfServiceRequest
-  */
-  public static AcceptTermsOfServiceRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AcceptTermsOfServiceRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of AcceptTermsOfServiceRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

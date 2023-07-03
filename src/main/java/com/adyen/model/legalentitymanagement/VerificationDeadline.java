@@ -16,7 +16,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.legalentitymanagement.RemediatingAction;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,18 +31,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * VerificationErrorRecursive
+ * VerificationDeadline
  */
 @JsonPropertyOrder({
-  VerificationErrorRecursive.JSON_PROPERTY_CAPABILITIES,
-  VerificationErrorRecursive.JSON_PROPERTY_CODE,
-  VerificationErrorRecursive.JSON_PROPERTY_MESSAGE,
-  VerificationErrorRecursive.JSON_PROPERTY_TYPE,
-  VerificationErrorRecursive.JSON_PROPERTY_REMEDIATING_ACTIONS
+  VerificationDeadline.JSON_PROPERTY_CAPABILITIES,
+  VerificationDeadline.JSON_PROPERTY_EXPIRES_AT
 })
-@JsonTypeName("VerificationError-recursive")
 
-public class VerificationErrorRecursive {
+public class VerificationDeadline {
   /**
    * Gets or Sets capabilities
    */
@@ -175,82 +171,29 @@ public class VerificationErrorRecursive {
   }
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private List<CapabilitiesEnum> capabilities = null;
+  private List<CapabilitiesEnum> capabilities = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
+  public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
+  private OffsetDateTime expiresAt;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
-  /**
-   * The type of error.
-   */
-  public enum TypeEnum {
-    DATAMISSING("dataMissing"),
-    
-    DATAREVIEW("dataReview"),
-    
-    DECLINED("declined"),
-    
-    INVALIDINPUT("invalidInput"),
-    
-    PENDINGSTATUS("pendingStatus");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+  public VerificationDeadline() { 
   }
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
-
-  public static final String JSON_PROPERTY_REMEDIATING_ACTIONS = "remediatingActions";
-  private List<RemediatingAction> remediatingActions = null;
-
-  public VerificationErrorRecursive() { 
-  }
-
-  public VerificationErrorRecursive capabilities(List<CapabilitiesEnum> capabilities) {
+  public VerificationDeadline capabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
     return this;
   }
 
-  public VerificationErrorRecursive addCapabilitiesItem(CapabilitiesEnum capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new ArrayList<>();
-    }
+  public VerificationDeadline addCapabilitiesItem(CapabilitiesEnum capabilitiesItem) {
     this.capabilities.add(capabilitiesItem);
     return this;
   }
 
    /**
-   * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+   * The names of the capabilities to be disallowed.
    * @return capabilities
   **/
-  @ApiModelProperty(value = "Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.")
+  @ApiModelProperty(required = true, value = "The names of the capabilities to be disallowed.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -266,116 +209,33 @@ public class VerificationErrorRecursive {
   }
 
 
-  public VerificationErrorRecursive code(String code) {
-    this.code = code;
+  public VerificationDeadline expiresAt(OffsetDateTime expiresAt) {
+    this.expiresAt = expiresAt;
     return this;
   }
 
    /**
-   * The general error code.
-   * @return code
+   * The date that verification is due by before capabilities are disallowed.
+   * @return expiresAt
   **/
-  @ApiModelProperty(value = "The general error code.")
-  @JsonProperty(JSON_PROPERTY_CODE)
+  @ApiModelProperty(required = true, value = "The date that verification is due by before capabilities are disallowed.")
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getCode() {
-    return code;
+  public OffsetDateTime getExpiresAt() {
+    return expiresAt;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public VerificationErrorRecursive message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * The general error message.
-   * @return message
-  **/
-  @ApiModelProperty(value = "The general error message.")
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public VerificationErrorRecursive type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of error.
-   * @return type
-  **/
-  @ApiModelProperty(value = "The type of error.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public VerificationErrorRecursive remediatingActions(List<RemediatingAction> remediatingActions) {
-    this.remediatingActions = remediatingActions;
-    return this;
-  }
-
-  public VerificationErrorRecursive addRemediatingActionsItem(RemediatingAction remediatingActionsItem) {
-    if (this.remediatingActions == null) {
-      this.remediatingActions = new ArrayList<>();
-    }
-    this.remediatingActions.add(remediatingActionsItem);
-    return this;
-  }
-
-   /**
-   * An object containing possible solutions to fix a verification error.
-   * @return remediatingActions
-  **/
-  @ApiModelProperty(value = "An object containing possible solutions to fix a verification error.")
-  @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<RemediatingAction> getRemediatingActions() {
-    return remediatingActions;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
-    this.remediatingActions = remediatingActions;
+  public void setExpiresAt(OffsetDateTime expiresAt) {
+    this.expiresAt = expiresAt;
   }
 
 
   /**
-   * Return true if this VerificationError-recursive object is equal to o.
+   * Return true if this VerificationDeadline object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -385,28 +245,22 @@ public class VerificationErrorRecursive {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerificationErrorRecursive verificationErrorRecursive = (VerificationErrorRecursive) o;
-    return Objects.equals(this.capabilities, verificationErrorRecursive.capabilities) &&
-        Objects.equals(this.code, verificationErrorRecursive.code) &&
-        Objects.equals(this.message, verificationErrorRecursive.message) &&
-        Objects.equals(this.type, verificationErrorRecursive.type) &&
-        Objects.equals(this.remediatingActions, verificationErrorRecursive.remediatingActions);
+    VerificationDeadline verificationDeadline = (VerificationDeadline) o;
+    return Objects.equals(this.capabilities, verificationDeadline.capabilities) &&
+        Objects.equals(this.expiresAt, verificationDeadline.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, code, message, type, remediatingActions);
+    return Objects.hash(capabilities, expiresAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerificationErrorRecursive {\n");
+    sb.append("class VerificationDeadline {\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    remediatingActions: ").append(toIndentedString(remediatingActions)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -423,17 +277,17 @@ public class VerificationErrorRecursive {
   }
 
 /**
-   * Create an instance of VerificationErrorRecursive given an JSON string
+   * Create an instance of VerificationDeadline given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of VerificationErrorRecursive
-   * @throws JsonProcessingException if the JSON string is invalid with respect to VerificationErrorRecursive
+   * @return An instance of VerificationDeadline
+   * @throws JsonProcessingException if the JSON string is invalid with respect to VerificationDeadline
    */
-  public static VerificationErrorRecursive fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, VerificationErrorRecursive.class);
+  public static VerificationDeadline fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, VerificationDeadline.class);
   }
 /**
-  * Convert an instance of VerificationErrorRecursive to an JSON string
+  * Convert an instance of VerificationDeadline to an JSON string
   *
   * @return JSON string
   */

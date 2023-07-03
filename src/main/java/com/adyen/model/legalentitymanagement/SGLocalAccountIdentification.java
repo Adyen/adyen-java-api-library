@@ -28,22 +28,26 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * HULocalAccountIdentification
+ * SGLocalAccountIdentification
  */
 @JsonPropertyOrder({
-  HULocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
-  HULocalAccountIdentification.JSON_PROPERTY_TYPE
+  SGLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  SGLocalAccountIdentification.JSON_PROPERTY_BIC,
+  SGLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
-public class HULocalAccountIdentification {
+public class SGLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
+  public static final String JSON_PROPERTY_BIC = "bic";
+  private String bic;
+
   /**
-   * **huLocal**
+   * **sgLocal**
    */
   public enum TypeEnum {
-    HULOCAL("huLocal");
+    SGLOCAL("sgLocal");
 
     private String value;
 
@@ -73,21 +77,21 @@ public class HULocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HULOCAL;
+  private TypeEnum type = TypeEnum.SGLOCAL;
 
-  public HULocalAccountIdentification() { 
+  public SGLocalAccountIdentification() { 
   }
 
-  public HULocalAccountIdentification accountNumber(String accountNumber) {
+  public SGLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
    /**
-   * The 24-digit bank account number, without separators or whitespace.
+   * The 4- to 19-digit bank account number, without separators or whitespace.
    * @return accountNumber
   **/
-  @ApiModelProperty(required = true, value = "The 24-digit bank account number, without separators or whitespace.")
+  @ApiModelProperty(required = true, value = "The 4- to 19-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,16 +107,41 @@ public class HULocalAccountIdentification {
   }
 
 
-  public HULocalAccountIdentification type(TypeEnum type) {
+  public SGLocalAccountIdentification bic(String bic) {
+    this.bic = bic;
+    return this;
+  }
+
+   /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   * @return bic
+  **/
+  @ApiModelProperty(required = true, value = "The bank's 8- or 11-character BIC or SWIFT code.")
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBic() {
+    return bic;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBic(String bic) {
+    this.bic = bic;
+  }
+
+
+  public SGLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * **huLocal**
+   * **sgLocal**
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "**huLocal**")
+  @ApiModelProperty(value = "**sgLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -129,7 +158,7 @@ public class HULocalAccountIdentification {
 
 
   /**
-   * Return true if this HULocalAccountIdentification object is equal to o.
+   * Return true if this SGLocalAccountIdentification object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -139,21 +168,23 @@ public class HULocalAccountIdentification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HULocalAccountIdentification huLocalAccountIdentification = (HULocalAccountIdentification) o;
-    return Objects.equals(this.accountNumber, huLocalAccountIdentification.accountNumber) &&
-        Objects.equals(this.type, huLocalAccountIdentification.type);
+    SGLocalAccountIdentification sgLocalAccountIdentification = (SGLocalAccountIdentification) o;
+    return Objects.equals(this.accountNumber, sgLocalAccountIdentification.accountNumber) &&
+        Objects.equals(this.bic, sgLocalAccountIdentification.bic) &&
+        Objects.equals(this.type, sgLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, type);
+    return Objects.hash(accountNumber, bic, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HULocalAccountIdentification {\n");
+    sb.append("class SGLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -171,17 +202,17 @@ public class HULocalAccountIdentification {
   }
 
 /**
-   * Create an instance of HULocalAccountIdentification given an JSON string
+   * Create an instance of SGLocalAccountIdentification given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of HULocalAccountIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to HULocalAccountIdentification
+   * @return An instance of SGLocalAccountIdentification
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SGLocalAccountIdentification
    */
-  public static HULocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, HULocalAccountIdentification.class);
+  public static SGLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SGLocalAccountIdentification.class);
   }
 /**
-  * Convert an instance of HULocalAccountIdentification to an JSON string
+  * Convert an instance of SGLocalAccountIdentification to an JSON string
   *
   * @return JSON string
   */

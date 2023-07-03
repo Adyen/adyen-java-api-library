@@ -14,51 +14,34 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * GeneratePciDescriptionRequest
  */
+@JsonPropertyOrder({
+  GeneratePciDescriptionRequest.JSON_PROPERTY_LANGUAGE
+})
 
 public class GeneratePciDescriptionRequest {
-  public static final String SERIALIZED_NAME_LANGUAGE = "language";
-  @SerializedName(SERIALIZED_NAME_LANGUAGE)
+  public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
   public GeneratePciDescriptionRequest() { 
   }
 
   public GeneratePciDescriptionRequest language(String language) {
-    
     this.language = language;
     return this;
   }
@@ -68,18 +51,24 @@ public class GeneratePciDescriptionRequest {
    * @return language
   **/
   @ApiModelProperty(value = "Sets the language of the PCI questionnaire. Its value is a two-character [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code, for example, **en**.")
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLanguage() {
     return language;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
   }
 
 
-
+  /**
+   * Return true if this GeneratePciDescriptionRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,98 +106,23 @@ public class GeneratePciDescriptionRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("language");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of GeneratePciDescriptionRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GeneratePciDescriptionRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to GeneratePciDescriptionRequest
+   */
+  public static GeneratePciDescriptionRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, GeneratePciDescriptionRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(GeneratePciDescriptionRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GeneratePciDescriptionRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GeneratePciDescriptionRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GeneratePciDescriptionRequest is not found in the empty JSON string", GeneratePciDescriptionRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GeneratePciDescriptionRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `GeneratePciDescriptionRequest` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field language
-      if (jsonObj.get("language") != null && !jsonObj.get("language").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GeneratePciDescriptionRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GeneratePciDescriptionRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GeneratePciDescriptionRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GeneratePciDescriptionRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<GeneratePciDescriptionRequest>() {
-           @Override
-           public void write(JsonWriter out, GeneratePciDescriptionRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public GeneratePciDescriptionRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of GeneratePciDescriptionRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GeneratePciDescriptionRequest
-  * @throws IOException if the JSON string is invalid with respect to GeneratePciDescriptionRequest
-  */
-  public static GeneratePciDescriptionRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GeneratePciDescriptionRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of GeneratePciDescriptionRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
