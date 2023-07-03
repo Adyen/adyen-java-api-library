@@ -21,12 +21,8 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class Service {
-
-    protected static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
     private boolean isApiKeyRequired = false;
     private Client client;
 
