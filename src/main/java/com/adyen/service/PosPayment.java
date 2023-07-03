@@ -26,12 +26,14 @@ import com.adyen.model.terminal.ConnectedTerminalsRequest;
 import com.adyen.model.terminal.ConnectedTerminalsResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.terminal.cloud.ConnectedTerminals;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
 public class PosPayment extends ApiKeyAuthenticatedService {
-
+    protected static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
     private final ConnectedTerminals connectedTerminals;
 
     public PosPayment(Client client) {

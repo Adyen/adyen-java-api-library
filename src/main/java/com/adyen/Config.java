@@ -31,7 +31,6 @@ public class Config {
     protected String merchantAccount;
     protected Environment environment;
     protected String endpoint;
-    protected String marketPayEndpoint;
     protected String balancePlatformEndpoint;
     /**
      * Application name: used as HTTP client User-Agent
@@ -101,14 +100,6 @@ public class Config {
 
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
-    }
-
-    public String getMarketPayEndpoint() {
-        return marketPayEndpoint;
-    }
-
-    public void setMarketPayEndpoint(String marketPayEndpoint) {
-        this.marketPayEndpoint = marketPayEndpoint;
     }
 
     public String getApplicationName() {
