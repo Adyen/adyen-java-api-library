@@ -15,57 +15,41 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * ModificationResult
  */
+@JsonPropertyOrder({
+  ModificationResult.JSON_PROPERTY_ADDITIONAL_DATA,
+  ModificationResult.JSON_PROPERTY_PSP_REFERENCE,
+  ModificationResult.JSON_PROPERTY_RESPONSE
+})
 
 public class ModificationResult {
-  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
+  public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
   /**
    * Indicates if the modification request has been received for processing.
    */
-  @JsonAdapter(ResponseEnum.Adapter.class)
   public enum ResponseEnum {
     CAPTURE_RECEIVED_("[capture-received]"),
     
@@ -89,6 +73,7 @@ public class ModificationResult {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -98,6 +83,7 @@ public class ModificationResult {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ResponseEnum fromValue(String value) {
       for (ResponseEnum b : ResponseEnum.values()) {
         if (b.value.equals(value)) {
@@ -106,30 +92,15 @@ public class ModificationResult {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ResponseEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ResponseEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ResponseEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ResponseEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_RESPONSE = "response";
-  @SerializedName(SERIALIZED_NAME_RESPONSE)
+  public static final String JSON_PROPERTY_RESPONSE = "response";
   private ResponseEnum response;
 
   public ModificationResult() { 
   }
 
   public ModificationResult additionalData(Map<String, String> additionalData) {
-    
     this.additionalData = additionalData;
     return this;
   }
@@ -147,19 +118,22 @@ public class ModificationResult {
    * @return additionalData
   **/
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular modification response.")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
 
   public ModificationResult pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -169,19 +143,22 @@ public class ModificationResult {
    * @return pspReference
   **/
   @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public ModificationResult response(ResponseEnum response) {
-    
     this.response = response;
     return this;
   }
@@ -191,18 +168,24 @@ public class ModificationResult {
    * @return response
   **/
   @ApiModelProperty(required = true, value = "Indicates if the modification request has been received for processing.")
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ResponseEnum getResponse() {
     return response;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(ResponseEnum response) {
     this.response = response;
   }
 
 
-
+  /**
+   * Return true if this ModificationResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,116 +227,23 @@ public class ModificationResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("additionalData");
-    openapiFields.add("pspReference");
-    openapiFields.add("response");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("pspReference");
-    openapiRequiredFields.add("response");
+/**
+   * Create an instance of ModificationResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ModificationResult
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ModificationResult
+   */
+  public static ModificationResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ModificationResult.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ModificationResult.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ModificationResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ModificationResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ModificationResult is not found in the empty JSON string", ModificationResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ModificationResult.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ModificationResult` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ModificationResult.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // ensure the field response can be parsed to an enum value
-      if (jsonObj.get("response") != null) {
-        if(!jsonObj.get("response").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `response` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response").toString()));
-        }
-        ResponseEnum.fromValue(jsonObj.get("response").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ModificationResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ModificationResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ModificationResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ModificationResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ModificationResult>() {
-           @Override
-           public void write(JsonWriter out, ModificationResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ModificationResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ModificationResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ModificationResult
-  * @throws IOException if the JSON string is invalid with respect to ModificationResult
-  */
-  public static ModificationResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ModificationResult.class);
-  }
-
- /**
+/**
   * Convert an instance of ModificationResult to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

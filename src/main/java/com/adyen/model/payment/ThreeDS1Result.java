@@ -15,71 +15,54 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * ThreeDS1Result
  */
+@JsonPropertyOrder({
+  ThreeDS1Result.JSON_PROPERTY_CAVV,
+  ThreeDS1Result.JSON_PROPERTY_CAVV_ALGORITHM,
+  ThreeDS1Result.JSON_PROPERTY_ECI,
+  ThreeDS1Result.JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE,
+  ThreeDS1Result.JSON_PROPERTY_THREE_D_OFFERED_RESPONSE,
+  ThreeDS1Result.JSON_PROPERTY_XID
+})
 
 public class ThreeDS1Result {
-  public static final String SERIALIZED_NAME_CAVV = "cavv";
-  @SerializedName(SERIALIZED_NAME_CAVV)
+  public static final String JSON_PROPERTY_CAVV = "cavv";
   private String cavv;
 
-  public static final String SERIALIZED_NAME_CAVV_ALGORITHM = "cavvAlgorithm";
-  @SerializedName(SERIALIZED_NAME_CAVV_ALGORITHM)
+  public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
 
-  public static final String SERIALIZED_NAME_ECI = "eci";
-  @SerializedName(SERIALIZED_NAME_ECI)
+  public static final String JSON_PROPERTY_ECI = "eci";
   private String eci;
 
-  public static final String SERIALIZED_NAME_THREE_D_AUTHENTICATED_RESPONSE = "threeDAuthenticatedResponse";
-  @SerializedName(SERIALIZED_NAME_THREE_D_AUTHENTICATED_RESPONSE)
+  public static final String JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE = "threeDAuthenticatedResponse";
   private String threeDAuthenticatedResponse;
 
-  public static final String SERIALIZED_NAME_THREE_D_OFFERED_RESPONSE = "threeDOfferedResponse";
-  @SerializedName(SERIALIZED_NAME_THREE_D_OFFERED_RESPONSE)
+  public static final String JSON_PROPERTY_THREE_D_OFFERED_RESPONSE = "threeDOfferedResponse";
   private String threeDOfferedResponse;
 
-  public static final String SERIALIZED_NAME_XID = "xid";
-  @SerializedName(SERIALIZED_NAME_XID)
+  public static final String JSON_PROPERTY_XID = "xid";
   private String xid;
 
   public ThreeDS1Result() { 
   }
 
   public ThreeDS1Result cavv(String cavv) {
-    
     this.cavv = cavv;
     return this;
   }
@@ -89,19 +72,22 @@ public class ThreeDS1Result {
    * @return cavv
   **/
   @ApiModelProperty(value = "The cardholder authentication value (base64 encoded).")
+  @JsonProperty(JSON_PROPERTY_CAVV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCavv() {
     return cavv;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAVV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(String cavv) {
     this.cavv = cavv;
   }
 
 
   public ThreeDS1Result cavvAlgorithm(String cavvAlgorithm) {
-    
     this.cavvAlgorithm = cavvAlgorithm;
     return this;
   }
@@ -111,19 +97,22 @@ public class ThreeDS1Result {
    * @return cavvAlgorithm
   **/
   @ApiModelProperty(value = "The CAVV algorithm used.")
+  @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCavvAlgorithm() {
     return cavvAlgorithm;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
   }
 
 
   public ThreeDS1Result eci(String eci) {
-    
     this.eci = eci;
     return this;
   }
@@ -133,19 +122,22 @@ public class ThreeDS1Result {
    * @return eci
   **/
   @ApiModelProperty(value = "3D Secure Electronic Commerce Indicator (ECI).")
+  @JsonProperty(JSON_PROPERTY_ECI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEci() {
     return eci;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ECI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
   }
 
 
   public ThreeDS1Result threeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
-    
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
     return this;
   }
@@ -155,19 +147,22 @@ public class ThreeDS1Result {
    * @return threeDAuthenticatedResponse
   **/
   @ApiModelProperty(value = "The authentication response from the ACS.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDAuthenticatedResponse() {
     return threeDAuthenticatedResponse;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
   }
 
 
   public ThreeDS1Result threeDOfferedResponse(String threeDOfferedResponse) {
-    
     this.threeDOfferedResponse = threeDOfferedResponse;
     return this;
   }
@@ -177,19 +172,22 @@ public class ThreeDS1Result {
    * @return threeDOfferedResponse
   **/
   @ApiModelProperty(value = "Whether 3D Secure was offered or not.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDOfferedResponse() {
     return threeDOfferedResponse;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
   }
 
 
   public ThreeDS1Result xid(String xid) {
-    
     this.xid = xid;
     return this;
   }
@@ -199,18 +197,24 @@ public class ThreeDS1Result {
    * @return xid
   **/
   @ApiModelProperty(value = "A unique transaction identifier generated by the MPI on behalf of the merchant to identify the 3D Secure transaction, in `Base64` encoding.")
+  @JsonProperty(JSON_PROPERTY_XID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getXid() {
     return xid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_XID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(String xid) {
     this.xid = xid;
   }
 
 
-
+  /**
+   * Return true if this ThreeDS1Result object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -258,123 +262,23 @@ public class ThreeDS1Result {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cavv");
-    openapiFields.add("cavvAlgorithm");
-    openapiFields.add("eci");
-    openapiFields.add("threeDAuthenticatedResponse");
-    openapiFields.add("threeDOfferedResponse");
-    openapiFields.add("xid");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ThreeDS1Result given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ThreeDS1Result
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDS1Result
+   */
+  public static ThreeDS1Result fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThreeDS1Result.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ThreeDS1Result.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ThreeDS1Result
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ThreeDS1Result.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS1Result is not found in the empty JSON string", ThreeDS1Result.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ThreeDS1Result.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDS1Result` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field cavv
-      if (jsonObj.get("cavv") != null && !jsonObj.get("cavv").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cavv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavv").toString()));
-      }
-      // validate the optional field cavvAlgorithm
-      if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
-      }
-      // validate the optional field eci
-      if (jsonObj.get("eci") != null && !jsonObj.get("eci").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `eci` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eci").toString()));
-      }
-      // validate the optional field threeDAuthenticatedResponse
-      if (jsonObj.get("threeDAuthenticatedResponse") != null && !jsonObj.get("threeDAuthenticatedResponse").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDAuthenticatedResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDAuthenticatedResponse").toString()));
-      }
-      // validate the optional field threeDOfferedResponse
-      if (jsonObj.get("threeDOfferedResponse") != null && !jsonObj.get("threeDOfferedResponse").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDOfferedResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDOfferedResponse").toString()));
-      }
-      // validate the optional field xid
-      if (jsonObj.get("xid") != null && !jsonObj.get("xid").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `xid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xid").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ThreeDS1Result.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ThreeDS1Result' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ThreeDS1Result> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDS1Result.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ThreeDS1Result>() {
-           @Override
-           public void write(JsonWriter out, ThreeDS1Result value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ThreeDS1Result read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ThreeDS1Result given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ThreeDS1Result
-  * @throws IOException if the JSON string is invalid with respect to ThreeDS1Result
-  */
-  public static ThreeDS1Result fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ThreeDS1Result.class);
-  }
-
- /**
+/**
   * Convert an instance of ThreeDS1Result to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
