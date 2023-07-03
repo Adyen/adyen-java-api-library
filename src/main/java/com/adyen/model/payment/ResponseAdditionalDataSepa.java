@@ -15,59 +15,42 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * ResponseAdditionalDataSepa
  */
+@JsonPropertyOrder({
+  ResponseAdditionalDataSepa.JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE,
+  ResponseAdditionalDataSepa.JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID,
+  ResponseAdditionalDataSepa.JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE
+})
 
 public class ResponseAdditionalDataSepa {
-  public static final String SERIALIZED_NAME_SEPADIRECTDEBIT_DATE_OF_SIGNATURE = "sepadirectdebit.dateOfSignature";
-  @SerializedName(SERIALIZED_NAME_SEPADIRECTDEBIT_DATE_OF_SIGNATURE)
+  public static final String JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE = "sepadirectdebit.dateOfSignature";
   private String sepadirectdebitDateOfSignature;
 
-  public static final String SERIALIZED_NAME_SEPADIRECTDEBIT_MANDATE_ID = "sepadirectdebit.mandateId";
-  @SerializedName(SERIALIZED_NAME_SEPADIRECTDEBIT_MANDATE_ID)
+  public static final String JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID = "sepadirectdebit.mandateId";
   private String sepadirectdebitMandateId;
 
-  public static final String SERIALIZED_NAME_SEPADIRECTDEBIT_SEQUENCE_TYPE = "sepadirectdebit.sequenceType";
-  @SerializedName(SERIALIZED_NAME_SEPADIRECTDEBIT_SEQUENCE_TYPE)
+  public static final String JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE = "sepadirectdebit.sequenceType";
   private String sepadirectdebitSequenceType;
 
   public ResponseAdditionalDataSepa() { 
   }
 
   public ResponseAdditionalDataSepa sepadirectdebitDateOfSignature(String sepadirectdebitDateOfSignature) {
-    
     this.sepadirectdebitDateOfSignature = sepadirectdebitDateOfSignature;
     return this;
   }
@@ -77,19 +60,22 @@ public class ResponseAdditionalDataSepa {
    * @return sepadirectdebitDateOfSignature
   **/
   @ApiModelProperty(value = "The transaction signature date.  Format: yyyy-MM-dd")
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSepadirectdebitDateOfSignature() {
     return sepadirectdebitDateOfSignature;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitDateOfSignature(String sepadirectdebitDateOfSignature) {
     this.sepadirectdebitDateOfSignature = sepadirectdebitDateOfSignature;
   }
 
 
   public ResponseAdditionalDataSepa sepadirectdebitMandateId(String sepadirectdebitMandateId) {
-    
     this.sepadirectdebitMandateId = sepadirectdebitMandateId;
     return this;
   }
@@ -99,19 +85,22 @@ public class ResponseAdditionalDataSepa {
    * @return sepadirectdebitMandateId
   **/
   @ApiModelProperty(value = "Its value corresponds to the pspReference value of the transaction.")
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSepadirectdebitMandateId() {
     return sepadirectdebitMandateId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitMandateId(String sepadirectdebitMandateId) {
     this.sepadirectdebitMandateId = sepadirectdebitMandateId;
   }
 
 
   public ResponseAdditionalDataSepa sepadirectdebitSequenceType(String sepadirectdebitSequenceType) {
-    
     this.sepadirectdebitSequenceType = sepadirectdebitSequenceType;
     return this;
   }
@@ -121,18 +110,24 @@ public class ResponseAdditionalDataSepa {
    * @return sepadirectdebitSequenceType
   **/
   @ApiModelProperty(value = "This field can take one of the following values: * OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.  * First: (FRST) Initial/first collection in a series of direct debit instructions. * Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor. * Final: (FNAL) Last/final collection in a series of direct debit instructions.  Example: OOFF")
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSepadirectdebitSequenceType() {
     return sepadirectdebitSequenceType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitSequenceType(String sepadirectdebitSequenceType) {
     this.sepadirectdebitSequenceType = sepadirectdebitSequenceType;
   }
 
 
-
+  /**
+   * Return true if this ResponseAdditionalDataSepa object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,108 +169,23 @@ public class ResponseAdditionalDataSepa {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("sepadirectdebit.dateOfSignature");
-    openapiFields.add("sepadirectdebit.mandateId");
-    openapiFields.add("sepadirectdebit.sequenceType");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ResponseAdditionalDataSepa given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ResponseAdditionalDataSepa
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ResponseAdditionalDataSepa
+   */
+  public static ResponseAdditionalDataSepa fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ResponseAdditionalDataSepa.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ResponseAdditionalDataSepa.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ResponseAdditionalDataSepa
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ResponseAdditionalDataSepa.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseAdditionalDataSepa is not found in the empty JSON string", ResponseAdditionalDataSepa.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ResponseAdditionalDataSepa.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataSepa` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field sepadirectdebit.dateOfSignature
-      if (jsonObj.get("sepadirectdebit.dateOfSignature") != null && !jsonObj.get("sepadirectdebit.dateOfSignature").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `sepadirectdebit.dateOfSignature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.dateOfSignature").toString()));
-      }
-      // validate the optional field sepadirectdebit.mandateId
-      if (jsonObj.get("sepadirectdebit.mandateId") != null && !jsonObj.get("sepadirectdebit.mandateId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `sepadirectdebit.mandateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.mandateId").toString()));
-      }
-      // validate the optional field sepadirectdebit.sequenceType
-      if (jsonObj.get("sepadirectdebit.sequenceType") != null && !jsonObj.get("sepadirectdebit.sequenceType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `sepadirectdebit.sequenceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.sequenceType").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ResponseAdditionalDataSepa.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ResponseAdditionalDataSepa' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ResponseAdditionalDataSepa> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ResponseAdditionalDataSepa.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ResponseAdditionalDataSepa>() {
-           @Override
-           public void write(JsonWriter out, ResponseAdditionalDataSepa value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ResponseAdditionalDataSepa read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ResponseAdditionalDataSepa given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ResponseAdditionalDataSepa
-  * @throws IOException if the JSON string is invalid with respect to ResponseAdditionalDataSepa
-  */
-  public static ResponseAdditionalDataSepa fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ResponseAdditionalDataSepa.class);
-  }
-
- /**
+/**
   * Convert an instance of ResponseAdditionalDataSepa to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
