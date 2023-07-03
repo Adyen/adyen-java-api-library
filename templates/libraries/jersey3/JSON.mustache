@@ -1,8 +1,10 @@
 package {{modelPackage}};
 
+import com.adyen.serializer.ByteArraySerializer;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 {{#openApiNullable}}
 import org.openapitools.jackson.nullable.JsonNullableModule;
 {{/openApiNullable}}
@@ -43,6 +45,10 @@ public class JSON implements ContextResolver<ObjectMapper> {
     JsonNullableModule jnm = new JsonNullableModule();
     mapper.registerModule(jnm);
     {{/openApiNullable}}
+    // Custom ByteSerializer
+    SimpleModule simpleModule = new SimpleModule();
+    simpleModule.addSerializer(byte[].class, new ByteArraySerializer());
+    mapper.registerModule(simpleModule);
   }
 
   /**

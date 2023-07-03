@@ -15,119 +15,102 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * AdditionalDataOpenInvoice
  */
+@JsonPropertyOrder({
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_MERCHANT_DATA,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER,
+  AdditionalDataOpenInvoice.JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI
+})
 
 public class AdditionalDataOpenInvoice {
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_MERCHANT_DATA = "openinvoicedata.merchantData";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_MERCHANT_DATA)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_MERCHANT_DATA = "openinvoicedata.merchantData";
   private String openinvoicedataMerchantData;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_NUMBER_OF_LINES = "openinvoicedata.numberOfLines";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_NUMBER_OF_LINES)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES = "openinvoicedata.numberOfLines";
   private String openinvoicedataNumberOfLines;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_RECIPIENT_FIRST_NAME = "openinvoicedata.recipientFirstName";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_RECIPIENT_FIRST_NAME)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME = "openinvoicedata.recipientFirstName";
   private String openinvoicedataRecipientFirstName;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_RECIPIENT_LAST_NAME = "openinvoicedata.recipientLastName";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_RECIPIENT_LAST_NAME)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME = "openinvoicedata.recipientLastName";
   private String openinvoicedataRecipientLastName;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE = "openinvoicedataLine[itemNr].currencyCode";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE = "openinvoicedataLine[itemNr].currencyCode";
   private String openinvoicedataLineItemNrCurrencyCode;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION = "openinvoicedataLine[itemNr].description";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION = "openinvoicedataLine[itemNr].description";
   private String openinvoicedataLineItemNrDescription;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT = "openinvoicedataLine[itemNr].itemAmount";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT = "openinvoicedataLine[itemNr].itemAmount";
   private String openinvoicedataLineItemNrItemAmount;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID = "openinvoicedataLine[itemNr].itemId";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID = "openinvoicedataLine[itemNr].itemId";
   private String openinvoicedataLineItemNrItemId;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT = "openinvoicedataLine[itemNr].itemVatAmount";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT = "openinvoicedataLine[itemNr].itemVatAmount";
   private String openinvoicedataLineItemNrItemVatAmount;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE = "openinvoicedataLine[itemNr].itemVatPercentage";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE = "openinvoicedataLine[itemNr].itemVatPercentage";
   private String openinvoicedataLineItemNrItemVatPercentage;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS = "openinvoicedataLine[itemNr].numberOfItems";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS = "openinvoicedataLine[itemNr].numberOfItems";
   private String openinvoicedataLineItemNrNumberOfItems;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY = "openinvoicedataLine[itemNr].returnShippingCompany";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY = "openinvoicedataLine[itemNr].returnShippingCompany";
   private String openinvoicedataLineItemNrReturnShippingCompany;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER = "openinvoicedataLine[itemNr].returnTrackingNumber";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER = "openinvoicedataLine[itemNr].returnTrackingNumber";
   private String openinvoicedataLineItemNrReturnTrackingNumber;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI = "openinvoicedataLine[itemNr].returnTrackingUri";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI = "openinvoicedataLine[itemNr].returnTrackingUri";
   private String openinvoicedataLineItemNrReturnTrackingUri;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY = "openinvoicedataLine[itemNr].shippingCompany";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY = "openinvoicedataLine[itemNr].shippingCompany";
   private String openinvoicedataLineItemNrShippingCompany;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD = "openinvoicedataLine[itemNr].shippingMethod";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD = "openinvoicedataLine[itemNr].shippingMethod";
   private String openinvoicedataLineItemNrShippingMethod;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER = "openinvoicedataLine[itemNr].trackingNumber";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER = "openinvoicedataLine[itemNr].trackingNumber";
   private String openinvoicedataLineItemNrTrackingNumber;
 
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI = "openinvoicedataLine[itemNr].trackingUri";
-  @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI)
+  public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI = "openinvoicedataLine[itemNr].trackingUri";
   private String openinvoicedataLineItemNrTrackingUri;
 
   public AdditionalDataOpenInvoice() { 
   }
 
   public AdditionalDataOpenInvoice openinvoicedataMerchantData(String openinvoicedataMerchantData) {
-    
     this.openinvoicedataMerchantData = openinvoicedataMerchantData;
     return this;
   }
@@ -137,19 +120,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataMerchantData
   **/
   @ApiModelProperty(value = "Holds different merchant data points like product, purchase, customer, and so on. It takes data in a Base64 encoded string.  The `merchantData` parameter needs to be added to the `openinvoicedata` signature at the end.  Since the field is optional, if it's not included it does not impact computing the merchant signature.  Applies only to Klarna.  You can contact Klarna for the format and structure of the string.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataMerchantData() {
     return openinvoicedataMerchantData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataMerchantData(String openinvoicedataMerchantData) {
     this.openinvoicedataMerchantData = openinvoicedataMerchantData;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataNumberOfLines(String openinvoicedataNumberOfLines) {
-    
     this.openinvoicedataNumberOfLines = openinvoicedataNumberOfLines;
     return this;
   }
@@ -159,19 +145,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataNumberOfLines
   **/
   @ApiModelProperty(value = "The number of invoice lines included in `openinvoicedata`.  There needs to be at least one line, so `numberOfLines` needs to be at least 1.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataNumberOfLines() {
     return openinvoicedataNumberOfLines;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataNumberOfLines(String openinvoicedataNumberOfLines) {
     this.openinvoicedataNumberOfLines = openinvoicedataNumberOfLines;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataRecipientFirstName(String openinvoicedataRecipientFirstName) {
-    
     this.openinvoicedataRecipientFirstName = openinvoicedataRecipientFirstName;
     return this;
   }
@@ -181,19 +170,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataRecipientFirstName
   **/
   @ApiModelProperty(value = "First name of the recipient. If the delivery address and the billing address are different, specify the `recipientFirstName` and `recipientLastName` to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataRecipientFirstName() {
     return openinvoicedataRecipientFirstName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataRecipientFirstName(String openinvoicedataRecipientFirstName) {
     this.openinvoicedataRecipientFirstName = openinvoicedataRecipientFirstName;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataRecipientLastName(String openinvoicedataRecipientLastName) {
-    
     this.openinvoicedataRecipientLastName = openinvoicedataRecipientLastName;
     return this;
   }
@@ -203,19 +195,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataRecipientLastName
   **/
   @ApiModelProperty(value = "Last name of the recipient. If the delivery address and the billing address are different, specify the `recipientFirstName` and `recipientLastName` to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataRecipientLastName() {
     return openinvoicedataRecipientLastName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataRecipientLastName(String openinvoicedataRecipientLastName) {
     this.openinvoicedataRecipientLastName = openinvoicedataRecipientLastName;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrCurrencyCode(String openinvoicedataLineItemNrCurrencyCode) {
-    
     this.openinvoicedataLineItemNrCurrencyCode = openinvoicedataLineItemNrCurrencyCode;
     return this;
   }
@@ -225,19 +220,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrCurrencyCode
   **/
   @ApiModelProperty(value = "The three-character ISO currency code.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrCurrencyCode() {
     return openinvoicedataLineItemNrCurrencyCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrCurrencyCode(String openinvoicedataLineItemNrCurrencyCode) {
     this.openinvoicedataLineItemNrCurrencyCode = openinvoicedataLineItemNrCurrencyCode;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrDescription(String openinvoicedataLineItemNrDescription) {
-    
     this.openinvoicedataLineItemNrDescription = openinvoicedataLineItemNrDescription;
     return this;
   }
@@ -247,19 +245,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrDescription
   **/
   @ApiModelProperty(value = "A text description of the product the invoice line refers to.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrDescription() {
     return openinvoicedataLineItemNrDescription;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrDescription(String openinvoicedataLineItemNrDescription) {
     this.openinvoicedataLineItemNrDescription = openinvoicedataLineItemNrDescription;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemAmount(String openinvoicedataLineItemNrItemAmount) {
-    
     this.openinvoicedataLineItemNrItemAmount = openinvoicedataLineItemNrItemAmount;
     return this;
   }
@@ -269,19 +270,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrItemAmount
   **/
   @ApiModelProperty(value = "The price for one item in the invoice line, represented in minor units.  The due amount for the item, VAT excluded.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrItemAmount() {
     return openinvoicedataLineItemNrItemAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemAmount(String openinvoicedataLineItemNrItemAmount) {
     this.openinvoicedataLineItemNrItemAmount = openinvoicedataLineItemNrItemAmount;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemId(String openinvoicedataLineItemNrItemId) {
-    
     this.openinvoicedataLineItemNrItemId = openinvoicedataLineItemNrItemId;
     return this;
   }
@@ -291,19 +295,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrItemId
   **/
   @ApiModelProperty(value = "A unique id for this item. Required for RatePay if the description of each item is not unique.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrItemId() {
     return openinvoicedataLineItemNrItemId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemId(String openinvoicedataLineItemNrItemId) {
     this.openinvoicedataLineItemNrItemId = openinvoicedataLineItemNrItemId;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemVatAmount(String openinvoicedataLineItemNrItemVatAmount) {
-    
     this.openinvoicedataLineItemNrItemVatAmount = openinvoicedataLineItemNrItemVatAmount;
     return this;
   }
@@ -313,19 +320,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrItemVatAmount
   **/
   @ApiModelProperty(value = "The VAT due for one item in the invoice line, represented in minor units.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrItemVatAmount() {
     return openinvoicedataLineItemNrItemVatAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemVatAmount(String openinvoicedataLineItemNrItemVatAmount) {
     this.openinvoicedataLineItemNrItemVatAmount = openinvoicedataLineItemNrItemVatAmount;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemVatPercentage(String openinvoicedataLineItemNrItemVatPercentage) {
-    
     this.openinvoicedataLineItemNrItemVatPercentage = openinvoicedataLineItemNrItemVatPercentage;
     return this;
   }
@@ -335,19 +345,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrItemVatPercentage
   **/
   @ApiModelProperty(value = "The VAT percentage for one item in the invoice line, represented in minor units.  For example, 19% VAT is specified as 1900.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrItemVatPercentage() {
     return openinvoicedataLineItemNrItemVatPercentage;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemVatPercentage(String openinvoicedataLineItemNrItemVatPercentage) {
     this.openinvoicedataLineItemNrItemVatPercentage = openinvoicedataLineItemNrItemVatPercentage;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrNumberOfItems(String openinvoicedataLineItemNrNumberOfItems) {
-    
     this.openinvoicedataLineItemNrNumberOfItems = openinvoicedataLineItemNrNumberOfItems;
     return this;
   }
@@ -357,19 +370,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrNumberOfItems
   **/
   @ApiModelProperty(value = "The number of units purchased of a specific product.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrNumberOfItems() {
     return openinvoicedataLineItemNrNumberOfItems;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrNumberOfItems(String openinvoicedataLineItemNrNumberOfItems) {
     this.openinvoicedataLineItemNrNumberOfItems = openinvoicedataLineItemNrNumberOfItems;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrReturnShippingCompany(String openinvoicedataLineItemNrReturnShippingCompany) {
-    
     this.openinvoicedataLineItemNrReturnShippingCompany = openinvoicedataLineItemNrReturnShippingCompany;
     return this;
   }
@@ -379,19 +395,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrReturnShippingCompany
   **/
   @ApiModelProperty(value = "Name of the shipping company handling the the return shipment.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrReturnShippingCompany() {
     return openinvoicedataLineItemNrReturnShippingCompany;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrReturnShippingCompany(String openinvoicedataLineItemNrReturnShippingCompany) {
     this.openinvoicedataLineItemNrReturnShippingCompany = openinvoicedataLineItemNrReturnShippingCompany;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrReturnTrackingNumber(String openinvoicedataLineItemNrReturnTrackingNumber) {
-    
     this.openinvoicedataLineItemNrReturnTrackingNumber = openinvoicedataLineItemNrReturnTrackingNumber;
     return this;
   }
@@ -401,19 +420,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrReturnTrackingNumber
   **/
   @ApiModelProperty(value = "The tracking number for the return of the shipment.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrReturnTrackingNumber() {
     return openinvoicedataLineItemNrReturnTrackingNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrReturnTrackingNumber(String openinvoicedataLineItemNrReturnTrackingNumber) {
     this.openinvoicedataLineItemNrReturnTrackingNumber = openinvoicedataLineItemNrReturnTrackingNumber;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrReturnTrackingUri(String openinvoicedataLineItemNrReturnTrackingUri) {
-    
     this.openinvoicedataLineItemNrReturnTrackingUri = openinvoicedataLineItemNrReturnTrackingUri;
     return this;
   }
@@ -423,19 +445,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrReturnTrackingUri
   **/
   @ApiModelProperty(value = "URI where the customer can track the return of their shipment.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrReturnTrackingUri() {
     return openinvoicedataLineItemNrReturnTrackingUri;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrReturnTrackingUri(String openinvoicedataLineItemNrReturnTrackingUri) {
     this.openinvoicedataLineItemNrReturnTrackingUri = openinvoicedataLineItemNrReturnTrackingUri;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrShippingCompany(String openinvoicedataLineItemNrShippingCompany) {
-    
     this.openinvoicedataLineItemNrShippingCompany = openinvoicedataLineItemNrShippingCompany;
     return this;
   }
@@ -445,19 +470,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrShippingCompany
   **/
   @ApiModelProperty(value = "Name of the shipping company handling the delivery.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrShippingCompany() {
     return openinvoicedataLineItemNrShippingCompany;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrShippingCompany(String openinvoicedataLineItemNrShippingCompany) {
     this.openinvoicedataLineItemNrShippingCompany = openinvoicedataLineItemNrShippingCompany;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrShippingMethod(String openinvoicedataLineItemNrShippingMethod) {
-    
     this.openinvoicedataLineItemNrShippingMethod = openinvoicedataLineItemNrShippingMethod;
     return this;
   }
@@ -467,19 +495,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrShippingMethod
   **/
   @ApiModelProperty(value = "Shipping method.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrShippingMethod() {
     return openinvoicedataLineItemNrShippingMethod;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrShippingMethod(String openinvoicedataLineItemNrShippingMethod) {
     this.openinvoicedataLineItemNrShippingMethod = openinvoicedataLineItemNrShippingMethod;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrTrackingNumber(String openinvoicedataLineItemNrTrackingNumber) {
-    
     this.openinvoicedataLineItemNrTrackingNumber = openinvoicedataLineItemNrTrackingNumber;
     return this;
   }
@@ -489,19 +520,22 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrTrackingNumber
   **/
   @ApiModelProperty(value = "The tracking number for the shipment.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrTrackingNumber() {
     return openinvoicedataLineItemNrTrackingNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrTrackingNumber(String openinvoicedataLineItemNrTrackingNumber) {
     this.openinvoicedataLineItemNrTrackingNumber = openinvoicedataLineItemNrTrackingNumber;
   }
 
 
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrTrackingUri(String openinvoicedataLineItemNrTrackingUri) {
-    
     this.openinvoicedataLineItemNrTrackingUri = openinvoicedataLineItemNrTrackingUri;
     return this;
   }
@@ -511,18 +545,24 @@ public class AdditionalDataOpenInvoice {
    * @return openinvoicedataLineItemNrTrackingUri
   **/
   @ApiModelProperty(value = "URI where the customer can track their shipment.")
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOpeninvoicedataLineItemNrTrackingUri() {
     return openinvoicedataLineItemNrTrackingUri;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrTrackingUri(String openinvoicedataLineItemNrTrackingUri) {
     this.openinvoicedataLineItemNrTrackingUri = openinvoicedataLineItemNrTrackingUri;
   }
 
 
-
+  /**
+   * Return true if this AdditionalDataOpenInvoice object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -594,183 +634,23 @@ public class AdditionalDataOpenInvoice {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("openinvoicedata.merchantData");
-    openapiFields.add("openinvoicedata.numberOfLines");
-    openapiFields.add("openinvoicedata.recipientFirstName");
-    openapiFields.add("openinvoicedata.recipientLastName");
-    openapiFields.add("openinvoicedataLine[itemNr].currencyCode");
-    openapiFields.add("openinvoicedataLine[itemNr].description");
-    openapiFields.add("openinvoicedataLine[itemNr].itemAmount");
-    openapiFields.add("openinvoicedataLine[itemNr].itemId");
-    openapiFields.add("openinvoicedataLine[itemNr].itemVatAmount");
-    openapiFields.add("openinvoicedataLine[itemNr].itemVatPercentage");
-    openapiFields.add("openinvoicedataLine[itemNr].numberOfItems");
-    openapiFields.add("openinvoicedataLine[itemNr].returnShippingCompany");
-    openapiFields.add("openinvoicedataLine[itemNr].returnTrackingNumber");
-    openapiFields.add("openinvoicedataLine[itemNr].returnTrackingUri");
-    openapiFields.add("openinvoicedataLine[itemNr].shippingCompany");
-    openapiFields.add("openinvoicedataLine[itemNr].shippingMethod");
-    openapiFields.add("openinvoicedataLine[itemNr].trackingNumber");
-    openapiFields.add("openinvoicedataLine[itemNr].trackingUri");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of AdditionalDataOpenInvoice given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AdditionalDataOpenInvoice
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AdditionalDataOpenInvoice
+   */
+  public static AdditionalDataOpenInvoice fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AdditionalDataOpenInvoice.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AdditionalDataOpenInvoice.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AdditionalDataOpenInvoice
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AdditionalDataOpenInvoice.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataOpenInvoice is not found in the empty JSON string", AdditionalDataOpenInvoice.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AdditionalDataOpenInvoice.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataOpenInvoice` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field openinvoicedata.merchantData
-      if (jsonObj.get("openinvoicedata.merchantData") != null && !jsonObj.get("openinvoicedata.merchantData").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.merchantData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.merchantData").toString()));
-      }
-      // validate the optional field openinvoicedata.numberOfLines
-      if (jsonObj.get("openinvoicedata.numberOfLines") != null && !jsonObj.get("openinvoicedata.numberOfLines").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.numberOfLines` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.numberOfLines").toString()));
-      }
-      // validate the optional field openinvoicedata.recipientFirstName
-      if (jsonObj.get("openinvoicedata.recipientFirstName") != null && !jsonObj.get("openinvoicedata.recipientFirstName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.recipientFirstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.recipientFirstName").toString()));
-      }
-      // validate the optional field openinvoicedata.recipientLastName
-      if (jsonObj.get("openinvoicedata.recipientLastName") != null && !jsonObj.get("openinvoicedata.recipientLastName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedata.recipientLastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedata.recipientLastName").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].currencyCode
-      if (jsonObj.get("openinvoicedataLine[itemNr].currencyCode") != null && !jsonObj.get("openinvoicedataLine[itemNr].currencyCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].currencyCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].currencyCode").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].description
-      if (jsonObj.get("openinvoicedataLine[itemNr].description") != null && !jsonObj.get("openinvoicedataLine[itemNr].description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].description").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].itemAmount
-      if (jsonObj.get("openinvoicedataLine[itemNr].itemAmount") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemAmount").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].itemId
-      if (jsonObj.get("openinvoicedataLine[itemNr].itemId") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemId").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].itemVatAmount
-      if (jsonObj.get("openinvoicedataLine[itemNr].itemVatAmount") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemVatAmount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemVatAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemVatAmount").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].itemVatPercentage
-      if (jsonObj.get("openinvoicedataLine[itemNr].itemVatPercentage") != null && !jsonObj.get("openinvoicedataLine[itemNr].itemVatPercentage").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].itemVatPercentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].itemVatPercentage").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].numberOfItems
-      if (jsonObj.get("openinvoicedataLine[itemNr].numberOfItems") != null && !jsonObj.get("openinvoicedataLine[itemNr].numberOfItems").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].numberOfItems` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].numberOfItems").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].returnShippingCompany
-      if (jsonObj.get("openinvoicedataLine[itemNr].returnShippingCompany") != null && !jsonObj.get("openinvoicedataLine[itemNr].returnShippingCompany").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].returnShippingCompany` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnShippingCompany").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].returnTrackingNumber
-      if (jsonObj.get("openinvoicedataLine[itemNr].returnTrackingNumber") != null && !jsonObj.get("openinvoicedataLine[itemNr].returnTrackingNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].returnTrackingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnTrackingNumber").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].returnTrackingUri
-      if (jsonObj.get("openinvoicedataLine[itemNr].returnTrackingUri") != null && !jsonObj.get("openinvoicedataLine[itemNr].returnTrackingUri").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].returnTrackingUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].returnTrackingUri").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].shippingCompany
-      if (jsonObj.get("openinvoicedataLine[itemNr].shippingCompany") != null && !jsonObj.get("openinvoicedataLine[itemNr].shippingCompany").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].shippingCompany` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].shippingCompany").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].shippingMethod
-      if (jsonObj.get("openinvoicedataLine[itemNr].shippingMethod") != null && !jsonObj.get("openinvoicedataLine[itemNr].shippingMethod").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].shippingMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].shippingMethod").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].trackingNumber
-      if (jsonObj.get("openinvoicedataLine[itemNr].trackingNumber") != null && !jsonObj.get("openinvoicedataLine[itemNr].trackingNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].trackingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].trackingNumber").toString()));
-      }
-      // validate the optional field openinvoicedataLine[itemNr].trackingUri
-      if (jsonObj.get("openinvoicedataLine[itemNr].trackingUri") != null && !jsonObj.get("openinvoicedataLine[itemNr].trackingUri").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `openinvoicedataLine[itemNr].trackingUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openinvoicedataLine[itemNr].trackingUri").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AdditionalDataOpenInvoice.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AdditionalDataOpenInvoice' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AdditionalDataOpenInvoice> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AdditionalDataOpenInvoice.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AdditionalDataOpenInvoice>() {
-           @Override
-           public void write(JsonWriter out, AdditionalDataOpenInvoice value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AdditionalDataOpenInvoice read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AdditionalDataOpenInvoice given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AdditionalDataOpenInvoice
-  * @throws IOException if the JSON string is invalid with respect to AdditionalDataOpenInvoice
-  */
-  public static AdditionalDataOpenInvoice fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AdditionalDataOpenInvoice.class);
-  }
-
- /**
+/**
   * Convert an instance of AdditionalDataOpenInvoice to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

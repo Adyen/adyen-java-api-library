@@ -15,95 +15,78 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.payment.Amount;
 import com.adyen.model.payment.PlatformChargebackLogic;
 import com.adyen.model.payment.Split;
 import com.adyen.model.payment.ThreeDSecureData;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * TechnicalCancelRequest
  */
+@JsonPropertyOrder({
+  TechnicalCancelRequest.JSON_PROPERTY_ADDITIONAL_DATA,
+  TechnicalCancelRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  TechnicalCancelRequest.JSON_PROPERTY_MODIFICATION_AMOUNT,
+  TechnicalCancelRequest.JSON_PROPERTY_MPI_DATA,
+  TechnicalCancelRequest.JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE,
+  TechnicalCancelRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
+  TechnicalCancelRequest.JSON_PROPERTY_REFERENCE,
+  TechnicalCancelRequest.JSON_PROPERTY_SPLITS,
+  TechnicalCancelRequest.JSON_PROPERTY_TENDER_REFERENCE,
+  TechnicalCancelRequest.JSON_PROPERTY_UNIQUE_TERMINAL_ID
+})
 
 public class TechnicalCancelRequest {
-  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
+  public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_MODIFICATION_AMOUNT = "modificationAmount";
-  @SerializedName(SERIALIZED_NAME_MODIFICATION_AMOUNT)
+  public static final String JSON_PROPERTY_MODIFICATION_AMOUNT = "modificationAmount";
   private Amount modificationAmount;
 
-  public static final String SERIALIZED_NAME_MPI_DATA = "mpiData";
-  @SerializedName(SERIALIZED_NAME_MPI_DATA)
+  public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;
 
-  public static final String SERIALIZED_NAME_ORIGINAL_MERCHANT_REFERENCE = "originalMerchantReference";
-  @SerializedName(SERIALIZED_NAME_ORIGINAL_MERCHANT_REFERENCE)
+  public static final String JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE = "originalMerchantReference";
   private String originalMerchantReference;
 
-  public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
-  @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
+  public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SPLITS = "splits";
-  @SerializedName(SERIALIZED_NAME_SPLITS)
+  public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
-  public static final String SERIALIZED_NAME_TENDER_REFERENCE = "tenderReference";
-  @SerializedName(SERIALIZED_NAME_TENDER_REFERENCE)
+  public static final String JSON_PROPERTY_TENDER_REFERENCE = "tenderReference";
   private String tenderReference;
 
-  public static final String SERIALIZED_NAME_UNIQUE_TERMINAL_ID = "uniqueTerminalId";
-  @SerializedName(SERIALIZED_NAME_UNIQUE_TERMINAL_ID)
+  public static final String JSON_PROPERTY_UNIQUE_TERMINAL_ID = "uniqueTerminalId";
   private String uniqueTerminalId;
 
   public TechnicalCancelRequest() { 
   }
 
   public TechnicalCancelRequest additionalData(Map<String, String> additionalData) {
-    
     this.additionalData = additionalData;
     return this;
   }
@@ -121,19 +104,22 @@ public class TechnicalCancelRequest {
    * @return additionalData
   **/
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
 
   public TechnicalCancelRequest merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -143,19 +129,22 @@ public class TechnicalCancelRequest {
    * @return merchantAccount
   **/
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public TechnicalCancelRequest modificationAmount(Amount modificationAmount) {
-    
     this.modificationAmount = modificationAmount;
     return this;
   }
@@ -165,19 +154,22 @@ public class TechnicalCancelRequest {
    * @return modificationAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getModificationAmount() {
     return modificationAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
   }
 
 
   public TechnicalCancelRequest mpiData(ThreeDSecureData mpiData) {
-    
     this.mpiData = mpiData;
     return this;
   }
@@ -187,19 +179,22 @@ public class TechnicalCancelRequest {
    * @return mpiData
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MPI_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ThreeDSecureData getMpiData() {
     return mpiData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MPI_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
   }
 
 
   public TechnicalCancelRequest originalMerchantReference(String originalMerchantReference) {
-    
     this.originalMerchantReference = originalMerchantReference;
     return this;
   }
@@ -209,19 +204,22 @@ public class TechnicalCancelRequest {
    * @return originalMerchantReference
   **/
   @ApiModelProperty(required = true, value = "The original merchant reference to cancel.")
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOriginalMerchantReference() {
     return originalMerchantReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalMerchantReference(String originalMerchantReference) {
     this.originalMerchantReference = originalMerchantReference;
   }
 
 
   public TechnicalCancelRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
-    
     this.platformChargebackLogic = platformChargebackLogic;
     return this;
   }
@@ -231,19 +229,22 @@ public class TechnicalCancelRequest {
    * @return platformChargebackLogic
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PlatformChargebackLogic getPlatformChargebackLogic() {
     return platformChargebackLogic;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
   }
 
 
   public TechnicalCancelRequest reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -253,19 +254,22 @@ public class TechnicalCancelRequest {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public TechnicalCancelRequest splits(List<Split> splits) {
-    
     this.splits = splits;
     return this;
   }
@@ -283,19 +287,22 @@ public class TechnicalCancelRequest {
    * @return splits
   **/
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Split> getSplits() {
     return splits;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
   }
 
 
   public TechnicalCancelRequest tenderReference(String tenderReference) {
-    
     this.tenderReference = tenderReference;
     return this;
   }
@@ -305,19 +312,22 @@ public class TechnicalCancelRequest {
    * @return tenderReference
   **/
   @ApiModelProperty(value = "The transaction reference provided by the PED. For point-of-sale integrations only.")
+  @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTenderReference() {
     return tenderReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenderReference(String tenderReference) {
     this.tenderReference = tenderReference;
   }
 
 
   public TechnicalCancelRequest uniqueTerminalId(String uniqueTerminalId) {
-    
     this.uniqueTerminalId = uniqueTerminalId;
     return this;
   }
@@ -327,18 +337,24 @@ public class TechnicalCancelRequest {
    * @return uniqueTerminalId
   **/
   @ApiModelProperty(value = "Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.")
+  @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUniqueTerminalId() {
     return uniqueTerminalId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
   }
 
 
-
+  /**
+   * Return true if this TechnicalCancelRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -394,156 +410,23 @@ public class TechnicalCancelRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("additionalData");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("modificationAmount");
-    openapiFields.add("mpiData");
-    openapiFields.add("originalMerchantReference");
-    openapiFields.add("platformChargebackLogic");
-    openapiFields.add("reference");
-    openapiFields.add("splits");
-    openapiFields.add("tenderReference");
-    openapiFields.add("uniqueTerminalId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchantAccount");
-    openapiRequiredFields.add("originalMerchantReference");
+/**
+   * Create an instance of TechnicalCancelRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TechnicalCancelRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TechnicalCancelRequest
+   */
+  public static TechnicalCancelRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TechnicalCancelRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TechnicalCancelRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TechnicalCancelRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TechnicalCancelRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TechnicalCancelRequest is not found in the empty JSON string", TechnicalCancelRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TechnicalCancelRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TechnicalCancelRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TechnicalCancelRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field `modificationAmount`
-      if (jsonObj.getAsJsonObject("modificationAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("modificationAmount"));
-      }
-      // validate the optional field `mpiData`
-      if (jsonObj.getAsJsonObject("mpiData") != null) {
-        ThreeDSecureData.validateJsonObject(jsonObj.getAsJsonObject("mpiData"));
-      }
-      // validate the optional field originalMerchantReference
-      if (jsonObj.get("originalMerchantReference") != null && !jsonObj.get("originalMerchantReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `originalMerchantReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalMerchantReference").toString()));
-      }
-      // validate the optional field `platformChargebackLogic`
-      if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
-        PlatformChargebackLogic.validateJsonObject(jsonObj.getAsJsonObject("platformChargebackLogic"));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      JsonArray jsonArraysplits = jsonObj.getAsJsonArray("splits");
-      if (jsonArraysplits != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("splits").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `splits` to be an array in the JSON string but got `%s`", jsonObj.get("splits").toString()));
-        }
-
-        // validate the optional field `splits` (array)
-        for (int i = 0; i < jsonArraysplits.size(); i++) {
-          Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field tenderReference
-      if (jsonObj.get("tenderReference") != null && !jsonObj.get("tenderReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `tenderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenderReference").toString()));
-      }
-      // validate the optional field uniqueTerminalId
-      if (jsonObj.get("uniqueTerminalId") != null && !jsonObj.get("uniqueTerminalId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `uniqueTerminalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uniqueTerminalId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TechnicalCancelRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TechnicalCancelRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TechnicalCancelRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TechnicalCancelRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TechnicalCancelRequest>() {
-           @Override
-           public void write(JsonWriter out, TechnicalCancelRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TechnicalCancelRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TechnicalCancelRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TechnicalCancelRequest
-  * @throws IOException if the JSON string is invalid with respect to TechnicalCancelRequest
-  */
-  public static TechnicalCancelRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TechnicalCancelRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of TechnicalCancelRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
