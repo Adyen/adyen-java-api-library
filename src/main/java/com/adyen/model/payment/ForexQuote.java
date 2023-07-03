@@ -15,97 +15,80 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.payment.Amount;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * ForexQuote
  */
+@JsonPropertyOrder({
+  ForexQuote.JSON_PROPERTY_ACCOUNT,
+  ForexQuote.JSON_PROPERTY_ACCOUNT_TYPE,
+  ForexQuote.JSON_PROPERTY_BASE_AMOUNT,
+  ForexQuote.JSON_PROPERTY_BASE_POINTS,
+  ForexQuote.JSON_PROPERTY_BUY,
+  ForexQuote.JSON_PROPERTY_INTERBANK,
+  ForexQuote.JSON_PROPERTY_REFERENCE,
+  ForexQuote.JSON_PROPERTY_SELL,
+  ForexQuote.JSON_PROPERTY_SIGNATURE,
+  ForexQuote.JSON_PROPERTY_SOURCE,
+  ForexQuote.JSON_PROPERTY_TYPE,
+  ForexQuote.JSON_PROPERTY_VALID_TILL
+})
 
 public class ForexQuote {
-  public static final String SERIALIZED_NAME_ACCOUNT = "account";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT)
+  public static final String JSON_PROPERTY_ACCOUNT = "account";
   private String account;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "accountType";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
+  public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private String accountType;
 
-  public static final String SERIALIZED_NAME_BASE_AMOUNT = "baseAmount";
-  @SerializedName(SERIALIZED_NAME_BASE_AMOUNT)
+  public static final String JSON_PROPERTY_BASE_AMOUNT = "baseAmount";
   private Amount baseAmount;
 
-  public static final String SERIALIZED_NAME_BASE_POINTS = "basePoints";
-  @SerializedName(SERIALIZED_NAME_BASE_POINTS)
+  public static final String JSON_PROPERTY_BASE_POINTS = "basePoints";
   private Integer basePoints;
 
-  public static final String SERIALIZED_NAME_BUY = "buy";
-  @SerializedName(SERIALIZED_NAME_BUY)
+  public static final String JSON_PROPERTY_BUY = "buy";
   private Amount buy;
 
-  public static final String SERIALIZED_NAME_INTERBANK = "interbank";
-  @SerializedName(SERIALIZED_NAME_INTERBANK)
+  public static final String JSON_PROPERTY_INTERBANK = "interbank";
   private Amount interbank;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SELL = "sell";
-  @SerializedName(SERIALIZED_NAME_SELL)
+  public static final String JSON_PROPERTY_SELL = "sell";
   private Amount sell;
 
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private String signature;
 
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
+  public static final String JSON_PROPERTY_SOURCE = "source";
   private String source;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-  public static final String SERIALIZED_NAME_VALID_TILL = "validTill";
-  @SerializedName(SERIALIZED_NAME_VALID_TILL)
+  public static final String JSON_PROPERTY_VALID_TILL = "validTill";
   private OffsetDateTime validTill;
 
   public ForexQuote() { 
   }
 
   public ForexQuote account(String account) {
-    
     this.account = account;
     return this;
   }
@@ -115,19 +98,22 @@ public class ForexQuote {
    * @return account
   **/
   @ApiModelProperty(value = "The account name.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccount() {
     return account;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccount(String account) {
     this.account = account;
   }
 
 
   public ForexQuote accountType(String accountType) {
-    
     this.accountType = accountType;
     return this;
   }
@@ -137,19 +123,22 @@ public class ForexQuote {
    * @return accountType
   **/
   @ApiModelProperty(value = "The account type.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountType() {
     return accountType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
     this.accountType = accountType;
   }
 
 
   public ForexQuote baseAmount(Amount baseAmount) {
-    
     this.baseAmount = baseAmount;
     return this;
   }
@@ -159,19 +148,22 @@ public class ForexQuote {
    * @return baseAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getBaseAmount() {
     return baseAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBaseAmount(Amount baseAmount) {
     this.baseAmount = baseAmount;
   }
 
 
   public ForexQuote basePoints(Integer basePoints) {
-    
     this.basePoints = basePoints;
     return this;
   }
@@ -181,19 +173,22 @@ public class ForexQuote {
    * @return basePoints
   **/
   @ApiModelProperty(required = true, value = "The base points.")
+  @JsonProperty(JSON_PROPERTY_BASE_POINTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getBasePoints() {
     return basePoints;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BASE_POINTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasePoints(Integer basePoints) {
     this.basePoints = basePoints;
   }
 
 
   public ForexQuote buy(Amount buy) {
-    
     this.buy = buy;
     return this;
   }
@@ -203,19 +198,22 @@ public class ForexQuote {
    * @return buy
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BUY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getBuy() {
     return buy;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BUY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBuy(Amount buy) {
     this.buy = buy;
   }
 
 
   public ForexQuote interbank(Amount interbank) {
-    
     this.interbank = interbank;
     return this;
   }
@@ -225,19 +223,22 @@ public class ForexQuote {
    * @return interbank
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INTERBANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getInterbank() {
     return interbank;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INTERBANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterbank(Amount interbank) {
     this.interbank = interbank;
   }
 
 
   public ForexQuote reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -247,19 +248,22 @@ public class ForexQuote {
    * @return reference
   **/
   @ApiModelProperty(value = "The reference assigned to the forex quote request.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public ForexQuote sell(Amount sell) {
-    
     this.sell = sell;
     return this;
   }
@@ -269,19 +273,22 @@ public class ForexQuote {
    * @return sell
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SELL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getSell() {
     return sell;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SELL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSell(Amount sell) {
     this.sell = sell;
   }
 
 
   public ForexQuote signature(String signature) {
-    
     this.signature = signature;
     return this;
   }
@@ -291,19 +298,22 @@ public class ForexQuote {
    * @return signature
   **/
   @ApiModelProperty(value = "The signature to validate the integrity.")
+  @JsonProperty(JSON_PROPERTY_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSignature() {
     return signature;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(String signature) {
     this.signature = signature;
   }
 
 
   public ForexQuote source(String source) {
-    
     this.source = source;
     return this;
   }
@@ -313,19 +323,22 @@ public class ForexQuote {
    * @return source
   **/
   @ApiModelProperty(value = "The source of the forex quote.")
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSource() {
     return source;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSource(String source) {
     this.source = source;
   }
 
 
   public ForexQuote type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -335,19 +348,22 @@ public class ForexQuote {
    * @return type
   **/
   @ApiModelProperty(value = "The type of forex.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
 
   public ForexQuote validTill(OffsetDateTime validTill) {
-    
     this.validTill = validTill;
     return this;
   }
@@ -357,18 +373,24 @@ public class ForexQuote {
    * @return validTill
   **/
   @ApiModelProperty(required = true, value = "The date until which the forex quote is valid.")
+  @JsonProperty(JSON_PROPERTY_VALID_TILL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getValidTill() {
     return validTill;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VALID_TILL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTill(OffsetDateTime validTill) {
     this.validTill = validTill;
   }
 
 
-
+  /**
+   * Return true if this ForexQuote object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -428,154 +450,23 @@ public class ForexQuote {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account");
-    openapiFields.add("accountType");
-    openapiFields.add("baseAmount");
-    openapiFields.add("basePoints");
-    openapiFields.add("buy");
-    openapiFields.add("interbank");
-    openapiFields.add("reference");
-    openapiFields.add("sell");
-    openapiFields.add("signature");
-    openapiFields.add("source");
-    openapiFields.add("type");
-    openapiFields.add("validTill");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("basePoints");
-    openapiRequiredFields.add("validTill");
+/**
+   * Create an instance of ForexQuote given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ForexQuote
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ForexQuote
+   */
+  public static ForexQuote fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ForexQuote.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ForexQuote.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ForexQuote
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ForexQuote.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ForexQuote is not found in the empty JSON string", ForexQuote.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ForexQuote.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ForexQuote` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ForexQuote.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field account
-      if (jsonObj.get("account") != null && !jsonObj.get("account").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account").toString()));
-      }
-      // validate the optional field accountType
-      if (jsonObj.get("accountType") != null && !jsonObj.get("accountType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountType").toString()));
-      }
-      // validate the optional field `baseAmount`
-      if (jsonObj.getAsJsonObject("baseAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("baseAmount"));
-      }
-      // validate the optional field `buy`
-      if (jsonObj.getAsJsonObject("buy") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("buy"));
-      }
-      // validate the optional field `interbank`
-      if (jsonObj.getAsJsonObject("interbank") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("interbank"));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field `sell`
-      if (jsonObj.getAsJsonObject("sell") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("sell"));
-      }
-      // validate the optional field signature
-      if (jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
-      }
-      // validate the optional field source
-      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
-      }
-      // validate the optional field type
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ForexQuote.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ForexQuote' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ForexQuote> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ForexQuote.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ForexQuote>() {
-           @Override
-           public void write(JsonWriter out, ForexQuote value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ForexQuote read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ForexQuote given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ForexQuote
-  * @throws IOException if the JSON string is invalid with respect to ForexQuote
-  */
-  public static ForexQuote fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ForexQuote.class);
-  }
-
- /**
+/**
   * Convert an instance of ForexQuote to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
