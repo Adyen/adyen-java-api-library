@@ -451,7 +451,6 @@ public class PaymentTest extends BaseTest {
         final ByteString expectedByteString = ByteString.of(expectedBytes);
         final String serializedBytes = expectedByteString.base64();
         final String serializedBytesWithQuotes = "\"" + serializedBytes + "\"";
-        Type type = new TypeToken<byte[]>() { }.getType();
 
         // Act
         byte[] actualDeserializedBytes = JSON.getMapper().readValue(serializedBytesWithQuotes, byte[].class);
