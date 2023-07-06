@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=jersey3
-modelGen:=balancecontrol balanceplatform binlookup capital checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks
+modelGen:=balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -19,8 +19,6 @@ binlookup: smallServiceName=BinLookupApi
 checkout: spec=CheckoutService-v70
 dataprotection: spec=DataProtectionService-v1
 dataprotection: smallServiceName=DataProtectionApi
-capital: spec=GrantService-v3
-capital: smallServiceName=CapitalApi
 storedvalue: spec=StoredValueService-v46
 storedvalue: smallServiceName=StoredValueApi
 posterminalmanagement: spec=TfmAPIService-v1
@@ -68,7 +66,7 @@ $(modelGen): target/spec $(openapi-generator-jar)
 
 # Full service + models automation
 bigServices:=balanceplatform checkout payout management legalentitymanagement transfers
-singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment capital
+singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment
 
 services: $(bigServices) $(singleFileServices)
 

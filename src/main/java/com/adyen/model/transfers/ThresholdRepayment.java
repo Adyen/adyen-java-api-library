@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.transfers.Link;
+import com.adyen.model.transfers.Amount;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,75 +29,46 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * Links
+ * ThresholdRepayment
  */
 @JsonPropertyOrder({
-  Links.JSON_PROPERTY_NEXT,
-  Links.JSON_PROPERTY_PREV
+  ThresholdRepayment.JSON_PROPERTY_AMOUNT
 })
 
-public class Links {
-  public static final String JSON_PROPERTY_NEXT = "next";
-  private Link next;
+public class ThresholdRepayment {
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
+  private Amount amount;
 
-  public static final String JSON_PROPERTY_PREV = "prev";
-  private Link prev;
-
-  public Links() { 
+  public ThresholdRepayment() { 
   }
 
-  public Links next(Link next) {
-    this.next = next;
+  public ThresholdRepayment amount(Amount amount) {
+    this.amount = amount;
     return this;
   }
 
    /**
-   * Get next
-   * @return next
+   * Get amount
+   * @return amount
   **/
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NEXT)
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Link getNext() {
-    return next;
+  public Amount getAmount() {
+    return amount;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NEXT)
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNext(Link next) {
-    this.next = next;
-  }
-
-
-  public Links prev(Link prev) {
-    this.prev = prev;
-    return this;
-  }
-
-   /**
-   * Get prev
-   * @return prev
-  **/
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PREV)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Link getPrev() {
-    return prev;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PREV)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrev(Link prev) {
-    this.prev = prev;
+  public void setAmount(Amount amount) {
+    this.amount = amount;
   }
 
 
   /**
-   * Return true if this Links object is equal to o.
+   * Return true if this ThresholdRepayment object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +78,20 @@ public class Links {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Links links = (Links) o;
-    return Objects.equals(this.next, links.next) &&
-        Objects.equals(this.prev, links.prev);
+    ThresholdRepayment thresholdRepayment = (ThresholdRepayment) o;
+    return Objects.equals(this.amount, thresholdRepayment.amount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(next, prev);
+    return Objects.hash(amount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Links {\n");
-    sb.append("    next: ").append(toIndentedString(next)).append("\n");
-    sb.append("    prev: ").append(toIndentedString(prev)).append("\n");
+    sb.append("class ThresholdRepayment {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,17 +108,17 @@ public class Links {
   }
 
 /**
-   * Create an instance of Links given an JSON string
+   * Create an instance of ThresholdRepayment given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Links
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Links
+   * @return An instance of ThresholdRepayment
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThresholdRepayment
    */
-  public static Links fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, Links.class);
+  public static ThresholdRepayment fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThresholdRepayment.class);
   }
 /**
-  * Convert an instance of Links to an JSON string
+  * Convert an instance of ThresholdRepayment to an JSON string
   *
   * @return JSON string
   */
