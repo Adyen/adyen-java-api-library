@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.transfers.Link;
+import com.adyen.model.transfers.CapitalGrant;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,80 +24,58 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * Links
+ * CapitalGrants
  */
 @JsonPropertyOrder({
-  Links.JSON_PROPERTY_NEXT,
-  Links.JSON_PROPERTY_PREV
+  CapitalGrants.JSON_PROPERTY_GRANTS
 })
 
-public class Links {
-  public static final String JSON_PROPERTY_NEXT = "next";
-  private Link next;
+public class CapitalGrants {
+  public static final String JSON_PROPERTY_GRANTS = "grants";
+  private List<CapitalGrant> grants = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_PREV = "prev";
-  private Link prev;
-
-  public Links() { 
+  public CapitalGrants() { 
   }
 
-  public Links next(Link next) {
-    this.next = next;
+  public CapitalGrants grants(List<CapitalGrant> grants) {
+    this.grants = grants;
+    return this;
+  }
+
+  public CapitalGrants addGrantsItem(CapitalGrant grantsItem) {
+    this.grants.add(grantsItem);
     return this;
   }
 
    /**
-   * Get next
-   * @return next
+   * The unique identifier of the grant.
+   * @return grants
   **/
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NEXT)
+  @ApiModelProperty(required = true, value = "The unique identifier of the grant.")
+  @JsonProperty(JSON_PROPERTY_GRANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Link getNext() {
-    return next;
+  public List<CapitalGrant> getGrants() {
+    return grants;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NEXT)
+  @JsonProperty(JSON_PROPERTY_GRANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNext(Link next) {
-    this.next = next;
-  }
-
-
-  public Links prev(Link prev) {
-    this.prev = prev;
-    return this;
-  }
-
-   /**
-   * Get prev
-   * @return prev
-  **/
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PREV)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Link getPrev() {
-    return prev;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PREV)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrev(Link prev) {
-    this.prev = prev;
+  public void setGrants(List<CapitalGrant> grants) {
+    this.grants = grants;
   }
 
 
   /**
-   * Return true if this Links object is equal to o.
+   * Return true if this CapitalGrants object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +85,20 @@ public class Links {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Links links = (Links) o;
-    return Objects.equals(this.next, links.next) &&
-        Objects.equals(this.prev, links.prev);
+    CapitalGrants capitalGrants = (CapitalGrants) o;
+    return Objects.equals(this.grants, capitalGrants.grants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(next, prev);
+    return Objects.hash(grants);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Links {\n");
-    sb.append("    next: ").append(toIndentedString(next)).append("\n");
-    sb.append("    prev: ").append(toIndentedString(prev)).append("\n");
+    sb.append("class CapitalGrants {\n");
+    sb.append("    grants: ").append(toIndentedString(grants)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,17 +115,17 @@ public class Links {
   }
 
 /**
-   * Create an instance of Links given an JSON string
+   * Create an instance of CapitalGrants given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Links
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Links
+   * @return An instance of CapitalGrants
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CapitalGrants
    */
-  public static Links fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, Links.class);
+  public static CapitalGrants fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CapitalGrants.class);
   }
 /**
-  * Convert an instance of Links to an JSON string
+  * Convert an instance of CapitalGrants to an JSON string
   *
   * @return JSON string
   */
