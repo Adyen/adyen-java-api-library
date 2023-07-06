@@ -358,18 +358,18 @@ public class PaymentInstrumentUpdateRequest {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentInstrumentUpdateRequest.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to PaymentInstrumentUpdateRequest
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (PaymentInstrumentUpdateRequest.openapiRequiredFields.isEmpty()) {
           return;
@@ -377,17 +377,18 @@ public class PaymentInstrumentUpdateRequest {
           throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentInstrumentUpdateRequest is not found in the empty JSON string", PaymentInstrumentUpdateRequest.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentInstrumentUpdateRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentUpdateRequest` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!PaymentInstrumentUpdateRequest.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentUpdateRequest` properties.", entry.getKey()));
+            }
+          }
       }
       // validate the optional field balanceAccountId
       if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
       }
       // validate the optional field `card`
       if (jsonObj.getAsJsonObject("card") != null) {
@@ -402,7 +403,7 @@ public class PaymentInstrumentUpdateRequest {
       }
       // validate the optional field statusComment
       if (jsonObj.get("statusComment") != null && !jsonObj.get("statusComment").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `statusComment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusComment").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `statusComment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusComment").toString()));
       }
       // ensure the field statusReason can be parsed to an enum value
       if (jsonObj.get("statusReason") != null) {

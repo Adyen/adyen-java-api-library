@@ -434,18 +434,18 @@ public class AccountSupportingEntityCapability {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(AccountSupportingEntityCapability.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to AccountSupportingEntityCapability
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (AccountSupportingEntityCapability.openapiRequiredFields.isEmpty()) {
           return;
@@ -453,13 +453,14 @@ public class AccountSupportingEntityCapability {
           throw new IllegalArgumentException(String.format("The required field(s) %s in AccountSupportingEntityCapability is not found in the empty JSON string", AccountSupportingEntityCapability.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AccountSupportingEntityCapability.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `AccountSupportingEntityCapability` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!AccountSupportingEntityCapability.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountSupportingEntityCapability` properties.", entry.getKey()));
+            }
+          }
       }
       // ensure the field allowedLevel can be parsed to an enum value
       if (jsonObj.get("allowedLevel") != null) {
@@ -470,7 +471,7 @@ public class AccountSupportingEntityCapability {
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // ensure the field requestedLevel can be parsed to an enum value
       if (jsonObj.get("requestedLevel") != null) {

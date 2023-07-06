@@ -160,18 +160,18 @@ public class TimeOfDayRestriction {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("operation");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TimeOfDayRestriction.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to TimeOfDayRestriction
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (TimeOfDayRestriction.openapiRequiredFields.isEmpty()) {
           return;
@@ -179,13 +179,14 @@ public class TimeOfDayRestriction {
           throw new IllegalArgumentException(String.format("The required field(s) %s in TimeOfDayRestriction is not found in the empty JSON string", TimeOfDayRestriction.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TimeOfDayRestriction.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TimeOfDayRestriction` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!TimeOfDayRestriction.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TimeOfDayRestriction` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -196,7 +197,7 @@ public class TimeOfDayRestriction {
       }
       // validate the optional field operation
       if (jsonObj.get("operation") != null && !jsonObj.get("operation").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
       // validate the optional field `value`
       if (jsonObj.getAsJsonObject("value") != null) {

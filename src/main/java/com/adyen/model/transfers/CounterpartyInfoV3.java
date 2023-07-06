@@ -1,6 +1,5 @@
 /*
  * Transfers API
- * This API provides endpoints that you can use to transfer funds, whether when [paying out to a transfer instrument](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/on-demand-payouts), [sending funds to third parties](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/send-receive-funds) for users with business bank accounts, or to [request a payout for a grant offer](https://docs.adyen.com/marketplaces-and-platforms/capital). The API also supports use cases for [getting transactions for business bank accounts](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/transactions-api) and getting [grants and its outstanding balances](https://docs.adyen.com/marketplaces-and-platforms/capital#get-balances). .  ## Authentication Your Adyen contact will provide your API credential and an API key. To connect to the API, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication. For example:  ``` curl -H \"Content-Type: application/json\" \\ -U \"ws@BalancePlatform.YOUR_BALANCE_PLATFORM\":\"YOUR_WS_PASSWORD\" \\ ... ``` ## Roles and permissions To use the Transfers API, you need an additional role for your API credential. Transfers must also be enabled for the source balance account. Your Adyen contact will set up the roles and permissions for you. ## Versioning The Transfers API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://balanceplatform-api-test.adyen.com/btl/v3/transfers ``` ## Going live When going live, your Adyen contact will provide your API credential for the live environment. You can then use the username and password to send requests to `https://balanceplatform-api-live.adyen.com/btl/v3`.  
  *
  * The version of the OpenAPI document: 3
  * 
@@ -15,60 +14,43 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.transfers.BankAccountV3;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * CounterpartyInfoV3
  */
+@JsonPropertyOrder({
+  CounterpartyInfoV3.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
+  CounterpartyInfoV3.JSON_PROPERTY_BANK_ACCOUNT,
+  CounterpartyInfoV3.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID
+})
 
 public class CounterpartyInfoV3 {
-  public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
-  @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bankAccount";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
+  public static final String JSON_PROPERTY_BANK_ACCOUNT = "bankAccount";
   private BankAccountV3 bankAccount;
 
-  public static final String SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_INSTRUMENT_ID)
+  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   private String transferInstrumentId;
 
   public CounterpartyInfoV3() { 
   }
 
   public CounterpartyInfoV3 balanceAccountId(String balanceAccountId) {
-    
     this.balanceAccountId = balanceAccountId;
     return this;
   }
@@ -78,19 +60,22 @@ public class CounterpartyInfoV3 {
    * @return balanceAccountId
   **/
   @ApiModelProperty(value = "Unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
 
   public CounterpartyInfoV3 bankAccount(BankAccountV3 bankAccount) {
-    
     this.bankAccount = bankAccount;
     return this;
   }
@@ -100,19 +85,22 @@ public class CounterpartyInfoV3 {
    * @return bankAccount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BankAccountV3 getBankAccount() {
     return bankAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountV3 bankAccount) {
     this.bankAccount = bankAccount;
   }
 
 
   public CounterpartyInfoV3 transferInstrumentId(String transferInstrumentId) {
-    
     this.transferInstrumentId = transferInstrumentId;
     return this;
   }
@@ -122,18 +110,24 @@ public class CounterpartyInfoV3 {
    * @return transferInstrumentId
   **/
   @ApiModelProperty(value = "Unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }
 
 
-
+  /**
+   * Return true if this CounterpartyInfoV3 object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -175,108 +169,23 @@ public class CounterpartyInfoV3 {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("balanceAccountId");
-    openapiFields.add("bankAccount");
-    openapiFields.add("transferInstrumentId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of CounterpartyInfoV3 given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CounterpartyInfoV3
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CounterpartyInfoV3
+   */
+  public static CounterpartyInfoV3 fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CounterpartyInfoV3.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CounterpartyInfoV3.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CounterpartyInfoV3
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CounterpartyInfoV3.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CounterpartyInfoV3 is not found in the empty JSON string", CounterpartyInfoV3.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CounterpartyInfoV3.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CounterpartyInfoV3` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field balanceAccountId
-      if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
-      }
-      // validate the optional field `bankAccount`
-      if (jsonObj.getAsJsonObject("bankAccount") != null) {
-        BankAccountV3.validateJsonObject(jsonObj.getAsJsonObject("bankAccount"));
-      }
-      // validate the optional field transferInstrumentId
-      if (jsonObj.get("transferInstrumentId") != null && !jsonObj.get("transferInstrumentId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `transferInstrumentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transferInstrumentId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CounterpartyInfoV3.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CounterpartyInfoV3' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CounterpartyInfoV3> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CounterpartyInfoV3.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CounterpartyInfoV3>() {
-           @Override
-           public void write(JsonWriter out, CounterpartyInfoV3 value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CounterpartyInfoV3 read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CounterpartyInfoV3 given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CounterpartyInfoV3
-  * @throws IOException if the JSON string is invalid with respect to CounterpartyInfoV3
-  */
-  public static CounterpartyInfoV3 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CounterpartyInfoV3.class);
-  }
-
- /**
+/**
   * Convert an instance of CounterpartyInfoV3 to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

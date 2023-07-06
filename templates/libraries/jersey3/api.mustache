@@ -1,0 +1,73 @@
+{{>licenseInfo}}
+package {{package}};
+
+import com.adyen.Client;
+import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
+{{#imports}}import {{import}};
+{{/imports}}
+import com.adyen.model.RequestOptions;
+import com.adyen.service.exception.ApiException;
+import com.adyen.service.resource.Resource;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+{{#operations}}
+public class {{classname}} extends Service {
+    private final String baseURL;
+
+    public {{classname}}(Client client) {
+        super(client);
+        this.baseURL = createBaseURL("{{{basePath}}}");
+    }
+{{#operation}}
+
+{{>api_summary_overload}}
+{{#isDeprecated}}
+    @Deprecated
+{{/isDeprecated}}
+    public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{>api_overload}}) throws ApiException, IOException {
+        {{#returnType}}return {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{>api_overload_invoke}});
+    }
+
+{{>api_summary}}
+{{#isDeprecated}}
+   @Deprecated
+{{/isDeprecated}}
+    public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{>api_parameters}}) throws ApiException, IOException {
+{{! verify if a required parameter is set }}
+        {{#hasPathParams}}
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        {{#pathParams}}
+        if ({{{paramName}}} == null) {
+            throw new IllegalArgumentException("Please provide the {{{paramName}}} path parameter");
+        }
+        pathParams.put("{{baseName}}", {{{paramName}}});
+        {{/pathParams}}
+        {{/hasPathParams}}
+        {{#hasQueryParams}}
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        {{#queryParams}}
+        if ({{{paramName}}} != null) {
+        queryParams.put("{{baseName}}", {{{paramName}}}{{^isString}}.toString(){{/isString}});
+        }
+        {{/queryParams}}
+        {{/hasQueryParams}}
+
+        String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
+        Resource resource = new Resource(this, this.baseURL + "{{{path}}}", null);
+        {{#returnType}}
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
+        {{/returnType}}
+        {{^returnType}}
+        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        {{/returnType}}
+    }
+{{/operation}}
+}
+{{/operations}}

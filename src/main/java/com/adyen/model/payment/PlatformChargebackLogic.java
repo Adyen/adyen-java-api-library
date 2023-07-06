@@ -15,46 +15,32 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * PlatformChargebackLogic
  */
+@JsonPropertyOrder({
+  PlatformChargebackLogic.JSON_PROPERTY_BEHAVIOR,
+  PlatformChargebackLogic.JSON_PROPERTY_COST_ALLOCATION_ACCOUNT,
+  PlatformChargebackLogic.JSON_PROPERTY_TARGET_ACCOUNT
+})
 
 public class PlatformChargebackLogic {
   /**
    * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    */
-  @JsonAdapter(BehaviorEnum.Adapter.class)
   public enum BehaviorEnum {
     DEDUCTACCORDINGTOSPLITRATIO("deductAccordingToSplitRatio"),
     
@@ -68,6 +54,7 @@ public class PlatformChargebackLogic {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -77,6 +64,7 @@ public class PlatformChargebackLogic {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static BehaviorEnum fromValue(String value) {
       for (BehaviorEnum b : BehaviorEnum.values()) {
         if (b.value.equals(value)) {
@@ -85,38 +73,21 @@ public class PlatformChargebackLogic {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<BehaviorEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BehaviorEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public BehaviorEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return BehaviorEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_BEHAVIOR = "behavior";
-  @SerializedName(SERIALIZED_NAME_BEHAVIOR)
+  public static final String JSON_PROPERTY_BEHAVIOR = "behavior";
   private BehaviorEnum behavior;
 
-  public static final String SERIALIZED_NAME_COST_ALLOCATION_ACCOUNT = "costAllocationAccount";
-  @SerializedName(SERIALIZED_NAME_COST_ALLOCATION_ACCOUNT)
+  public static final String JSON_PROPERTY_COST_ALLOCATION_ACCOUNT = "costAllocationAccount";
   private String costAllocationAccount;
 
-  public static final String SERIALIZED_NAME_TARGET_ACCOUNT = "targetAccount";
-  @SerializedName(SERIALIZED_NAME_TARGET_ACCOUNT)
+  public static final String JSON_PROPERTY_TARGET_ACCOUNT = "targetAccount";
   private String targetAccount;
 
   public PlatformChargebackLogic() { 
   }
 
   public PlatformChargebackLogic behavior(BehaviorEnum behavior) {
-    
     this.behavior = behavior;
     return this;
   }
@@ -126,19 +97,22 @@ public class PlatformChargebackLogic {
    * @return behavior
   **/
   @ApiModelProperty(value = "The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.")
+  @JsonProperty(JSON_PROPERTY_BEHAVIOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BehaviorEnum getBehavior() {
     return behavior;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BEHAVIOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBehavior(BehaviorEnum behavior) {
     this.behavior = behavior;
   }
 
 
   public PlatformChargebackLogic costAllocationAccount(String costAllocationAccount) {
-    
     this.costAllocationAccount = costAllocationAccount;
     return this;
   }
@@ -148,19 +122,22 @@ public class PlatformChargebackLogic {
    * @return costAllocationAccount
   **/
   @ApiModelProperty(value = "The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.")
+  @JsonProperty(JSON_PROPERTY_COST_ALLOCATION_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCostAllocationAccount() {
     return costAllocationAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COST_ALLOCATION_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostAllocationAccount(String costAllocationAccount) {
     this.costAllocationAccount = costAllocationAccount;
   }
 
 
   public PlatformChargebackLogic targetAccount(String targetAccount) {
-    
     this.targetAccount = targetAccount;
     return this;
   }
@@ -170,18 +147,24 @@ public class PlatformChargebackLogic {
    * @return targetAccount
   **/
   @ApiModelProperty(value = "The unique identifier of the balance account against which the disputed amount is booked.  Required if `behavior` is **deductFromOneBalanceAccount**.")
+  @JsonProperty(JSON_PROPERTY_TARGET_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTargetAccount() {
     return targetAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TARGET_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTargetAccount(String targetAccount) {
     this.targetAccount = targetAccount;
   }
 
 
-
+  /**
+   * Return true if this PlatformChargebackLogic object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -223,111 +206,23 @@ public class PlatformChargebackLogic {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("behavior");
-    openapiFields.add("costAllocationAccount");
-    openapiFields.add("targetAccount");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of PlatformChargebackLogic given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PlatformChargebackLogic
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PlatformChargebackLogic
+   */
+  public static PlatformChargebackLogic fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PlatformChargebackLogic.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PlatformChargebackLogic.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PlatformChargebackLogic
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PlatformChargebackLogic.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PlatformChargebackLogic is not found in the empty JSON string", PlatformChargebackLogic.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PlatformChargebackLogic.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PlatformChargebackLogic` properties.", entry.getKey()));
-        }
-      }
-      // ensure the field behavior can be parsed to an enum value
-      if (jsonObj.get("behavior") != null) {
-        if(!jsonObj.get("behavior").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `behavior` to be a primitive type in the JSON string but got `%s`", jsonObj.get("behavior").toString()));
-        }
-        BehaviorEnum.fromValue(jsonObj.get("behavior").getAsString());
-      }
-      // validate the optional field costAllocationAccount
-      if (jsonObj.get("costAllocationAccount") != null && !jsonObj.get("costAllocationAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `costAllocationAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costAllocationAccount").toString()));
-      }
-      // validate the optional field targetAccount
-      if (jsonObj.get("targetAccount") != null && !jsonObj.get("targetAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `targetAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("targetAccount").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PlatformChargebackLogic.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PlatformChargebackLogic' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PlatformChargebackLogic> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PlatformChargebackLogic.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PlatformChargebackLogic>() {
-           @Override
-           public void write(JsonWriter out, PlatformChargebackLogic value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PlatformChargebackLogic read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PlatformChargebackLogic given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PlatformChargebackLogic
-  * @throws IOException if the JSON string is invalid with respect to PlatformChargebackLogic
-  */
-  public static PlatformChargebackLogic fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PlatformChargebackLogic.class);
-  }
-
- /**
+/**
   * Convert an instance of PlatformChargebackLogic to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

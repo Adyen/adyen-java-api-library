@@ -38,8 +38,6 @@ import java.util.Map;
 import static com.adyen.constants.ApiConstants.HttpMethod.POST;
 
 public class Resource {
-
-    protected static final Gson GSON = new Gson();
     protected String endpoint;
     protected List<String> requiredFields;
     private final Service service;

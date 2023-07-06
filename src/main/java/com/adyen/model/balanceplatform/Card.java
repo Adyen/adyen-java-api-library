@@ -505,18 +505,18 @@ public class Card {
     openapiRequiredFields.add("formFactor");
     openapiRequiredFields.add("number");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Card.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to Card
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (Card.openapiRequiredFields.isEmpty()) {
           return;
@@ -524,13 +524,14 @@ public class Card {
           throw new IllegalArgumentException(String.format("The required field(s) %s in Card is not found in the empty JSON string", Card.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Card.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Card` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!Card.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Card` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
@@ -545,19 +546,19 @@ public class Card {
       }
       // validate the optional field bin
       if (jsonObj.get("bin") != null && !jsonObj.get("bin").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bin").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bin").toString()));
       }
       // validate the optional field brand
       if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
       }
       // validate the optional field brandVariant
       if (jsonObj.get("brandVariant") != null && !jsonObj.get("brandVariant").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `brandVariant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brandVariant").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `brandVariant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brandVariant").toString()));
       }
       // validate the optional field cardholderName
       if (jsonObj.get("cardholderName") != null && !jsonObj.get("cardholderName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cardholderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardholderName").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `cardholderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardholderName").toString()));
       }
       // validate the optional field `configuration`
       if (jsonObj.getAsJsonObject("configuration") != null) {
@@ -565,7 +566,7 @@ public class Card {
       }
       // validate the optional field cvc
       if (jsonObj.get("cvc") != null && !jsonObj.get("cvc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
       }
       // validate the optional field `deliveryContact`
       if (jsonObj.getAsJsonObject("deliveryContact") != null) {
@@ -584,11 +585,11 @@ public class Card {
       }
       // validate the optional field lastFour
       if (jsonObj.get("lastFour") != null && !jsonObj.get("lastFour").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `lastFour` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastFour").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `lastFour` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastFour").toString()));
       }
       // validate the optional field number
       if (jsonObj.get("number") != null && !jsonObj.get("number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
       }
   }
 

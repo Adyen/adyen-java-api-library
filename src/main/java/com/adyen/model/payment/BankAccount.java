@@ -15,83 +15,66 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * BankAccount
  */
+@JsonPropertyOrder({
+  BankAccount.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
+  BankAccount.JSON_PROPERTY_BANK_CITY,
+  BankAccount.JSON_PROPERTY_BANK_LOCATION_ID,
+  BankAccount.JSON_PROPERTY_BANK_NAME,
+  BankAccount.JSON_PROPERTY_BIC,
+  BankAccount.JSON_PROPERTY_COUNTRY_CODE,
+  BankAccount.JSON_PROPERTY_IBAN,
+  BankAccount.JSON_PROPERTY_OWNER_NAME,
+  BankAccount.JSON_PROPERTY_TAX_ID
+})
 
 public class BankAccount {
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_NUMBER)
+  public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
 
-  public static final String SERIALIZED_NAME_BANK_CITY = "bankCity";
-  @SerializedName(SERIALIZED_NAME_BANK_CITY)
+  public static final String JSON_PROPERTY_BANK_CITY = "bankCity";
   private String bankCity;
 
-  public static final String SERIALIZED_NAME_BANK_LOCATION_ID = "bankLocationId";
-  @SerializedName(SERIALIZED_NAME_BANK_LOCATION_ID)
+  public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
   private String bankLocationId;
 
-  public static final String SERIALIZED_NAME_BANK_NAME = "bankName";
-  @SerializedName(SERIALIZED_NAME_BANK_NAME)
+  public static final String JSON_PROPERTY_BANK_NAME = "bankName";
   private String bankName;
 
-  public static final String SERIALIZED_NAME_BIC = "bic";
-  @SerializedName(SERIALIZED_NAME_BIC)
+  public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
 
-  public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
-  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
-  public static final String SERIALIZED_NAME_IBAN = "iban";
-  @SerializedName(SERIALIZED_NAME_IBAN)
+  public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
-  public static final String SERIALIZED_NAME_OWNER_NAME = "ownerName";
-  @SerializedName(SERIALIZED_NAME_OWNER_NAME)
+  public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
 
-  public static final String SERIALIZED_NAME_TAX_ID = "taxId";
-  @SerializedName(SERIALIZED_NAME_TAX_ID)
+  public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
 
   public BankAccount() { 
   }
 
   public BankAccount bankAccountNumber(String bankAccountNumber) {
-    
     this.bankAccountNumber = bankAccountNumber;
     return this;
   }
@@ -101,19 +84,22 @@ public class BankAccount {
    * @return bankAccountNumber
   **/
   @ApiModelProperty(value = "The bank account number (without separators).")
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBankAccountNumber() {
     return bankAccountNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
   }
 
 
   public BankAccount bankCity(String bankCity) {
-    
     this.bankCity = bankCity;
     return this;
   }
@@ -123,19 +109,22 @@ public class BankAccount {
    * @return bankCity
   **/
   @ApiModelProperty(value = "The bank city.")
+  @JsonProperty(JSON_PROPERTY_BANK_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBankCity() {
     return bankCity;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCity(String bankCity) {
     this.bankCity = bankCity;
   }
 
 
   public BankAccount bankLocationId(String bankLocationId) {
-    
     this.bankLocationId = bankLocationId;
     return this;
   }
@@ -145,19 +134,22 @@ public class BankAccount {
    * @return bankLocationId
   **/
   @ApiModelProperty(value = "The location id of the bank. The field value is `nil` in most cases.")
+  @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBankLocationId() {
     return bankLocationId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
   }
 
 
   public BankAccount bankName(String bankName) {
-    
     this.bankName = bankName;
     return this;
   }
@@ -167,19 +159,22 @@ public class BankAccount {
    * @return bankName
   **/
   @ApiModelProperty(value = "The name of the bank.")
+  @JsonProperty(JSON_PROPERTY_BANK_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBankName() {
     return bankName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
     this.bankName = bankName;
   }
 
 
   public BankAccount bic(String bic) {
-    
     this.bic = bic;
     return this;
   }
@@ -189,19 +184,22 @@ public class BankAccount {
    * @return bic
   **/
   @ApiModelProperty(value = "The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is `nil` in most cases.")
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBic() {
     return bic;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
   }
 
 
   public BankAccount countryCode(String countryCode) {
-    
     this.countryCode = countryCode;
     return this;
   }
@@ -211,19 +209,22 @@ public class BankAccount {
    * @return countryCode
   **/
   @ApiModelProperty(value = "Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. 'NL').")
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCountryCode() {
     return countryCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
 
   public BankAccount iban(String iban) {
-    
     this.iban = iban;
     return this;
   }
@@ -233,19 +234,22 @@ public class BankAccount {
    * @return iban
   **/
   @ApiModelProperty(value = "The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).")
+  @JsonProperty(JSON_PROPERTY_IBAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIban() {
     return iban;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_IBAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
   }
 
 
   public BankAccount ownerName(String ownerName) {
-    
     this.ownerName = ownerName;
     return this;
   }
@@ -255,19 +259,22 @@ public class BankAccount {
    * @return ownerName
   **/
   @ApiModelProperty(value = "The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. > If provided details don't match the required format, the response returns the error message: 203 'Invalid bank account holder name'.")
+  @JsonProperty(JSON_PROPERTY_OWNER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOwnerName() {
     return ownerName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OWNER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
   }
 
 
   public BankAccount taxId(String taxId) {
-    
     this.taxId = taxId;
     return this;
   }
@@ -277,18 +284,24 @@ public class BankAccount {
    * @return taxId
   **/
   @ApiModelProperty(value = "The bank account holder's tax ID.")
+  @JsonProperty(JSON_PROPERTY_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTaxId() {
     return taxId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TAX_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
   }
 
 
-
+  /**
+   * Return true if this BankAccount object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -342,138 +355,23 @@ public class BankAccount {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("bankAccountNumber");
-    openapiFields.add("bankCity");
-    openapiFields.add("bankLocationId");
-    openapiFields.add("bankName");
-    openapiFields.add("bic");
-    openapiFields.add("countryCode");
-    openapiFields.add("iban");
-    openapiFields.add("ownerName");
-    openapiFields.add("taxId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of BankAccount given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BankAccount
+   * @throws JsonProcessingException if the JSON string is invalid with respect to BankAccount
+   */
+  public static BankAccount fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BankAccount.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(BankAccount.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BankAccount
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (BankAccount.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BankAccount is not found in the empty JSON string", BankAccount.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BankAccount.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BankAccount` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field bankAccountNumber
-      if (jsonObj.get("bankAccountNumber") != null && !jsonObj.get("bankAccountNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bankAccountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankAccountNumber").toString()));
-      }
-      // validate the optional field bankCity
-      if (jsonObj.get("bankCity") != null && !jsonObj.get("bankCity").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bankCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankCity").toString()));
-      }
-      // validate the optional field bankLocationId
-      if (jsonObj.get("bankLocationId") != null && !jsonObj.get("bankLocationId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bankLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankLocationId").toString()));
-      }
-      // validate the optional field bankName
-      if (jsonObj.get("bankName") != null && !jsonObj.get("bankName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bankName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankName").toString()));
-      }
-      // validate the optional field bic
-      if (jsonObj.get("bic") != null && !jsonObj.get("bic").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bic` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bic").toString()));
-      }
-      // validate the optional field countryCode
-      if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
-      }
-      // validate the optional field iban
-      if (jsonObj.get("iban") != null && !jsonObj.get("iban").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `iban` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iban").toString()));
-      }
-      // validate the optional field ownerName
-      if (jsonObj.get("ownerName") != null && !jsonObj.get("ownerName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ownerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerName").toString()));
-      }
-      // validate the optional field taxId
-      if (jsonObj.get("taxId") != null && !jsonObj.get("taxId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taxId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BankAccount.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BankAccount' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BankAccount> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BankAccount.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<BankAccount>() {
-           @Override
-           public void write(JsonWriter out, BankAccount value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public BankAccount read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of BankAccount given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BankAccount
-  * @throws IOException if the JSON string is invalid with respect to BankAccount
-  */
-  public static BankAccount fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BankAccount.class);
-  }
-
- /**
+/**
   * Convert an instance of BankAccount to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

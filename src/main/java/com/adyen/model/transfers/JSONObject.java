@@ -1,6 +1,5 @@
 /*
  * Transfers API
- * This API provides endpoints that you can use to transfer funds, whether when [paying out to a transfer instrument](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/on-demand-payouts), [sending funds to third parties](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/send-receive-funds) for users with business bank accounts, or to [request a payout for a grant offer](https://docs.adyen.com/marketplaces-and-platforms/capital). The API also supports use cases for [getting transactions for business bank accounts](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/transactions-api) and getting [grants and its outstanding balances](https://docs.adyen.com/marketplaces-and-platforms/capital#get-balances). .  ## Authentication Your Adyen contact will provide your API credential and an API key. To connect to the API, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication. For example:  ``` curl -H \"Content-Type: application/json\" \\ -U \"ws@BalancePlatform.YOUR_BALANCE_PLATFORM\":\"YOUR_WS_PASSWORD\" \\ ... ``` ## Roles and permissions To use the Transfers API, you need an additional role for your API credential. Transfers must also be enabled for the source balance account. Your Adyen contact will set up the roles and permissions for you. ## Versioning The Transfers API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://balanceplatform-api-test.adyen.com/btl/v3/transfers ``` ## Going live When going live, your Adyen contact will provide your API credential for the live environment. You can then use the username and password to send requests to `https://balanceplatform-api-live.adyen.com/btl/v3`.  
  *
  * The version of the OpenAPI document: 3
  * 
@@ -15,58 +14,41 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.transfers.JSONPath;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * JSONObject
  */
+@JsonPropertyOrder({
+  JSONObject.JSON_PROPERTY_PATHS,
+  JSONObject.JSON_PROPERTY_ROOT_PATH
+})
 
 public class JSONObject {
-  public static final String SERIALIZED_NAME_PATHS = "paths";
-  @SerializedName(SERIALIZED_NAME_PATHS)
+  public static final String JSON_PROPERTY_PATHS = "paths";
   private List<JSONPath> paths = null;
 
-  public static final String SERIALIZED_NAME_ROOT_PATH = "rootPath";
-  @SerializedName(SERIALIZED_NAME_ROOT_PATH)
+  public static final String JSON_PROPERTY_ROOT_PATH = "rootPath";
   private JSONPath rootPath;
 
   public JSONObject() { 
   }
 
   public JSONObject paths(List<JSONPath> paths) {
-    
     this.paths = paths;
     return this;
   }
@@ -84,19 +66,22 @@ public class JSONObject {
    * @return paths
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PATHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<JSONPath> getPaths() {
     return paths;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PATHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaths(List<JSONPath> paths) {
     this.paths = paths;
   }
 
 
   public JSONObject rootPath(JSONPath rootPath) {
-    
     this.rootPath = rootPath;
     return this;
   }
@@ -106,18 +91,24 @@ public class JSONObject {
    * @return rootPath
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ROOT_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public JSONPath getRootPath() {
     return rootPath;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ROOT_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRootPath(JSONPath rootPath) {
     this.rootPath = rootPath;
   }
 
 
-
+  /**
+   * Return true if this JSONObject object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,111 +148,23 @@ public class JSONObject {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("paths");
-    openapiFields.add("rootPath");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of JSONObject given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JSONObject
+   * @throws JsonProcessingException if the JSON string is invalid with respect to JSONObject
+   */
+  public static JSONObject fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, JSONObject.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(JSONObject.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JSONObject
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (JSONObject.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JSONObject is not found in the empty JSON string", JSONObject.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!JSONObject.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `JSONObject` properties.", entry.getKey()));
-        }
-      }
-      JsonArray jsonArraypaths = jsonObj.getAsJsonArray("paths");
-      if (jsonArraypaths != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("paths").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `paths` to be an array in the JSON string but got `%s`", jsonObj.get("paths").toString()));
-        }
-
-        // validate the optional field `paths` (array)
-        for (int i = 0; i < jsonArraypaths.size(); i++) {
-          JSONPath.validateJsonObject(jsonArraypaths.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field `rootPath`
-      if (jsonObj.getAsJsonObject("rootPath") != null) {
-        JSONPath.validateJsonObject(jsonObj.getAsJsonObject("rootPath"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!JSONObject.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'JSONObject' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<JSONObject> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(JSONObject.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<JSONObject>() {
-           @Override
-           public void write(JsonWriter out, JSONObject value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public JSONObject read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of JSONObject given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JSONObject
-  * @throws IOException if the JSON string is invalid with respect to JSONObject
-  */
-  public static JSONObject fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, JSONObject.class);
-  }
-
- /**
+/**
   * Convert an instance of JSONObject to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

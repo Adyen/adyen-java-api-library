@@ -2,7 +2,7 @@ package com.adyen;
 
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.transfers.*;
-import com.adyen.service.TransfersApi;
+import com.adyen.service.transfers.*;
 
 import org.junit.Test;
 
@@ -29,8 +29,8 @@ public class TransfersTest extends BaseTest {
     @Test
     public void TransactionsListTest() throws Exception {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-success-200.json");
-        TransfersApi transfers = new TransfersApi(client);
-        TransactionSearchResponse response = transfers.getAllTransactions(null, null);
+        TransactionsApi transactions = new TransactionsApi(client);
+        TransactionSearchResponse response = transactions.getAllTransactions(null, null);
         Transaction transactionsResponse = response.getData().get(1);
         assertEquals(transactionsResponse.getAccountHolderId(), "AHA1B2C3D4E5F6G7H8I9J0");
         assertEquals(transactionsResponse.getCounterparty().getBalanceAccountId(), "BAB8B2C3D4E5F6G7H8D9J6GD4");
@@ -40,8 +40,8 @@ public class TransfersTest extends BaseTest {
     @Test
     public void TransactionsRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-id-success-200.json");
-        TransfersApi transfers = new TransfersApi(client);
-        Transaction response = transfers.getTransaction("1");
+        TransactionsApi transactions = new TransactionsApi(client);
+        Transaction response = transactions.getTransaction("1");
         assertEquals(response.getAccountHolderId(), "AHA1B2C3D4E5F6G7H8I9J0");
         assertEquals(response.getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
         assertEquals(response.getTransferId(), "2QP32A5U7IWC5WKG");
@@ -50,8 +50,8 @@ public class TransfersTest extends BaseTest {
      @Test
     public void TestGetCapitalAccounts() throws Exception {
         Client client = createMockClientFromFile("mocks/capital/get-capital-account.json");
-        TransfersApi transfers = new TransfersApi(client);
-        CapitalGrants response = transfers.getCapitalAccount();
+        CapitalApi capital = new CapitalApi(client);
+        CapitalGrants response = capital.getCapitalAccount();
         assertEquals(response.getGrants().get(0).getGrantOfferId(), "string");
         verify(client.getHttpClient()).request(
                 "https://balanceplatform-api-test.adyen.com/btl/v3/grants",
@@ -67,8 +67,8 @@ public class TransfersTest extends BaseTest {
     @Test
     public void TestRequestGrant() throws Exception {
         Client client = createMockClientFromFile("mocks/capital/request-grant.json");
-        TransfersApi transfers = new TransfersApi(client);
-        CapitalGrant response = transfers.requestGrantPayout(new CapitalGrantInfo());
+        CapitalApi capital = new CapitalApi(client);
+        CapitalGrant response = capital.requestGrantPayout(new CapitalGrantInfo());
         assertEquals(response.getGrantAccountId(), "CG00000000000000000000001");
         verify(client.getHttpClient()).request(
                 "https://balanceplatform-api-test.adyen.com/btl/v3/grants",

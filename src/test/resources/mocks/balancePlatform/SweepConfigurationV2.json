@@ -1,7 +1,8 @@
 {
   "id": "SWPC4227C224555B5FTD2NT2JV4WN5",
   "schedule": {
-    "type": "daily"
+    "type": "cron",
+    "cronExpression": "*/5 * * * *"
   },
   "status": "active",
   "targetAmount": {

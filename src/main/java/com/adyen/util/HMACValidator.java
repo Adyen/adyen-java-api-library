@@ -73,6 +73,14 @@ public class HMACValidator {
         return calculateHMAC(getDataToSign(notificationRequestItem), key);
     }
 
+    // Calculate HMAC for BankingWebhooks (Generic webhooks)
+    public boolean validateHMAC(String hmacKey, String hmacSignature, String payload) throws SignatureException {
+        String calculatedSign = calculateHMAC(payload, hmacSignature);
+        final byte [] expectedSign = calculatedSign.getBytes(StandardCharsets.UTF_8);
+        final byte[] merchantSign =  hmacKey.getBytes(StandardCharsets.UTF_8);
+        return MessageDigest.isEqual(expectedSign, merchantSign);
+    }
+
     public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key) throws IllegalArgumentException, SignatureException {
         if (notificationRequestItem == null) {
             throw new IllegalArgumentException("Missing NotificationRequestItem.");

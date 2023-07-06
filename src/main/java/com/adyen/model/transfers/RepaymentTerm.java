@@ -1,6 +1,5 @@
 /*
  * Transfers API
- * This API provides endpoints that you can use to transfer funds, whether when [paying out to a transfer instrument](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/on-demand-payouts), [sending funds to third parties](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/send-receive-funds) for users with business bank accounts, or to [request a payout for a grant offer](https://docs.adyen.com/marketplaces-and-platforms/capital). The API also supports use cases for [getting transactions for business bank accounts](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/transactions-api) and getting [grants and its outstanding balances](https://docs.adyen.com/marketplaces-and-platforms/capital#get-balances). .  ## Authentication Your Adyen contact will provide your API credential and an API key. To connect to the API, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication. For example:  ``` curl -H \"Content-Type: application/json\" \\ -U \"ws@BalancePlatform.YOUR_BALANCE_PLATFORM\":\"YOUR_WS_PASSWORD\" \\ ... ``` ## Roles and permissions To use the Transfers API, you need an additional role for your API credential. Transfers must also be enabled for the source balance account. Your Adyen contact will set up the roles and permissions for you. ## Versioning The Transfers API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://balanceplatform-api-test.adyen.com/btl/v3/transfers ``` ## Going live When going live, your Adyen contact will provide your API credential for the live environment. You can then use the username and password to send requests to `https://balanceplatform-api-live.adyen.com/btl/v3`.  
  *
  * The version of the OpenAPI document: 3
  * 
@@ -15,55 +14,38 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * RepaymentTerm
  */
+@JsonPropertyOrder({
+  RepaymentTerm.JSON_PROPERTY_ESTIMATED_DAYS,
+  RepaymentTerm.JSON_PROPERTY_MAXIMUM_DAYS
+})
 
 public class RepaymentTerm {
-  public static final String SERIALIZED_NAME_ESTIMATED_DAYS = "estimatedDays";
-  @SerializedName(SERIALIZED_NAME_ESTIMATED_DAYS)
+  public static final String JSON_PROPERTY_ESTIMATED_DAYS = "estimatedDays";
   private Integer estimatedDays;
 
-  public static final String SERIALIZED_NAME_MAXIMUM_DAYS = "maximumDays";
-  @SerializedName(SERIALIZED_NAME_MAXIMUM_DAYS)
+  public static final String JSON_PROPERTY_MAXIMUM_DAYS = "maximumDays";
   private Integer maximumDays;
 
   public RepaymentTerm() { 
   }
 
   public RepaymentTerm estimatedDays(Integer estimatedDays) {
-    
     this.estimatedDays = estimatedDays;
     return this;
   }
@@ -73,19 +55,22 @@ public class RepaymentTerm {
    * @return estimatedDays
   **/
   @ApiModelProperty(required = true, value = "The estimated term for repaying the grant, in days.")
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getEstimatedDays() {
     return estimatedDays;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedDays(Integer estimatedDays) {
     this.estimatedDays = estimatedDays;
   }
 
 
   public RepaymentTerm maximumDays(Integer maximumDays) {
-    
     this.maximumDays = maximumDays;
     return this;
   }
@@ -95,18 +80,24 @@ public class RepaymentTerm {
    * @return maximumDays
   **/
   @ApiModelProperty(value = "The maximum term for repaying the grant, in days. Only applies when `contractType` is **loan**.")
+  @JsonProperty(JSON_PROPERTY_MAXIMUM_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMaximumDays() {
     return maximumDays;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MAXIMUM_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaximumDays(Integer maximumDays) {
     this.maximumDays = maximumDays;
   }
 
 
-
+  /**
+   * Return true if this RepaymentTerm object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,103 +137,23 @@ public class RepaymentTerm {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("estimatedDays");
-    openapiFields.add("maximumDays");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("estimatedDays");
+/**
+   * Create an instance of RepaymentTerm given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of RepaymentTerm
+   * @throws JsonProcessingException if the JSON string is invalid with respect to RepaymentTerm
+   */
+  public static RepaymentTerm fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, RepaymentTerm.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(RepaymentTerm.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RepaymentTerm
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (RepaymentTerm.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RepaymentTerm is not found in the empty JSON string", RepaymentTerm.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!RepaymentTerm.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `RepaymentTerm` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepaymentTerm.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RepaymentTerm.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RepaymentTerm' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RepaymentTerm> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RepaymentTerm.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<RepaymentTerm>() {
-           @Override
-           public void write(JsonWriter out, RepaymentTerm value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public RepaymentTerm read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of RepaymentTerm given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of RepaymentTerm
-  * @throws IOException if the JSON string is invalid with respect to RepaymentTerm
-  */
-  public static RepaymentTerm fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RepaymentTerm.class);
-  }
-
- /**
+/**
   * Convert an instance of RepaymentTerm to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

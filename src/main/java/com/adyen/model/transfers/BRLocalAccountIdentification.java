@@ -1,6 +1,5 @@
 /*
  * Transfers API
- * This API provides endpoints that you can use to transfer funds, whether when [paying out to a transfer instrument](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/on-demand-payouts), [sending funds to third parties](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/send-receive-funds) for users with business bank accounts, or to [request a payout for a grant offer](https://docs.adyen.com/marketplaces-and-platforms/capital). The API also supports use cases for [getting transactions for business bank accounts](https://docs.adyen.com/marketplaces-and-platforms/business-accounts/transactions-api) and getting [grants and its outstanding balances](https://docs.adyen.com/marketplaces-and-platforms/capital#get-balances). .  ## Authentication Your Adyen contact will provide your API credential and an API key. To connect to the API, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication. For example:  ``` curl -H \"Content-Type: application/json\" \\ -U \"ws@BalancePlatform.YOUR_BALANCE_PLATFORM\":\"YOUR_WS_PASSWORD\" \\ ... ``` ## Roles and permissions To use the Transfers API, you need an additional role for your API credential. Transfers must also be enabled for the source balance account. Your Adyen contact will set up the roles and permissions for you. ## Versioning The Transfers API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://balanceplatform-api-test.adyen.com/btl/v3/transfers ``` ## Going live When going live, your Adyen contact will provide your API credential for the live environment. You can then use the username and password to send requests to `https://balanceplatform-api-live.adyen.com/btl/v3`.  
  *
  * The version of the OpenAPI document: 3
  * 
@@ -15,58 +14,42 @@ package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * BRLocalAccountIdentification
  */
+@JsonPropertyOrder({
+  BRLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  BRLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
+  BRLocalAccountIdentification.JSON_PROPERTY_BRANCH_NUMBER,
+  BRLocalAccountIdentification.JSON_PROPERTY_TYPE
+})
 
 public class BRLocalAccountIdentification {
-  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
-  public static final String SERIALIZED_NAME_BANK_CODE = "bankCode";
-  @SerializedName(SERIALIZED_NAME_BANK_CODE)
+  public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
   private String bankCode;
 
-  public static final String SERIALIZED_NAME_BRANCH_NUMBER = "branchNumber";
-  @SerializedName(SERIALIZED_NAME_BRANCH_NUMBER)
+  public static final String JSON_PROPERTY_BRANCH_NUMBER = "branchNumber";
   private String branchNumber;
 
   /**
    * **brLocal**
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BRLOCAL("brLocal");
 
@@ -76,6 +59,7 @@ public class BRLocalAccountIdentification {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -85,6 +69,7 @@ public class BRLocalAccountIdentification {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -93,30 +78,15 @@ public class BRLocalAccountIdentification {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.BRLOCAL;
 
   public BRLocalAccountIdentification() { 
   }
 
   public BRLocalAccountIdentification accountNumber(String accountNumber) {
-    
     this.accountNumber = accountNumber;
     return this;
   }
@@ -126,19 +96,22 @@ public class BRLocalAccountIdentification {
    * @return accountNumber
   **/
   @ApiModelProperty(required = true, value = "The bank account number (without separators or whitespace).")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountNumber() {
     return accountNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
 
   public BRLocalAccountIdentification bankCode(String bankCode) {
-    
     this.bankCode = bankCode;
     return this;
   }
@@ -148,19 +121,22 @@ public class BRLocalAccountIdentification {
    * @return bankCode
   **/
   @ApiModelProperty(required = true, value = "The 3-digit Brazilian bank code (with leading zeros).")
+  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBankCode() {
     return bankCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
   }
 
 
   public BRLocalAccountIdentification branchNumber(String branchNumber) {
-    
     this.branchNumber = branchNumber;
     return this;
   }
@@ -170,19 +146,22 @@ public class BRLocalAccountIdentification {
    * @return branchNumber
   **/
   @ApiModelProperty(required = true, value = "The bank account branch number (without separators or whitespace).")
+  @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBranchNumber() {
     return branchNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranchNumber(String branchNumber) {
     this.branchNumber = branchNumber;
   }
 
 
   public BRLocalAccountIdentification type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -192,18 +171,24 @@ public class BRLocalAccountIdentification {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "**brLocal**")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this BRLocalAccountIdentification object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -247,127 +232,23 @@ public class BRLocalAccountIdentification {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accountNumber");
-    openapiFields.add("bankCode");
-    openapiFields.add("branchNumber");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("accountNumber");
-    openapiRequiredFields.add("bankCode");
-    openapiRequiredFields.add("branchNumber");
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of BRLocalAccountIdentification given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BRLocalAccountIdentification
+   * @throws JsonProcessingException if the JSON string is invalid with respect to BRLocalAccountIdentification
+   */
+  public static BRLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BRLocalAccountIdentification.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(BRLocalAccountIdentification.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BRLocalAccountIdentification
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (BRLocalAccountIdentification.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BRLocalAccountIdentification is not found in the empty JSON string", BRLocalAccountIdentification.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BRLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BRLocalAccountIdentification` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BRLocalAccountIdentification.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field accountNumber
-      if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
-      }
-      // validate the optional field bankCode
-      if (jsonObj.get("bankCode") != null && !jsonObj.get("bankCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bankCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankCode").toString()));
-      }
-      // validate the optional field branchNumber
-      if (jsonObj.get("branchNumber") != null && !jsonObj.get("branchNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `branchNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("branchNumber").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BRLocalAccountIdentification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BRLocalAccountIdentification' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BRLocalAccountIdentification> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BRLocalAccountIdentification.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<BRLocalAccountIdentification>() {
-           @Override
-           public void write(JsonWriter out, BRLocalAccountIdentification value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public BRLocalAccountIdentification read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of BRLocalAccountIdentification given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BRLocalAccountIdentification
-  * @throws IOException if the JSON string is invalid with respect to BRLocalAccountIdentification
-  */
-  public static BRLocalAccountIdentification fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BRLocalAccountIdentification.class);
-  }
-
- /**
+/**
   * Convert an instance of BRLocalAccountIdentification to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -15,6 +15,8 @@ package com.adyen.model.payment;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.payment.AccountInfo;
 import com.adyen.model.payment.Address;
 import com.adyen.model.payment.Amount;
@@ -34,112 +36,131 @@ import com.adyen.model.payment.Recurring;
 import com.adyen.model.payment.Split;
 import com.adyen.model.payment.ThreeDS2RequestData;
 import com.adyen.model.payment.ThreeDSecureData;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payment.JSON;
 
 /**
  * PaymentRequest
  */
+@JsonPropertyOrder({
+  PaymentRequest.JSON_PROPERTY_ACCOUNT_INFO,
+  PaymentRequest.JSON_PROPERTY_ADDITIONAL_AMOUNT,
+  PaymentRequest.JSON_PROPERTY_ADDITIONAL_DATA,
+  PaymentRequest.JSON_PROPERTY_AMOUNT,
+  PaymentRequest.JSON_PROPERTY_APPLICATION_INFO,
+  PaymentRequest.JSON_PROPERTY_BANK_ACCOUNT,
+  PaymentRequest.JSON_PROPERTY_BILLING_ADDRESS,
+  PaymentRequest.JSON_PROPERTY_BROWSER_INFO,
+  PaymentRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
+  PaymentRequest.JSON_PROPERTY_CARD,
+  PaymentRequest.JSON_PROPERTY_DATE_OF_BIRTH,
+  PaymentRequest.JSON_PROPERTY_DCC_QUOTE,
+  PaymentRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
+  PaymentRequest.JSON_PROPERTY_DELIVERY_DATE,
+  PaymentRequest.JSON_PROPERTY_DEVICE_FINGERPRINT,
+  PaymentRequest.JSON_PROPERTY_ENTITY_TYPE,
+  PaymentRequest.JSON_PROPERTY_FRAUD_OFFSET,
+  PaymentRequest.JSON_PROPERTY_FUND_DESTINATION,
+  PaymentRequest.JSON_PROPERTY_FUND_SOURCE,
+  PaymentRequest.JSON_PROPERTY_FUNDING_SOURCE,
+  PaymentRequest.JSON_PROPERTY_INSTALLMENTS,
+  PaymentRequest.JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT,
+  PaymentRequest.JSON_PROPERTY_MANDATE,
+  PaymentRequest.JSON_PROPERTY_MCC,
+  PaymentRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_MERCHANT_RISK_INDICATOR,
+  PaymentRequest.JSON_PROPERTY_METADATA,
+  PaymentRequest.JSON_PROPERTY_MPI_DATA,
+  PaymentRequest.JSON_PROPERTY_NATIONALITY,
+  PaymentRequest.JSON_PROPERTY_ORDER_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
+  PaymentRequest.JSON_PROPERTY_RECURRING,
+  PaymentRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
+  PaymentRequest.JSON_PROPERTY_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_SELECTED_BRAND,
+  PaymentRequest.JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_SESSION_ID,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_EMAIL,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_I_P,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_LOCALE,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_NAME,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  PaymentRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
+  PaymentRequest.JSON_PROPERTY_SPLITS,
+  PaymentRequest.JSON_PROPERTY_STORE,
+  PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
+  PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
+  PaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
+  PaymentRequest.JSON_PROPERTY_TOTALS_GROUP,
+  PaymentRequest.JSON_PROPERTY_TRUSTED_SHOPPER
+})
 
 public class PaymentRequest {
-  public static final String SERIALIZED_NAME_ACCOUNT_INFO = "accountInfo";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_INFO)
+  public static final String JSON_PROPERTY_ACCOUNT_INFO = "accountInfo";
   private AccountInfo accountInfo;
 
-  public static final String SERIALIZED_NAME_ADDITIONAL_AMOUNT = "additionalAmount";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_AMOUNT)
+  public static final String JSON_PROPERTY_ADDITIONAL_AMOUNT = "additionalAmount";
   private Amount additionalAmount;
 
-  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
+  public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_APPLICATION_INFO = "applicationInfo";
-  @SerializedName(SERIALIZED_NAME_APPLICATION_INFO)
+  public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
 
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bankAccount";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
+  public static final String JSON_PROPERTY_BANK_ACCOUNT = "bankAccount";
   private BankAccount bankAccount;
 
-  public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
-  @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
+  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
-  public static final String SERIALIZED_NAME_BROWSER_INFO = "browserInfo";
-  @SerializedName(SERIALIZED_NAME_BROWSER_INFO)
+  public static final String JSON_PROPERTY_BROWSER_INFO = "browserInfo";
   private BrowserInfo browserInfo;
 
-  public static final String SERIALIZED_NAME_CAPTURE_DELAY_HOURS = "captureDelayHours";
-  @SerializedName(SERIALIZED_NAME_CAPTURE_DELAY_HOURS)
+  public static final String JSON_PROPERTY_CAPTURE_DELAY_HOURS = "captureDelayHours";
   private Integer captureDelayHours;
 
-  public static final String SERIALIZED_NAME_CARD = "card";
-  @SerializedName(SERIALIZED_NAME_CARD)
+  public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
 
-  public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
-  @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
+  public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
 
-  public static final String SERIALIZED_NAME_DCC_QUOTE = "dccQuote";
-  @SerializedName(SERIALIZED_NAME_DCC_QUOTE)
+  public static final String JSON_PROPERTY_DCC_QUOTE = "dccQuote";
   private ForexQuote dccQuote;
 
-  public static final String SERIALIZED_NAME_DELIVERY_ADDRESS = "deliveryAddress";
-  @SerializedName(SERIALIZED_NAME_DELIVERY_ADDRESS)
+  public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
   private Address deliveryAddress;
 
-  public static final String SERIALIZED_NAME_DELIVERY_DATE = "deliveryDate";
-  @SerializedName(SERIALIZED_NAME_DELIVERY_DATE)
+  public static final String JSON_PROPERTY_DELIVERY_DATE = "deliveryDate";
   private OffsetDateTime deliveryDate;
 
-  public static final String SERIALIZED_NAME_DEVICE_FINGERPRINT = "deviceFingerprint";
-  @SerializedName(SERIALIZED_NAME_DEVICE_FINGERPRINT)
+  public static final String JSON_PROPERTY_DEVICE_FINGERPRINT = "deviceFingerprint";
   private String deviceFingerprint;
 
   /**
    * The type of the entity the payment is processed for.
    */
-  @JsonAdapter(EntityTypeEnum.Adapter.class)
   public enum EntityTypeEnum {
     NATURALPERSON("NaturalPerson"),
     
@@ -151,6 +172,7 @@ public class PaymentRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -160,6 +182,7 @@ public class PaymentRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static EntityTypeEnum fromValue(String value) {
       for (EntityTypeEnum b : EntityTypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -168,41 +191,23 @@ public class PaymentRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<EntityTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EntityTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public EntityTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return EntityTypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_ENTITY_TYPE = "entityType";
-  @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
+  public static final String JSON_PROPERTY_ENTITY_TYPE = "entityType";
   private EntityTypeEnum entityType;
 
-  public static final String SERIALIZED_NAME_FRAUD_OFFSET = "fraudOffset";
-  @SerializedName(SERIALIZED_NAME_FRAUD_OFFSET)
+  public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;
 
-  public static final String SERIALIZED_NAME_FUND_DESTINATION = "fundDestination";
-  @SerializedName(SERIALIZED_NAME_FUND_DESTINATION)
+  public static final String JSON_PROPERTY_FUND_DESTINATION = "fundDestination";
   private FundDestination fundDestination;
 
-  public static final String SERIALIZED_NAME_FUND_SOURCE = "fundSource";
-  @SerializedName(SERIALIZED_NAME_FUND_SOURCE)
+  public static final String JSON_PROPERTY_FUND_SOURCE = "fundSource";
   private FundSource fundSource;
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
-  @JsonAdapter(FundingSourceEnum.Adapter.class)
   public enum FundingSourceEnum {
     DEBIT("debit");
 
@@ -212,6 +217,7 @@ public class PaymentRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -221,6 +227,7 @@ public class PaymentRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static FundingSourceEnum fromValue(String value) {
       for (FundingSourceEnum b : FundingSourceEnum.values()) {
         if (b.value.equals(value)) {
@@ -229,81 +236,53 @@ public class PaymentRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<FundingSourceEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return FundingSourceEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_FUNDING_SOURCE = "fundingSource";
-  @SerializedName(SERIALIZED_NAME_FUNDING_SOURCE)
+  public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
 
-  public static final String SERIALIZED_NAME_INSTALLMENTS = "installments";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENTS)
+  public static final String JSON_PROPERTY_INSTALLMENTS = "installments";
   private Installments installments;
 
-  public static final String SERIALIZED_NAME_LOCALIZED_SHOPPER_STATEMENT = "localizedShopperStatement";
-  @SerializedName(SERIALIZED_NAME_LOCALIZED_SHOPPER_STATEMENT)
+  public static final String JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT = "localizedShopperStatement";
   private Map<String, String> localizedShopperStatement = null;
 
-  public static final String SERIALIZED_NAME_MANDATE = "mandate";
-  @SerializedName(SERIALIZED_NAME_MANDATE)
+  public static final String JSON_PROPERTY_MANDATE = "mandate";
   private Mandate mandate;
 
-  public static final String SERIALIZED_NAME_MCC = "mcc";
-  @SerializedName(SERIALIZED_NAME_MCC)
+  public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ORDER_REFERENCE = "merchantOrderReference";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_REFERENCE)
+  public static final String JSON_PROPERTY_MERCHANT_ORDER_REFERENCE = "merchantOrderReference";
   private String merchantOrderReference;
 
-  public static final String SERIALIZED_NAME_MERCHANT_RISK_INDICATOR = "merchantRiskIndicator";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_RISK_INDICATOR)
+  public static final String JSON_PROPERTY_MERCHANT_RISK_INDICATOR = "merchantRiskIndicator";
   private MerchantRiskIndicator merchantRiskIndicator;
 
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
+  public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
 
-  public static final String SERIALIZED_NAME_MPI_DATA = "mpiData";
-  @SerializedName(SERIALIZED_NAME_MPI_DATA)
+  public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;
 
-  public static final String SERIALIZED_NAME_NATIONALITY = "nationality";
-  @SerializedName(SERIALIZED_NAME_NATIONALITY)
+  public static final String JSON_PROPERTY_NATIONALITY = "nationality";
   private String nationality;
 
-  public static final String SERIALIZED_NAME_ORDER_REFERENCE = "orderReference";
-  @SerializedName(SERIALIZED_NAME_ORDER_REFERENCE)
+  public static final String JSON_PROPERTY_ORDER_REFERENCE = "orderReference";
   private String orderReference;
 
-  public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
-  @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
+  public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
 
-  public static final String SERIALIZED_NAME_RECURRING = "recurring";
-  @SerializedName(SERIALIZED_NAME_RECURRING)
+  public static final String JSON_PROPERTY_RECURRING = "recurring";
   private Recurring recurring;
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    */
-  @JsonAdapter(RecurringProcessingModelEnum.Adapter.class)
   public enum RecurringProcessingModelEnum {
     CARDONFILE("CardOnFile"),
     
@@ -317,6 +296,7 @@ public class PaymentRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -326,6 +306,7 @@ public class PaymentRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static RecurringProcessingModelEnum fromValue(String value) {
       for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
         if (b.value.equals(value)) {
@@ -334,53 +315,32 @@ public class PaymentRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RecurringProcessingModelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return RecurringProcessingModelEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
-  @SerializedName(SERIALIZED_NAME_RECURRING_PROCESSING_MODEL)
+  public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_SELECTED_BRAND = "selectedBrand";
-  @SerializedName(SERIALIZED_NAME_SELECTED_BRAND)
+  public static final String JSON_PROPERTY_SELECTED_BRAND = "selectedBrand";
   private String selectedBrand;
 
-  public static final String SERIALIZED_NAME_SELECTED_RECURRING_DETAIL_REFERENCE = "selectedRecurringDetailReference";
-  @SerializedName(SERIALIZED_NAME_SELECTED_RECURRING_DETAIL_REFERENCE)
+  public static final String JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE = "selectedRecurringDetailReference";
   private String selectedRecurringDetailReference;
 
-  public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
-  @SerializedName(SERIALIZED_NAME_SESSION_ID)
+  public static final String JSON_PROPERTY_SESSION_ID = "sessionId";
   private String sessionId;
 
-  public static final String SERIALIZED_NAME_SHOPPER_EMAIL = "shopperEmail";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_EMAIL)
+  public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
-  public static final String SERIALIZED_NAME_SHOPPER_I_P = "shopperIP";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_I_P)
+  public static final String JSON_PROPERTY_SHOPPER_I_P = "shopperIP";
   private String shopperIP;
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
-  @JsonAdapter(ShopperInteractionEnum.Adapter.class)
   public enum ShopperInteractionEnum {
     ECOMMERCE("Ecommerce"),
     
@@ -396,6 +356,7 @@ public class PaymentRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -405,6 +366,7 @@ public class PaymentRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ShopperInteractionEnum fromValue(String value) {
       for (ShopperInteractionEnum b : ShopperInteractionEnum.values()) {
         if (b.value.equals(value)) {
@@ -413,78 +375,51 @@ public class PaymentRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ShopperInteractionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ShopperInteractionEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ShopperInteractionEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_SHOPPER_INTERACTION = "shopperInteraction";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_INTERACTION)
+  public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
-  public static final String SERIALIZED_NAME_SHOPPER_LOCALE = "shopperLocale";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_LOCALE)
+  public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NAME = "shopperName";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NAME)
+  public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_STATEMENT = "shopperStatement";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_STATEMENT)
+  public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
 
-  public static final String SERIALIZED_NAME_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
-  @SerializedName(SERIALIZED_NAME_SOCIAL_SECURITY_NUMBER)
+  public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
-  public static final String SERIALIZED_NAME_SPLITS = "splits";
-  @SerializedName(SERIALIZED_NAME_SPLITS)
+  public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
-  public static final String SERIALIZED_NAME_STORE = "store";
-  @SerializedName(SERIALIZED_NAME_STORE)
+  public static final String JSON_PROPERTY_STORE = "store";
   private String store;
 
-  public static final String SERIALIZED_NAME_TELEPHONE_NUMBER = "telephoneNumber";
-  @SerializedName(SERIALIZED_NAME_TELEPHONE_NUMBER)
+  public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
 
-  public static final String SERIALIZED_NAME_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S2_REQUEST_DATA)
+  public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private ThreeDS2RequestData threeDS2RequestData;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
+  public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   private Boolean threeDSAuthenticationOnly = false;
 
-  public static final String SERIALIZED_NAME_TOTALS_GROUP = "totalsGroup";
-  @SerializedName(SERIALIZED_NAME_TOTALS_GROUP)
+  public static final String JSON_PROPERTY_TOTALS_GROUP = "totalsGroup";
   private String totalsGroup;
 
-  public static final String SERIALIZED_NAME_TRUSTED_SHOPPER = "trustedShopper";
-  @SerializedName(SERIALIZED_NAME_TRUSTED_SHOPPER)
+  public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;
 
   public PaymentRequest() { 
   }
 
   public PaymentRequest accountInfo(AccountInfo accountInfo) {
-    
     this.accountInfo = accountInfo;
     return this;
   }
@@ -494,19 +429,22 @@ public class PaymentRequest {
    * @return accountInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AccountInfo getAccountInfo() {
     return accountInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
   }
 
 
   public PaymentRequest additionalAmount(Amount additionalAmount) {
-    
     this.additionalAmount = additionalAmount;
     return this;
   }
@@ -516,19 +454,22 @@ public class PaymentRequest {
    * @return additionalAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAdditionalAmount() {
     return additionalAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalAmount(Amount additionalAmount) {
     this.additionalAmount = additionalAmount;
   }
 
 
   public PaymentRequest additionalData(Map<String, String> additionalData) {
-    
     this.additionalData = additionalData;
     return this;
   }
@@ -546,19 +487,22 @@ public class PaymentRequest {
    * @return additionalData
   **/
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payment request.  The `additionalData` object consists of entries, each of which includes the key and value.")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
 
   public PaymentRequest amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -568,19 +512,22 @@ public class PaymentRequest {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public PaymentRequest applicationInfo(ApplicationInfo applicationInfo) {
-    
     this.applicationInfo = applicationInfo;
     return this;
   }
@@ -590,19 +537,22 @@ public class PaymentRequest {
    * @return applicationInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApplicationInfo getApplicationInfo() {
     return applicationInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
   }
 
 
   public PaymentRequest bankAccount(BankAccount bankAccount) {
-    
     this.bankAccount = bankAccount;
     return this;
   }
@@ -612,19 +562,22 @@ public class PaymentRequest {
    * @return bankAccount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BankAccount getBankAccount() {
     return bankAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccount bankAccount) {
     this.bankAccount = bankAccount;
   }
 
 
   public PaymentRequest billingAddress(Address billingAddress) {
-    
     this.billingAddress = billingAddress;
     return this;
   }
@@ -634,19 +587,22 @@ public class PaymentRequest {
    * @return billingAddress
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getBillingAddress() {
     return billingAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
 
   public PaymentRequest browserInfo(BrowserInfo browserInfo) {
-    
     this.browserInfo = browserInfo;
     return this;
   }
@@ -656,19 +612,22 @@ public class PaymentRequest {
    * @return browserInfo
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BROWSER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BrowserInfo getBrowserInfo() {
     return browserInfo;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BROWSER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrowserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
   }
 
 
   public PaymentRequest captureDelayHours(Integer captureDelayHours) {
-    
     this.captureDelayHours = captureDelayHours;
     return this;
   }
@@ -678,19 +637,22 @@ public class PaymentRequest {
    * @return captureDelayHours
   **/
   @ApiModelProperty(value = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
+  @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCaptureDelayHours() {
     return captureDelayHours;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
   }
 
 
   public PaymentRequest card(Card card) {
-    
     this.card = card;
     return this;
   }
@@ -700,19 +662,22 @@ public class PaymentRequest {
    * @return card
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Card getCard() {
     return card;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
 
   public PaymentRequest dateOfBirth(LocalDate dateOfBirth) {
-    
     this.dateOfBirth = dateOfBirth;
     return this;
   }
@@ -722,19 +687,22 @@ public class PaymentRequest {
    * @return dateOfBirth
   **/
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
+  @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
 
   public PaymentRequest dccQuote(ForexQuote dccQuote) {
-    
     this.dccQuote = dccQuote;
     return this;
   }
@@ -744,19 +712,22 @@ public class PaymentRequest {
    * @return dccQuote
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DCC_QUOTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ForexQuote getDccQuote() {
     return dccQuote;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DCC_QUOTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccQuote(ForexQuote dccQuote) {
     this.dccQuote = dccQuote;
   }
 
 
   public PaymentRequest deliveryAddress(Address deliveryAddress) {
-    
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -766,19 +737,22 @@ public class PaymentRequest {
    * @return deliveryAddress
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getDeliveryAddress() {
     return deliveryAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
   }
 
 
   public PaymentRequest deliveryDate(OffsetDateTime deliveryDate) {
-    
     this.deliveryDate = deliveryDate;
     return this;
   }
@@ -788,19 +762,22 @@ public class PaymentRequest {
    * @return deliveryDate
   **/
   @ApiModelProperty(value = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
+  @JsonProperty(JSON_PROPERTY_DELIVERY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getDeliveryDate() {
     return deliveryDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DELIVERY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 
 
   public PaymentRequest deviceFingerprint(String deviceFingerprint) {
-    
     this.deviceFingerprint = deviceFingerprint;
     return this;
   }
@@ -810,19 +787,22 @@ public class PaymentRequest {
    * @return deviceFingerprint
   **/
   @ApiModelProperty(value = "A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).")
+  @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDeviceFingerprint() {
     return deviceFingerprint;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
   }
 
 
   public PaymentRequest entityType(EntityTypeEnum entityType) {
-    
     this.entityType = entityType;
     return this;
   }
@@ -832,19 +812,22 @@ public class PaymentRequest {
    * @return entityType
   **/
   @ApiModelProperty(value = "The type of the entity the payment is processed for.")
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EntityTypeEnum getEntityType() {
     return entityType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
   }
 
 
   public PaymentRequest fraudOffset(Integer fraudOffset) {
-    
     this.fraudOffset = fraudOffset;
     return this;
   }
@@ -854,19 +837,22 @@ public class PaymentRequest {
    * @return fraudOffset
   **/
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
+  @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFraudOffset() {
     return fraudOffset;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
   }
 
 
   public PaymentRequest fundDestination(FundDestination fundDestination) {
-    
     this.fundDestination = fundDestination;
     return this;
   }
@@ -876,19 +862,22 @@ public class PaymentRequest {
    * @return fundDestination
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FUND_DESTINATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FundDestination getFundDestination() {
     return fundDestination;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUND_DESTINATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundDestination(FundDestination fundDestination) {
     this.fundDestination = fundDestination;
   }
 
 
   public PaymentRequest fundSource(FundSource fundSource) {
-    
     this.fundSource = fundSource;
     return this;
   }
@@ -898,19 +887,22 @@ public class PaymentRequest {
    * @return fundSource
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FUND_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FundSource getFundSource() {
     return fundSource;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUND_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundSource(FundSource fundSource) {
     this.fundSource = fundSource;
   }
 
 
   public PaymentRequest fundingSource(FundingSourceEnum fundingSource) {
-    
     this.fundingSource = fundingSource;
     return this;
   }
@@ -920,19 +912,22 @@ public class PaymentRequest {
    * @return fundingSource
   **/
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FundingSourceEnum getFundingSource() {
     return fundingSource;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
   }
 
 
   public PaymentRequest installments(Installments installments) {
-    
     this.installments = installments;
     return this;
   }
@@ -942,19 +937,22 @@ public class PaymentRequest {
    * @return installments
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Installments getInstallments() {
     return installments;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Installments installments) {
     this.installments = installments;
   }
 
 
   public PaymentRequest localizedShopperStatement(Map<String, String> localizedShopperStatement) {
-    
     this.localizedShopperStatement = localizedShopperStatement;
     return this;
   }
@@ -972,19 +970,22 @@ public class PaymentRequest {
    * @return localizedShopperStatement
   **/
   @ApiModelProperty(value = "This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants can use half-width or full-width characters. An example request would be: > {   \"shopperStatement\" : \"ADYEN - SELLER-A\",   \"localizedShopperStatement\" : {     \"ja-Kana\" : \"ADYEN - セラーA\"   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field `shopperStatement` is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned. Please note, this field can be used for only Visa and Mastercard transactions.")
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getLocalizedShopperStatement() {
     return localizedShopperStatement;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalizedShopperStatement(Map<String, String> localizedShopperStatement) {
     this.localizedShopperStatement = localizedShopperStatement;
   }
 
 
   public PaymentRequest mandate(Mandate mandate) {
-    
     this.mandate = mandate;
     return this;
   }
@@ -994,19 +995,22 @@ public class PaymentRequest {
    * @return mandate
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MANDATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Mandate getMandate() {
     return mandate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MANDATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMandate(Mandate mandate) {
     this.mandate = mandate;
   }
 
 
   public PaymentRequest mcc(String mcc) {
-    
     this.mcc = mcc;
     return this;
   }
@@ -1016,19 +1020,22 @@ public class PaymentRequest {
    * @return mcc
   **/
   @ApiModelProperty(value = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMcc() {
     return mcc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
 
   public PaymentRequest merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -1038,19 +1045,22 @@ public class PaymentRequest {
    * @return merchantAccount
   **/
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public PaymentRequest merchantOrderReference(String merchantOrderReference) {
-    
     this.merchantOrderReference = merchantOrderReference;
     return this;
   }
@@ -1060,19 +1070,22 @@ public class PaymentRequest {
    * @return merchantOrderReference
   **/
   @ApiModelProperty(value = "This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. > We strongly recommend you send the `merchantOrderReference` value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide `retry.orderAttemptNumber`, `retry.chainAttemptNumber`, and `retry.skipRetry` values in `PaymentRequest.additionalData`.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantOrderReference() {
     return merchantOrderReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
   }
 
 
   public PaymentRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
-    
     this.merchantRiskIndicator = merchantRiskIndicator;
     return this;
   }
@@ -1082,19 +1095,22 @@ public class PaymentRequest {
    * @return merchantRiskIndicator
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_RISK_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MerchantRiskIndicator getMerchantRiskIndicator() {
     return merchantRiskIndicator;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_RISK_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
     this.merchantRiskIndicator = merchantRiskIndicator;
   }
 
 
   public PaymentRequest metadata(Map<String, String> metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -1112,19 +1128,22 @@ public class PaymentRequest {
    * @return metadata
   **/
   @ApiModelProperty(value = "Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \"177\" error occurs: \"Metadata size exceeds limit\". * Maximum 20 characters per key. * Maximum 80 characters per value. ")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getMetadata() {
     return metadata;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
 
   public PaymentRequest mpiData(ThreeDSecureData mpiData) {
-    
     this.mpiData = mpiData;
     return this;
   }
@@ -1134,19 +1153,22 @@ public class PaymentRequest {
    * @return mpiData
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MPI_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ThreeDSecureData getMpiData() {
     return mpiData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MPI_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
   }
 
 
   public PaymentRequest nationality(String nationality) {
-    
     this.nationality = nationality;
     return this;
   }
@@ -1156,19 +1178,22 @@ public class PaymentRequest {
    * @return nationality
   **/
   @ApiModelProperty(value = "The two-character country code of the shopper's nationality.")
+  @JsonProperty(JSON_PROPERTY_NATIONALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNationality() {
     return nationality;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NATIONALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
     this.nationality = nationality;
   }
 
 
   public PaymentRequest orderReference(String orderReference) {
-    
     this.orderReference = orderReference;
     return this;
   }
@@ -1178,19 +1203,22 @@ public class PaymentRequest {
    * @return orderReference
   **/
   @ApiModelProperty(value = "When you are doing multiple partial (gift card) payments, this is the `pspReference` of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the `merchantOrderReference`instead.")
+  @JsonProperty(JSON_PROPERTY_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOrderReference() {
     return orderReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ORDER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderReference(String orderReference) {
     this.orderReference = orderReference;
   }
 
 
   public PaymentRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
-    
     this.platformChargebackLogic = platformChargebackLogic;
     return this;
   }
@@ -1200,19 +1228,22 @@ public class PaymentRequest {
    * @return platformChargebackLogic
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PlatformChargebackLogic getPlatformChargebackLogic() {
     return platformChargebackLogic;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
   }
 
 
   public PaymentRequest recurring(Recurring recurring) {
-    
     this.recurring = recurring;
     return this;
   }
@@ -1222,19 +1253,22 @@ public class PaymentRequest {
    * @return recurring
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RECURRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Recurring getRecurring() {
     return recurring;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
   }
 
 
   public PaymentRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
-    
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
@@ -1244,19 +1278,22 @@ public class PaymentRequest {
    * @return recurringProcessingModel
   **/
   @ApiModelProperty(value = "Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
+  @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
     return recurringProcessingModel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
   }
 
 
   public PaymentRequest reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -1266,19 +1303,22 @@ public class PaymentRequest {
    * @return reference
   **/
   @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public PaymentRequest selectedBrand(String selectedBrand) {
-    
     this.selectedBrand = selectedBrand;
     return this;
   }
@@ -1288,19 +1328,22 @@ public class PaymentRequest {
    * @return selectedBrand
   **/
   @ApiModelProperty(value = "Some payment methods require defining a value for this field to specify how to process the transaction.  For the Bancontact payment method, it can be set to: * `maestro` (default), to be processed like a Maestro card, or * `bcmc`, to be processed like a Bancontact card.")
+  @JsonProperty(JSON_PROPERTY_SELECTED_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSelectedBrand() {
     return selectedBrand;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SELECTED_BRAND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedBrand(String selectedBrand) {
     this.selectedBrand = selectedBrand;
   }
 
 
   public PaymentRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
-    
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
     return this;
   }
@@ -1310,19 +1353,22 @@ public class PaymentRequest {
    * @return selectedRecurringDetailReference
   **/
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
+  @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSelectedRecurringDetailReference() {
     return selectedRecurringDetailReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
   }
 
 
   public PaymentRequest sessionId(String sessionId) {
-    
     this.sessionId = sessionId;
     return this;
   }
@@ -1332,19 +1378,22 @@ public class PaymentRequest {
    * @return sessionId
   **/
   @ApiModelProperty(value = "A session ID used to identify a payment session.")
+  @JsonProperty(JSON_PROPERTY_SESSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSessionId() {
     return sessionId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SESSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSessionId(String sessionId) {
     this.sessionId = sessionId;
   }
 
 
   public PaymentRequest shopperEmail(String shopperEmail) {
-    
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -1354,19 +1403,22 @@ public class PaymentRequest {
    * @return shopperEmail
   **/
   @ApiModelProperty(value = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > For 3D Secure 2 transactions, schemes require `shopperEmail` for all browser-based and mobile implementations.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperEmail() {
     return shopperEmail;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
 
   public PaymentRequest shopperIP(String shopperIP) {
-    
     this.shopperIP = shopperIP;
     return this;
   }
@@ -1376,19 +1428,22 @@ public class PaymentRequest {
    * @return shopperIP
   **/
   @ApiModelProperty(value = "The shopper's IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > For 3D Secure 2 transactions, schemes require `shopperIP` for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperIP() {
     return shopperIP;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
   }
 
 
   public PaymentRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
-    
     this.shopperInteraction = shopperInteraction;
     return this;
   }
@@ -1398,19 +1453,22 @@ public class PaymentRequest {
    * @return shopperInteraction
   **/
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ShopperInteractionEnum getShopperInteraction() {
     return shopperInteraction;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
 
 
   public PaymentRequest shopperLocale(String shopperLocale) {
-    
     this.shopperLocale = shopperLocale;
     return this;
   }
@@ -1420,19 +1478,22 @@ public class PaymentRequest {
    * @return shopperLocale
   **/
   @ApiModelProperty(value = "The combination of a language code and a country code to specify the language to be used in the payment.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperLocale() {
     return shopperLocale;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
   }
 
 
   public PaymentRequest shopperName(Name shopperName) {
-    
     this.shopperName = shopperName;
     return this;
   }
@@ -1442,19 +1503,22 @@ public class PaymentRequest {
    * @return shopperName
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Name getShopperName() {
     return shopperName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
 
   public PaymentRequest shopperReference(String shopperReference) {
-    
     this.shopperReference = shopperReference;
     return this;
   }
@@ -1464,19 +1528,22 @@ public class PaymentRequest {
    * @return shopperReference
   **/
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperReference() {
     return shopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
 
   public PaymentRequest shopperStatement(String shopperStatement) {
-    
     this.shopperStatement = shopperStatement;
     return this;
   }
@@ -1486,19 +1553,22 @@ public class PaymentRequest {
    * @return shopperStatement
   **/
   @ApiModelProperty(value = "The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperStatement() {
     return shopperStatement;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
   }
 
 
   public PaymentRequest socialSecurityNumber(String socialSecurityNumber) {
-    
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
@@ -1508,19 +1578,22 @@ public class PaymentRequest {
    * @return socialSecurityNumber
   **/
   @ApiModelProperty(value = "The shopper's social security number.")
+  @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
   }
 
 
   public PaymentRequest splits(List<Split> splits) {
-    
     this.splits = splits;
     return this;
   }
@@ -1538,41 +1611,47 @@ public class PaymentRequest {
    * @return splits
   **/
   @ApiModelProperty(value = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).")
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Split> getSplits() {
     return splits;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPLITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
   }
 
 
   public PaymentRequest store(String store) {
-    
     this.store = store;
     return this;
   }
 
    /**
-   * The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.
+   * The ecommerce or point-of-sale store that is processing the payment. Used in:  * [Partner platform integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for the [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic). * [Platform setup integrations](https://docs.adyen.com/marketplaces-and-platforms/additional-for-platform-setup/route-payment-to-store) for the [Balance Platform](https://docs.adyen.com/marketplaces-and-platforms).
    * @return store
   **/
-  @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.")
+  @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in:  * [Partner platform integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for the [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic). * [Platform setup integrations](https://docs.adyen.com/marketplaces-and-platforms/additional-for-platform-setup/route-payment-to-store) for the [Balance Platform](https://docs.adyen.com/marketplaces-and-platforms).")
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStore() {
     return store;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
 
 
   public PaymentRequest telephoneNumber(String telephoneNumber) {
-    
     this.telephoneNumber = telephoneNumber;
     return this;
   }
@@ -1582,19 +1661,22 @@ public class PaymentRequest {
    * @return telephoneNumber
   **/
   @ApiModelProperty(value = "The shopper's telephone number.")
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
 
 
   public PaymentRequest threeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
-    
     this.threeDS2RequestData = threeDS2RequestData;
     return this;
   }
@@ -1604,19 +1686,22 @@ public class PaymentRequest {
    * @return threeDS2RequestData
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ThreeDS2RequestData getThreeDS2RequestData() {
     return threeDS2RequestData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
   }
 
 
   public PaymentRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
-    
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;
   }
@@ -1626,19 +1711,22 @@ public class PaymentRequest {
    * @return threeDSAuthenticationOnly
   **/
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getThreeDSAuthenticationOnly() {
     return threeDSAuthenticationOnly;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
   }
 
 
   public PaymentRequest totalsGroup(String totalsGroup) {
-    
     this.totalsGroup = totalsGroup;
     return this;
   }
@@ -1648,19 +1736,22 @@ public class PaymentRequest {
    * @return totalsGroup
   **/
   @ApiModelProperty(value = "The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available).")
+  @JsonProperty(JSON_PROPERTY_TOTALS_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTotalsGroup() {
     return totalsGroup;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOTALS_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalsGroup(String totalsGroup) {
     this.totalsGroup = totalsGroup;
   }
 
 
   public PaymentRequest trustedShopper(Boolean trustedShopper) {
-    
     this.trustedShopper = trustedShopper;
     return this;
   }
@@ -1670,18 +1761,24 @@ public class PaymentRequest {
    * @return trustedShopper
   **/
   @ApiModelProperty(value = "Set to true if the payment should be routed to a trusted MID.")
+  @JsonProperty(JSON_PROPERTY_TRUSTED_SHOPPER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTrustedShopper() {
     return trustedShopper;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRUSTED_SHOPPER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
   }
 
 
-
+  /**
+   * Return true if this PaymentRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1823,352 +1920,23 @@ public class PaymentRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accountInfo");
-    openapiFields.add("additionalAmount");
-    openapiFields.add("additionalData");
-    openapiFields.add("amount");
-    openapiFields.add("applicationInfo");
-    openapiFields.add("bankAccount");
-    openapiFields.add("billingAddress");
-    openapiFields.add("browserInfo");
-    openapiFields.add("captureDelayHours");
-    openapiFields.add("card");
-    openapiFields.add("dateOfBirth");
-    openapiFields.add("dccQuote");
-    openapiFields.add("deliveryAddress");
-    openapiFields.add("deliveryDate");
-    openapiFields.add("deviceFingerprint");
-    openapiFields.add("entityType");
-    openapiFields.add("fraudOffset");
-    openapiFields.add("fundDestination");
-    openapiFields.add("fundSource");
-    openapiFields.add("fundingSource");
-    openapiFields.add("installments");
-    openapiFields.add("localizedShopperStatement");
-    openapiFields.add("mandate");
-    openapiFields.add("mcc");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("merchantOrderReference");
-    openapiFields.add("merchantRiskIndicator");
-    openapiFields.add("metadata");
-    openapiFields.add("mpiData");
-    openapiFields.add("nationality");
-    openapiFields.add("orderReference");
-    openapiFields.add("platformChargebackLogic");
-    openapiFields.add("recurring");
-    openapiFields.add("recurringProcessingModel");
-    openapiFields.add("reference");
-    openapiFields.add("selectedBrand");
-    openapiFields.add("selectedRecurringDetailReference");
-    openapiFields.add("sessionId");
-    openapiFields.add("shopperEmail");
-    openapiFields.add("shopperIP");
-    openapiFields.add("shopperInteraction");
-    openapiFields.add("shopperLocale");
-    openapiFields.add("shopperName");
-    openapiFields.add("shopperReference");
-    openapiFields.add("shopperStatement");
-    openapiFields.add("socialSecurityNumber");
-    openapiFields.add("splits");
-    openapiFields.add("store");
-    openapiFields.add("telephoneNumber");
-    openapiFields.add("threeDS2RequestData");
-    openapiFields.add("threeDSAuthenticationOnly");
-    openapiFields.add("totalsGroup");
-    openapiFields.add("trustedShopper");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("merchantAccount");
-    openapiRequiredFields.add("reference");
+/**
+   * Create an instance of PaymentRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentRequest
+   */
+  public static PaymentRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PaymentRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentRequest is not found in the empty JSON string", PaymentRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PaymentRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `accountInfo`
-      if (jsonObj.getAsJsonObject("accountInfo") != null) {
-        AccountInfo.validateJsonObject(jsonObj.getAsJsonObject("accountInfo"));
-      }
-      // validate the optional field `additionalAmount`
-      if (jsonObj.getAsJsonObject("additionalAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("additionalAmount"));
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // validate the optional field `applicationInfo`
-      if (jsonObj.getAsJsonObject("applicationInfo") != null) {
-        ApplicationInfo.validateJsonObject(jsonObj.getAsJsonObject("applicationInfo"));
-      }
-      // validate the optional field `bankAccount`
-      if (jsonObj.getAsJsonObject("bankAccount") != null) {
-        BankAccount.validateJsonObject(jsonObj.getAsJsonObject("bankAccount"));
-      }
-      // validate the optional field `billingAddress`
-      if (jsonObj.getAsJsonObject("billingAddress") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("billingAddress"));
-      }
-      // validate the optional field `browserInfo`
-      if (jsonObj.getAsJsonObject("browserInfo") != null) {
-        BrowserInfo.validateJsonObject(jsonObj.getAsJsonObject("browserInfo"));
-      }
-      // validate the optional field `card`
-      if (jsonObj.getAsJsonObject("card") != null) {
-        Card.validateJsonObject(jsonObj.getAsJsonObject("card"));
-      }
-      // validate the optional field `dccQuote`
-      if (jsonObj.getAsJsonObject("dccQuote") != null) {
-        ForexQuote.validateJsonObject(jsonObj.getAsJsonObject("dccQuote"));
-      }
-      // validate the optional field `deliveryAddress`
-      if (jsonObj.getAsJsonObject("deliveryAddress") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("deliveryAddress"));
-      }
-      // validate the optional field deviceFingerprint
-      if (jsonObj.get("deviceFingerprint") != null && !jsonObj.get("deviceFingerprint").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `deviceFingerprint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceFingerprint").toString()));
-      }
-      // ensure the field entityType can be parsed to an enum value
-      if (jsonObj.get("entityType") != null) {
-        if(!jsonObj.get("entityType").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
-        }
-        EntityTypeEnum.fromValue(jsonObj.get("entityType").getAsString());
-      }
-      // validate the optional field `fundDestination`
-      if (jsonObj.getAsJsonObject("fundDestination") != null) {
-        FundDestination.validateJsonObject(jsonObj.getAsJsonObject("fundDestination"));
-      }
-      // validate the optional field `fundSource`
-      if (jsonObj.getAsJsonObject("fundSource") != null) {
-        FundSource.validateJsonObject(jsonObj.getAsJsonObject("fundSource"));
-      }
-      // ensure the field fundingSource can be parsed to an enum value
-      if (jsonObj.get("fundingSource") != null) {
-        if(!jsonObj.get("fundingSource").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
-        }
-        FundingSourceEnum.fromValue(jsonObj.get("fundingSource").getAsString());
-      }
-      // validate the optional field `installments`
-      if (jsonObj.getAsJsonObject("installments") != null) {
-        Installments.validateJsonObject(jsonObj.getAsJsonObject("installments"));
-      }
-      // validate the optional field `mandate`
-      if (jsonObj.getAsJsonObject("mandate") != null) {
-        Mandate.validateJsonObject(jsonObj.getAsJsonObject("mandate"));
-      }
-      // validate the optional field mcc
-      if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field merchantOrderReference
-      if (jsonObj.get("merchantOrderReference") != null && !jsonObj.get("merchantOrderReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantOrderReference").toString()));
-      }
-      // validate the optional field `merchantRiskIndicator`
-      if (jsonObj.getAsJsonObject("merchantRiskIndicator") != null) {
-        MerchantRiskIndicator.validateJsonObject(jsonObj.getAsJsonObject("merchantRiskIndicator"));
-      }
-      // validate the optional field `mpiData`
-      if (jsonObj.getAsJsonObject("mpiData") != null) {
-        ThreeDSecureData.validateJsonObject(jsonObj.getAsJsonObject("mpiData"));
-      }
-      // validate the optional field nationality
-      if (jsonObj.get("nationality") != null && !jsonObj.get("nationality").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `nationality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nationality").toString()));
-      }
-      // validate the optional field orderReference
-      if (jsonObj.get("orderReference") != null && !jsonObj.get("orderReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `orderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderReference").toString()));
-      }
-      // validate the optional field `platformChargebackLogic`
-      if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
-        PlatformChargebackLogic.validateJsonObject(jsonObj.getAsJsonObject("platformChargebackLogic"));
-      }
-      // validate the optional field `recurring`
-      if (jsonObj.getAsJsonObject("recurring") != null) {
-        Recurring.validateJsonObject(jsonObj.getAsJsonObject("recurring"));
-      }
-      // ensure the field recurringProcessingModel can be parsed to an enum value
-      if (jsonObj.get("recurringProcessingModel") != null) {
-        if(!jsonObj.get("recurringProcessingModel").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `recurringProcessingModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringProcessingModel").toString()));
-        }
-        RecurringProcessingModelEnum.fromValue(jsonObj.get("recurringProcessingModel").getAsString());
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field selectedBrand
-      if (jsonObj.get("selectedBrand") != null && !jsonObj.get("selectedBrand").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `selectedBrand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedBrand").toString()));
-      }
-      // validate the optional field selectedRecurringDetailReference
-      if (jsonObj.get("selectedRecurringDetailReference") != null && !jsonObj.get("selectedRecurringDetailReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `selectedRecurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedRecurringDetailReference").toString()));
-      }
-      // validate the optional field sessionId
-      if (jsonObj.get("sessionId") != null && !jsonObj.get("sessionId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `sessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionId").toString()));
-      }
-      // validate the optional field shopperEmail
-      if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
-      }
-      // validate the optional field shopperIP
-      if (jsonObj.get("shopperIP") != null && !jsonObj.get("shopperIP").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperIP").toString()));
-      }
-      // ensure the field shopperInteraction can be parsed to an enum value
-      if (jsonObj.get("shopperInteraction") != null) {
-        if(!jsonObj.get("shopperInteraction").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
-        }
-        ShopperInteractionEnum.fromValue(jsonObj.get("shopperInteraction").getAsString());
-      }
-      // validate the optional field shopperLocale
-      if (jsonObj.get("shopperLocale") != null && !jsonObj.get("shopperLocale").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperLocale").toString()));
-      }
-      // validate the optional field `shopperName`
-      if (jsonObj.getAsJsonObject("shopperName") != null) {
-        Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
-      }
-      // validate the optional field shopperReference
-      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
-      }
-      // validate the optional field shopperStatement
-      if (jsonObj.get("shopperStatement") != null && !jsonObj.get("shopperStatement").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
-      }
-      // validate the optional field socialSecurityNumber
-      if (jsonObj.get("socialSecurityNumber") != null && !jsonObj.get("socialSecurityNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `socialSecurityNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialSecurityNumber").toString()));
-      }
-      JsonArray jsonArraysplits = jsonObj.getAsJsonArray("splits");
-      if (jsonArraysplits != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("splits").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `splits` to be an array in the JSON string but got `%s`", jsonObj.get("splits").toString()));
-        }
-
-        // validate the optional field `splits` (array)
-        for (int i = 0; i < jsonArraysplits.size(); i++) {
-          Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field store
-      if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
-      }
-      // validate the optional field telephoneNumber
-      if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
-      }
-      // validate the optional field `threeDS2RequestData`
-      if (jsonObj.getAsJsonObject("threeDS2RequestData") != null) {
-        ThreeDS2RequestData.validateJsonObject(jsonObj.getAsJsonObject("threeDS2RequestData"));
-      }
-      // validate the optional field totalsGroup
-      if (jsonObj.get("totalsGroup") != null && !jsonObj.get("totalsGroup").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `totalsGroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalsGroup").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentRequest>() {
-           @Override
-           public void write(JsonWriter out, PaymentRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaymentRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentRequest
-  * @throws IOException if the JSON string is invalid with respect to PaymentRequest
-  */
-  public static PaymentRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of PaymentRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

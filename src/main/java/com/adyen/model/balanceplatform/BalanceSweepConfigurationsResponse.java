@@ -198,18 +198,18 @@ public class BalanceSweepConfigurationsResponse {
     openapiRequiredFields.add("hasPrevious");
     openapiRequiredFields.add("sweeps");
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(BalanceSweepConfigurationsResponse.class.getName());
 
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateJsonObject(jsonObj, false);
+  }
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
+  * @param strictValidation reject (new) fields missing from the specifications
   * @throws IOException if the JSON Object is invalid with respect to BalanceSweepConfigurationsResponse
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
       if (jsonObj == null) {
         if (BalanceSweepConfigurationsResponse.openapiRequiredFields.isEmpty()) {
           return;
@@ -217,13 +217,14 @@ public class BalanceSweepConfigurationsResponse {
           throw new IllegalArgumentException(String.format("The required field(s) %s in BalanceSweepConfigurationsResponse is not found in the empty JSON string", BalanceSweepConfigurationsResponse.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BalanceSweepConfigurationsResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BalanceSweepConfigurationsResponse` properties.", entry.getKey()));
-        }
+      if (strictValidation) {
+          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+          // check to see if the JSON string contains additional fields
+          for (Entry<String, JsonElement> entry : entries) {
+            if (!BalanceSweepConfigurationsResponse.openapiFields.contains(entry.getKey())) {
+              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BalanceSweepConfigurationsResponse` properties.", entry.getKey()));
+            }
+          }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
