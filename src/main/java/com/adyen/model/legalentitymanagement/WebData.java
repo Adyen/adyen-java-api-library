@@ -14,63 +14,38 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * WebData
  */
+@JsonPropertyOrder({
+  WebData.JSON_PROPERTY_WEB_ADDRESS,
+  WebData.JSON_PROPERTY_WEB_ADDRESS_ID
+})
 
 public class WebData {
-  public static final String SERIALIZED_NAME_WEB_ADDRESS = "webAddress";
-  @SerializedName(SERIALIZED_NAME_WEB_ADDRESS)
+  public static final String JSON_PROPERTY_WEB_ADDRESS = "webAddress";
   private String webAddress;
 
-  public static final String SERIALIZED_NAME_WEB_ADDRESS_ID = "webAddressId";
-  @SerializedName(SERIALIZED_NAME_WEB_ADDRESS_ID)
+  public static final String JSON_PROPERTY_WEB_ADDRESS_ID = "webAddressId";
   private String webAddressId;
 
   public WebData() { 
   }
 
-  
-  public WebData(
-     String webAddressId
-  ) {
-    this();
-    this.webAddressId = webAddressId;
-  }
-
   public WebData webAddress(String webAddress) {
-    
     this.webAddress = webAddress;
     return this;
   }
@@ -80,31 +55,49 @@ public class WebData {
    * @return webAddress
   **/
   @ApiModelProperty(value = "The URL of the website or the app store URL.")
+  @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWebAddress() {
     return webAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {
     this.webAddress = webAddress;
   }
 
+
+  public WebData webAddressId(String webAddressId) {
+    this.webAddressId = webAddressId;
+    return this;
+  }
 
    /**
    * The unique identifier of the web address.
    * @return webAddressId
   **/
   @ApiModelProperty(value = "The unique identifier of the web address.")
+  @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWebAddressId() {
     return webAddressId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWebAddressId(String webAddressId) {
+    this.webAddressId = webAddressId;
+  }
 
 
-
+  /**
+   * Return true if this WebData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -144,103 +137,23 @@ public class WebData {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("webAddress");
-    openapiFields.add("webAddressId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of WebData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of WebData
+   * @throws JsonProcessingException if the JSON string is invalid with respect to WebData
+   */
+  public static WebData fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, WebData.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(WebData.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WebData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (WebData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebData is not found in the empty JSON string", WebData.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!WebData.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `WebData` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field webAddress
-      if (jsonObj.get("webAddress") != null && !jsonObj.get("webAddress").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `webAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddress").toString()));
-      }
-      // validate the optional field webAddressId
-      if (jsonObj.get("webAddressId") != null && !jsonObj.get("webAddressId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `webAddressId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddressId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebData' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebData.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WebData>() {
-           @Override
-           public void write(JsonWriter out, WebData value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WebData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of WebData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WebData
-  * @throws IOException if the JSON string is invalid with respect to WebData
-  */
-  public static WebData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebData.class);
-  }
-
- /**
+/**
   * Convert an instance of WebData to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,63 +14,47 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * TermsOfServiceAcceptanceInfo
  */
+@JsonPropertyOrder({
+  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_ACCEPTED_BY,
+  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_ACCEPTED_FOR,
+  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_CREATED_AT,
+  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_ID,
+  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_TYPE
+})
 
 public class TermsOfServiceAcceptanceInfo {
-  public static final String SERIALIZED_NAME_ACCEPTED_BY = "acceptedBy";
-  @SerializedName(SERIALIZED_NAME_ACCEPTED_BY)
+  public static final String JSON_PROPERTY_ACCEPTED_BY = "acceptedBy";
   private String acceptedBy;
 
-  public static final String SERIALIZED_NAME_ACCEPTED_FOR = "acceptedFor";
-  @SerializedName(SERIALIZED_NAME_ACCEPTED_FOR)
+  public static final String JSON_PROPERTY_ACCEPTED_FOR = "acceptedFor";
   private String acceptedFor;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   /**
    * The type of Terms of Service.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     ADYENACCOUNT("adyenAccount"),
     
@@ -92,6 +76,7 @@ public class TermsOfServiceAcceptanceInfo {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -101,6 +86,7 @@ public class TermsOfServiceAcceptanceInfo {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -109,30 +95,15 @@ public class TermsOfServiceAcceptanceInfo {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public TermsOfServiceAcceptanceInfo() { 
   }
 
   public TermsOfServiceAcceptanceInfo acceptedBy(String acceptedBy) {
-    
     this.acceptedBy = acceptedBy;
     return this;
   }
@@ -142,19 +113,22 @@ public class TermsOfServiceAcceptanceInfo {
    * @return acceptedBy
   **/
   @ApiModelProperty(value = "The unique identifier of the user that accepted the Terms of Service.")
+  @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcceptedBy() {
     return acceptedBy;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
   }
 
 
   public TermsOfServiceAcceptanceInfo acceptedFor(String acceptedFor) {
-    
     this.acceptedFor = acceptedFor;
     return this;
   }
@@ -164,19 +138,22 @@ public class TermsOfServiceAcceptanceInfo {
    * @return acceptedFor
   **/
   @ApiModelProperty(value = "The unique identifier of the legal entity for which the Terms of Service are accepted.")
+  @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAcceptedFor() {
     return acceptedFor;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedFor(String acceptedFor) {
     this.acceptedFor = acceptedFor;
   }
 
 
   public TermsOfServiceAcceptanceInfo createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -186,19 +163,22 @@ public class TermsOfServiceAcceptanceInfo {
    * @return createdAt
   **/
   @ApiModelProperty(value = "The date when the Terms of Service were accepted.")
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
 
   public TermsOfServiceAcceptanceInfo id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -208,19 +188,22 @@ public class TermsOfServiceAcceptanceInfo {
    * @return id
   **/
   @ApiModelProperty(value = "An Adyen-generated reference for the accepted Terms of Service.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public TermsOfServiceAcceptanceInfo type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -230,18 +213,24 @@ public class TermsOfServiceAcceptanceInfo {
    * @return type
   **/
   @ApiModelProperty(value = "The type of Terms of Service.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this TermsOfServiceAcceptanceInfo object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -287,117 +276,23 @@ public class TermsOfServiceAcceptanceInfo {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acceptedBy");
-    openapiFields.add("acceptedFor");
-    openapiFields.add("createdAt");
-    openapiFields.add("id");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of TermsOfServiceAcceptanceInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TermsOfServiceAcceptanceInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TermsOfServiceAcceptanceInfo
+   */
+  public static TermsOfServiceAcceptanceInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TermsOfServiceAcceptanceInfo.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(TermsOfServiceAcceptanceInfo.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TermsOfServiceAcceptanceInfo
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TermsOfServiceAcceptanceInfo.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TermsOfServiceAcceptanceInfo is not found in the empty JSON string", TermsOfServiceAcceptanceInfo.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TermsOfServiceAcceptanceInfo.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `TermsOfServiceAcceptanceInfo` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field acceptedBy
-      if (jsonObj.get("acceptedBy") != null && !jsonObj.get("acceptedBy").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acceptedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acceptedBy").toString()));
-      }
-      // validate the optional field acceptedFor
-      if (jsonObj.get("acceptedFor") != null && !jsonObj.get("acceptedFor").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `acceptedFor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acceptedFor").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TermsOfServiceAcceptanceInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TermsOfServiceAcceptanceInfo' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TermsOfServiceAcceptanceInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TermsOfServiceAcceptanceInfo.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TermsOfServiceAcceptanceInfo>() {
-           @Override
-           public void write(JsonWriter out, TermsOfServiceAcceptanceInfo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TermsOfServiceAcceptanceInfo read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TermsOfServiceAcceptanceInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TermsOfServiceAcceptanceInfo
-  * @throws IOException if the JSON string is invalid with respect to TermsOfServiceAcceptanceInfo
-  */
-  public static TermsOfServiceAcceptanceInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TermsOfServiceAcceptanceInfo.class);
-  }
-
- /**
+/**
   * Convert an instance of TermsOfServiceAcceptanceInfo to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

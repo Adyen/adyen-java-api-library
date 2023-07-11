@@ -28,22 +28,30 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * IbanAccountIdentification
+ * DocumentPage
  */
 @JsonPropertyOrder({
-  IbanAccountIdentification.JSON_PROPERTY_IBAN,
-  IbanAccountIdentification.JSON_PROPERTY_TYPE
+  DocumentPage.JSON_PROPERTY_PAGE_NAME,
+  DocumentPage.JSON_PROPERTY_PAGE_NUMBER,
+  DocumentPage.JSON_PROPERTY_TYPE
 })
 
-public class IbanAccountIdentification {
-  public static final String JSON_PROPERTY_IBAN = "iban";
-  private String iban;
+public class DocumentPage {
+  public static final String JSON_PROPERTY_PAGE_NAME = "pageName";
+  private String pageName;
+
+  public static final String JSON_PROPERTY_PAGE_NUMBER = "pageNumber";
+  private Integer pageNumber;
 
   /**
-   * **iban**
+   * Gets or Sets type
    */
   public enum TypeEnum {
-    IBAN("iban");
+    BACK("BACK"),
+    
+    FRONT("FRONT"),
+    
+    UNDEFINED("UNDEFINED");
 
     private String value;
 
@@ -73,46 +81,71 @@ public class IbanAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.IBAN;
+  private TypeEnum type;
 
-  public IbanAccountIdentification() { 
+  public DocumentPage() { 
   }
 
-  public IbanAccountIdentification iban(String iban) {
-    this.iban = iban;
+  public DocumentPage pageName(String pageName) {
+    this.pageName = pageName;
     return this;
   }
 
    /**
-   * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
-   * @return iban
+   * Get pageName
+   * @return pageName
   **/
-  @ApiModelProperty(required = true, value = "The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.")
-  @JsonProperty(JSON_PROPERTY_IBAN)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getIban() {
-    return iban;
+  public String getPageName() {
+    return pageName;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IBAN)
+  @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIban(String iban) {
-    this.iban = iban;
+  public void setPageName(String pageName) {
+    this.pageName = pageName;
   }
 
 
-  public IbanAccountIdentification type(TypeEnum type) {
+  public DocumentPage pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+
+  public DocumentPage type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * **iban**
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "**iban**")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -129,7 +162,7 @@ public class IbanAccountIdentification {
 
 
   /**
-   * Return true if this IbanAccountIdentification object is equal to o.
+   * Return true if this DocumentPage object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -139,21 +172,23 @@ public class IbanAccountIdentification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IbanAccountIdentification ibanAccountIdentification = (IbanAccountIdentification) o;
-    return Objects.equals(this.iban, ibanAccountIdentification.iban) &&
-        Objects.equals(this.type, ibanAccountIdentification.type);
+    DocumentPage documentPage = (DocumentPage) o;
+    return Objects.equals(this.pageName, documentPage.pageName) &&
+        Objects.equals(this.pageNumber, documentPage.pageNumber) &&
+        Objects.equals(this.type, documentPage.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iban, type);
+    return Objects.hash(pageName, pageNumber, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IbanAccountIdentification {\n");
-    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("class DocumentPage {\n");
+    sb.append("    pageName: ").append(toIndentedString(pageName)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -171,17 +206,17 @@ public class IbanAccountIdentification {
   }
 
 /**
-   * Create an instance of IbanAccountIdentification given an JSON string
+   * Create an instance of DocumentPage given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of IbanAccountIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to IbanAccountIdentification
+   * @return An instance of DocumentPage
+   * @throws JsonProcessingException if the JSON string is invalid with respect to DocumentPage
    */
-  public static IbanAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, IbanAccountIdentification.class);
+  public static DocumentPage fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DocumentPage.class);
   }
 /**
-  * Convert an instance of IbanAccountIdentification to an JSON string
+  * Convert an instance of DocumentPage to an JSON string
   *
   * @return JSON string
   */

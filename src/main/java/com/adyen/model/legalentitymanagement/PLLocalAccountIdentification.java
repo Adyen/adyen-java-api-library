@@ -14,50 +14,34 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * PLLocalAccountIdentification
  */
+@JsonPropertyOrder({
+  PLLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  PLLocalAccountIdentification.JSON_PROPERTY_TYPE
+})
 
 public class PLLocalAccountIdentification {
-  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
   /**
    * **plLocal**
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     PLLOCAL("plLocal");
 
@@ -67,6 +51,7 @@ public class PLLocalAccountIdentification {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -76,6 +61,7 @@ public class PLLocalAccountIdentification {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -84,30 +70,15 @@ public class PLLocalAccountIdentification {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.PLLOCAL;
 
   public PLLocalAccountIdentification() { 
   }
 
   public PLLocalAccountIdentification accountNumber(String accountNumber) {
-    
     this.accountNumber = accountNumber;
     return this;
   }
@@ -117,19 +88,22 @@ public class PLLocalAccountIdentification {
    * @return accountNumber
   **/
   @ApiModelProperty(required = true, value = "The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)), without separators or whitespace.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountNumber() {
     return accountNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
 
   public PLLocalAccountIdentification type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -139,18 +113,24 @@ public class PLLocalAccountIdentification {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "**plLocal**")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this PLLocalAccountIdentification object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -190,115 +170,23 @@ public class PLLocalAccountIdentification {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accountNumber");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("accountNumber");
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of PLLocalAccountIdentification given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PLLocalAccountIdentification
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PLLocalAccountIdentification
+   */
+  public static PLLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PLLocalAccountIdentification.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PLLocalAccountIdentification.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PLLocalAccountIdentification
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PLLocalAccountIdentification.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PLLocalAccountIdentification is not found in the empty JSON string", PLLocalAccountIdentification.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PLLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PLLocalAccountIdentification` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PLLocalAccountIdentification.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field accountNumber
-      if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PLLocalAccountIdentification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PLLocalAccountIdentification' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PLLocalAccountIdentification> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PLLocalAccountIdentification.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PLLocalAccountIdentification>() {
-           @Override
-           public void write(JsonWriter out, PLLocalAccountIdentification value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PLLocalAccountIdentification read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PLLocalAccountIdentification given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PLLocalAccountIdentification
-  * @throws IOException if the JSON string is invalid with respect to PLLocalAccountIdentification
-  */
-  public static PLLocalAccountIdentification fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PLLocalAccountIdentification.class);
-  }
-
- /**
+/**
   * Convert an instance of PLLocalAccountIdentification to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

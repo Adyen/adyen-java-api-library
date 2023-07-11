@@ -158,14 +158,14 @@ public class LegalEntityManagementTest extends BaseTest {
         DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
                 "        \"pageType\": \"string\"\n" +
                 "    },\n" +
                 "    \"attachments\": [{\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
@@ -204,14 +204,14 @@ public class LegalEntityManagementTest extends BaseTest {
         DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
                 "        \"pageType\": \"string\"\n" +
                 "    },\n" +
                 "    \"attachments\": [{\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
@@ -295,14 +295,14 @@ public class LegalEntityManagementTest extends BaseTest {
         DocumentsApi service = new DocumentsApi(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +
                 "        \"pageType\": \"string\"\n" +
                 "    },\n" +
                 "    \"attachments\": [{\n" +
-                "        \"content\": \"string\",\n" +
+                "        \"content\": \"VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n\",\n" +
                 "        \"contentType\": \"string\",\n" +
                 "        \"filename\": \"string\",\n" +
                 "        \"pageName\": \"string\",\n" +

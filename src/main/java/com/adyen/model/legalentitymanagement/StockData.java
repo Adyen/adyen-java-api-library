@@ -14,59 +14,42 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * StockData
  */
+@JsonPropertyOrder({
+  StockData.JSON_PROPERTY_MARKET_IDENTIFIER,
+  StockData.JSON_PROPERTY_STOCK_NUMBER,
+  StockData.JSON_PROPERTY_TICKER_SYMBOL
+})
 
 public class StockData {
-  public static final String SERIALIZED_NAME_MARKET_IDENTIFIER = "marketIdentifier";
-  @SerializedName(SERIALIZED_NAME_MARKET_IDENTIFIER)
+  public static final String JSON_PROPERTY_MARKET_IDENTIFIER = "marketIdentifier";
   private String marketIdentifier;
 
-  public static final String SERIALIZED_NAME_STOCK_NUMBER = "stockNumber";
-  @SerializedName(SERIALIZED_NAME_STOCK_NUMBER)
+  public static final String JSON_PROPERTY_STOCK_NUMBER = "stockNumber";
   private String stockNumber;
 
-  public static final String SERIALIZED_NAME_TICKER_SYMBOL = "tickerSymbol";
-  @SerializedName(SERIALIZED_NAME_TICKER_SYMBOL)
+  public static final String JSON_PROPERTY_TICKER_SYMBOL = "tickerSymbol";
   private String tickerSymbol;
 
   public StockData() { 
   }
 
   public StockData marketIdentifier(String marketIdentifier) {
-    
     this.marketIdentifier = marketIdentifier;
     return this;
   }
@@ -76,19 +59,22 @@ public class StockData {
    * @return marketIdentifier
   **/
   @ApiModelProperty(value = "The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.")
+  @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMarketIdentifier() {
     return marketIdentifier;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMarketIdentifier(String marketIdentifier) {
     this.marketIdentifier = marketIdentifier;
   }
 
 
   public StockData stockNumber(String stockNumber) {
-    
     this.stockNumber = stockNumber;
     return this;
   }
@@ -98,19 +84,22 @@ public class StockData {
    * @return stockNumber
   **/
   @ApiModelProperty(value = "The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).")
+  @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStockNumber() {
     return stockNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockNumber(String stockNumber) {
     this.stockNumber = stockNumber;
   }
 
 
   public StockData tickerSymbol(String tickerSymbol) {
-    
     this.tickerSymbol = tickerSymbol;
     return this;
   }
@@ -120,18 +109,24 @@ public class StockData {
    * @return tickerSymbol
   **/
   @ApiModelProperty(value = "The stock ticker symbol.")
+  @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTickerSymbol() {
     return tickerSymbol;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTickerSymbol(String tickerSymbol) {
     this.tickerSymbol = tickerSymbol;
   }
 
 
-
+  /**
+   * Return true if this StockData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -173,108 +168,23 @@ public class StockData {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("marketIdentifier");
-    openapiFields.add("stockNumber");
-    openapiFields.add("tickerSymbol");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of StockData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StockData
+   * @throws JsonProcessingException if the JSON string is invalid with respect to StockData
+   */
+  public static StockData fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StockData.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(StockData.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StockData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (StockData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StockData is not found in the empty JSON string", StockData.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!StockData.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `StockData` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field marketIdentifier
-      if (jsonObj.get("marketIdentifier") != null && !jsonObj.get("marketIdentifier").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `marketIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("marketIdentifier").toString()));
-      }
-      // validate the optional field stockNumber
-      if (jsonObj.get("stockNumber") != null && !jsonObj.get("stockNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `stockNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stockNumber").toString()));
-      }
-      // validate the optional field tickerSymbol
-      if (jsonObj.get("tickerSymbol") != null && !jsonObj.get("tickerSymbol").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `tickerSymbol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tickerSymbol").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StockData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StockData' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StockData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StockData.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<StockData>() {
-           @Override
-           public void write(JsonWriter out, StockData value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public StockData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of StockData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StockData
-  * @throws IOException if the JSON string is invalid with respect to StockData
-  */
-  public static StockData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StockData.class);
-  }
-
- /**
+/**
   * Convert an instance of StockData to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
