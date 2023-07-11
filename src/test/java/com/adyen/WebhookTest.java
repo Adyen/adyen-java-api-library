@@ -137,7 +137,7 @@ public class WebhookTest extends BaseTest {
         assertEquals("9913333333333333", notificationRequestItem.getOriginalReference());
         assertNotNull(notificationRequestItem.getAmount());
         assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
-        assertEquals(new Long(1000), notificationRequestItem.getAmount().getValue());
+        assertEquals(Long.valueOf(1000), notificationRequestItem.getAmount().getValue());
 
         assertNotNull(notificationRequestItem.getEventDate());
     }
@@ -155,7 +155,7 @@ public class WebhookTest extends BaseTest {
         assertEquals("9913333333333333", notificationRequestItem.getOriginalReference());
         assertNotNull(notificationRequestItem.getAmount());
         assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
-        assertEquals(new Long(1000), notificationRequestItem.getAmount().getValue());
+        assertEquals(Long.valueOf(1000), notificationRequestItem.getAmount().getValue());
 
         assertNotNull(notificationRequestItem.getEventDate());
     }
@@ -173,7 +173,7 @@ public class WebhookTest extends BaseTest {
         assertEquals("8313547924770610", notificationRequestItem.getOriginalReference());
         assertNotNull(notificationRequestItem.getAmount());
         assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
-        assertEquals(new Long(500), notificationRequestItem.getAmount().getValue());
+        assertEquals(Long.valueOf(500), notificationRequestItem.getAmount().getValue());
 
         assertNotNull(notificationRequestItem.getEventDate());
     }

@@ -21,7 +21,6 @@
 package com.adyen;
 
 /**
- * <h1>ApiKeyAuthenticatedService</h1>
  * The ApiKeyAuthenticatedService is an interface to enable a child service to support API key authentication feature.
  */
 public class ApiKeyAuthenticatedService extends Service {
