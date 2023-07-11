@@ -59,17 +59,15 @@ public class TerminalLocalAPITest extends BaseTest {
     @Test
     public void syncPaymentRequestSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/terminal-api/payment-local-success.json");
-        TerminalLocalAPI terminalLocalApi = new TerminalLocalAPI(client);
-
-        TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
-
         SecurityKey securityKey = new SecurityKey();
         securityKey.setKeyVersion(1);
         securityKey.setAdyenCryptoVersion(1);
         securityKey.setKeyIdentifier("CryptoKeyIdentifier12345");
         securityKey.setPassphrase("p@ssw0rd123456");
+        TerminalLocalAPI terminalLocalApi = new TerminalLocalAPI(client, securityKey);
 
-        TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIPaymentRequest, securityKey);
+        TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
+        TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIPaymentRequest);
 
         assertNotNull(terminalAPIResponse);
         assertNotNull(terminalAPIResponse.getSaleToPOIResponse());
