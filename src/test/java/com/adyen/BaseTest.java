@@ -209,9 +209,9 @@ public class BaseTest {
         // Use OpenInvoice Provider (klarna, ratepay)
         paymentRequest.selectedBrand("klarna");
 
-        Long itemAmount = new Long("9000");
-        Long itemVatAmount = new Long("1000");
-        Long itemVatPercentage = new Long("1000");
+        Long itemAmount = 9000L;
+        Long itemVatAmount = 1000L;
+        Long itemVatPercentage = 1000L;
 
         List<InvoiceLine> invoiceLines = new ArrayList<>();
 
