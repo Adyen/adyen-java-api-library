@@ -30,17 +30,13 @@ import java.security.KeyStore;
 public class Client {
     private ClientInterface httpClient;
     private Config config;
-    public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
-    public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
     public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
-    public static final String ENDPOINT_LIVE_SUFFIX = "-pal-live.adyenpayments.com";
     public static final String API_VERSION = "v68";
     public static final String PAYOUT_API_VERSION = "v68";
     public static final String RECURRING_API_VERSION = "v68";
     public static final String LIB_NAME = "adyen-java-api-library";
     public static final String LIB_VERSION = "20.1.1";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
-    public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v70";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
@@ -50,22 +46,13 @@ public class Client {
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
     public static final String STORED_VALUE_PAL_SUFFIX = "/pal/servlet/StoredValue/";
     public static final String STORED_VALUE_API_VERSION = "v46";
-    public static final String ENDPOINT_PROTOCOL = "https://";
-    public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST = "https://postfmapi-test.adyen.com/postfmapi/terminal";
     public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE = "https://postfmapi-live.adyen.com/postfmapi/terminal";
-    public static final String DATA_PROTECTION_ENDPOINT_TEST = "https://ca-test.adyen.com/ca/services/DataProtectionService";
     public static final String DATA_PROTECTION_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
     public static final String DATA_PROTECTION_VERSION = "v1";
-    public static final String BALANCE_PLATFORM_ENDPOINT_TEST = "https://balanceplatform-api-test.adyen.com";
-    public static final String BALANCE_PLATFORM_ENDPOINT_LIVE = "https://balanceplatform-api-live.adyen.com";
     public static final String BALANCE_PLATFORM_VERSION = "v2";
     public static final String TRANSFER_VERSION = "v3";
-    public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST = "https://kyc-test.adyen.com/lem/";
-    public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v3";
-    public static final String MANAGEMENT_ENDPOINT_TEST = "https://management-test.adyen.com/";
-    public static final String MANAGEMENT_ENDPOINT_LIVE = "https://management-live.adyen.com/";
     public static final String MANAGEMENT_VERSION = "v1";
 
     public Client() {
@@ -196,30 +183,10 @@ public class Client {
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
         if (Environment.TEST.equals(environment)) {
             this.config.setEnvironment(environment);
-            this.config.setEndpoint(ENDPOINT_TEST);
-            this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
-            this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
-            this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_TEST);
-            this.config.setBalancePlatformEndpoint(BALANCE_PLATFORM_ENDPOINT_TEST);
-            this.config.setLegalEntityManagementEndpoint(LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST);
-            this.config.setManagementEndpoint(MANAGEMENT_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
-            if (liveEndpointUrlPrefix != null && !liveEndpointUrlPrefix.isEmpty()) {
-                this.config.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
-                this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
-                this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);
-            } else {
-                this.config.setEndpoint(ENDPOINT_LIVE);
-                this.config.setCheckoutEndpoint(null);
-            }
-            this.config.setBalancePlatformEndpoint(BALANCE_PLATFORM_ENDPOINT_LIVE);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
-            this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE);
-            this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_LIVE);
-            this.config.setLegalEntityManagementEndpoint(LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE);
-            this.config.setManagementEndpoint(MANAGEMENT_ENDPOINT_LIVE);
         }
     }
 
