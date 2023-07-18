@@ -30,7 +30,6 @@ public class ClientTest {
         Client client = new Client(config);
 
         Assert.assertEquals(Environment.TEST, client.getConfig().getEnvironment());
-        Assert.assertEquals("https://checkout-test.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
     }
 
     @Test
@@ -41,7 +40,6 @@ public class ClientTest {
         config.setApiKey(apiKey);
         Client client = new Client(config);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        Assert.assertEquals("https://prefix-checkout-live.adyenpayments.com/checkout", client.getConfig().getCheckoutEndpoint());
     }
 
     @Test
@@ -56,34 +54,6 @@ public class ClientTest {
     @Test
     public void testClientCertificateAuth() {
         Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, null);
-
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        Assert.assertEquals("https://checkoutcert-live-eu.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
-        assertCommonEndpoints(client.getConfig());
-    }
-
-    @Test
-    public void testClientCertificateAuth_AU() {
-        Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, Region.AU);
-
-        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        Assert.assertEquals("https://checkoutcert-live-au.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
-        assertCommonEndpoints(client.getConfig());
-    }
-
-    @Test
-    public void testClientCertificateAuth_US() {
-        Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, Region.US);
-
-        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        Assert.assertEquals("https://checkoutcert-live-us.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
-        assertCommonEndpoints(client.getConfig());
-    }
-
-    private void assertCommonEndpoints(Config config) {
-        Assert.assertEquals(Client.ENDPOINT_CERT_LIVE, config.getEndpoint());
-        Assert.assertEquals(Client.TERMINAL_API_ENDPOINT_LIVE, config.getTerminalApiCloudEndpoint());
-        Assert.assertEquals(Client.POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE, config.getPosTerminalManagementApiEndpoint());
-        Assert.assertEquals(Client.DATA_PROTECTION_ENDPOINT_LIVE, config.getDataProtectionEndpoint());
     }
 }
