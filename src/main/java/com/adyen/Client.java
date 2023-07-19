@@ -31,29 +31,13 @@ public class Client {
     private ClientInterface httpClient;
     private Config config;
     public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
-    public static final String API_VERSION = "v68";
     public static final String PAYOUT_API_VERSION = "v68";
-    public static final String RECURRING_API_VERSION = "v68";
     public static final String LIB_NAME = "adyen-java-api-library";
     public static final String LIB_VERSION = "20.1.1";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
-    public static final String CHECKOUT_API_VERSION = "v70";
-    public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
-    public static final String BIN_LOOKUP_API_VERSION = "v52";
-    public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
-    public static final String STORED_VALUE_PAL_SUFFIX = "/pal/servlet/StoredValue/";
-    public static final String STORED_VALUE_API_VERSION = "v46";
-    public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE = "https://postfmapi-live.adyen.com/postfmapi/terminal";
-    public static final String DATA_PROTECTION_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
-    public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
-    public static final String DATA_PROTECTION_VERSION = "v1";
-    public static final String BALANCE_PLATFORM_VERSION = "v2";
-    public static final String TRANSFER_VERSION = "v3";
-    public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v3";
-    public static final String MANAGEMENT_VERSION = "v1";
 
     public Client() {
         this.config = new Config();
