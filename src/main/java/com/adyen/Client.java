@@ -31,7 +31,6 @@ public class Client {
     private ClientInterface httpClient;
     private Config config;
     public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
-    public static final String PAYOUT_API_VERSION = "v68";
     public static final String LIB_NAME = "adyen-java-api-library";
     public static final String LIB_VERSION = "20.1.1";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
