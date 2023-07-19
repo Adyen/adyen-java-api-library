@@ -165,7 +165,7 @@ public class Client {
      * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
-        if (liveEndpointUrlPrefix != null) {
+        if (liveEndpointUrlPrefix != null || liveEndpointUrlPrefix.isEmpty()) {
             config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
         }
         if (Environment.TEST.equals(environment)) {
