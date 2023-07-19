@@ -382,8 +382,8 @@ public class CheckoutTest extends BaseTest {
     public void TestLiveURLCheckout() throws Exception {
         Config config = new Config();
         config.setLiveEndpointUrlPrefix("prefix");
-        config.setEnvironment(Environment.LIVE);
         Client client = createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
+        client.setEnvironment(Environment.LIVE);
         client.setConfig(config);
         RecurringApi checkout = new RecurringApi(client);
         checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");

@@ -47,7 +47,9 @@ public class ClientTest {
         Config config = new Config();
         config.setEnvironment(Environment.LIVE);
         config.setApiKey(apiKey);
-        IllegalArgumentException ex = Assert.assertThrows(IllegalArgumentException.class, () -> {new Client(config).getConfig().getCheckoutEndpoint();});
+        IllegalArgumentException ex = Assert.assertThrows(IllegalArgumentException.class, () -> {
+            new Client(config).getConfig().getCheckoutEndpoint();
+        });
         Assert.assertEquals(ex.getMessage(), "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.");
     }
 
@@ -55,5 +57,28 @@ public class ClientTest {
     public void testClientCertificateAuth() {
         Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, null);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+    }
+
+    @Test
+    public void testClientCertificateAuth_AU() {
+        Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, Region.AU);
+
+        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+        Assert.assertEquals("https://checkoutcert-live-au.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
+        assertCommonEndpoints(client.getConfig());
+    }
+
+    @Test
+    public void testClientCertificateAuth_US() {
+        Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, Region.US);
+
+        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+        Assert.assertEquals("https://checkoutcert-live-us.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
+        assertCommonEndpoints(client.getConfig());
+    }
+
+    private void assertCommonEndpoints(Config config) {
+        Assert.assertEquals(Client.ENDPOINT_CERT_LIVE, config.getEndpoint());
+        Assert.assertEquals(Client.TERMINAL_API_ENDPOINT_LIVE, config.getTerminalApiCloudEndpoint());
     }
 }
