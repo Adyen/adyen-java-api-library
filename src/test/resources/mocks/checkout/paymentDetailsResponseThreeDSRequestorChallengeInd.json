@@ -1,0 +1,48 @@
+{
+  "additionalData": {
+    "threeDSVersion": "2.2.0",
+    "threeds2.threeDS2Result.transStatus": "U",
+    "threeds2.threeDS2Result.challengeIndicator": "01",
+    "paymentMethodVariant": "cartebancaire",
+    "threeds2.threeDS2Result.cavvAlgorithm": "2",
+    "threeds2.threeDS2Result.challengeCancel": "01",
+    "threeds2.threeDS2Result.threeDSRequestorChallengeInd": "01",
+    "threeDOffered": "true",
+    "threeds2.threeDS2Result.eci": "07",
+    "threeDOfferedResponse": "C",
+    "threeDAuthenticatedResponse": "U",
+    "threeds2.threeDS2Result.whiteListStatus": "Y",
+    "paymentMethod": "cartebancaire",
+    "threeds2.threeDS2Result.riskScore": "9",
+    "threeds2.threeDS2Result.transStatusReason": "01",
+    "threeds2.threeDS2Result.messageVersion": "2.2.0"
+  },
+  "pspReference": "FooBar",
+  "refusalReason": "3D Not Authenticated",
+  "resultCode": "Refused",
+  "refusalReasonCode": "11",
+  "amount": {
+    "currency": "EUR",
+    "value": 1500
+  },
+  "merchantReference": "FooBar123",
+  "paymentMethod": {
+    "brand": "cartebancaire",
+    "type": "scheme"
+  },
+  "threeDS2Result": {
+    "authenticationValue": "Rm9vQmFy",
+    "cavvAlgorithm": "2",
+    "challengeCancel": "01",
+    "challengeIndicator": "01",
+    "dsTransID": "abc-123",
+    "eci": "07",
+    "messageVersion": "2.2.0",
+    "riskScore": "9",
+    "threeDSRequestorChallengeInd": "01",
+    "threeDSServerTransID": "xyz-123",
+    "transStatus": "U",
+    "transStatusReason": "01",
+    "whiteListStatus": "Y"
+  }
+} 
