@@ -180,6 +180,19 @@ public class CheckoutTest extends BaseTest {
         assertEquals("V4HZ4RBFJGXXGN82", paymentDetailsResponse.getPspReference());
     }
 
+    @Test
+    public void TestPaymentDetailsWithThreeDSRequestorChallengeInd() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentDetailsResponseThreeDSRequestorChallengeInd.json");
+        DetailsRequest detailsRequest = new DetailsRequest();
+        detailsRequest.setPaymentData("STATE_DATA");
+        PaymentsApi checkout = new PaymentsApi(client);
+        
+        PaymentDetailsResponse paymentDetailsResponse = checkout.paymentsDetails(detailsRequest);
+        
+        assertEquals(PaymentDetailsResponse.ResultCodeEnum.REFUSED, paymentDetailsResponse.getResultCode());
+        assertEquals(ThreeDS2Result.ThreeDSRequestorChallengeIndEnum._01, paymentDetailsResponse.getThreeDS2Result().getThreeDSRequestorChallengeInd());
+    }
+
     /**
      * Should make sessions call
      */
