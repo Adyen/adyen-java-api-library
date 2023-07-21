@@ -76,6 +76,7 @@ public class BaseTest {
             .setPrettyPrinting().create();
     public static final String USER_AGENT = "User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36";
 
+    private static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     /**
      * Returns a Client object that has a mocked response
      */
@@ -93,7 +94,7 @@ public class BaseTest {
         client.setHttpClient(adyenHttpClient);
 
         Config config = new Config();
-        config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
+        config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
         return client;
@@ -319,7 +320,7 @@ public class BaseTest {
         Client client = new Client();
         client.setHttpClient(adyenHttpClient);
         Config config = new Config();
-        config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
+        config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
         return client;

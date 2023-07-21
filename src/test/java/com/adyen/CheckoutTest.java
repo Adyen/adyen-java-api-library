@@ -380,6 +380,30 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestLiveURLCheckout() throws Exception {
+        Config config = new Config();
+        config.setLiveEndpointUrlPrefix("prefix");
+        config.setEnvironment(Environment.LIVE);
+        Client client = createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
+        client.setConfig(config);
+        RecurringApi checkout = new RecurringApi(client);
+        checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
+        HashMap<String, String> queryParams = new HashMap<String,String>();
+        queryParams.put("merchantAccount", "TestMerchantAccount");
+        queryParams.put("shopperReference", "test-1234");
+
+        verify(client.getHttpClient()).request(
+                "https://prefix-checkout-live.adyenpayments.com/checkout/v70/storedPaymentMethods/recurringId",
+                null,
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.DELETE,
+                queryParams
+        );
+    }
+
+    @Test
+    public void TestLiveURLCheckoutWithSetEnviroment() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
         client.setEnvironment(Environment.LIVE, "prefix");
         RecurringApi checkout = new RecurringApi(client);
