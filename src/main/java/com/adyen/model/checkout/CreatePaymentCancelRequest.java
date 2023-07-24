@@ -28,24 +28,24 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PaymentReversalRequest
+ * CreatePaymentCancelRequest
  */
 @JsonPropertyOrder({
-  PaymentReversalRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  PaymentReversalRequest.JSON_PROPERTY_REFERENCE
+  CreatePaymentCancelRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreatePaymentCancelRequest.JSON_PROPERTY_REFERENCE
 })
 
-public class PaymentReversalRequest {
+public class CreatePaymentCancelRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public PaymentReversalRequest() { 
+  public CreatePaymentCancelRequest() { 
   }
 
-  public PaymentReversalRequest merchantAccount(String merchantAccount) {
+  public CreatePaymentCancelRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -70,16 +70,16 @@ public class PaymentReversalRequest {
   }
 
 
-  public PaymentReversalRequest reference(String reference) {
+  public CreatePaymentCancelRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
    /**
-   * Your reference for the reversal request. Maximum length: 80 characters.
+   * Your reference for the cancel request. Maximum length: 80 characters.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference for the reversal request. Maximum length: 80 characters.")
+  @ApiModelProperty(value = "Your reference for the cancel request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,7 +96,7 @@ public class PaymentReversalRequest {
 
 
   /**
-   * Return true if this PaymentReversalRequest object is equal to o.
+   * Return true if this CreatePaymentCancelRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -106,9 +106,9 @@ public class PaymentReversalRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentReversalRequest paymentReversalRequest = (PaymentReversalRequest) o;
-    return Objects.equals(this.merchantAccount, paymentReversalRequest.merchantAccount) &&
-        Objects.equals(this.reference, paymentReversalRequest.reference);
+    CreatePaymentCancelRequest createPaymentCancelRequest = (CreatePaymentCancelRequest) o;
+    return Objects.equals(this.merchantAccount, createPaymentCancelRequest.merchantAccount) &&
+        Objects.equals(this.reference, createPaymentCancelRequest.reference);
   }
 
   @Override
@@ -119,7 +119,7 @@ public class PaymentReversalRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentReversalRequest {\n");
+    sb.append("class CreatePaymentCancelRequest {\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");
@@ -138,17 +138,17 @@ public class PaymentReversalRequest {
   }
 
 /**
-   * Create an instance of PaymentReversalRequest given an JSON string
+   * Create an instance of CreatePaymentCancelRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PaymentReversalRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentReversalRequest
+   * @return An instance of CreatePaymentCancelRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePaymentCancelRequest
    */
-  public static PaymentReversalRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentReversalRequest.class);
+  public static CreatePaymentCancelRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreatePaymentCancelRequest.class);
   }
 /**
-  * Convert an instance of PaymentReversalRequest to an JSON string
+  * Convert an instance of CreatePaymentCancelRequest to an JSON string
   *
   * @return JSON string
   */

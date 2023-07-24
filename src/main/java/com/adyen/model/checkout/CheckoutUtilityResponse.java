@@ -31,25 +31,25 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * UtilityResponse
+ * CheckoutUtilityResponse
  */
 @JsonPropertyOrder({
-  UtilityResponse.JSON_PROPERTY_ORIGIN_KEYS
+  CheckoutUtilityResponse.JSON_PROPERTY_ORIGIN_KEYS
 })
 
-public class UtilityResponse {
+public class CheckoutUtilityResponse {
   public static final String JSON_PROPERTY_ORIGIN_KEYS = "originKeys";
   private Map<String, String> originKeys = null;
 
-  public UtilityResponse() { 
+  public CheckoutUtilityResponse() { 
   }
 
-  public UtilityResponse originKeys(Map<String, String> originKeys) {
+  public CheckoutUtilityResponse originKeys(Map<String, String> originKeys) {
     this.originKeys = originKeys;
     return this;
   }
 
-  public UtilityResponse putOriginKeysItem(String key, String originKeysItem) {
+  public CheckoutUtilityResponse putOriginKeysItem(String key, String originKeysItem) {
     if (this.originKeys == null) {
       this.originKeys = new HashMap<>();
     }
@@ -78,7 +78,7 @@ public class UtilityResponse {
 
 
   /**
-   * Return true if this UtilityResponse object is equal to o.
+   * Return true if this CheckoutUtilityResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -88,8 +88,8 @@ public class UtilityResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UtilityResponse utilityResponse = (UtilityResponse) o;
-    return Objects.equals(this.originKeys, utilityResponse.originKeys);
+    CheckoutUtilityResponse checkoutUtilityResponse = (CheckoutUtilityResponse) o;
+    return Objects.equals(this.originKeys, checkoutUtilityResponse.originKeys);
   }
 
   @Override
@@ -100,7 +100,7 @@ public class UtilityResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UtilityResponse {\n");
+    sb.append("class CheckoutUtilityResponse {\n");
     sb.append("    originKeys: ").append(toIndentedString(originKeys)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -118,17 +118,17 @@ public class UtilityResponse {
   }
 
 /**
-   * Create an instance of UtilityResponse given an JSON string
+   * Create an instance of CheckoutUtilityResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UtilityResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to UtilityResponse
+   * @return An instance of CheckoutUtilityResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutUtilityResponse
    */
-  public static UtilityResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, UtilityResponse.class);
+  public static CheckoutUtilityResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CheckoutUtilityResponse.class);
   }
 /**
-  * Convert an instance of UtilityResponse to an JSON string
+  * Convert an instance of CheckoutUtilityResponse to an JSON string
   *
   * @return JSON string
   */

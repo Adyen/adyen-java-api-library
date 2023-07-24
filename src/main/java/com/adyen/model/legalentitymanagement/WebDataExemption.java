@@ -39,9 +39,7 @@ public class WebDataExemption {
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    */
   public enum ReasonEnum {
-    NOONLINEPRESENCE("noOnlinePresence"),
-    
-    NOTCOLLECTEDDURINGONBOARDING("notCollectedDuringOnboarding");
+    NOONLINEPRESENCE("noOnlinePresence");
 
     private String value;
 

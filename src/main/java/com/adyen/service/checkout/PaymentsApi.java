@@ -27,6 +27,7 @@ import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
 import com.adyen.model.checkout.PaymentResponse;
 import com.adyen.model.checkout.ServiceError;
+import com.adyen.model.checkout.SessionResultResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -41,6 +42,45 @@ public class PaymentsApi extends Service {
     public PaymentsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
+    }
+
+    /**
+    * Get the result of a payment session
+    *
+    * @param sessionId {@link String } A unique identifier of the session. (required)
+    * @return {@link SessionResultResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public SessionResultResponse getResultOfPaymentSession(String sessionId) throws ApiException, IOException {
+        return getResultOfPaymentSession(sessionId, null,  null);
+    }
+
+    /**
+    * Get the result of a payment session
+    *
+    * @param sessionId {@link String } A unique identifier of the session. (required)
+    * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the Drop-in or Component. (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link SessionResultResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public SessionResultResponse getResultOfPaymentSession(String sessionId, String sessionResult, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (sessionId == null) {
+            throw new IllegalArgumentException("Please provide the sessionId path parameter");
+        }
+        pathParams.put("sessionId", sessionId);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (sessionResult != null) {
+        queryParams.put("sessionResult", sessionResult);
+        }
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/sessions/{sessionId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return SessionResultResponse.fromJson(jsonResult);
     }
 
     /**

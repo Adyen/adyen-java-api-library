@@ -59,7 +59,7 @@ public class DocumentsApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/documents/{id}", null);
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
+        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
     }
 
     /**

@@ -17,10 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
-import com.adyen.model.checkout.LineItem;
-import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.Split;
-import com.adyen.model.checkout.SubMerchant2;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,36 +32,68 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PaymentCaptureResponse
+ * PaymentAmountUpdateResource
  */
 @JsonPropertyOrder({
-  PaymentCaptureResponse.JSON_PROPERTY_AMOUNT,
-  PaymentCaptureResponse.JSON_PROPERTY_LINE_ITEMS,
-  PaymentCaptureResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  PaymentCaptureResponse.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
-  PaymentCaptureResponse.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
-  PaymentCaptureResponse.JSON_PROPERTY_PSP_REFERENCE,
-  PaymentCaptureResponse.JSON_PROPERTY_REFERENCE,
-  PaymentCaptureResponse.JSON_PROPERTY_SPLITS,
-  PaymentCaptureResponse.JSON_PROPERTY_STATUS,
-  PaymentCaptureResponse.JSON_PROPERTY_SUB_MERCHANTS
+  PaymentAmountUpdateResource.JSON_PROPERTY_AMOUNT,
+  PaymentAmountUpdateResource.JSON_PROPERTY_INDUSTRY_USAGE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentAmountUpdateResource.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_PSP_REFERENCE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_REFERENCE,
+  PaymentAmountUpdateResource.JSON_PROPERTY_SPLITS,
+  PaymentAmountUpdateResource.JSON_PROPERTY_STATUS
 })
 
-public class PaymentCaptureResponse {
+public class PaymentAmountUpdateResource {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = null;
+  /**
+   * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
+   */
+  public enum IndustryUsageEnum {
+    DELAYEDCHARGE("delayedCharge"),
+    
+    INSTALLMENT("installment"),
+    
+    NOSHOW("noShow");
+
+    private String value;
+
+    IndustryUsageEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static IndustryUsageEnum fromValue(String value) {
+      for (IndustryUsageEnum b : IndustryUsageEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_INDUSTRY_USAGE = "industryUsage";
+  private IndustryUsageEnum industryUsage;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
   public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
   private String paymentPspReference;
-
-  public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
-  private PlatformChargebackLogic platformChargebackLogic;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -111,13 +140,10 @@ public class PaymentCaptureResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
-  private List<SubMerchant2> subMerchants = null;
-
-  public PaymentCaptureResponse() { 
+  public PaymentAmountUpdateResource() { 
   }
 
-  public PaymentCaptureResponse amount(Amount amount) {
+  public PaymentAmountUpdateResource amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -142,40 +168,32 @@ public class PaymentCaptureResponse {
   }
 
 
-  public PaymentCaptureResponse lineItems(List<LineItem> lineItems) {
-    this.lineItems = lineItems;
-    return this;
-  }
-
-  public PaymentCaptureResponse addLineItemsItem(LineItem lineItemsItem) {
-    if (this.lineItems == null) {
-      this.lineItems = new ArrayList<>();
-    }
-    this.lineItems.add(lineItemsItem);
+  public PaymentAmountUpdateResource industryUsage(IndustryUsageEnum industryUsage) {
+    this.industryUsage = industryUsage;
     return this;
   }
 
    /**
-   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
-   * @return lineItems
+   * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
+   * @return industryUsage
   **/
-  @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
-  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @ApiModelProperty(value = "The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**")
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<LineItem> getLineItems() {
-    return lineItems;
+  public IndustryUsageEnum getIndustryUsage() {
+    return industryUsage;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItems(List<LineItem> lineItems) {
-    this.lineItems = lineItems;
+  public void setIndustryUsage(IndustryUsageEnum industryUsage) {
+    this.industryUsage = industryUsage;
   }
 
 
-  public PaymentCaptureResponse merchantAccount(String merchantAccount) {
+  public PaymentAmountUpdateResource merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -200,16 +218,16 @@ public class PaymentCaptureResponse {
   }
 
 
-  public PaymentCaptureResponse paymentPspReference(String paymentPspReference) {
+  public PaymentAmountUpdateResource paymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
     return this;
   }
 
    /**
-   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
+   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update. 
    * @return paymentPspReference
   **/
-  @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. ")
+  @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update. ")
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -225,41 +243,16 @@ public class PaymentCaptureResponse {
   }
 
 
-  public PaymentCaptureResponse platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
-    this.platformChargebackLogic = platformChargebackLogic;
-    return this;
-  }
-
-   /**
-   * Get platformChargebackLogic
-   * @return platformChargebackLogic
-  **/
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public PlatformChargebackLogic getPlatformChargebackLogic() {
-    return platformChargebackLogic;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
-    this.platformChargebackLogic = platformChargebackLogic;
-  }
-
-
-  public PaymentCaptureResponse pspReference(String pspReference) {
+  public PaymentAmountUpdateResource pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
    /**
-   * Adyen&#39;s 16-character reference associated with the capture request.
+   * Adyen&#39;s 16-character reference associated with the amount update request.
    * @return pspReference
   **/
-  @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the capture request.")
+  @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the amount update request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -275,16 +268,16 @@ public class PaymentCaptureResponse {
   }
 
 
-  public PaymentCaptureResponse reference(String reference) {
+  public PaymentAmountUpdateResource reference(String reference) {
     this.reference = reference;
     return this;
   }
 
    /**
-   * Your reference for the capture request.
+   * Your reference for the amount update request. Maximum length: 80 characters.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference for the capture request.")
+  @ApiModelProperty(required = true, value = "Your reference for the amount update request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -300,12 +293,12 @@ public class PaymentCaptureResponse {
   }
 
 
-  public PaymentCaptureResponse splits(List<Split> splits) {
+  public PaymentAmountUpdateResource splits(List<Split> splits) {
     this.splits = splits;
     return this;
   }
 
-  public PaymentCaptureResponse addSplitsItem(Split splitsItem) {
+  public PaymentAmountUpdateResource addSplitsItem(Split splitsItem) {
     if (this.splits == null) {
       this.splits = new ArrayList<>();
     }
@@ -333,7 +326,7 @@ public class PaymentCaptureResponse {
   }
 
 
-  public PaymentCaptureResponse status(StatusEnum status) {
+  public PaymentAmountUpdateResource status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -358,41 +351,8 @@ public class PaymentCaptureResponse {
   }
 
 
-  public PaymentCaptureResponse subMerchants(List<SubMerchant2> subMerchants) {
-    this.subMerchants = subMerchants;
-    return this;
-  }
-
-  public PaymentCaptureResponse addSubMerchantsItem(SubMerchant2 subMerchantsItem) {
-    if (this.subMerchants == null) {
-      this.subMerchants = new ArrayList<>();
-    }
-    this.subMerchants.add(subMerchantsItem);
-    return this;
-  }
-
-   /**
-   * List of sub-merchants.
-   * @return subMerchants
-  **/
-  @ApiModelProperty(value = "List of sub-merchants.")
-  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubMerchant2> getSubMerchants() {
-    return subMerchants;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubMerchants(List<SubMerchant2> subMerchants) {
-    this.subMerchants = subMerchants;
-  }
-
-
   /**
-   * Return true if this PaymentCaptureResponse object is equal to o.
+   * Return true if this PaymentAmountUpdateResource object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -402,38 +362,34 @@ public class PaymentCaptureResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentCaptureResponse paymentCaptureResponse = (PaymentCaptureResponse) o;
-    return Objects.equals(this.amount, paymentCaptureResponse.amount) &&
-        Objects.equals(this.lineItems, paymentCaptureResponse.lineItems) &&
-        Objects.equals(this.merchantAccount, paymentCaptureResponse.merchantAccount) &&
-        Objects.equals(this.paymentPspReference, paymentCaptureResponse.paymentPspReference) &&
-        Objects.equals(this.platformChargebackLogic, paymentCaptureResponse.platformChargebackLogic) &&
-        Objects.equals(this.pspReference, paymentCaptureResponse.pspReference) &&
-        Objects.equals(this.reference, paymentCaptureResponse.reference) &&
-        Objects.equals(this.splits, paymentCaptureResponse.splits) &&
-        Objects.equals(this.status, paymentCaptureResponse.status) &&
-        Objects.equals(this.subMerchants, paymentCaptureResponse.subMerchants);
+    PaymentAmountUpdateResource paymentAmountUpdateResource = (PaymentAmountUpdateResource) o;
+    return Objects.equals(this.amount, paymentAmountUpdateResource.amount) &&
+        Objects.equals(this.industryUsage, paymentAmountUpdateResource.industryUsage) &&
+        Objects.equals(this.merchantAccount, paymentAmountUpdateResource.merchantAccount) &&
+        Objects.equals(this.paymentPspReference, paymentAmountUpdateResource.paymentPspReference) &&
+        Objects.equals(this.pspReference, paymentAmountUpdateResource.pspReference) &&
+        Objects.equals(this.reference, paymentAmountUpdateResource.reference) &&
+        Objects.equals(this.splits, paymentAmountUpdateResource.splits) &&
+        Objects.equals(this.status, paymentAmountUpdateResource.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, lineItems, merchantAccount, paymentPspReference, platformChargebackLogic, pspReference, reference, splits, status, subMerchants);
+    return Objects.hash(amount, industryUsage, merchantAccount, paymentPspReference, pspReference, reference, splits, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentCaptureResponse {\n");
+    sb.append("class PaymentAmountUpdateResource {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
-    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -450,17 +406,17 @@ public class PaymentCaptureResponse {
   }
 
 /**
-   * Create an instance of PaymentCaptureResponse given an JSON string
+   * Create an instance of PaymentAmountUpdateResource given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PaymentCaptureResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentCaptureResponse
+   * @return An instance of PaymentAmountUpdateResource
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentAmountUpdateResource
    */
-  public static PaymentCaptureResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentCaptureResponse.class);
+  public static PaymentAmountUpdateResource fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentAmountUpdateResource.class);
   }
 /**
-  * Convert an instance of PaymentCaptureResponse to an JSON string
+  * Convert an instance of PaymentAmountUpdateResource to an JSON string
   *
   * @return JSON string
   */

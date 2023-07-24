@@ -28,15 +28,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * ApplePaySessionRequest
+ * CreateApplePaySessionRequest
  */
 @JsonPropertyOrder({
-  ApplePaySessionRequest.JSON_PROPERTY_DISPLAY_NAME,
-  ApplePaySessionRequest.JSON_PROPERTY_DOMAIN_NAME,
-  ApplePaySessionRequest.JSON_PROPERTY_MERCHANT_IDENTIFIER
+  CreateApplePaySessionRequest.JSON_PROPERTY_DISPLAY_NAME,
+  CreateApplePaySessionRequest.JSON_PROPERTY_DOMAIN_NAME,
+  CreateApplePaySessionRequest.JSON_PROPERTY_MERCHANT_IDENTIFIER
 })
 
-public class ApplePaySessionRequest {
+public class CreateApplePaySessionRequest {
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   private String displayName;
 
@@ -46,10 +46,10 @@ public class ApplePaySessionRequest {
   public static final String JSON_PROPERTY_MERCHANT_IDENTIFIER = "merchantIdentifier";
   private String merchantIdentifier;
 
-  public ApplePaySessionRequest() { 
+  public CreateApplePaySessionRequest() { 
   }
 
-  public ApplePaySessionRequest displayName(String displayName) {
+  public CreateApplePaySessionRequest displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -74,7 +74,7 @@ public class ApplePaySessionRequest {
   }
 
 
-  public ApplePaySessionRequest domainName(String domainName) {
+  public CreateApplePaySessionRequest domainName(String domainName) {
     this.domainName = domainName;
     return this;
   }
@@ -99,7 +99,7 @@ public class ApplePaySessionRequest {
   }
 
 
-  public ApplePaySessionRequest merchantIdentifier(String merchantIdentifier) {
+  public CreateApplePaySessionRequest merchantIdentifier(String merchantIdentifier) {
     this.merchantIdentifier = merchantIdentifier;
     return this;
   }
@@ -125,7 +125,7 @@ public class ApplePaySessionRequest {
 
 
   /**
-   * Return true if this ApplePaySessionRequest object is equal to o.
+   * Return true if this CreateApplePaySessionRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -135,10 +135,10 @@ public class ApplePaySessionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplePaySessionRequest applePaySessionRequest = (ApplePaySessionRequest) o;
-    return Objects.equals(this.displayName, applePaySessionRequest.displayName) &&
-        Objects.equals(this.domainName, applePaySessionRequest.domainName) &&
-        Objects.equals(this.merchantIdentifier, applePaySessionRequest.merchantIdentifier);
+    CreateApplePaySessionRequest createApplePaySessionRequest = (CreateApplePaySessionRequest) o;
+    return Objects.equals(this.displayName, createApplePaySessionRequest.displayName) &&
+        Objects.equals(this.domainName, createApplePaySessionRequest.domainName) &&
+        Objects.equals(this.merchantIdentifier, createApplePaySessionRequest.merchantIdentifier);
   }
 
   @Override
@@ -149,7 +149,7 @@ public class ApplePaySessionRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplePaySessionRequest {\n");
+    sb.append("class CreateApplePaySessionRequest {\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    merchantIdentifier: ").append(toIndentedString(merchantIdentifier)).append("\n");
@@ -169,17 +169,17 @@ public class ApplePaySessionRequest {
   }
 
 /**
-   * Create an instance of ApplePaySessionRequest given an JSON string
+   * Create an instance of CreateApplePaySessionRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ApplePaySessionRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ApplePaySessionRequest
+   * @return An instance of CreateApplePaySessionRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreateApplePaySessionRequest
    */
-  public static ApplePaySessionRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, ApplePaySessionRequest.class);
+  public static CreateApplePaySessionRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreateApplePaySessionRequest.class);
   }
 /**
-  * Convert an instance of ApplePaySessionRequest to an JSON string
+  * Convert an instance of CreateApplePaySessionRequest to an JSON string
   *
   * @return JSON string
   */

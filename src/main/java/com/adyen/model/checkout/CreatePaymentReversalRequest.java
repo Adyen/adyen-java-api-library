@@ -16,7 +16,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.checkout.EncryptedOrderData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,33 +28,33 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CancelOrderRequest
+ * CreatePaymentReversalRequest
  */
 @JsonPropertyOrder({
-  CancelOrderRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  CancelOrderRequest.JSON_PROPERTY_ORDER
+  CreatePaymentReversalRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreatePaymentReversalRequest.JSON_PROPERTY_REFERENCE
 })
 
-public class CancelOrderRequest {
+public class CreatePaymentReversalRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String JSON_PROPERTY_ORDER = "order";
-  private EncryptedOrderData order;
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
+  private String reference;
 
-  public CancelOrderRequest() { 
+  public CreatePaymentReversalRequest() { 
   }
 
-  public CancelOrderRequest merchantAccount(String merchantAccount) {
+  public CreatePaymentReversalRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
    /**
-   * The merchant account identifier that orderData belongs to.
+   * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  @ApiModelProperty(required = true, value = "The merchant account identifier that orderData belongs to.")
+  @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -71,33 +70,33 @@ public class CancelOrderRequest {
   }
 
 
-  public CancelOrderRequest order(EncryptedOrderData order) {
-    this.order = order;
+  public CreatePaymentReversalRequest reference(String reference) {
+    this.reference = reference;
     return this;
   }
 
    /**
-   * Get order
-   * @return order
+   * Your reference for the reversal request. Maximum length: 80 characters.
+   * @return reference
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @ApiModelProperty(value = "Your reference for the reversal request. Maximum length: 80 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EncryptedOrderData getOrder() {
-    return order;
+  public String getReference() {
+    return reference;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOrder(EncryptedOrderData order) {
-    this.order = order;
+  public void setReference(String reference) {
+    this.reference = reference;
   }
 
 
   /**
-   * Return true if this CancelOrderRequest object is equal to o.
+   * Return true if this CreatePaymentReversalRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +106,22 @@ public class CancelOrderRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CancelOrderRequest cancelOrderRequest = (CancelOrderRequest) o;
-    return Objects.equals(this.merchantAccount, cancelOrderRequest.merchantAccount) &&
-        Objects.equals(this.order, cancelOrderRequest.order);
+    CreatePaymentReversalRequest createPaymentReversalRequest = (CreatePaymentReversalRequest) o;
+    return Objects.equals(this.merchantAccount, createPaymentReversalRequest.merchantAccount) &&
+        Objects.equals(this.reference, createPaymentReversalRequest.reference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, order);
+    return Objects.hash(merchantAccount, reference);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CancelOrderRequest {\n");
+    sb.append("class CreatePaymentReversalRequest {\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,17 +138,17 @@ public class CancelOrderRequest {
   }
 
 /**
-   * Create an instance of CancelOrderRequest given an JSON string
+   * Create an instance of CreatePaymentReversalRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CancelOrderRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CancelOrderRequest
+   * @return An instance of CreatePaymentReversalRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePaymentReversalRequest
    */
-  public static CancelOrderRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CancelOrderRequest.class);
+  public static CreatePaymentReversalRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreatePaymentReversalRequest.class);
   }
 /**
-  * Convert an instance of CancelOrderRequest to an JSON string
+  * Convert an instance of CreatePaymentReversalRequest to an JSON string
   *
   * @return JSON string
   */

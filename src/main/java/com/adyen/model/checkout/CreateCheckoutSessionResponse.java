@@ -39,6 +39,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -190,7 +191,7 @@ public class CreateCheckoutSessionResponse {
   private String countryCode;
 
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
-  private OffsetDateTime dateOfBirth;
+  private LocalDate dateOfBirth;
 
   public static final String JSON_PROPERTY_DELIVER_AT = "deliverAt";
   private OffsetDateTime deliverAt;
@@ -824,27 +825,27 @@ public class CreateCheckoutSessionResponse {
   }
 
 
-  public CreateCheckoutSessionResponse dateOfBirth(OffsetDateTime dateOfBirth) {
+  public CreateCheckoutSessionResponse dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
 
    /**
-   * The shopper&#39;s date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+   * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    * @return dateOfBirth
   **/
-  @ApiModelProperty(value = "The shopper's date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.")
+  @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getDateOfBirth() {
+  public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDateOfBirth(OffsetDateTime dateOfBirth) {
+  public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 

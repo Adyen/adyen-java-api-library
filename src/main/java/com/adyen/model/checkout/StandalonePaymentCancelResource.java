@@ -28,22 +28,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PaymentCancelResponse
+ * StandalonePaymentCancelResource
  */
 @JsonPropertyOrder({
-  PaymentCancelResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  PaymentCancelResponse.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
-  PaymentCancelResponse.JSON_PROPERTY_PSP_REFERENCE,
-  PaymentCancelResponse.JSON_PROPERTY_REFERENCE,
-  PaymentCancelResponse.JSON_PROPERTY_STATUS
+  StandalonePaymentCancelResource.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  StandalonePaymentCancelResource.JSON_PROPERTY_PAYMENT_REFERENCE,
+  StandalonePaymentCancelResource.JSON_PROPERTY_PSP_REFERENCE,
+  StandalonePaymentCancelResource.JSON_PROPERTY_REFERENCE,
+  StandalonePaymentCancelResource.JSON_PROPERTY_STATUS
 })
 
-public class PaymentCancelResponse {
+public class StandalonePaymentCancelResource {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
-  private String paymentPspReference;
+  public static final String JSON_PROPERTY_PAYMENT_REFERENCE = "paymentReference";
+  private String paymentReference;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -87,10 +87,10 @@ public class PaymentCancelResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public PaymentCancelResponse() { 
+  public StandalonePaymentCancelResource() { 
   }
 
-  public PaymentCancelResponse merchantAccount(String merchantAccount) {
+  public StandalonePaymentCancelResource merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -115,32 +115,32 @@ public class PaymentCancelResponse {
   }
 
 
-  public PaymentCancelResponse paymentPspReference(String paymentPspReference) {
-    this.paymentPspReference = paymentPspReference;
+  public StandalonePaymentCancelResource paymentReference(String paymentReference) {
+    this.paymentReference = paymentReference;
     return this;
   }
 
    /**
-   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to cancel. 
-   * @return paymentPspReference
+   * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.
+   * @return paymentReference
   **/
-  @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to cancel. ")
-  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getPaymentPspReference() {
-    return paymentPspReference;
+  public String getPaymentReference() {
+    return paymentReference;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentPspReference(String paymentPspReference) {
-    this.paymentPspReference = paymentPspReference;
+  public void setPaymentReference(String paymentReference) {
+    this.paymentReference = paymentReference;
   }
 
 
-  public PaymentCancelResponse pspReference(String pspReference) {
+  public StandalonePaymentCancelResource pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
@@ -165,7 +165,7 @@ public class PaymentCancelResponse {
   }
 
 
-  public PaymentCancelResponse reference(String reference) {
+  public StandalonePaymentCancelResource reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -190,7 +190,7 @@ public class PaymentCancelResponse {
   }
 
 
-  public PaymentCancelResponse status(StatusEnum status) {
+  public StandalonePaymentCancelResource status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -216,7 +216,7 @@ public class PaymentCancelResponse {
 
 
   /**
-   * Return true if this PaymentCancelResponse object is equal to o.
+   * Return true if this StandalonePaymentCancelResource object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -226,25 +226,25 @@ public class PaymentCancelResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentCancelResponse paymentCancelResponse = (PaymentCancelResponse) o;
-    return Objects.equals(this.merchantAccount, paymentCancelResponse.merchantAccount) &&
-        Objects.equals(this.paymentPspReference, paymentCancelResponse.paymentPspReference) &&
-        Objects.equals(this.pspReference, paymentCancelResponse.pspReference) &&
-        Objects.equals(this.reference, paymentCancelResponse.reference) &&
-        Objects.equals(this.status, paymentCancelResponse.status);
+    StandalonePaymentCancelResource standalonePaymentCancelResource = (StandalonePaymentCancelResource) o;
+    return Objects.equals(this.merchantAccount, standalonePaymentCancelResource.merchantAccount) &&
+        Objects.equals(this.paymentReference, standalonePaymentCancelResource.paymentReference) &&
+        Objects.equals(this.pspReference, standalonePaymentCancelResource.pspReference) &&
+        Objects.equals(this.reference, standalonePaymentCancelResource.reference) &&
+        Objects.equals(this.status, standalonePaymentCancelResource.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, paymentPspReference, pspReference, reference, status);
+    return Objects.hash(merchantAccount, paymentReference, pspReference, reference, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentCancelResponse {\n");
+    sb.append("class StandalonePaymentCancelResource {\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
+    sb.append("    paymentReference: ").append(toIndentedString(paymentReference)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -264,17 +264,17 @@ public class PaymentCancelResponse {
   }
 
 /**
-   * Create an instance of PaymentCancelResponse given an JSON string
+   * Create an instance of StandalonePaymentCancelResource given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PaymentCancelResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentCancelResponse
+   * @return An instance of StandalonePaymentCancelResource
+   * @throws JsonProcessingException if the JSON string is invalid with respect to StandalonePaymentCancelResource
    */
-  public static PaymentCancelResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentCancelResponse.class);
+  public static StandalonePaymentCancelResource fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StandalonePaymentCancelResource.class);
   }
 /**
-  * Convert an instance of PaymentCancelResponse to an JSON string
+  * Convert an instance of StandalonePaymentCancelResource to an JSON string
   *
   * @return JSON string
   */

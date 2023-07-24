@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.checkout.EncryptedOrderData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,33 +29,33 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PaymentCancelRequest
+ * CheckoutCancelOrderRequest
  */
 @JsonPropertyOrder({
-  PaymentCancelRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  PaymentCancelRequest.JSON_PROPERTY_REFERENCE
+  CheckoutCancelOrderRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CheckoutCancelOrderRequest.JSON_PROPERTY_ORDER
 })
 
-public class PaymentCancelRequest {
+public class CheckoutCancelOrderRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String JSON_PROPERTY_REFERENCE = "reference";
-  private String reference;
+  public static final String JSON_PROPERTY_ORDER = "order";
+  private EncryptedOrderData order;
 
-  public PaymentCancelRequest() { 
+  public CheckoutCancelOrderRequest() { 
   }
 
-  public PaymentCancelRequest merchantAccount(String merchantAccount) {
+  public CheckoutCancelOrderRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
    /**
-   * The merchant account that is used to process the payment.
+   * The merchant account identifier that orderData belongs to.
    * @return merchantAccount
   **/
-  @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
+  @ApiModelProperty(required = true, value = "The merchant account identifier that orderData belongs to.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,33 +71,33 @@ public class PaymentCancelRequest {
   }
 
 
-  public PaymentCancelRequest reference(String reference) {
-    this.reference = reference;
+  public CheckoutCancelOrderRequest order(EncryptedOrderData order) {
+    this.order = order;
     return this;
   }
 
    /**
-   * Your reference for the cancel request. Maximum length: 80 characters.
-   * @return reference
+   * Get order
+   * @return order
   **/
-  @ApiModelProperty(value = "Your reference for the cancel request. Maximum length: 80 characters.")
-  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getReference() {
-    return reference;
+  public EncryptedOrderData getOrder() {
+    return order;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(String reference) {
-    this.reference = reference;
+  public void setOrder(EncryptedOrderData order) {
+    this.order = order;
   }
 
 
   /**
-   * Return true if this PaymentCancelRequest object is equal to o.
+   * Return true if this CheckoutCancelOrderRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -106,22 +107,22 @@ public class PaymentCancelRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentCancelRequest paymentCancelRequest = (PaymentCancelRequest) o;
-    return Objects.equals(this.merchantAccount, paymentCancelRequest.merchantAccount) &&
-        Objects.equals(this.reference, paymentCancelRequest.reference);
+    CheckoutCancelOrderRequest checkoutCancelOrderRequest = (CheckoutCancelOrderRequest) o;
+    return Objects.equals(this.merchantAccount, checkoutCancelOrderRequest.merchantAccount) &&
+        Objects.equals(this.order, checkoutCancelOrderRequest.order);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, reference);
+    return Objects.hash(merchantAccount, order);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentCancelRequest {\n");
+    sb.append("class CheckoutCancelOrderRequest {\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,17 +139,17 @@ public class PaymentCancelRequest {
   }
 
 /**
-   * Create an instance of PaymentCancelRequest given an JSON string
+   * Create an instance of CheckoutCancelOrderRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PaymentCancelRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentCancelRequest
+   * @return An instance of CheckoutCancelOrderRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutCancelOrderRequest
    */
-  public static PaymentCancelRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentCancelRequest.class);
+  public static CheckoutCancelOrderRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CheckoutCancelOrderRequest.class);
   }
 /**
-  * Convert an instance of PaymentCancelRequest to an JSON string
+  * Convert an instance of CheckoutCancelOrderRequest to an JSON string
   *
   * @return JSON string
   */

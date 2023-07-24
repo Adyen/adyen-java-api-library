@@ -30,25 +30,25 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * UtilityRequest
+ * CheckoutUtilityRequest
  */
 @JsonPropertyOrder({
-  UtilityRequest.JSON_PROPERTY_ORIGIN_DOMAINS
+  CheckoutUtilityRequest.JSON_PROPERTY_ORIGIN_DOMAINS
 })
 
-public class UtilityRequest {
+public class CheckoutUtilityRequest {
   public static final String JSON_PROPERTY_ORIGIN_DOMAINS = "originDomains";
   private List<String> originDomains = new ArrayList<>();
 
-  public UtilityRequest() { 
+  public CheckoutUtilityRequest() { 
   }
 
-  public UtilityRequest originDomains(List<String> originDomains) {
+  public CheckoutUtilityRequest originDomains(List<String> originDomains) {
     this.originDomains = originDomains;
     return this;
   }
 
-  public UtilityRequest addOriginDomainsItem(String originDomainsItem) {
+  public CheckoutUtilityRequest addOriginDomainsItem(String originDomainsItem) {
     this.originDomains.add(originDomainsItem);
     return this;
   }
@@ -74,7 +74,7 @@ public class UtilityRequest {
 
 
   /**
-   * Return true if this UtilityRequest object is equal to o.
+   * Return true if this CheckoutUtilityRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -84,8 +84,8 @@ public class UtilityRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UtilityRequest utilityRequest = (UtilityRequest) o;
-    return Objects.equals(this.originDomains, utilityRequest.originDomains);
+    CheckoutUtilityRequest checkoutUtilityRequest = (CheckoutUtilityRequest) o;
+    return Objects.equals(this.originDomains, checkoutUtilityRequest.originDomains);
   }
 
   @Override
@@ -96,7 +96,7 @@ public class UtilityRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UtilityRequest {\n");
+    sb.append("class CheckoutUtilityRequest {\n");
     sb.append("    originDomains: ").append(toIndentedString(originDomains)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -114,17 +114,17 @@ public class UtilityRequest {
   }
 
 /**
-   * Create an instance of UtilityRequest given an JSON string
+   * Create an instance of CheckoutUtilityRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UtilityRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to UtilityRequest
+   * @return An instance of CheckoutUtilityRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutUtilityRequest
    */
-  public static UtilityRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, UtilityRequest.class);
+  public static CheckoutUtilityRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CheckoutUtilityRequest.class);
   }
 /**
-  * Convert an instance of UtilityRequest to an JSON string
+  * Convert an instance of CheckoutUtilityRequest to an JSON string
   *
   * @return JSON string
   */

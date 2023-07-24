@@ -18,7 +18,9 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.LineItem;
+import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.Split;
+import com.adyen.model.checkout.SubMerchant2;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,18 +35,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PaymentRefundRequest
+ * CreatePaymentCaptureRequest
  */
 @JsonPropertyOrder({
-  PaymentRefundRequest.JSON_PROPERTY_AMOUNT,
-  PaymentRefundRequest.JSON_PROPERTY_LINE_ITEMS,
-  PaymentRefundRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  PaymentRefundRequest.JSON_PROPERTY_MERCHANT_REFUND_REASON,
-  PaymentRefundRequest.JSON_PROPERTY_REFERENCE,
-  PaymentRefundRequest.JSON_PROPERTY_SPLITS
+  CreatePaymentCaptureRequest.JSON_PROPERTY_AMOUNT,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_LINE_ITEMS,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_REFERENCE,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_SPLITS,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_SUB_MERCHANTS
 })
 
-public class PaymentRefundRequest {
+public class CreatePaymentCaptureRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
@@ -54,49 +57,8 @@ public class PaymentRefundRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  /**
-   * Your reason for the refund request
-   */
-  public enum MerchantRefundReasonEnum {
-    FRAUD("FRAUD"),
-    
-    CUSTOMER_REQUEST("CUSTOMER REQUEST"),
-    
-    RETURN("RETURN"),
-    
-    DUPLICATE("DUPLICATE"),
-    
-    OTHER("OTHER");
-
-    private String value;
-
-    MerchantRefundReasonEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static MerchantRefundReasonEnum fromValue(String value) {
-      for (MerchantRefundReasonEnum b : MerchantRefundReasonEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_MERCHANT_REFUND_REASON = "merchantRefundReason";
-  private MerchantRefundReasonEnum merchantRefundReason;
+  public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  private PlatformChargebackLogic platformChargebackLogic;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -104,10 +66,13 @@ public class PaymentRefundRequest {
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
-  public PaymentRefundRequest() { 
+  public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
+  private List<SubMerchant2> subMerchants = null;
+
+  public CreatePaymentCaptureRequest() { 
   }
 
-  public PaymentRefundRequest amount(Amount amount) {
+  public CreatePaymentCaptureRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -132,12 +97,12 @@ public class PaymentRefundRequest {
   }
 
 
-  public PaymentRefundRequest lineItems(List<LineItem> lineItems) {
+  public CreatePaymentCaptureRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
   }
 
-  public PaymentRefundRequest addLineItemsItem(LineItem lineItemsItem) {
+  public CreatePaymentCaptureRequest addLineItemsItem(LineItem lineItemsItem) {
     if (this.lineItems == null) {
       this.lineItems = new ArrayList<>();
     }
@@ -165,7 +130,7 @@ public class PaymentRefundRequest {
   }
 
 
-  public PaymentRefundRequest merchantAccount(String merchantAccount) {
+  public CreatePaymentCaptureRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -190,41 +155,41 @@ public class PaymentRefundRequest {
   }
 
 
-  public PaymentRefundRequest merchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
-    this.merchantRefundReason = merchantRefundReason;
+  public CreatePaymentCaptureRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
     return this;
   }
 
    /**
-   * Your reason for the refund request
-   * @return merchantRefundReason
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
   **/
-  @ApiModelProperty(value = "Your reason for the refund request")
-  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public MerchantRefundReasonEnum getMerchantRefundReason() {
-    return merchantRefundReason;
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMerchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
-    this.merchantRefundReason = merchantRefundReason;
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
   }
 
 
-  public PaymentRefundRequest reference(String reference) {
+  public CreatePaymentCaptureRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
    /**
-   * Your reference for the refund request. Maximum length: 80 characters.
+   * Your reference for the capture request. Maximum length: 80 characters.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference for the refund request. Maximum length: 80 characters.")
+  @ApiModelProperty(value = "Your reference for the capture request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -240,12 +205,12 @@ public class PaymentRefundRequest {
   }
 
 
-  public PaymentRefundRequest splits(List<Split> splits) {
+  public CreatePaymentCaptureRequest splits(List<Split> splits) {
     this.splits = splits;
     return this;
   }
 
-  public PaymentRefundRequest addSplitsItem(Split splitsItem) {
+  public CreatePaymentCaptureRequest addSplitsItem(Split splitsItem) {
     if (this.splits == null) {
       this.splits = new ArrayList<>();
     }
@@ -273,8 +238,41 @@ public class PaymentRefundRequest {
   }
 
 
+  public CreatePaymentCaptureRequest subMerchants(List<SubMerchant2> subMerchants) {
+    this.subMerchants = subMerchants;
+    return this;
+  }
+
+  public CreatePaymentCaptureRequest addSubMerchantsItem(SubMerchant2 subMerchantsItem) {
+    if (this.subMerchants == null) {
+      this.subMerchants = new ArrayList<>();
+    }
+    this.subMerchants.add(subMerchantsItem);
+    return this;
+  }
+
+   /**
+   * A List of sub-merchants.
+   * @return subMerchants
+  **/
+  @ApiModelProperty(value = "A List of sub-merchants.")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubMerchant2> getSubMerchants() {
+    return subMerchants;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchants(List<SubMerchant2> subMerchants) {
+    this.subMerchants = subMerchants;
+  }
+
+
   /**
-   * Return true if this PaymentRefundRequest object is equal to o.
+   * Return true if this CreatePaymentCaptureRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -284,30 +282,32 @@ public class PaymentRefundRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentRefundRequest paymentRefundRequest = (PaymentRefundRequest) o;
-    return Objects.equals(this.amount, paymentRefundRequest.amount) &&
-        Objects.equals(this.lineItems, paymentRefundRequest.lineItems) &&
-        Objects.equals(this.merchantAccount, paymentRefundRequest.merchantAccount) &&
-        Objects.equals(this.merchantRefundReason, paymentRefundRequest.merchantRefundReason) &&
-        Objects.equals(this.reference, paymentRefundRequest.reference) &&
-        Objects.equals(this.splits, paymentRefundRequest.splits);
+    CreatePaymentCaptureRequest createPaymentCaptureRequest = (CreatePaymentCaptureRequest) o;
+    return Objects.equals(this.amount, createPaymentCaptureRequest.amount) &&
+        Objects.equals(this.lineItems, createPaymentCaptureRequest.lineItems) &&
+        Objects.equals(this.merchantAccount, createPaymentCaptureRequest.merchantAccount) &&
+        Objects.equals(this.platformChargebackLogic, createPaymentCaptureRequest.platformChargebackLogic) &&
+        Objects.equals(this.reference, createPaymentCaptureRequest.reference) &&
+        Objects.equals(this.splits, createPaymentCaptureRequest.splits) &&
+        Objects.equals(this.subMerchants, createPaymentCaptureRequest.subMerchants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, lineItems, merchantAccount, merchantRefundReason, reference, splits);
+    return Objects.hash(amount, lineItems, merchantAccount, platformChargebackLogic, reference, splits, subMerchants);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentRefundRequest {\n");
+    sb.append("class CreatePaymentCaptureRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    merchantRefundReason: ").append(toIndentedString(merchantRefundReason)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+    sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -324,17 +324,17 @@ public class PaymentRefundRequest {
   }
 
 /**
-   * Create an instance of PaymentRefundRequest given an JSON string
+   * Create an instance of CreatePaymentCaptureRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PaymentRefundRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentRefundRequest
+   * @return An instance of CreatePaymentCaptureRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePaymentCaptureRequest
    */
-  public static PaymentRefundRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentRefundRequest.class);
+  public static CreatePaymentCaptureRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreatePaymentCaptureRequest.class);
   }
 /**
-  * Convert an instance of PaymentRefundRequest to an JSON string
+  * Convert an instance of CreatePaymentCaptureRequest to an JSON string
   *
   * @return JSON string
   */

@@ -28,14 +28,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CancelOrderResponse
+ * CheckoutCancelOrderResponse
  */
 @JsonPropertyOrder({
-  CancelOrderResponse.JSON_PROPERTY_PSP_REFERENCE,
-  CancelOrderResponse.JSON_PROPERTY_RESULT_CODE
+  CheckoutCancelOrderResponse.JSON_PROPERTY_PSP_REFERENCE,
+  CheckoutCancelOrderResponse.JSON_PROPERTY_RESULT_CODE
 })
 
-public class CancelOrderResponse {
+public class CheckoutCancelOrderResponse {
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
@@ -75,10 +75,10 @@ public class CancelOrderResponse {
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
-  public CancelOrderResponse() { 
+  public CheckoutCancelOrderResponse() { 
   }
 
-  public CancelOrderResponse pspReference(String pspReference) {
+  public CheckoutCancelOrderResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
@@ -103,7 +103,7 @@ public class CancelOrderResponse {
   }
 
 
-  public CancelOrderResponse resultCode(ResultCodeEnum resultCode) {
+  public CheckoutCancelOrderResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     return this;
   }
@@ -129,7 +129,7 @@ public class CancelOrderResponse {
 
 
   /**
-   * Return true if this CancelOrderResponse object is equal to o.
+   * Return true if this CheckoutCancelOrderResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -139,9 +139,9 @@ public class CancelOrderResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CancelOrderResponse cancelOrderResponse = (CancelOrderResponse) o;
-    return Objects.equals(this.pspReference, cancelOrderResponse.pspReference) &&
-        Objects.equals(this.resultCode, cancelOrderResponse.resultCode);
+    CheckoutCancelOrderResponse checkoutCancelOrderResponse = (CheckoutCancelOrderResponse) o;
+    return Objects.equals(this.pspReference, checkoutCancelOrderResponse.pspReference) &&
+        Objects.equals(this.resultCode, checkoutCancelOrderResponse.resultCode);
   }
 
   @Override
@@ -152,7 +152,7 @@ public class CancelOrderResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CancelOrderResponse {\n");
+    sb.append("class CheckoutCancelOrderResponse {\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
     sb.append("}");
@@ -171,17 +171,17 @@ public class CancelOrderResponse {
   }
 
 /**
-   * Create an instance of CancelOrderResponse given an JSON string
+   * Create an instance of CheckoutCancelOrderResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CancelOrderResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CancelOrderResponse
+   * @return An instance of CheckoutCancelOrderResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutCancelOrderResponse
    */
-  public static CancelOrderResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CancelOrderResponse.class);
+  public static CheckoutCancelOrderResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CheckoutCancelOrderResponse.class);
   }
 /**
-  * Convert an instance of CancelOrderResponse to an JSON string
+  * Convert an instance of CheckoutCancelOrderResponse to an JSON string
   *
   * @return JSON string
   */

@@ -28,15 +28,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * StandalonePaymentCancelRequest
+ * CreateStandalonePaymentCancelRequest
  */
 @JsonPropertyOrder({
-  StandalonePaymentCancelRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  StandalonePaymentCancelRequest.JSON_PROPERTY_PAYMENT_REFERENCE,
-  StandalonePaymentCancelRequest.JSON_PROPERTY_REFERENCE
+  CreateStandalonePaymentCancelRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreateStandalonePaymentCancelRequest.JSON_PROPERTY_PAYMENT_REFERENCE,
+  CreateStandalonePaymentCancelRequest.JSON_PROPERTY_REFERENCE
 })
 
-public class StandalonePaymentCancelRequest {
+public class CreateStandalonePaymentCancelRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
@@ -46,10 +46,10 @@ public class StandalonePaymentCancelRequest {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public StandalonePaymentCancelRequest() { 
+  public CreateStandalonePaymentCancelRequest() { 
   }
 
-  public StandalonePaymentCancelRequest merchantAccount(String merchantAccount) {
+  public CreateStandalonePaymentCancelRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -74,7 +74,7 @@ public class StandalonePaymentCancelRequest {
   }
 
 
-  public StandalonePaymentCancelRequest paymentReference(String paymentReference) {
+  public CreateStandalonePaymentCancelRequest paymentReference(String paymentReference) {
     this.paymentReference = paymentReference;
     return this;
   }
@@ -99,7 +99,7 @@ public class StandalonePaymentCancelRequest {
   }
 
 
-  public StandalonePaymentCancelRequest reference(String reference) {
+  public CreateStandalonePaymentCancelRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -125,7 +125,7 @@ public class StandalonePaymentCancelRequest {
 
 
   /**
-   * Return true if this StandalonePaymentCancelRequest object is equal to o.
+   * Return true if this CreateStandalonePaymentCancelRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -135,10 +135,10 @@ public class StandalonePaymentCancelRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StandalonePaymentCancelRequest standalonePaymentCancelRequest = (StandalonePaymentCancelRequest) o;
-    return Objects.equals(this.merchantAccount, standalonePaymentCancelRequest.merchantAccount) &&
-        Objects.equals(this.paymentReference, standalonePaymentCancelRequest.paymentReference) &&
-        Objects.equals(this.reference, standalonePaymentCancelRequest.reference);
+    CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest = (CreateStandalonePaymentCancelRequest) o;
+    return Objects.equals(this.merchantAccount, createStandalonePaymentCancelRequest.merchantAccount) &&
+        Objects.equals(this.paymentReference, createStandalonePaymentCancelRequest.paymentReference) &&
+        Objects.equals(this.reference, createStandalonePaymentCancelRequest.reference);
   }
 
   @Override
@@ -149,7 +149,7 @@ public class StandalonePaymentCancelRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StandalonePaymentCancelRequest {\n");
+    sb.append("class CreateStandalonePaymentCancelRequest {\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentReference: ").append(toIndentedString(paymentReference)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
@@ -169,17 +169,17 @@ public class StandalonePaymentCancelRequest {
   }
 
 /**
-   * Create an instance of StandalonePaymentCancelRequest given an JSON string
+   * Create an instance of CreateStandalonePaymentCancelRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StandalonePaymentCancelRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to StandalonePaymentCancelRequest
+   * @return An instance of CreateStandalonePaymentCancelRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreateStandalonePaymentCancelRequest
    */
-  public static StandalonePaymentCancelRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StandalonePaymentCancelRequest.class);
+  public static CreateStandalonePaymentCancelRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreateStandalonePaymentCancelRequest.class);
   }
 /**
-  * Convert an instance of StandalonePaymentCancelRequest to an JSON string
+  * Convert an instance of CreateStandalonePaymentCancelRequest to an JSON string
   *
   * @return JSON string
   */

@@ -33,22 +33,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CreateOrderResponse
+ * CheckoutCreateOrderResponse
  */
 @JsonPropertyOrder({
-  CreateOrderResponse.JSON_PROPERTY_ADDITIONAL_DATA,
-  CreateOrderResponse.JSON_PROPERTY_AMOUNT,
-  CreateOrderResponse.JSON_PROPERTY_EXPIRES_AT,
-  CreateOrderResponse.JSON_PROPERTY_FRAUD_RESULT,
-  CreateOrderResponse.JSON_PROPERTY_ORDER_DATA,
-  CreateOrderResponse.JSON_PROPERTY_PSP_REFERENCE,
-  CreateOrderResponse.JSON_PROPERTY_REFERENCE,
-  CreateOrderResponse.JSON_PROPERTY_REFUSAL_REASON,
-  CreateOrderResponse.JSON_PROPERTY_REMAINING_AMOUNT,
-  CreateOrderResponse.JSON_PROPERTY_RESULT_CODE
+  CheckoutCreateOrderResponse.JSON_PROPERTY_ADDITIONAL_DATA,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_AMOUNT,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_EXPIRES_AT,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_FRAUD_RESULT,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_ORDER_DATA,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_PSP_REFERENCE,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_REFERENCE,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_REFUSAL_REASON,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_REMAINING_AMOUNT,
+  CheckoutCreateOrderResponse.JSON_PROPERTY_RESULT_CODE
 })
 
-public class CreateOrderResponse {
+public class CheckoutCreateOrderResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
@@ -112,15 +112,15 @@ public class CreateOrderResponse {
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
-  public CreateOrderResponse() { 
+  public CheckoutCreateOrderResponse() { 
   }
 
-  public CreateOrderResponse additionalData(Map<String, String> additionalData) {
+  public CheckoutCreateOrderResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
 
-  public CreateOrderResponse putAdditionalDataItem(String key, String additionalDataItem) {
+  public CheckoutCreateOrderResponse putAdditionalDataItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -148,7 +148,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse amount(Amount amount) {
+  public CheckoutCreateOrderResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -173,7 +173,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse expiresAt(String expiresAt) {
+  public CheckoutCreateOrderResponse expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -198,7 +198,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse fraudResult(FraudResult fraudResult) {
+  public CheckoutCreateOrderResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
     return this;
   }
@@ -223,7 +223,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse orderData(String orderData) {
+  public CheckoutCreateOrderResponse orderData(String orderData) {
     this.orderData = orderData;
     return this;
   }
@@ -248,7 +248,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse pspReference(String pspReference) {
+  public CheckoutCreateOrderResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
@@ -273,7 +273,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse reference(String reference) {
+  public CheckoutCreateOrderResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -298,7 +298,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse refusalReason(String refusalReason) {
+  public CheckoutCreateOrderResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
   }
@@ -323,7 +323,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse remainingAmount(Amount remainingAmount) {
+  public CheckoutCreateOrderResponse remainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
     return this;
   }
@@ -348,7 +348,7 @@ public class CreateOrderResponse {
   }
 
 
-  public CreateOrderResponse resultCode(ResultCodeEnum resultCode) {
+  public CheckoutCreateOrderResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     return this;
   }
@@ -374,7 +374,7 @@ public class CreateOrderResponse {
 
 
   /**
-   * Return true if this CreateOrderResponse object is equal to o.
+   * Return true if this CheckoutCreateOrderResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -384,17 +384,17 @@ public class CreateOrderResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateOrderResponse createOrderResponse = (CreateOrderResponse) o;
-    return Objects.equals(this.additionalData, createOrderResponse.additionalData) &&
-        Objects.equals(this.amount, createOrderResponse.amount) &&
-        Objects.equals(this.expiresAt, createOrderResponse.expiresAt) &&
-        Objects.equals(this.fraudResult, createOrderResponse.fraudResult) &&
-        Objects.equals(this.orderData, createOrderResponse.orderData) &&
-        Objects.equals(this.pspReference, createOrderResponse.pspReference) &&
-        Objects.equals(this.reference, createOrderResponse.reference) &&
-        Objects.equals(this.refusalReason, createOrderResponse.refusalReason) &&
-        Objects.equals(this.remainingAmount, createOrderResponse.remainingAmount) &&
-        Objects.equals(this.resultCode, createOrderResponse.resultCode);
+    CheckoutCreateOrderResponse checkoutCreateOrderResponse = (CheckoutCreateOrderResponse) o;
+    return Objects.equals(this.additionalData, checkoutCreateOrderResponse.additionalData) &&
+        Objects.equals(this.amount, checkoutCreateOrderResponse.amount) &&
+        Objects.equals(this.expiresAt, checkoutCreateOrderResponse.expiresAt) &&
+        Objects.equals(this.fraudResult, checkoutCreateOrderResponse.fraudResult) &&
+        Objects.equals(this.orderData, checkoutCreateOrderResponse.orderData) &&
+        Objects.equals(this.pspReference, checkoutCreateOrderResponse.pspReference) &&
+        Objects.equals(this.reference, checkoutCreateOrderResponse.reference) &&
+        Objects.equals(this.refusalReason, checkoutCreateOrderResponse.refusalReason) &&
+        Objects.equals(this.remainingAmount, checkoutCreateOrderResponse.remainingAmount) &&
+        Objects.equals(this.resultCode, checkoutCreateOrderResponse.resultCode);
   }
 
   @Override
@@ -405,7 +405,7 @@ public class CreateOrderResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateOrderResponse {\n");
+    sb.append("class CheckoutCreateOrderResponse {\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
@@ -432,17 +432,17 @@ public class CreateOrderResponse {
   }
 
 /**
-   * Create an instance of CreateOrderResponse given an JSON string
+   * Create an instance of CheckoutCreateOrderResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreateOrderResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CreateOrderResponse
+   * @return An instance of CheckoutCreateOrderResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutCreateOrderResponse
    */
-  public static CreateOrderResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CreateOrderResponse.class);
+  public static CheckoutCreateOrderResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CheckoutCreateOrderResponse.class);
   }
 /**
-  * Convert an instance of CreateOrderResponse to an JSON string
+  * Convert an instance of CheckoutCreateOrderResponse to an JSON string
   *
   * @return JSON string
   */
