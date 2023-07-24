@@ -15,82 +15,67 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.binlookup.Amount;
 import com.adyen.model.binlookup.CostEstimateAssumptions;
 import com.adyen.model.binlookup.MerchantDetails;
 import com.adyen.model.binlookup.Recurring;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * CostEstimateRequest
  */
+@JsonPropertyOrder({
+  CostEstimateRequest.JSON_PROPERTY_AMOUNT,
+  CostEstimateRequest.JSON_PROPERTY_ASSUMPTIONS,
+  CostEstimateRequest.JSON_PROPERTY_CARD_NUMBER,
+  CostEstimateRequest.JSON_PROPERTY_ENCRYPTED_CARD_NUMBER,
+  CostEstimateRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CostEstimateRequest.JSON_PROPERTY_MERCHANT_DETAILS,
+  CostEstimateRequest.JSON_PROPERTY_RECURRING,
+  CostEstimateRequest.JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
+  CostEstimateRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
+  CostEstimateRequest.JSON_PROPERTY_SHOPPER_REFERENCE
+})
 
 public class CostEstimateRequest {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_ASSUMPTIONS = "assumptions";
-  @SerializedName(SERIALIZED_NAME_ASSUMPTIONS)
+  public static final String JSON_PROPERTY_ASSUMPTIONS = "assumptions";
   private CostEstimateAssumptions assumptions;
 
-  public static final String SERIALIZED_NAME_CARD_NUMBER = "cardNumber";
-  @SerializedName(SERIALIZED_NAME_CARD_NUMBER)
+  public static final String JSON_PROPERTY_CARD_NUMBER = "cardNumber";
   private String cardNumber;
 
-  public static final String SERIALIZED_NAME_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTED_CARD_NUMBER)
+  public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_MERCHANT_DETAILS = "merchantDetails";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_DETAILS)
+  public static final String JSON_PROPERTY_MERCHANT_DETAILS = "merchantDetails";
   private MerchantDetails merchantDetails;
 
-  public static final String SERIALIZED_NAME_RECURRING = "recurring";
-  @SerializedName(SERIALIZED_NAME_RECURRING)
+  public static final String JSON_PROPERTY_RECURRING = "recurring";
   private Recurring recurring;
 
-  public static final String SERIALIZED_NAME_SELECTED_RECURRING_DETAIL_REFERENCE = "selectedRecurringDetailReference";
-  @SerializedName(SERIALIZED_NAME_SELECTED_RECURRING_DETAIL_REFERENCE)
+  public static final String JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE = "selectedRecurringDetailReference";
   private String selectedRecurringDetailReference;
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
-  @JsonAdapter(ShopperInteractionEnum.Adapter.class)
   public enum ShopperInteractionEnum {
     ECOMMERCE("Ecommerce"),
     
@@ -106,6 +91,7 @@ public class CostEstimateRequest {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -115,6 +101,7 @@ public class CostEstimateRequest {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ShopperInteractionEnum fromValue(String value) {
       for (ShopperInteractionEnum b : ShopperInteractionEnum.values()) {
         if (b.value.equals(value)) {
@@ -123,34 +110,18 @@ public class CostEstimateRequest {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ShopperInteractionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ShopperInteractionEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ShopperInteractionEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_SHOPPER_INTERACTION = "shopperInteraction";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_INTERACTION)
+  public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
   public CostEstimateRequest() { 
   }
 
   public CostEstimateRequest amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -160,19 +131,22 @@ public class CostEstimateRequest {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public CostEstimateRequest assumptions(CostEstimateAssumptions assumptions) {
-    
     this.assumptions = assumptions;
     return this;
   }
@@ -182,19 +156,22 @@ public class CostEstimateRequest {
    * @return assumptions
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ASSUMPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CostEstimateAssumptions getAssumptions() {
     return assumptions;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ASSUMPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssumptions(CostEstimateAssumptions assumptions) {
     this.assumptions = assumptions;
   }
 
 
   public CostEstimateRequest cardNumber(String cardNumber) {
-    
     this.cardNumber = cardNumber;
     return this;
   }
@@ -204,19 +181,22 @@ public class CostEstimateRequest {
    * @return cardNumber
   **/
   @ApiModelProperty(value = "The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  > Either the `cardNumber` or `encryptedCardNumber` field must be provided in a payment request.")
+  @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCardNumber() {
     return cardNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
   }
 
 
   public CostEstimateRequest encryptedCardNumber(String encryptedCardNumber) {
-    
     this.encryptedCardNumber = encryptedCardNumber;
     return this;
   }
@@ -226,19 +206,22 @@ public class CostEstimateRequest {
    * @return encryptedCardNumber
   **/
   @ApiModelProperty(value = "Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the `encryptedCardNumber` field.  > Either the `cardNumber` or `encryptedCardNumber` field must be provided in a payment request.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEncryptedCardNumber() {
     return encryptedCardNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
   }
 
 
   public CostEstimateRequest merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -248,19 +231,22 @@ public class CostEstimateRequest {
    * @return merchantAccount
   **/
   @ApiModelProperty(required = true, value = "The merchant account identifier you want to process the (transaction) request with.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public CostEstimateRequest merchantDetails(MerchantDetails merchantDetails) {
-    
     this.merchantDetails = merchantDetails;
     return this;
   }
@@ -270,19 +256,22 @@ public class CostEstimateRequest {
    * @return merchantDetails
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MerchantDetails getMerchantDetails() {
     return merchantDetails;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantDetails(MerchantDetails merchantDetails) {
     this.merchantDetails = merchantDetails;
   }
 
 
   public CostEstimateRequest recurring(Recurring recurring) {
-    
     this.recurring = recurring;
     return this;
   }
@@ -292,19 +281,22 @@ public class CostEstimateRequest {
    * @return recurring
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RECURRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Recurring getRecurring() {
     return recurring;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
   }
 
 
   public CostEstimateRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
-    
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
     return this;
   }
@@ -314,19 +306,22 @@ public class CostEstimateRequest {
    * @return selectedRecurringDetailReference
   **/
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this cost estimate. The value `LATEST` can be used to select the most recently stored recurring detail.")
+  @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSelectedRecurringDetailReference() {
     return selectedRecurringDetailReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
   }
 
 
   public CostEstimateRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
-    
     this.shopperInteraction = shopperInteraction;
     return this;
   }
@@ -336,19 +331,22 @@ public class CostEstimateRequest {
    * @return shopperInteraction
   **/
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ShopperInteractionEnum getShopperInteraction() {
     return shopperInteraction;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
 
 
   public CostEstimateRequest shopperReference(String shopperReference) {
-    
     this.shopperReference = shopperReference;
     return this;
   }
@@ -358,18 +356,24 @@ public class CostEstimateRequest {
    * @return shopperReference
   **/
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperReference() {
     return shopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
 
-
+  /**
+   * Return true if this CostEstimateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -425,155 +429,23 @@ public class CostEstimateRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("assumptions");
-    openapiFields.add("cardNumber");
-    openapiFields.add("encryptedCardNumber");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("merchantDetails");
-    openapiFields.add("recurring");
-    openapiFields.add("selectedRecurringDetailReference");
-    openapiFields.add("shopperInteraction");
-    openapiFields.add("shopperReference");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("merchantAccount");
+/**
+   * Create an instance of CostEstimateRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CostEstimateRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CostEstimateRequest
+   */
+  public static CostEstimateRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CostEstimateRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CostEstimateRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CostEstimateRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CostEstimateRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CostEstimateRequest is not found in the empty JSON string", CostEstimateRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CostEstimateRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CostEstimateRequest` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CostEstimateRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // validate the optional field `assumptions`
-      if (jsonObj.getAsJsonObject("assumptions") != null) {
-        CostEstimateAssumptions.validateJsonObject(jsonObj.getAsJsonObject("assumptions"));
-      }
-      // validate the optional field cardNumber
-      if (jsonObj.get("cardNumber") != null && !jsonObj.get("cardNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardNumber").toString()));
-      }
-      // validate the optional field encryptedCardNumber
-      if (jsonObj.get("encryptedCardNumber") != null && !jsonObj.get("encryptedCardNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `encryptedCardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryptedCardNumber").toString()));
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field `merchantDetails`
-      if (jsonObj.getAsJsonObject("merchantDetails") != null) {
-        MerchantDetails.validateJsonObject(jsonObj.getAsJsonObject("merchantDetails"));
-      }
-      // validate the optional field `recurring`
-      if (jsonObj.getAsJsonObject("recurring") != null) {
-        Recurring.validateJsonObject(jsonObj.getAsJsonObject("recurring"));
-      }
-      // validate the optional field selectedRecurringDetailReference
-      if (jsonObj.get("selectedRecurringDetailReference") != null && !jsonObj.get("selectedRecurringDetailReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `selectedRecurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedRecurringDetailReference").toString()));
-      }
-      // ensure the field shopperInteraction can be parsed to an enum value
-      if (jsonObj.get("shopperInteraction") != null) {
-        if(!jsonObj.get("shopperInteraction").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
-        }
-        ShopperInteractionEnum.fromValue(jsonObj.get("shopperInteraction").getAsString());
-      }
-      // validate the optional field shopperReference
-      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CostEstimateRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CostEstimateRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CostEstimateRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CostEstimateRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CostEstimateRequest>() {
-           @Override
-           public void write(JsonWriter out, CostEstimateRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CostEstimateRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CostEstimateRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CostEstimateRequest
-  * @throws IOException if the JSON string is invalid with respect to CostEstimateRequest
-  */
-  public static CostEstimateRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CostEstimateRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of CostEstimateRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

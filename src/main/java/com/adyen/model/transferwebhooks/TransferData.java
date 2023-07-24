@@ -63,6 +63,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferData.JSON_PROPERTY_PAYMENT_INSTRUMENT,
   TransferData.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
   TransferData.JSON_PROPERTY_PAYMENT_MERCHANT_REFERENCE,
+  TransferData.JSON_PROPERTY_PLATFORM_PAYMENT_TYPE,
   TransferData.JSON_PROPERTY_PRIORITY,
   TransferData.JSON_PROPERTY_PROCESSING_TYPE,
   TransferData.JSON_PROPERTY_PSP_PAYMENT_REFERENCE,
@@ -255,6 +256,50 @@ public class TransferData {
 
   public static final String JSON_PROPERTY_PAYMENT_MERCHANT_REFERENCE = "paymentMerchantReference";
   private String paymentMerchantReference;
+
+  /**
+   * The type of the related split.
+   */
+  public enum PlatformPaymentTypeEnum {
+    BALANCEACCOUNT("BalanceAccount"),
+    
+    COMMISSION("Commission"),
+    
+    DEFAULT("Default"),
+    
+    PAYMENTFEE("PaymentFee"),
+    
+    VAT("VAT");
+
+    private String value;
+
+    PlatformPaymentTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PlatformPaymentTypeEnum fromValue(String value) {
+      for (PlatformPaymentTypeEnum b : PlatformPaymentTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_PLATFORM_PAYMENT_TYPE = "platformPaymentType";
+  private PlatformPaymentTypeEnum platformPaymentType;
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).
@@ -617,6 +662,8 @@ public class TransferData {
     CAPTURE("capture"),
     
     CAPTUREREVERSAL("captureReversal"),
+    
+    CARDTRANSFER("cardTransfer"),
     
     CHARGEBACK("chargeback"),
     
@@ -1201,6 +1248,34 @@ public class TransferData {
   }
 
 
+  public TransferData platformPaymentType(PlatformPaymentTypeEnum platformPaymentType) {
+    this.platformPaymentType = platformPaymentType;
+    return this;
+  }
+
+   /**
+   * The type of the related split.
+   * @return platformPaymentType
+   * @deprecated
+  **/
+  @Deprecated
+  @ApiModelProperty(value = "The type of the related split.")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PlatformPaymentTypeEnum getPlatformPaymentType() {
+    return platformPaymentType;
+  }
+
+
+  @Deprecated
+  @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformPaymentType(PlatformPaymentTypeEnum platformPaymentType) {
+    this.platformPaymentType = platformPaymentType;
+  }
+
+
   public TransferData priority(PriorityEnum priority) {
     this.priority = priority;
     return this;
@@ -1602,6 +1677,7 @@ public class TransferData {
         Objects.equals(this.paymentInstrument, transferData.paymentInstrument) &&
         Objects.equals(this.paymentInstrumentId, transferData.paymentInstrumentId) &&
         Objects.equals(this.paymentMerchantReference, transferData.paymentMerchantReference) &&
+        Objects.equals(this.platformPaymentType, transferData.platformPaymentType) &&
         Objects.equals(this.priority, transferData.priority) &&
         Objects.equals(this.processingType, transferData.processingType) &&
         Objects.equals(this.pspPaymentReference, transferData.pspPaymentReference) &&
@@ -1620,7 +1696,7 @@ public class TransferData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, balanceAccountId, balancePlatform, balances, category, counterparty, creationDate, description, direction, events, id, modificationMerchantReference, modificationPspReference, panEntryMode, paymentInstrument, paymentInstrumentId, paymentMerchantReference, priority, processingType, pspPaymentReference, reason, reference, referenceForBeneficiary, relayedAuthorisationData, sequenceNumber, status, tracking, transactionId, transactionRulesResult, type, validationFacts);
+    return Objects.hash(accountHolder, amount, balanceAccount, balanceAccountId, balancePlatform, balances, category, counterparty, creationDate, description, direction, events, id, modificationMerchantReference, modificationPspReference, panEntryMode, paymentInstrument, paymentInstrumentId, paymentMerchantReference, platformPaymentType, priority, processingType, pspPaymentReference, reason, reference, referenceForBeneficiary, relayedAuthorisationData, sequenceNumber, status, tracking, transactionId, transactionRulesResult, type, validationFacts);
   }
 
   @Override
@@ -1646,6 +1722,7 @@ public class TransferData {
     sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");
     sb.append("    paymentMerchantReference: ").append(toIndentedString(paymentMerchantReference)).append("\n");
+    sb.append("    platformPaymentType: ").append(toIndentedString(platformPaymentType)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    processingType: ").append(toIndentedString(processingType)).append("\n");
     sb.append("    pspPaymentReference: ").append(toIndentedString(pspPaymentReference)).append("\n");

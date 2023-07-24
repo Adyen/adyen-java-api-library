@@ -198,11 +198,11 @@ public class VerificationError {
     
     DATAREVIEW("dataReview"),
     
-    DECLINED("declined"),
-    
     INVALIDINPUT("invalidInput"),
     
-    PENDINGSTATUS("pendingStatus");
+    PENDINGSTATUS("pendingStatus"),
+    
+    REJECTED("rejected");
 
     private String value;
 

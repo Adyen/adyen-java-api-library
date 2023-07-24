@@ -131,8 +131,6 @@ public class PaymentDetails {
     
     NETELLER("neteller"),
     
-    DANA("dana"),
-    
     PAYSAFECARD("paysafecard"),
     
     CASHTICKET("cashticket"),

@@ -14,62 +14,45 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.balanceplatform.BalanceAccountBase;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * PaginatedBalanceAccountsResponse
  */
+@JsonPropertyOrder({
+  PaginatedBalanceAccountsResponse.JSON_PROPERTY_BALANCE_ACCOUNTS,
+  PaginatedBalanceAccountsResponse.JSON_PROPERTY_HAS_NEXT,
+  PaginatedBalanceAccountsResponse.JSON_PROPERTY_HAS_PREVIOUS
+})
 
 public class PaginatedBalanceAccountsResponse {
-  public static final String SERIALIZED_NAME_BALANCE_ACCOUNTS = "balanceAccounts";
-  @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNTS)
+  public static final String JSON_PROPERTY_BALANCE_ACCOUNTS = "balanceAccounts";
   private List<BalanceAccountBase> balanceAccounts = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_HAS_NEXT = "hasNext";
-  @SerializedName(SERIALIZED_NAME_HAS_NEXT)
+  public static final String JSON_PROPERTY_HAS_NEXT = "hasNext";
   private Boolean hasNext;
 
-  public static final String SERIALIZED_NAME_HAS_PREVIOUS = "hasPrevious";
-  @SerializedName(SERIALIZED_NAME_HAS_PREVIOUS)
+  public static final String JSON_PROPERTY_HAS_PREVIOUS = "hasPrevious";
   private Boolean hasPrevious;
 
   public PaginatedBalanceAccountsResponse() { 
   }
 
   public PaginatedBalanceAccountsResponse balanceAccounts(List<BalanceAccountBase> balanceAccounts) {
-    
     this.balanceAccounts = balanceAccounts;
     return this;
   }
@@ -84,19 +67,22 @@ public class PaginatedBalanceAccountsResponse {
    * @return balanceAccounts
   **/
   @ApiModelProperty(required = true, value = "List of balance accounts.")
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<BalanceAccountBase> getBalanceAccounts() {
     return balanceAccounts;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccounts(List<BalanceAccountBase> balanceAccounts) {
     this.balanceAccounts = balanceAccounts;
   }
 
 
   public PaginatedBalanceAccountsResponse hasNext(Boolean hasNext) {
-    
     this.hasNext = hasNext;
     return this;
   }
@@ -106,19 +92,22 @@ public class PaginatedBalanceAccountsResponse {
    * @return hasNext
   **/
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
+  @JsonProperty(JSON_PROPERTY_HAS_NEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHasNext() {
     return hasNext;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HAS_NEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
 
 
   public PaginatedBalanceAccountsResponse hasPrevious(Boolean hasPrevious) {
-    
     this.hasPrevious = hasPrevious;
     return this;
   }
@@ -128,18 +117,24 @@ public class PaginatedBalanceAccountsResponse {
    * @return hasPrevious
   **/
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
+  @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
 
 
-
+  /**
+   * Return true if this PaginatedBalanceAccountsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,119 +176,23 @@ public class PaginatedBalanceAccountsResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("balanceAccounts");
-    openapiFields.add("hasNext");
-    openapiFields.add("hasPrevious");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("balanceAccounts");
-    openapiRequiredFields.add("hasNext");
-    openapiRequiredFields.add("hasPrevious");
+/**
+   * Create an instance of PaginatedBalanceAccountsResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaginatedBalanceAccountsResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaginatedBalanceAccountsResponse
+   */
+  public static PaginatedBalanceAccountsResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaginatedBalanceAccountsResponse.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to PaginatedBalanceAccountsResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (PaginatedBalanceAccountsResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaginatedBalanceAccountsResponse is not found in the empty JSON string", PaginatedBalanceAccountsResponse.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!PaginatedBalanceAccountsResponse.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaginatedBalanceAccountsResponse` properties.", entry.getKey()));
-            }
-          }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaginatedBalanceAccountsResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraybalanceAccounts = jsonObj.getAsJsonArray("balanceAccounts");
-      if (jsonArraybalanceAccounts != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("balanceAccounts").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `balanceAccounts` to be an array in the JSON string but got `%s`", jsonObj.get("balanceAccounts").toString()));
-        }
-
-        // validate the optional field `balanceAccounts` (array)
-        for (int i = 0; i < jsonArraybalanceAccounts.size(); i++) {
-          BalanceAccountBase.validateJsonObject(jsonArraybalanceAccounts.get(i).getAsJsonObject());
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaginatedBalanceAccountsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaginatedBalanceAccountsResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaginatedBalanceAccountsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaginatedBalanceAccountsResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaginatedBalanceAccountsResponse>() {
-           @Override
-           public void write(JsonWriter out, PaginatedBalanceAccountsResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaginatedBalanceAccountsResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaginatedBalanceAccountsResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaginatedBalanceAccountsResponse
-  * @throws IOException if the JSON string is invalid with respect to PaginatedBalanceAccountsResponse
-  */
-  public static PaginatedBalanceAccountsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaginatedBalanceAccountsResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of PaginatedBalanceAccountsResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

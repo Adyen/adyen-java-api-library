@@ -111,10 +111,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The customer code, if supplied by a customer.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * The customer code.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros
    * @return enhancedSchemeDataCustomerReference
   **/
-  @ApiModelProperty(value = "The customer code, if supplied by a customer.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "The customer code.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

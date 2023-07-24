@@ -15,69 +15,52 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.recurring.PermitRestriction;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.recurring.JSON;
 
 /**
  * Permit
  */
+@JsonPropertyOrder({
+  Permit.JSON_PROPERTY_PARTNER_ID,
+  Permit.JSON_PROPERTY_PROFILE_REFERENCE,
+  Permit.JSON_PROPERTY_RESTRICTION,
+  Permit.JSON_PROPERTY_RESULT_KEY,
+  Permit.JSON_PROPERTY_VALID_TILL_DATE
+})
 
 public class Permit {
-  public static final String SERIALIZED_NAME_PARTNER_ID = "partnerId";
-  @SerializedName(SERIALIZED_NAME_PARTNER_ID)
+  public static final String JSON_PROPERTY_PARTNER_ID = "partnerId";
   private String partnerId;
 
-  public static final String SERIALIZED_NAME_PROFILE_REFERENCE = "profileReference";
-  @SerializedName(SERIALIZED_NAME_PROFILE_REFERENCE)
+  public static final String JSON_PROPERTY_PROFILE_REFERENCE = "profileReference";
   private String profileReference;
 
-  public static final String SERIALIZED_NAME_RESTRICTION = "restriction";
-  @SerializedName(SERIALIZED_NAME_RESTRICTION)
+  public static final String JSON_PROPERTY_RESTRICTION = "restriction";
   private PermitRestriction restriction;
 
-  public static final String SERIALIZED_NAME_RESULT_KEY = "resultKey";
-  @SerializedName(SERIALIZED_NAME_RESULT_KEY)
+  public static final String JSON_PROPERTY_RESULT_KEY = "resultKey";
   private String resultKey;
 
-  public static final String SERIALIZED_NAME_VALID_TILL_DATE = "validTillDate";
-  @SerializedName(SERIALIZED_NAME_VALID_TILL_DATE)
+  public static final String JSON_PROPERTY_VALID_TILL_DATE = "validTillDate";
   private OffsetDateTime validTillDate;
 
   public Permit() { 
   }
 
   public Permit partnerId(String partnerId) {
-    
     this.partnerId = partnerId;
     return this;
   }
@@ -87,19 +70,22 @@ public class Permit {
    * @return partnerId
   **/
   @ApiModelProperty(value = "Partner ID (when using the permit-per-partner token sharing model).")
+  @JsonProperty(JSON_PROPERTY_PARTNER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPartnerId() {
     return partnerId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PARTNER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPartnerId(String partnerId) {
     this.partnerId = partnerId;
   }
 
 
   public Permit profileReference(String profileReference) {
-    
     this.profileReference = profileReference;
     return this;
   }
@@ -109,19 +95,22 @@ public class Permit {
    * @return profileReference
   **/
   @ApiModelProperty(value = "The profile to apply to this permit (when using the shared permits model).")
+  @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getProfileReference() {
     return profileReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {
     this.profileReference = profileReference;
   }
 
 
   public Permit restriction(PermitRestriction restriction) {
-    
     this.restriction = restriction;
     return this;
   }
@@ -131,19 +120,22 @@ public class Permit {
    * @return restriction
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESTRICTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PermitRestriction getRestriction() {
     return restriction;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESTRICTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestriction(PermitRestriction restriction) {
     this.restriction = restriction;
   }
 
 
   public Permit resultKey(String resultKey) {
-    
     this.resultKey = resultKey;
     return this;
   }
@@ -153,19 +145,22 @@ public class Permit {
    * @return resultKey
   **/
   @ApiModelProperty(value = "The key to link permit requests to permit results.")
+  @JsonProperty(JSON_PROPERTY_RESULT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResultKey() {
     return resultKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
     this.resultKey = resultKey;
   }
 
 
   public Permit validTillDate(OffsetDateTime validTillDate) {
-    
     this.validTillDate = validTillDate;
     return this;
   }
@@ -175,18 +170,24 @@ public class Permit {
    * @return validTillDate
   **/
   @ApiModelProperty(value = "The expiry date for this permit.")
+  @JsonProperty(JSON_PROPERTY_VALID_TILL_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getValidTillDate() {
     return validTillDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VALID_TILL_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTillDate(OffsetDateTime validTillDate) {
     this.validTillDate = validTillDate;
   }
 
 
-
+  /**
+   * Return true if this Permit object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,114 +233,23 @@ public class Permit {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("partnerId");
-    openapiFields.add("profileReference");
-    openapiFields.add("restriction");
-    openapiFields.add("resultKey");
-    openapiFields.add("validTillDate");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of Permit given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Permit
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Permit
+   */
+  public static Permit fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Permit.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Permit.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Permit
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Permit.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Permit is not found in the empty JSON string", Permit.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Permit.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Permit` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field partnerId
-      if (jsonObj.get("partnerId") != null && !jsonObj.get("partnerId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `partnerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("partnerId").toString()));
-      }
-      // validate the optional field profileReference
-      if (jsonObj.get("profileReference") != null && !jsonObj.get("profileReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `profileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileReference").toString()));
-      }
-      // validate the optional field `restriction`
-      if (jsonObj.getAsJsonObject("restriction") != null) {
-        PermitRestriction.validateJsonObject(jsonObj.getAsJsonObject("restriction"));
-      }
-      // validate the optional field resultKey
-      if (jsonObj.get("resultKey") != null && !jsonObj.get("resultKey").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `resultKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultKey").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Permit.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Permit' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Permit> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Permit.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Permit>() {
-           @Override
-           public void write(JsonWriter out, Permit value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Permit read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Permit given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Permit
-  * @throws IOException if the JSON string is invalid with respect to Permit
-  */
-  public static Permit fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Permit.class);
-  }
-
- /**
+/**
   * Convert an instance of Permit to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

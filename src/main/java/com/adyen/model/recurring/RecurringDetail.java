@@ -15,125 +15,108 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.recurring.Address;
 import com.adyen.model.recurring.BankAccount;
 import com.adyen.model.recurring.Card;
 import com.adyen.model.recurring.Name;
 import com.adyen.model.recurring.TokenDetails;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.recurring.JSON;
 
 /**
  * RecurringDetail
  */
+@JsonPropertyOrder({
+  RecurringDetail.JSON_PROPERTY_ADDITIONAL_DATA,
+  RecurringDetail.JSON_PROPERTY_ALIAS,
+  RecurringDetail.JSON_PROPERTY_ALIAS_TYPE,
+  RecurringDetail.JSON_PROPERTY_BANK,
+  RecurringDetail.JSON_PROPERTY_BILLING_ADDRESS,
+  RecurringDetail.JSON_PROPERTY_CARD,
+  RecurringDetail.JSON_PROPERTY_CONTRACT_TYPES,
+  RecurringDetail.JSON_PROPERTY_CREATION_DATE,
+  RecurringDetail.JSON_PROPERTY_FIRST_PSP_REFERENCE,
+  RecurringDetail.JSON_PROPERTY_NAME,
+  RecurringDetail.JSON_PROPERTY_NETWORK_TX_REFERENCE,
+  RecurringDetail.JSON_PROPERTY_PAYMENT_METHOD_VARIANT,
+  RecurringDetail.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  RecurringDetail.JSON_PROPERTY_SHOPPER_NAME,
+  RecurringDetail.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
+  RecurringDetail.JSON_PROPERTY_TOKEN_DETAILS,
+  RecurringDetail.JSON_PROPERTY_VARIANT
+})
 
 public class RecurringDetail {
-  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
+  public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
-  public static final String SERIALIZED_NAME_ALIAS = "alias";
-  @SerializedName(SERIALIZED_NAME_ALIAS)
+  public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
-  public static final String SERIALIZED_NAME_ALIAS_TYPE = "aliasType";
-  @SerializedName(SERIALIZED_NAME_ALIAS_TYPE)
+  public static final String JSON_PROPERTY_ALIAS_TYPE = "aliasType";
   private String aliasType;
 
-  public static final String SERIALIZED_NAME_BANK = "bank";
-  @SerializedName(SERIALIZED_NAME_BANK)
+  public static final String JSON_PROPERTY_BANK = "bank";
   private BankAccount bank;
 
-  public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
-  @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
+  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
-  public static final String SERIALIZED_NAME_CARD = "card";
-  @SerializedName(SERIALIZED_NAME_CARD)
+  public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
 
-  public static final String SERIALIZED_NAME_CONTRACT_TYPES = "contractTypes";
-  @SerializedName(SERIALIZED_NAME_CONTRACT_TYPES)
+  public static final String JSON_PROPERTY_CONTRACT_TYPES = "contractTypes";
   private List<String> contractTypes = null;
 
-  public static final String SERIALIZED_NAME_CREATION_DATE = "creationDate";
-  @SerializedName(SERIALIZED_NAME_CREATION_DATE)
+  public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
 
-  public static final String SERIALIZED_NAME_FIRST_PSP_REFERENCE = "firstPspReference";
-  @SerializedName(SERIALIZED_NAME_FIRST_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_FIRST_PSP_REFERENCE = "firstPspReference";
   private String firstPspReference;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_NETWORK_TX_REFERENCE = "networkTxReference";
-  @SerializedName(SERIALIZED_NAME_NETWORK_TX_REFERENCE)
+  public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
 
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD_VARIANT = "paymentMethodVariant";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD_VARIANT)
+  public static final String JSON_PROPERTY_PAYMENT_METHOD_VARIANT = "paymentMethodVariant";
   private String paymentMethodVariant;
 
-  public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NAME = "shopperName";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NAME)
+  public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
-  public static final String SERIALIZED_NAME_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
-  @SerializedName(SERIALIZED_NAME_SOCIAL_SECURITY_NUMBER)
+  public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
-  public static final String SERIALIZED_NAME_TOKEN_DETAILS = "tokenDetails";
-  @SerializedName(SERIALIZED_NAME_TOKEN_DETAILS)
+  public static final String JSON_PROPERTY_TOKEN_DETAILS = "tokenDetails";
   private TokenDetails tokenDetails;
 
-  public static final String SERIALIZED_NAME_VARIANT = "variant";
-  @SerializedName(SERIALIZED_NAME_VARIANT)
+  public static final String JSON_PROPERTY_VARIANT = "variant";
   private String variant;
 
   public RecurringDetail() { 
   }
 
   public RecurringDetail additionalData(Map<String, String> additionalData) {
-    
     this.additionalData = additionalData;
     return this;
   }
@@ -151,19 +134,22 @@ public class RecurringDetail {
    * @return additionalData
   **/
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
 
   public RecurringDetail alias(String alias) {
-    
     this.alias = alias;
     return this;
   }
@@ -173,19 +159,22 @@ public class RecurringDetail {
    * @return alias
   **/
   @ApiModelProperty(value = "The alias of the credit card number.  Applies only to recurring contracts storing credit card details")
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAlias() {
     return alias;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlias(String alias) {
     this.alias = alias;
   }
 
 
   public RecurringDetail aliasType(String aliasType) {
-    
     this.aliasType = aliasType;
     return this;
   }
@@ -195,19 +184,22 @@ public class RecurringDetail {
    * @return aliasType
   **/
   @ApiModelProperty(value = "The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.")
+  @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAliasType() {
     return aliasType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAliasType(String aliasType) {
     this.aliasType = aliasType;
   }
 
 
   public RecurringDetail bank(BankAccount bank) {
-    
     this.bank = bank;
     return this;
   }
@@ -217,19 +209,22 @@ public class RecurringDetail {
    * @return bank
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BankAccount getBank() {
     return bank;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
     this.bank = bank;
   }
 
 
   public RecurringDetail billingAddress(Address billingAddress) {
-    
     this.billingAddress = billingAddress;
     return this;
   }
@@ -239,19 +234,22 @@ public class RecurringDetail {
    * @return billingAddress
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getBillingAddress() {
     return billingAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
 
   public RecurringDetail card(Card card) {
-    
     this.card = card;
     return this;
   }
@@ -261,19 +259,22 @@ public class RecurringDetail {
    * @return card
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Card getCard() {
     return card;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
 
   public RecurringDetail contractTypes(List<String> contractTypes) {
-    
     this.contractTypes = contractTypes;
     return this;
   }
@@ -291,19 +292,22 @@ public class RecurringDetail {
    * @return contractTypes
   **/
   @ApiModelProperty(value = "Types of recurring contracts.")
+  @JsonProperty(JSON_PROPERTY_CONTRACT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getContractTypes() {
     return contractTypes;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CONTRACT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContractTypes(List<String> contractTypes) {
     this.contractTypes = contractTypes;
   }
 
 
   public RecurringDetail creationDate(OffsetDateTime creationDate) {
-    
     this.creationDate = creationDate;
     return this;
   }
@@ -313,19 +317,22 @@ public class RecurringDetail {
    * @return creationDate
   **/
   @ApiModelProperty(value = "The date when the recurring details were created.")
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
 
   public RecurringDetail firstPspReference(String firstPspReference) {
-    
     this.firstPspReference = firstPspReference;
     return this;
   }
@@ -335,19 +342,22 @@ public class RecurringDetail {
    * @return firstPspReference
   **/
   @ApiModelProperty(value = "The `pspReference` of the first recurring payment that created the recurring detail.")
+  @JsonProperty(JSON_PROPERTY_FIRST_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFirstPspReference() {
     return firstPspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FIRST_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstPspReference(String firstPspReference) {
     this.firstPspReference = firstPspReference;
   }
 
 
   public RecurringDetail name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -357,19 +367,22 @@ public class RecurringDetail {
    * @return name
   **/
   @ApiModelProperty(value = "An optional descriptive name for this recurring detail.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
     return name;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
 
   public RecurringDetail networkTxReference(String networkTxReference) {
-    
     this.networkTxReference = networkTxReference;
     return this;
   }
@@ -379,19 +392,22 @@ public class RecurringDetail {
    * @return networkTxReference
   **/
   @ApiModelProperty(value = "Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.")
+  @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNetworkTxReference() {
     return networkTxReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
   }
 
 
   public RecurringDetail paymentMethodVariant(String paymentMethodVariant) {
-    
     this.paymentMethodVariant = paymentMethodVariant;
     return this;
   }
@@ -401,19 +417,22 @@ public class RecurringDetail {
    * @return paymentMethodVariant
   **/
   @ApiModelProperty(value = "The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentMethodVariant() {
     return paymentMethodVariant;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
   }
 
 
   public RecurringDetail recurringDetailReference(String recurringDetailReference) {
-    
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
@@ -423,19 +442,22 @@ public class RecurringDetail {
    * @return recurringDetailReference
   **/
   @ApiModelProperty(required = true, value = "The reference that uniquely identifies the recurring detail.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
 
   public RecurringDetail shopperName(Name shopperName) {
-    
     this.shopperName = shopperName;
     return this;
   }
@@ -445,19 +467,22 @@ public class RecurringDetail {
    * @return shopperName
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Name getShopperName() {
     return shopperName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
 
   public RecurringDetail socialSecurityNumber(String socialSecurityNumber) {
-    
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
@@ -467,19 +492,22 @@ public class RecurringDetail {
    * @return socialSecurityNumber
   **/
   @ApiModelProperty(value = "A shopper's social security number (only in countries where it is legal to collect).")
+  @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
   }
 
 
   public RecurringDetail tokenDetails(TokenDetails tokenDetails) {
-    
     this.tokenDetails = tokenDetails;
     return this;
   }
@@ -489,19 +517,22 @@ public class RecurringDetail {
    * @return tokenDetails
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TOKEN_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TokenDetails getTokenDetails() {
     return tokenDetails;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOKEN_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDetails(TokenDetails tokenDetails) {
     this.tokenDetails = tokenDetails;
   }
 
 
   public RecurringDetail variant(String variant) {
-    
     this.variant = variant;
     return this;
   }
@@ -511,18 +542,24 @@ public class RecurringDetail {
    * @return variant
   **/
   @ApiModelProperty(required = true, value = "The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".")
+  @JsonProperty(JSON_PROPERTY_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getVariant() {
     return variant;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariant(String variant) {
     this.variant = variant;
   }
 
 
-
+  /**
+   * Return true if this RecurringDetail object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -592,179 +629,23 @@ public class RecurringDetail {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("additionalData");
-    openapiFields.add("alias");
-    openapiFields.add("aliasType");
-    openapiFields.add("bank");
-    openapiFields.add("billingAddress");
-    openapiFields.add("card");
-    openapiFields.add("contractTypes");
-    openapiFields.add("creationDate");
-    openapiFields.add("firstPspReference");
-    openapiFields.add("name");
-    openapiFields.add("networkTxReference");
-    openapiFields.add("paymentMethodVariant");
-    openapiFields.add("recurringDetailReference");
-    openapiFields.add("shopperName");
-    openapiFields.add("socialSecurityNumber");
-    openapiFields.add("tokenDetails");
-    openapiFields.add("variant");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("recurringDetailReference");
-    openapiRequiredFields.add("variant");
+/**
+   * Create an instance of RecurringDetail given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of RecurringDetail
+   * @throws JsonProcessingException if the JSON string is invalid with respect to RecurringDetail
+   */
+  public static RecurringDetail fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, RecurringDetail.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(RecurringDetail.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RecurringDetail
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (RecurringDetail.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetail is not found in the empty JSON string", RecurringDetail.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!RecurringDetail.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `RecurringDetail` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RecurringDetail.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field alias
-      if (jsonObj.get("alias") != null && !jsonObj.get("alias").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alias").toString()));
-      }
-      // validate the optional field aliasType
-      if (jsonObj.get("aliasType") != null && !jsonObj.get("aliasType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `aliasType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aliasType").toString()));
-      }
-      // validate the optional field `bank`
-      if (jsonObj.getAsJsonObject("bank") != null) {
-        BankAccount.validateJsonObject(jsonObj.getAsJsonObject("bank"));
-      }
-      // validate the optional field `billingAddress`
-      if (jsonObj.getAsJsonObject("billingAddress") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("billingAddress"));
-      }
-      // validate the optional field `card`
-      if (jsonObj.getAsJsonObject("card") != null) {
-        Card.validateJsonObject(jsonObj.getAsJsonObject("card"));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("contractTypes") != null && !jsonObj.get("contractTypes").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `contractTypes` to be an array in the JSON string but got `%s`", jsonObj.get("contractTypes").toString()));
-      }
-      // validate the optional field firstPspReference
-      if (jsonObj.get("firstPspReference") != null && !jsonObj.get("firstPspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `firstPspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstPspReference").toString()));
-      }
-      // validate the optional field name
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field networkTxReference
-      if (jsonObj.get("networkTxReference") != null && !jsonObj.get("networkTxReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `networkTxReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkTxReference").toString()));
-      }
-      // validate the optional field paymentMethodVariant
-      if (jsonObj.get("paymentMethodVariant") != null && !jsonObj.get("paymentMethodVariant").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentMethodVariant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentMethodVariant").toString()));
-      }
-      // validate the optional field recurringDetailReference
-      if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
-      }
-      // validate the optional field `shopperName`
-      if (jsonObj.getAsJsonObject("shopperName") != null) {
-        Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
-      }
-      // validate the optional field socialSecurityNumber
-      if (jsonObj.get("socialSecurityNumber") != null && !jsonObj.get("socialSecurityNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `socialSecurityNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialSecurityNumber").toString()));
-      }
-      // validate the optional field `tokenDetails`
-      if (jsonObj.getAsJsonObject("tokenDetails") != null) {
-        TokenDetails.validateJsonObject(jsonObj.getAsJsonObject("tokenDetails"));
-      }
-      // validate the optional field variant
-      if (jsonObj.get("variant") != null && !jsonObj.get("variant").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `variant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("variant").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RecurringDetail.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RecurringDetail' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RecurringDetail> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RecurringDetail.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<RecurringDetail>() {
-           @Override
-           public void write(JsonWriter out, RecurringDetail value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public RecurringDetail read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of RecurringDetail given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of RecurringDetail
-  * @throws IOException if the JSON string is invalid with respect to RecurringDetail
-  */
-  public static RecurringDetail fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RecurringDetail.class);
-  }
-
- /**
+/**
   * Convert an instance of RecurringDetail to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

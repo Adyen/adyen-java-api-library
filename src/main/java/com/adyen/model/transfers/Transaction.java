@@ -201,6 +201,8 @@ public class Transaction {
     
     CAPTUREREVERSAL("captureReversal"),
     
+    CARDTRANSFER("cardTransfer"),
+    
     CHARGEBACK("chargeback"),
     
     CHARGEBACKREVERSAL("chargebackReversal"),

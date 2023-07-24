@@ -15,46 +15,30 @@ package com.adyen.model.dataprotection;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.dataprotection.JSON;
 
 /**
  * SubjectErasureResponse
  */
+@JsonPropertyOrder({
+  SubjectErasureResponse.JSON_PROPERTY_RESULT
+})
 
 public class SubjectErasureResponse {
   /**
    * The result of this operation.
    */
-  @JsonAdapter(ResultEnum.Adapter.class)
   public enum ResultEnum {
     ACTIVE_RECURRING_TOKEN_EXISTS("ACTIVE_RECURRING_TOKEN_EXISTS"),
     
@@ -70,6 +54,7 @@ public class SubjectErasureResponse {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -79,6 +64,7 @@ public class SubjectErasureResponse {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ResultEnum fromValue(String value) {
       for (ResultEnum b : ResultEnum.values()) {
         if (b.value.equals(value)) {
@@ -87,30 +73,15 @@ public class SubjectErasureResponse {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ResultEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ResultEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ResultEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ResultEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_RESULT = "result";
-  @SerializedName(SERIALIZED_NAME_RESULT)
+  public static final String JSON_PROPERTY_RESULT = "result";
   private ResultEnum result;
 
   public SubjectErasureResponse() { 
   }
 
   public SubjectErasureResponse result(ResultEnum result) {
-    
     this.result = result;
     return this;
   }
@@ -120,18 +91,24 @@ public class SubjectErasureResponse {
    * @return result
   **/
   @ApiModelProperty(value = "The result of this operation.")
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ResultEnum getResult() {
     return result;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(ResultEnum result) {
     this.result = result;
   }
 
 
-
+  /**
+   * Return true if this SubjectErasureResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,101 +146,23 @@ public class SubjectErasureResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("result");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of SubjectErasureResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SubjectErasureResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SubjectErasureResponse
+   */
+  public static SubjectErasureResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SubjectErasureResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(SubjectErasureResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SubjectErasureResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SubjectErasureResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SubjectErasureResponse is not found in the empty JSON string", SubjectErasureResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!SubjectErasureResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `SubjectErasureResponse` properties.", entry.getKey()));
-        }
-      }
-      // ensure the field result can be parsed to an enum value
-      if (jsonObj.get("result") != null) {
-        if(!jsonObj.get("result").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `result` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result").toString()));
-        }
-        ResultEnum.fromValue(jsonObj.get("result").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SubjectErasureResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SubjectErasureResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SubjectErasureResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SubjectErasureResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SubjectErasureResponse>() {
-           @Override
-           public void write(JsonWriter out, SubjectErasureResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SubjectErasureResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SubjectErasureResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SubjectErasureResponse
-  * @throws IOException if the JSON string is invalid with respect to SubjectErasureResponse
-  */
-  public static SubjectErasureResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SubjectErasureResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of SubjectErasureResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

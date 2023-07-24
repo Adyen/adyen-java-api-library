@@ -15,69 +15,52 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.binlookup.Amount;
 import com.adyen.model.binlookup.CardBin;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * CostEstimateResponse
  */
+@JsonPropertyOrder({
+  CostEstimateResponse.JSON_PROPERTY_CARD_BIN,
+  CostEstimateResponse.JSON_PROPERTY_COST_ESTIMATE_AMOUNT,
+  CostEstimateResponse.JSON_PROPERTY_COST_ESTIMATE_REFERENCE,
+  CostEstimateResponse.JSON_PROPERTY_RESULT_CODE,
+  CostEstimateResponse.JSON_PROPERTY_SURCHARGE_TYPE
+})
 
 public class CostEstimateResponse {
-  public static final String SERIALIZED_NAME_CARD_BIN = "cardBin";
-  @SerializedName(SERIALIZED_NAME_CARD_BIN)
+  public static final String JSON_PROPERTY_CARD_BIN = "cardBin";
   private CardBin cardBin;
 
-  public static final String SERIALIZED_NAME_COST_ESTIMATE_AMOUNT = "costEstimateAmount";
-  @SerializedName(SERIALIZED_NAME_COST_ESTIMATE_AMOUNT)
+  public static final String JSON_PROPERTY_COST_ESTIMATE_AMOUNT = "costEstimateAmount";
   private Amount costEstimateAmount;
 
-  public static final String SERIALIZED_NAME_COST_ESTIMATE_REFERENCE = "costEstimateReference";
-  @SerializedName(SERIALIZED_NAME_COST_ESTIMATE_REFERENCE)
+  public static final String JSON_PROPERTY_COST_ESTIMATE_REFERENCE = "costEstimateReference";
   private String costEstimateReference;
 
-  public static final String SERIALIZED_NAME_RESULT_CODE = "resultCode";
-  @SerializedName(SERIALIZED_NAME_RESULT_CODE)
+  public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
 
-  public static final String SERIALIZED_NAME_SURCHARGE_TYPE = "surchargeType";
-  @SerializedName(SERIALIZED_NAME_SURCHARGE_TYPE)
+  public static final String JSON_PROPERTY_SURCHARGE_TYPE = "surchargeType";
   private String surchargeType;
 
   public CostEstimateResponse() { 
   }
 
   public CostEstimateResponse cardBin(CardBin cardBin) {
-    
     this.cardBin = cardBin;
     return this;
   }
@@ -87,19 +70,22 @@ public class CostEstimateResponse {
    * @return cardBin
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CARD_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CardBin getCardBin() {
     return cardBin;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARD_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(CardBin cardBin) {
     this.cardBin = cardBin;
   }
 
 
   public CostEstimateResponse costEstimateAmount(Amount costEstimateAmount) {
-    
     this.costEstimateAmount = costEstimateAmount;
     return this;
   }
@@ -109,19 +95,22 @@ public class CostEstimateResponse {
    * @return costEstimateAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getCostEstimateAmount() {
     return costEstimateAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateAmount(Amount costEstimateAmount) {
     this.costEstimateAmount = costEstimateAmount;
   }
 
 
   public CostEstimateResponse costEstimateReference(String costEstimateReference) {
-    
     this.costEstimateReference = costEstimateReference;
     return this;
   }
@@ -131,19 +120,22 @@ public class CostEstimateResponse {
    * @return costEstimateReference
   **/
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the request.")
+  @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCostEstimateReference() {
     return costEstimateReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateReference(String costEstimateReference) {
     this.costEstimateReference = costEstimateReference;
   }
 
 
   public CostEstimateResponse resultCode(String resultCode) {
-    
     this.resultCode = resultCode;
     return this;
   }
@@ -153,19 +145,22 @@ public class CostEstimateResponse {
    * @return resultCode
   **/
   @ApiModelProperty(value = "The result of the cost estimation.")
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResultCode() {
     return resultCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }
 
 
   public CostEstimateResponse surchargeType(String surchargeType) {
-    
     this.surchargeType = surchargeType;
     return this;
   }
@@ -175,18 +170,24 @@ public class CostEstimateResponse {
    * @return surchargeType
   **/
   @ApiModelProperty(value = "Indicates the way the charges can be passed on to the cardholder. The following values are possible: * `ZERO` - the charges are not allowed to pass on * `PASSTHROUGH` - the charges can be passed on * `UNLIMITED` - there is no limit on how much surcharge is passed on")
+  @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSurchargeType() {
     return surchargeType;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurchargeType(String surchargeType) {
     this.surchargeType = surchargeType;
   }
 
 
-
+  /**
+   * Return true if this CostEstimateResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,118 +233,23 @@ public class CostEstimateResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cardBin");
-    openapiFields.add("costEstimateAmount");
-    openapiFields.add("costEstimateReference");
-    openapiFields.add("resultCode");
-    openapiFields.add("surchargeType");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of CostEstimateResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CostEstimateResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CostEstimateResponse
+   */
+  public static CostEstimateResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CostEstimateResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CostEstimateResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CostEstimateResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CostEstimateResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CostEstimateResponse is not found in the empty JSON string", CostEstimateResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CostEstimateResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CostEstimateResponse` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field `cardBin`
-      if (jsonObj.getAsJsonObject("cardBin") != null) {
-        CardBin.validateJsonObject(jsonObj.getAsJsonObject("cardBin"));
-      }
-      // validate the optional field `costEstimateAmount`
-      if (jsonObj.getAsJsonObject("costEstimateAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("costEstimateAmount"));
-      }
-      // validate the optional field costEstimateReference
-      if (jsonObj.get("costEstimateReference") != null && !jsonObj.get("costEstimateReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `costEstimateReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costEstimateReference").toString()));
-      }
-      // validate the optional field resultCode
-      if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
-      }
-      // validate the optional field surchargeType
-      if (jsonObj.get("surchargeType") != null && !jsonObj.get("surchargeType").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `surchargeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("surchargeType").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CostEstimateResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CostEstimateResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CostEstimateResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CostEstimateResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CostEstimateResponse>() {
-           @Override
-           public void write(JsonWriter out, CostEstimateResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CostEstimateResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CostEstimateResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CostEstimateResponse
-  * @throws IOException if the JSON string is invalid with respect to CostEstimateResponse
-  */
-  public static CostEstimateResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CostEstimateResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of CostEstimateResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

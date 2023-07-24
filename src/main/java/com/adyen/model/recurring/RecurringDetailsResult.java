@@ -15,67 +15,50 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.recurring.RecurringDetailWrapper;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.recurring.JSON;
 
 /**
  * RecurringDetailsResult
  */
+@JsonPropertyOrder({
+  RecurringDetailsResult.JSON_PROPERTY_CREATION_DATE,
+  RecurringDetailsResult.JSON_PROPERTY_DETAILS,
+  RecurringDetailsResult.JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL,
+  RecurringDetailsResult.JSON_PROPERTY_SHOPPER_REFERENCE
+})
 
 public class RecurringDetailsResult {
-  public static final String SERIALIZED_NAME_CREATION_DATE = "creationDate";
-  @SerializedName(SERIALIZED_NAME_CREATION_DATE)
+  public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
 
-  public static final String SERIALIZED_NAME_DETAILS = "details";
-  @SerializedName(SERIALIZED_NAME_DETAILS)
+  public static final String JSON_PROPERTY_DETAILS = "details";
   private List<RecurringDetailWrapper> details = null;
 
-  public static final String SERIALIZED_NAME_LAST_KNOWN_SHOPPER_EMAIL = "lastKnownShopperEmail";
-  @SerializedName(SERIALIZED_NAME_LAST_KNOWN_SHOPPER_EMAIL)
+  public static final String JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL = "lastKnownShopperEmail";
   private String lastKnownShopperEmail;
 
-  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
   public RecurringDetailsResult() { 
   }
 
   public RecurringDetailsResult creationDate(OffsetDateTime creationDate) {
-    
     this.creationDate = creationDate;
     return this;
   }
@@ -85,19 +68,22 @@ public class RecurringDetailsResult {
    * @return creationDate
   **/
   @ApiModelProperty(value = "The date when the recurring details were created.")
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
 
   public RecurringDetailsResult details(List<RecurringDetailWrapper> details) {
-    
     this.details = details;
     return this;
   }
@@ -115,19 +101,22 @@ public class RecurringDetailsResult {
    * @return details
   **/
   @ApiModelProperty(value = "Payment details stored for recurring payments.")
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<RecurringDetailWrapper> getDetails() {
     return details;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(List<RecurringDetailWrapper> details) {
     this.details = details;
   }
 
 
   public RecurringDetailsResult lastKnownShopperEmail(String lastKnownShopperEmail) {
-    
     this.lastKnownShopperEmail = lastKnownShopperEmail;
     return this;
   }
@@ -137,19 +126,22 @@ public class RecurringDetailsResult {
    * @return lastKnownShopperEmail
   **/
   @ApiModelProperty(value = "The most recent email for this shopper (if available).")
+  @JsonProperty(JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLastKnownShopperEmail() {
     return lastKnownShopperEmail;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastKnownShopperEmail(String lastKnownShopperEmail) {
     this.lastKnownShopperEmail = lastKnownShopperEmail;
   }
 
 
   public RecurringDetailsResult shopperReference(String shopperReference) {
-    
     this.shopperReference = shopperReference;
     return this;
   }
@@ -159,18 +151,24 @@ public class RecurringDetailsResult {
    * @return shopperReference
   **/
   @ApiModelProperty(value = "The reference you use to uniquely identify the shopper (e.g. user ID or account ID).")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperReference() {
     return shopperReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
 
-
+  /**
+   * Return true if this RecurringDetailsResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -214,117 +212,23 @@ public class RecurringDetailsResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("creationDate");
-    openapiFields.add("details");
-    openapiFields.add("lastKnownShopperEmail");
-    openapiFields.add("shopperReference");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of RecurringDetailsResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of RecurringDetailsResult
+   * @throws JsonProcessingException if the JSON string is invalid with respect to RecurringDetailsResult
+   */
+  public static RecurringDetailsResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, RecurringDetailsResult.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(RecurringDetailsResult.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RecurringDetailsResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (RecurringDetailsResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetailsResult is not found in the empty JSON string", RecurringDetailsResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!RecurringDetailsResult.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `RecurringDetailsResult` properties.", entry.getKey()));
-        }
-      }
-      JsonArray jsonArraydetails = jsonObj.getAsJsonArray("details");
-      if (jsonArraydetails != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("details").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `details` to be an array in the JSON string but got `%s`", jsonObj.get("details").toString()));
-        }
-
-        // validate the optional field `details` (array)
-        for (int i = 0; i < jsonArraydetails.size(); i++) {
-          RecurringDetailWrapper.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field lastKnownShopperEmail
-      if (jsonObj.get("lastKnownShopperEmail") != null && !jsonObj.get("lastKnownShopperEmail").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `lastKnownShopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastKnownShopperEmail").toString()));
-      }
-      // validate the optional field shopperReference
-      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RecurringDetailsResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RecurringDetailsResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RecurringDetailsResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RecurringDetailsResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<RecurringDetailsResult>() {
-           @Override
-           public void write(JsonWriter out, RecurringDetailsResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public RecurringDetailsResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of RecurringDetailsResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of RecurringDetailsResult
-  * @throws IOException if the JSON string is invalid with respect to RecurringDetailsResult
-  */
-  public static RecurringDetailsResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RecurringDetailsResult.class);
-  }
-
- /**
+/**
   * Convert an instance of RecurringDetailsResult to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

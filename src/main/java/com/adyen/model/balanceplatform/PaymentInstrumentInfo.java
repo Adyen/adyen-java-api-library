@@ -14,71 +14,57 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.balanceplatform.CardInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * PaymentInstrumentInfo
  */
+@JsonPropertyOrder({
+  PaymentInstrumentInfo.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
+  PaymentInstrumentInfo.JSON_PROPERTY_CARD,
+  PaymentInstrumentInfo.JSON_PROPERTY_DESCRIPTION,
+  PaymentInstrumentInfo.JSON_PROPERTY_ISSUING_COUNTRY_CODE,
+  PaymentInstrumentInfo.JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID,
+  PaymentInstrumentInfo.JSON_PROPERTY_REFERENCE,
+  PaymentInstrumentInfo.JSON_PROPERTY_STATUS,
+  PaymentInstrumentInfo.JSON_PROPERTY_STATUS_REASON,
+  PaymentInstrumentInfo.JSON_PROPERTY_TYPE
+})
 
 public class PaymentInstrumentInfo {
-  public static final String SERIALIZED_NAME_BALANCE_ACCOUNT_ID = "balanceAccountId";
-  @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
-  public static final String SERIALIZED_NAME_CARD = "card";
-  @SerializedName(SERIALIZED_NAME_CARD)
+  public static final String JSON_PROPERTY_CARD = "card";
   private CardInfo card;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_ISSUING_COUNTRY_CODE = "issuingCountryCode";
-  @SerializedName(SERIALIZED_NAME_ISSUING_COUNTRY_CODE)
+  public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODE = "issuingCountryCode";
   private String issuingCountryCode;
 
-  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT_GROUP_ID = "paymentInstrumentGroupId";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT_GROUP_ID)
+  public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID = "paymentInstrumentGroupId";
   private String paymentInstrumentGroupId;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
   /**
    * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     ACTIVE("active"),
     
@@ -94,6 +80,7 @@ public class PaymentInstrumentInfo {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -103,6 +90,7 @@ public class PaymentInstrumentInfo {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -111,29 +99,14 @@ public class PaymentInstrumentInfo {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
   /**
    * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
    */
-  @JsonAdapter(StatusReasonEnum.Adapter.class)
   public enum StatusReasonEnum {
     ACCOUNTCLOSURE("accountClosure"),
     
@@ -159,6 +132,7 @@ public class PaymentInstrumentInfo {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -168,6 +142,7 @@ public class PaymentInstrumentInfo {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusReasonEnum fromValue(String value) {
       for (StatusReasonEnum b : StatusReasonEnum.values()) {
         if (b.value.equals(value)) {
@@ -176,29 +151,14 @@ public class PaymentInstrumentInfo {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusReasonEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusReasonEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusReasonEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusReasonEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS_REASON = "statusReason";
-  @SerializedName(SERIALIZED_NAME_STATUS_REASON)
+  public static final String JSON_PROPERTY_STATUS_REASON = "statusReason";
   private StatusReasonEnum statusReason;
 
   /**
    * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BANKACCOUNT("bankAccount"),
     
@@ -210,6 +170,7 @@ public class PaymentInstrumentInfo {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -219,6 +180,7 @@ public class PaymentInstrumentInfo {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -227,30 +189,15 @@ public class PaymentInstrumentInfo {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public PaymentInstrumentInfo() { 
   }
 
   public PaymentInstrumentInfo balanceAccountId(String balanceAccountId) {
-    
     this.balanceAccountId = balanceAccountId;
     return this;
   }
@@ -260,19 +207,22 @@ public class PaymentInstrumentInfo {
    * @return balanceAccountId
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.")
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
 
   public PaymentInstrumentInfo card(CardInfo card) {
-    
     this.card = card;
     return this;
   }
@@ -282,19 +232,22 @@ public class PaymentInstrumentInfo {
    * @return card
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CardInfo getCard() {
     return card;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardInfo card) {
     this.card = card;
   }
 
 
   public PaymentInstrumentInfo description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -304,19 +257,22 @@ public class PaymentInstrumentInfo {
    * @return description
   **/
   @ApiModelProperty(value = "Your description for the payment instrument, maximum 300 characters.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public PaymentInstrumentInfo issuingCountryCode(String issuingCountryCode) {
-    
     this.issuingCountryCode = issuingCountryCode;
     return this;
   }
@@ -326,19 +282,22 @@ public class PaymentInstrumentInfo {
    * @return issuingCountryCode
   **/
   @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.")
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuingCountryCode() {
     return issuingCountryCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
   }
 
 
   public PaymentInstrumentInfo paymentInstrumentGroupId(String paymentInstrumentGroupId) {
-    
     this.paymentInstrumentGroupId = paymentInstrumentGroupId;
     return this;
   }
@@ -348,19 +307,22 @@ public class PaymentInstrumentInfo {
    * @return paymentInstrumentGroupId
   **/
   @ApiModelProperty(value = "The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentInstrumentGroupId() {
     return paymentInstrumentGroupId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentGroupId(String paymentInstrumentGroupId) {
     this.paymentInstrumentGroupId = paymentInstrumentGroupId;
   }
 
 
   public PaymentInstrumentInfo reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -370,19 +332,22 @@ public class PaymentInstrumentInfo {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the payment instrument, maximum 150 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public PaymentInstrumentInfo status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -392,19 +357,22 @@ public class PaymentInstrumentInfo {
    * @return status
   **/
   @ApiModelProperty(value = "The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the `card.formFactor` and the `issuingCountryCode`. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   ")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
   public PaymentInstrumentInfo statusReason(StatusReasonEnum statusReason) {
-    
     this.statusReason = statusReason;
     return this;
   }
@@ -414,19 +382,22 @@ public class PaymentInstrumentInfo {
    * @return statusReason
   **/
   @ApiModelProperty(value = "The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the `statusComment` parameter describing the status change.")
+  @JsonProperty(JSON_PROPERTY_STATUS_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusReasonEnum getStatusReason() {
     return statusReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
   }
 
 
   public PaymentInstrumentInfo type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -436,18 +407,24 @@ public class PaymentInstrumentInfo {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "Type of payment instrument.  Possible value: **card**, **bankAccount**. ")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this PaymentInstrumentInfo object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -501,158 +478,23 @@ public class PaymentInstrumentInfo {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("balanceAccountId");
-    openapiFields.add("card");
-    openapiFields.add("description");
-    openapiFields.add("issuingCountryCode");
-    openapiFields.add("paymentInstrumentGroupId");
-    openapiFields.add("reference");
-    openapiFields.add("status");
-    openapiFields.add("statusReason");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("balanceAccountId");
-    openapiRequiredFields.add("issuingCountryCode");
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of PaymentInstrumentInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentInstrumentInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentInstrumentInfo
+   */
+  public static PaymentInstrumentInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentInstrumentInfo.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to PaymentInstrumentInfo
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentInstrumentInfo.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentInstrumentInfo is not found in the empty JSON string", PaymentInstrumentInfo.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!PaymentInstrumentInfo.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentInfo` properties.", entry.getKey()));
-            }
-          }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentInstrumentInfo.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field balanceAccountId
-      if (jsonObj.get("balanceAccountId") != null && !jsonObj.get("balanceAccountId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `balanceAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balanceAccountId").toString()));
-      }
-      // validate the optional field `card`
-      if (jsonObj.getAsJsonObject("card") != null) {
-        CardInfo.validateJsonObject(jsonObj.getAsJsonObject("card"));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field issuingCountryCode
-      if (jsonObj.get("issuingCountryCode") != null && !jsonObj.get("issuingCountryCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuingCountryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuingCountryCode").toString()));
-      }
-      // validate the optional field paymentInstrumentGroupId
-      if (jsonObj.get("paymentInstrumentGroupId") != null && !jsonObj.get("paymentInstrumentGroupId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `paymentInstrumentGroupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentInstrumentGroupId").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-      // ensure the field statusReason can be parsed to an enum value
-      if (jsonObj.get("statusReason") != null) {
-        if(!jsonObj.get("statusReason").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `statusReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusReason").toString()));
-        }
-        StatusReasonEnum.fromValue(jsonObj.get("statusReason").getAsString());
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentInstrumentInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentInstrumentInfo' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentInstrumentInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentInstrumentInfo.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentInstrumentInfo>() {
-           @Override
-           public void write(JsonWriter out, PaymentInstrumentInfo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentInstrumentInfo read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PaymentInstrumentInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PaymentInstrumentInfo
-  * @throws IOException if the JSON string is invalid with respect to PaymentInstrumentInfo
-  */
-  public static PaymentInstrumentInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentInstrumentInfo.class);
-  }
-
- /**
+/**
   * Convert an instance of PaymentInstrumentInfo to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

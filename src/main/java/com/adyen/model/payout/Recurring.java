@@ -14,47 +14,35 @@ package com.adyen.model.payout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payout.JSON;
 
 /**
  * Recurring
  */
+@JsonPropertyOrder({
+  Recurring.JSON_PROPERTY_CONTRACT,
+  Recurring.JSON_PROPERTY_RECURRING_DETAIL_NAME,
+  Recurring.JSON_PROPERTY_RECURRING_EXPIRY,
+  Recurring.JSON_PROPERTY_RECURRING_FREQUENCY,
+  Recurring.JSON_PROPERTY_TOKEN_SERVICE
+})
 
 public class Recurring {
   /**
    * The type of recurring contract to be used. Possible values: * &#x60;ONECLICK&#x60; – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * &#x60;RECURRING&#x60; – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).
    */
-  @JsonAdapter(ContractEnum.Adapter.class)
   public enum ContractEnum {
     ONECLICK("ONECLICK"),
     
@@ -68,6 +56,7 @@ public class Recurring {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -77,6 +66,7 @@ public class Recurring {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ContractEnum fromValue(String value) {
       for (ContractEnum b : ContractEnum.values()) {
         if (b.value.equals(value)) {
@@ -85,41 +75,23 @@ public class Recurring {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ContractEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ContractEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ContractEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ContractEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_CONTRACT = "contract";
-  @SerializedName(SERIALIZED_NAME_CONTRACT)
+  public static final String JSON_PROPERTY_CONTRACT = "contract";
   private ContractEnum contract;
 
-  public static final String SERIALIZED_NAME_RECURRING_DETAIL_NAME = "recurringDetailName";
-  @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_NAME)
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_NAME = "recurringDetailName";
   private String recurringDetailName;
 
-  public static final String SERIALIZED_NAME_RECURRING_EXPIRY = "recurringExpiry";
-  @SerializedName(SERIALIZED_NAME_RECURRING_EXPIRY)
+  public static final String JSON_PROPERTY_RECURRING_EXPIRY = "recurringExpiry";
   private OffsetDateTime recurringExpiry;
 
-  public static final String SERIALIZED_NAME_RECURRING_FREQUENCY = "recurringFrequency";
-  @SerializedName(SERIALIZED_NAME_RECURRING_FREQUENCY)
+  public static final String JSON_PROPERTY_RECURRING_FREQUENCY = "recurringFrequency";
   private String recurringFrequency;
 
   /**
    * The name of the token service.
    */
-  @JsonAdapter(TokenServiceEnum.Adapter.class)
   public enum TokenServiceEnum {
     VISATOKENSERVICE("VISATOKENSERVICE"),
     
@@ -131,6 +103,7 @@ public class Recurring {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -140,6 +113,7 @@ public class Recurring {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TokenServiceEnum fromValue(String value) {
       for (TokenServiceEnum b : TokenServiceEnum.values()) {
         if (b.value.equals(value)) {
@@ -148,30 +122,15 @@ public class Recurring {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TokenServiceEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TokenServiceEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TokenServiceEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TokenServiceEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TOKEN_SERVICE = "tokenService";
-  @SerializedName(SERIALIZED_NAME_TOKEN_SERVICE)
+  public static final String JSON_PROPERTY_TOKEN_SERVICE = "tokenService";
   private TokenServiceEnum tokenService;
 
   public Recurring() { 
   }
 
   public Recurring contract(ContractEnum contract) {
-    
     this.contract = contract;
     return this;
   }
@@ -181,19 +140,22 @@ public class Recurring {
    * @return contract
   **/
   @ApiModelProperty(value = "The type of recurring contract to be used. Possible values: * `ONECLICK` – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * `RECURRING` – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * `ONECLICK,RECURRING` – Payment details can be used regardless of whether the shopper is on your site or not. * `PAYOUT` – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).")
+  @JsonProperty(JSON_PROPERTY_CONTRACT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ContractEnum getContract() {
     return contract;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CONTRACT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContract(ContractEnum contract) {
     this.contract = contract;
   }
 
 
   public Recurring recurringDetailName(String recurringDetailName) {
-    
     this.recurringDetailName = recurringDetailName;
     return this;
   }
@@ -203,19 +165,22 @@ public class Recurring {
    * @return recurringDetailName
   **/
   @ApiModelProperty(value = "A descriptive name for this detail.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringDetailName() {
     return recurringDetailName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailName(String recurringDetailName) {
     this.recurringDetailName = recurringDetailName;
   }
 
 
   public Recurring recurringExpiry(OffsetDateTime recurringExpiry) {
-    
     this.recurringExpiry = recurringExpiry;
     return this;
   }
@@ -225,19 +190,22 @@ public class Recurring {
    * @return recurringExpiry
   **/
   @ApiModelProperty(value = "Date after which no further authorisations shall be performed. Only for 3D Secure 2.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getRecurringExpiry() {
     return recurringExpiry;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringExpiry(OffsetDateTime recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
   }
 
 
   public Recurring recurringFrequency(String recurringFrequency) {
-    
     this.recurringFrequency = recurringFrequency;
     return this;
   }
@@ -247,19 +215,22 @@ public class Recurring {
    * @return recurringFrequency
   **/
   @ApiModelProperty(value = "Minimum number of days between authorisations. Only for 3D Secure 2.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRecurringFrequency() {
     return recurringFrequency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
   }
 
 
   public Recurring tokenService(TokenServiceEnum tokenService) {
-    
     this.tokenService = tokenService;
     return this;
   }
@@ -269,18 +240,24 @@ public class Recurring {
    * @return tokenService
   **/
   @ApiModelProperty(value = "The name of the token service.")
+  @JsonProperty(JSON_PROPERTY_TOKEN_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TokenServiceEnum getTokenService() {
     return tokenService;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOKEN_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenService(TokenServiceEnum tokenService) {
     this.tokenService = tokenService;
   }
 
 
-
+  /**
+   * Return true if this Recurring object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -326,120 +303,23 @@ public class Recurring {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("contract");
-    openapiFields.add("recurringDetailName");
-    openapiFields.add("recurringExpiry");
-    openapiFields.add("recurringFrequency");
-    openapiFields.add("tokenService");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of Recurring given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Recurring
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Recurring
+   */
+  public static Recurring fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Recurring.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Recurring.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Recurring
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Recurring.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Recurring is not found in the empty JSON string", Recurring.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Recurring.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Recurring` properties.", entry.getKey()));
-        }
-      }
-      // ensure the field contract can be parsed to an enum value
-      if (jsonObj.get("contract") != null) {
-        if(!jsonObj.get("contract").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `contract` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contract").toString()));
-        }
-        ContractEnum.fromValue(jsonObj.get("contract").getAsString());
-      }
-      // validate the optional field recurringDetailName
-      if (jsonObj.get("recurringDetailName") != null && !jsonObj.get("recurringDetailName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurringDetailName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailName").toString()));
-      }
-      // validate the optional field recurringFrequency
-      if (jsonObj.get("recurringFrequency") != null && !jsonObj.get("recurringFrequency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `recurringFrequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringFrequency").toString()));
-      }
-      // ensure the field tokenService can be parsed to an enum value
-      if (jsonObj.get("tokenService") != null) {
-        if(!jsonObj.get("tokenService").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `tokenService` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenService").toString()));
-        }
-        TokenServiceEnum.fromValue(jsonObj.get("tokenService").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Recurring.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Recurring' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Recurring> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Recurring.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Recurring>() {
-           @Override
-           public void write(JsonWriter out, Recurring value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Recurring read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Recurring given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Recurring
-  * @throws IOException if the JSON string is invalid with respect to Recurring
-  */
-  public static Recurring fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Recurring.class);
-  }
-
- /**
+/**
   * Convert an instance of Recurring to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
