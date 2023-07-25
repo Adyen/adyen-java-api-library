@@ -22,8 +22,8 @@ import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
 import com.adyen.model.checkout.BrowserInfo;
+import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
-import com.adyen.model.checkout.DonationPaymentRequestPaymentMethod;
 import com.adyen.model.checkout.EncryptedOrderData;
 import com.adyen.model.checkout.ForexQuote;
 import com.adyen.model.checkout.FundOrigin;
@@ -361,7 +361,7 @@ public class PaymentRequest {
   private String origin;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
-  private DonationPaymentRequestPaymentMethod paymentMethod;
+  private CheckoutPaymentMethod paymentMethod;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
@@ -1580,7 +1580,7 @@ public class PaymentRequest {
   }
 
 
-  public PaymentRequest paymentMethod(DonationPaymentRequestPaymentMethod paymentMethod) {
+  public PaymentRequest paymentMethod(CheckoutPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
@@ -1593,14 +1593,14 @@ public class PaymentRequest {
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DonationPaymentRequestPaymentMethod getPaymentMethod() {
+  public CheckoutPaymentMethod getPaymentMethod() {
     return paymentMethod;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethod(DonationPaymentRequestPaymentMethod paymentMethod) {
+  public void setPaymentMethod(CheckoutPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 

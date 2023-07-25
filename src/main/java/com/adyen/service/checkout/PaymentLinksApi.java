@@ -14,7 +14,7 @@ package com.adyen.service.checkout;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.checkout.CreatePaymentLinkRequest;
+import com.adyen.model.checkout.PaymentLinkRequest;
 import com.adyen.model.checkout.PaymentLinkResponse;
 import com.adyen.model.checkout.ServiceError;
 import com.adyen.model.checkout.UpdatePaymentLinkRequest;
@@ -105,25 +105,25 @@ public class PaymentLinksApi extends Service {
     /**
     * Create a payment link
     *
-    * @param createPaymentLinkRequest {@link CreatePaymentLinkRequest }  (required)
+    * @param paymentLinkRequest {@link PaymentLinkRequest }  (required)
     * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
-        return paymentLinks(createPaymentLinkRequest, null);
+    public PaymentLinkResponse paymentLinks(PaymentLinkRequest paymentLinkRequest) throws ApiException, IOException {
+        return paymentLinks(paymentLinkRequest, null);
     }
 
     /**
     * Create a payment link
     *
-    * @param createPaymentLinkRequest {@link CreatePaymentLinkRequest }  (required)
+    * @param paymentLinkRequest {@link PaymentLinkRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentLinkResponse paymentLinks(PaymentLinkRequest paymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = createPaymentLinkRequest.toJson();
+        String requestBody = paymentLinkRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentLinks", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentLinkResponse.fromJson(jsonResult);
