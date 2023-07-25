@@ -207,10 +207,10 @@ public class TaxReportingClassification {
   }
 
    /**
-   * The Global Intermediary Identification Number (GIIN) required for FATCA.
+   * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    * @return financialInstitutionNumber
   **/
-  @ApiModelProperty(value = "The Global Intermediary Identification Number (GIIN) required for FATCA.")
+  @ApiModelProperty(value = "The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the `businessType` is **financialInstitution**.")
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

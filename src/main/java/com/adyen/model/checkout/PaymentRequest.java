@@ -22,8 +22,8 @@ import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
 import com.adyen.model.checkout.BrowserInfo;
-import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
+import com.adyen.model.checkout.DonationPaymentRequestPaymentMethod;
 import com.adyen.model.checkout.EncryptedOrderData;
 import com.adyen.model.checkout.ForexQuote;
 import com.adyen.model.checkout.FundOrigin;
@@ -55,82 +55,79 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CheckoutDonationPaymentRequest
+ * PaymentRequest
  */
 @JsonPropertyOrder({
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ACCOUNT_INFO,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ADDITIONAL_AMOUNT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ADDITIONAL_DATA,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_AMOUNT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_APPLICATION_INFO,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_AUTHENTICATION_DATA,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_BILLING_ADDRESS,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_BROWSER_INFO,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_CHANNEL,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_COMPANY,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_CONVERSION_ID,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_COUNTRY_CODE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DATE_OF_BIRTH,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DCC_QUOTE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DELIVER_AT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DELIVERY_DATE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DEVICE_FINGERPRINT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DONATION_ACCOUNT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_DONATION_TOKEN,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ENABLE_ONE_CLICK,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ENABLE_PAY_OUT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ENABLE_RECURRING,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ENTITY_TYPE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_FRAUD_OFFSET,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_FUND_ORIGIN,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_FUND_RECIPIENT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_INDUSTRY_USAGE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_INSTALLMENTS,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_LINE_ITEMS,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_MANDATE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_MCC,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_MERCHANT_RISK_INDICATOR,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_METADATA,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_MPI_DATA,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ORDER,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ORDER_REFERENCE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_ORIGIN,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_PAYMENT_METHOD,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_RECURRING_EXPIRY,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_RECURRING_FREQUENCY,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_REFERENCE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_RETURN_URL,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_RISK_DATA,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SESSION_VALIDITY,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SHOPPER_EMAIL,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SHOPPER_I_P,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SHOPPER_LOCALE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SHOPPER_NAME,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_SPLITS,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_STORE,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
-  CheckoutDonationPaymentRequest.JSON_PROPERTY_TRUSTED_SHOPPER
+  PaymentRequest.JSON_PROPERTY_ACCOUNT_INFO,
+  PaymentRequest.JSON_PROPERTY_ADDITIONAL_AMOUNT,
+  PaymentRequest.JSON_PROPERTY_ADDITIONAL_DATA,
+  PaymentRequest.JSON_PROPERTY_AMOUNT,
+  PaymentRequest.JSON_PROPERTY_APPLICATION_INFO,
+  PaymentRequest.JSON_PROPERTY_AUTHENTICATION_DATA,
+  PaymentRequest.JSON_PROPERTY_BILLING_ADDRESS,
+  PaymentRequest.JSON_PROPERTY_BROWSER_INFO,
+  PaymentRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
+  PaymentRequest.JSON_PROPERTY_CHANNEL,
+  PaymentRequest.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  PaymentRequest.JSON_PROPERTY_COMPANY,
+  PaymentRequest.JSON_PROPERTY_CONVERSION_ID,
+  PaymentRequest.JSON_PROPERTY_COUNTRY_CODE,
+  PaymentRequest.JSON_PROPERTY_DATE_OF_BIRTH,
+  PaymentRequest.JSON_PROPERTY_DCC_QUOTE,
+  PaymentRequest.JSON_PROPERTY_DELIVER_AT,
+  PaymentRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
+  PaymentRequest.JSON_PROPERTY_DELIVERY_DATE,
+  PaymentRequest.JSON_PROPERTY_DEVICE_FINGERPRINT,
+  PaymentRequest.JSON_PROPERTY_ENABLE_ONE_CLICK,
+  PaymentRequest.JSON_PROPERTY_ENABLE_PAY_OUT,
+  PaymentRequest.JSON_PROPERTY_ENABLE_RECURRING,
+  PaymentRequest.JSON_PROPERTY_ENTITY_TYPE,
+  PaymentRequest.JSON_PROPERTY_FRAUD_OFFSET,
+  PaymentRequest.JSON_PROPERTY_FUND_ORIGIN,
+  PaymentRequest.JSON_PROPERTY_FUND_RECIPIENT,
+  PaymentRequest.JSON_PROPERTY_INDUSTRY_USAGE,
+  PaymentRequest.JSON_PROPERTY_INSTALLMENTS,
+  PaymentRequest.JSON_PROPERTY_LINE_ITEMS,
+  PaymentRequest.JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT,
+  PaymentRequest.JSON_PROPERTY_MANDATE,
+  PaymentRequest.JSON_PROPERTY_MCC,
+  PaymentRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_MERCHANT_RISK_INDICATOR,
+  PaymentRequest.JSON_PROPERTY_METADATA,
+  PaymentRequest.JSON_PROPERTY_MPI_DATA,
+  PaymentRequest.JSON_PROPERTY_ORDER,
+  PaymentRequest.JSON_PROPERTY_ORDER_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_ORIGIN,
+  PaymentRequest.JSON_PROPERTY_PAYMENT_METHOD,
+  PaymentRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
+  PaymentRequest.JSON_PROPERTY_RECURRING_EXPIRY,
+  PaymentRequest.JSON_PROPERTY_RECURRING_FREQUENCY,
+  PaymentRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
+  PaymentRequest.JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD,
+  PaymentRequest.JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD,
+  PaymentRequest.JSON_PROPERTY_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_RETURN_URL,
+  PaymentRequest.JSON_PROPERTY_RISK_DATA,
+  PaymentRequest.JSON_PROPERTY_SESSION_VALIDITY,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_EMAIL,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_I_P,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_LOCALE,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_NAME,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  PaymentRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
+  PaymentRequest.JSON_PROPERTY_SPLITS,
+  PaymentRequest.JSON_PROPERTY_STORE,
+  PaymentRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD,
+  PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
+  PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
+  PaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
+  PaymentRequest.JSON_PROPERTY_TRUSTED_SHOPPER
 })
 
-public class CheckoutDonationPaymentRequest {
+public class PaymentRequest {
   public static final String JSON_PROPERTY_ACCOUNT_INFO = "accountInfo";
   private AccountInfo accountInfo;
 
@@ -227,15 +224,6 @@ public class CheckoutDonationPaymentRequest {
 
   public static final String JSON_PROPERTY_DEVICE_FINGERPRINT = "deviceFingerprint";
   private String deviceFingerprint;
-
-  public static final String JSON_PROPERTY_DONATION_ACCOUNT = "donationAccount";
-  private String donationAccount;
-
-  public static final String JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE = "donationOriginalPspReference";
-  private String donationOriginalPspReference;
-
-  public static final String JSON_PROPERTY_DONATION_TOKEN = "donationToken";
-  private String donationToken;
 
   public static final String JSON_PROPERTY_ENABLE_ONE_CLICK = "enableOneClick";
   private Boolean enableOneClick;
@@ -373,7 +361,7 @@ public class CheckoutDonationPaymentRequest {
   private String origin;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
-  private CheckoutPaymentMethod paymentMethod;
+  private DonationPaymentRequestPaymentMethod paymentMethod;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
@@ -526,10 +514,10 @@ public class CheckoutDonationPaymentRequest {
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;
 
-  public CheckoutDonationPaymentRequest() { 
+  public PaymentRequest() { 
   }
 
-  public CheckoutDonationPaymentRequest accountInfo(AccountInfo accountInfo) {
+  public PaymentRequest accountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
     return this;
   }
@@ -554,7 +542,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest additionalAmount(Amount additionalAmount) {
+  public PaymentRequest additionalAmount(Amount additionalAmount) {
     this.additionalAmount = additionalAmount;
     return this;
   }
@@ -579,12 +567,12 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest additionalData(Map<String, String> additionalData) {
+  public PaymentRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
 
-  public CheckoutDonationPaymentRequest putAdditionalDataItem(String key, String additionalDataItem) {
+  public PaymentRequest putAdditionalDataItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -612,7 +600,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest amount(Amount amount) {
+  public PaymentRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -637,7 +625,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest applicationInfo(ApplicationInfo applicationInfo) {
+  public PaymentRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
     return this;
   }
@@ -662,7 +650,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest authenticationData(AuthenticationData authenticationData) {
+  public PaymentRequest authenticationData(AuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
     return this;
   }
@@ -687,7 +675,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest billingAddress(Address billingAddress) {
+  public PaymentRequest billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
@@ -712,7 +700,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest browserInfo(BrowserInfo browserInfo) {
+  public PaymentRequest browserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
     return this;
   }
@@ -737,7 +725,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest captureDelayHours(Integer captureDelayHours) {
+  public PaymentRequest captureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
     return this;
   }
@@ -762,7 +750,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest channel(ChannelEnum channel) {
+  public PaymentRequest channel(ChannelEnum channel) {
     this.channel = channel;
     return this;
   }
@@ -787,7 +775,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest checkoutAttemptId(String checkoutAttemptId) {
+  public PaymentRequest checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
@@ -812,7 +800,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest company(Company company) {
+  public PaymentRequest company(Company company) {
     this.company = company;
     return this;
   }
@@ -837,7 +825,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest conversionId(String conversionId) {
+  public PaymentRequest conversionId(String conversionId) {
     this.conversionId = conversionId;
     return this;
   }
@@ -865,7 +853,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest countryCode(String countryCode) {
+  public PaymentRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -890,7 +878,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest dateOfBirth(OffsetDateTime dateOfBirth) {
+  public PaymentRequest dateOfBirth(OffsetDateTime dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
@@ -915,7 +903,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest dccQuote(ForexQuote dccQuote) {
+  public PaymentRequest dccQuote(ForexQuote dccQuote) {
     this.dccQuote = dccQuote;
     return this;
   }
@@ -940,7 +928,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest deliverAt(OffsetDateTime deliverAt) {
+  public PaymentRequest deliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
     return this;
   }
@@ -965,7 +953,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest deliveryAddress(Address deliveryAddress) {
+  public PaymentRequest deliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -990,7 +978,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest deliveryDate(OffsetDateTime deliveryDate) {
+  public PaymentRequest deliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
     return this;
   }
@@ -1018,7 +1006,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest deviceFingerprint(String deviceFingerprint) {
+  public PaymentRequest deviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
     return this;
   }
@@ -1043,82 +1031,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest donationAccount(String donationAccount) {
-    this.donationAccount = donationAccount;
-    return this;
-  }
-
-   /**
-   * Donation account to which the transaction is credited.
-   * @return donationAccount
-  **/
-  @ApiModelProperty(required = true, value = "Donation account to which the transaction is credited.")
-  @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDonationAccount() {
-    return donationAccount;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDonationAccount(String donationAccount) {
-    this.donationAccount = donationAccount;
-  }
-
-
-  public CheckoutDonationPaymentRequest donationOriginalPspReference(String donationOriginalPspReference) {
-    this.donationOriginalPspReference = donationOriginalPspReference;
-    return this;
-  }
-
-   /**
-   * PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
-   * @return donationOriginalPspReference
-  **/
-  @ApiModelProperty(value = "PSP reference of the transaction from which the donation token is generated. Required when `donationToken` is provided.")
-  @JsonProperty(JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDonationOriginalPspReference() {
-    return donationOriginalPspReference;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDonationOriginalPspReference(String donationOriginalPspReference) {
-    this.donationOriginalPspReference = donationOriginalPspReference;
-  }
-
-
-  public CheckoutDonationPaymentRequest donationToken(String donationToken) {
-    this.donationToken = donationToken;
-    return this;
-  }
-
-   /**
-   * Donation token received in the &#x60;/payments&#x60; call.
-   * @return donationToken
-  **/
-  @ApiModelProperty(value = "Donation token received in the `/payments` call.")
-  @JsonProperty(JSON_PROPERTY_DONATION_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDonationToken() {
-    return donationToken;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DONATION_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDonationToken(String donationToken) {
-    this.donationToken = donationToken;
-  }
-
-
-  public CheckoutDonationPaymentRequest enableOneClick(Boolean enableOneClick) {
+  public PaymentRequest enableOneClick(Boolean enableOneClick) {
     this.enableOneClick = enableOneClick;
     return this;
   }
@@ -1143,7 +1056,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest enablePayOut(Boolean enablePayOut) {
+  public PaymentRequest enablePayOut(Boolean enablePayOut) {
     this.enablePayOut = enablePayOut;
     return this;
   }
@@ -1168,7 +1081,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest enableRecurring(Boolean enableRecurring) {
+  public PaymentRequest enableRecurring(Boolean enableRecurring) {
     this.enableRecurring = enableRecurring;
     return this;
   }
@@ -1193,7 +1106,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest entityType(EntityTypeEnum entityType) {
+  public PaymentRequest entityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
     return this;
   }
@@ -1218,7 +1131,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest fraudOffset(Integer fraudOffset) {
+  public PaymentRequest fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
     return this;
   }
@@ -1243,7 +1156,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest fundOrigin(FundOrigin fundOrigin) {
+  public PaymentRequest fundOrigin(FundOrigin fundOrigin) {
     this.fundOrigin = fundOrigin;
     return this;
   }
@@ -1268,7 +1181,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest fundRecipient(FundRecipient fundRecipient) {
+  public PaymentRequest fundRecipient(FundRecipient fundRecipient) {
     this.fundRecipient = fundRecipient;
     return this;
   }
@@ -1293,7 +1206,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest industryUsage(IndustryUsageEnum industryUsage) {
+  public PaymentRequest industryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
     return this;
   }
@@ -1318,7 +1231,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest installments(Installments installments) {
+  public PaymentRequest installments(Installments installments) {
     this.installments = installments;
     return this;
   }
@@ -1343,12 +1256,12 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest lineItems(List<LineItem> lineItems) {
+  public PaymentRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
   }
 
-  public CheckoutDonationPaymentRequest addLineItemsItem(LineItem lineItemsItem) {
+  public PaymentRequest addLineItemsItem(LineItem lineItemsItem) {
     if (this.lineItems == null) {
       this.lineItems = new ArrayList<>();
     }
@@ -1376,12 +1289,12 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest localizedShopperStatement(Map<String, String> localizedShopperStatement) {
+  public PaymentRequest localizedShopperStatement(Map<String, String> localizedShopperStatement) {
     this.localizedShopperStatement = localizedShopperStatement;
     return this;
   }
 
-  public CheckoutDonationPaymentRequest putLocalizedShopperStatementItem(String key, String localizedShopperStatementItem) {
+  public PaymentRequest putLocalizedShopperStatementItem(String key, String localizedShopperStatementItem) {
     if (this.localizedShopperStatement == null) {
       this.localizedShopperStatement = new HashMap<>();
     }
@@ -1409,7 +1322,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest mandate(Mandate mandate) {
+  public PaymentRequest mandate(Mandate mandate) {
     this.mandate = mandate;
     return this;
   }
@@ -1434,7 +1347,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest mcc(String mcc) {
+  public PaymentRequest mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
@@ -1459,7 +1372,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest merchantAccount(String merchantAccount) {
+  public PaymentRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -1484,7 +1397,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest merchantOrderReference(String merchantOrderReference) {
+  public PaymentRequest merchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
     return this;
   }
@@ -1509,7 +1422,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+  public PaymentRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
     this.merchantRiskIndicator = merchantRiskIndicator;
     return this;
   }
@@ -1534,12 +1447,12 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest metadata(Map<String, String> metadata) {
+  public PaymentRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  public CheckoutDonationPaymentRequest putMetadataItem(String key, String metadataItem) {
+  public PaymentRequest putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
     }
@@ -1567,7 +1480,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest mpiData(ThreeDSecureData mpiData) {
+  public PaymentRequest mpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
     return this;
   }
@@ -1592,7 +1505,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest order(EncryptedOrderData order) {
+  public PaymentRequest order(EncryptedOrderData order) {
     this.order = order;
     return this;
   }
@@ -1617,7 +1530,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest orderReference(String orderReference) {
+  public PaymentRequest orderReference(String orderReference) {
     this.orderReference = orderReference;
     return this;
   }
@@ -1642,7 +1555,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest origin(String origin) {
+  public PaymentRequest origin(String origin) {
     this.origin = origin;
     return this;
   }
@@ -1667,7 +1580,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest paymentMethod(CheckoutPaymentMethod paymentMethod) {
+  public PaymentRequest paymentMethod(DonationPaymentRequestPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
@@ -1680,19 +1593,19 @@ public class CheckoutDonationPaymentRequest {
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CheckoutPaymentMethod getPaymentMethod() {
+  public DonationPaymentRequestPaymentMethod getPaymentMethod() {
     return paymentMethod;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethod(CheckoutPaymentMethod paymentMethod) {
+  public void setPaymentMethod(DonationPaymentRequestPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
 
-  public CheckoutDonationPaymentRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+  public PaymentRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
     return this;
   }
@@ -1717,7 +1630,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest recurringExpiry(String recurringExpiry) {
+  public PaymentRequest recurringExpiry(String recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
     return this;
   }
@@ -1742,7 +1655,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest recurringFrequency(String recurringFrequency) {
+  public PaymentRequest recurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
     return this;
   }
@@ -1767,7 +1680,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+  public PaymentRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
@@ -1792,7 +1705,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
+  public PaymentRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
     this.redirectFromIssuerMethod = redirectFromIssuerMethod;
     return this;
   }
@@ -1817,7 +1730,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
+  public PaymentRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
     this.redirectToIssuerMethod = redirectToIssuerMethod;
     return this;
   }
@@ -1842,7 +1755,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest reference(String reference) {
+  public PaymentRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -1867,7 +1780,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest returnUrl(String returnUrl) {
+  public PaymentRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
     return this;
   }
@@ -1892,7 +1805,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest riskData(RiskData riskData) {
+  public PaymentRequest riskData(RiskData riskData) {
     this.riskData = riskData;
     return this;
   }
@@ -1917,7 +1830,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest sessionValidity(String sessionValidity) {
+  public PaymentRequest sessionValidity(String sessionValidity) {
     this.sessionValidity = sessionValidity;
     return this;
   }
@@ -1942,7 +1855,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest shopperEmail(String shopperEmail) {
+  public PaymentRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -1967,7 +1880,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest shopperIP(String shopperIP) {
+  public PaymentRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
     return this;
   }
@@ -1992,7 +1905,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
+  public PaymentRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     return this;
   }
@@ -2017,7 +1930,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest shopperLocale(String shopperLocale) {
+  public PaymentRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
     return this;
   }
@@ -2042,7 +1955,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest shopperName(Name shopperName) {
+  public PaymentRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -2067,7 +1980,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest shopperReference(String shopperReference) {
+  public PaymentRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
@@ -2092,7 +2005,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest shopperStatement(String shopperStatement) {
+  public PaymentRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
     return this;
   }
@@ -2117,7 +2030,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest socialSecurityNumber(String socialSecurityNumber) {
+  public PaymentRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
@@ -2142,12 +2055,12 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest splits(List<Split> splits) {
+  public PaymentRequest splits(List<Split> splits) {
     this.splits = splits;
     return this;
   }
 
-  public CheckoutDonationPaymentRequest addSplitsItem(Split splitsItem) {
+  public PaymentRequest addSplitsItem(Split splitsItem) {
     if (this.splits == null) {
       this.splits = new ArrayList<>();
     }
@@ -2175,7 +2088,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest store(String store) {
+  public PaymentRequest store(String store) {
     this.store = store;
     return this;
   }
@@ -2200,7 +2113,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest storePaymentMethod(Boolean storePaymentMethod) {
+  public PaymentRequest storePaymentMethod(Boolean storePaymentMethod) {
     this.storePaymentMethod = storePaymentMethod;
     return this;
   }
@@ -2225,7 +2138,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest telephoneNumber(String telephoneNumber) {
+  public PaymentRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
@@ -2250,7 +2163,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest threeDS2RequestData(ThreeDS2RequestData2 threeDS2RequestData) {
+  public PaymentRequest threeDS2RequestData(ThreeDS2RequestData2 threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
     return this;
   }
@@ -2275,7 +2188,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+  public PaymentRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;
   }
@@ -2303,7 +2216,7 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
-  public CheckoutDonationPaymentRequest trustedShopper(Boolean trustedShopper) {
+  public PaymentRequest trustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
     return this;
   }
@@ -2329,7 +2242,7 @@ public class CheckoutDonationPaymentRequest {
 
 
   /**
-   * Return true if this CheckoutDonationPaymentRequest object is equal to o.
+   * Return true if this PaymentRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -2339,88 +2252,85 @@ public class CheckoutDonationPaymentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckoutDonationPaymentRequest checkoutDonationPaymentRequest = (CheckoutDonationPaymentRequest) o;
-    return Objects.equals(this.accountInfo, checkoutDonationPaymentRequest.accountInfo) &&
-        Objects.equals(this.additionalAmount, checkoutDonationPaymentRequest.additionalAmount) &&
-        Objects.equals(this.additionalData, checkoutDonationPaymentRequest.additionalData) &&
-        Objects.equals(this.amount, checkoutDonationPaymentRequest.amount) &&
-        Objects.equals(this.applicationInfo, checkoutDonationPaymentRequest.applicationInfo) &&
-        Objects.equals(this.authenticationData, checkoutDonationPaymentRequest.authenticationData) &&
-        Objects.equals(this.billingAddress, checkoutDonationPaymentRequest.billingAddress) &&
-        Objects.equals(this.browserInfo, checkoutDonationPaymentRequest.browserInfo) &&
-        Objects.equals(this.captureDelayHours, checkoutDonationPaymentRequest.captureDelayHours) &&
-        Objects.equals(this.channel, checkoutDonationPaymentRequest.channel) &&
-        Objects.equals(this.checkoutAttemptId, checkoutDonationPaymentRequest.checkoutAttemptId) &&
-        Objects.equals(this.company, checkoutDonationPaymentRequest.company) &&
-        Objects.equals(this.conversionId, checkoutDonationPaymentRequest.conversionId) &&
-        Objects.equals(this.countryCode, checkoutDonationPaymentRequest.countryCode) &&
-        Objects.equals(this.dateOfBirth, checkoutDonationPaymentRequest.dateOfBirth) &&
-        Objects.equals(this.dccQuote, checkoutDonationPaymentRequest.dccQuote) &&
-        Objects.equals(this.deliverAt, checkoutDonationPaymentRequest.deliverAt) &&
-        Objects.equals(this.deliveryAddress, checkoutDonationPaymentRequest.deliveryAddress) &&
-        Objects.equals(this.deliveryDate, checkoutDonationPaymentRequest.deliveryDate) &&
-        Objects.equals(this.deviceFingerprint, checkoutDonationPaymentRequest.deviceFingerprint) &&
-        Objects.equals(this.donationAccount, checkoutDonationPaymentRequest.donationAccount) &&
-        Objects.equals(this.donationOriginalPspReference, checkoutDonationPaymentRequest.donationOriginalPspReference) &&
-        Objects.equals(this.donationToken, checkoutDonationPaymentRequest.donationToken) &&
-        Objects.equals(this.enableOneClick, checkoutDonationPaymentRequest.enableOneClick) &&
-        Objects.equals(this.enablePayOut, checkoutDonationPaymentRequest.enablePayOut) &&
-        Objects.equals(this.enableRecurring, checkoutDonationPaymentRequest.enableRecurring) &&
-        Objects.equals(this.entityType, checkoutDonationPaymentRequest.entityType) &&
-        Objects.equals(this.fraudOffset, checkoutDonationPaymentRequest.fraudOffset) &&
-        Objects.equals(this.fundOrigin, checkoutDonationPaymentRequest.fundOrigin) &&
-        Objects.equals(this.fundRecipient, checkoutDonationPaymentRequest.fundRecipient) &&
-        Objects.equals(this.industryUsage, checkoutDonationPaymentRequest.industryUsage) &&
-        Objects.equals(this.installments, checkoutDonationPaymentRequest.installments) &&
-        Objects.equals(this.lineItems, checkoutDonationPaymentRequest.lineItems) &&
-        Objects.equals(this.localizedShopperStatement, checkoutDonationPaymentRequest.localizedShopperStatement) &&
-        Objects.equals(this.mandate, checkoutDonationPaymentRequest.mandate) &&
-        Objects.equals(this.mcc, checkoutDonationPaymentRequest.mcc) &&
-        Objects.equals(this.merchantAccount, checkoutDonationPaymentRequest.merchantAccount) &&
-        Objects.equals(this.merchantOrderReference, checkoutDonationPaymentRequest.merchantOrderReference) &&
-        Objects.equals(this.merchantRiskIndicator, checkoutDonationPaymentRequest.merchantRiskIndicator) &&
-        Objects.equals(this.metadata, checkoutDonationPaymentRequest.metadata) &&
-        Objects.equals(this.mpiData, checkoutDonationPaymentRequest.mpiData) &&
-        Objects.equals(this.order, checkoutDonationPaymentRequest.order) &&
-        Objects.equals(this.orderReference, checkoutDonationPaymentRequest.orderReference) &&
-        Objects.equals(this.origin, checkoutDonationPaymentRequest.origin) &&
-        Objects.equals(this.paymentMethod, checkoutDonationPaymentRequest.paymentMethod) &&
-        Objects.equals(this.platformChargebackLogic, checkoutDonationPaymentRequest.platformChargebackLogic) &&
-        Objects.equals(this.recurringExpiry, checkoutDonationPaymentRequest.recurringExpiry) &&
-        Objects.equals(this.recurringFrequency, checkoutDonationPaymentRequest.recurringFrequency) &&
-        Objects.equals(this.recurringProcessingModel, checkoutDonationPaymentRequest.recurringProcessingModel) &&
-        Objects.equals(this.redirectFromIssuerMethod, checkoutDonationPaymentRequest.redirectFromIssuerMethod) &&
-        Objects.equals(this.redirectToIssuerMethod, checkoutDonationPaymentRequest.redirectToIssuerMethod) &&
-        Objects.equals(this.reference, checkoutDonationPaymentRequest.reference) &&
-        Objects.equals(this.returnUrl, checkoutDonationPaymentRequest.returnUrl) &&
-        Objects.equals(this.riskData, checkoutDonationPaymentRequest.riskData) &&
-        Objects.equals(this.sessionValidity, checkoutDonationPaymentRequest.sessionValidity) &&
-        Objects.equals(this.shopperEmail, checkoutDonationPaymentRequest.shopperEmail) &&
-        Objects.equals(this.shopperIP, checkoutDonationPaymentRequest.shopperIP) &&
-        Objects.equals(this.shopperInteraction, checkoutDonationPaymentRequest.shopperInteraction) &&
-        Objects.equals(this.shopperLocale, checkoutDonationPaymentRequest.shopperLocale) &&
-        Objects.equals(this.shopperName, checkoutDonationPaymentRequest.shopperName) &&
-        Objects.equals(this.shopperReference, checkoutDonationPaymentRequest.shopperReference) &&
-        Objects.equals(this.shopperStatement, checkoutDonationPaymentRequest.shopperStatement) &&
-        Objects.equals(this.socialSecurityNumber, checkoutDonationPaymentRequest.socialSecurityNumber) &&
-        Objects.equals(this.splits, checkoutDonationPaymentRequest.splits) &&
-        Objects.equals(this.store, checkoutDonationPaymentRequest.store) &&
-        Objects.equals(this.storePaymentMethod, checkoutDonationPaymentRequest.storePaymentMethod) &&
-        Objects.equals(this.telephoneNumber, checkoutDonationPaymentRequest.telephoneNumber) &&
-        Objects.equals(this.threeDS2RequestData, checkoutDonationPaymentRequest.threeDS2RequestData) &&
-        Objects.equals(this.threeDSAuthenticationOnly, checkoutDonationPaymentRequest.threeDSAuthenticationOnly) &&
-        Objects.equals(this.trustedShopper, checkoutDonationPaymentRequest.trustedShopper);
+    PaymentRequest paymentRequest = (PaymentRequest) o;
+    return Objects.equals(this.accountInfo, paymentRequest.accountInfo) &&
+        Objects.equals(this.additionalAmount, paymentRequest.additionalAmount) &&
+        Objects.equals(this.additionalData, paymentRequest.additionalData) &&
+        Objects.equals(this.amount, paymentRequest.amount) &&
+        Objects.equals(this.applicationInfo, paymentRequest.applicationInfo) &&
+        Objects.equals(this.authenticationData, paymentRequest.authenticationData) &&
+        Objects.equals(this.billingAddress, paymentRequest.billingAddress) &&
+        Objects.equals(this.browserInfo, paymentRequest.browserInfo) &&
+        Objects.equals(this.captureDelayHours, paymentRequest.captureDelayHours) &&
+        Objects.equals(this.channel, paymentRequest.channel) &&
+        Objects.equals(this.checkoutAttemptId, paymentRequest.checkoutAttemptId) &&
+        Objects.equals(this.company, paymentRequest.company) &&
+        Objects.equals(this.conversionId, paymentRequest.conversionId) &&
+        Objects.equals(this.countryCode, paymentRequest.countryCode) &&
+        Objects.equals(this.dateOfBirth, paymentRequest.dateOfBirth) &&
+        Objects.equals(this.dccQuote, paymentRequest.dccQuote) &&
+        Objects.equals(this.deliverAt, paymentRequest.deliverAt) &&
+        Objects.equals(this.deliveryAddress, paymentRequest.deliveryAddress) &&
+        Objects.equals(this.deliveryDate, paymentRequest.deliveryDate) &&
+        Objects.equals(this.deviceFingerprint, paymentRequest.deviceFingerprint) &&
+        Objects.equals(this.enableOneClick, paymentRequest.enableOneClick) &&
+        Objects.equals(this.enablePayOut, paymentRequest.enablePayOut) &&
+        Objects.equals(this.enableRecurring, paymentRequest.enableRecurring) &&
+        Objects.equals(this.entityType, paymentRequest.entityType) &&
+        Objects.equals(this.fraudOffset, paymentRequest.fraudOffset) &&
+        Objects.equals(this.fundOrigin, paymentRequest.fundOrigin) &&
+        Objects.equals(this.fundRecipient, paymentRequest.fundRecipient) &&
+        Objects.equals(this.industryUsage, paymentRequest.industryUsage) &&
+        Objects.equals(this.installments, paymentRequest.installments) &&
+        Objects.equals(this.lineItems, paymentRequest.lineItems) &&
+        Objects.equals(this.localizedShopperStatement, paymentRequest.localizedShopperStatement) &&
+        Objects.equals(this.mandate, paymentRequest.mandate) &&
+        Objects.equals(this.mcc, paymentRequest.mcc) &&
+        Objects.equals(this.merchantAccount, paymentRequest.merchantAccount) &&
+        Objects.equals(this.merchantOrderReference, paymentRequest.merchantOrderReference) &&
+        Objects.equals(this.merchantRiskIndicator, paymentRequest.merchantRiskIndicator) &&
+        Objects.equals(this.metadata, paymentRequest.metadata) &&
+        Objects.equals(this.mpiData, paymentRequest.mpiData) &&
+        Objects.equals(this.order, paymentRequest.order) &&
+        Objects.equals(this.orderReference, paymentRequest.orderReference) &&
+        Objects.equals(this.origin, paymentRequest.origin) &&
+        Objects.equals(this.paymentMethod, paymentRequest.paymentMethod) &&
+        Objects.equals(this.platformChargebackLogic, paymentRequest.platformChargebackLogic) &&
+        Objects.equals(this.recurringExpiry, paymentRequest.recurringExpiry) &&
+        Objects.equals(this.recurringFrequency, paymentRequest.recurringFrequency) &&
+        Objects.equals(this.recurringProcessingModel, paymentRequest.recurringProcessingModel) &&
+        Objects.equals(this.redirectFromIssuerMethod, paymentRequest.redirectFromIssuerMethod) &&
+        Objects.equals(this.redirectToIssuerMethod, paymentRequest.redirectToIssuerMethod) &&
+        Objects.equals(this.reference, paymentRequest.reference) &&
+        Objects.equals(this.returnUrl, paymentRequest.returnUrl) &&
+        Objects.equals(this.riskData, paymentRequest.riskData) &&
+        Objects.equals(this.sessionValidity, paymentRequest.sessionValidity) &&
+        Objects.equals(this.shopperEmail, paymentRequest.shopperEmail) &&
+        Objects.equals(this.shopperIP, paymentRequest.shopperIP) &&
+        Objects.equals(this.shopperInteraction, paymentRequest.shopperInteraction) &&
+        Objects.equals(this.shopperLocale, paymentRequest.shopperLocale) &&
+        Objects.equals(this.shopperName, paymentRequest.shopperName) &&
+        Objects.equals(this.shopperReference, paymentRequest.shopperReference) &&
+        Objects.equals(this.shopperStatement, paymentRequest.shopperStatement) &&
+        Objects.equals(this.socialSecurityNumber, paymentRequest.socialSecurityNumber) &&
+        Objects.equals(this.splits, paymentRequest.splits) &&
+        Objects.equals(this.store, paymentRequest.store) &&
+        Objects.equals(this.storePaymentMethod, paymentRequest.storePaymentMethod) &&
+        Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber) &&
+        Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData) &&
+        Objects.equals(this.threeDSAuthenticationOnly, paymentRequest.threeDSAuthenticationOnly) &&
+        Objects.equals(this.trustedShopper, paymentRequest.trustedShopper);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckoutDonationPaymentRequest {\n");
+    sb.append("class PaymentRequest {\n");
     sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
     sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
@@ -2441,9 +2351,6 @@ public class CheckoutDonationPaymentRequest {
     sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
     sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
     sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
-    sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append("\n");
-    sb.append("    donationOriginalPspReference: ").append(toIndentedString(donationOriginalPspReference)).append("\n");
-    sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
     sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
     sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");
     sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
@@ -2507,17 +2414,17 @@ public class CheckoutDonationPaymentRequest {
   }
 
 /**
-   * Create an instance of CheckoutDonationPaymentRequest given an JSON string
+   * Create an instance of PaymentRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CheckoutDonationPaymentRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutDonationPaymentRequest
+   * @return An instance of PaymentRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentRequest
    */
-  public static CheckoutDonationPaymentRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CheckoutDonationPaymentRequest.class);
+  public static PaymentRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentRequest.class);
   }
 /**
-  * Convert an instance of CheckoutDonationPaymentRequest to an JSON string
+  * Convert an instance of PaymentRequest to an JSON string
   *
   * @return JSON string
   */

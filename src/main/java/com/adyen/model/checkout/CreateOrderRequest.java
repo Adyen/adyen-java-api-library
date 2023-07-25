@@ -29,16 +29,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CheckoutCreateOrderRequest
+ * CreateOrderRequest
  */
 @JsonPropertyOrder({
-  CheckoutCreateOrderRequest.JSON_PROPERTY_AMOUNT,
-  CheckoutCreateOrderRequest.JSON_PROPERTY_EXPIRES_AT,
-  CheckoutCreateOrderRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  CheckoutCreateOrderRequest.JSON_PROPERTY_REFERENCE
+  CreateOrderRequest.JSON_PROPERTY_AMOUNT,
+  CreateOrderRequest.JSON_PROPERTY_EXPIRES_AT,
+  CreateOrderRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreateOrderRequest.JSON_PROPERTY_REFERENCE
 })
 
-public class CheckoutCreateOrderRequest {
+public class CreateOrderRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
@@ -51,10 +51,10 @@ public class CheckoutCreateOrderRequest {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public CheckoutCreateOrderRequest() { 
+  public CreateOrderRequest() { 
   }
 
-  public CheckoutCreateOrderRequest amount(Amount amount) {
+  public CreateOrderRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -79,7 +79,7 @@ public class CheckoutCreateOrderRequest {
   }
 
 
-  public CheckoutCreateOrderRequest expiresAt(String expiresAt) {
+  public CreateOrderRequest expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -104,7 +104,7 @@ public class CheckoutCreateOrderRequest {
   }
 
 
-  public CheckoutCreateOrderRequest merchantAccount(String merchantAccount) {
+  public CreateOrderRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -129,7 +129,7 @@ public class CheckoutCreateOrderRequest {
   }
 
 
-  public CheckoutCreateOrderRequest reference(String reference) {
+  public CreateOrderRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -155,7 +155,7 @@ public class CheckoutCreateOrderRequest {
 
 
   /**
-   * Return true if this CheckoutCreateOrderRequest object is equal to o.
+   * Return true if this CreateOrderRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -165,11 +165,11 @@ public class CheckoutCreateOrderRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckoutCreateOrderRequest checkoutCreateOrderRequest = (CheckoutCreateOrderRequest) o;
-    return Objects.equals(this.amount, checkoutCreateOrderRequest.amount) &&
-        Objects.equals(this.expiresAt, checkoutCreateOrderRequest.expiresAt) &&
-        Objects.equals(this.merchantAccount, checkoutCreateOrderRequest.merchantAccount) &&
-        Objects.equals(this.reference, checkoutCreateOrderRequest.reference);
+    CreateOrderRequest createOrderRequest = (CreateOrderRequest) o;
+    return Objects.equals(this.amount, createOrderRequest.amount) &&
+        Objects.equals(this.expiresAt, createOrderRequest.expiresAt) &&
+        Objects.equals(this.merchantAccount, createOrderRequest.merchantAccount) &&
+        Objects.equals(this.reference, createOrderRequest.reference);
   }
 
   @Override
@@ -180,7 +180,7 @@ public class CheckoutCreateOrderRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckoutCreateOrderRequest {\n");
+    sb.append("class CreateOrderRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
@@ -201,17 +201,17 @@ public class CheckoutCreateOrderRequest {
   }
 
 /**
-   * Create an instance of CheckoutCreateOrderRequest given an JSON string
+   * Create an instance of CreateOrderRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CheckoutCreateOrderRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutCreateOrderRequest
+   * @return An instance of CreateOrderRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CreateOrderRequest
    */
-  public static CheckoutCreateOrderRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CheckoutCreateOrderRequest.class);
+  public static CreateOrderRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreateOrderRequest.class);
   }
 /**
-  * Convert an instance of CheckoutCreateOrderRequest to an JSON string
+  * Convert an instance of CreateOrderRequest to an JSON string
   *
   * @return JSON string
   */

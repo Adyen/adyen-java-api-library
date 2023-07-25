@@ -42,50 +42,50 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CreatePaymentLinkRequest
+ * PaymentLinkRequest
  */
 @JsonPropertyOrder({
-  CreatePaymentLinkRequest.JSON_PROPERTY_ALLOWED_PAYMENT_METHODS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_AMOUNT,
-  CreatePaymentLinkRequest.JSON_PROPERTY_APPLICATION_INFO,
-  CreatePaymentLinkRequest.JSON_PROPERTY_BILLING_ADDRESS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_BLOCKED_PAYMENT_METHODS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_COUNTRY_CODE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_DATE_OF_BIRTH,
-  CreatePaymentLinkRequest.JSON_PROPERTY_DELIVER_AT,
-  CreatePaymentLinkRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_DESCRIPTION,
-  CreatePaymentLinkRequest.JSON_PROPERTY_EXPIRES_AT,
-  CreatePaymentLinkRequest.JSON_PROPERTY_INSTALLMENT_OPTIONS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_LINE_ITEMS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_MANUAL_CAPTURE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_MCC,
-  CreatePaymentLinkRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  CreatePaymentLinkRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_METADATA,
-  CreatePaymentLinkRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
-  CreatePaymentLinkRequest.JSON_PROPERTY_REFERENCE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_RETURN_URL,
-  CreatePaymentLinkRequest.JSON_PROPERTY_REUSABLE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_RISK_DATA,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_EMAIL,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_LOCALE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_NAME,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES,
-  CreatePaymentLinkRequest.JSON_PROPERTY_SPLITS,
-  CreatePaymentLinkRequest.JSON_PROPERTY_STORE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
-  CreatePaymentLinkRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
-  CreatePaymentLinkRequest.JSON_PROPERTY_THEME_ID
+  PaymentLinkRequest.JSON_PROPERTY_ALLOWED_PAYMENT_METHODS,
+  PaymentLinkRequest.JSON_PROPERTY_AMOUNT,
+  PaymentLinkRequest.JSON_PROPERTY_APPLICATION_INFO,
+  PaymentLinkRequest.JSON_PROPERTY_BILLING_ADDRESS,
+  PaymentLinkRequest.JSON_PROPERTY_BLOCKED_PAYMENT_METHODS,
+  PaymentLinkRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
+  PaymentLinkRequest.JSON_PROPERTY_COUNTRY_CODE,
+  PaymentLinkRequest.JSON_PROPERTY_DATE_OF_BIRTH,
+  PaymentLinkRequest.JSON_PROPERTY_DELIVER_AT,
+  PaymentLinkRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
+  PaymentLinkRequest.JSON_PROPERTY_DESCRIPTION,
+  PaymentLinkRequest.JSON_PROPERTY_EXPIRES_AT,
+  PaymentLinkRequest.JSON_PROPERTY_INSTALLMENT_OPTIONS,
+  PaymentLinkRequest.JSON_PROPERTY_LINE_ITEMS,
+  PaymentLinkRequest.JSON_PROPERTY_MANUAL_CAPTURE,
+  PaymentLinkRequest.JSON_PROPERTY_MCC,
+  PaymentLinkRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentLinkRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
+  PaymentLinkRequest.JSON_PROPERTY_METADATA,
+  PaymentLinkRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
+  PaymentLinkRequest.JSON_PROPERTY_REFERENCE,
+  PaymentLinkRequest.JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS,
+  PaymentLinkRequest.JSON_PROPERTY_RETURN_URL,
+  PaymentLinkRequest.JSON_PROPERTY_REUSABLE,
+  PaymentLinkRequest.JSON_PROPERTY_RISK_DATA,
+  PaymentLinkRequest.JSON_PROPERTY_SHOPPER_EMAIL,
+  PaymentLinkRequest.JSON_PROPERTY_SHOPPER_LOCALE,
+  PaymentLinkRequest.JSON_PROPERTY_SHOPPER_NAME,
+  PaymentLinkRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  PaymentLinkRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  PaymentLinkRequest.JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON,
+  PaymentLinkRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
+  PaymentLinkRequest.JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES,
+  PaymentLinkRequest.JSON_PROPERTY_SPLITS,
+  PaymentLinkRequest.JSON_PROPERTY_STORE,
+  PaymentLinkRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
+  PaymentLinkRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
+  PaymentLinkRequest.JSON_PROPERTY_THEME_ID
 })
 
-public class CreatePaymentLinkRequest {
+public class PaymentLinkRequest {
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
   private List<String> allowedPaymentMethods = null;
 
@@ -315,15 +315,15 @@ public class CreatePaymentLinkRequest {
   public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
 
-  public CreatePaymentLinkRequest() { 
+  public PaymentLinkRequest() { 
   }
 
-  public CreatePaymentLinkRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
+  public PaymentLinkRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
     return this;
   }
 
-  public CreatePaymentLinkRequest addAllowedPaymentMethodsItem(String allowedPaymentMethodsItem) {
+  public PaymentLinkRequest addAllowedPaymentMethodsItem(String allowedPaymentMethodsItem) {
     if (this.allowedPaymentMethods == null) {
       this.allowedPaymentMethods = new ArrayList<>();
     }
@@ -351,7 +351,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest amount(Amount amount) {
+  public PaymentLinkRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -376,7 +376,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest applicationInfo(ApplicationInfo applicationInfo) {
+  public PaymentLinkRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
     return this;
   }
@@ -401,7 +401,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest billingAddress(Address billingAddress) {
+  public PaymentLinkRequest billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
@@ -426,12 +426,12 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
+  public PaymentLinkRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
     return this;
   }
 
-  public CreatePaymentLinkRequest addBlockedPaymentMethodsItem(String blockedPaymentMethodsItem) {
+  public PaymentLinkRequest addBlockedPaymentMethodsItem(String blockedPaymentMethodsItem) {
     if (this.blockedPaymentMethods == null) {
       this.blockedPaymentMethods = new ArrayList<>();
     }
@@ -459,7 +459,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest captureDelayHours(Integer captureDelayHours) {
+  public PaymentLinkRequest captureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
     return this;
   }
@@ -484,7 +484,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest countryCode(String countryCode) {
+  public PaymentLinkRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -509,7 +509,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest dateOfBirth(LocalDate dateOfBirth) {
+  public PaymentLinkRequest dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
@@ -534,7 +534,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest deliverAt(OffsetDateTime deliverAt) {
+  public PaymentLinkRequest deliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
     return this;
   }
@@ -559,7 +559,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest deliveryAddress(Address deliveryAddress) {
+  public PaymentLinkRequest deliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -584,7 +584,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest description(String description) {
+  public PaymentLinkRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -609,16 +609,16 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest expiresAt(String expiresAt) {
+  public PaymentLinkRequest expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
    /**
-   * The date when the payment link expires.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.  The maximum expiry date is 70 days after the payment link is created.  If not provided, the payment link expires 24 hours after it was created.This value is represented in Zulu format which is utilized for API v70 and lower.
+   * The date when the payment link expires.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with time zone designator **Z**: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30Z**.  The maximum expiry date is 70 days after the payment link is created.  If not provided, the payment link expires 24 hours after it was created.
    * @return expiresAt
   **/
-  @ApiModelProperty(value = "The date when the payment link expires.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.  The maximum expiry date is 70 days after the payment link is created.  If not provided, the payment link expires 24 hours after it was created.This value is represented in Zulu format which is utilized for API v70 and lower.")
+  @ApiModelProperty(value = "The date when the payment link expires.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with time zone designator **Z**: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30Z**.  The maximum expiry date is 70 days after the payment link is created.  If not provided, the payment link expires 24 hours after it was created.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -634,12 +634,12 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest installmentOptions(Map<String, InstallmentOption> installmentOptions) {
+  public PaymentLinkRequest installmentOptions(Map<String, InstallmentOption> installmentOptions) {
     this.installmentOptions = installmentOptions;
     return this;
   }
 
-  public CreatePaymentLinkRequest putInstallmentOptionsItem(String key, InstallmentOption installmentOptionsItem) {
+  public PaymentLinkRequest putInstallmentOptionsItem(String key, InstallmentOption installmentOptionsItem) {
     if (this.installmentOptions == null) {
       this.installmentOptions = new HashMap<>();
     }
@@ -667,12 +667,12 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest lineItems(List<LineItem> lineItems) {
+  public PaymentLinkRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
   }
 
-  public CreatePaymentLinkRequest addLineItemsItem(LineItem lineItemsItem) {
+  public PaymentLinkRequest addLineItemsItem(LineItem lineItemsItem) {
     if (this.lineItems == null) {
       this.lineItems = new ArrayList<>();
     }
@@ -700,7 +700,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest manualCapture(Boolean manualCapture) {
+  public PaymentLinkRequest manualCapture(Boolean manualCapture) {
     this.manualCapture = manualCapture;
     return this;
   }
@@ -725,7 +725,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest mcc(String mcc) {
+  public PaymentLinkRequest mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
@@ -750,7 +750,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest merchantAccount(String merchantAccount) {
+  public PaymentLinkRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -775,7 +775,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest merchantOrderReference(String merchantOrderReference) {
+  public PaymentLinkRequest merchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
     return this;
   }
@@ -800,12 +800,12 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest metadata(Map<String, String> metadata) {
+  public PaymentLinkRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  public CreatePaymentLinkRequest putMetadataItem(String key, String metadataItem) {
+  public PaymentLinkRequest putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
     }
@@ -833,7 +833,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+  public PaymentLinkRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
@@ -858,7 +858,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest reference(String reference) {
+  public PaymentLinkRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -883,12 +883,12 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest requiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
+  public PaymentLinkRequest requiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
     this.requiredShopperFields = requiredShopperFields;
     return this;
   }
 
-  public CreatePaymentLinkRequest addRequiredShopperFieldsItem(RequiredShopperFieldsEnum requiredShopperFieldsItem) {
+  public PaymentLinkRequest addRequiredShopperFieldsItem(RequiredShopperFieldsEnum requiredShopperFieldsItem) {
     if (this.requiredShopperFields == null) {
       this.requiredShopperFields = new ArrayList<>();
     }
@@ -916,7 +916,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest returnUrl(String returnUrl) {
+  public PaymentLinkRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
     return this;
   }
@@ -941,7 +941,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest reusable(Boolean reusable) {
+  public PaymentLinkRequest reusable(Boolean reusable) {
     this.reusable = reusable;
     return this;
   }
@@ -966,7 +966,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest riskData(RiskData riskData) {
+  public PaymentLinkRequest riskData(RiskData riskData) {
     this.riskData = riskData;
     return this;
   }
@@ -991,7 +991,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest shopperEmail(String shopperEmail) {
+  public PaymentLinkRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -1016,7 +1016,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest shopperLocale(String shopperLocale) {
+  public PaymentLinkRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
     return this;
   }
@@ -1041,7 +1041,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest shopperName(Name shopperName) {
+  public PaymentLinkRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -1066,7 +1066,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest shopperReference(String shopperReference) {
+  public PaymentLinkRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
@@ -1091,7 +1091,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest shopperStatement(String shopperStatement) {
+  public PaymentLinkRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
     return this;
   }
@@ -1116,7 +1116,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest showRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
+  public PaymentLinkRequest showRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
     this.showRemovePaymentMethodButton = showRemovePaymentMethodButton;
     return this;
   }
@@ -1141,7 +1141,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest socialSecurityNumber(String socialSecurityNumber) {
+  public PaymentLinkRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
@@ -1166,7 +1166,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest splitCardFundingSources(Boolean splitCardFundingSources) {
+  public PaymentLinkRequest splitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
     return this;
   }
@@ -1191,12 +1191,12 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest splits(List<Split> splits) {
+  public PaymentLinkRequest splits(List<Split> splits) {
     this.splits = splits;
     return this;
   }
 
-  public CreatePaymentLinkRequest addSplitsItem(Split splitsItem) {
+  public PaymentLinkRequest addSplitsItem(Split splitsItem) {
     if (this.splits == null) {
       this.splits = new ArrayList<>();
     }
@@ -1224,7 +1224,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest store(String store) {
+  public PaymentLinkRequest store(String store) {
     this.store = store;
     return this;
   }
@@ -1249,7 +1249,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest storePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
+  public PaymentLinkRequest storePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
     this.storePaymentMethodMode = storePaymentMethodMode;
     return this;
   }
@@ -1274,7 +1274,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest telephoneNumber(String telephoneNumber) {
+  public PaymentLinkRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
@@ -1299,7 +1299,7 @@ public class CreatePaymentLinkRequest {
   }
 
 
-  public CreatePaymentLinkRequest themeId(String themeId) {
+  public PaymentLinkRequest themeId(String themeId) {
     this.themeId = themeId;
     return this;
   }
@@ -1325,7 +1325,7 @@ public class CreatePaymentLinkRequest {
 
 
   /**
-   * Return true if this CreatePaymentLinkRequest object is equal to o.
+   * Return true if this PaymentLinkRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -1335,45 +1335,45 @@ public class CreatePaymentLinkRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePaymentLinkRequest createPaymentLinkRequest = (CreatePaymentLinkRequest) o;
-    return Objects.equals(this.allowedPaymentMethods, createPaymentLinkRequest.allowedPaymentMethods) &&
-        Objects.equals(this.amount, createPaymentLinkRequest.amount) &&
-        Objects.equals(this.applicationInfo, createPaymentLinkRequest.applicationInfo) &&
-        Objects.equals(this.billingAddress, createPaymentLinkRequest.billingAddress) &&
-        Objects.equals(this.blockedPaymentMethods, createPaymentLinkRequest.blockedPaymentMethods) &&
-        Objects.equals(this.captureDelayHours, createPaymentLinkRequest.captureDelayHours) &&
-        Objects.equals(this.countryCode, createPaymentLinkRequest.countryCode) &&
-        Objects.equals(this.dateOfBirth, createPaymentLinkRequest.dateOfBirth) &&
-        Objects.equals(this.deliverAt, createPaymentLinkRequest.deliverAt) &&
-        Objects.equals(this.deliveryAddress, createPaymentLinkRequest.deliveryAddress) &&
-        Objects.equals(this.description, createPaymentLinkRequest.description) &&
-        Objects.equals(this.expiresAt, createPaymentLinkRequest.expiresAt) &&
-        Objects.equals(this.installmentOptions, createPaymentLinkRequest.installmentOptions) &&
-        Objects.equals(this.lineItems, createPaymentLinkRequest.lineItems) &&
-        Objects.equals(this.manualCapture, createPaymentLinkRequest.manualCapture) &&
-        Objects.equals(this.mcc, createPaymentLinkRequest.mcc) &&
-        Objects.equals(this.merchantAccount, createPaymentLinkRequest.merchantAccount) &&
-        Objects.equals(this.merchantOrderReference, createPaymentLinkRequest.merchantOrderReference) &&
-        Objects.equals(this.metadata, createPaymentLinkRequest.metadata) &&
-        Objects.equals(this.recurringProcessingModel, createPaymentLinkRequest.recurringProcessingModel) &&
-        Objects.equals(this.reference, createPaymentLinkRequest.reference) &&
-        Objects.equals(this.requiredShopperFields, createPaymentLinkRequest.requiredShopperFields) &&
-        Objects.equals(this.returnUrl, createPaymentLinkRequest.returnUrl) &&
-        Objects.equals(this.reusable, createPaymentLinkRequest.reusable) &&
-        Objects.equals(this.riskData, createPaymentLinkRequest.riskData) &&
-        Objects.equals(this.shopperEmail, createPaymentLinkRequest.shopperEmail) &&
-        Objects.equals(this.shopperLocale, createPaymentLinkRequest.shopperLocale) &&
-        Objects.equals(this.shopperName, createPaymentLinkRequest.shopperName) &&
-        Objects.equals(this.shopperReference, createPaymentLinkRequest.shopperReference) &&
-        Objects.equals(this.shopperStatement, createPaymentLinkRequest.shopperStatement) &&
-        Objects.equals(this.showRemovePaymentMethodButton, createPaymentLinkRequest.showRemovePaymentMethodButton) &&
-        Objects.equals(this.socialSecurityNumber, createPaymentLinkRequest.socialSecurityNumber) &&
-        Objects.equals(this.splitCardFundingSources, createPaymentLinkRequest.splitCardFundingSources) &&
-        Objects.equals(this.splits, createPaymentLinkRequest.splits) &&
-        Objects.equals(this.store, createPaymentLinkRequest.store) &&
-        Objects.equals(this.storePaymentMethodMode, createPaymentLinkRequest.storePaymentMethodMode) &&
-        Objects.equals(this.telephoneNumber, createPaymentLinkRequest.telephoneNumber) &&
-        Objects.equals(this.themeId, createPaymentLinkRequest.themeId);
+    PaymentLinkRequest paymentLinkRequest = (PaymentLinkRequest) o;
+    return Objects.equals(this.allowedPaymentMethods, paymentLinkRequest.allowedPaymentMethods) &&
+        Objects.equals(this.amount, paymentLinkRequest.amount) &&
+        Objects.equals(this.applicationInfo, paymentLinkRequest.applicationInfo) &&
+        Objects.equals(this.billingAddress, paymentLinkRequest.billingAddress) &&
+        Objects.equals(this.blockedPaymentMethods, paymentLinkRequest.blockedPaymentMethods) &&
+        Objects.equals(this.captureDelayHours, paymentLinkRequest.captureDelayHours) &&
+        Objects.equals(this.countryCode, paymentLinkRequest.countryCode) &&
+        Objects.equals(this.dateOfBirth, paymentLinkRequest.dateOfBirth) &&
+        Objects.equals(this.deliverAt, paymentLinkRequest.deliverAt) &&
+        Objects.equals(this.deliveryAddress, paymentLinkRequest.deliveryAddress) &&
+        Objects.equals(this.description, paymentLinkRequest.description) &&
+        Objects.equals(this.expiresAt, paymentLinkRequest.expiresAt) &&
+        Objects.equals(this.installmentOptions, paymentLinkRequest.installmentOptions) &&
+        Objects.equals(this.lineItems, paymentLinkRequest.lineItems) &&
+        Objects.equals(this.manualCapture, paymentLinkRequest.manualCapture) &&
+        Objects.equals(this.mcc, paymentLinkRequest.mcc) &&
+        Objects.equals(this.merchantAccount, paymentLinkRequest.merchantAccount) &&
+        Objects.equals(this.merchantOrderReference, paymentLinkRequest.merchantOrderReference) &&
+        Objects.equals(this.metadata, paymentLinkRequest.metadata) &&
+        Objects.equals(this.recurringProcessingModel, paymentLinkRequest.recurringProcessingModel) &&
+        Objects.equals(this.reference, paymentLinkRequest.reference) &&
+        Objects.equals(this.requiredShopperFields, paymentLinkRequest.requiredShopperFields) &&
+        Objects.equals(this.returnUrl, paymentLinkRequest.returnUrl) &&
+        Objects.equals(this.reusable, paymentLinkRequest.reusable) &&
+        Objects.equals(this.riskData, paymentLinkRequest.riskData) &&
+        Objects.equals(this.shopperEmail, paymentLinkRequest.shopperEmail) &&
+        Objects.equals(this.shopperLocale, paymentLinkRequest.shopperLocale) &&
+        Objects.equals(this.shopperName, paymentLinkRequest.shopperName) &&
+        Objects.equals(this.shopperReference, paymentLinkRequest.shopperReference) &&
+        Objects.equals(this.shopperStatement, paymentLinkRequest.shopperStatement) &&
+        Objects.equals(this.showRemovePaymentMethodButton, paymentLinkRequest.showRemovePaymentMethodButton) &&
+        Objects.equals(this.socialSecurityNumber, paymentLinkRequest.socialSecurityNumber) &&
+        Objects.equals(this.splitCardFundingSources, paymentLinkRequest.splitCardFundingSources) &&
+        Objects.equals(this.splits, paymentLinkRequest.splits) &&
+        Objects.equals(this.store, paymentLinkRequest.store) &&
+        Objects.equals(this.storePaymentMethodMode, paymentLinkRequest.storePaymentMethodMode) &&
+        Objects.equals(this.telephoneNumber, paymentLinkRequest.telephoneNumber) &&
+        Objects.equals(this.themeId, paymentLinkRequest.themeId);
   }
 
   @Override
@@ -1384,7 +1384,7 @@ public class CreatePaymentLinkRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePaymentLinkRequest {\n");
+    sb.append("class PaymentLinkRequest {\n");
     sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
@@ -1439,17 +1439,17 @@ public class CreatePaymentLinkRequest {
   }
 
 /**
-   * Create an instance of CreatePaymentLinkRequest given an JSON string
+   * Create an instance of PaymentLinkRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreatePaymentLinkRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePaymentLinkRequest
+   * @return An instance of PaymentLinkRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentLinkRequest
    */
-  public static CreatePaymentLinkRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CreatePaymentLinkRequest.class);
+  public static PaymentLinkRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentLinkRequest.class);
   }
 /**
-  * Convert an instance of CreatePaymentLinkRequest to an JSON string
+  * Convert an instance of PaymentLinkRequest to an JSON string
   *
   * @return JSON string
   */

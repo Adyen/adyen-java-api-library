@@ -28,17 +28,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PaymentReversalResource
+ * PaymentReversalResponse
  */
 @JsonPropertyOrder({
-  PaymentReversalResource.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  PaymentReversalResource.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
-  PaymentReversalResource.JSON_PROPERTY_PSP_REFERENCE,
-  PaymentReversalResource.JSON_PROPERTY_REFERENCE,
-  PaymentReversalResource.JSON_PROPERTY_STATUS
+  PaymentReversalResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentReversalResponse.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
+  PaymentReversalResponse.JSON_PROPERTY_PSP_REFERENCE,
+  PaymentReversalResponse.JSON_PROPERTY_REFERENCE,
+  PaymentReversalResponse.JSON_PROPERTY_STATUS
 })
 
-public class PaymentReversalResource {
+public class PaymentReversalResponse {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
@@ -87,10 +87,10 @@ public class PaymentReversalResource {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public PaymentReversalResource() { 
+  public PaymentReversalResponse() { 
   }
 
-  public PaymentReversalResource merchantAccount(String merchantAccount) {
+  public PaymentReversalResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -115,7 +115,7 @@ public class PaymentReversalResource {
   }
 
 
-  public PaymentReversalResource paymentPspReference(String paymentPspReference) {
+  public PaymentReversalResponse paymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
     return this;
   }
@@ -140,7 +140,7 @@ public class PaymentReversalResource {
   }
 
 
-  public PaymentReversalResource pspReference(String pspReference) {
+  public PaymentReversalResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
@@ -165,7 +165,7 @@ public class PaymentReversalResource {
   }
 
 
-  public PaymentReversalResource reference(String reference) {
+  public PaymentReversalResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -190,7 +190,7 @@ public class PaymentReversalResource {
   }
 
 
-  public PaymentReversalResource status(StatusEnum status) {
+  public PaymentReversalResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -216,7 +216,7 @@ public class PaymentReversalResource {
 
 
   /**
-   * Return true if this PaymentReversalResource object is equal to o.
+   * Return true if this PaymentReversalResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -226,12 +226,12 @@ public class PaymentReversalResource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentReversalResource paymentReversalResource = (PaymentReversalResource) o;
-    return Objects.equals(this.merchantAccount, paymentReversalResource.merchantAccount) &&
-        Objects.equals(this.paymentPspReference, paymentReversalResource.paymentPspReference) &&
-        Objects.equals(this.pspReference, paymentReversalResource.pspReference) &&
-        Objects.equals(this.reference, paymentReversalResource.reference) &&
-        Objects.equals(this.status, paymentReversalResource.status);
+    PaymentReversalResponse paymentReversalResponse = (PaymentReversalResponse) o;
+    return Objects.equals(this.merchantAccount, paymentReversalResponse.merchantAccount) &&
+        Objects.equals(this.paymentPspReference, paymentReversalResponse.paymentPspReference) &&
+        Objects.equals(this.pspReference, paymentReversalResponse.pspReference) &&
+        Objects.equals(this.reference, paymentReversalResponse.reference) &&
+        Objects.equals(this.status, paymentReversalResponse.status);
   }
 
   @Override
@@ -242,7 +242,7 @@ public class PaymentReversalResource {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentReversalResource {\n");
+    sb.append("class PaymentReversalResponse {\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
@@ -264,17 +264,17 @@ public class PaymentReversalResource {
   }
 
 /**
-   * Create an instance of PaymentReversalResource given an JSON string
+   * Create an instance of PaymentReversalResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PaymentReversalResource
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentReversalResource
+   * @return An instance of PaymentReversalResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentReversalResponse
    */
-  public static PaymentReversalResource fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentReversalResource.class);
+  public static PaymentReversalResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentReversalResponse.class);
   }
 /**
-  * Convert an instance of PaymentReversalResource to an JSON string
+  * Convert an instance of PaymentReversalResponse to an JSON string
   *
   * @return JSON string
   */

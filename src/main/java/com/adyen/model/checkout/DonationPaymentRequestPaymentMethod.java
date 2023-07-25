@@ -94,37 +94,37 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 
-@JsonDeserialize(using = CheckoutPaymentMethod.CheckoutPaymentMethodDeserializer.class)
-@JsonSerialize(using = CheckoutPaymentMethod.CheckoutPaymentMethodSerializer.class)
-public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(CheckoutPaymentMethod.class.getName());
+@JsonDeserialize(using = DonationPaymentRequestPaymentMethod.DonationPaymentRequestPaymentMethodDeserializer.class)
+@JsonSerialize(using = DonationPaymentRequestPaymentMethod.DonationPaymentRequestPaymentMethodSerializer.class)
+public class DonationPaymentRequestPaymentMethod extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(DonationPaymentRequestPaymentMethod.class.getName());
 
-    public static class CheckoutPaymentMethodSerializer extends StdSerializer<CheckoutPaymentMethod> {
-        public CheckoutPaymentMethodSerializer(Class<CheckoutPaymentMethod> t) {
+    public static class DonationPaymentRequestPaymentMethodSerializer extends StdSerializer<DonationPaymentRequestPaymentMethod> {
+        public DonationPaymentRequestPaymentMethodSerializer(Class<DonationPaymentRequestPaymentMethod> t) {
             super(t);
         }
 
-        public CheckoutPaymentMethodSerializer() {
+        public DonationPaymentRequestPaymentMethodSerializer() {
             this(null);
         }
 
         @Override
-        public void serialize(CheckoutPaymentMethod value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+        public void serialize(DonationPaymentRequestPaymentMethod value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
             jgen.writeObject(value.getActualInstance());
         }
     }
 
-    public static class CheckoutPaymentMethodDeserializer extends StdDeserializer<CheckoutPaymentMethod> {
-        public CheckoutPaymentMethodDeserializer() {
-            this(CheckoutPaymentMethod.class);
+    public static class DonationPaymentRequestPaymentMethodDeserializer extends StdDeserializer<DonationPaymentRequestPaymentMethod> {
+        public DonationPaymentRequestPaymentMethodDeserializer() {
+            this(DonationPaymentRequestPaymentMethod.class);
         }
 
-        public CheckoutPaymentMethodDeserializer(Class<?> vc) {
+        public DonationPaymentRequestPaymentMethodDeserializer(Class<?> vc) {
             super(vc);
         }
 
         @Override
-        public CheckoutPaymentMethod deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        public DonationPaymentRequestPaymentMethod deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
@@ -1227,15 +1227,15 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
 
             // Throw error if there is no match
             if (match == 0) {
-                throw new IOException(String.format("Failed deserialization for CheckoutPaymentMethod: %d classes match result, expected 1", match));
+                throw new IOException(String.format("Failed deserialization for DonationPaymentRequestPaymentMethod: %d classes match result, expected 1", match));
             }
             // Log warning if there is more than one match
             if (match > 1) {
-                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for CheckoutPaymentMethod: %d classes match result, expected 1", match));
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for DonationPaymentRequestPaymentMethod: %d classes match result, expected 1", match));
             }
 
             localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            CheckoutPaymentMethod ret = new CheckoutPaymentMethod();
+            DonationPaymentRequestPaymentMethod ret = new DonationPaymentRequestPaymentMethod();
             ret.setActualInstance(deserialized);
             return ret;
         }
@@ -1244,209 +1244,209 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
          * Handle deserialization of the 'null' value.
          */
         @Override
-        public CheckoutPaymentMethod getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "CheckoutPaymentMethod cannot be null");
+        public DonationPaymentRequestPaymentMethod getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "DonationPaymentRequestPaymentMethod cannot be null");
         }
     }
 
     // store a list of schema names defined in oneOf
     public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-    public CheckoutPaymentMethod() {
+    public DonationPaymentRequestPaymentMethod() {
         super("oneOf", Boolean.FALSE);
     }
 
-    public CheckoutPaymentMethod(AchDetails o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public CheckoutPaymentMethod(AfterpayDetails o) {
+    public DonationPaymentRequestPaymentMethod(AchDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(AmazonPayDetails o) {
+    public DonationPaymentRequestPaymentMethod(AfterpayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(AndroidPayDetails o) {
+    public DonationPaymentRequestPaymentMethod(AmazonPayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(ApplePayDetails o) {
+    public DonationPaymentRequestPaymentMethod(AndroidPayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(BacsDirectDebitDetails o) {
+    public DonationPaymentRequestPaymentMethod(ApplePayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(BillDeskDetails o) {
+    public DonationPaymentRequestPaymentMethod(BacsDirectDebitDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(BlikDetails o) {
+    public DonationPaymentRequestPaymentMethod(BillDeskDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(CardDetails o) {
+    public DonationPaymentRequestPaymentMethod(BlikDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(CellulantDetails o) {
+    public DonationPaymentRequestPaymentMethod(CardDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(DokuDetails o) {
+    public DonationPaymentRequestPaymentMethod(CellulantDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(DotpayDetails o) {
+    public DonationPaymentRequestPaymentMethod(DokuDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(DragonpayDetails o) {
+    public DonationPaymentRequestPaymentMethod(DotpayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(EcontextVoucherDetails o) {
+    public DonationPaymentRequestPaymentMethod(DragonpayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(GenericIssuerPaymentMethodDetails o) {
+    public DonationPaymentRequestPaymentMethod(EcontextVoucherDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(GiropayDetails o) {
+    public DonationPaymentRequestPaymentMethod(GenericIssuerPaymentMethodDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(GooglePayDetails o) {
+    public DonationPaymentRequestPaymentMethod(GiropayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(IdealDetails o) {
+    public DonationPaymentRequestPaymentMethod(GooglePayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(KlarnaDetails o) {
+    public DonationPaymentRequestPaymentMethod(IdealDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(MasterpassDetails o) {
+    public DonationPaymentRequestPaymentMethod(KlarnaDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(MbwayDetails o) {
+    public DonationPaymentRequestPaymentMethod(MasterpassDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(MobilePayDetails o) {
+    public DonationPaymentRequestPaymentMethod(MbwayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(MolPayDetails o) {
+    public DonationPaymentRequestPaymentMethod(MobilePayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(OpenInvoiceDetails o) {
+    public DonationPaymentRequestPaymentMethod(MolPayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(PayPalDetails o) {
+    public DonationPaymentRequestPaymentMethod(OpenInvoiceDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(PayUUpiDetails o) {
+    public DonationPaymentRequestPaymentMethod(PayPalDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(PayWithGoogleDetails o) {
+    public DonationPaymentRequestPaymentMethod(PayUUpiDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(PaymentDetails o) {
+    public DonationPaymentRequestPaymentMethod(PayWithGoogleDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(RatepayDetails o) {
+    public DonationPaymentRequestPaymentMethod(PaymentDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(SamsungPayDetails o) {
+    public DonationPaymentRequestPaymentMethod(RatepayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(SepaDirectDebitDetails o) {
+    public DonationPaymentRequestPaymentMethod(SamsungPayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(StoredPaymentMethodDetails o) {
+    public DonationPaymentRequestPaymentMethod(SepaDirectDebitDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(UpiCollectDetails o) {
+    public DonationPaymentRequestPaymentMethod(StoredPaymentMethodDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(UpiIntentDetails o) {
+    public DonationPaymentRequestPaymentMethod(UpiCollectDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(VippsDetails o) {
+    public DonationPaymentRequestPaymentMethod(UpiIntentDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(VisaCheckoutDetails o) {
+    public DonationPaymentRequestPaymentMethod(VippsDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(WeChatPayDetails o) {
+    public DonationPaymentRequestPaymentMethod(VisaCheckoutDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(WeChatPayMiniProgramDetails o) {
+    public DonationPaymentRequestPaymentMethod(WeChatPayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(ZipDetails o) {
+    public DonationPaymentRequestPaymentMethod(WeChatPayMiniProgramDetails o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public DonationPaymentRequestPaymentMethod(ZipDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -1530,12 +1530,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         });
         schemas.put("ZipDetails", new GenericType<ZipDetails>() {
         });
-        JSON.registerDescendants(CheckoutPaymentMethod.class, Collections.unmodifiableMap(schemas));
+        JSON.registerDescendants(DonationPaymentRequestPaymentMethod.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
     public Map<String, GenericType> getSchemas() {
-        return CheckoutPaymentMethod.schemas;
+        return DonationPaymentRequestPaymentMethod.schemas;
     }
 
     /**

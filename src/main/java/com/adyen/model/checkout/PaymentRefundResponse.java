@@ -33,18 +33,21 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CreatePaymentRefundRequest
+ * PaymentRefundResponse
  */
 @JsonPropertyOrder({
-  CreatePaymentRefundRequest.JSON_PROPERTY_AMOUNT,
-  CreatePaymentRefundRequest.JSON_PROPERTY_LINE_ITEMS,
-  CreatePaymentRefundRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  CreatePaymentRefundRequest.JSON_PROPERTY_MERCHANT_REFUND_REASON,
-  CreatePaymentRefundRequest.JSON_PROPERTY_REFERENCE,
-  CreatePaymentRefundRequest.JSON_PROPERTY_SPLITS
+  PaymentRefundResponse.JSON_PROPERTY_AMOUNT,
+  PaymentRefundResponse.JSON_PROPERTY_LINE_ITEMS,
+  PaymentRefundResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentRefundResponse.JSON_PROPERTY_MERCHANT_REFUND_REASON,
+  PaymentRefundResponse.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
+  PaymentRefundResponse.JSON_PROPERTY_PSP_REFERENCE,
+  PaymentRefundResponse.JSON_PROPERTY_REFERENCE,
+  PaymentRefundResponse.JSON_PROPERTY_SPLITS,
+  PaymentRefundResponse.JSON_PROPERTY_STATUS
 })
 
-public class CreatePaymentRefundRequest {
+public class PaymentRefundResponse {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
@@ -55,7 +58,7 @@ public class CreatePaymentRefundRequest {
   private String merchantAccount;
 
   /**
-   * Your reason for the refund request
+   * Your reason for the refund request.
    */
   public enum MerchantRefundReasonEnum {
     FRAUD("FRAUD"),
@@ -98,16 +101,58 @@ public class CreatePaymentRefundRequest {
   public static final String JSON_PROPERTY_MERCHANT_REFUND_REASON = "merchantRefundReason";
   private MerchantRefundReasonEnum merchantRefundReason;
 
+  public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
+  private String paymentPspReference;
+
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
+  private String pspReference;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
-  public CreatePaymentRefundRequest() { 
+  /**
+   * The status of your request. This will always have the value **received**.
+   */
+  public enum StatusEnum {
+    RECEIVED("received");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
   }
 
-  public CreatePaymentRefundRequest amount(Amount amount) {
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private StatusEnum status;
+
+  public PaymentRefundResponse() { 
+  }
+
+  public PaymentRefundResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -132,12 +177,12 @@ public class CreatePaymentRefundRequest {
   }
 
 
-  public CreatePaymentRefundRequest lineItems(List<LineItem> lineItems) {
+  public PaymentRefundResponse lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
   }
 
-  public CreatePaymentRefundRequest addLineItemsItem(LineItem lineItemsItem) {
+  public PaymentRefundResponse addLineItemsItem(LineItem lineItemsItem) {
     if (this.lineItems == null) {
       this.lineItems = new ArrayList<>();
     }
@@ -165,7 +210,7 @@ public class CreatePaymentRefundRequest {
   }
 
 
-  public CreatePaymentRefundRequest merchantAccount(String merchantAccount) {
+  public PaymentRefundResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -190,16 +235,16 @@ public class CreatePaymentRefundRequest {
   }
 
 
-  public CreatePaymentRefundRequest merchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
+  public PaymentRefundResponse merchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
     this.merchantRefundReason = merchantRefundReason;
     return this;
   }
 
    /**
-   * Your reason for the refund request
+   * Your reason for the refund request.
    * @return merchantRefundReason
   **/
-  @ApiModelProperty(value = "Your reason for the refund request")
+  @ApiModelProperty(value = "Your reason for the refund request.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -215,16 +260,66 @@ public class CreatePaymentRefundRequest {
   }
 
 
-  public CreatePaymentRefundRequest reference(String reference) {
+  public PaymentRefundResponse paymentPspReference(String paymentPspReference) {
+    this.paymentPspReference = paymentPspReference;
+    return this;
+  }
+
+   /**
+   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to refund. 
+   * @return paymentPspReference
+  **/
+  @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to refund. ")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPaymentPspReference() {
+    return paymentPspReference;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaymentPspReference(String paymentPspReference) {
+    this.paymentPspReference = paymentPspReference;
+  }
+
+
+  public PaymentRefundResponse pspReference(String pspReference) {
+    this.pspReference = pspReference;
+    return this;
+  }
+
+   /**
+   * Adyen&#39;s 16-character reference associated with the refund request.
+   * @return pspReference
+  **/
+  @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the refund request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPspReference() {
+    return pspReference;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPspReference(String pspReference) {
+    this.pspReference = pspReference;
+  }
+
+
+  public PaymentRefundResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
    /**
-   * Your reference for the refund request. Maximum length: 80 characters.
+   * Your reference for the refund request.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference for the refund request. Maximum length: 80 characters.")
+  @ApiModelProperty(value = "Your reference for the refund request.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -240,12 +335,12 @@ public class CreatePaymentRefundRequest {
   }
 
 
-  public CreatePaymentRefundRequest splits(List<Split> splits) {
+  public PaymentRefundResponse splits(List<Split> splits) {
     this.splits = splits;
     return this;
   }
 
-  public CreatePaymentRefundRequest addSplitsItem(Split splitsItem) {
+  public PaymentRefundResponse addSplitsItem(Split splitsItem) {
     if (this.splits == null) {
       this.splits = new ArrayList<>();
     }
@@ -273,8 +368,33 @@ public class CreatePaymentRefundRequest {
   }
 
 
+  public PaymentRefundResponse status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * The status of your request. This will always have the value **received**.
+   * @return status
+  **/
+  @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+
   /**
-   * Return true if this CreatePaymentRefundRequest object is equal to o.
+   * Return true if this PaymentRefundResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -284,30 +404,36 @@ public class CreatePaymentRefundRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePaymentRefundRequest createPaymentRefundRequest = (CreatePaymentRefundRequest) o;
-    return Objects.equals(this.amount, createPaymentRefundRequest.amount) &&
-        Objects.equals(this.lineItems, createPaymentRefundRequest.lineItems) &&
-        Objects.equals(this.merchantAccount, createPaymentRefundRequest.merchantAccount) &&
-        Objects.equals(this.merchantRefundReason, createPaymentRefundRequest.merchantRefundReason) &&
-        Objects.equals(this.reference, createPaymentRefundRequest.reference) &&
-        Objects.equals(this.splits, createPaymentRefundRequest.splits);
+    PaymentRefundResponse paymentRefundResponse = (PaymentRefundResponse) o;
+    return Objects.equals(this.amount, paymentRefundResponse.amount) &&
+        Objects.equals(this.lineItems, paymentRefundResponse.lineItems) &&
+        Objects.equals(this.merchantAccount, paymentRefundResponse.merchantAccount) &&
+        Objects.equals(this.merchantRefundReason, paymentRefundResponse.merchantRefundReason) &&
+        Objects.equals(this.paymentPspReference, paymentRefundResponse.paymentPspReference) &&
+        Objects.equals(this.pspReference, paymentRefundResponse.pspReference) &&
+        Objects.equals(this.reference, paymentRefundResponse.reference) &&
+        Objects.equals(this.splits, paymentRefundResponse.splits) &&
+        Objects.equals(this.status, paymentRefundResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, lineItems, merchantAccount, merchantRefundReason, reference, splits);
+    return Objects.hash(amount, lineItems, merchantAccount, merchantRefundReason, paymentPspReference, pspReference, reference, splits, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePaymentRefundRequest {\n");
+    sb.append("class PaymentRefundResponse {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    merchantRefundReason: ").append(toIndentedString(merchantRefundReason)).append("\n");
+    sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
+    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -324,17 +450,17 @@ public class CreatePaymentRefundRequest {
   }
 
 /**
-   * Create an instance of CreatePaymentRefundRequest given an JSON string
+   * Create an instance of PaymentRefundResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreatePaymentRefundRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePaymentRefundRequest
+   * @return An instance of PaymentRefundResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentRefundResponse
    */
-  public static CreatePaymentRefundRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CreatePaymentRefundRequest.class);
+  public static PaymentRefundResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentRefundResponse.class);
   }
 /**
-  * Convert an instance of CreatePaymentRefundRequest to an JSON string
+  * Convert an instance of PaymentRefundResponse to an JSON string
   *
   * @return JSON string
   */

@@ -30,16 +30,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * DetailsRequest
+ * PaymentDetailsRequest
  */
 @JsonPropertyOrder({
-  DetailsRequest.JSON_PROPERTY_AUTHENTICATION_DATA,
-  DetailsRequest.JSON_PROPERTY_DETAILS,
-  DetailsRequest.JSON_PROPERTY_PAYMENT_DATA,
-  DetailsRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY
+  PaymentDetailsRequest.JSON_PROPERTY_AUTHENTICATION_DATA,
+  PaymentDetailsRequest.JSON_PROPERTY_DETAILS,
+  PaymentDetailsRequest.JSON_PROPERTY_PAYMENT_DATA,
+  PaymentDetailsRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY
 })
 
-public class DetailsRequest {
+public class PaymentDetailsRequest {
   public static final String JSON_PROPERTY_AUTHENTICATION_DATA = "authenticationData";
   private DetailsRequestAuthenticationData authenticationData;
 
@@ -52,10 +52,10 @@ public class DetailsRequest {
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   private Boolean threeDSAuthenticationOnly;
 
-  public DetailsRequest() { 
+  public PaymentDetailsRequest() { 
   }
 
-  public DetailsRequest authenticationData(DetailsRequestAuthenticationData authenticationData) {
+  public PaymentDetailsRequest authenticationData(DetailsRequestAuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
     return this;
   }
@@ -80,7 +80,7 @@ public class DetailsRequest {
   }
 
 
-  public DetailsRequest details(PaymentCompletionDetails details) {
+  public PaymentDetailsRequest details(PaymentCompletionDetails details) {
     this.details = details;
     return this;
   }
@@ -105,7 +105,7 @@ public class DetailsRequest {
   }
 
 
-  public DetailsRequest paymentData(String paymentData) {
+  public PaymentDetailsRequest paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
@@ -130,7 +130,7 @@ public class DetailsRequest {
   }
 
 
-  public DetailsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+  public PaymentDetailsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;
   }
@@ -159,7 +159,7 @@ public class DetailsRequest {
 
 
   /**
-   * Return true if this DetailsRequest object is equal to o.
+   * Return true if this PaymentDetailsRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -169,11 +169,11 @@ public class DetailsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DetailsRequest detailsRequest = (DetailsRequest) o;
-    return Objects.equals(this.authenticationData, detailsRequest.authenticationData) &&
-        Objects.equals(this.details, detailsRequest.details) &&
-        Objects.equals(this.paymentData, detailsRequest.paymentData) &&
-        Objects.equals(this.threeDSAuthenticationOnly, detailsRequest.threeDSAuthenticationOnly);
+    PaymentDetailsRequest paymentDetailsRequest = (PaymentDetailsRequest) o;
+    return Objects.equals(this.authenticationData, paymentDetailsRequest.authenticationData) &&
+        Objects.equals(this.details, paymentDetailsRequest.details) &&
+        Objects.equals(this.paymentData, paymentDetailsRequest.paymentData) &&
+        Objects.equals(this.threeDSAuthenticationOnly, paymentDetailsRequest.threeDSAuthenticationOnly);
   }
 
   @Override
@@ -184,7 +184,7 @@ public class DetailsRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DetailsRequest {\n");
+    sb.append("class PaymentDetailsRequest {\n");
     sb.append("    authenticationData: ").append(toIndentedString(authenticationData)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
@@ -205,17 +205,17 @@ public class DetailsRequest {
   }
 
 /**
-   * Create an instance of DetailsRequest given an JSON string
+   * Create an instance of PaymentDetailsRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DetailsRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DetailsRequest
+   * @return An instance of PaymentDetailsRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentDetailsRequest
    */
-  public static DetailsRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, DetailsRequest.class);
+  public static PaymentDetailsRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentDetailsRequest.class);
   }
 /**
-  * Convert an instance of DetailsRequest to an JSON string
+  * Convert an instance of PaymentDetailsRequest to an JSON string
   *
   * @return JSON string
   */
