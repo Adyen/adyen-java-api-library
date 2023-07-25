@@ -14,75 +14,58 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * DeliveryAddress
  */
+@JsonPropertyOrder({
+  DeliveryAddress.JSON_PROPERTY_CITY,
+  DeliveryAddress.JSON_PROPERTY_COUNTRY,
+  DeliveryAddress.JSON_PROPERTY_LINE1,
+  DeliveryAddress.JSON_PROPERTY_LINE2,
+  DeliveryAddress.JSON_PROPERTY_LINE3,
+  DeliveryAddress.JSON_PROPERTY_POSTAL_CODE,
+  DeliveryAddress.JSON_PROPERTY_STATE_OR_PROVINCE
+})
 
 public class DeliveryAddress {
-  public static final String SERIALIZED_NAME_CITY = "city";
-  @SerializedName(SERIALIZED_NAME_CITY)
+  public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
 
-  public static final String SERIALIZED_NAME_LINE1 = "line1";
-  @SerializedName(SERIALIZED_NAME_LINE1)
+  public static final String JSON_PROPERTY_LINE1 = "line1";
   private String line1;
 
-  public static final String SERIALIZED_NAME_LINE2 = "line2";
-  @SerializedName(SERIALIZED_NAME_LINE2)
+  public static final String JSON_PROPERTY_LINE2 = "line2";
   private String line2;
 
-  public static final String SERIALIZED_NAME_LINE3 = "line3";
-  @SerializedName(SERIALIZED_NAME_LINE3)
+  public static final String JSON_PROPERTY_LINE3 = "line3";
   private String line3;
 
-  public static final String SERIALIZED_NAME_POSTAL_CODE = "postalCode";
-  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
+  public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private String postalCode;
 
-  public static final String SERIALIZED_NAME_STATE_OR_PROVINCE = "stateOrProvince";
-  @SerializedName(SERIALIZED_NAME_STATE_OR_PROVINCE)
+  public static final String JSON_PROPERTY_STATE_OR_PROVINCE = "stateOrProvince";
   private String stateOrProvince;
 
   public DeliveryAddress() { 
   }
 
   public DeliveryAddress city(String city) {
-    
     this.city = city;
     return this;
   }
@@ -92,19 +75,22 @@ public class DeliveryAddress {
    * @return city
   **/
   @ApiModelProperty(value = "The name of the city.")
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCity() {
     return city;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
 
   public DeliveryAddress country(String country) {
-    
     this.country = country;
     return this;
   }
@@ -114,19 +100,22 @@ public class DeliveryAddress {
    * @return country
   **/
   @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code. For example, **US**. >If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`.")
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCountry() {
     return country;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
 
   public DeliveryAddress line1(String line1) {
-    
     this.line1 = line1;
     return this;
   }
@@ -136,19 +125,22 @@ public class DeliveryAddress {
    * @return line1
   **/
   @ApiModelProperty(value = "First line of the address.")
+  @JsonProperty(JSON_PROPERTY_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLine1() {
     return line1;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
     this.line1 = line1;
   }
 
 
   public DeliveryAddress line2(String line2) {
-    
     this.line2 = line2;
     return this;
   }
@@ -158,19 +150,22 @@ public class DeliveryAddress {
    * @return line2
   **/
   @ApiModelProperty(value = "Second line of the address.")
+  @JsonProperty(JSON_PROPERTY_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLine2() {
     return line2;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
     this.line2 = line2;
   }
 
 
   public DeliveryAddress line3(String line3) {
-    
     this.line3 = line3;
     return this;
   }
@@ -180,19 +175,22 @@ public class DeliveryAddress {
    * @return line3
   **/
   @ApiModelProperty(value = "Third line of the address.")
+  @JsonProperty(JSON_PROPERTY_LINE3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLine3() {
     return line3;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINE3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
     this.line3 = line3;
   }
 
 
   public DeliveryAddress postalCode(String postalCode) {
-    
     this.postalCode = postalCode;
     return this;
   }
@@ -202,19 +200,22 @@ public class DeliveryAddress {
    * @return postalCode
   **/
   @ApiModelProperty(value = "The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.")
+  @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPostalCode() {
     return postalCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
 
 
   public DeliveryAddress stateOrProvince(String stateOrProvince) {
-    
     this.stateOrProvince = stateOrProvince;
     return this;
   }
@@ -224,18 +225,24 @@ public class DeliveryAddress {
    * @return stateOrProvince
   **/
   @ApiModelProperty(value = "The two-letterISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. > Required for the US and Canada.")
+  @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStateOrProvince() {
     return stateOrProvince;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
   }
 
 
-
+  /**
+   * Return true if this DeliveryAddress object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -285,137 +292,23 @@ public class DeliveryAddress {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("city");
-    openapiFields.add("country");
-    openapiFields.add("line1");
-    openapiFields.add("line2");
-    openapiFields.add("line3");
-    openapiFields.add("postalCode");
-    openapiFields.add("stateOrProvince");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("country");
+/**
+   * Create an instance of DeliveryAddress given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DeliveryAddress
+   * @throws JsonProcessingException if the JSON string is invalid with respect to DeliveryAddress
+   */
+  public static DeliveryAddress fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DeliveryAddress.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to DeliveryAddress
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (DeliveryAddress.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DeliveryAddress is not found in the empty JSON string", DeliveryAddress.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!DeliveryAddress.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeliveryAddress` properties.", entry.getKey()));
-            }
-          }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DeliveryAddress.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field city
-      if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
-      }
-      // validate the optional field country
-      if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
-      }
-      // validate the optional field line1
-      if (jsonObj.get("line1") != null && !jsonObj.get("line1").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `line1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line1").toString()));
-      }
-      // validate the optional field line2
-      if (jsonObj.get("line2") != null && !jsonObj.get("line2").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `line2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line2").toString()));
-      }
-      // validate the optional field line3
-      if (jsonObj.get("line3") != null && !jsonObj.get("line3").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `line3` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line3").toString()));
-      }
-      // validate the optional field postalCode
-      if (jsonObj.get("postalCode") != null && !jsonObj.get("postalCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postalCode").toString()));
-      }
-      // validate the optional field stateOrProvince
-      if (jsonObj.get("stateOrProvince") != null && !jsonObj.get("stateOrProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stateOrProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stateOrProvince").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DeliveryAddress.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DeliveryAddress' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DeliveryAddress> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DeliveryAddress.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<DeliveryAddress>() {
-           @Override
-           public void write(JsonWriter out, DeliveryAddress value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public DeliveryAddress read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of DeliveryAddress given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DeliveryAddress
-  * @throws IOException if the JSON string is invalid with respect to DeliveryAddress
-  */
-  public static DeliveryAddress fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DeliveryAddress.class);
-  }
-
- /**
+/**
   * Convert an instance of DeliveryAddress to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

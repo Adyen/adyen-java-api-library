@@ -15,55 +15,38 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.recurring.JSON;
 
 /**
  * PermitResult
  */
+@JsonPropertyOrder({
+  PermitResult.JSON_PROPERTY_RESULT_KEY,
+  PermitResult.JSON_PROPERTY_TOKEN
+})
 
 public class PermitResult {
-  public static final String SERIALIZED_NAME_RESULT_KEY = "resultKey";
-  @SerializedName(SERIALIZED_NAME_RESULT_KEY)
+  public static final String JSON_PROPERTY_RESULT_KEY = "resultKey";
   private String resultKey;
 
-  public static final String SERIALIZED_NAME_TOKEN = "token";
-  @SerializedName(SERIALIZED_NAME_TOKEN)
+  public static final String JSON_PROPERTY_TOKEN = "token";
   private String token;
 
   public PermitResult() { 
   }
 
   public PermitResult resultKey(String resultKey) {
-    
     this.resultKey = resultKey;
     return this;
   }
@@ -73,19 +56,22 @@ public class PermitResult {
    * @return resultKey
   **/
   @ApiModelProperty(value = "The key to link permit requests to permit results.")
+  @JsonProperty(JSON_PROPERTY_RESULT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResultKey() {
     return resultKey;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
     this.resultKey = resultKey;
   }
 
 
   public PermitResult token(String token) {
-    
     this.token = token;
     return this;
   }
@@ -95,18 +81,24 @@ public class PermitResult {
    * @return token
   **/
   @ApiModelProperty(value = "The permit token which is used to make payments by the partner company.")
+  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getToken() {
     return token;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }
 
 
-
+  /**
+   * Return true if this PermitResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,103 +138,23 @@ public class PermitResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("resultKey");
-    openapiFields.add("token");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of PermitResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PermitResult
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PermitResult
+   */
+  public static PermitResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PermitResult.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PermitResult.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PermitResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PermitResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PermitResult is not found in the empty JSON string", PermitResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PermitResult.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PermitResult` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field resultKey
-      if (jsonObj.get("resultKey") != null && !jsonObj.get("resultKey").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `resultKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultKey").toString()));
-      }
-      // validate the optional field token
-      if (jsonObj.get("token") != null && !jsonObj.get("token").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PermitResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PermitResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PermitResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PermitResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PermitResult>() {
-           @Override
-           public void write(JsonWriter out, PermitResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PermitResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PermitResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PermitResult
-  * @throws IOException if the JSON string is invalid with respect to PermitResult
-  */
-  public static PermitResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PermitResult.class);
-  }
-
- /**
+/**
   * Convert an instance of PermitResult to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

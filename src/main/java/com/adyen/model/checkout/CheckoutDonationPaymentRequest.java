@@ -26,6 +26,8 @@ import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
 import com.adyen.model.checkout.EncryptedOrderData;
 import com.adyen.model.checkout.ForexQuote;
+import com.adyen.model.checkout.FundOrigin;
+import com.adyen.model.checkout.FundRecipient;
 import com.adyen.model.checkout.Installments;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Mandate;
@@ -84,6 +86,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CheckoutDonationPaymentRequest.JSON_PROPERTY_ENABLE_RECURRING,
   CheckoutDonationPaymentRequest.JSON_PROPERTY_ENTITY_TYPE,
   CheckoutDonationPaymentRequest.JSON_PROPERTY_FRAUD_OFFSET,
+  CheckoutDonationPaymentRequest.JSON_PROPERTY_FUND_ORIGIN,
+  CheckoutDonationPaymentRequest.JSON_PROPERTY_FUND_RECIPIENT,
   CheckoutDonationPaymentRequest.JSON_PROPERTY_INDUSTRY_USAGE,
   CheckoutDonationPaymentRequest.JSON_PROPERTY_INSTALLMENTS,
   CheckoutDonationPaymentRequest.JSON_PROPERTY_LINE_ITEMS,
@@ -282,6 +286,12 @@ public class CheckoutDonationPaymentRequest {
 
   public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;
+
+  public static final String JSON_PROPERTY_FUND_ORIGIN = "fundOrigin";
+  private FundOrigin fundOrigin;
+
+  public static final String JSON_PROPERTY_FUND_RECIPIENT = "fundRecipient";
+  private FundRecipient fundRecipient;
 
   /**
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
@@ -611,7 +621,7 @@ public class CheckoutDonationPaymentRequest {
    * Get amount
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1233,6 +1243,56 @@ public class CheckoutDonationPaymentRequest {
   }
 
 
+  public CheckoutDonationPaymentRequest fundOrigin(FundOrigin fundOrigin) {
+    this.fundOrigin = fundOrigin;
+    return this;
+  }
+
+   /**
+   * Get fundOrigin
+   * @return fundOrigin
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FUND_ORIGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FundOrigin getFundOrigin() {
+    return fundOrigin;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FUND_ORIGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFundOrigin(FundOrigin fundOrigin) {
+    this.fundOrigin = fundOrigin;
+  }
+
+
+  public CheckoutDonationPaymentRequest fundRecipient(FundRecipient fundRecipient) {
+    this.fundRecipient = fundRecipient;
+    return this;
+  }
+
+   /**
+   * Get fundRecipient
+   * @return fundRecipient
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FUND_RECIPIENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FundRecipient getFundRecipient() {
+    return fundRecipient;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FUND_RECIPIENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFundRecipient(FundRecipient fundRecipient) {
+    this.fundRecipient = fundRecipient;
+  }
+
+
   public CheckoutDonationPaymentRequest industryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
     return this;
@@ -1297,10 +1357,10 @@ public class CheckoutDonationPaymentRequest {
   }
 
    /**
-   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+   * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, and Zip.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
+  @ApiModelProperty(value = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. > This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, and Zip.")
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1408,7 +1468,7 @@ public class CheckoutDonationPaymentRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @ApiModelProperty(value = "The merchant account identifier, with which you want to process the transaction.")
+  @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1616,7 +1676,7 @@ public class CheckoutDonationPaymentRequest {
    * Get paymentMethod
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1791,7 +1851,7 @@ public class CheckoutDonationPaymentRequest {
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return reference
   **/
-  @ApiModelProperty(value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
+  @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1816,7 +1876,7 @@ public class CheckoutDonationPaymentRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;
    * @return returnUrl
   **/
-  @ApiModelProperty(value = "The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`")
+  @ApiModelProperty(required = true, value = "The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`")
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -2308,6 +2368,8 @@ public class CheckoutDonationPaymentRequest {
         Objects.equals(this.enableRecurring, checkoutDonationPaymentRequest.enableRecurring) &&
         Objects.equals(this.entityType, checkoutDonationPaymentRequest.entityType) &&
         Objects.equals(this.fraudOffset, checkoutDonationPaymentRequest.fraudOffset) &&
+        Objects.equals(this.fundOrigin, checkoutDonationPaymentRequest.fundOrigin) &&
+        Objects.equals(this.fundRecipient, checkoutDonationPaymentRequest.fundRecipient) &&
         Objects.equals(this.industryUsage, checkoutDonationPaymentRequest.industryUsage) &&
         Objects.equals(this.installments, checkoutDonationPaymentRequest.installments) &&
         Objects.equals(this.lineItems, checkoutDonationPaymentRequest.lineItems) &&
@@ -2352,7 +2414,7 @@ public class CheckoutDonationPaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2387,6 +2449,8 @@ public class CheckoutDonationPaymentRequest {
     sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
     sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
     sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
+    sb.append("    fundOrigin: ").append(toIndentedString(fundOrigin)).append("\n");
+    sb.append("    fundRecipient: ").append(toIndentedString(fundRecipient)).append("\n");
     sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
     sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");

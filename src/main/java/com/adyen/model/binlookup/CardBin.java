@@ -15,91 +15,74 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * CardBin
  */
+@JsonPropertyOrder({
+  CardBin.JSON_PROPERTY_BIN,
+  CardBin.JSON_PROPERTY_COMMERCIAL,
+  CardBin.JSON_PROPERTY_FUNDING_SOURCE,
+  CardBin.JSON_PROPERTY_FUNDS_AVAILABILITY,
+  CardBin.JSON_PROPERTY_ISSUER_BIN,
+  CardBin.JSON_PROPERTY_ISSUING_BANK,
+  CardBin.JSON_PROPERTY_ISSUING_COUNTRY,
+  CardBin.JSON_PROPERTY_ISSUING_CURRENCY,
+  CardBin.JSON_PROPERTY_PAYMENT_METHOD,
+  CardBin.JSON_PROPERTY_PAYOUT_ELIGIBLE,
+  CardBin.JSON_PROPERTY_SUMMARY
+})
 
 public class CardBin {
-  public static final String SERIALIZED_NAME_BIN = "bin";
-  @SerializedName(SERIALIZED_NAME_BIN)
+  public static final String JSON_PROPERTY_BIN = "bin";
   private String bin;
 
-  public static final String SERIALIZED_NAME_COMMERCIAL = "commercial";
-  @SerializedName(SERIALIZED_NAME_COMMERCIAL)
+  public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
   private Boolean commercial;
 
-  public static final String SERIALIZED_NAME_FUNDING_SOURCE = "fundingSource";
-  @SerializedName(SERIALIZED_NAME_FUNDING_SOURCE)
+  public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
 
-  public static final String SERIALIZED_NAME_FUNDS_AVAILABILITY = "fundsAvailability";
-  @SerializedName(SERIALIZED_NAME_FUNDS_AVAILABILITY)
+  public static final String JSON_PROPERTY_FUNDS_AVAILABILITY = "fundsAvailability";
   private String fundsAvailability;
 
-  public static final String SERIALIZED_NAME_ISSUER_BIN = "issuerBin";
-  @SerializedName(SERIALIZED_NAME_ISSUER_BIN)
+  public static final String JSON_PROPERTY_ISSUER_BIN = "issuerBin";
   private String issuerBin;
 
-  public static final String SERIALIZED_NAME_ISSUING_BANK = "issuingBank";
-  @SerializedName(SERIALIZED_NAME_ISSUING_BANK)
+  public static final String JSON_PROPERTY_ISSUING_BANK = "issuingBank";
   private String issuingBank;
 
-  public static final String SERIALIZED_NAME_ISSUING_COUNTRY = "issuingCountry";
-  @SerializedName(SERIALIZED_NAME_ISSUING_COUNTRY)
+  public static final String JSON_PROPERTY_ISSUING_COUNTRY = "issuingCountry";
   private String issuingCountry;
 
-  public static final String SERIALIZED_NAME_ISSUING_CURRENCY = "issuingCurrency";
-  @SerializedName(SERIALIZED_NAME_ISSUING_CURRENCY)
+  public static final String JSON_PROPERTY_ISSUING_CURRENCY = "issuingCurrency";
   private String issuingCurrency;
 
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "paymentMethod";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
+  public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
 
-  public static final String SERIALIZED_NAME_PAYOUT_ELIGIBLE = "payoutEligible";
-  @SerializedName(SERIALIZED_NAME_PAYOUT_ELIGIBLE)
+  public static final String JSON_PROPERTY_PAYOUT_ELIGIBLE = "payoutEligible";
   private String payoutEligible;
 
-  public static final String SERIALIZED_NAME_SUMMARY = "summary";
-  @SerializedName(SERIALIZED_NAME_SUMMARY)
+  public static final String JSON_PROPERTY_SUMMARY = "summary";
   private String summary;
 
   public CardBin() { 
   }
 
   public CardBin bin(String bin) {
-    
     this.bin = bin;
     return this;
   }
@@ -109,19 +92,22 @@ public class CardBin {
    * @return bin
   **/
   @ApiModelProperty(value = "The first 6 digit of the card number. Enable this field via merchant account settings.")
+  @JsonProperty(JSON_PROPERTY_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBin() {
     return bin;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
     this.bin = bin;
   }
 
 
   public CardBin commercial(Boolean commercial) {
-    
     this.commercial = commercial;
     return this;
   }
@@ -131,19 +117,22 @@ public class CardBin {
    * @return commercial
   **/
   @ApiModelProperty(value = "If true, it indicates a commercial card. Enable this field via merchant account settings.")
+  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCommercial() {
     return commercial;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommercial(Boolean commercial) {
     this.commercial = commercial;
   }
 
 
   public CardBin fundingSource(String fundingSource) {
-    
     this.fundingSource = fundingSource;
     return this;
   }
@@ -153,19 +142,22 @@ public class CardBin {
    * @return fundingSource
   **/
   @ApiModelProperty(value = "The card funding source. Valid values are: * CHARGE * CREDIT * DEBIT * DEFERRED_DEBIT * PREPAID * PREPAID_RELOADABLE * PREPAID_NONRELOADABLE > Enable this field via merchant account settings.")
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFundingSource() {
     return fundingSource;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
   }
 
 
   public CardBin fundsAvailability(String fundsAvailability) {
-    
     this.fundsAvailability = fundsAvailability;
     return this;
   }
@@ -175,19 +167,22 @@ public class CardBin {
    * @return fundsAvailability
   **/
   @ApiModelProperty(value = "Indicates availability of funds.  Visa: * \"I\" (fast funds are supported) * \"N\" (otherwise)  Mastercard: * \"I\" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \"N\" (otherwise) > Returned when you verify a card BIN or estimate costs, and only if `payoutEligible` is different from \"N\" or \"U\".")
+  @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFundsAvailability() {
     return fundsAvailability;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
   }
 
 
   public CardBin issuerBin(String issuerBin) {
-    
     this.issuerBin = issuerBin;
     return this;
   }
@@ -197,19 +192,22 @@ public class CardBin {
    * @return issuerBin
   **/
   @ApiModelProperty(value = "The first 8 digit of the card number. Enable this field via merchant account settings.")
+  @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuerBin() {
     return issuerBin;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerBin(String issuerBin) {
     this.issuerBin = issuerBin;
   }
 
 
   public CardBin issuingBank(String issuingBank) {
-    
     this.issuingBank = issuingBank;
     return this;
   }
@@ -219,19 +217,22 @@ public class CardBin {
    * @return issuingBank
   **/
   @ApiModelProperty(value = "The issuing bank of the card.")
+  @JsonProperty(JSON_PROPERTY_ISSUING_BANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuingBank() {
     return issuingBank;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUING_BANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingBank(String issuingBank) {
     this.issuingBank = issuingBank;
   }
 
 
   public CardBin issuingCountry(String issuingCountry) {
-    
     this.issuingCountry = issuingCountry;
     return this;
   }
@@ -241,19 +242,22 @@ public class CardBin {
    * @return issuingCountry
   **/
   @ApiModelProperty(value = "The country where the card was issued from.")
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuingCountry() {
     return issuingCountry;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountry(String issuingCountry) {
     this.issuingCountry = issuingCountry;
   }
 
 
   public CardBin issuingCurrency(String issuingCurrency) {
-    
     this.issuingCurrency = issuingCurrency;
     return this;
   }
@@ -263,19 +267,22 @@ public class CardBin {
    * @return issuingCurrency
   **/
   @ApiModelProperty(value = "The currency of the card.")
+  @JsonProperty(JSON_PROPERTY_ISSUING_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuingCurrency() {
     return issuingCurrency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUING_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCurrency(String issuingCurrency) {
     this.issuingCurrency = issuingCurrency;
   }
 
 
   public CardBin paymentMethod(String paymentMethod) {
-    
     this.paymentMethod = paymentMethod;
     return this;
   }
@@ -285,19 +292,22 @@ public class CardBin {
    * @return paymentMethod
   **/
   @ApiModelProperty(value = "The payment method associated with the card (e.g. visa, mc, or amex).")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaymentMethod() {
     return paymentMethod;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
 
   public CardBin payoutEligible(String payoutEligible) {
-    
     this.payoutEligible = payoutEligible;
     return this;
   }
@@ -307,19 +317,22 @@ public class CardBin {
    * @return payoutEligible
   **/
   @ApiModelProperty(value = "Indicates whether a payout is eligible or not for this card.  Visa: * \"Y\" * \"N\"  Mastercard: * \"Y\" (domestic and cross-border) * \"D\" (only domestic) * \"N\" (no MoneySend) * \"U\" (unknown) > Returned when you verify a card BIN or estimate costs, and only if `payoutEligible` is different from \"N\" or \"U\".")
+  @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPayoutEligible() {
     return payoutEligible;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
   }
 
 
   public CardBin summary(String summary) {
-    
     this.summary = summary;
     return this;
   }
@@ -329,18 +342,24 @@ public class CardBin {
    * @return summary
   **/
   @ApiModelProperty(value = "The last four digits of the card number.")
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSummary() {
     return summary;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSummary(String summary) {
     this.summary = summary;
   }
 
 
-
+  /**
+   * Return true if this CardBin object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -398,144 +417,23 @@ public class CardBin {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("bin");
-    openapiFields.add("commercial");
-    openapiFields.add("fundingSource");
-    openapiFields.add("fundsAvailability");
-    openapiFields.add("issuerBin");
-    openapiFields.add("issuingBank");
-    openapiFields.add("issuingCountry");
-    openapiFields.add("issuingCurrency");
-    openapiFields.add("paymentMethod");
-    openapiFields.add("payoutEligible");
-    openapiFields.add("summary");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of CardBin given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CardBin
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CardBin
+   */
+  public static CardBin fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CardBin.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CardBin.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CardBin
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CardBin.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CardBin is not found in the empty JSON string", CardBin.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CardBin.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CardBin` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field bin
-      if (jsonObj.get("bin") != null && !jsonObj.get("bin").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bin").toString()));
-      }
-      // validate the optional field fundingSource
-      if (jsonObj.get("fundingSource") != null && !jsonObj.get("fundingSource").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
-      }
-      // validate the optional field fundsAvailability
-      if (jsonObj.get("fundsAvailability") != null && !jsonObj.get("fundsAvailability").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fundsAvailability` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundsAvailability").toString()));
-      }
-      // validate the optional field issuerBin
-      if (jsonObj.get("issuerBin") != null && !jsonObj.get("issuerBin").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuerBin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerBin").toString()));
-      }
-      // validate the optional field issuingBank
-      if (jsonObj.get("issuingBank") != null && !jsonObj.get("issuingBank").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuingBank` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuingBank").toString()));
-      }
-      // validate the optional field issuingCountry
-      if (jsonObj.get("issuingCountry") != null && !jsonObj.get("issuingCountry").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuingCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuingCountry").toString()));
-      }
-      // validate the optional field issuingCurrency
-      if (jsonObj.get("issuingCurrency") != null && !jsonObj.get("issuingCurrency").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuingCurrency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuingCurrency").toString()));
-      }
-      // validate the optional field paymentMethod
-      if (jsonObj.get("paymentMethod") != null && !jsonObj.get("paymentMethod").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paymentMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentMethod").toString()));
-      }
-      // validate the optional field payoutEligible
-      if (jsonObj.get("payoutEligible") != null && !jsonObj.get("payoutEligible").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `payoutEligible` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payoutEligible").toString()));
-      }
-      // validate the optional field summary
-      if (jsonObj.get("summary") != null && !jsonObj.get("summary").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CardBin.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CardBin' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CardBin> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CardBin.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CardBin>() {
-           @Override
-           public void write(JsonWriter out, CardBin value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CardBin read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CardBin given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CardBin
-  * @throws IOException if the JSON string is invalid with respect to CardBin
-  */
-  public static CardBin fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CardBin.class);
-  }
-
- /**
+/**
   * Convert an instance of CardBin to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -357,10 +357,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 2 characters
+   * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
    * @return lodgingRoom1NumberOfNights
   **/
-  @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 2 characters")
+  @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters")
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -457,10 +457,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 2 characters
+   * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
    * @return travelEntertainmentAuthDataDuration
   **/
-  @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric * Max length: 2 characters")
+  @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters")
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

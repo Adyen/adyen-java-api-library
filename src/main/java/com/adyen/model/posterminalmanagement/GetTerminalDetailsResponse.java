@@ -15,136 +15,122 @@ package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.posterminalmanagement.Store;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.posterminalmanagement.JSON;
 
 /**
  * GetTerminalDetailsResponse
  */
+@JsonPropertyOrder({
+  GetTerminalDetailsResponse.JSON_PROPERTY_BLUETOOTH_IP,
+  GetTerminalDetailsResponse.JSON_PROPERTY_BLUETOOTH_MAC,
+  GetTerminalDetailsResponse.JSON_PROPERTY_COMPANY_ACCOUNT,
+  GetTerminalDetailsResponse.JSON_PROPERTY_COUNTRY,
+  GetTerminalDetailsResponse.JSON_PROPERTY_DEVICE_MODEL,
+  GetTerminalDetailsResponse.JSON_PROPERTY_DHCP_ENABLED,
+  GetTerminalDetailsResponse.JSON_PROPERTY_DISPLAY_LABEL,
+  GetTerminalDetailsResponse.JSON_PROPERTY_ETHERNET_IP,
+  GetTerminalDetailsResponse.JSON_PROPERTY_ETHERNET_MAC,
+  GetTerminalDetailsResponse.JSON_PROPERTY_FIRMWARE_VERSION,
+  GetTerminalDetailsResponse.JSON_PROPERTY_ICCID,
+  GetTerminalDetailsResponse.JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME,
+  GetTerminalDetailsResponse.JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME,
+  GetTerminalDetailsResponse.JSON_PROPERTY_LINK_NEGOTIATION,
+  GetTerminalDetailsResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  GetTerminalDetailsResponse.JSON_PROPERTY_MERCHANT_INVENTORY,
+  GetTerminalDetailsResponse.JSON_PROPERTY_PERMANENT_TERMINAL_ID,
+  GetTerminalDetailsResponse.JSON_PROPERTY_SERIAL_NUMBER,
+  GetTerminalDetailsResponse.JSON_PROPERTY_SIM_STATUS,
+  GetTerminalDetailsResponse.JSON_PROPERTY_STORE,
+  GetTerminalDetailsResponse.JSON_PROPERTY_STORE_DETAILS,
+  GetTerminalDetailsResponse.JSON_PROPERTY_TERMINAL,
+  GetTerminalDetailsResponse.JSON_PROPERTY_TERMINAL_STATUS,
+  GetTerminalDetailsResponse.JSON_PROPERTY_WIFI_IP,
+  GetTerminalDetailsResponse.JSON_PROPERTY_WIFI_MAC
+})
 
 public class GetTerminalDetailsResponse {
-  public static final String SERIALIZED_NAME_BLUETOOTH_IP = "bluetoothIp";
-  @SerializedName(SERIALIZED_NAME_BLUETOOTH_IP)
+  public static final String JSON_PROPERTY_BLUETOOTH_IP = "bluetoothIp";
   private String bluetoothIp;
 
-  public static final String SERIALIZED_NAME_BLUETOOTH_MAC = "bluetoothMac";
-  @SerializedName(SERIALIZED_NAME_BLUETOOTH_MAC)
+  public static final String JSON_PROPERTY_BLUETOOTH_MAC = "bluetoothMac";
   private String bluetoothMac;
 
-  public static final String SERIALIZED_NAME_COMPANY_ACCOUNT = "companyAccount";
-  @SerializedName(SERIALIZED_NAME_COMPANY_ACCOUNT)
+  public static final String JSON_PROPERTY_COMPANY_ACCOUNT = "companyAccount";
   private String companyAccount;
 
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
 
-  public static final String SERIALIZED_NAME_DEVICE_MODEL = "deviceModel";
-  @SerializedName(SERIALIZED_NAME_DEVICE_MODEL)
+  public static final String JSON_PROPERTY_DEVICE_MODEL = "deviceModel";
   private String deviceModel;
 
-  public static final String SERIALIZED_NAME_DHCP_ENABLED = "dhcpEnabled";
-  @SerializedName(SERIALIZED_NAME_DHCP_ENABLED)
+  public static final String JSON_PROPERTY_DHCP_ENABLED = "dhcpEnabled";
   private Boolean dhcpEnabled;
 
-  public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
+  public static final String JSON_PROPERTY_DISPLAY_LABEL = "displayLabel";
   private String displayLabel;
 
-  public static final String SERIALIZED_NAME_ETHERNET_IP = "ethernetIp";
-  @SerializedName(SERIALIZED_NAME_ETHERNET_IP)
+  public static final String JSON_PROPERTY_ETHERNET_IP = "ethernetIp";
   private String ethernetIp;
 
-  public static final String SERIALIZED_NAME_ETHERNET_MAC = "ethernetMac";
-  @SerializedName(SERIALIZED_NAME_ETHERNET_MAC)
+  public static final String JSON_PROPERTY_ETHERNET_MAC = "ethernetMac";
   private String ethernetMac;
 
-  public static final String SERIALIZED_NAME_FIRMWARE_VERSION = "firmwareVersion";
-  @SerializedName(SERIALIZED_NAME_FIRMWARE_VERSION)
+  public static final String JSON_PROPERTY_FIRMWARE_VERSION = "firmwareVersion";
   private String firmwareVersion;
 
-  public static final String SERIALIZED_NAME_ICCID = "iccid";
-  @SerializedName(SERIALIZED_NAME_ICCID)
+  public static final String JSON_PROPERTY_ICCID = "iccid";
   private String iccid;
 
-  public static final String SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME = "lastActivityDateTime";
-  @SerializedName(SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME)
+  public static final String JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME = "lastActivityDateTime";
   private OffsetDateTime lastActivityDateTime;
 
-  public static final String SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME = "lastTransactionDateTime";
-  @SerializedName(SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME)
+  public static final String JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME = "lastTransactionDateTime";
   private OffsetDateTime lastTransactionDateTime;
 
-  public static final String SERIALIZED_NAME_LINK_NEGOTIATION = "linkNegotiation";
-  @SerializedName(SERIALIZED_NAME_LINK_NEGOTIATION)
+  public static final String JSON_PROPERTY_LINK_NEGOTIATION = "linkNegotiation";
   private String linkNegotiation;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_MERCHANT_INVENTORY = "merchantInventory";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_INVENTORY)
+  public static final String JSON_PROPERTY_MERCHANT_INVENTORY = "merchantInventory";
   private Boolean merchantInventory;
 
-  public static final String SERIALIZED_NAME_PERMANENT_TERMINAL_ID = "permanentTerminalId";
-  @SerializedName(SERIALIZED_NAME_PERMANENT_TERMINAL_ID)
+  public static final String JSON_PROPERTY_PERMANENT_TERMINAL_ID = "permanentTerminalId";
   private String permanentTerminalId;
 
-  public static final String SERIALIZED_NAME_SERIAL_NUMBER = "serialNumber";
-  @SerializedName(SERIALIZED_NAME_SERIAL_NUMBER)
+  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private String serialNumber;
 
-  public static final String SERIALIZED_NAME_SIM_STATUS = "simStatus";
-  @SerializedName(SERIALIZED_NAME_SIM_STATUS)
+  public static final String JSON_PROPERTY_SIM_STATUS = "simStatus";
   private String simStatus;
 
-  public static final String SERIALIZED_NAME_STORE = "store";
-  @SerializedName(SERIALIZED_NAME_STORE)
+  public static final String JSON_PROPERTY_STORE = "store";
   private String store;
 
-  public static final String SERIALIZED_NAME_STORE_DETAILS = "storeDetails";
-  @SerializedName(SERIALIZED_NAME_STORE_DETAILS)
+  public static final String JSON_PROPERTY_STORE_DETAILS = "storeDetails";
   private Store storeDetails;
 
-  public static final String SERIALIZED_NAME_TERMINAL = "terminal";
-  @SerializedName(SERIALIZED_NAME_TERMINAL)
+  public static final String JSON_PROPERTY_TERMINAL = "terminal";
   private String terminal;
 
   /**
    * The status of the terminal:   - &#x60;OnlineToday&#x60;, &#x60;OnlineLast1Day&#x60;, &#x60;OnlineLast2Days&#x60; etcetera to &#x60;OnlineLast7Days&#x60;: Indicates when in the past week the terminal was last online.   - &#x60;SwitchedOff&#x60;: Indicates it was more than a week ago that the terminal was last online.   - &#x60;ReAssignToInventoryPending&#x60;, &#x60;ReAssignToStorePending&#x60;, &#x60;ReAssignToMerchantInventoryPending&#x60;: Indicates the terminal is scheduled to be reassigned.
    */
-  @JsonAdapter(TerminalStatusEnum.Adapter.class)
   public enum TerminalStatusEnum {
     ONLINELAST1DAY("OnlineLast1Day"),
     
@@ -176,6 +162,7 @@ public class GetTerminalDetailsResponse {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -185,6 +172,7 @@ public class GetTerminalDetailsResponse {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TerminalStatusEnum fromValue(String value) {
       for (TerminalStatusEnum b : TerminalStatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -193,38 +181,21 @@ public class GetTerminalDetailsResponse {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TerminalStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TerminalStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TerminalStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TerminalStatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TERMINAL_STATUS = "terminalStatus";
-  @SerializedName(SERIALIZED_NAME_TERMINAL_STATUS)
+  public static final String JSON_PROPERTY_TERMINAL_STATUS = "terminalStatus";
   private TerminalStatusEnum terminalStatus;
 
-  public static final String SERIALIZED_NAME_WIFI_IP = "wifiIp";
-  @SerializedName(SERIALIZED_NAME_WIFI_IP)
+  public static final String JSON_PROPERTY_WIFI_IP = "wifiIp";
   private String wifiIp;
 
-  public static final String SERIALIZED_NAME_WIFI_MAC = "wifiMac";
-  @SerializedName(SERIALIZED_NAME_WIFI_MAC)
+  public static final String JSON_PROPERTY_WIFI_MAC = "wifiMac";
   private String wifiMac;
 
   public GetTerminalDetailsResponse() { 
   }
 
   public GetTerminalDetailsResponse bluetoothIp(String bluetoothIp) {
-    
     this.bluetoothIp = bluetoothIp;
     return this;
   }
@@ -234,19 +205,22 @@ public class GetTerminalDetailsResponse {
    * @return bluetoothIp
   **/
   @ApiModelProperty(value = "The Bluetooth IP address of the terminal.")
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBluetoothIp() {
     return bluetoothIp;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothIp(String bluetoothIp) {
     this.bluetoothIp = bluetoothIp;
   }
 
 
   public GetTerminalDetailsResponse bluetoothMac(String bluetoothMac) {
-    
     this.bluetoothMac = bluetoothMac;
     return this;
   }
@@ -256,19 +230,22 @@ public class GetTerminalDetailsResponse {
    * @return bluetoothMac
   **/
   @ApiModelProperty(value = "The Bluetooth MAC address of the terminal.")
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBluetoothMac() {
     return bluetoothMac;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BLUETOOTH_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothMac(String bluetoothMac) {
     this.bluetoothMac = bluetoothMac;
   }
 
 
   public GetTerminalDetailsResponse companyAccount(String companyAccount) {
-    
     this.companyAccount = companyAccount;
     return this;
   }
@@ -278,19 +255,22 @@ public class GetTerminalDetailsResponse {
    * @return companyAccount
   **/
   @ApiModelProperty(required = true, value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
+  @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCompanyAccount() {
     return companyAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
 
   public GetTerminalDetailsResponse country(String country) {
-    
     this.country = country;
     return this;
   }
@@ -300,19 +280,22 @@ public class GetTerminalDetailsResponse {
    * @return country
   **/
   @ApiModelProperty(value = "The country where the terminal is used.")
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCountry() {
     return country;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
 
   public GetTerminalDetailsResponse deviceModel(String deviceModel) {
-    
     this.deviceModel = deviceModel;
     return this;
   }
@@ -322,19 +305,22 @@ public class GetTerminalDetailsResponse {
    * @return deviceModel
   **/
   @ApiModelProperty(value = "The model name of the terminal.")
+  @JsonProperty(JSON_PROPERTY_DEVICE_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDeviceModel() {
     return deviceModel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DEVICE_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceModel(String deviceModel) {
     this.deviceModel = deviceModel;
   }
 
 
   public GetTerminalDetailsResponse dhcpEnabled(Boolean dhcpEnabled) {
-    
     this.dhcpEnabled = dhcpEnabled;
     return this;
   }
@@ -344,19 +330,22 @@ public class GetTerminalDetailsResponse {
    * @return dhcpEnabled
   **/
   @ApiModelProperty(value = "Indicates whether assigning IP addresses through a DHCP server is enabled on the terminal.")
+  @JsonProperty(JSON_PROPERTY_DHCP_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDhcpEnabled() {
     return dhcpEnabled;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DHCP_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDhcpEnabled(Boolean dhcpEnabled) {
     this.dhcpEnabled = dhcpEnabled;
   }
 
 
   public GetTerminalDetailsResponse displayLabel(String displayLabel) {
-    
     this.displayLabel = displayLabel;
     return this;
   }
@@ -366,19 +355,22 @@ public class GetTerminalDetailsResponse {
    * @return displayLabel
   **/
   @ApiModelProperty(value = "The label shown on the status bar of the display. This label (if any) is specified in your Customer Area.")
+  @JsonProperty(JSON_PROPERTY_DISPLAY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDisplayLabel() {
     return displayLabel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DISPLAY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayLabel(String displayLabel) {
     this.displayLabel = displayLabel;
   }
 
 
   public GetTerminalDetailsResponse ethernetIp(String ethernetIp) {
-    
     this.ethernetIp = ethernetIp;
     return this;
   }
@@ -388,19 +380,22 @@ public class GetTerminalDetailsResponse {
    * @return ethernetIp
   **/
   @ApiModelProperty(value = "The terminal's IP address in your Ethernet network.")
+  @JsonProperty(JSON_PROPERTY_ETHERNET_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEthernetIp() {
     return ethernetIp;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ETHERNET_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetIp(String ethernetIp) {
     this.ethernetIp = ethernetIp;
   }
 
 
   public GetTerminalDetailsResponse ethernetMac(String ethernetMac) {
-    
     this.ethernetMac = ethernetMac;
     return this;
   }
@@ -410,19 +405,22 @@ public class GetTerminalDetailsResponse {
    * @return ethernetMac
   **/
   @ApiModelProperty(value = "The terminal's MAC address in your Ethernet network.")
+  @JsonProperty(JSON_PROPERTY_ETHERNET_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEthernetMac() {
     return ethernetMac;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ETHERNET_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetMac(String ethernetMac) {
     this.ethernetMac = ethernetMac;
   }
 
 
   public GetTerminalDetailsResponse firmwareVersion(String firmwareVersion) {
-    
     this.firmwareVersion = firmwareVersion;
     return this;
   }
@@ -432,19 +430,22 @@ public class GetTerminalDetailsResponse {
    * @return firmwareVersion
   **/
   @ApiModelProperty(value = "The software release currently in use on the terminal.")
+  @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFirmwareVersion() {
     return firmwareVersion;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
   }
 
 
   public GetTerminalDetailsResponse iccid(String iccid) {
-    
     this.iccid = iccid;
     return this;
   }
@@ -454,19 +455,22 @@ public class GetTerminalDetailsResponse {
    * @return iccid
   **/
   @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the SIM card in the terminal.")
+  @JsonProperty(JSON_PROPERTY_ICCID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIccid() {
     return iccid;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ICCID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
     this.iccid = iccid;
   }
 
 
   public GetTerminalDetailsResponse lastActivityDateTime(OffsetDateTime lastActivityDateTime) {
-    
     this.lastActivityDateTime = lastActivityDateTime;
     return this;
   }
@@ -476,19 +480,22 @@ public class GetTerminalDetailsResponse {
    * @return lastActivityDateTime
   **/
   @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
+  @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastActivityDateTime() {
     return lastActivityDateTime;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     this.lastActivityDateTime = lastActivityDateTime;
   }
 
 
   public GetTerminalDetailsResponse lastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
-    
     this.lastTransactionDateTime = lastTransactionDateTime;
     return this;
   }
@@ -498,19 +505,22 @@ public class GetTerminalDetailsResponse {
    * @return lastTransactionDateTime
   **/
   @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
+  @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastTransactionDateTime() {
     return lastTransactionDateTime;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     this.lastTransactionDateTime = lastTransactionDateTime;
   }
 
 
   public GetTerminalDetailsResponse linkNegotiation(String linkNegotiation) {
-    
     this.linkNegotiation = linkNegotiation;
     return this;
   }
@@ -520,19 +530,22 @@ public class GetTerminalDetailsResponse {
    * @return linkNegotiation
   **/
   @ApiModelProperty(value = "The Ethernet link negotiation that the terminal uses:   - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex")
+  @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLinkNegotiation() {
     return linkNegotiation;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkNegotiation(String linkNegotiation) {
     this.linkNegotiation = linkNegotiation;
   }
 
 
   public GetTerminalDetailsResponse merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -542,19 +555,22 @@ public class GetTerminalDetailsResponse {
    * @return merchantAccount
   **/
   @ApiModelProperty(value = "The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public GetTerminalDetailsResponse merchantInventory(Boolean merchantInventory) {
-    
     this.merchantInventory = merchantInventory;
     return this;
   }
@@ -564,19 +580,22 @@ public class GetTerminalDetailsResponse {
    * @return merchantInventory
   **/
   @ApiModelProperty(value = "Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMerchantInventory() {
     return merchantInventory;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
   }
 
 
   public GetTerminalDetailsResponse permanentTerminalId(String permanentTerminalId) {
-    
     this.permanentTerminalId = permanentTerminalId;
     return this;
   }
@@ -586,19 +605,22 @@ public class GetTerminalDetailsResponse {
    * @return permanentTerminalId
   **/
   @ApiModelProperty(value = "The permanent terminal ID.")
+  @JsonProperty(JSON_PROPERTY_PERMANENT_TERMINAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPermanentTerminalId() {
     return permanentTerminalId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PERMANENT_TERMINAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermanentTerminalId(String permanentTerminalId) {
     this.permanentTerminalId = permanentTerminalId;
   }
 
 
   public GetTerminalDetailsResponse serialNumber(String serialNumber) {
-    
     this.serialNumber = serialNumber;
     return this;
   }
@@ -608,19 +630,22 @@ public class GetTerminalDetailsResponse {
    * @return serialNumber
   **/
   @ApiModelProperty(value = "The serial number of the terminal.")
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSerialNumber() {
     return serialNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
 
 
   public GetTerminalDetailsResponse simStatus(String simStatus) {
-    
     this.simStatus = simStatus;
     return this;
   }
@@ -630,19 +655,22 @@ public class GetTerminalDetailsResponse {
    * @return simStatus
   **/
   @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.")
+  @JsonProperty(JSON_PROPERTY_SIM_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSimStatus() {
     return simStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SIM_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSimStatus(String simStatus) {
     this.simStatus = simStatus;
   }
 
 
   public GetTerminalDetailsResponse store(String store) {
-    
     this.store = store;
     return this;
   }
@@ -652,19 +680,22 @@ public class GetTerminalDetailsResponse {
    * @return store
   **/
   @ApiModelProperty(value = "The store code of the store that the terminal is assigned to.")
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStore() {
     return store;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
 
 
   public GetTerminalDetailsResponse storeDetails(Store storeDetails) {
-    
     this.storeDetails = storeDetails;
     return this;
   }
@@ -674,19 +705,22 @@ public class GetTerminalDetailsResponse {
    * @return storeDetails
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STORE_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Store getStoreDetails() {
     return storeDetails;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORE_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreDetails(Store storeDetails) {
     this.storeDetails = storeDetails;
   }
 
 
   public GetTerminalDetailsResponse terminal(String terminal) {
-    
     this.terminal = terminal;
     return this;
   }
@@ -696,19 +730,22 @@ public class GetTerminalDetailsResponse {
    * @return terminal
   **/
   @ApiModelProperty(required = true, value = "The unique terminal ID.")
+  @JsonProperty(JSON_PROPERTY_TERMINAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTerminal() {
     return terminal;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TERMINAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }
 
 
   public GetTerminalDetailsResponse terminalStatus(TerminalStatusEnum terminalStatus) {
-    
     this.terminalStatus = terminalStatus;
     return this;
   }
@@ -718,19 +755,22 @@ public class GetTerminalDetailsResponse {
    * @return terminalStatus
   **/
   @ApiModelProperty(value = "The status of the terminal:   - `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.   - `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.   - `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned.")
+  @JsonProperty(JSON_PROPERTY_TERMINAL_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TerminalStatusEnum getTerminalStatus() {
     return terminalStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TERMINAL_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalStatus(TerminalStatusEnum terminalStatus) {
     this.terminalStatus = terminalStatus;
   }
 
 
   public GetTerminalDetailsResponse wifiIp(String wifiIp) {
-    
     this.wifiIp = wifiIp;
     return this;
   }
@@ -740,19 +780,22 @@ public class GetTerminalDetailsResponse {
    * @return wifiIp
   **/
   @ApiModelProperty(value = "The terminal's IP address in your Wi-Fi network.")
+  @JsonProperty(JSON_PROPERTY_WIFI_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWifiIp() {
     return wifiIp;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WIFI_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiIp(String wifiIp) {
     this.wifiIp = wifiIp;
   }
 
 
   public GetTerminalDetailsResponse wifiMac(String wifiMac) {
-    
     this.wifiMac = wifiMac;
     return this;
   }
@@ -762,18 +805,24 @@ public class GetTerminalDetailsResponse {
    * @return wifiMac
   **/
   @ApiModelProperty(value = "The terminal's MAC address in your Wi-Fi network.")
+  @JsonProperty(JSON_PROPERTY_WIFI_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWifiMac() {
     return wifiMac;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WIFI_MAC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiMac(String wifiMac) {
     this.wifiMac = wifiMac;
   }
 
 
-
+  /**
+   * Return true if this GetTerminalDetailsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -859,214 +908,23 @@ public class GetTerminalDetailsResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("bluetoothIp");
-    openapiFields.add("bluetoothMac");
-    openapiFields.add("companyAccount");
-    openapiFields.add("country");
-    openapiFields.add("deviceModel");
-    openapiFields.add("dhcpEnabled");
-    openapiFields.add("displayLabel");
-    openapiFields.add("ethernetIp");
-    openapiFields.add("ethernetMac");
-    openapiFields.add("firmwareVersion");
-    openapiFields.add("iccid");
-    openapiFields.add("lastActivityDateTime");
-    openapiFields.add("lastTransactionDateTime");
-    openapiFields.add("linkNegotiation");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("merchantInventory");
-    openapiFields.add("permanentTerminalId");
-    openapiFields.add("serialNumber");
-    openapiFields.add("simStatus");
-    openapiFields.add("store");
-    openapiFields.add("storeDetails");
-    openapiFields.add("terminal");
-    openapiFields.add("terminalStatus");
-    openapiFields.add("wifiIp");
-    openapiFields.add("wifiMac");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("companyAccount");
-    openapiRequiredFields.add("terminal");
+/**
+   * Create an instance of GetTerminalDetailsResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetTerminalDetailsResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to GetTerminalDetailsResponse
+   */
+  public static GetTerminalDetailsResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, GetTerminalDetailsResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(GetTerminalDetailsResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetTerminalDetailsResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetTerminalDetailsResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetTerminalDetailsResponse is not found in the empty JSON string", GetTerminalDetailsResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GetTerminalDetailsResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `GetTerminalDetailsResponse` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GetTerminalDetailsResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field bluetoothIp
-      if (jsonObj.get("bluetoothIp") != null && !jsonObj.get("bluetoothIp").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bluetoothIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothIp").toString()));
-      }
-      // validate the optional field bluetoothMac
-      if (jsonObj.get("bluetoothMac") != null && !jsonObj.get("bluetoothMac").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `bluetoothMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bluetoothMac").toString()));
-      }
-      // validate the optional field companyAccount
-      if (jsonObj.get("companyAccount") != null && !jsonObj.get("companyAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `companyAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyAccount").toString()));
-      }
-      // validate the optional field country
-      if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
-      }
-      // validate the optional field deviceModel
-      if (jsonObj.get("deviceModel") != null && !jsonObj.get("deviceModel").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `deviceModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceModel").toString()));
-      }
-      // validate the optional field displayLabel
-      if (jsonObj.get("displayLabel") != null && !jsonObj.get("displayLabel").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `displayLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayLabel").toString()));
-      }
-      // validate the optional field ethernetIp
-      if (jsonObj.get("ethernetIp") != null && !jsonObj.get("ethernetIp").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ethernetIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetIp").toString()));
-      }
-      // validate the optional field ethernetMac
-      if (jsonObj.get("ethernetMac") != null && !jsonObj.get("ethernetMac").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `ethernetMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ethernetMac").toString()));
-      }
-      // validate the optional field firmwareVersion
-      if (jsonObj.get("firmwareVersion") != null && !jsonObj.get("firmwareVersion").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `firmwareVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firmwareVersion").toString()));
-      }
-      // validate the optional field iccid
-      if (jsonObj.get("iccid") != null && !jsonObj.get("iccid").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `iccid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iccid").toString()));
-      }
-      // validate the optional field linkNegotiation
-      if (jsonObj.get("linkNegotiation") != null && !jsonObj.get("linkNegotiation").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `linkNegotiation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkNegotiation").toString()));
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field permanentTerminalId
-      if (jsonObj.get("permanentTerminalId") != null && !jsonObj.get("permanentTerminalId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `permanentTerminalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permanentTerminalId").toString()));
-      }
-      // validate the optional field serialNumber
-      if (jsonObj.get("serialNumber") != null && !jsonObj.get("serialNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `serialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serialNumber").toString()));
-      }
-      // validate the optional field simStatus
-      if (jsonObj.get("simStatus") != null && !jsonObj.get("simStatus").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `simStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("simStatus").toString()));
-      }
-      // validate the optional field store
-      if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
-      }
-      // validate the optional field `storeDetails`
-      if (jsonObj.getAsJsonObject("storeDetails") != null) {
-        Store.validateJsonObject(jsonObj.getAsJsonObject("storeDetails"));
-      }
-      // validate the optional field terminal
-      if (jsonObj.get("terminal") != null && !jsonObj.get("terminal").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `terminal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminal").toString()));
-      }
-      // ensure the field terminalStatus can be parsed to an enum value
-      if (jsonObj.get("terminalStatus") != null) {
-        if(!jsonObj.get("terminalStatus").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `terminalStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminalStatus").toString()));
-        }
-        TerminalStatusEnum.fromValue(jsonObj.get("terminalStatus").getAsString());
-      }
-      // validate the optional field wifiIp
-      if (jsonObj.get("wifiIp") != null && !jsonObj.get("wifiIp").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `wifiIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiIp").toString()));
-      }
-      // validate the optional field wifiMac
-      if (jsonObj.get("wifiMac") != null && !jsonObj.get("wifiMac").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `wifiMac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wifiMac").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetTerminalDetailsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetTerminalDetailsResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetTerminalDetailsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetTerminalDetailsResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<GetTerminalDetailsResponse>() {
-           @Override
-           public void write(JsonWriter out, GetTerminalDetailsResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public GetTerminalDetailsResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of GetTerminalDetailsResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetTerminalDetailsResponse
-  * @throws IOException if the JSON string is invalid with respect to GetTerminalDetailsResponse
-  */
-  public static GetTerminalDetailsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetTerminalDetailsResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of GetTerminalDetailsResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

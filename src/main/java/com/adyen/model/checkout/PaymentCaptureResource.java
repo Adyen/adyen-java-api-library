@@ -18,7 +18,9 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.LineItem;
+import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.Split;
+import com.adyen.model.checkout.SubMerchant2;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,10 +42,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentCaptureResource.JSON_PROPERTY_LINE_ITEMS,
   PaymentCaptureResource.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentCaptureResource.JSON_PROPERTY_PAYMENT_PSP_REFERENCE,
+  PaymentCaptureResource.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
   PaymentCaptureResource.JSON_PROPERTY_PSP_REFERENCE,
   PaymentCaptureResource.JSON_PROPERTY_REFERENCE,
   PaymentCaptureResource.JSON_PROPERTY_SPLITS,
-  PaymentCaptureResource.JSON_PROPERTY_STATUS
+  PaymentCaptureResource.JSON_PROPERTY_STATUS,
+  PaymentCaptureResource.JSON_PROPERTY_SUB_MERCHANTS
 })
 
 public class PaymentCaptureResource {
@@ -58,6 +62,9 @@ public class PaymentCaptureResource {
 
   public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
   private String paymentPspReference;
+
+  public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  private PlatformChargebackLogic platformChargebackLogic;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -103,6 +110,9 @@ public class PaymentCaptureResource {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
+  private List<SubMerchant2> subMerchants = null;
 
   public PaymentCaptureResource() { 
   }
@@ -215,6 +225,31 @@ public class PaymentCaptureResource {
   }
 
 
+  public PaymentCaptureResource platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+  }
+
+
   public PaymentCaptureResource pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
@@ -323,6 +358,39 @@ public class PaymentCaptureResource {
   }
 
 
+  public PaymentCaptureResource subMerchants(List<SubMerchant2> subMerchants) {
+    this.subMerchants = subMerchants;
+    return this;
+  }
+
+  public PaymentCaptureResource addSubMerchantsItem(SubMerchant2 subMerchantsItem) {
+    if (this.subMerchants == null) {
+      this.subMerchants = new ArrayList<>();
+    }
+    this.subMerchants.add(subMerchantsItem);
+    return this;
+  }
+
+   /**
+   * List of sub-merchants.
+   * @return subMerchants
+  **/
+  @ApiModelProperty(value = "List of sub-merchants.")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubMerchant2> getSubMerchants() {
+    return subMerchants;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchants(List<SubMerchant2> subMerchants) {
+    this.subMerchants = subMerchants;
+  }
+
+
   /**
    * Return true if this PaymentCaptureResource object is equal to o.
    */
@@ -339,15 +407,17 @@ public class PaymentCaptureResource {
         Objects.equals(this.lineItems, paymentCaptureResource.lineItems) &&
         Objects.equals(this.merchantAccount, paymentCaptureResource.merchantAccount) &&
         Objects.equals(this.paymentPspReference, paymentCaptureResource.paymentPspReference) &&
+        Objects.equals(this.platformChargebackLogic, paymentCaptureResource.platformChargebackLogic) &&
         Objects.equals(this.pspReference, paymentCaptureResource.pspReference) &&
         Objects.equals(this.reference, paymentCaptureResource.reference) &&
         Objects.equals(this.splits, paymentCaptureResource.splits) &&
-        Objects.equals(this.status, paymentCaptureResource.status);
+        Objects.equals(this.status, paymentCaptureResource.status) &&
+        Objects.equals(this.subMerchants, paymentCaptureResource.subMerchants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, lineItems, merchantAccount, paymentPspReference, pspReference, reference, splits, status);
+    return Objects.hash(amount, lineItems, merchantAccount, paymentPspReference, platformChargebackLogic, pspReference, reference, splits, status, subMerchants);
   }
 
   @Override
@@ -358,10 +428,12 @@ public class PaymentCaptureResource {
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
     sb.append("}");
     return sb.toString();
   }

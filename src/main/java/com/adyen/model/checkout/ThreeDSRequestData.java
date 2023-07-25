@@ -160,9 +160,9 @@ public class ThreeDSRequestData {
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    */
   public enum ThreeDSVersionEnum {
-    _1_0("2.1.0"),
+    _1_0("V_2_1_0"),
     
-    _2_0("2.2.0");
+    _2_0("V_2_2_0");
 
     private String value;
 

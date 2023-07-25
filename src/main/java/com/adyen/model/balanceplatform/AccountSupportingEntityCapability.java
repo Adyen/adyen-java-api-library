@@ -14,50 +14,39 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * AccountSupportingEntityCapability
  */
+@JsonPropertyOrder({
+  AccountSupportingEntityCapability.JSON_PROPERTY_ALLOWED,
+  AccountSupportingEntityCapability.JSON_PROPERTY_ALLOWED_LEVEL,
+  AccountSupportingEntityCapability.JSON_PROPERTY_ENABLED,
+  AccountSupportingEntityCapability.JSON_PROPERTY_ID,
+  AccountSupportingEntityCapability.JSON_PROPERTY_REQUESTED,
+  AccountSupportingEntityCapability.JSON_PROPERTY_REQUESTED_LEVEL,
+  AccountSupportingEntityCapability.JSON_PROPERTY_VERIFICATION_STATUS
+})
 
 public class AccountSupportingEntityCapability {
-  public static final String SERIALIZED_NAME_ALLOWED = "allowed";
-  @SerializedName(SERIALIZED_NAME_ALLOWED)
+  public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
 
   /**
    * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
-  @JsonAdapter(AllowedLevelEnum.Adapter.class)
   public enum AllowedLevelEnum {
     HIGH("high"),
     
@@ -73,6 +62,7 @@ public class AccountSupportingEntityCapability {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -82,6 +72,7 @@ public class AccountSupportingEntityCapability {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static AllowedLevelEnum fromValue(String value) {
       for (AllowedLevelEnum b : AllowedLevelEnum.values()) {
         if (b.value.equals(value)) {
@@ -90,41 +81,23 @@ public class AccountSupportingEntityCapability {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<AllowedLevelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AllowedLevelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AllowedLevelEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return AllowedLevelEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_ALLOWED_LEVEL = "allowedLevel";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_LEVEL)
+  public static final String JSON_PROPERTY_ALLOWED_LEVEL = "allowedLevel";
   private AllowedLevelEnum allowedLevel;
 
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_REQUESTED = "requested";
-  @SerializedName(SERIALIZED_NAME_REQUESTED)
+  public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
 
   /**
    * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
-  @JsonAdapter(RequestedLevelEnum.Adapter.class)
   public enum RequestedLevelEnum {
     HIGH("high"),
     
@@ -140,6 +113,7 @@ public class AccountSupportingEntityCapability {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -149,6 +123,7 @@ public class AccountSupportingEntityCapability {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static RequestedLevelEnum fromValue(String value) {
       for (RequestedLevelEnum b : RequestedLevelEnum.values()) {
         if (b.value.equals(value)) {
@@ -157,29 +132,14 @@ public class AccountSupportingEntityCapability {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<RequestedLevelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RequestedLevelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public RequestedLevelEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return RequestedLevelEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_REQUESTED_LEVEL = "requestedLevel";
-  @SerializedName(SERIALIZED_NAME_REQUESTED_LEVEL)
+  public static final String JSON_PROPERTY_REQUESTED_LEVEL = "requestedLevel";
   private RequestedLevelEnum requestedLevel;
 
   /**
    * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    */
-  @JsonAdapter(VerificationStatusEnum.Adapter.class)
   public enum VerificationStatusEnum {
     INVALID("invalid"),
     
@@ -195,6 +155,7 @@ public class AccountSupportingEntityCapability {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -204,6 +165,7 @@ public class AccountSupportingEntityCapability {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static VerificationStatusEnum fromValue(String value) {
       for (VerificationStatusEnum b : VerificationStatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -212,40 +174,17 @@ public class AccountSupportingEntityCapability {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<VerificationStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final VerificationStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public VerificationStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return VerificationStatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_VERIFICATION_STATUS = "verificationStatus";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_STATUS)
+  public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private VerificationStatusEnum verificationStatus;
 
   public AccountSupportingEntityCapability() { 
   }
 
-  
-  public AccountSupportingEntityCapability(
-     Boolean allowed, 
-     AllowedLevelEnum allowedLevel, 
-     String id, 
-     VerificationStatusEnum verificationStatus
-  ) {
-    this();
+  public AccountSupportingEntityCapability allowed(Boolean allowed) {
     this.allowed = allowed;
-    this.allowedLevel = allowedLevel;
-    this.id = id;
-    this.verificationStatus = verificationStatus;
+    return this;
   }
 
    /**
@@ -253,29 +192,47 @@ public class AccountSupportingEntityCapability {
    * @return allowed
   **/
   @ApiModelProperty(value = "Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.")
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowed() {
     return allowed;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowed(Boolean allowed) {
+    this.allowed = allowed;
+  }
 
+
+  public AccountSupportingEntityCapability allowedLevel(AllowedLevelEnum allowedLevel) {
+    this.allowedLevel = allowedLevel;
+    return this;
+  }
 
    /**
    * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return allowedLevel
   **/
   @ApiModelProperty(value = "The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.")
+  @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AllowedLevelEnum getAllowedLevel() {
     return allowedLevel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowedLevel(AllowedLevelEnum allowedLevel) {
+    this.allowedLevel = allowedLevel;
+  }
 
 
   public AccountSupportingEntityCapability enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
@@ -285,32 +242,47 @@ public class AccountSupportingEntityCapability {
    * @return enabled
   **/
   @ApiModelProperty(value = "Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.")
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
     return enabled;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
+
+  public AccountSupportingEntityCapability id(String id) {
+    this.id = id;
+    return this;
+  }
 
    /**
    * The ID of the supporting entity.
    * @return id
   **/
   @ApiModelProperty(value = "The ID of the supporting entity.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public AccountSupportingEntityCapability requested(Boolean requested) {
-    
     this.requested = requested;
     return this;
   }
@@ -320,19 +292,22 @@ public class AccountSupportingEntityCapability {
    * @return requested
   **/
   @ApiModelProperty(value = "Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the `allowed` field.")
+  @JsonProperty(JSON_PROPERTY_REQUESTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequested() {
     return requested;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUESTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
     this.requested = requested;
   }
 
 
   public AccountSupportingEntityCapability requestedLevel(RequestedLevelEnum requestedLevel) {
-    
     this.requestedLevel = requestedLevel;
     return this;
   }
@@ -342,31 +317,49 @@ public class AccountSupportingEntityCapability {
    * @return requestedLevel
   **/
   @ApiModelProperty(value = "The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.")
+  @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RequestedLevelEnum getRequestedLevel() {
     return requestedLevel;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(RequestedLevelEnum requestedLevel) {
     this.requestedLevel = requestedLevel;
   }
 
+
+  public AccountSupportingEntityCapability verificationStatus(VerificationStatusEnum verificationStatus) {
+    this.verificationStatus = verificationStatus;
+    return this;
+  }
 
    /**
    * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    * @return verificationStatus
   **/
   @ApiModelProperty(value = "The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the `errors` array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. ")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public VerificationStatusEnum getVerificationStatus() {
     return verificationStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationStatus(VerificationStatusEnum verificationStatus) {
+    this.verificationStatus = verificationStatus;
+  }
 
 
-
+  /**
+   * Return true if this AccountSupportingEntityCapability object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -416,126 +409,23 @@ public class AccountSupportingEntityCapability {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed");
-    openapiFields.add("allowedLevel");
-    openapiFields.add("enabled");
-    openapiFields.add("id");
-    openapiFields.add("requested");
-    openapiFields.add("requestedLevel");
-    openapiFields.add("verificationStatus");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of AccountSupportingEntityCapability given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AccountSupportingEntityCapability
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AccountSupportingEntityCapability
+   */
+  public static AccountSupportingEntityCapability fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AccountSupportingEntityCapability.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to AccountSupportingEntityCapability
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (AccountSupportingEntityCapability.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountSupportingEntityCapability is not found in the empty JSON string", AccountSupportingEntityCapability.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!AccountSupportingEntityCapability.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountSupportingEntityCapability` properties.", entry.getKey()));
-            }
-          }
-      }
-      // ensure the field allowedLevel can be parsed to an enum value
-      if (jsonObj.get("allowedLevel") != null) {
-        if(!jsonObj.get("allowedLevel").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `allowedLevel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowedLevel").toString()));
-        }
-        AllowedLevelEnum.fromValue(jsonObj.get("allowedLevel").getAsString());
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // ensure the field requestedLevel can be parsed to an enum value
-      if (jsonObj.get("requestedLevel") != null) {
-        if(!jsonObj.get("requestedLevel").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `requestedLevel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestedLevel").toString()));
-        }
-        RequestedLevelEnum.fromValue(jsonObj.get("requestedLevel").getAsString());
-      }
-      // ensure the field verificationStatus can be parsed to an enum value
-      if (jsonObj.get("verificationStatus") != null) {
-        if(!jsonObj.get("verificationStatus").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `verificationStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationStatus").toString()));
-        }
-        VerificationStatusEnum.fromValue(jsonObj.get("verificationStatus").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AccountSupportingEntityCapability.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AccountSupportingEntityCapability' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AccountSupportingEntityCapability> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AccountSupportingEntityCapability.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AccountSupportingEntityCapability>() {
-           @Override
-           public void write(JsonWriter out, AccountSupportingEntityCapability value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AccountSupportingEntityCapability read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AccountSupportingEntityCapability given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AccountSupportingEntityCapability
-  * @throws IOException if the JSON string is invalid with respect to AccountSupportingEntityCapability
-  */
-  public static AccountSupportingEntityCapability fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AccountSupportingEntityCapability.class);
-  }
-
- /**
+/**
   * Convert an instance of AccountSupportingEntityCapability to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

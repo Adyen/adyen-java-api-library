@@ -18,7 +18,9 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.LineItem;
+import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.Split;
+import com.adyen.model.checkout.SubMerchant2;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,8 +41,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CreatePaymentCaptureRequest.JSON_PROPERTY_AMOUNT,
   CreatePaymentCaptureRequest.JSON_PROPERTY_LINE_ITEMS,
   CreatePaymentCaptureRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
   CreatePaymentCaptureRequest.JSON_PROPERTY_REFERENCE,
-  CreatePaymentCaptureRequest.JSON_PROPERTY_SPLITS
+  CreatePaymentCaptureRequest.JSON_PROPERTY_SPLITS,
+  CreatePaymentCaptureRequest.JSON_PROPERTY_SUB_MERCHANTS
 })
 
 public class CreatePaymentCaptureRequest {
@@ -53,11 +57,17 @@ public class CreatePaymentCaptureRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  private PlatformChargebackLogic platformChargebackLogic;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
+  private List<SubMerchant2> subMerchants = null;
 
   public CreatePaymentCaptureRequest() { 
   }
@@ -145,6 +155,31 @@ public class CreatePaymentCaptureRequest {
   }
 
 
+  public CreatePaymentCaptureRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+  }
+
+
   public CreatePaymentCaptureRequest reference(String reference) {
     this.reference = reference;
     return this;
@@ -203,6 +238,39 @@ public class CreatePaymentCaptureRequest {
   }
 
 
+  public CreatePaymentCaptureRequest subMerchants(List<SubMerchant2> subMerchants) {
+    this.subMerchants = subMerchants;
+    return this;
+  }
+
+  public CreatePaymentCaptureRequest addSubMerchantsItem(SubMerchant2 subMerchantsItem) {
+    if (this.subMerchants == null) {
+      this.subMerchants = new ArrayList<>();
+    }
+    this.subMerchants.add(subMerchantsItem);
+    return this;
+  }
+
+   /**
+   * A List of sub-merchants.
+   * @return subMerchants
+  **/
+  @ApiModelProperty(value = "A List of sub-merchants.")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubMerchant2> getSubMerchants() {
+    return subMerchants;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchants(List<SubMerchant2> subMerchants) {
+    this.subMerchants = subMerchants;
+  }
+
+
   /**
    * Return true if this CreatePaymentCaptureRequest object is equal to o.
    */
@@ -218,13 +286,15 @@ public class CreatePaymentCaptureRequest {
     return Objects.equals(this.amount, createPaymentCaptureRequest.amount) &&
         Objects.equals(this.lineItems, createPaymentCaptureRequest.lineItems) &&
         Objects.equals(this.merchantAccount, createPaymentCaptureRequest.merchantAccount) &&
+        Objects.equals(this.platformChargebackLogic, createPaymentCaptureRequest.platformChargebackLogic) &&
         Objects.equals(this.reference, createPaymentCaptureRequest.reference) &&
-        Objects.equals(this.splits, createPaymentCaptureRequest.splits);
+        Objects.equals(this.splits, createPaymentCaptureRequest.splits) &&
+        Objects.equals(this.subMerchants, createPaymentCaptureRequest.subMerchants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, lineItems, merchantAccount, reference, splits);
+    return Objects.hash(amount, lineItems, merchantAccount, platformChargebackLogic, reference, splits, subMerchants);
   }
 
   @Override
@@ -234,8 +304,10 @@ public class CreatePaymentCaptureRequest {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+    sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
     sb.append("}");
     return sb.toString();
   }

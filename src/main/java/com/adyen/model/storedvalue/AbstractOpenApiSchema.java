@@ -18,9 +18,12 @@ import java.lang.reflect.Type;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
+
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -49,7 +52,7 @@ public abstract class AbstractOpenApiSchema {
      *
      * @return an instance of the actual schema/object
      */
-    //@JsonValue
+    @JsonValue
     public Object getActualInstance() {return instance;}
 
     /**

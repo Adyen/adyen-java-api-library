@@ -15,72 +15,58 @@ package com.adyen.model.balancecontrol;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.balancecontrol.Amount;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balancecontrol.JSON;
 
 /**
  * BalanceTransferResponse
  */
+@JsonPropertyOrder({
+  BalanceTransferResponse.JSON_PROPERTY_AMOUNT,
+  BalanceTransferResponse.JSON_PROPERTY_CREATED_AT,
+  BalanceTransferResponse.JSON_PROPERTY_DESCRIPTION,
+  BalanceTransferResponse.JSON_PROPERTY_FROM_MERCHANT,
+  BalanceTransferResponse.JSON_PROPERTY_PSP_REFERENCE,
+  BalanceTransferResponse.JSON_PROPERTY_REFERENCE,
+  BalanceTransferResponse.JSON_PROPERTY_STATUS,
+  BalanceTransferResponse.JSON_PROPERTY_TO_MERCHANT,
+  BalanceTransferResponse.JSON_PROPERTY_TYPE
+})
 
 public class BalanceTransferResponse {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_FROM_MERCHANT = "fromMerchant";
-  @SerializedName(SERIALIZED_NAME_FROM_MERCHANT)
+  public static final String JSON_PROPERTY_FROM_MERCHANT = "fromMerchant";
   private String fromMerchant;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
   /**
    * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     ERROR("error"),
     
@@ -96,6 +82,7 @@ public class BalanceTransferResponse {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -105,6 +92,7 @@ public class BalanceTransferResponse {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -113,33 +101,17 @@ public class BalanceTransferResponse {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_TO_MERCHANT = "toMerchant";
-  @SerializedName(SERIALIZED_NAME_TO_MERCHANT)
+  public static final String JSON_PROPERTY_TO_MERCHANT = "toMerchant";
   private String toMerchant;
 
   /**
    * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     TAX("tax"),
     
@@ -159,6 +131,7 @@ public class BalanceTransferResponse {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -168,6 +141,7 @@ public class BalanceTransferResponse {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -176,30 +150,15 @@ public class BalanceTransferResponse {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public BalanceTransferResponse() { 
   }
 
   public BalanceTransferResponse amount(Amount amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -209,19 +168,22 @@ public class BalanceTransferResponse {
    * @return amount
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getAmount() {
     return amount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
 
   public BalanceTransferResponse createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -231,19 +193,22 @@ public class BalanceTransferResponse {
    * @return createdAt
   **/
   @ApiModelProperty(required = true, value = "The date when the balance transfer was requested.")
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
 
   public BalanceTransferResponse description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -253,19 +218,22 @@ public class BalanceTransferResponse {
    * @return description
   **/
   @ApiModelProperty(value = "A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public BalanceTransferResponse fromMerchant(String fromMerchant) {
-    
     this.fromMerchant = fromMerchant;
     return this;
   }
@@ -275,19 +243,22 @@ public class BalanceTransferResponse {
    * @return fromMerchant
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the source merchant account from which funds are deducted.")
+  @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFromMerchant() {
     return fromMerchant;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromMerchant(String fromMerchant) {
     this.fromMerchant = fromMerchant;
   }
 
 
   public BalanceTransferResponse pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -297,19 +268,22 @@ public class BalanceTransferResponse {
    * @return pspReference
   **/
   @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the balance transfer.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public BalanceTransferResponse reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -319,19 +293,22 @@ public class BalanceTransferResponse {
    * @return reference
   **/
   @ApiModelProperty(value = "A reference for the balance transfer. If you don't provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public BalanceTransferResponse status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -341,19 +318,22 @@ public class BalanceTransferResponse {
    * @return status
   **/
   @ApiModelProperty(required = true, value = "The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
   public BalanceTransferResponse toMerchant(String toMerchant) {
-    
     this.toMerchant = toMerchant;
     return this;
   }
@@ -363,19 +343,22 @@ public class BalanceTransferResponse {
    * @return toMerchant
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the destination merchant account from which funds are transferred.")
+  @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getToMerchant() {
     return toMerchant;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToMerchant(String toMerchant) {
     this.toMerchant = toMerchant;
   }
 
 
   public BalanceTransferResponse type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -385,18 +368,24 @@ public class BalanceTransferResponse {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this BalanceTransferResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -450,154 +439,23 @@ public class BalanceTransferResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("createdAt");
-    openapiFields.add("description");
-    openapiFields.add("fromMerchant");
-    openapiFields.add("pspReference");
-    openapiFields.add("reference");
-    openapiFields.add("status");
-    openapiFields.add("toMerchant");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("fromMerchant");
-    openapiRequiredFields.add("pspReference");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("toMerchant");
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of BalanceTransferResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BalanceTransferResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to BalanceTransferResponse
+   */
+  public static BalanceTransferResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BalanceTransferResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(BalanceTransferResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BalanceTransferResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (BalanceTransferResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BalanceTransferResponse is not found in the empty JSON string", BalanceTransferResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BalanceTransferResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `BalanceTransferResponse` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BalanceTransferResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `amount`
-      if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field fromMerchant
-      if (jsonObj.get("fromMerchant") != null && !jsonObj.get("fromMerchant").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `fromMerchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromMerchant").toString()));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-      // validate the optional field toMerchant
-      if (jsonObj.get("toMerchant") != null && !jsonObj.get("toMerchant").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `toMerchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toMerchant").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BalanceTransferResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BalanceTransferResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BalanceTransferResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BalanceTransferResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<BalanceTransferResponse>() {
-           @Override
-           public void write(JsonWriter out, BalanceTransferResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public BalanceTransferResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of BalanceTransferResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BalanceTransferResponse
-  * @throws IOException if the JSON string is invalid with respect to BalanceTransferResponse
-  */
-  public static BalanceTransferResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BalanceTransferResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of BalanceTransferResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -185,10 +185,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 2 * Must not be all spaces
+   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    * @return carRentalDaysRented
   **/
-  @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 2 * Must not be all spaces")
+  @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -660,10 +660,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 2
+   * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    * @return travelEntertainmentAuthDataDuration
   **/
-  @ApiModelProperty(value = "Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 2")
+  @ApiModelProperty(value = "Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4")
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

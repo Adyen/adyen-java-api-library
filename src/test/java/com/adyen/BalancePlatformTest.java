@@ -5,6 +5,8 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.*;
 
 import com.adyen.service.balanceplatform.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.gson.JsonSyntaxException;
 import org.junit.Rule;
 import org.junit.Test;
@@ -214,7 +216,7 @@ public class BalancePlatformTest extends BaseTest {
 
     @Test
     public void sweepScheduleUnknownFieldTest() {
-        JsonSyntaxException err = assertThrows(JsonSyntaxException.class, () -> {
+        JsonMappingException err = assertThrows(JsonMappingException.class, () -> {
             SweepConfigurationV2.fromJson("{\n" +
                     "  \"counterparty\": {\n" +
                     "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
@@ -229,8 +231,7 @@ public class BalancePlatformTest extends BaseTest {
         });
         String msg = err.getMessage();
         
-        assertTrue(msg.contains("0 class(es) match the result, expected 1"));
-        assertTrue(msg.contains("The field `troubleMaker` in the JSON string is not defined"));
+        assertTrue(msg.contains("0 classes match result, expected 1"));
     }
 
     @Test
@@ -254,7 +255,7 @@ public class BalancePlatformTest extends BaseTest {
     }
 
     @Test
-    public void cronSweepScheduleToJsonTest() {
+    public void cronSweepScheduleToJsonTest() throws JsonProcessingException {
         SweepConfigurationV2 request = new SweepConfigurationV2();
         request.setType(SweepConfigurationV2.TypeEnum.PULL);
         CronSweepSchedule cron = new CronSweepSchedule();
@@ -269,7 +270,7 @@ public class BalancePlatformTest extends BaseTest {
     }
 
     @Test
-    public void sweepScheduleToJsonTest() {
+    public void sweepScheduleToJsonTest() throws JsonProcessingException {
         SweepConfigurationV2 request = new SweepConfigurationV2();
         request.setType(SweepConfigurationV2.TypeEnum.PUSH);
         SweepSchedule schedule = new SweepSchedule();

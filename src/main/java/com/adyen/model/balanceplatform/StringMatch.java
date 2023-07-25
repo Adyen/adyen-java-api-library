@@ -14,46 +14,31 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * StringMatch
  */
+@JsonPropertyOrder({
+  StringMatch.JSON_PROPERTY_OPERATION,
+  StringMatch.JSON_PROPERTY_VALUE
+})
 
 public class StringMatch {
   /**
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    */
-  @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
     CONTAINS("contains"),
     
@@ -69,6 +54,7 @@ public class StringMatch {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -78,6 +64,7 @@ public class StringMatch {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static OperationEnum fromValue(String value) {
       for (OperationEnum b : OperationEnum.values()) {
         if (b.value.equals(value)) {
@@ -86,34 +73,18 @@ public class StringMatch {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<OperationEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final OperationEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public OperationEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return OperationEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_OPERATION = "operation";
-  @SerializedName(SERIALIZED_NAME_OPERATION)
+  public static final String JSON_PROPERTY_OPERATION = "operation";
   private OperationEnum operation;
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+  public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
   public StringMatch() { 
   }
 
   public StringMatch operation(OperationEnum operation) {
-    
     this.operation = operation;
     return this;
   }
@@ -123,19 +94,22 @@ public class StringMatch {
    * @return operation
   **/
   @ApiModelProperty(value = "The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,")
+  @JsonProperty(JSON_PROPERTY_OPERATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OperationEnum getOperation() {
     return operation;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OPERATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(OperationEnum operation) {
     this.operation = operation;
   }
 
 
   public StringMatch value(String value) {
-    
     this.value = value;
     return this;
   }
@@ -145,18 +119,24 @@ public class StringMatch {
    * @return value
   **/
   @ApiModelProperty(value = "The string to be matched.")
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getValue() {
     return value;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {
     this.value = value;
   }
 
 
-
+  /**
+   * Return true if this StringMatch object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -196,107 +176,23 @@ public class StringMatch {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("value");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of StringMatch given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StringMatch
+   * @throws JsonProcessingException if the JSON string is invalid with respect to StringMatch
+   */
+  public static StringMatch fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StringMatch.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to StringMatch
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (StringMatch.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StringMatch is not found in the empty JSON string", StringMatch.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!StringMatch.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringMatch` properties.", entry.getKey()));
-            }
-          }
-      }
-      // ensure the field operation can be parsed to an enum value
-      if (jsonObj.get("operation") != null) {
-        if(!jsonObj.get("operation").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
-        }
-        OperationEnum.fromValue(jsonObj.get("operation").getAsString());
-      }
-      // validate the optional field value
-      if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StringMatch.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StringMatch' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StringMatch> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StringMatch.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<StringMatch>() {
-           @Override
-           public void write(JsonWriter out, StringMatch value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public StringMatch read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of StringMatch given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StringMatch
-  * @throws IOException if the JSON string is invalid with respect to StringMatch
-  */
-  public static StringMatch fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StringMatch.class);
-  }
-
- /**
+/**
   * Convert an instance of StringMatch to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 
