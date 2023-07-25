@@ -32,7 +32,7 @@ public class Client {
     private Config config;
     public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "20.1.2";
+    public static final String LIB_VERSION = "21.0.0";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
