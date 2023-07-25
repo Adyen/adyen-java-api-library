@@ -33,18 +33,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CreatePaymentAmountUpdateRequest
+ * PaymentAmountUpdateRequest
  */
 @JsonPropertyOrder({
-  CreatePaymentAmountUpdateRequest.JSON_PROPERTY_AMOUNT,
-  CreatePaymentAmountUpdateRequest.JSON_PROPERTY_INDUSTRY_USAGE,
-  CreatePaymentAmountUpdateRequest.JSON_PROPERTY_LINE_ITEMS,
-  CreatePaymentAmountUpdateRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  CreatePaymentAmountUpdateRequest.JSON_PROPERTY_REFERENCE,
-  CreatePaymentAmountUpdateRequest.JSON_PROPERTY_SPLITS
+  PaymentAmountUpdateRequest.JSON_PROPERTY_AMOUNT,
+  PaymentAmountUpdateRequest.JSON_PROPERTY_INDUSTRY_USAGE,
+  PaymentAmountUpdateRequest.JSON_PROPERTY_LINE_ITEMS,
+  PaymentAmountUpdateRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  PaymentAmountUpdateRequest.JSON_PROPERTY_REFERENCE,
+  PaymentAmountUpdateRequest.JSON_PROPERTY_SPLITS
 })
 
-public class CreatePaymentAmountUpdateRequest {
+public class PaymentAmountUpdateRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
@@ -100,10 +100,10 @@ public class CreatePaymentAmountUpdateRequest {
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
 
-  public CreatePaymentAmountUpdateRequest() { 
+  public PaymentAmountUpdateRequest() { 
   }
 
-  public CreatePaymentAmountUpdateRequest amount(Amount amount) {
+  public PaymentAmountUpdateRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -128,7 +128,7 @@ public class CreatePaymentAmountUpdateRequest {
   }
 
 
-  public CreatePaymentAmountUpdateRequest industryUsage(IndustryUsageEnum industryUsage) {
+  public PaymentAmountUpdateRequest industryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
     return this;
   }
@@ -153,12 +153,12 @@ public class CreatePaymentAmountUpdateRequest {
   }
 
 
-  public CreatePaymentAmountUpdateRequest lineItems(List<LineItem> lineItems) {
+  public PaymentAmountUpdateRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
   }
 
-  public CreatePaymentAmountUpdateRequest addLineItemsItem(LineItem lineItemsItem) {
+  public PaymentAmountUpdateRequest addLineItemsItem(LineItem lineItemsItem) {
     if (this.lineItems == null) {
       this.lineItems = new ArrayList<>();
     }
@@ -186,7 +186,7 @@ public class CreatePaymentAmountUpdateRequest {
   }
 
 
-  public CreatePaymentAmountUpdateRequest merchantAccount(String merchantAccount) {
+  public PaymentAmountUpdateRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -211,7 +211,7 @@ public class CreatePaymentAmountUpdateRequest {
   }
 
 
-  public CreatePaymentAmountUpdateRequest reference(String reference) {
+  public PaymentAmountUpdateRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -236,12 +236,12 @@ public class CreatePaymentAmountUpdateRequest {
   }
 
 
-  public CreatePaymentAmountUpdateRequest splits(List<Split> splits) {
+  public PaymentAmountUpdateRequest splits(List<Split> splits) {
     this.splits = splits;
     return this;
   }
 
-  public CreatePaymentAmountUpdateRequest addSplitsItem(Split splitsItem) {
+  public PaymentAmountUpdateRequest addSplitsItem(Split splitsItem) {
     if (this.splits == null) {
       this.splits = new ArrayList<>();
     }
@@ -270,7 +270,7 @@ public class CreatePaymentAmountUpdateRequest {
 
 
   /**
-   * Return true if this CreatePaymentAmountUpdateRequest object is equal to o.
+   * Return true if this PaymentAmountUpdateRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -280,13 +280,13 @@ public class CreatePaymentAmountUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest = (CreatePaymentAmountUpdateRequest) o;
-    return Objects.equals(this.amount, createPaymentAmountUpdateRequest.amount) &&
-        Objects.equals(this.industryUsage, createPaymentAmountUpdateRequest.industryUsage) &&
-        Objects.equals(this.lineItems, createPaymentAmountUpdateRequest.lineItems) &&
-        Objects.equals(this.merchantAccount, createPaymentAmountUpdateRequest.merchantAccount) &&
-        Objects.equals(this.reference, createPaymentAmountUpdateRequest.reference) &&
-        Objects.equals(this.splits, createPaymentAmountUpdateRequest.splits);
+    PaymentAmountUpdateRequest paymentAmountUpdateRequest = (PaymentAmountUpdateRequest) o;
+    return Objects.equals(this.amount, paymentAmountUpdateRequest.amount) &&
+        Objects.equals(this.industryUsage, paymentAmountUpdateRequest.industryUsage) &&
+        Objects.equals(this.lineItems, paymentAmountUpdateRequest.lineItems) &&
+        Objects.equals(this.merchantAccount, paymentAmountUpdateRequest.merchantAccount) &&
+        Objects.equals(this.reference, paymentAmountUpdateRequest.reference) &&
+        Objects.equals(this.splits, paymentAmountUpdateRequest.splits);
   }
 
   @Override
@@ -297,7 +297,7 @@ public class CreatePaymentAmountUpdateRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePaymentAmountUpdateRequest {\n");
+    sb.append("class PaymentAmountUpdateRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
@@ -320,17 +320,17 @@ public class CreatePaymentAmountUpdateRequest {
   }
 
 /**
-   * Create an instance of CreatePaymentAmountUpdateRequest given an JSON string
+   * Create an instance of PaymentAmountUpdateRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreatePaymentAmountUpdateRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CreatePaymentAmountUpdateRequest
+   * @return An instance of PaymentAmountUpdateRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentAmountUpdateRequest
    */
-  public static CreatePaymentAmountUpdateRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CreatePaymentAmountUpdateRequest.class);
+  public static PaymentAmountUpdateRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentAmountUpdateRequest.class);
   }
 /**
-  * Convert an instance of CreatePaymentAmountUpdateRequest to an JSON string
+  * Convert an instance of PaymentAmountUpdateRequest to an JSON string
   *
   * @return JSON string
   */

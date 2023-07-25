@@ -33,19 +33,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CheckoutBalanceCheckResponse
+ * BalanceCheckResponse
  */
 @JsonPropertyOrder({
-  CheckoutBalanceCheckResponse.JSON_PROPERTY_ADDITIONAL_DATA,
-  CheckoutBalanceCheckResponse.JSON_PROPERTY_BALANCE,
-  CheckoutBalanceCheckResponse.JSON_PROPERTY_FRAUD_RESULT,
-  CheckoutBalanceCheckResponse.JSON_PROPERTY_PSP_REFERENCE,
-  CheckoutBalanceCheckResponse.JSON_PROPERTY_REFUSAL_REASON,
-  CheckoutBalanceCheckResponse.JSON_PROPERTY_RESULT_CODE,
-  CheckoutBalanceCheckResponse.JSON_PROPERTY_TRANSACTION_LIMIT
+  BalanceCheckResponse.JSON_PROPERTY_ADDITIONAL_DATA,
+  BalanceCheckResponse.JSON_PROPERTY_BALANCE,
+  BalanceCheckResponse.JSON_PROPERTY_FRAUD_RESULT,
+  BalanceCheckResponse.JSON_PROPERTY_PSP_REFERENCE,
+  BalanceCheckResponse.JSON_PROPERTY_REFUSAL_REASON,
+  BalanceCheckResponse.JSON_PROPERTY_RESULT_CODE,
+  BalanceCheckResponse.JSON_PROPERTY_TRANSACTION_LIMIT
 })
 
-public class CheckoutBalanceCheckResponse {
+public class BalanceCheckResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
@@ -104,15 +104,15 @@ public class CheckoutBalanceCheckResponse {
   public static final String JSON_PROPERTY_TRANSACTION_LIMIT = "transactionLimit";
   private Amount transactionLimit;
 
-  public CheckoutBalanceCheckResponse() { 
+  public BalanceCheckResponse() { 
   }
 
-  public CheckoutBalanceCheckResponse additionalData(Map<String, String> additionalData) {
+  public BalanceCheckResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
 
-  public CheckoutBalanceCheckResponse putAdditionalDataItem(String key, String additionalDataItem) {
+  public BalanceCheckResponse putAdditionalDataItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -140,7 +140,7 @@ public class CheckoutBalanceCheckResponse {
   }
 
 
-  public CheckoutBalanceCheckResponse balance(Amount balance) {
+  public BalanceCheckResponse balance(Amount balance) {
     this.balance = balance;
     return this;
   }
@@ -165,7 +165,7 @@ public class CheckoutBalanceCheckResponse {
   }
 
 
-  public CheckoutBalanceCheckResponse fraudResult(FraudResult fraudResult) {
+  public BalanceCheckResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
     return this;
   }
@@ -190,7 +190,7 @@ public class CheckoutBalanceCheckResponse {
   }
 
 
-  public CheckoutBalanceCheckResponse pspReference(String pspReference) {
+  public BalanceCheckResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
@@ -215,7 +215,7 @@ public class CheckoutBalanceCheckResponse {
   }
 
 
-  public CheckoutBalanceCheckResponse refusalReason(String refusalReason) {
+  public BalanceCheckResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
   }
@@ -240,7 +240,7 @@ public class CheckoutBalanceCheckResponse {
   }
 
 
-  public CheckoutBalanceCheckResponse resultCode(ResultCodeEnum resultCode) {
+  public BalanceCheckResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     return this;
   }
@@ -265,7 +265,7 @@ public class CheckoutBalanceCheckResponse {
   }
 
 
-  public CheckoutBalanceCheckResponse transactionLimit(Amount transactionLimit) {
+  public BalanceCheckResponse transactionLimit(Amount transactionLimit) {
     this.transactionLimit = transactionLimit;
     return this;
   }
@@ -291,7 +291,7 @@ public class CheckoutBalanceCheckResponse {
 
 
   /**
-   * Return true if this CheckoutBalanceCheckResponse object is equal to o.
+   * Return true if this BalanceCheckResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -301,14 +301,14 @@ public class CheckoutBalanceCheckResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckoutBalanceCheckResponse checkoutBalanceCheckResponse = (CheckoutBalanceCheckResponse) o;
-    return Objects.equals(this.additionalData, checkoutBalanceCheckResponse.additionalData) &&
-        Objects.equals(this.balance, checkoutBalanceCheckResponse.balance) &&
-        Objects.equals(this.fraudResult, checkoutBalanceCheckResponse.fraudResult) &&
-        Objects.equals(this.pspReference, checkoutBalanceCheckResponse.pspReference) &&
-        Objects.equals(this.refusalReason, checkoutBalanceCheckResponse.refusalReason) &&
-        Objects.equals(this.resultCode, checkoutBalanceCheckResponse.resultCode) &&
-        Objects.equals(this.transactionLimit, checkoutBalanceCheckResponse.transactionLimit);
+    BalanceCheckResponse balanceCheckResponse = (BalanceCheckResponse) o;
+    return Objects.equals(this.additionalData, balanceCheckResponse.additionalData) &&
+        Objects.equals(this.balance, balanceCheckResponse.balance) &&
+        Objects.equals(this.fraudResult, balanceCheckResponse.fraudResult) &&
+        Objects.equals(this.pspReference, balanceCheckResponse.pspReference) &&
+        Objects.equals(this.refusalReason, balanceCheckResponse.refusalReason) &&
+        Objects.equals(this.resultCode, balanceCheckResponse.resultCode) &&
+        Objects.equals(this.transactionLimit, balanceCheckResponse.transactionLimit);
   }
 
   @Override
@@ -319,7 +319,7 @@ public class CheckoutBalanceCheckResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckoutBalanceCheckResponse {\n");
+    sb.append("class BalanceCheckResponse {\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
@@ -343,17 +343,17 @@ public class CheckoutBalanceCheckResponse {
   }
 
 /**
-   * Create an instance of CheckoutBalanceCheckResponse given an JSON string
+   * Create an instance of BalanceCheckResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CheckoutBalanceCheckResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutBalanceCheckResponse
+   * @return An instance of BalanceCheckResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to BalanceCheckResponse
    */
-  public static CheckoutBalanceCheckResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CheckoutBalanceCheckResponse.class);
+  public static BalanceCheckResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BalanceCheckResponse.class);
   }
 /**
-  * Convert an instance of CheckoutBalanceCheckResponse to an JSON string
+  * Convert an instance of BalanceCheckResponse to an JSON string
   *
   * @return JSON string
   */

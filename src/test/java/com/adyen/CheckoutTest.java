@@ -70,7 +70,7 @@ public class CheckoutTest extends BaseTest {
                 .encryptedExpiryMonth("08")
                 .encryptedExpiryYear("2018");
         cardDetails.setType(CardDetails.TypeEnum.SCHEME);
-        CheckoutPaymentRequest paymentRequest = new CheckoutPaymentRequest();
+        PaymentRequest paymentRequest = new PaymentRequest();
         paymentRequest.setAmount(amount);
         paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(cardDetails));
         PaymentsApi checkout = new PaymentsApi(client);
@@ -89,14 +89,14 @@ public class CheckoutTest extends BaseTest {
         IdealDetails idealDetails = new IdealDetails();
         idealDetails.setIssuer("issuerName");
         Amount amount = new Amount().currency("EUR").value(1000L);
-        CheckoutPaymentRequest paymentRequest = new CheckoutPaymentRequest();
+        PaymentRequest paymentRequest = new PaymentRequest();
         paymentRequest.setAmount(amount);
         paymentRequest.setMerchantAccount("myMerchantAccount");
         paymentRequest.setReference("merchantReference");
         paymentRequest.setReturnUrl("http://return.com");
         paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(idealDetails));
 
-        CheckoutPaymentRequest parsedCheckoutPaymentRequest = CheckoutPaymentRequest.fromJson(paymentRequestJson);
+        PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
         assertEquals(IdealDetails.TypeEnum.IDEAL, parsedCheckoutPaymentRequest.getPaymentMethod().getIdealDetails().getType());
         assertEquals("EUR", parsedCheckoutPaymentRequest.getAmount().getCurrency());
     }
@@ -121,7 +121,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentLinkSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
-        CreatePaymentLinkRequest createPaymentLinkRequest = new CreatePaymentLinkRequest();
+        PaymentLinkRequest createPaymentLinkRequest = new PaymentLinkRequest();
         Amount amount = new Amount().currency("EUR").value(500L);
         createPaymentLinkRequest.setAmount(amount);
         createPaymentLinkRequest.setMerchantAccount("myMerchantAccount");
@@ -172,7 +172,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentDetailsSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentDetailsResponse.json");
-        DetailsRequest detailsRequest = new DetailsRequest();
+        PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest();
         detailsRequest.setPaymentData("STATE_DATA");
         PaymentsApi checkout = new PaymentsApi(client);
         PaymentDetailsResponse paymentDetailsResponse = checkout.paymentsDetails(detailsRequest);
@@ -183,7 +183,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentDetailsWithThreeDSRequestorChallengeInd() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentDetailsResponseThreeDSRequestorChallengeInd.json");
-        DetailsRequest detailsRequest = new DetailsRequest();
+        PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest();
         detailsRequest.setPaymentData("STATE_DATA");
         PaymentsApi checkout = new PaymentsApi(client);
         
@@ -234,13 +234,13 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestCreateOrderSuccessCall() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/createOrderResponse.json");
-        CheckoutCreateOrderRequest checkoutCreateOrderRequest = new CheckoutCreateOrderRequest();
+        CreateOrderRequest checkoutCreateOrderRequest = new CreateOrderRequest();
         Amount amount = new Amount().currency("EUR").value(2500L);
         checkoutCreateOrderRequest.setAmount(amount);
         checkoutCreateOrderRequest.setReference("YOUR_ORDER_REFERENCE");
         checkoutCreateOrderRequest.setMerchantAccount("YOUR_MERCHANT_ACOUNT");
         OrdersApi checkout = new OrdersApi(client);
-        CheckoutCreateOrderResponse checkoutCreateOrderResponse= checkout.orders(checkoutCreateOrderRequest);
+        CreateOrderResponse checkoutCreateOrderResponse= checkout.orders(checkoutCreateOrderRequest);
         assertEquals("8616178914061985", checkoutCreateOrderResponse.getPspReference());
         assertEquals("Abzt3JH4wnzErMnOZwSdgA==", checkoutCreateOrderResponse.getOrderData());
     }
@@ -266,15 +266,15 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestCancelOrderSuccessCall() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/cancelOrderResponse.json");
-        CheckoutCancelOrderRequest checkoutCancelOrderRequest = new CheckoutCancelOrderRequest();
+        CancelOrderRequest checkoutCancelOrderRequest = new CancelOrderRequest();
         checkoutCancelOrderRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
         EncryptedOrderData encryptedOrderData = new EncryptedOrderData();
         encryptedOrderData.setPspReference("8815517812932012");
         encryptedOrderData.setOrderData("823fh892f8f18f4...148f13f9f3f");
         checkoutCancelOrderRequest.setOrder(encryptedOrderData);
         OrdersApi checkout = new OrdersApi(client);
-        CheckoutCancelOrderResponse checkoutCancelOrderResponse = checkout.cancelOrder(checkoutCancelOrderRequest);
-        assertEquals(CheckoutCancelOrderResponse.ResultCodeEnum.RECEIVED, checkoutCancelOrderResponse.getResultCode());
+        CancelOrderResponse checkoutCancelOrderResponse = checkout.cancelOrder(checkoutCancelOrderRequest);
+        assertEquals(CancelOrderResponse.ResultCodeEnum.RECEIVED, checkoutCancelOrderResponse.getResultCode());
         assertEquals("8816178914079738", checkoutCancelOrderResponse.getPspReference());
     }
 
@@ -284,7 +284,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestApplePaySessionsSuccessCall() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/applePaySessionsResponse.json");
-        CreateApplePaySessionRequest createApplePaySessionRequest = new CreateApplePaySessionRequest();
+        ApplePaySessionRequest createApplePaySessionRequest = new ApplePaySessionRequest();
         createApplePaySessionRequest.setDisplayName("YOUR_MERCHANT_NAME");
         createApplePaySessionRequest.setDomainName("YOUR_DOMAIN_NAME");
         createApplePaySessionRequest.setMerchantIdentifier("YOUR_MERCHANT_ID");
@@ -299,7 +299,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestDonationsSuccessCall() throws Exception {
         Client client =  createMockClientFromFile("mocks/checkout/donationResponse.json");
-        CheckoutDonationPaymentRequest paymentDonationRequest = new CheckoutDonationPaymentRequest();
+        DonationPaymentRequest paymentDonationRequest = new DonationPaymentRequest();
         Amount amount = new Amount().currency("EUR").value(1000L);
         paymentDonationRequest.setAmount(amount);
         paymentDonationRequest.setDonationAccount("YOUR_DONATION_ACCOUNT");
@@ -309,10 +309,10 @@ public class CheckoutTest extends BaseTest {
         paymentDonationRequest.setReference("YOUR_MERCHANT_REFERENCE");
         paymentDonationRequest.setReturnUrl("https://your-company.com/...");
         PaymentsApi checkout = new PaymentsApi(client);
-        DonationResponse donationResponse = checkout.donations(paymentDonationRequest);
+        DonationPaymentResponse donationResponse = checkout.donations(paymentDonationRequest);
         assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED ,donationResponse.getPayment().getResultCode());
         assertEquals("UNIQUE_RESOURCE_ID", donationResponse.getId());
-        assertEquals(DonationResponse.StatusEnum.COMPLETED, donationResponse.getStatus());
+        assertEquals(DonationPaymentResponse.StatusEnum.COMPLETED, donationResponse.getStatus());
     }
 
     /**
@@ -322,12 +322,12 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymenUpdateAmountSuccessCall() throws Exception {
         Client client =  createMockClientFromFile("mocks/checkout/paymentUpdateAmountResponse.json");
         ModificationsApi checkout = new ModificationsApi(client);
-        CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest = new CreatePaymentAmountUpdateRequest();
-        createPaymentAmountUpdateRequest.setIndustryUsage(CreatePaymentAmountUpdateRequest.IndustryUsageEnum.DELAYEDCHARGE);
-        PaymentAmountUpdateResource paymentAmountUpdateResource = checkout.updateAuthorisedAmount("pspRef", createPaymentAmountUpdateRequest);
-        assertEquals(PaymentAmountUpdateResource.IndustryUsageEnum.DELAYEDCHARGE ,paymentAmountUpdateResource.getIndustryUsage());
+        PaymentAmountUpdateRequest createPaymentAmountUpdateRequest = new PaymentAmountUpdateRequest();
+        createPaymentAmountUpdateRequest.setIndustryUsage(PaymentAmountUpdateRequest.IndustryUsageEnum.DELAYEDCHARGE);
+        PaymentAmountUpdateResponse paymentAmountUpdateResource = checkout.updateAuthorisedAmount("pspRef", createPaymentAmountUpdateRequest);
+        assertEquals( PaymentAmountUpdateResponse.IndustryUsageEnum.DELAYEDCHARGE ,paymentAmountUpdateResource.getIndustryUsage());
         assertEquals("1234567890", paymentAmountUpdateResource.getPaymentPspReference());
-        assertEquals(PaymentAmountUpdateResource.StatusEnum.RECEIVED, paymentAmountUpdateResource.getStatus());
+        assertEquals( PaymentAmountUpdateResponse.StatusEnum.RECEIVED, paymentAmountUpdateResource.getStatus());
     }
 
     /**
@@ -351,7 +351,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestDateSerialization() throws Exception {
-        CheckoutBalanceCheckRequest checkoutBalanceCheckRequest = new CheckoutBalanceCheckRequest();
+        BalanceCheckRequest checkoutBalanceCheckRequest = new BalanceCheckRequest();
         OffsetDateTime date = OffsetDateTime.parse("2022-10-11T15:08:27.000Z"); // Tuesday, October 11, 2022 5:08:27 PM GMT+02:00 DST
         checkoutBalanceCheckRequest.setDateOfBirth(date.toLocalDate());
         Amount amount = new Amount().currency("EUR").value(1000L);
@@ -362,7 +362,7 @@ public class CheckoutTest extends BaseTest {
         checkoutBalanceCheckRequest.setPaymentMethod(paymentMethod);
         String checkoutBalanceRequestJson = checkoutBalanceCheckRequest.toJson();
         assert(checkoutBalanceRequestJson.contains("\"dateOfBirth\":\"2022-10-11\""));
-        assertEquals(date.toLocalDate(),  CheckoutBalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth());
+        assertEquals(date.toLocalDate(),  BalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth());
     }
 
     /**

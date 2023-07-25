@@ -14,19 +14,19 @@ package com.adyen.service.checkout;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.checkout.CreatePaymentAmountUpdateRequest;
-import com.adyen.model.checkout.CreatePaymentCancelRequest;
-import com.adyen.model.checkout.CreatePaymentCaptureRequest;
-import com.adyen.model.checkout.CreatePaymentRefundRequest;
-import com.adyen.model.checkout.CreatePaymentReversalRequest;
-import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
-import com.adyen.model.checkout.PaymentAmountUpdateResource;
-import com.adyen.model.checkout.PaymentCancelResource;
-import com.adyen.model.checkout.PaymentCaptureResource;
-import com.adyen.model.checkout.PaymentRefundResource;
-import com.adyen.model.checkout.PaymentReversalResource;
+import com.adyen.model.checkout.PaymentAmountUpdateRequest;
+import com.adyen.model.checkout.PaymentAmountUpdateResponse;
+import com.adyen.model.checkout.PaymentCancelRequest;
+import com.adyen.model.checkout.PaymentCancelResponse;
+import com.adyen.model.checkout.PaymentCaptureRequest;
+import com.adyen.model.checkout.PaymentCaptureResponse;
+import com.adyen.model.checkout.PaymentRefundRequest;
+import com.adyen.model.checkout.PaymentRefundResponse;
+import com.adyen.model.checkout.PaymentReversalRequest;
+import com.adyen.model.checkout.PaymentReversalResponse;
 import com.adyen.model.checkout.ServiceError;
-import com.adyen.model.checkout.StandalonePaymentCancelResource;
+import com.adyen.model.checkout.StandalonePaymentCancelRequest;
+import com.adyen.model.checkout.StandalonePaymentCancelResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -46,52 +46,52 @@ public class ModificationsApi extends Service {
     /**
     * Cancel an authorised payment
     *
-    * @param createStandalonePaymentCancelRequest {@link CreateStandalonePaymentCancelRequest }  (required)
-    * @return {@link StandalonePaymentCancelResource }
+    * @param standalonePaymentCancelRequest {@link StandalonePaymentCancelRequest }  (required)
+    * @return {@link StandalonePaymentCancelResponse }
     * @throws ApiException if fails to make API call
     */
-    public StandalonePaymentCancelResource cancelAuthorisedPayment(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest) throws ApiException, IOException {
-        return cancelAuthorisedPayment(createStandalonePaymentCancelRequest, null);
+    public StandalonePaymentCancelResponse cancelAuthorisedPayment(StandalonePaymentCancelRequest standalonePaymentCancelRequest) throws ApiException, IOException {
+        return cancelAuthorisedPayment(standalonePaymentCancelRequest, null);
     }
 
     /**
     * Cancel an authorised payment
     *
-    * @param createStandalonePaymentCancelRequest {@link CreateStandalonePaymentCancelRequest }  (required)
+    * @param standalonePaymentCancelRequest {@link StandalonePaymentCancelRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link StandalonePaymentCancelResource }
+    * @return {@link StandalonePaymentCancelResponse }
     * @throws ApiException if fails to make API call
     */
-    public StandalonePaymentCancelResource cancelAuthorisedPayment(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public StandalonePaymentCancelResponse cancelAuthorisedPayment(StandalonePaymentCancelRequest standalonePaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = createStandalonePaymentCancelRequest.toJson();
+        String requestBody = standalonePaymentCancelRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/cancels", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return StandalonePaymentCancelResource.fromJson(jsonResult);
+        return StandalonePaymentCancelResponse.fromJson(jsonResult);
     }
 
     /**
     * Update an authorised amount
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
-    * @param createPaymentAmountUpdateRequest {@link CreatePaymentAmountUpdateRequest }  (required)
-    * @return {@link PaymentAmountUpdateResource }
+    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest }  (required)
+    * @return {@link PaymentAmountUpdateResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
-        return updateAuthorisedAmount(paymentPspReference, createPaymentAmountUpdateRequest, null);
+    public PaymentAmountUpdateResponse updateAuthorisedAmount(String paymentPspReference, PaymentAmountUpdateRequest paymentAmountUpdateRequest) throws ApiException, IOException {
+        return updateAuthorisedAmount(paymentPspReference, paymentAmountUpdateRequest, null);
     }
 
     /**
     * Update an authorised amount
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
-    * @param createPaymentAmountUpdateRequest {@link CreatePaymentAmountUpdateRequest }  (required)
+    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentAmountUpdateResource }
+    * @return {@link PaymentAmountUpdateResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentAmountUpdateResponse updateAuthorisedAmount(String paymentPspReference, PaymentAmountUpdateRequest paymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (paymentPspReference == null) {
@@ -99,34 +99,34 @@ public class ModificationsApi extends Service {
         }
         pathParams.put("paymentPspReference", paymentPspReference);
 
-        String requestBody = createPaymentAmountUpdateRequest.toJson();
+        String requestBody = paymentAmountUpdateRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/amountUpdates", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return PaymentAmountUpdateResource.fromJson(jsonResult);
+        return PaymentAmountUpdateResponse.fromJson(jsonResult);
     }
 
     /**
     * Cancel an authorised payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
-    * @param createPaymentCancelRequest {@link CreatePaymentCancelRequest }  (required)
-    * @return {@link PaymentCancelResource }
+    * @param paymentCancelRequest {@link PaymentCancelRequest }  (required)
+    * @return {@link PaymentCancelResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
-        return cancelAuthorisedPaymentByPspReference(paymentPspReference, createPaymentCancelRequest, null);
+    public PaymentCancelResponse cancelAuthorisedPaymentByPspReference(String paymentPspReference, PaymentCancelRequest paymentCancelRequest) throws ApiException, IOException {
+        return cancelAuthorisedPaymentByPspReference(paymentPspReference, paymentCancelRequest, null);
     }
 
     /**
     * Cancel an authorised payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
-    * @param createPaymentCancelRequest {@link CreatePaymentCancelRequest }  (required)
+    * @param paymentCancelRequest {@link PaymentCancelRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentCancelResource }
+    * @return {@link PaymentCancelResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentCancelResponse cancelAuthorisedPaymentByPspReference(String paymentPspReference, PaymentCancelRequest paymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (paymentPspReference == null) {
@@ -134,34 +134,34 @@ public class ModificationsApi extends Service {
         }
         pathParams.put("paymentPspReference", paymentPspReference);
 
-        String requestBody = createPaymentCancelRequest.toJson();
+        String requestBody = paymentCancelRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/cancels", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return PaymentCancelResource.fromJson(jsonResult);
+        return PaymentCancelResponse.fromJson(jsonResult);
     }
 
     /**
     * Capture an authorised payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to capture. (required)
-    * @param createPaymentCaptureRequest {@link CreatePaymentCaptureRequest }  (required)
-    * @return {@link PaymentCaptureResource }
+    * @param paymentCaptureRequest {@link PaymentCaptureRequest }  (required)
+    * @return {@link PaymentCaptureResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
-        return captureAuthorisedPayment(paymentPspReference, createPaymentCaptureRequest, null);
+    public PaymentCaptureResponse captureAuthorisedPayment(String paymentPspReference, PaymentCaptureRequest paymentCaptureRequest) throws ApiException, IOException {
+        return captureAuthorisedPayment(paymentPspReference, paymentCaptureRequest, null);
     }
 
     /**
     * Capture an authorised payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to capture. (required)
-    * @param createPaymentCaptureRequest {@link CreatePaymentCaptureRequest }  (required)
+    * @param paymentCaptureRequest {@link PaymentCaptureRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentCaptureResource }
+    * @return {@link PaymentCaptureResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentCaptureResponse captureAuthorisedPayment(String paymentPspReference, PaymentCaptureRequest paymentCaptureRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (paymentPspReference == null) {
@@ -169,34 +169,34 @@ public class ModificationsApi extends Service {
         }
         pathParams.put("paymentPspReference", paymentPspReference);
 
-        String requestBody = createPaymentCaptureRequest.toJson();
+        String requestBody = paymentCaptureRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/captures", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return PaymentCaptureResource.fromJson(jsonResult);
+        return PaymentCaptureResponse.fromJson(jsonResult);
     }
 
     /**
     * Refund a captured payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to refund. (required)
-    * @param createPaymentRefundRequest {@link CreatePaymentRefundRequest }  (required)
-    * @return {@link PaymentRefundResource }
+    * @param paymentRefundRequest {@link PaymentRefundRequest }  (required)
+    * @return {@link PaymentRefundResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentRefundResource refundCapturedPayment(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
-        return refundCapturedPayment(paymentPspReference, createPaymentRefundRequest, null);
+    public PaymentRefundResponse refundCapturedPayment(String paymentPspReference, PaymentRefundRequest paymentRefundRequest) throws ApiException, IOException {
+        return refundCapturedPayment(paymentPspReference, paymentRefundRequest, null);
     }
 
     /**
     * Refund a captured payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to refund. (required)
-    * @param createPaymentRefundRequest {@link CreatePaymentRefundRequest }  (required)
+    * @param paymentRefundRequest {@link PaymentRefundRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentRefundResource }
+    * @return {@link PaymentRefundResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentRefundResource refundCapturedPayment(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentRefundResponse refundCapturedPayment(String paymentPspReference, PaymentRefundRequest paymentRefundRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (paymentPspReference == null) {
@@ -204,34 +204,34 @@ public class ModificationsApi extends Service {
         }
         pathParams.put("paymentPspReference", paymentPspReference);
 
-        String requestBody = createPaymentRefundRequest.toJson();
+        String requestBody = paymentRefundRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/refunds", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return PaymentRefundResource.fromJson(jsonResult);
+        return PaymentRefundResponse.fromJson(jsonResult);
     }
 
     /**
     * Refund or cancel a payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to reverse.  (required)
-    * @param createPaymentReversalRequest {@link CreatePaymentReversalRequest }  (required)
-    * @return {@link PaymentReversalResource }
+    * @param paymentReversalRequest {@link PaymentReversalRequest }  (required)
+    * @return {@link PaymentReversalResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentReversalResource refundOrCancelPayment(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
-        return refundOrCancelPayment(paymentPspReference, createPaymentReversalRequest, null);
+    public PaymentReversalResponse refundOrCancelPayment(String paymentPspReference, PaymentReversalRequest paymentReversalRequest) throws ApiException, IOException {
+        return refundOrCancelPayment(paymentPspReference, paymentReversalRequest, null);
     }
 
     /**
     * Refund or cancel a payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to reverse.  (required)
-    * @param createPaymentReversalRequest {@link CreatePaymentReversalRequest }  (required)
+    * @param paymentReversalRequest {@link PaymentReversalRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentReversalResource }
+    * @return {@link PaymentReversalResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentReversalResource refundOrCancelPayment(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentReversalResponse refundOrCancelPayment(String paymentPspReference, PaymentReversalRequest paymentReversalRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (paymentPspReference == null) {
@@ -239,9 +239,9 @@ public class ModificationsApi extends Service {
         }
         pathParams.put("paymentPspReference", paymentPspReference);
 
-        String requestBody = createPaymentReversalRequest.toJson();
+        String requestBody = paymentReversalRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/reversals", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return PaymentReversalResource.fromJson(jsonResult);
+        return PaymentReversalResponse.fromJson(jsonResult);
     }
 }

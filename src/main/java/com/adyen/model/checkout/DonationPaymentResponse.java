@@ -30,19 +30,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * DonationResponse
+ * DonationPaymentResponse
  */
 @JsonPropertyOrder({
-  DonationResponse.JSON_PROPERTY_AMOUNT,
-  DonationResponse.JSON_PROPERTY_DONATION_ACCOUNT,
-  DonationResponse.JSON_PROPERTY_ID,
-  DonationResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  DonationResponse.JSON_PROPERTY_PAYMENT,
-  DonationResponse.JSON_PROPERTY_REFERENCE,
-  DonationResponse.JSON_PROPERTY_STATUS
+  DonationPaymentResponse.JSON_PROPERTY_AMOUNT,
+  DonationPaymentResponse.JSON_PROPERTY_DONATION_ACCOUNT,
+  DonationPaymentResponse.JSON_PROPERTY_ID,
+  DonationPaymentResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  DonationPaymentResponse.JSON_PROPERTY_PAYMENT,
+  DonationPaymentResponse.JSON_PROPERTY_REFERENCE,
+  DonationPaymentResponse.JSON_PROPERTY_STATUS
 })
 
-public class DonationResponse {
+public class DonationPaymentResponse {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
@@ -101,10 +101,10 @@ public class DonationResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public DonationResponse() { 
+  public DonationPaymentResponse() { 
   }
 
-  public DonationResponse amount(Amount amount) {
+  public DonationPaymentResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -129,7 +129,7 @@ public class DonationResponse {
   }
 
 
-  public DonationResponse donationAccount(String donationAccount) {
+  public DonationPaymentResponse donationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
     return this;
   }
@@ -154,7 +154,7 @@ public class DonationResponse {
   }
 
 
-  public DonationResponse id(String id) {
+  public DonationPaymentResponse id(String id) {
     this.id = id;
     return this;
   }
@@ -179,7 +179,7 @@ public class DonationResponse {
   }
 
 
-  public DonationResponse merchantAccount(String merchantAccount) {
+  public DonationPaymentResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -204,7 +204,7 @@ public class DonationResponse {
   }
 
 
-  public DonationResponse payment(PaymentResponse payment) {
+  public DonationPaymentResponse payment(PaymentResponse payment) {
     this.payment = payment;
     return this;
   }
@@ -229,7 +229,7 @@ public class DonationResponse {
   }
 
 
-  public DonationResponse reference(String reference) {
+  public DonationPaymentResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -254,7 +254,7 @@ public class DonationResponse {
   }
 
 
-  public DonationResponse status(StatusEnum status) {
+  public DonationPaymentResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -280,7 +280,7 @@ public class DonationResponse {
 
 
   /**
-   * Return true if this DonationResponse object is equal to o.
+   * Return true if this DonationPaymentResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -290,14 +290,14 @@ public class DonationResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DonationResponse donationResponse = (DonationResponse) o;
-    return Objects.equals(this.amount, donationResponse.amount) &&
-        Objects.equals(this.donationAccount, donationResponse.donationAccount) &&
-        Objects.equals(this.id, donationResponse.id) &&
-        Objects.equals(this.merchantAccount, donationResponse.merchantAccount) &&
-        Objects.equals(this.payment, donationResponse.payment) &&
-        Objects.equals(this.reference, donationResponse.reference) &&
-        Objects.equals(this.status, donationResponse.status);
+    DonationPaymentResponse donationPaymentResponse = (DonationPaymentResponse) o;
+    return Objects.equals(this.amount, donationPaymentResponse.amount) &&
+        Objects.equals(this.donationAccount, donationPaymentResponse.donationAccount) &&
+        Objects.equals(this.id, donationPaymentResponse.id) &&
+        Objects.equals(this.merchantAccount, donationPaymentResponse.merchantAccount) &&
+        Objects.equals(this.payment, donationPaymentResponse.payment) &&
+        Objects.equals(this.reference, donationPaymentResponse.reference) &&
+        Objects.equals(this.status, donationPaymentResponse.status);
   }
 
   @Override
@@ -308,7 +308,7 @@ public class DonationResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DonationResponse {\n");
+    sb.append("class DonationPaymentResponse {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -332,17 +332,17 @@ public class DonationResponse {
   }
 
 /**
-   * Create an instance of DonationResponse given an JSON string
+   * Create an instance of DonationPaymentResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DonationResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DonationResponse
+   * @return An instance of DonationPaymentResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to DonationPaymentResponse
    */
-  public static DonationResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, DonationResponse.class);
+  public static DonationPaymentResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DonationPaymentResponse.class);
   }
 /**
-  * Convert an instance of DonationResponse to an JSON string
+  * Convert an instance of DonationPaymentResponse to an JSON string
   *
   * @return JSON string
   */

@@ -57,7 +57,7 @@ $(modelGen): target/spec $(openapi-generator-jar)
 		--library $(library) \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings CheckoutDonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=resourceClass=$(resourceClass)Resource
@@ -87,7 +87,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings CheckoutDonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false
 	mv $(output)/$(models)/$@ $(models)/$@
@@ -114,7 +114,7 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings CheckoutDonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=smallServiceName=$(smallServiceName)

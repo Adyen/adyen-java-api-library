@@ -46,56 +46,56 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CheckoutBalanceCheckRequest
+ * BalanceCheckRequest
  */
 @JsonPropertyOrder({
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_ACCOUNT_INFO,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_ADDITIONAL_AMOUNT,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_ADDITIONAL_DATA,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_AMOUNT,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_APPLICATION_INFO,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_BILLING_ADDRESS,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_BROWSER_INFO,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_DATE_OF_BIRTH,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_DCC_QUOTE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_DELIVERY_DATE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_DEVICE_FINGERPRINT,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_FRAUD_OFFSET,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_INSTALLMENTS,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_MCC,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_MERCHANT_RISK_INDICATOR,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_METADATA,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_ORDER_REFERENCE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_PAYMENT_METHOD,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_RECURRING,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_REFERENCE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SELECTED_BRAND,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SESSION_ID,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SHOPPER_EMAIL,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SHOPPER_I_P,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SHOPPER_LOCALE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SHOPPER_NAME,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_SPLITS,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_STORE,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_TOTALS_GROUP,
-  CheckoutBalanceCheckRequest.JSON_PROPERTY_TRUSTED_SHOPPER
+  BalanceCheckRequest.JSON_PROPERTY_ACCOUNT_INFO,
+  BalanceCheckRequest.JSON_PROPERTY_ADDITIONAL_AMOUNT,
+  BalanceCheckRequest.JSON_PROPERTY_ADDITIONAL_DATA,
+  BalanceCheckRequest.JSON_PROPERTY_AMOUNT,
+  BalanceCheckRequest.JSON_PROPERTY_APPLICATION_INFO,
+  BalanceCheckRequest.JSON_PROPERTY_BILLING_ADDRESS,
+  BalanceCheckRequest.JSON_PROPERTY_BROWSER_INFO,
+  BalanceCheckRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
+  BalanceCheckRequest.JSON_PROPERTY_DATE_OF_BIRTH,
+  BalanceCheckRequest.JSON_PROPERTY_DCC_QUOTE,
+  BalanceCheckRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
+  BalanceCheckRequest.JSON_PROPERTY_DELIVERY_DATE,
+  BalanceCheckRequest.JSON_PROPERTY_DEVICE_FINGERPRINT,
+  BalanceCheckRequest.JSON_PROPERTY_FRAUD_OFFSET,
+  BalanceCheckRequest.JSON_PROPERTY_INSTALLMENTS,
+  BalanceCheckRequest.JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT,
+  BalanceCheckRequest.JSON_PROPERTY_MCC,
+  BalanceCheckRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  BalanceCheckRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
+  BalanceCheckRequest.JSON_PROPERTY_MERCHANT_RISK_INDICATOR,
+  BalanceCheckRequest.JSON_PROPERTY_METADATA,
+  BalanceCheckRequest.JSON_PROPERTY_ORDER_REFERENCE,
+  BalanceCheckRequest.JSON_PROPERTY_PAYMENT_METHOD,
+  BalanceCheckRequest.JSON_PROPERTY_RECURRING,
+  BalanceCheckRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
+  BalanceCheckRequest.JSON_PROPERTY_REFERENCE,
+  BalanceCheckRequest.JSON_PROPERTY_SELECTED_BRAND,
+  BalanceCheckRequest.JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
+  BalanceCheckRequest.JSON_PROPERTY_SESSION_ID,
+  BalanceCheckRequest.JSON_PROPERTY_SHOPPER_EMAIL,
+  BalanceCheckRequest.JSON_PROPERTY_SHOPPER_I_P,
+  BalanceCheckRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
+  BalanceCheckRequest.JSON_PROPERTY_SHOPPER_LOCALE,
+  BalanceCheckRequest.JSON_PROPERTY_SHOPPER_NAME,
+  BalanceCheckRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  BalanceCheckRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  BalanceCheckRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
+  BalanceCheckRequest.JSON_PROPERTY_SPLITS,
+  BalanceCheckRequest.JSON_PROPERTY_STORE,
+  BalanceCheckRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
+  BalanceCheckRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
+  BalanceCheckRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
+  BalanceCheckRequest.JSON_PROPERTY_TOTALS_GROUP,
+  BalanceCheckRequest.JSON_PROPERTY_TRUSTED_SHOPPER
 })
 
-public class CheckoutBalanceCheckRequest {
+public class BalanceCheckRequest {
   public static final String JSON_PROPERTY_ACCOUNT_INFO = "accountInfo";
   private AccountInfo accountInfo;
 
@@ -304,10 +304,10 @@ public class CheckoutBalanceCheckRequest {
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;
 
-  public CheckoutBalanceCheckRequest() { 
+  public BalanceCheckRequest() { 
   }
 
-  public CheckoutBalanceCheckRequest accountInfo(AccountInfo accountInfo) {
+  public BalanceCheckRequest accountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
     return this;
   }
@@ -332,7 +332,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest additionalAmount(Amount additionalAmount) {
+  public BalanceCheckRequest additionalAmount(Amount additionalAmount) {
     this.additionalAmount = additionalAmount;
     return this;
   }
@@ -357,12 +357,12 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest additionalData(Map<String, String> additionalData) {
+  public BalanceCheckRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
 
-  public CheckoutBalanceCheckRequest putAdditionalDataItem(String key, String additionalDataItem) {
+  public BalanceCheckRequest putAdditionalDataItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -390,7 +390,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest amount(Amount amount) {
+  public BalanceCheckRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -415,7 +415,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest applicationInfo(ApplicationInfo applicationInfo) {
+  public BalanceCheckRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
     return this;
   }
@@ -440,7 +440,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest billingAddress(Address billingAddress) {
+  public BalanceCheckRequest billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
@@ -465,7 +465,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest browserInfo(BrowserInfo browserInfo) {
+  public BalanceCheckRequest browserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
     return this;
   }
@@ -490,7 +490,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest captureDelayHours(Integer captureDelayHours) {
+  public BalanceCheckRequest captureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
     return this;
   }
@@ -515,7 +515,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest dateOfBirth(LocalDate dateOfBirth) {
+  public BalanceCheckRequest dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
@@ -540,7 +540,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest dccQuote(ForexQuote dccQuote) {
+  public BalanceCheckRequest dccQuote(ForexQuote dccQuote) {
     this.dccQuote = dccQuote;
     return this;
   }
@@ -565,7 +565,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest deliveryAddress(Address deliveryAddress) {
+  public BalanceCheckRequest deliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -590,7 +590,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest deliveryDate(OffsetDateTime deliveryDate) {
+  public BalanceCheckRequest deliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
     return this;
   }
@@ -615,7 +615,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest deviceFingerprint(String deviceFingerprint) {
+  public BalanceCheckRequest deviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
     return this;
   }
@@ -640,7 +640,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest fraudOffset(Integer fraudOffset) {
+  public BalanceCheckRequest fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
     return this;
   }
@@ -665,7 +665,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest installments(Installments installments) {
+  public BalanceCheckRequest installments(Installments installments) {
     this.installments = installments;
     return this;
   }
@@ -690,12 +690,12 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest localizedShopperStatement(Map<String, String> localizedShopperStatement) {
+  public BalanceCheckRequest localizedShopperStatement(Map<String, String> localizedShopperStatement) {
     this.localizedShopperStatement = localizedShopperStatement;
     return this;
   }
 
-  public CheckoutBalanceCheckRequest putLocalizedShopperStatementItem(String key, String localizedShopperStatementItem) {
+  public BalanceCheckRequest putLocalizedShopperStatementItem(String key, String localizedShopperStatementItem) {
     if (this.localizedShopperStatement == null) {
       this.localizedShopperStatement = new HashMap<>();
     }
@@ -723,7 +723,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest mcc(String mcc) {
+  public BalanceCheckRequest mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
@@ -748,7 +748,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest merchantAccount(String merchantAccount) {
+  public BalanceCheckRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -773,7 +773,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest merchantOrderReference(String merchantOrderReference) {
+  public BalanceCheckRequest merchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
     return this;
   }
@@ -798,7 +798,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+  public BalanceCheckRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
     this.merchantRiskIndicator = merchantRiskIndicator;
     return this;
   }
@@ -823,12 +823,12 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest metadata(Map<String, String> metadata) {
+  public BalanceCheckRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  public CheckoutBalanceCheckRequest putMetadataItem(String key, String metadataItem) {
+  public BalanceCheckRequest putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
     }
@@ -856,7 +856,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest orderReference(String orderReference) {
+  public BalanceCheckRequest orderReference(String orderReference) {
     this.orderReference = orderReference;
     return this;
   }
@@ -881,12 +881,12 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest paymentMethod(Map<String, String> paymentMethod) {
+  public BalanceCheckRequest paymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-  public CheckoutBalanceCheckRequest putPaymentMethodItem(String key, String paymentMethodItem) {
+  public BalanceCheckRequest putPaymentMethodItem(String key, String paymentMethodItem) {
     this.paymentMethod.put(key, paymentMethodItem);
     return this;
   }
@@ -911,7 +911,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest recurring(Recurring recurring) {
+  public BalanceCheckRequest recurring(Recurring recurring) {
     this.recurring = recurring;
     return this;
   }
@@ -936,7 +936,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+  public BalanceCheckRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
@@ -961,7 +961,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest reference(String reference) {
+  public BalanceCheckRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -986,7 +986,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest selectedBrand(String selectedBrand) {
+  public BalanceCheckRequest selectedBrand(String selectedBrand) {
     this.selectedBrand = selectedBrand;
     return this;
   }
@@ -1011,7 +1011,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
+  public BalanceCheckRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
     return this;
   }
@@ -1036,7 +1036,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest sessionId(String sessionId) {
+  public BalanceCheckRequest sessionId(String sessionId) {
     this.sessionId = sessionId;
     return this;
   }
@@ -1061,7 +1061,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest shopperEmail(String shopperEmail) {
+  public BalanceCheckRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -1086,7 +1086,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest shopperIP(String shopperIP) {
+  public BalanceCheckRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
     return this;
   }
@@ -1111,7 +1111,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
+  public BalanceCheckRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     return this;
   }
@@ -1136,7 +1136,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest shopperLocale(String shopperLocale) {
+  public BalanceCheckRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
     return this;
   }
@@ -1161,7 +1161,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest shopperName(Name shopperName) {
+  public BalanceCheckRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -1186,7 +1186,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest shopperReference(String shopperReference) {
+  public BalanceCheckRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
@@ -1211,7 +1211,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest shopperStatement(String shopperStatement) {
+  public BalanceCheckRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
     return this;
   }
@@ -1236,7 +1236,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest socialSecurityNumber(String socialSecurityNumber) {
+  public BalanceCheckRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
@@ -1261,12 +1261,12 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest splits(List<Split> splits) {
+  public BalanceCheckRequest splits(List<Split> splits) {
     this.splits = splits;
     return this;
   }
 
-  public CheckoutBalanceCheckRequest addSplitsItem(Split splitsItem) {
+  public BalanceCheckRequest addSplitsItem(Split splitsItem) {
     if (this.splits == null) {
       this.splits = new ArrayList<>();
     }
@@ -1294,7 +1294,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest store(String store) {
+  public BalanceCheckRequest store(String store) {
     this.store = store;
     return this;
   }
@@ -1319,7 +1319,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest telephoneNumber(String telephoneNumber) {
+  public BalanceCheckRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
@@ -1344,7 +1344,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest threeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+  public BalanceCheckRequest threeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
     return this;
   }
@@ -1369,7 +1369,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+  public BalanceCheckRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;
   }
@@ -1397,7 +1397,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest totalsGroup(String totalsGroup) {
+  public BalanceCheckRequest totalsGroup(String totalsGroup) {
     this.totalsGroup = totalsGroup;
     return this;
   }
@@ -1422,7 +1422,7 @@ public class CheckoutBalanceCheckRequest {
   }
 
 
-  public CheckoutBalanceCheckRequest trustedShopper(Boolean trustedShopper) {
+  public BalanceCheckRequest trustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
     return this;
   }
@@ -1448,7 +1448,7 @@ public class CheckoutBalanceCheckRequest {
 
 
   /**
-   * Return true if this CheckoutBalanceCheckRequest object is equal to o.
+   * Return true if this BalanceCheckRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -1458,51 +1458,51 @@ public class CheckoutBalanceCheckRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckoutBalanceCheckRequest checkoutBalanceCheckRequest = (CheckoutBalanceCheckRequest) o;
-    return Objects.equals(this.accountInfo, checkoutBalanceCheckRequest.accountInfo) &&
-        Objects.equals(this.additionalAmount, checkoutBalanceCheckRequest.additionalAmount) &&
-        Objects.equals(this.additionalData, checkoutBalanceCheckRequest.additionalData) &&
-        Objects.equals(this.amount, checkoutBalanceCheckRequest.amount) &&
-        Objects.equals(this.applicationInfo, checkoutBalanceCheckRequest.applicationInfo) &&
-        Objects.equals(this.billingAddress, checkoutBalanceCheckRequest.billingAddress) &&
-        Objects.equals(this.browserInfo, checkoutBalanceCheckRequest.browserInfo) &&
-        Objects.equals(this.captureDelayHours, checkoutBalanceCheckRequest.captureDelayHours) &&
-        Objects.equals(this.dateOfBirth, checkoutBalanceCheckRequest.dateOfBirth) &&
-        Objects.equals(this.dccQuote, checkoutBalanceCheckRequest.dccQuote) &&
-        Objects.equals(this.deliveryAddress, checkoutBalanceCheckRequest.deliveryAddress) &&
-        Objects.equals(this.deliveryDate, checkoutBalanceCheckRequest.deliveryDate) &&
-        Objects.equals(this.deviceFingerprint, checkoutBalanceCheckRequest.deviceFingerprint) &&
-        Objects.equals(this.fraudOffset, checkoutBalanceCheckRequest.fraudOffset) &&
-        Objects.equals(this.installments, checkoutBalanceCheckRequest.installments) &&
-        Objects.equals(this.localizedShopperStatement, checkoutBalanceCheckRequest.localizedShopperStatement) &&
-        Objects.equals(this.mcc, checkoutBalanceCheckRequest.mcc) &&
-        Objects.equals(this.merchantAccount, checkoutBalanceCheckRequest.merchantAccount) &&
-        Objects.equals(this.merchantOrderReference, checkoutBalanceCheckRequest.merchantOrderReference) &&
-        Objects.equals(this.merchantRiskIndicator, checkoutBalanceCheckRequest.merchantRiskIndicator) &&
-        Objects.equals(this.metadata, checkoutBalanceCheckRequest.metadata) &&
-        Objects.equals(this.orderReference, checkoutBalanceCheckRequest.orderReference) &&
-        Objects.equals(this.paymentMethod, checkoutBalanceCheckRequest.paymentMethod) &&
-        Objects.equals(this.recurring, checkoutBalanceCheckRequest.recurring) &&
-        Objects.equals(this.recurringProcessingModel, checkoutBalanceCheckRequest.recurringProcessingModel) &&
-        Objects.equals(this.reference, checkoutBalanceCheckRequest.reference) &&
-        Objects.equals(this.selectedBrand, checkoutBalanceCheckRequest.selectedBrand) &&
-        Objects.equals(this.selectedRecurringDetailReference, checkoutBalanceCheckRequest.selectedRecurringDetailReference) &&
-        Objects.equals(this.sessionId, checkoutBalanceCheckRequest.sessionId) &&
-        Objects.equals(this.shopperEmail, checkoutBalanceCheckRequest.shopperEmail) &&
-        Objects.equals(this.shopperIP, checkoutBalanceCheckRequest.shopperIP) &&
-        Objects.equals(this.shopperInteraction, checkoutBalanceCheckRequest.shopperInteraction) &&
-        Objects.equals(this.shopperLocale, checkoutBalanceCheckRequest.shopperLocale) &&
-        Objects.equals(this.shopperName, checkoutBalanceCheckRequest.shopperName) &&
-        Objects.equals(this.shopperReference, checkoutBalanceCheckRequest.shopperReference) &&
-        Objects.equals(this.shopperStatement, checkoutBalanceCheckRequest.shopperStatement) &&
-        Objects.equals(this.socialSecurityNumber, checkoutBalanceCheckRequest.socialSecurityNumber) &&
-        Objects.equals(this.splits, checkoutBalanceCheckRequest.splits) &&
-        Objects.equals(this.store, checkoutBalanceCheckRequest.store) &&
-        Objects.equals(this.telephoneNumber, checkoutBalanceCheckRequest.telephoneNumber) &&
-        Objects.equals(this.threeDS2RequestData, checkoutBalanceCheckRequest.threeDS2RequestData) &&
-        Objects.equals(this.threeDSAuthenticationOnly, checkoutBalanceCheckRequest.threeDSAuthenticationOnly) &&
-        Objects.equals(this.totalsGroup, checkoutBalanceCheckRequest.totalsGroup) &&
-        Objects.equals(this.trustedShopper, checkoutBalanceCheckRequest.trustedShopper);
+    BalanceCheckRequest balanceCheckRequest = (BalanceCheckRequest) o;
+    return Objects.equals(this.accountInfo, balanceCheckRequest.accountInfo) &&
+        Objects.equals(this.additionalAmount, balanceCheckRequest.additionalAmount) &&
+        Objects.equals(this.additionalData, balanceCheckRequest.additionalData) &&
+        Objects.equals(this.amount, balanceCheckRequest.amount) &&
+        Objects.equals(this.applicationInfo, balanceCheckRequest.applicationInfo) &&
+        Objects.equals(this.billingAddress, balanceCheckRequest.billingAddress) &&
+        Objects.equals(this.browserInfo, balanceCheckRequest.browserInfo) &&
+        Objects.equals(this.captureDelayHours, balanceCheckRequest.captureDelayHours) &&
+        Objects.equals(this.dateOfBirth, balanceCheckRequest.dateOfBirth) &&
+        Objects.equals(this.dccQuote, balanceCheckRequest.dccQuote) &&
+        Objects.equals(this.deliveryAddress, balanceCheckRequest.deliveryAddress) &&
+        Objects.equals(this.deliveryDate, balanceCheckRequest.deliveryDate) &&
+        Objects.equals(this.deviceFingerprint, balanceCheckRequest.deviceFingerprint) &&
+        Objects.equals(this.fraudOffset, balanceCheckRequest.fraudOffset) &&
+        Objects.equals(this.installments, balanceCheckRequest.installments) &&
+        Objects.equals(this.localizedShopperStatement, balanceCheckRequest.localizedShopperStatement) &&
+        Objects.equals(this.mcc, balanceCheckRequest.mcc) &&
+        Objects.equals(this.merchantAccount, balanceCheckRequest.merchantAccount) &&
+        Objects.equals(this.merchantOrderReference, balanceCheckRequest.merchantOrderReference) &&
+        Objects.equals(this.merchantRiskIndicator, balanceCheckRequest.merchantRiskIndicator) &&
+        Objects.equals(this.metadata, balanceCheckRequest.metadata) &&
+        Objects.equals(this.orderReference, balanceCheckRequest.orderReference) &&
+        Objects.equals(this.paymentMethod, balanceCheckRequest.paymentMethod) &&
+        Objects.equals(this.recurring, balanceCheckRequest.recurring) &&
+        Objects.equals(this.recurringProcessingModel, balanceCheckRequest.recurringProcessingModel) &&
+        Objects.equals(this.reference, balanceCheckRequest.reference) &&
+        Objects.equals(this.selectedBrand, balanceCheckRequest.selectedBrand) &&
+        Objects.equals(this.selectedRecurringDetailReference, balanceCheckRequest.selectedRecurringDetailReference) &&
+        Objects.equals(this.sessionId, balanceCheckRequest.sessionId) &&
+        Objects.equals(this.shopperEmail, balanceCheckRequest.shopperEmail) &&
+        Objects.equals(this.shopperIP, balanceCheckRequest.shopperIP) &&
+        Objects.equals(this.shopperInteraction, balanceCheckRequest.shopperInteraction) &&
+        Objects.equals(this.shopperLocale, balanceCheckRequest.shopperLocale) &&
+        Objects.equals(this.shopperName, balanceCheckRequest.shopperName) &&
+        Objects.equals(this.shopperReference, balanceCheckRequest.shopperReference) &&
+        Objects.equals(this.shopperStatement, balanceCheckRequest.shopperStatement) &&
+        Objects.equals(this.socialSecurityNumber, balanceCheckRequest.socialSecurityNumber) &&
+        Objects.equals(this.splits, balanceCheckRequest.splits) &&
+        Objects.equals(this.store, balanceCheckRequest.store) &&
+        Objects.equals(this.telephoneNumber, balanceCheckRequest.telephoneNumber) &&
+        Objects.equals(this.threeDS2RequestData, balanceCheckRequest.threeDS2RequestData) &&
+        Objects.equals(this.threeDSAuthenticationOnly, balanceCheckRequest.threeDSAuthenticationOnly) &&
+        Objects.equals(this.totalsGroup, balanceCheckRequest.totalsGroup) &&
+        Objects.equals(this.trustedShopper, balanceCheckRequest.trustedShopper);
   }
 
   @Override
@@ -1513,7 +1513,7 @@ public class CheckoutBalanceCheckRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckoutBalanceCheckRequest {\n");
+    sb.append("class BalanceCheckRequest {\n");
     sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
     sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
@@ -1574,17 +1574,17 @@ public class CheckoutBalanceCheckRequest {
   }
 
 /**
-   * Create an instance of CheckoutBalanceCheckRequest given an JSON string
+   * Create an instance of BalanceCheckRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CheckoutBalanceCheckRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CheckoutBalanceCheckRequest
+   * @return An instance of BalanceCheckRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to BalanceCheckRequest
    */
-  public static CheckoutBalanceCheckRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CheckoutBalanceCheckRequest.class);
+  public static BalanceCheckRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BalanceCheckRequest.class);
   }
 /**
-  * Convert an instance of CheckoutBalanceCheckRequest to an JSON string
+  * Convert an instance of BalanceCheckRequest to an JSON string
   *
   * @return JSON string
   */
