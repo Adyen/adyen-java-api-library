@@ -8,7 +8,7 @@ jobs:
     name: Generate Models + Services
     steps:
       - uses: actions/checkout@v3
-      - run: make all
+      - run: make services
       - name: Set PR variables
         id: vars
         run: |
