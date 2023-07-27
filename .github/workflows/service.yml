@@ -27,5 +27,5 @@ jobs:
           title: ${{ steps.vars.outputs.pr_title }}
           body: ${{ steps.vars.outputs.pr_body }}
           add-paths: |
-            Adyen/Model
-            Adyen/Service
+            src/main/java/com/adyen/model
+            src/main/java/com/adyen/service
