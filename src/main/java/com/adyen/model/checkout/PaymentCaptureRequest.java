@@ -20,7 +20,7 @@ import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.Split;
-import com.adyen.model.checkout.SubMerchant2;
+import com.adyen.model.checkout.SubMerchantInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -67,7 +67,7 @@ public class PaymentCaptureRequest {
   private List<Split> splits = null;
 
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
-  private List<SubMerchant2> subMerchants = null;
+  private List<SubMerchantInfo> subMerchants = null;
 
   public PaymentCaptureRequest() { 
   }
@@ -238,12 +238,12 @@ public class PaymentCaptureRequest {
   }
 
 
-  public PaymentCaptureRequest subMerchants(List<SubMerchant2> subMerchants) {
+  public PaymentCaptureRequest subMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
     return this;
   }
 
-  public PaymentCaptureRequest addSubMerchantsItem(SubMerchant2 subMerchantsItem) {
+  public PaymentCaptureRequest addSubMerchantsItem(SubMerchantInfo subMerchantsItem) {
     if (this.subMerchants == null) {
       this.subMerchants = new ArrayList<>();
     }
@@ -259,14 +259,14 @@ public class PaymentCaptureRequest {
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SubMerchant2> getSubMerchants() {
+  public List<SubMerchantInfo> getSubMerchants() {
     return subMerchants;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubMerchants(List<SubMerchant2> subMerchants) {
+  public void setSubMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
   }
 
