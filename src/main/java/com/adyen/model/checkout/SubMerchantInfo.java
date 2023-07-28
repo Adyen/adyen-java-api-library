@@ -29,18 +29,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * SubMerchant2
+ * SubMerchantInfo
  */
 @JsonPropertyOrder({
-  SubMerchant2.JSON_PROPERTY_ADDRESS,
-  SubMerchant2.JSON_PROPERTY_ID,
-  SubMerchant2.JSON_PROPERTY_MCC,
-  SubMerchant2.JSON_PROPERTY_NAME,
-  SubMerchant2.JSON_PROPERTY_TAX_ID
+  SubMerchantInfo.JSON_PROPERTY_ADDRESS,
+  SubMerchantInfo.JSON_PROPERTY_ID,
+  SubMerchantInfo.JSON_PROPERTY_MCC,
+  SubMerchantInfo.JSON_PROPERTY_NAME,
+  SubMerchantInfo.JSON_PROPERTY_TAX_ID
 })
-@JsonTypeName("SubMerchant-2")
 
-public class SubMerchant2 {
+public class SubMerchantInfo {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private Address address;
 
@@ -56,10 +55,10 @@ public class SubMerchant2 {
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
 
-  public SubMerchant2() { 
+  public SubMerchantInfo() { 
   }
 
-  public SubMerchant2 address(Address address) {
+  public SubMerchantInfo address(Address address) {
     this.address = address;
     return this;
   }
@@ -84,7 +83,7 @@ public class SubMerchant2 {
   }
 
 
-  public SubMerchant2 id(String id) {
+  public SubMerchantInfo id(String id) {
     this.id = id;
     return this;
   }
@@ -109,7 +108,7 @@ public class SubMerchant2 {
   }
 
 
-  public SubMerchant2 mcc(String mcc) {
+  public SubMerchantInfo mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
@@ -134,7 +133,7 @@ public class SubMerchant2 {
   }
 
 
-  public SubMerchant2 name(String name) {
+  public SubMerchantInfo name(String name) {
     this.name = name;
     return this;
   }
@@ -159,7 +158,7 @@ public class SubMerchant2 {
   }
 
 
-  public SubMerchant2 taxId(String taxId) {
+  public SubMerchantInfo taxId(String taxId) {
     this.taxId = taxId;
     return this;
   }
@@ -185,7 +184,7 @@ public class SubMerchant2 {
 
 
   /**
-   * Return true if this SubMerchant-2 object is equal to o.
+   * Return true if this SubMerchantInfo object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -195,12 +194,12 @@ public class SubMerchant2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SubMerchant2 subMerchant2 = (SubMerchant2) o;
-    return Objects.equals(this.address, subMerchant2.address) &&
-        Objects.equals(this.id, subMerchant2.id) &&
-        Objects.equals(this.mcc, subMerchant2.mcc) &&
-        Objects.equals(this.name, subMerchant2.name) &&
-        Objects.equals(this.taxId, subMerchant2.taxId);
+    SubMerchantInfo subMerchantInfo = (SubMerchantInfo) o;
+    return Objects.equals(this.address, subMerchantInfo.address) &&
+        Objects.equals(this.id, subMerchantInfo.id) &&
+        Objects.equals(this.mcc, subMerchantInfo.mcc) &&
+        Objects.equals(this.name, subMerchantInfo.name) &&
+        Objects.equals(this.taxId, subMerchantInfo.taxId);
   }
 
   @Override
@@ -211,7 +210,7 @@ public class SubMerchant2 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SubMerchant2 {\n");
+    sb.append("class SubMerchantInfo {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
@@ -233,17 +232,17 @@ public class SubMerchant2 {
   }
 
 /**
-   * Create an instance of SubMerchant2 given an JSON string
+   * Create an instance of SubMerchantInfo given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SubMerchant2
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SubMerchant2
+   * @return An instance of SubMerchantInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SubMerchantInfo
    */
-  public static SubMerchant2 fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, SubMerchant2.class);
+  public static SubMerchantInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SubMerchantInfo.class);
   }
 /**
-  * Convert an instance of SubMerchant2 to an JSON string
+  * Convert an instance of SubMerchantInfo to an JSON string
   *
   * @return JSON string
   */
