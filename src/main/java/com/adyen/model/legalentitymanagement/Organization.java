@@ -14,102 +14,89 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
 import com.adyen.model.legalentitymanagement.PhoneNumber;
 import com.adyen.model.legalentitymanagement.StockData;
 import com.adyen.model.legalentitymanagement.TaxInformation;
 import com.adyen.model.legalentitymanagement.TaxReportingClassification;
 import com.adyen.model.legalentitymanagement.WebData;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Organization
  */
+@JsonPropertyOrder({
+  Organization.JSON_PROPERTY_DATE_OF_INCORPORATION,
+  Organization.JSON_PROPERTY_DESCRIPTION,
+  Organization.JSON_PROPERTY_DOING_BUSINESS_AS,
+  Organization.JSON_PROPERTY_EMAIL,
+  Organization.JSON_PROPERTY_LEGAL_NAME,
+  Organization.JSON_PROPERTY_PHONE,
+  Organization.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
+  Organization.JSON_PROPERTY_REGISTERED_ADDRESS,
+  Organization.JSON_PROPERTY_REGISTRATION_NUMBER,
+  Organization.JSON_PROPERTY_STOCK_DATA,
+  Organization.JSON_PROPERTY_TAX_INFORMATION,
+  Organization.JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION,
+  Organization.JSON_PROPERTY_TYPE,
+  Organization.JSON_PROPERTY_VAT_ABSENCE_REASON,
+  Organization.JSON_PROPERTY_VAT_NUMBER,
+  Organization.JSON_PROPERTY_WEB_DATA
+})
 
 public class Organization {
-  public static final String SERIALIZED_NAME_DATE_OF_INCORPORATION = "dateOfIncorporation";
-  @SerializedName(SERIALIZED_NAME_DATE_OF_INCORPORATION)
+  public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_DOING_BUSINESS_AS = "doingBusinessAs";
-  @SerializedName(SERIALIZED_NAME_DOING_BUSINESS_AS)
+  public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String SERIALIZED_NAME_LEGAL_NAME = "legalName";
-  @SerializedName(SERIALIZED_NAME_LEGAL_NAME)
+  public static final String JSON_PROPERTY_LEGAL_NAME = "legalName";
   private String legalName;
 
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-  @SerializedName(SERIALIZED_NAME_PHONE)
+  public static final String JSON_PROPERTY_PHONE = "phone";
   private PhoneNumber phone;
 
-  public static final String SERIALIZED_NAME_PRINCIPAL_PLACE_OF_BUSINESS = "principalPlaceOfBusiness";
-  @SerializedName(SERIALIZED_NAME_PRINCIPAL_PLACE_OF_BUSINESS)
+  public static final String JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS = "principalPlaceOfBusiness";
   private Address principalPlaceOfBusiness;
 
-  public static final String SERIALIZED_NAME_REGISTERED_ADDRESS = "registeredAddress";
-  @SerializedName(SERIALIZED_NAME_REGISTERED_ADDRESS)
+  public static final String JSON_PROPERTY_REGISTERED_ADDRESS = "registeredAddress";
   private Address registeredAddress;
 
-  public static final String SERIALIZED_NAME_REGISTRATION_NUMBER = "registrationNumber";
-  @SerializedName(SERIALIZED_NAME_REGISTRATION_NUMBER)
+  public static final String JSON_PROPERTY_REGISTRATION_NUMBER = "registrationNumber";
   private String registrationNumber;
 
-  public static final String SERIALIZED_NAME_STOCK_DATA = "stockData";
-  @SerializedName(SERIALIZED_NAME_STOCK_DATA)
+  public static final String JSON_PROPERTY_STOCK_DATA = "stockData";
   private StockData stockData;
 
-  public static final String SERIALIZED_NAME_TAX_INFORMATION = "taxInformation";
-  @SerializedName(SERIALIZED_NAME_TAX_INFORMATION)
+  public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
   private List<TaxInformation> taxInformation = null;
 
-  public static final String SERIALIZED_NAME_TAX_REPORTING_CLASSIFICATION = "taxReportingClassification";
-  @SerializedName(SERIALIZED_NAME_TAX_REPORTING_CLASSIFICATION)
+  public static final String JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION = "taxReportingClassification";
   private TaxReportingClassification taxReportingClassification;
 
   /**
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     ASSOCIATIONINCORPORATED("associationIncorporated"),
     
@@ -129,6 +116,7 @@ public class Organization {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -138,6 +126,7 @@ public class Organization {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -146,29 +135,14 @@ public class Organization {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   /**
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
-  @JsonAdapter(VatAbsenceReasonEnum.Adapter.class)
   public enum VatAbsenceReasonEnum {
     INDUSTRYEXEMPTION("industryExemption"),
     
@@ -180,6 +154,7 @@ public class Organization {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -189,6 +164,7 @@ public class Organization {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static VatAbsenceReasonEnum fromValue(String value) {
       for (VatAbsenceReasonEnum b : VatAbsenceReasonEnum.values()) {
         if (b.value.equals(value)) {
@@ -197,38 +173,21 @@ public class Organization {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<VatAbsenceReasonEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final VatAbsenceReasonEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public VatAbsenceReasonEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return VatAbsenceReasonEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_VAT_ABSENCE_REASON = "vatAbsenceReason";
-  @SerializedName(SERIALIZED_NAME_VAT_ABSENCE_REASON)
+  public static final String JSON_PROPERTY_VAT_ABSENCE_REASON = "vatAbsenceReason";
   private VatAbsenceReasonEnum vatAbsenceReason;
 
-  public static final String SERIALIZED_NAME_VAT_NUMBER = "vatNumber";
-  @SerializedName(SERIALIZED_NAME_VAT_NUMBER)
+  public static final String JSON_PROPERTY_VAT_NUMBER = "vatNumber";
   private String vatNumber;
 
-  public static final String SERIALIZED_NAME_WEB_DATA = "webData";
-  @SerializedName(SERIALIZED_NAME_WEB_DATA)
+  public static final String JSON_PROPERTY_WEB_DATA = "webData";
   private WebData webData;
 
   public Organization() { 
   }
 
   public Organization dateOfIncorporation(String dateOfIncorporation) {
-    
     this.dateOfIncorporation = dateOfIncorporation;
     return this;
   }
@@ -238,19 +197,22 @@ public class Organization {
    * @return dateOfIncorporation
   **/
   @ApiModelProperty(value = "The date when the organization was incorporated in YYYY-MM-DD format.")
+  @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDateOfIncorporation() {
     return dateOfIncorporation;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
   }
 
 
   public Organization description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -260,19 +222,22 @@ public class Organization {
    * @return description
   **/
   @ApiModelProperty(value = "Your description for the organization.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public Organization doingBusinessAs(String doingBusinessAs) {
-    
     this.doingBusinessAs = doingBusinessAs;
     return this;
   }
@@ -282,19 +247,22 @@ public class Organization {
    * @return doingBusinessAs
   **/
   @ApiModelProperty(value = "The organization's trading name, if different from the registered legal name.")
+  @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDoingBusinessAs() {
     return doingBusinessAs;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
   }
 
 
   public Organization email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -304,19 +272,22 @@ public class Organization {
    * @return email
   **/
   @ApiModelProperty(value = "The email address of the legal entity.")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmail() {
     return email;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
 
   public Organization legalName(String legalName) {
-    
     this.legalName = legalName;
     return this;
   }
@@ -326,19 +297,22 @@ public class Organization {
    * @return legalName
   **/
   @ApiModelProperty(required = true, value = "The organization's legal name.")
+  @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLegalName() {
     return legalName;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalName(String legalName) {
     this.legalName = legalName;
   }
 
 
   public Organization phone(PhoneNumber phone) {
-    
     this.phone = phone;
     return this;
   }
@@ -348,19 +322,22 @@ public class Organization {
    * @return phone
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PhoneNumber getPhone() {
     return phone;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
     this.phone = phone;
   }
 
 
   public Organization principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
-    
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
     return this;
   }
@@ -370,19 +347,22 @@ public class Organization {
    * @return principalPlaceOfBusiness
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getPrincipalPlaceOfBusiness() {
     return principalPlaceOfBusiness;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
   }
 
 
   public Organization registeredAddress(Address registeredAddress) {
-    
     this.registeredAddress = registeredAddress;
     return this;
   }
@@ -392,19 +372,22 @@ public class Organization {
    * @return registeredAddress
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Address getRegisteredAddress() {
     return registeredAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
   }
 
 
   public Organization registrationNumber(String registrationNumber) {
-    
     this.registrationNumber = registrationNumber;
     return this;
   }
@@ -414,19 +397,22 @@ public class Organization {
    * @return registrationNumber
   **/
   @ApiModelProperty(value = "The organization's registration number.")
+  @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRegistrationNumber() {
     return registrationNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
   }
 
 
   public Organization stockData(StockData stockData) {
-    
     this.stockData = stockData;
     return this;
   }
@@ -436,19 +422,22 @@ public class Organization {
    * @return stockData
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STOCK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StockData getStockData() {
     return stockData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STOCK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockData(StockData stockData) {
     this.stockData = stockData;
   }
 
 
   public Organization taxInformation(List<TaxInformation> taxInformation) {
-    
     this.taxInformation = taxInformation;
     return this;
   }
@@ -466,19 +455,22 @@ public class Organization {
    * @return taxInformation
   **/
   @ApiModelProperty(value = "The tax information of the organization.")
+  @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TaxInformation> getTaxInformation() {
     return taxInformation;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
   }
 
 
   public Organization taxReportingClassification(TaxReportingClassification taxReportingClassification) {
-    
     this.taxReportingClassification = taxReportingClassification;
     return this;
   }
@@ -488,19 +480,22 @@ public class Organization {
    * @return taxReportingClassification
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TaxReportingClassification getTaxReportingClassification() {
     return taxReportingClassification;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxReportingClassification(TaxReportingClassification taxReportingClassification) {
     this.taxReportingClassification = taxReportingClassification;
   }
 
 
   public Organization type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -510,19 +505,22 @@ public class Organization {
    * @return type
   **/
   @ApiModelProperty(value = "Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public Organization vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
-    
     this.vatAbsenceReason = vatAbsenceReason;
     return this;
   }
@@ -532,19 +530,22 @@ public class Organization {
    * @return vatAbsenceReason
   **/
   @ApiModelProperty(value = "The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
+  @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public VatAbsenceReasonEnum getVatAbsenceReason() {
     return vatAbsenceReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
   }
 
 
   public Organization vatNumber(String vatNumber) {
-    
     this.vatNumber = vatNumber;
     return this;
   }
@@ -554,19 +555,22 @@ public class Organization {
    * @return vatNumber
   **/
   @ApiModelProperty(value = "The organization's VAT number.")
+  @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getVatNumber() {
     return vatNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
   }
 
 
   public Organization webData(WebData webData) {
-    
     this.webData = webData;
     return this;
   }
@@ -576,18 +580,24 @@ public class Organization {
    * @return webData
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WEB_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WebData getWebData() {
     return webData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WEB_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {
     this.webData = webData;
   }
 
 
-
+  /**
+   * Return true if this Organization object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -655,196 +665,23 @@ public class Organization {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("dateOfIncorporation");
-    openapiFields.add("description");
-    openapiFields.add("doingBusinessAs");
-    openapiFields.add("email");
-    openapiFields.add("legalName");
-    openapiFields.add("phone");
-    openapiFields.add("principalPlaceOfBusiness");
-    openapiFields.add("registeredAddress");
-    openapiFields.add("registrationNumber");
-    openapiFields.add("stockData");
-    openapiFields.add("taxInformation");
-    openapiFields.add("taxReportingClassification");
-    openapiFields.add("type");
-    openapiFields.add("vatAbsenceReason");
-    openapiFields.add("vatNumber");
-    openapiFields.add("webData");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("legalName");
-    openapiRequiredFields.add("registeredAddress");
+/**
+   * Create an instance of Organization given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Organization
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Organization
+   */
+  public static Organization fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Organization.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(Organization.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Organization
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Organization.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Organization is not found in the empty JSON string", Organization.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Organization.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `Organization` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Organization.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field dateOfIncorporation
-      if (jsonObj.get("dateOfIncorporation") != null && !jsonObj.get("dateOfIncorporation").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `dateOfIncorporation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dateOfIncorporation").toString()));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field doingBusinessAs
-      if (jsonObj.get("doingBusinessAs") != null && !jsonObj.get("doingBusinessAs").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `doingBusinessAs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doingBusinessAs").toString()));
-      }
-      // validate the optional field email
-      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      // validate the optional field legalName
-      if (jsonObj.get("legalName") != null && !jsonObj.get("legalName").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `legalName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("legalName").toString()));
-      }
-      // validate the optional field `phone`
-      if (jsonObj.getAsJsonObject("phone") != null) {
-        PhoneNumber.validateJsonObject(jsonObj.getAsJsonObject("phone"));
-      }
-      // validate the optional field `principalPlaceOfBusiness`
-      if (jsonObj.getAsJsonObject("principalPlaceOfBusiness") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("principalPlaceOfBusiness"));
-      }
-      // validate the optional field `registeredAddress`
-      if (jsonObj.getAsJsonObject("registeredAddress") != null) {
-        Address.validateJsonObject(jsonObj.getAsJsonObject("registeredAddress"));
-      }
-      // validate the optional field registrationNumber
-      if (jsonObj.get("registrationNumber") != null && !jsonObj.get("registrationNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `registrationNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("registrationNumber").toString()));
-      }
-      // validate the optional field `stockData`
-      if (jsonObj.getAsJsonObject("stockData") != null) {
-        StockData.validateJsonObject(jsonObj.getAsJsonObject("stockData"));
-      }
-      JsonArray jsonArraytaxInformation = jsonObj.getAsJsonArray("taxInformation");
-      if (jsonArraytaxInformation != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("taxInformation").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `taxInformation` to be an array in the JSON string but got `%s`", jsonObj.get("taxInformation").toString()));
-        }
-
-        // validate the optional field `taxInformation` (array)
-        for (int i = 0; i < jsonArraytaxInformation.size(); i++) {
-          TaxInformation.validateJsonObject(jsonArraytaxInformation.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field `taxReportingClassification`
-      if (jsonObj.getAsJsonObject("taxReportingClassification") != null) {
-        TaxReportingClassification.validateJsonObject(jsonObj.getAsJsonObject("taxReportingClassification"));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-      // ensure the field vatAbsenceReason can be parsed to an enum value
-      if (jsonObj.get("vatAbsenceReason") != null) {
-        if(!jsonObj.get("vatAbsenceReason").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `vatAbsenceReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vatAbsenceReason").toString()));
-        }
-        VatAbsenceReasonEnum.fromValue(jsonObj.get("vatAbsenceReason").getAsString());
-      }
-      // validate the optional field vatNumber
-      if (jsonObj.get("vatNumber") != null && !jsonObj.get("vatNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `vatNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vatNumber").toString()));
-      }
-      // validate the optional field `webData`
-      if (jsonObj.getAsJsonObject("webData") != null) {
-        WebData.validateJsonObject(jsonObj.getAsJsonObject("webData"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Organization.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Organization' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Organization> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Organization.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Organization>() {
-           @Override
-           public void write(JsonWriter out, Organization value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Organization read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Organization given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Organization
-  * @throws IOException if the JSON string is invalid with respect to Organization
-  */
-  public static Organization fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Organization.class);
-  }
-
- /**
+/**
   * Convert an instance of Organization to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

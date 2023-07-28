@@ -15,54 +15,37 @@ package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.posterminalmanagement.Store;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.posterminalmanagement.JSON;
 
 /**
  * GetStoresUnderAccountResponse
  */
+@JsonPropertyOrder({
+  GetStoresUnderAccountResponse.JSON_PROPERTY_STORES
+})
 
 public class GetStoresUnderAccountResponse {
-  public static final String SERIALIZED_NAME_STORES = "stores";
-  @SerializedName(SERIALIZED_NAME_STORES)
+  public static final String JSON_PROPERTY_STORES = "stores";
   private List<Store> stores = null;
 
   public GetStoresUnderAccountResponse() { 
   }
 
   public GetStoresUnderAccountResponse stores(List<Store> stores) {
-    
     this.stores = stores;
     return this;
   }
@@ -80,18 +63,24 @@ public class GetStoresUnderAccountResponse {
    * @return stores
   **/
   @ApiModelProperty(value = "Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.")
+  @JsonProperty(JSON_PROPERTY_STORES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Store> getStores() {
     return stores;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<Store> stores) {
     this.stores = stores;
   }
 
 
-
+  /**
+   * Return true if this GetStoresUnderAccountResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,106 +118,23 @@ public class GetStoresUnderAccountResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("stores");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of GetStoresUnderAccountResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetStoresUnderAccountResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to GetStoresUnderAccountResponse
+   */
+  public static GetStoresUnderAccountResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, GetStoresUnderAccountResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(GetStoresUnderAccountResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetStoresUnderAccountResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetStoresUnderAccountResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetStoresUnderAccountResponse is not found in the empty JSON string", GetStoresUnderAccountResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GetStoresUnderAccountResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `GetStoresUnderAccountResponse` properties.", entry.getKey()));
-        }
-      }
-      JsonArray jsonArraystores = jsonObj.getAsJsonArray("stores");
-      if (jsonArraystores != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("stores").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `stores` to be an array in the JSON string but got `%s`", jsonObj.get("stores").toString()));
-        }
-
-        // validate the optional field `stores` (array)
-        for (int i = 0; i < jsonArraystores.size(); i++) {
-          Store.validateJsonObject(jsonArraystores.get(i).getAsJsonObject());
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetStoresUnderAccountResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetStoresUnderAccountResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetStoresUnderAccountResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetStoresUnderAccountResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<GetStoresUnderAccountResponse>() {
-           @Override
-           public void write(JsonWriter out, GetStoresUnderAccountResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public GetStoresUnderAccountResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of GetStoresUnderAccountResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetStoresUnderAccountResponse
-  * @throws IOException if the JSON string is invalid with respect to GetStoresUnderAccountResponse
-  */
-  public static GetStoresUnderAccountResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetStoresUnderAccountResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of GetStoresUnderAccountResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

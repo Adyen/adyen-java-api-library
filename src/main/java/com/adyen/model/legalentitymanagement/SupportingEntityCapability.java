@@ -14,73 +14,48 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * SupportingEntityCapability
  */
+@JsonPropertyOrder({
+  SupportingEntityCapability.JSON_PROPERTY_ALLOWED,
+  SupportingEntityCapability.JSON_PROPERTY_ID,
+  SupportingEntityCapability.JSON_PROPERTY_REQUESTED,
+  SupportingEntityCapability.JSON_PROPERTY_VERIFICATION_STATUS
+})
 
 public class SupportingEntityCapability {
-  public static final String SERIALIZED_NAME_ALLOWED = "allowed";
-  @SerializedName(SERIALIZED_NAME_ALLOWED)
+  public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_REQUESTED = "requested";
-  @SerializedName(SERIALIZED_NAME_REQUESTED)
+  public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
 
-  public static final String SERIALIZED_NAME_VERIFICATION_STATUS = "verificationStatus";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_STATUS)
+  public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private String verificationStatus;
 
   public SupportingEntityCapability() { 
   }
 
-  
-  public SupportingEntityCapability(
-     Boolean allowed, 
-     String id, 
-     Boolean requested, 
-     String verificationStatus
-  ) {
-    this();
+  public SupportingEntityCapability allowed(Boolean allowed) {
     this.allowed = allowed;
-    this.id = id;
-    this.requested = requested;
-    this.verificationStatus = verificationStatus;
+    return this;
   }
 
    /**
@@ -88,54 +63,99 @@ public class SupportingEntityCapability {
    * @return allowed
   **/
   @ApiModelProperty(value = "Indicates whether the supporting entity capability is allowed.  If a supporting entity is allowed but its parent legal entity is not, it means there are other supporting entities that failed validation.  **The allowed supporting entity can still be used**")
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowed() {
     return allowed;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowed(Boolean allowed) {
+    this.allowed = allowed;
+  }
 
+
+  public SupportingEntityCapability id(String id) {
+    this.id = id;
+    return this;
+  }
 
    /**
    * Supporting entity reference 
    * @return id
   **/
   @ApiModelProperty(value = "Supporting entity reference ")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
+
+  public SupportingEntityCapability requested(Boolean requested) {
+    this.requested = requested;
+    return this;
+  }
 
    /**
    * Indicates whether the supporting entity capability is requested. 
    * @return requested
   **/
   @ApiModelProperty(value = "Indicates whether the supporting entity capability is requested. ")
+  @JsonProperty(JSON_PROPERTY_REQUESTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequested() {
     return requested;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUESTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRequested(Boolean requested) {
+    this.requested = requested;
+  }
 
+
+  public SupportingEntityCapability verificationStatus(String verificationStatus) {
+    this.verificationStatus = verificationStatus;
+    return this;
+  }
 
    /**
    * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    * @return verificationStatus
   **/
   @ApiModelProperty(value = "The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the `errors` array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. ")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getVerificationStatus() {
     return verificationStatus;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationStatus(String verificationStatus) {
+    this.verificationStatus = verificationStatus;
+  }
 
 
-
+  /**
+   * Return true if this SupportingEntityCapability object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -179,105 +199,23 @@ public class SupportingEntityCapability {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed");
-    openapiFields.add("id");
-    openapiFields.add("requested");
-    openapiFields.add("verificationStatus");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of SupportingEntityCapability given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SupportingEntityCapability
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SupportingEntityCapability
+   */
+  public static SupportingEntityCapability fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SupportingEntityCapability.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(SupportingEntityCapability.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SupportingEntityCapability
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SupportingEntityCapability.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SupportingEntityCapability is not found in the empty JSON string", SupportingEntityCapability.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!SupportingEntityCapability.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `SupportingEntityCapability` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field verificationStatus
-      if (jsonObj.get("verificationStatus") != null && !jsonObj.get("verificationStatus").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `verificationStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationStatus").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SupportingEntityCapability.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SupportingEntityCapability' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SupportingEntityCapability> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SupportingEntityCapability.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SupportingEntityCapability>() {
-           @Override
-           public void write(JsonWriter out, SupportingEntityCapability value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SupportingEntityCapability read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SupportingEntityCapability given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SupportingEntityCapability
-  * @throws IOException if the JSON string is invalid with respect to SupportingEntityCapability
-  */
-  public static SupportingEntityCapability fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SupportingEntityCapability.class);
-  }
-
- /**
+/**
   * Convert an instance of SupportingEntityCapability to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -14,72 +14,54 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * IdentificationData
  */
+@JsonPropertyOrder({
+  IdentificationData.JSON_PROPERTY_CARD_NUMBER,
+  IdentificationData.JSON_PROPERTY_EXPIRY_DATE,
+  IdentificationData.JSON_PROPERTY_ISSUER_COUNTRY,
+  IdentificationData.JSON_PROPERTY_ISSUER_STATE,
+  IdentificationData.JSON_PROPERTY_NATIONAL_ID_EXEMPT,
+  IdentificationData.JSON_PROPERTY_NUMBER,
+  IdentificationData.JSON_PROPERTY_TYPE
+})
 
 public class IdentificationData {
-  public static final String SERIALIZED_NAME_CARD_NUMBER = "cardNumber";
-  @SerializedName(SERIALIZED_NAME_CARD_NUMBER)
+  public static final String JSON_PROPERTY_CARD_NUMBER = "cardNumber";
   private String cardNumber;
 
-  public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
+  public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
   private String expiryDate;
 
-  public static final String SERIALIZED_NAME_ISSUER_COUNTRY = "issuerCountry";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_ISSUER_COUNTRY)
+  public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
   private String issuerCountry;
 
-  public static final String SERIALIZED_NAME_ISSUER_STATE = "issuerState";
-  @SerializedName(SERIALIZED_NAME_ISSUER_STATE)
+  public static final String JSON_PROPERTY_ISSUER_STATE = "issuerState";
   private String issuerState;
 
-  public static final String SERIALIZED_NAME_NATIONAL_ID_EXEMPT = "nationalIdExempt";
-  @SerializedName(SERIALIZED_NAME_NATIONAL_ID_EXEMPT)
+  public static final String JSON_PROPERTY_NATIONAL_ID_EXEMPT = "nationalIdExempt";
   private Boolean nationalIdExempt;
 
-  public static final String SERIALIZED_NAME_NUMBER = "number";
-  @SerializedName(SERIALIZED_NAME_NUMBER)
+  public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
 
   /**
-   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the &#x60;type&#x60; values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading photo IDs: * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, or **passport**.  When uploading other documents: * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BANKSTATEMENT("bankStatement"),
     
@@ -115,6 +97,7 @@ public class IdentificationData {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -124,6 +107,7 @@ public class IdentificationData {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -132,30 +116,15 @@ public class IdentificationData {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public IdentificationData() { 
   }
 
   public IdentificationData cardNumber(String cardNumber) {
-    
     this.cardNumber = cardNumber;
     return this;
   }
@@ -165,20 +134,22 @@ public class IdentificationData {
    * @return cardNumber
   **/
   @ApiModelProperty(value = "The card number of the document that was issued (AU only).")
+  @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCardNumber() {
     return cardNumber;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
   }
 
 
-  @Deprecated
   public IdentificationData expiryDate(String expiryDate) {
-    
     this.expiryDate = expiryDate;
     return this;
   }
@@ -190,6 +161,8 @@ public class IdentificationData {
   **/
   @Deprecated
   @ApiModelProperty(value = "The expiry date of the document, in YYYY-MM-DD format.")
+  @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpiryDate() {
     return expiryDate;
@@ -197,14 +170,14 @@ public class IdentificationData {
 
 
   @Deprecated
+  @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
   }
 
 
-  @Deprecated
   public IdentificationData issuerCountry(String issuerCountry) {
-    
     this.issuerCountry = issuerCountry;
     return this;
   }
@@ -216,6 +189,8 @@ public class IdentificationData {
   **/
   @Deprecated
   @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.")
+  @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuerCountry() {
     return issuerCountry;
@@ -223,13 +198,14 @@ public class IdentificationData {
 
 
   @Deprecated
+  @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
   }
 
 
   public IdentificationData issuerState(String issuerState) {
-    
     this.issuerState = issuerState;
     return this;
   }
@@ -239,19 +215,22 @@ public class IdentificationData {
    * @return issuerState
   **/
   @ApiModelProperty(value = "The state or province where the document was issued (AU only).")
+  @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuerState() {
     return issuerState;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerState(String issuerState) {
     this.issuerState = issuerState;
   }
 
 
   public IdentificationData nationalIdExempt(Boolean nationalIdExempt) {
-    
     this.nationalIdExempt = nationalIdExempt;
     return this;
   }
@@ -261,19 +240,22 @@ public class IdentificationData {
    * @return nationalIdExempt
   **/
   @ApiModelProperty(value = "Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.")
+  @JsonProperty(JSON_PROPERTY_NATIONAL_ID_EXEMPT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getNationalIdExempt() {
     return nationalIdExempt;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NATIONAL_ID_EXEMPT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationalIdExempt(Boolean nationalIdExempt) {
     this.nationalIdExempt = nationalIdExempt;
   }
 
 
   public IdentificationData number(String number) {
-    
     this.number = number;
     return this;
   }
@@ -283,40 +265,49 @@ public class IdentificationData {
    * @return number
   **/
   @ApiModelProperty(value = "The number in the document.")
+  @JsonProperty(JSON_PROPERTY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNumber() {
     return number;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
   }
 
 
   public IdentificationData type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
 
    /**
-   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the &#x60;type&#x60; values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading photo IDs: * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, or **passport**.  When uploading other documents: * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the `type` values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading photo IDs: * For **individual**, the `type` values can be **identityCard**, **driversLicense**, or **passport**.  When uploading other documents: * For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
+  @ApiModelProperty(required = true, value = "Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this IdentificationData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -366,135 +357,23 @@ public class IdentificationData {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cardNumber");
-    openapiFields.add("expiryDate");
-    openapiFields.add("issuerCountry");
-    openapiFields.add("issuerState");
-    openapiFields.add("nationalIdExempt");
-    openapiFields.add("number");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of IdentificationData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of IdentificationData
+   * @throws JsonProcessingException if the JSON string is invalid with respect to IdentificationData
+   */
+  public static IdentificationData fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, IdentificationData.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(IdentificationData.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to IdentificationData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (IdentificationData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IdentificationData is not found in the empty JSON string", IdentificationData.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!IdentificationData.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `IdentificationData` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : IdentificationData.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field cardNumber
-      if (jsonObj.get("cardNumber") != null && !jsonObj.get("cardNumber").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `cardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardNumber").toString()));
-      }
-      // validate the optional field expiryDate
-      if (jsonObj.get("expiryDate") != null && !jsonObj.get("expiryDate").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `expiryDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryDate").toString()));
-      }
-      // validate the optional field issuerCountry
-      if (jsonObj.get("issuerCountry") != null && !jsonObj.get("issuerCountry").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuerCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerCountry").toString()));
-      }
-      // validate the optional field issuerState
-      if (jsonObj.get("issuerState") != null && !jsonObj.get("issuerState").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuerState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerState").toString()));
-      }
-      // validate the optional field number
-      if (jsonObj.get("number") != null && !jsonObj.get("number").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!IdentificationData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IdentificationData' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<IdentificationData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(IdentificationData.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<IdentificationData>() {
-           @Override
-           public void write(JsonWriter out, IdentificationData value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public IdentificationData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of IdentificationData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of IdentificationData
-  * @throws IOException if the JSON string is invalid with respect to IdentificationData
-  */
-  public static IdentificationData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, IdentificationData.class);
-  }
-
- /**
+/**
   * Convert an instance of IdentificationData to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

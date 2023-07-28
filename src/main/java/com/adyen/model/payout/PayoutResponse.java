@@ -14,91 +14,75 @@ package com.adyen.model.payout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.payout.Amount;
 import com.adyen.model.payout.FraudResult;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payout.JSON;
 
 /**
  * PayoutResponse
  */
+@JsonPropertyOrder({
+  PayoutResponse.JSON_PROPERTY_ADDITIONAL_DATA,
+  PayoutResponse.JSON_PROPERTY_AUTH_CODE,
+  PayoutResponse.JSON_PROPERTY_DCC_AMOUNT,
+  PayoutResponse.JSON_PROPERTY_DCC_SIGNATURE,
+  PayoutResponse.JSON_PROPERTY_FRAUD_RESULT,
+  PayoutResponse.JSON_PROPERTY_ISSUER_URL,
+  PayoutResponse.JSON_PROPERTY_MD,
+  PayoutResponse.JSON_PROPERTY_PA_REQUEST,
+  PayoutResponse.JSON_PROPERTY_PSP_REFERENCE,
+  PayoutResponse.JSON_PROPERTY_REFUSAL_REASON,
+  PayoutResponse.JSON_PROPERTY_RESULT_CODE
+})
 
 public class PayoutResponse {
-  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
+  public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
-  public static final String SERIALIZED_NAME_AUTH_CODE = "authCode";
-  @SerializedName(SERIALIZED_NAME_AUTH_CODE)
+  public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
   private String authCode;
 
-  public static final String SERIALIZED_NAME_DCC_AMOUNT = "dccAmount";
-  @SerializedName(SERIALIZED_NAME_DCC_AMOUNT)
+  public static final String JSON_PROPERTY_DCC_AMOUNT = "dccAmount";
   private Amount dccAmount;
 
-  public static final String SERIALIZED_NAME_DCC_SIGNATURE = "dccSignature";
-  @SerializedName(SERIALIZED_NAME_DCC_SIGNATURE)
+  public static final String JSON_PROPERTY_DCC_SIGNATURE = "dccSignature";
   private String dccSignature;
 
-  public static final String SERIALIZED_NAME_FRAUD_RESULT = "fraudResult";
-  @SerializedName(SERIALIZED_NAME_FRAUD_RESULT)
+  public static final String JSON_PROPERTY_FRAUD_RESULT = "fraudResult";
   private FraudResult fraudResult;
 
-  public static final String SERIALIZED_NAME_ISSUER_URL = "issuerUrl";
-  @SerializedName(SERIALIZED_NAME_ISSUER_URL)
+  public static final String JSON_PROPERTY_ISSUER_URL = "issuerUrl";
   private String issuerUrl;
 
-  public static final String SERIALIZED_NAME_MD = "md";
-  @SerializedName(SERIALIZED_NAME_MD)
+  public static final String JSON_PROPERTY_MD = "md";
   private String md;
 
-  public static final String SERIALIZED_NAME_PA_REQUEST = "paRequest";
-  @SerializedName(SERIALIZED_NAME_PA_REQUEST)
+  public static final String JSON_PROPERTY_PA_REQUEST = "paRequest";
   private String paRequest;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_REFUSAL_REASON = "refusalReason";
-  @SerializedName(SERIALIZED_NAME_REFUSAL_REASON)
+  public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
 
   /**
-   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
+   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    */
-  @JsonAdapter(ResultCodeEnum.Adapter.class)
   public enum ResultCodeEnum {
     AUTHENTICATIONFINISHED("AuthenticationFinished"),
     
@@ -113,6 +97,8 @@ public class PayoutResponse {
     ERROR("Error"),
     
     IDENTIFYSHOPPER("IdentifyShopper"),
+    
+    PARTIALLYAUTHORISED("PartiallyAuthorised"),
     
     PENDING("Pending"),
     
@@ -132,6 +118,7 @@ public class PayoutResponse {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -141,6 +128,7 @@ public class PayoutResponse {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ResultCodeEnum fromValue(String value) {
       for (ResultCodeEnum b : ResultCodeEnum.values()) {
         if (b.value.equals(value)) {
@@ -149,30 +137,15 @@ public class PayoutResponse {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ResultCodeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ResultCodeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ResultCodeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ResultCodeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_RESULT_CODE = "resultCode";
-  @SerializedName(SERIALIZED_NAME_RESULT_CODE)
+  public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
   public PayoutResponse() { 
   }
 
   public PayoutResponse additionalData(Map<String, String> additionalData) {
-    
     this.additionalData = additionalData;
     return this;
   }
@@ -190,19 +163,22 @@ public class PayoutResponse {
    * @return additionalData
   **/
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
 
   public PayoutResponse authCode(String authCode) {
-    
     this.authCode = authCode;
     return this;
   }
@@ -212,19 +188,22 @@ public class PayoutResponse {
    * @return authCode
   **/
   @ApiModelProperty(value = "Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.")
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAuthCode() {
     return authCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
     this.authCode = authCode;
   }
 
 
   public PayoutResponse dccAmount(Amount dccAmount) {
-    
     this.dccAmount = dccAmount;
     return this;
   }
@@ -234,19 +213,22 @@ public class PayoutResponse {
    * @return dccAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DCC_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getDccAmount() {
     return dccAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DCC_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccAmount(Amount dccAmount) {
     this.dccAmount = dccAmount;
   }
 
 
   public PayoutResponse dccSignature(String dccSignature) {
-    
     this.dccSignature = dccSignature;
     return this;
   }
@@ -256,19 +238,22 @@ public class PayoutResponse {
    * @return dccSignature
   **/
   @ApiModelProperty(value = "Cryptographic signature used to verify `dccQuote`. > This value only applies if you have implemented Dynamic Currency Conversion. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).")
+  @JsonProperty(JSON_PROPERTY_DCC_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDccSignature() {
     return dccSignature;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DCC_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccSignature(String dccSignature) {
     this.dccSignature = dccSignature;
   }
 
 
   public PayoutResponse fraudResult(FraudResult fraudResult) {
-    
     this.fraudResult = fraudResult;
     return this;
   }
@@ -278,19 +263,22 @@ public class PayoutResponse {
    * @return fraudResult
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FraudResult getFraudResult() {
     return fraudResult;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
   }
 
 
   public PayoutResponse issuerUrl(String issuerUrl) {
-    
     this.issuerUrl = issuerUrl;
     return this;
   }
@@ -300,19 +288,22 @@ public class PayoutResponse {
    * @return issuerUrl
   **/
   @ApiModelProperty(value = "The URL to direct the shopper to. > In case of SecurePlus, do not redirect a shopper to this URL.")
+  @JsonProperty(JSON_PROPERTY_ISSUER_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIssuerUrl() {
     return issuerUrl;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ISSUER_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerUrl(String issuerUrl) {
     this.issuerUrl = issuerUrl;
   }
 
 
   public PayoutResponse md(String md) {
-    
     this.md = md;
     return this;
   }
@@ -322,19 +313,22 @@ public class PayoutResponse {
    * @return md
   **/
   @ApiModelProperty(value = "The payment session.")
+  @JsonProperty(JSON_PROPERTY_MD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMd() {
     return md;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMd(String md) {
     this.md = md;
   }
 
 
   public PayoutResponse paRequest(String paRequest) {
-    
     this.paRequest = paRequest;
     return this;
   }
@@ -344,19 +338,22 @@ public class PayoutResponse {
    * @return paRequest
   **/
   @ApiModelProperty(value = "The 3D request data for the issuer.  If the value is **CUPSecurePlus-CollectSMSVerificationCode**, collect an SMS code from the shopper and pass it in the `/authorise3D` request. For more information, see [3D Secure](https://docs.adyen.com/classic-integration/3d-secure).")
+  @JsonProperty(JSON_PROPERTY_PA_REQUEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPaRequest() {
     return paRequest;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PA_REQUEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaRequest(String paRequest) {
     this.paRequest = paRequest;
   }
 
 
   public PayoutResponse pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -366,19 +363,22 @@ public class PayoutResponse {
    * @return pspReference
   **/
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public PayoutResponse refusalReason(String refusalReason) {
-    
     this.refusalReason = refusalReason;
     return this;
   }
@@ -388,40 +388,49 @@ public class PayoutResponse {
    * @return refusalReason
   **/
   @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRefusalReason() {
     return refusalReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
 
 
   public PayoutResponse resultCode(ResultCodeEnum resultCode) {
-    
     this.resultCode = resultCode;
     return this;
   }
 
    /**
-   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
+   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    * @return resultCode
   **/
-  @ApiModelProperty(value = "The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state.")
+  @ApiModelProperty(value = "The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state.")
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }
 
 
-
+  /**
+   * Return true if this PayoutResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -479,147 +488,23 @@ public class PayoutResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("additionalData");
-    openapiFields.add("authCode");
-    openapiFields.add("dccAmount");
-    openapiFields.add("dccSignature");
-    openapiFields.add("fraudResult");
-    openapiFields.add("issuerUrl");
-    openapiFields.add("md");
-    openapiFields.add("paRequest");
-    openapiFields.add("pspReference");
-    openapiFields.add("refusalReason");
-    openapiFields.add("resultCode");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of PayoutResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PayoutResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PayoutResponse
+   */
+  public static PayoutResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PayoutResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(PayoutResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PayoutResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PayoutResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PayoutResponse is not found in the empty JSON string", PayoutResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PayoutResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `PayoutResponse` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field authCode
-      if (jsonObj.get("authCode") != null && !jsonObj.get("authCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `authCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authCode").toString()));
-      }
-      // validate the optional field `dccAmount`
-      if (jsonObj.getAsJsonObject("dccAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("dccAmount"));
-      }
-      // validate the optional field dccSignature
-      if (jsonObj.get("dccSignature") != null && !jsonObj.get("dccSignature").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `dccSignature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dccSignature").toString()));
-      }
-      // validate the optional field `fraudResult`
-      if (jsonObj.getAsJsonObject("fraudResult") != null) {
-        FraudResult.validateJsonObject(jsonObj.getAsJsonObject("fraudResult"));
-      }
-      // validate the optional field issuerUrl
-      if (jsonObj.get("issuerUrl") != null && !jsonObj.get("issuerUrl").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `issuerUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerUrl").toString()));
-      }
-      // validate the optional field md
-      if (jsonObj.get("md") != null && !jsonObj.get("md").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `md` to be a primitive type in the JSON string but got `%s`", jsonObj.get("md").toString()));
-      }
-      // validate the optional field paRequest
-      if (jsonObj.get("paRequest") != null && !jsonObj.get("paRequest").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `paRequest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paRequest").toString()));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field refusalReason
-      if (jsonObj.get("refusalReason") != null && !jsonObj.get("refusalReason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `refusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReason").toString()));
-      }
-      // ensure the field resultCode can be parsed to an enum value
-      if (jsonObj.get("resultCode") != null) {
-        if(!jsonObj.get("resultCode").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
-        }
-        ResultCodeEnum.fromValue(jsonObj.get("resultCode").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PayoutResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PayoutResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PayoutResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PayoutResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PayoutResponse>() {
-           @Override
-           public void write(JsonWriter out, PayoutResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PayoutResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of PayoutResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PayoutResponse
-  * @throws IOException if the JSON string is invalid with respect to PayoutResponse
-  */
-  public static PayoutResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PayoutResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of PayoutResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

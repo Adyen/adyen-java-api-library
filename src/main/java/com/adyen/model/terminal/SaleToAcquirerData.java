@@ -32,6 +32,7 @@ import org.apache.commons.codec.binary.Base64;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.SerializedName;
 
 public class SaleToAcquirerData {
 
@@ -50,6 +51,7 @@ public class SaleToAcquirerData {
     private Map<String, String> additionalData;
     private String authorisationType;
     private String ssc;
+    private RecurringProcessingModelEnum recurringProcessingModel;
     private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public SaleToAcquirerData() {
@@ -167,6 +169,37 @@ public class SaleToAcquirerData {
     public void setAuthorisationType(String authorisationType) {
         this.authorisationType = authorisationType;
     }
+    
+
+    /**
+     * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. 
+     */
+    public enum RecurringProcessingModelEnum {
+        @SerializedName("Subscription") SUBSCRIPTION("Subscription"),
+
+        @SerializedName("CardOnFile") CARD_ON_FILE("CardOnFile"),
+
+        @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
+
+        private String value;
+
+        RecurringProcessingModelEnum(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+    }
+
+    public RecurringProcessingModelEnum getRecurringProcessingModel() {
+        return this.recurringProcessingModel;
+    }
+
+    public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+        this.recurringProcessingModel = recurringProcessingModel;
+    }
 
     public String getSsc() {
         return ssc;
@@ -201,12 +234,13 @@ public class SaleToAcquirerData {
                 Objects.equals(tenderOption, that.tenderOption) &&
                 Objects.equals(additionalData, that.additionalData) &&
                 Objects.equals(authorisationType, that.authorisationType) &&
-                Objects.equals(ssc, that.ssc);
+                Objects.equals(ssc, that.ssc) &&
+                Objects.equals(recurringProcessingModel, that.recurringProcessingModel);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData, authorisationType, ssc);
+        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData, authorisationType, ssc, recurringProcessingModel);
     }
 
     @Override
@@ -227,6 +261,7 @@ public class SaleToAcquirerData {
                 ", additionalData=" + additionalData +
                 ", authorisationType=" + authorisationType +
                 ", ssc='" + ssc + '\'' +
+                ", recurringProcessingModel=" + recurringProcessingModel +
                 '}';
     }
 

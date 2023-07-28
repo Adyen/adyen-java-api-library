@@ -14,89 +14,75 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.balanceplatform.AccountHolderCapability;
 import com.adyen.model.balanceplatform.ContactDetails;
 import com.adyen.model.balanceplatform.VerificationDeadline;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * AccountHolder
  */
+@JsonPropertyOrder({
+  AccountHolder.JSON_PROPERTY_BALANCE_PLATFORM,
+  AccountHolder.JSON_PROPERTY_CAPABILITIES,
+  AccountHolder.JSON_PROPERTY_CONTACT_DETAILS,
+  AccountHolder.JSON_PROPERTY_DESCRIPTION,
+  AccountHolder.JSON_PROPERTY_ID,
+  AccountHolder.JSON_PROPERTY_LEGAL_ENTITY_ID,
+  AccountHolder.JSON_PROPERTY_METADATA,
+  AccountHolder.JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT,
+  AccountHolder.JSON_PROPERTY_REFERENCE,
+  AccountHolder.JSON_PROPERTY_STATUS,
+  AccountHolder.JSON_PROPERTY_TIME_ZONE,
+  AccountHolder.JSON_PROPERTY_VERIFICATION_DEADLINES
+})
 
 public class AccountHolder {
-  public static final String SERIALIZED_NAME_BALANCE_PLATFORM = "balancePlatform";
-  @SerializedName(SERIALIZED_NAME_BALANCE_PLATFORM)
+  public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
-  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
-  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
+  public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, AccountHolderCapability> capabilities = null;
 
-  public static final String SERIALIZED_NAME_CONTACT_DETAILS = "contactDetails";
-  @SerializedName(SERIALIZED_NAME_CONTACT_DETAILS)
+  public static final String JSON_PROPERTY_CONTACT_DETAILS = "contactDetails";
   private ContactDetails contactDetails;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_LEGAL_ENTITY_ID = "legalEntityId";
-  @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_ID)
+  public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
 
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
+  public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
 
-  public static final String SERIALIZED_NAME_PRIMARY_BALANCE_ACCOUNT = "primaryBalanceAccount";
-  @SerializedName(SERIALIZED_NAME_PRIMARY_BALANCE_ACCOUNT)
+  public static final String JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT = "primaryBalanceAccount";
   private String primaryBalanceAccount;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
   /**
    * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     ACTIVE("active"),
     
@@ -112,6 +98,7 @@ public class AccountHolder {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -121,6 +108,7 @@ public class AccountHolder {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -129,48 +117,21 @@ public class AccountHolder {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_TIME_ZONE = "timeZone";
-  @SerializedName(SERIALIZED_NAME_TIME_ZONE)
+  public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
   private String timeZone;
 
-  public static final String SERIALIZED_NAME_VERIFICATION_DEADLINES = "verificationDeadlines";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_DEADLINES)
+  public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
   private List<VerificationDeadline> verificationDeadlines = null;
 
   public AccountHolder() { 
   }
 
-  
-  public AccountHolder(
-     String id, 
-     List<VerificationDeadline> verificationDeadlines
-  ) {
-    this();
-    this.id = id;
-    this.verificationDeadlines = verificationDeadlines;
-  }
-
   public AccountHolder balancePlatform(String balancePlatform) {
-    
     this.balancePlatform = balancePlatform;
     return this;
   }
@@ -180,19 +141,22 @@ public class AccountHolder {
    * @return balancePlatform
   **/
   @ApiModelProperty(value = "The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.")
+  @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
 
   public AccountHolder capabilities(Map<String, AccountHolderCapability> capabilities) {
-    
     this.capabilities = capabilities;
     return this;
   }
@@ -210,19 +174,22 @@ public class AccountHolder {
    * @return capabilities
   **/
   @ApiModelProperty(value = "Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.")
+  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, AccountHolderCapability> getCapabilities() {
     return capabilities;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountHolderCapability> capabilities) {
     this.capabilities = capabilities;
   }
 
 
   public AccountHolder contactDetails(ContactDetails contactDetails) {
-    
     this.contactDetails = contactDetails;
     return this;
   }
@@ -232,19 +199,22 @@ public class AccountHolder {
    * @return contactDetails
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ContactDetails getContactDetails() {
     return contactDetails;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
   }
 
 
   public AccountHolder description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -254,32 +224,47 @@ public class AccountHolder {
    * @return description
   **/
   @ApiModelProperty(value = "Your description for the account holder, maximum 300 characters.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
+
+  public AccountHolder id(String id) {
+    this.id = id;
+    return this;
+  }
 
    /**
    * The unique identifier of the account holder.
    * @return id
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the account holder.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public AccountHolder legalEntityId(String legalEntityId) {
-    
     this.legalEntityId = legalEntityId;
     return this;
   }
@@ -289,19 +274,22 @@ public class AccountHolder {
    * @return legalEntityId
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.")
+  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLegalEntityId() {
     return legalEntityId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
 
 
   public AccountHolder metadata(Map<String, String> metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -319,19 +307,22 @@ public class AccountHolder {
    * @return metadata
   **/
   @ApiModelProperty(value = "A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getMetadata() {
     return metadata;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
 
   public AccountHolder primaryBalanceAccount(String primaryBalanceAccount) {
-    
     this.primaryBalanceAccount = primaryBalanceAccount;
     return this;
   }
@@ -341,19 +332,22 @@ public class AccountHolder {
    * @return primaryBalanceAccount
   **/
   @ApiModelProperty(value = "The ID of the account holder's primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.")
+  @JsonProperty(JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPrimaryBalanceAccount() {
     return primaryBalanceAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryBalanceAccount(String primaryBalanceAccount) {
     this.primaryBalanceAccount = primaryBalanceAccount;
   }
 
 
   public AccountHolder reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -363,19 +357,22 @@ public class AccountHolder {
    * @return reference
   **/
   @ApiModelProperty(value = "Your reference for the account holder, maximum 150 characters.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public AccountHolder status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -385,19 +382,22 @@ public class AccountHolder {
    * @return status
   **/
   @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
   public AccountHolder timeZone(String timeZone) {
-    
     this.timeZone = timeZone;
     return this;
   }
@@ -407,31 +407,57 @@ public class AccountHolder {
    * @return timeZone
   **/
   @ApiModelProperty(value = "The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTimeZone() {
     return timeZone;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
   }
 
+
+  public AccountHolder verificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+    this.verificationDeadlines = verificationDeadlines;
+    return this;
+  }
+
+  public AccountHolder addVerificationDeadlinesItem(VerificationDeadline verificationDeadlinesItem) {
+    if (this.verificationDeadlines == null) {
+      this.verificationDeadlines = new ArrayList<>();
+    }
+    this.verificationDeadlines.add(verificationDeadlinesItem);
+    return this;
+  }
 
    /**
    * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
    * @return verificationDeadlines
   **/
   @ApiModelProperty(value = "List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<VerificationDeadline> getVerificationDeadlines() {
     return verificationDeadlines;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+    this.verificationDeadlines = verificationDeadlines;
+  }
 
 
-
+  /**
+   * Return true if this AccountHolder object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -491,166 +517,23 @@ public class AccountHolder {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("balancePlatform");
-    openapiFields.add("capabilities");
-    openapiFields.add("contactDetails");
-    openapiFields.add("description");
-    openapiFields.add("id");
-    openapiFields.add("legalEntityId");
-    openapiFields.add("metadata");
-    openapiFields.add("primaryBalanceAccount");
-    openapiFields.add("reference");
-    openapiFields.add("status");
-    openapiFields.add("timeZone");
-    openapiFields.add("verificationDeadlines");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("legalEntityId");
+/**
+   * Create an instance of AccountHolder given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AccountHolder
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AccountHolder
+   */
+  public static AccountHolder fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AccountHolder.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to AccountHolder
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (AccountHolder.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountHolder is not found in the empty JSON string", AccountHolder.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!AccountHolder.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountHolder` properties.", entry.getKey()));
-            }
-          }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AccountHolder.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field balancePlatform
-      if (jsonObj.get("balancePlatform") != null && !jsonObj.get("balancePlatform").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `balancePlatform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balancePlatform").toString()));
-      }
-      // validate the optional field `contactDetails`
-      if (jsonObj.getAsJsonObject("contactDetails") != null) {
-        ContactDetails.validateJsonObject(jsonObj.getAsJsonObject("contactDetails"));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field legalEntityId
-      if (jsonObj.get("legalEntityId") != null && !jsonObj.get("legalEntityId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `legalEntityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("legalEntityId").toString()));
-      }
-      // validate the optional field primaryBalanceAccount
-      if (jsonObj.get("primaryBalanceAccount") != null && !jsonObj.get("primaryBalanceAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `primaryBalanceAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("primaryBalanceAccount").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-      // validate the optional field timeZone
-      if (jsonObj.get("timeZone") != null && !jsonObj.get("timeZone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `timeZone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZone").toString()));
-      }
-      JsonArray jsonArrayverificationDeadlines = jsonObj.getAsJsonArray("verificationDeadlines");
-      if (jsonArrayverificationDeadlines != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("verificationDeadlines").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `verificationDeadlines` to be an array in the JSON string but got `%s`", jsonObj.get("verificationDeadlines").toString()));
-        }
-
-        // validate the optional field `verificationDeadlines` (array)
-        for (int i = 0; i < jsonArrayverificationDeadlines.size(); i++) {
-          VerificationDeadline.validateJsonObject(jsonArrayverificationDeadlines.get(i).getAsJsonObject());
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AccountHolder.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AccountHolder' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AccountHolder> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AccountHolder.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AccountHolder>() {
-           @Override
-           public void write(JsonWriter out, AccountHolder value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AccountHolder read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AccountHolder given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AccountHolder
-  * @throws IOException if the JSON string is invalid with respect to AccountHolder
-  */
-  public static AccountHolder fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AccountHolder.class);
-  }
-
- /**
+/**
   * Convert an instance of AccountHolder to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

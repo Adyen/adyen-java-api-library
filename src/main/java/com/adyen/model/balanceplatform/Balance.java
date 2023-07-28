@@ -14,63 +14,46 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * Balance
  */
+@JsonPropertyOrder({
+  Balance.JSON_PROPERTY_AVAILABLE,
+  Balance.JSON_PROPERTY_BALANCE,
+  Balance.JSON_PROPERTY_CURRENCY,
+  Balance.JSON_PROPERTY_RESERVED
+})
 
 public class Balance {
-  public static final String SERIALIZED_NAME_AVAILABLE = "available";
-  @SerializedName(SERIALIZED_NAME_AVAILABLE)
+  public static final String JSON_PROPERTY_AVAILABLE = "available";
   private Long available;
 
-  public static final String SERIALIZED_NAME_BALANCE = "balance";
-  @SerializedName(SERIALIZED_NAME_BALANCE)
+  public static final String JSON_PROPERTY_BALANCE = "balance";
   private Long balance;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
-  public static final String SERIALIZED_NAME_RESERVED = "reserved";
-  @SerializedName(SERIALIZED_NAME_RESERVED)
+  public static final String JSON_PROPERTY_RESERVED = "reserved";
   private Long reserved;
 
   public Balance() { 
   }
 
   public Balance available(Long available) {
-    
     this.available = available;
     return this;
   }
@@ -80,19 +63,22 @@ public class Balance {
    * @return available
   **/
   @ApiModelProperty(required = true, value = "The remaining amount available for spending.")
+  @JsonProperty(JSON_PROPERTY_AVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getAvailable() {
     return available;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Long available) {
     this.available = available;
   }
 
 
   public Balance balance(Long balance) {
-    
     this.balance = balance;
     return this;
   }
@@ -102,19 +88,22 @@ public class Balance {
    * @return balance
   **/
   @ApiModelProperty(required = true, value = "The total amount in the balance.")
+  @JsonProperty(JSON_PROPERTY_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getBalance() {
     return balance;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
     this.balance = balance;
   }
 
 
   public Balance currency(String currency) {
-    
     this.currency = currency;
     return this;
   }
@@ -124,19 +113,22 @@ public class Balance {
    * @return currency
   **/
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCurrency() {
     return currency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
 
   public Balance reserved(Long reserved) {
-    
     this.reserved = reserved;
     return this;
   }
@@ -146,18 +138,24 @@ public class Balance {
    * @return reserved
   **/
   @ApiModelProperty(required = true, value = "The amount reserved for payments that have been authorised, but have not been captured yet.")
+  @JsonProperty(JSON_PROPERTY_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getReserved() {
     return reserved;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
     this.reserved = reserved;
   }
 
 
-
+  /**
+   * Return true if this Balance object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,113 +199,23 @@ public class Balance {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("available");
-    openapiFields.add("balance");
-    openapiFields.add("currency");
-    openapiFields.add("reserved");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("available");
-    openapiRequiredFields.add("balance");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("reserved");
+/**
+   * Create an instance of Balance given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Balance
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Balance
+   */
+  public static Balance fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Balance.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to Balance
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (Balance.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Balance is not found in the empty JSON string", Balance.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!Balance.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Balance` properties.", entry.getKey()));
-            }
-          }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Balance.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field currency
-      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Balance.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Balance' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Balance> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Balance.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Balance>() {
-           @Override
-           public void write(JsonWriter out, Balance value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Balance read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of Balance given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Balance
-  * @throws IOException if the JSON string is invalid with respect to Balance
-  */
-  public static Balance fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Balance.class);
-  }
-
- /**
+/**
   * Convert an instance of Balance to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

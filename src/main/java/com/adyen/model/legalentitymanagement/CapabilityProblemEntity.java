@@ -14,61 +14,45 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.CapabilityProblemEntityRecursive;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * CapabilityProblemEntity
  */
+@JsonPropertyOrder({
+  CapabilityProblemEntity.JSON_PROPERTY_DOCUMENTS,
+  CapabilityProblemEntity.JSON_PROPERTY_ID,
+  CapabilityProblemEntity.JSON_PROPERTY_OWNER,
+  CapabilityProblemEntity.JSON_PROPERTY_TYPE
+})
 
 public class CapabilityProblemEntity {
-  public static final String SERIALIZED_NAME_DOCUMENTS = "documents";
-  @SerializedName(SERIALIZED_NAME_DOCUMENTS)
+  public static final String JSON_PROPERTY_DOCUMENTS = "documents";
   private List<String> documents = null;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_OWNER = "owner";
-  @SerializedName(SERIALIZED_NAME_OWNER)
+  public static final String JSON_PROPERTY_OWNER = "owner";
   private CapabilityProblemEntityRecursive owner;
 
   /**
    * Gets or Sets type
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BANKACCOUNT("BankAccount"),
     
@@ -84,6 +68,7 @@ public class CapabilityProblemEntity {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -93,6 +78,7 @@ public class CapabilityProblemEntity {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -101,30 +87,15 @@ public class CapabilityProblemEntity {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public CapabilityProblemEntity() { 
   }
 
   public CapabilityProblemEntity documents(List<String> documents) {
-    
     this.documents = documents;
     return this;
   }
@@ -142,19 +113,22 @@ public class CapabilityProblemEntity {
    * @return documents
   **/
   @ApiModelProperty(value = "List of document IDs corresponding to the verification errors from capabilities.")
+  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getDocuments() {
     return documents;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
     this.documents = documents;
   }
 
 
   public CapabilityProblemEntity id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -164,19 +138,22 @@ public class CapabilityProblemEntity {
    * @return id
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public CapabilityProblemEntity owner(CapabilityProblemEntityRecursive owner) {
-    
     this.owner = owner;
     return this;
   }
@@ -186,19 +163,22 @@ public class CapabilityProblemEntity {
    * @return owner
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OWNER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CapabilityProblemEntityRecursive getOwner() {
     return owner;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OWNER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwner(CapabilityProblemEntityRecursive owner) {
     this.owner = owner;
   }
 
 
   public CapabilityProblemEntity type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -208,18 +188,24 @@ public class CapabilityProblemEntity {
    * @return type
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this CapabilityProblemEntity object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -263,116 +249,23 @@ public class CapabilityProblemEntity {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("documents");
-    openapiFields.add("id");
-    openapiFields.add("owner");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of CapabilityProblemEntity given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CapabilityProblemEntity
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CapabilityProblemEntity
+   */
+  public static CapabilityProblemEntity fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CapabilityProblemEntity.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CapabilityProblemEntity.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CapabilityProblemEntity
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CapabilityProblemEntity.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CapabilityProblemEntity is not found in the empty JSON string", CapabilityProblemEntity.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CapabilityProblemEntity.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CapabilityProblemEntity` properties.", entry.getKey()));
-        }
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("documents") != null && !jsonObj.get("documents").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `documents` to be an array in the JSON string but got `%s`", jsonObj.get("documents").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field `owner`
-      if (jsonObj.getAsJsonObject("owner") != null) {
-        CapabilityProblemEntityRecursive.validateJsonObject(jsonObj.getAsJsonObject("owner"));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CapabilityProblemEntity.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CapabilityProblemEntity' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CapabilityProblemEntity> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CapabilityProblemEntity.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CapabilityProblemEntity>() {
-           @Override
-           public void write(JsonWriter out, CapabilityProblemEntity value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CapabilityProblemEntity read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CapabilityProblemEntity given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CapabilityProblemEntity
-  * @throws IOException if the JSON string is invalid with respect to CapabilityProblemEntity
-  */
-  public static CapabilityProblemEntity fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CapabilityProblemEntity.class);
-  }
-
- /**
+/**
   * Convert an instance of CapabilityProblemEntity to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

@@ -15,59 +15,42 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * MerchantDetails
  */
+@JsonPropertyOrder({
+  MerchantDetails.JSON_PROPERTY_COUNTRY_CODE,
+  MerchantDetails.JSON_PROPERTY_ENROLLED_IN3_D_SECURE,
+  MerchantDetails.JSON_PROPERTY_MCC
+})
 
 public class MerchantDetails {
-  public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
-  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
-  public static final String SERIALIZED_NAME_ENROLLED_IN3_D_SECURE = "enrolledIn3DSecure";
-  @SerializedName(SERIALIZED_NAME_ENROLLED_IN3_D_SECURE)
+  public static final String JSON_PROPERTY_ENROLLED_IN3_D_SECURE = "enrolledIn3DSecure";
   private Boolean enrolledIn3DSecure;
 
-  public static final String SERIALIZED_NAME_MCC = "mcc";
-  @SerializedName(SERIALIZED_NAME_MCC)
+  public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
 
   public MerchantDetails() { 
   }
 
   public MerchantDetails countryCode(String countryCode) {
-    
     this.countryCode = countryCode;
     return this;
   }
@@ -77,19 +60,22 @@ public class MerchantDetails {
    * @return countryCode
   **/
   @ApiModelProperty(value = "2-letter ISO 3166 country code of the card acceptor location. > This parameter is required for the merchants who don't use Adyen as the payment authorisation gateway.")
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCountryCode() {
     return countryCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
 
   public MerchantDetails enrolledIn3DSecure(Boolean enrolledIn3DSecure) {
-    
     this.enrolledIn3DSecure = enrolledIn3DSecure;
     return this;
   }
@@ -99,19 +85,22 @@ public class MerchantDetails {
    * @return enrolledIn3DSecure
   **/
   @ApiModelProperty(value = "If true, indicates that the merchant is enrolled in 3D Secure for the card network.")
+  @JsonProperty(JSON_PROPERTY_ENROLLED_IN3_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnrolledIn3DSecure() {
     return enrolledIn3DSecure;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENROLLED_IN3_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnrolledIn3DSecure(Boolean enrolledIn3DSecure) {
     this.enrolledIn3DSecure = enrolledIn3DSecure;
   }
 
 
   public MerchantDetails mcc(String mcc) {
-    
     this.mcc = mcc;
     return this;
   }
@@ -121,18 +110,24 @@ public class MerchantDetails {
    * @return mcc
   **/
   @ApiModelProperty(value = "The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.  The list of MCCs can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).")
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMcc() {
     return mcc;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
 
-
+  /**
+   * Return true if this MerchantDetails object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,104 +169,23 @@ public class MerchantDetails {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("countryCode");
-    openapiFields.add("enrolledIn3DSecure");
-    openapiFields.add("mcc");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of MerchantDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MerchantDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to MerchantDetails
+   */
+  public static MerchantDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, MerchantDetails.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(MerchantDetails.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to MerchantDetails
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (MerchantDetails.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantDetails is not found in the empty JSON string", MerchantDetails.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!MerchantDetails.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `MerchantDetails` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field countryCode
-      if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
-      }
-      // validate the optional field mcc
-      if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MerchantDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MerchantDetails' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MerchantDetails> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MerchantDetails.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<MerchantDetails>() {
-           @Override
-           public void write(JsonWriter out, MerchantDetails value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public MerchantDetails read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of MerchantDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of MerchantDetails
-  * @throws IOException if the JSON string is invalid with respect to MerchantDetails
-  */
-  public static MerchantDetails fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MerchantDetails.class);
-  }
-
- /**
+/**
   * Convert an instance of MerchantDetails to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

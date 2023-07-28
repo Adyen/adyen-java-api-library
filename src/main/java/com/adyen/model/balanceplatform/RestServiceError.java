@@ -14,87 +14,70 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.balanceplatform.InvalidField;
 import com.adyen.model.balanceplatform.JSONObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * RestServiceError
  */
+@JsonPropertyOrder({
+  RestServiceError.JSON_PROPERTY_DETAIL,
+  RestServiceError.JSON_PROPERTY_ERROR_CODE,
+  RestServiceError.JSON_PROPERTY_INSTANCE,
+  RestServiceError.JSON_PROPERTY_INVALID_FIELDS,
+  RestServiceError.JSON_PROPERTY_REQUEST_ID,
+  RestServiceError.JSON_PROPERTY_RESPONSE,
+  RestServiceError.JSON_PROPERTY_STATUS,
+  RestServiceError.JSON_PROPERTY_TITLE,
+  RestServiceError.JSON_PROPERTY_TYPE
+})
 
 public class RestServiceError {
-  public static final String SERIALIZED_NAME_DETAIL = "detail";
-  @SerializedName(SERIALIZED_NAME_DETAIL)
+  public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
 
-  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
-  @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+  public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;
 
-  public static final String SERIALIZED_NAME_INSTANCE = "instance";
-  @SerializedName(SERIALIZED_NAME_INSTANCE)
+  public static final String JSON_PROPERTY_INSTANCE = "instance";
   private String instance;
 
-  public static final String SERIALIZED_NAME_INVALID_FIELDS = "invalidFields";
-  @SerializedName(SERIALIZED_NAME_INVALID_FIELDS)
+  public static final String JSON_PROPERTY_INVALID_FIELDS = "invalidFields";
   private List<InvalidField> invalidFields = null;
 
-  public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
-  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
-  public static final String SERIALIZED_NAME_RESPONSE = "response";
-  @SerializedName(SERIALIZED_NAME_RESPONSE)
+  public static final String JSON_PROPERTY_RESPONSE = "response";
   private JSONObject response;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
 
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
+  public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
   public RestServiceError() { 
   }
 
   public RestServiceError detail(String detail) {
-    
     this.detail = detail;
     return this;
   }
@@ -104,19 +87,22 @@ public class RestServiceError {
    * @return detail
   **/
   @ApiModelProperty(required = true, value = "A human-readable explanation specific to this occurrence of the problem.")
+  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDetail() {
     return detail;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
     this.detail = detail;
   }
 
 
   public RestServiceError errorCode(String errorCode) {
-    
     this.errorCode = errorCode;
     return this;
   }
@@ -126,19 +112,22 @@ public class RestServiceError {
    * @return errorCode
   **/
   @ApiModelProperty(required = true, value = "A code that identifies the problem type.")
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getErrorCode() {
     return errorCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
 
 
   public RestServiceError instance(String instance) {
-    
     this.instance = instance;
     return this;
   }
@@ -148,19 +137,22 @@ public class RestServiceError {
    * @return instance
   **/
   @ApiModelProperty(value = "A unique URI that identifies the specific occurrence of the problem.")
+  @JsonProperty(JSON_PROPERTY_INSTANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstance() {
     return instance;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(String instance) {
     this.instance = instance;
   }
 
 
   public RestServiceError invalidFields(List<InvalidField> invalidFields) {
-    
     this.invalidFields = invalidFields;
     return this;
   }
@@ -178,19 +170,22 @@ public class RestServiceError {
    * @return invalidFields
   **/
   @ApiModelProperty(value = "Detailed explanation of each validation error, when applicable.")
+  @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<InvalidField> getInvalidFields() {
     return invalidFields;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvalidFields(List<InvalidField> invalidFields) {
     this.invalidFields = invalidFields;
   }
 
 
   public RestServiceError requestId(String requestId) {
-    
     this.requestId = requestId;
     return this;
   }
@@ -200,19 +195,22 @@ public class RestServiceError {
    * @return requestId
   **/
   @ApiModelProperty(value = "A unique reference for the request, essentially the same as `pspReference`.")
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestId() {
     return requestId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
 
 
   public RestServiceError response(JSONObject response) {
-    
     this.response = response;
     return this;
   }
@@ -222,19 +220,22 @@ public class RestServiceError {
    * @return response
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public JSONObject getResponse() {
     return response;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(JSONObject response) {
     this.response = response;
   }
 
 
   public RestServiceError status(Integer status) {
-    
     this.status = status;
     return this;
   }
@@ -244,19 +245,22 @@ public class RestServiceError {
    * @return status
   **/
   @ApiModelProperty(required = true, value = "The HTTP status code.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
     this.status = status;
   }
 
 
   public RestServiceError title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -266,19 +270,22 @@ public class RestServiceError {
    * @return title
   **/
   @ApiModelProperty(required = true, value = "A short, human-readable summary of the problem type.")
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
     return title;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
   }
 
 
   public RestServiceError type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -288,18 +295,24 @@ public class RestServiceError {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "A URI that identifies the problem type, pointing to human-readable documentation on this problem type.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this RestServiceError object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -353,155 +366,23 @@ public class RestServiceError {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("detail");
-    openapiFields.add("errorCode");
-    openapiFields.add("instance");
-    openapiFields.add("invalidFields");
-    openapiFields.add("requestId");
-    openapiFields.add("response");
-    openapiFields.add("status");
-    openapiFields.add("title");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("detail");
-    openapiRequiredFields.add("errorCode");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("type");
+/**
+   * Create an instance of RestServiceError given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of RestServiceError
+   * @throws JsonProcessingException if the JSON string is invalid with respect to RestServiceError
+   */
+  public static RestServiceError fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, RestServiceError.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to RestServiceError
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (RestServiceError.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RestServiceError is not found in the empty JSON string", RestServiceError.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!RestServiceError.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RestServiceError` properties.", entry.getKey()));
-            }
-          }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RestServiceError.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field detail
-      if (jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `detail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detail").toString()));
-      }
-      // validate the optional field errorCode
-      if (jsonObj.get("errorCode") != null && !jsonObj.get("errorCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errorCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorCode").toString()));
-      }
-      // validate the optional field instance
-      if (jsonObj.get("instance") != null && !jsonObj.get("instance").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `instance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instance").toString()));
-      }
-      JsonArray jsonArrayinvalidFields = jsonObj.getAsJsonArray("invalidFields");
-      if (jsonArrayinvalidFields != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("invalidFields").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `invalidFields` to be an array in the JSON string but got `%s`", jsonObj.get("invalidFields").toString()));
-        }
-
-        // validate the optional field `invalidFields` (array)
-        for (int i = 0; i < jsonArrayinvalidFields.size(); i++) {
-          InvalidField.validateJsonObject(jsonArrayinvalidFields.get(i).getAsJsonObject());
-        }
-      }
-      // validate the optional field requestId
-      if (jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `requestId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestId").toString()));
-      }
-      // validate the optional field `response`
-      if (jsonObj.getAsJsonObject("response") != null) {
-        JSONObject.validateJsonObject(jsonObj.getAsJsonObject("response"));
-      }
-      // validate the optional field title
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      // validate the optional field type
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RestServiceError.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RestServiceError' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RestServiceError> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RestServiceError.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<RestServiceError>() {
-           @Override
-           public void write(JsonWriter out, RestServiceError value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public RestServiceError read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of RestServiceError given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of RestServiceError
-  * @throws IOException if the JSON string is invalid with respect to RestServiceError
-  */
-  public static RestServiceError fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RestServiceError.class);
-  }
-
- /**
+/**
   * Convert an instance of RestServiceError to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

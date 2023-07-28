@@ -38,8 +38,7 @@ public class Config {
     protected String merchantAccount;
     protected Environment environment;
     protected String endpoint;
-    protected String marketPayEndpoint;
-    protected String balancePlatformEndpoint;
+
     /**
      * Application name: used as HTTP client User-Agent
      */
@@ -56,17 +55,10 @@ public class Config {
     protected String terminalApiLocalEndpoint;
     protected Certificate terminalCertificate;
 
-    //Terminal Management API specific
-    protected String posTerminalManagementApiEndpoint;
-
-    protected String dataProtectionEndpoint;
-
     // Client certificate authentication
     protected KeyStore trustKeyStore;
     protected KeyStore clientKeyStore;
     protected String clientKeyStorePassword;
-    protected String legalEntityManagementEndpoint;
-    protected String managementEndpoint;
     protected String liveEndpointUrlPrefix;
 
     public Config() {
@@ -111,14 +103,6 @@ public class Config {
 
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
-    }
-
-    public String getMarketPayEndpoint() {
-        return marketPayEndpoint;
-    }
-
-    public void setMarketPayEndpoint(String marketPayEndpoint) {
-        this.marketPayEndpoint = marketPayEndpoint;
     }
 
     public String getApplicationName() {
@@ -181,14 +165,6 @@ public class Config {
         this.readTimeoutMillis = readTimeoutMillis;
     }
 
-    public String getPosTerminalManagementApiEndpoint() {
-        return posTerminalManagementApiEndpoint;
-    }
-
-    public void setPosTerminalManagementApiEndpoint(String posTerminalManagementApiEndpoint) {
-        this.posTerminalManagementApiEndpoint = posTerminalManagementApiEndpoint;
-    }
-
     public Certificate getTerminalCertificate() {
         return terminalCertificate;
     }
@@ -205,15 +181,7 @@ public class Config {
         this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificateStream);
     }
 
-    public String getDataProtectionEndpoint() {
-        return dataProtectionEndpoint;
-    }
-
-    public void setDataProtectionEndpoint(String dataProtectionEndpoint) {
-        this.dataProtectionEndpoint = dataProtectionEndpoint;
-    }
-
-    public KeyStore getTrustKeyStore() {
+       public KeyStore getTrustKeyStore() {
         return trustKeyStore;
     }
 
@@ -244,30 +212,6 @@ public class Config {
 
     public void setClientKeyStorePassword(String clientKeyStorePassword) {
         this.clientKeyStorePassword = clientKeyStorePassword;
-    }
-
-    public String getBalancePlatformEndpoint() {
-        return balancePlatformEndpoint;
-    }
-
-    public void setBalancePlatformEndpoint(String balancePlatformEndpoint) {
-        this.balancePlatformEndpoint = balancePlatformEndpoint;
-    }
-
-    public String getLegalManagementEndpoint() {
-        return legalEntityManagementEndpoint;
-    }
-
-    public void setLegalEntityManagementEndpoint(String legalEntityManagementEndpoint) {
-        this.legalEntityManagementEndpoint = legalEntityManagementEndpoint;
-    }
-
-    public String getManagementEndpoint() {
-        return managementEndpoint;
-    }
-
-    public void setManagementEndpoint(String managementEndpoint) {
-        this.managementEndpoint = managementEndpoint;
     }
 
     public String getLiveEndpointUrlPrefix() {
