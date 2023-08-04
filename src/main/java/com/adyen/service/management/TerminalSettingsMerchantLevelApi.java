@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TerminalSettingsMerchantLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public TerminalSettingsMerchantLevelApi(Client client) {
         super(client);

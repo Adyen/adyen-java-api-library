@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlatformApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public PlatformApi(Client client) {
         super(client);

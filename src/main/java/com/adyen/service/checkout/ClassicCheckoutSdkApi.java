@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClassicCheckoutSdkApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public ClassicCheckoutSdkApi(Client client) {
         super(client);

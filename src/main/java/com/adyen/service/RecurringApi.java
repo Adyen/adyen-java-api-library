@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RecurringApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public RecurringApi(Client client) {
         super(client);

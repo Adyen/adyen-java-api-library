@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PayoutSettingsMerchantLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public PayoutSettingsMerchantLevelApi(Client client) {
         super(client);

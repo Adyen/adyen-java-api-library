@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GrantOffersApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public GrantOffersApi(Client client) {
         super(client);

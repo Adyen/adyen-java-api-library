@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BankAccountValidationApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public BankAccountValidationApi(Client client) {
         super(client);

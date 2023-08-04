@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BalanceAccountsApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public BalanceAccountsApi(Client client) {
         super(client);

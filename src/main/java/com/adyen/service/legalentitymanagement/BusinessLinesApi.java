@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BusinessLinesApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public BusinessLinesApi(Client client) {
         super(client);

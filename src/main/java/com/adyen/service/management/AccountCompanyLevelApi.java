@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AccountCompanyLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public AccountCompanyLevelApi(Client client) {
         super(client);

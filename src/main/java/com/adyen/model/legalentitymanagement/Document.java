@@ -56,7 +56,7 @@ public class Document {
   private Attachment attachment;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<Attachment> attachments = new ArrayList<>();
+  private List<Attachment> attachments = null;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
@@ -184,6 +184,9 @@ public class Document {
   }
 
   public Document addAttachmentsItem(Attachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -192,7 +195,7 @@ public class Document {
    * Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    * @return attachments
   **/
-  @ApiModelProperty(required = true, value = "Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.")
+  @ApiModelProperty(value = "Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.")
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -451,7 +454,7 @@ public class Document {
    * Get owner
    * @return owner
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

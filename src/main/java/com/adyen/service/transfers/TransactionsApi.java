@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TransactionsApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public TransactionsApi(Client client) {
         super(client);

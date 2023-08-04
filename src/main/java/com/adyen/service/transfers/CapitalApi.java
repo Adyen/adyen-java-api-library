@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CapitalApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public CapitalApi(Client client) {
         super(client);

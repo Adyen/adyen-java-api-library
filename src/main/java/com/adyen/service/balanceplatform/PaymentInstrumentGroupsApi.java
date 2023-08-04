@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentInstrumentGroupsApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public PaymentInstrumentGroupsApi(Client client) {
         super(client);

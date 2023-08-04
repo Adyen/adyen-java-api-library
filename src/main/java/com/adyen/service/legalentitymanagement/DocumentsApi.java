@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DocumentsApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public DocumentsApi(Client client) {
         super(client);

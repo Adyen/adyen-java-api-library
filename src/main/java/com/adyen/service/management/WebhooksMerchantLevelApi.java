@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WebhooksMerchantLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public WebhooksMerchantLevelApi(Client client) {
         super(client);
