@@ -1,11 +1,7 @@
 package com.adyen;
 
 import com.adyen.constants.ApiConstants;
-import com.adyen.enums.Environment;
-import com.adyen.extensions.HostedOnboardingApiV2;
-import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.legalentitymanagement.*;
-import com.adyen.service.exception.ApiException;
 import com.adyen.service.legalentitymanagement.*;
 import org.junit.Assert;
 import org.junit.Test;
