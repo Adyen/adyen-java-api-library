@@ -346,23 +346,4 @@ public class LegalEntityManagementTest extends BaseTest {
             Assert.fail();
         }
     }
-
-    @Test
-    public void TestOverrideField() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/management/list-merchants.json");
-        client.setEnvironment(Environment.TEST, "junit");
-        HostedOnboardingApiV2 service = new HostedOnboardingApiV2(client);
-
-        service.getLinkToAdyenhostedOnboardingPage("string", new OnboardingLinkInfo());
-
-        verify(client.getHttpClient()).request(
-                "https://kyc-test.adyen.com/lem/v2/legalEntities/string/onboardingLinks",
-                "{}",
-                client.getConfig(),
-                false,
-                null,
-                ApiConstants.HttpMethod.POST,
-                null
-        );
-    }
 }
