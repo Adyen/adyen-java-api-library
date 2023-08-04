@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HostedOnboardingApi extends Service {
-    private final String baseURL;
+    public String baseURL;
 
     public HostedOnboardingApi(Client client) {
         super(client);

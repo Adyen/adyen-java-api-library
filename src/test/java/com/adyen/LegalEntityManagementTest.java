@@ -1,9 +1,10 @@
 package com.adyen;
 
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.checkout.CheckoutAwaitAction;
+import com.adyen.enums.Environment;
+import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.legalentitymanagement.*;
-import com.adyen.model.recurring.BankAccount;
+import com.adyen.service.exception.ApiException;
 import com.adyen.service.legalentitymanagement.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 
 public class LegalEntityManagementTest extends BaseTest {
@@ -344,5 +344,24 @@ public class LegalEntityManagementTest extends BaseTest {
         } catch (Exception ex){
             Assert.fail();
         }
+    }
+
+    @Test
+    public void TestOverrideField() throws IOException, ApiException, HTTPClientException {
+        Client client = createMockClientFromFile("mocks/management/list-merchants.json");
+        client.setEnvironment(Environment.TEST, "junit");
+        HostedOnboardingApiV2 service = new HostedOnboardingApiV2(client);
+
+        service.getLinkToAdyenhostedOnboardingPage("string", new OnboardingLinkInfo());
+
+        verify(client.getHttpClient()).request(
+                "https://kyc-test.adyen.com/lem/v2/legalEntities/string/onboardingLinks",
+                "{}",
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.POST,
+                null
+        );
     }
 }
