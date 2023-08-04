@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ApiKeyCompanyLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public ApiKeyCompanyLevelApi(Client client) {
         super(client);

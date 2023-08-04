@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WebhooksCompanyLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public WebhooksCompanyLevelApi(Client client) {
         super(client);

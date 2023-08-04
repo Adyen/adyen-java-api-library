@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TerminalsTerminalLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public TerminalsTerminalLevelApi(Client client) {
         super(client);

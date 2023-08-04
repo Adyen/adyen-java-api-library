@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SplitConfigurationMerchantLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public SplitConfigurationMerchantLevelApi(Client client) {
         super(client);

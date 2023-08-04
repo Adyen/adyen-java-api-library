@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AllowedOriginsCompanyLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public AllowedOriginsCompanyLevelApi(Client client) {
         super(client);

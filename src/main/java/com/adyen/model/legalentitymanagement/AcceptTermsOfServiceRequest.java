@@ -51,10 +51,10 @@ public class AcceptTermsOfServiceRequest {
   }
 
    /**
-   * The unique identifier of the user accepting the Terms of Service.
+   * The individual legal entity ID of the user accepting the Terms of Service. This can also be the legal entity ID of the signatory for an organization.
    * @return acceptedBy
   **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the user accepting the Terms of Service.")
+  @ApiModelProperty(required = true, value = "The individual legal entity ID of the user accepting the Terms of Service. This can also be the legal entity ID of the signatory for an organization.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UsersMerchantLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public UsersMerchantLevelApi(Client client) {
         super(client);

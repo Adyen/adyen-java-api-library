@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClientKeyMerchantLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public ClientKeyMerchantLevelApi(Client client) {
         super(client);

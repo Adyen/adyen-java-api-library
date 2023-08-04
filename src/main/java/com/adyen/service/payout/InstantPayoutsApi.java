@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InstantPayoutsApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public InstantPayoutsApi(Client client) {
         super(client);

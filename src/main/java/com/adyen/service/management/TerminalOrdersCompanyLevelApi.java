@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TerminalOrdersCompanyLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public TerminalOrdersCompanyLevelApi(Client client) {
         super(client);

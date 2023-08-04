@@ -42,7 +42,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public PaymentApi(Client client) {
         super(client);

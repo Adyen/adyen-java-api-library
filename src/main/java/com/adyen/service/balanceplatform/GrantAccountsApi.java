@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GrantAccountsApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public GrantAccountsApi(Client client) {
         super(client);

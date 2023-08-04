@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PciQuestionnairesApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public PciQuestionnairesApi(Client client) {
         super(client);

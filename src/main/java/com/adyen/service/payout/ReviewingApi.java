@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ReviewingApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public ReviewingApi(Client client) {
         super(client);
