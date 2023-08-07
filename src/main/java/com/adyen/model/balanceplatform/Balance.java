@@ -34,6 +34,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Balance.JSON_PROPERTY_AVAILABLE,
   Balance.JSON_PROPERTY_BALANCE,
   Balance.JSON_PROPERTY_CURRENCY,
+  Balance.JSON_PROPERTY_PENDING,
   Balance.JSON_PROPERTY_RESERVED
 })
 
@@ -46,6 +47,9 @@ public class Balance {
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
+
+  public static final String JSON_PROPERTY_PENDING = "pending";
+  private Long pending;
 
   public static final String JSON_PROPERTY_RESERVED = "reserved";
   private Long reserved;
@@ -128,6 +132,31 @@ public class Balance {
   }
 
 
+  public Balance pending(Long pending) {
+    this.pending = pending;
+    return this;
+  }
+
+   /**
+   * The amount pending to be paid out but not yet available in the balance.
+   * @return pending
+  **/
+  @ApiModelProperty(value = "The amount pending to be paid out but not yet available in the balance.")
+  @JsonProperty(JSON_PROPERTY_PENDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getPending() {
+    return pending;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PENDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPending(Long pending) {
+    this.pending = pending;
+  }
+
+
   public Balance reserved(Long reserved) {
     this.reserved = reserved;
     return this;
@@ -168,12 +197,13 @@ public class Balance {
     return Objects.equals(this.available, balance.available) &&
         Objects.equals(this.balance, balance.balance) &&
         Objects.equals(this.currency, balance.currency) &&
+        Objects.equals(this.pending, balance.pending) &&
         Objects.equals(this.reserved, balance.reserved);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(available, balance, currency, reserved);
+    return Objects.hash(available, balance, currency, pending, reserved);
   }
 
   @Override
@@ -183,6 +213,7 @@ public class Balance {
     sb.append("    available: ").append(toIndentedString(available)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    reserved: ").append(toIndentedString(reserved)).append("\n");
     sb.append("}");
     return sb.toString();

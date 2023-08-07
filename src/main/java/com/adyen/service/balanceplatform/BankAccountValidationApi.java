@@ -53,6 +53,6 @@ public class BankAccountValidationApi extends Service {
 
         String requestBody = bankAccountIdentificationValidationRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/validateBankAccountIdentification", null);
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        resource.request(requestBody, null, ApiConstants.HttpMethod.POST, null);
     }
 }
