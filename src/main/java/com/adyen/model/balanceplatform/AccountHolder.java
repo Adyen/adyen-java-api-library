@@ -45,6 +45,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AccountHolder.JSON_PROPERTY_ID,
   AccountHolder.JSON_PROPERTY_LEGAL_ENTITY_ID,
   AccountHolder.JSON_PROPERTY_METADATA,
+  AccountHolder.JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE,
   AccountHolder.JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT,
   AccountHolder.JSON_PROPERTY_REFERENCE,
   AccountHolder.JSON_PROPERTY_STATUS,
@@ -73,6 +74,9 @@ public class AccountHolder {
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
+
+  public static final String JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE = "migratedAccountHolderCode";
+  private String migratedAccountHolderCode;
 
   public static final String JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT = "primaryBalanceAccount";
   private String primaryBalanceAccount;
@@ -303,10 +307,10 @@ public class AccountHolder {
   }
 
    /**
-   * A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+   * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return metadata
   **/
-  @ApiModelProperty(value = "A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
+  @ApiModelProperty(value = "A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -319,6 +323,31 @@ public class AccountHolder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+
+  public AccountHolder migratedAccountHolderCode(String migratedAccountHolderCode) {
+    this.migratedAccountHolderCode = migratedAccountHolderCode;
+    return this;
+  }
+
+   /**
+   * The unique identifier of the migrated account holder in the classic integration.
+   * @return migratedAccountHolderCode
+  **/
+  @ApiModelProperty(value = "The unique identifier of the migrated account holder in the classic integration.")
+  @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMigratedAccountHolderCode() {
+    return migratedAccountHolderCode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMigratedAccountHolderCode(String migratedAccountHolderCode) {
+    this.migratedAccountHolderCode = migratedAccountHolderCode;
   }
 
 
@@ -474,6 +503,7 @@ public class AccountHolder {
         Objects.equals(this.id, accountHolder.id) &&
         Objects.equals(this.legalEntityId, accountHolder.legalEntityId) &&
         Objects.equals(this.metadata, accountHolder.metadata) &&
+        Objects.equals(this.migratedAccountHolderCode, accountHolder.migratedAccountHolderCode) &&
         Objects.equals(this.primaryBalanceAccount, accountHolder.primaryBalanceAccount) &&
         Objects.equals(this.reference, accountHolder.reference) &&
         Objects.equals(this.status, accountHolder.status) &&
@@ -483,7 +513,7 @@ public class AccountHolder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(balancePlatform, capabilities, contactDetails, description, id, legalEntityId, metadata, primaryBalanceAccount, reference, status, timeZone, verificationDeadlines);
+    return Objects.hash(balancePlatform, capabilities, contactDetails, description, id, legalEntityId, metadata, migratedAccountHolderCode, primaryBalanceAccount, reference, status, timeZone, verificationDeadlines);
   }
 
   @Override
@@ -497,6 +527,7 @@ public class AccountHolder {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    migratedAccountHolderCode: ").append(toIndentedString(migratedAccountHolderCode)).append("\n");
     sb.append("    primaryBalanceAccount: ").append(toIndentedString(primaryBalanceAccount)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

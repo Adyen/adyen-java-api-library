@@ -268,7 +268,7 @@ public class BusinessLineInfoUpdate {
    * The service for which you are creating the business line.  Possible values: **paymentProcessing**, **issuing**, **banking**
    * @return service
   **/
-  @ApiModelProperty(required = true, value = "The service for which you are creating the business line.  Possible values: **paymentProcessing**, **issuing**, **banking**")
+  @ApiModelProperty(value = "The service for which you are creating the business line.  Possible values: **paymentProcessing**, **issuing**, **banking**")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PosTerminalManagementApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public PosTerminalManagementApi(Client client) {
         super(client);

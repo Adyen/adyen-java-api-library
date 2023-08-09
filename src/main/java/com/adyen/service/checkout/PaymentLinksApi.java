@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentLinksApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public PaymentLinksApi(Client client) {
         super(client);

@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TransactionRulesApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public TransactionRulesApi(Client client) {
         super(client);

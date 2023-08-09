@@ -17,8 +17,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Amount;
-import com.adyen.model.balanceplatform.SweepConfigurationV2Schedule;
 import com.adyen.model.balanceplatform.SweepCounterparty;
+import com.adyen.model.balanceplatform.SweepSchedule;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -213,7 +213,7 @@ public class SweepConfigurationV2 {
   private ReasonEnum reason;
 
   public static final String JSON_PROPERTY_SCHEDULE = "schedule";
-  private SweepConfigurationV2Schedule schedule;
+  private SweepSchedule schedule;
 
   /**
    * The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   
@@ -486,7 +486,7 @@ public class SweepConfigurationV2 {
   }
 
 
-  public SweepConfigurationV2 schedule(SweepConfigurationV2Schedule schedule) {
+  public SweepConfigurationV2 schedule(SweepSchedule schedule) {
     this.schedule = schedule;
     return this;
   }
@@ -499,14 +499,14 @@ public class SweepConfigurationV2 {
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SweepConfigurationV2Schedule getSchedule() {
+  public SweepSchedule getSchedule() {
     return schedule;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSchedule(SweepConfigurationV2Schedule schedule) {
+  public void setSchedule(SweepSchedule schedule) {
     this.schedule = schedule;
   }
 

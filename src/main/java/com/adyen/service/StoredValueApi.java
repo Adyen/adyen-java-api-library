@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StoredValueApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public StoredValueApi(Client client) {
         super(client);

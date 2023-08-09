@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TerminalOrdersMerchantLevelApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public TerminalOrdersMerchantLevelApi(Client client) {
         super(client);

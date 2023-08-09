@@ -114,6 +114,8 @@ public class TransactionRuleInfo {
     
     AUTHORIZATION("authorization"),
     
+    BANKTRANSFER("bankTransfer"),
+    
     TOKENIZATION("tokenization");
 
     private String value;

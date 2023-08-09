@@ -1,9 +1,7 @@
 package com.adyen;
 
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.checkout.CheckoutAwaitAction;
 import com.adyen.model.legalentitymanagement.*;
-import com.adyen.model.recurring.BankAccount;
 import com.adyen.service.legalentitymanagement.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 
 public class LegalEntityManagementTest extends BaseTest {

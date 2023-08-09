@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UtilityApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public UtilityApi(Client client) {
         super(client);

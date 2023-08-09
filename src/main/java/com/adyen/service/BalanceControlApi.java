@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BalanceControlApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public BalanceControlApi(Client client) {
         super(client);

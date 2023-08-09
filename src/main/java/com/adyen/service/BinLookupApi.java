@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BinLookupApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public BinLookupApi(Client client) {
         super(client);

@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LegalEntitiesApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public LegalEntitiesApi(Client client) {
         super(client);

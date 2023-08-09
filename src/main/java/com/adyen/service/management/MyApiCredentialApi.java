@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyApiCredentialApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public MyApiCredentialApi(Client client) {
         super(client);

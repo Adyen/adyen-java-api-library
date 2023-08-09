@@ -16,7 +16,7 @@ import java.util.Map;
 
 {{#operations}}
 public class {{smallServiceName}} extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public {{smallServiceName}}(Client client) {
         super(client);

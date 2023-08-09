@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InitializationApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public InitializationApi(Client client) {
         super(client);

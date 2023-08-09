@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModificationsApi extends Service {
-    private final String baseURL;
+    protected String baseURL;
 
     public ModificationsApi(Client client) {
         super(client);

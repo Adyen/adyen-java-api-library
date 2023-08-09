@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Balance;
+import com.adyen.model.balanceplatform.PlatformPaymentConfiguration;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,6 +43,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   BalanceAccount.JSON_PROPERTY_DESCRIPTION,
   BalanceAccount.JSON_PROPERTY_ID,
   BalanceAccount.JSON_PROPERTY_METADATA,
+  BalanceAccount.JSON_PROPERTY_MIGRATED_ACCOUNT_CODE,
+  BalanceAccount.JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION,
   BalanceAccount.JSON_PROPERTY_REFERENCE,
   BalanceAccount.JSON_PROPERTY_STATUS,
   BalanceAccount.JSON_PROPERTY_TIME_ZONE
@@ -65,6 +68,12 @@ public class BalanceAccount {
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
+
+  public static final String JSON_PROPERTY_MIGRATED_ACCOUNT_CODE = "migratedAccountCode";
+  private String migratedAccountCode;
+
+  public static final String JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION = "platformPaymentConfiguration";
+  private PlatformPaymentConfiguration platformPaymentConfiguration;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -264,10 +273,10 @@ public class BalanceAccount {
   }
 
    /**
-   * A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+   * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return metadata
   **/
-  @ApiModelProperty(value = "A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
+  @ApiModelProperty(value = "A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -280,6 +289,56 @@ public class BalanceAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+
+  public BalanceAccount migratedAccountCode(String migratedAccountCode) {
+    this.migratedAccountCode = migratedAccountCode;
+    return this;
+  }
+
+   /**
+   * The unique identifier of the account of the migrated account holder in the classic integration.
+   * @return migratedAccountCode
+  **/
+  @ApiModelProperty(value = "The unique identifier of the account of the migrated account holder in the classic integration.")
+  @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMigratedAccountCode() {
+    return migratedAccountCode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMigratedAccountCode(String migratedAccountCode) {
+    this.migratedAccountCode = migratedAccountCode;
+  }
+
+
+  public BalanceAccount platformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
+    this.platformPaymentConfiguration = platformPaymentConfiguration;
+    return this;
+  }
+
+   /**
+   * Get platformPaymentConfiguration
+   * @return platformPaymentConfiguration
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PlatformPaymentConfiguration getPlatformPaymentConfiguration() {
+    return platformPaymentConfiguration;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
+    this.platformPaymentConfiguration = platformPaymentConfiguration;
   }
 
 
@@ -376,6 +435,8 @@ public class BalanceAccount {
         Objects.equals(this.description, balanceAccount.description) &&
         Objects.equals(this.id, balanceAccount.id) &&
         Objects.equals(this.metadata, balanceAccount.metadata) &&
+        Objects.equals(this.migratedAccountCode, balanceAccount.migratedAccountCode) &&
+        Objects.equals(this.platformPaymentConfiguration, balanceAccount.platformPaymentConfiguration) &&
         Objects.equals(this.reference, balanceAccount.reference) &&
         Objects.equals(this.status, balanceAccount.status) &&
         Objects.equals(this.timeZone, balanceAccount.timeZone);
@@ -383,7 +444,7 @@ public class BalanceAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolderId, balances, defaultCurrencyCode, description, id, metadata, reference, status, timeZone);
+    return Objects.hash(accountHolderId, balances, defaultCurrencyCode, description, id, metadata, migratedAccountCode, platformPaymentConfiguration, reference, status, timeZone);
   }
 
   @Override
@@ -396,6 +457,8 @@ public class BalanceAccount {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    migratedAccountCode: ").append(toIndentedString(migratedAccountCode)).append("\n");
+    sb.append("    platformPaymentConfiguration: ").append(toIndentedString(platformPaymentConfiguration)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
