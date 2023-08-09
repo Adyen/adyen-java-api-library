@@ -35,25 +35,23 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * AccountHolder
+ * AccountHolderUpdateRequest
  */
 @JsonPropertyOrder({
-  AccountHolder.JSON_PROPERTY_BALANCE_PLATFORM,
-  AccountHolder.JSON_PROPERTY_CAPABILITIES,
-  AccountHolder.JSON_PROPERTY_CONTACT_DETAILS,
-  AccountHolder.JSON_PROPERTY_DESCRIPTION,
-  AccountHolder.JSON_PROPERTY_ID,
-  AccountHolder.JSON_PROPERTY_LEGAL_ENTITY_ID,
-  AccountHolder.JSON_PROPERTY_METADATA,
-  AccountHolder.JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE,
-  AccountHolder.JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT,
-  AccountHolder.JSON_PROPERTY_REFERENCE,
-  AccountHolder.JSON_PROPERTY_STATUS,
-  AccountHolder.JSON_PROPERTY_TIME_ZONE,
-  AccountHolder.JSON_PROPERTY_VERIFICATION_DEADLINES
+  AccountHolderUpdateRequest.JSON_PROPERTY_BALANCE_PLATFORM,
+  AccountHolderUpdateRequest.JSON_PROPERTY_CAPABILITIES,
+  AccountHolderUpdateRequest.JSON_PROPERTY_CONTACT_DETAILS,
+  AccountHolderUpdateRequest.JSON_PROPERTY_DESCRIPTION,
+  AccountHolderUpdateRequest.JSON_PROPERTY_METADATA,
+  AccountHolderUpdateRequest.JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE,
+  AccountHolderUpdateRequest.JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT,
+  AccountHolderUpdateRequest.JSON_PROPERTY_REFERENCE,
+  AccountHolderUpdateRequest.JSON_PROPERTY_STATUS,
+  AccountHolderUpdateRequest.JSON_PROPERTY_TIME_ZONE,
+  AccountHolderUpdateRequest.JSON_PROPERTY_VERIFICATION_DEADLINES
 })
 
-public class AccountHolder {
+public class AccountHolderUpdateRequest {
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
@@ -65,12 +63,6 @@ public class AccountHolder {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
-  private String legalEntityId;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
@@ -132,10 +124,10 @@ public class AccountHolder {
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
   private List<VerificationDeadline> verificationDeadlines = null;
 
-  public AccountHolder() { 
+  public AccountHolderUpdateRequest() { 
   }
 
-  public AccountHolder balancePlatform(String balancePlatform) {
+  public AccountHolderUpdateRequest balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
@@ -160,12 +152,12 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder capabilities(Map<String, AccountHolderCapability> capabilities) {
+  public AccountHolderUpdateRequest capabilities(Map<String, AccountHolderCapability> capabilities) {
     this.capabilities = capabilities;
     return this;
   }
 
-  public AccountHolder putCapabilitiesItem(String key, AccountHolderCapability capabilitiesItem) {
+  public AccountHolderUpdateRequest putCapabilitiesItem(String key, AccountHolderCapability capabilitiesItem) {
     if (this.capabilities == null) {
       this.capabilities = new HashMap<>();
     }
@@ -193,7 +185,7 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder contactDetails(ContactDetails contactDetails) {
+  public AccountHolderUpdateRequest contactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
     return this;
   }
@@ -218,7 +210,7 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder description(String description) {
+  public AccountHolderUpdateRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -243,62 +235,12 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The unique identifier of the account holder.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the account holder.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public AccountHolder legalEntityId(String legalEntityId) {
-    this.legalEntityId = legalEntityId;
-    return this;
-  }
-
-   /**
-   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
-   * @return legalEntityId
-  **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.")
-  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getLegalEntityId() {
-    return legalEntityId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLegalEntityId(String legalEntityId) {
-    this.legalEntityId = legalEntityId;
-  }
-
-
-  public AccountHolder metadata(Map<String, String> metadata) {
+  public AccountHolderUpdateRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  public AccountHolder putMetadataItem(String key, String metadataItem) {
+  public AccountHolderUpdateRequest putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
     }
@@ -326,7 +268,7 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder migratedAccountHolderCode(String migratedAccountHolderCode) {
+  public AccountHolderUpdateRequest migratedAccountHolderCode(String migratedAccountHolderCode) {
     this.migratedAccountHolderCode = migratedAccountHolderCode;
     return this;
   }
@@ -351,7 +293,7 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder primaryBalanceAccount(String primaryBalanceAccount) {
+  public AccountHolderUpdateRequest primaryBalanceAccount(String primaryBalanceAccount) {
     this.primaryBalanceAccount = primaryBalanceAccount;
     return this;
   }
@@ -376,7 +318,7 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder reference(String reference) {
+  public AccountHolderUpdateRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -401,7 +343,7 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder status(StatusEnum status) {
+  public AccountHolderUpdateRequest status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -426,7 +368,7 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder timeZone(String timeZone) {
+  public AccountHolderUpdateRequest timeZone(String timeZone) {
     this.timeZone = timeZone;
     return this;
   }
@@ -451,12 +393,12 @@ public class AccountHolder {
   }
 
 
-  public AccountHolder verificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+  public AccountHolderUpdateRequest verificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
     this.verificationDeadlines = verificationDeadlines;
     return this;
   }
 
-  public AccountHolder addVerificationDeadlinesItem(VerificationDeadline verificationDeadlinesItem) {
+  public AccountHolderUpdateRequest addVerificationDeadlinesItem(VerificationDeadline verificationDeadlinesItem) {
     if (this.verificationDeadlines == null) {
       this.verificationDeadlines = new ArrayList<>();
     }
@@ -485,7 +427,7 @@ public class AccountHolder {
 
 
   /**
-   * Return true if this AccountHolder object is equal to o.
+   * Return true if this AccountHolderUpdateRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -495,37 +437,33 @@ public class AccountHolder {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccountHolder accountHolder = (AccountHolder) o;
-    return Objects.equals(this.balancePlatform, accountHolder.balancePlatform) &&
-        Objects.equals(this.capabilities, accountHolder.capabilities) &&
-        Objects.equals(this.contactDetails, accountHolder.contactDetails) &&
-        Objects.equals(this.description, accountHolder.description) &&
-        Objects.equals(this.id, accountHolder.id) &&
-        Objects.equals(this.legalEntityId, accountHolder.legalEntityId) &&
-        Objects.equals(this.metadata, accountHolder.metadata) &&
-        Objects.equals(this.migratedAccountHolderCode, accountHolder.migratedAccountHolderCode) &&
-        Objects.equals(this.primaryBalanceAccount, accountHolder.primaryBalanceAccount) &&
-        Objects.equals(this.reference, accountHolder.reference) &&
-        Objects.equals(this.status, accountHolder.status) &&
-        Objects.equals(this.timeZone, accountHolder.timeZone) &&
-        Objects.equals(this.verificationDeadlines, accountHolder.verificationDeadlines);
+    AccountHolderUpdateRequest accountHolderUpdateRequest = (AccountHolderUpdateRequest) o;
+    return Objects.equals(this.balancePlatform, accountHolderUpdateRequest.balancePlatform) &&
+        Objects.equals(this.capabilities, accountHolderUpdateRequest.capabilities) &&
+        Objects.equals(this.contactDetails, accountHolderUpdateRequest.contactDetails) &&
+        Objects.equals(this.description, accountHolderUpdateRequest.description) &&
+        Objects.equals(this.metadata, accountHolderUpdateRequest.metadata) &&
+        Objects.equals(this.migratedAccountHolderCode, accountHolderUpdateRequest.migratedAccountHolderCode) &&
+        Objects.equals(this.primaryBalanceAccount, accountHolderUpdateRequest.primaryBalanceAccount) &&
+        Objects.equals(this.reference, accountHolderUpdateRequest.reference) &&
+        Objects.equals(this.status, accountHolderUpdateRequest.status) &&
+        Objects.equals(this.timeZone, accountHolderUpdateRequest.timeZone) &&
+        Objects.equals(this.verificationDeadlines, accountHolderUpdateRequest.verificationDeadlines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balancePlatform, capabilities, contactDetails, description, id, legalEntityId, metadata, migratedAccountHolderCode, primaryBalanceAccount, reference, status, timeZone, verificationDeadlines);
+    return Objects.hash(balancePlatform, capabilities, contactDetails, description, metadata, migratedAccountHolderCode, primaryBalanceAccount, reference, status, timeZone, verificationDeadlines);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccountHolder {\n");
+    sb.append("class AccountHolderUpdateRequest {\n");
     sb.append("    balancePlatform: ").append(toIndentedString(balancePlatform)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    contactDetails: ").append(toIndentedString(contactDetails)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    migratedAccountHolderCode: ").append(toIndentedString(migratedAccountHolderCode)).append("\n");
     sb.append("    primaryBalanceAccount: ").append(toIndentedString(primaryBalanceAccount)).append("\n");
@@ -549,17 +487,17 @@ public class AccountHolder {
   }
 
 /**
-   * Create an instance of AccountHolder given an JSON string
+   * Create an instance of AccountHolderUpdateRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AccountHolder
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AccountHolder
+   * @return An instance of AccountHolderUpdateRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AccountHolderUpdateRequest
    */
-  public static AccountHolder fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, AccountHolder.class);
+  public static AccountHolderUpdateRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AccountHolderUpdateRequest.class);
   }
 /**
-  * Convert an instance of AccountHolder to an JSON string
+  * Convert an instance of AccountHolderUpdateRequest to an JSON string
   *
   * @return JSON string
   */

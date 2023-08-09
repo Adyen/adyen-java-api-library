@@ -40,7 +40,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CardInfo.JSON_PROPERTY_CARDHOLDER_NAME,
   CardInfo.JSON_PROPERTY_CONFIGURATION,
   CardInfo.JSON_PROPERTY_DELIVERY_CONTACT,
-  CardInfo.JSON_PROPERTY_FORM_FACTOR
+  CardInfo.JSON_PROPERTY_FORM_FACTOR,
+  CardInfo.JSON_PROPERTY_THREE_D_SECURE
 })
 
 public class CardInfo {
@@ -102,6 +103,9 @@ public class CardInfo {
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
   private FormFactorEnum formFactor;
 
+  public static final String JSON_PROPERTY_THREE_D_SECURE = "threeDSecure";
+  private String threeDSecure;
+
   public CardInfo() { 
   }
 
@@ -161,10 +165,10 @@ public class CardInfo {
   }
 
    /**
-   * The brand variant of the physical or the virtual card. &gt;Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.
+   * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return brandVariant
   **/
-  @ApiModelProperty(required = true, value = "The brand variant of the physical or the virtual card. >Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.")
+  @ApiModelProperty(required = true, value = "The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. >Reach out to your Adyen contact to get the values relevant for your integration.")
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -280,6 +284,31 @@ public class CardInfo {
   }
 
 
+  public CardInfo threeDSecure(String threeDSecure) {
+    this.threeDSecure = threeDSecure;
+    return this;
+  }
+
+   /**
+   * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySecure**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
+   * @return threeDSecure
+  **/
+  @ApiModelProperty(value = "Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySecure**, **secureCorporate**. >Reach out to your Adyen contact to get the values relevant for your integration.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getThreeDSecure() {
+    return threeDSecure;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDSecure(String threeDSecure) {
+    this.threeDSecure = threeDSecure;
+  }
+
+
   /**
    * Return true if this CardInfo object is equal to o.
    */
@@ -298,12 +327,13 @@ public class CardInfo {
         Objects.equals(this.cardholderName, cardInfo.cardholderName) &&
         Objects.equals(this.configuration, cardInfo.configuration) &&
         Objects.equals(this.deliveryContact, cardInfo.deliveryContact) &&
-        Objects.equals(this.formFactor, cardInfo.formFactor);
+        Objects.equals(this.formFactor, cardInfo.formFactor) &&
+        Objects.equals(this.threeDSecure, cardInfo.threeDSecure);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication, brand, brandVariant, cardholderName, configuration, deliveryContact, formFactor);
+    return Objects.hash(authentication, brand, brandVariant, cardholderName, configuration, deliveryContact, formFactor, threeDSecure);
   }
 
   @Override
@@ -317,6 +347,7 @@ public class CardInfo {
     sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    deliveryContact: ").append(toIndentedString(deliveryContact)).append("\n");
     sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
+    sb.append("    threeDSecure: ").append(toIndentedString(threeDSecure)).append("\n");
     sb.append("}");
     return sb.toString();
   }

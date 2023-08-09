@@ -118,6 +118,8 @@ public class TransactionRule {
     
     AUTHORIZATION("authorization"),
     
+    BANKTRANSFER("bankTransfer"),
+    
     TOKENIZATION("tokenization");
 
     private String value;
