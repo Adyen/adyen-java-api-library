@@ -578,5 +578,24 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         return (CheckoutVoucherAction)super.getActualInstance();
     }
 
+    /**
+    * Create an instance of PaymentResponseAction given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of PaymentResponseAction
+    * @throws IOException if the JSON string is invalid with respect to PaymentResponseAction
+    */
+    public static PaymentResponseAction fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, PaymentResponseAction.class);
+    }
+
+    /**
+    * Convert an instance of PaymentResponseAction to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
+    }
 }
 

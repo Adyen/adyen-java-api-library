@@ -435,4 +435,31 @@ public class CheckoutTest extends BaseTest {
                 queryParams
         );
     }
+
+    @Test
+    public void TestCheckoutPaymentMethodSerialisation() throws Exception {
+        CheckoutPaymentMethod checkoutPaymentMethodGoogle = CheckoutPaymentMethod.fromJson("{\n" +
+                "    \"type\": \"paywithgoogle\",\n" +
+                "    \"googlePayToken\": \"==Payload as retrieved from Google Pay response==\"\n" +
+                "  }");
+
+        CheckoutPaymentMethod checkoutPaymentMethodScheme = CheckoutPaymentMethod.fromJson("{\n" +
+                "    \"type\": \"scheme\",\n" +
+                "    \"number\": \"4111111111111111\",\n" +
+                "    \"cvc\": \"737\",\n" +
+                "    \"expiryMonth\": \"03\",\n" +
+                "    \"expiryYear\": \"2030\",\n" +
+                "    \"holderName\": \"John Smith\"\n" +
+                "  }");
+
+        CheckoutPaymentMethod checkoutPaymentMethodApple = CheckoutPaymentMethod.fromJson("{\n" +
+                "    \"type\": \"applepay\",\n" +
+                "    \"applePayToken\": \"VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...\"\n" +
+                "  }");
+
+        Assert.assertTrue(checkoutPaymentMethodGoogle.toJson().contains("paywithgoogle"));
+        Assert.assertTrue(checkoutPaymentMethodGoogle.toJson().contains("googlePayToken"));
+        Assert.assertTrue(checkoutPaymentMethodScheme.toJson().contains("scheme"));
+        Assert.assertTrue(checkoutPaymentMethodApple.toJson().contains("NRWtuNlNEWkRCSm1xWndjMDFFbktkQU"));
+    }
 }
