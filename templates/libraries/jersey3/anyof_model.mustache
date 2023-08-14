@@ -199,4 +199,23 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     }
 
     {{/anyOf}}
+    /**
+    * Create an instance of {{classname}} given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of {{classname}}
+    * @throws IOException if the JSON string is invalid with respect to {{classname}}
+    */
+    public static {{{classname}}} fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, {{{classname}}}.class);
+    }
+
+    /**
+    * Convert an instance of {{classname}} to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
+    }
 }

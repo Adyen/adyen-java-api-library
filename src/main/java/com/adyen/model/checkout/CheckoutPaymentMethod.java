@@ -2186,5 +2186,24 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         return (ZipDetails)super.getActualInstance();
     }
 
+    /**
+    * Create an instance of CheckoutPaymentMethod given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of CheckoutPaymentMethod
+    * @throws IOException if the JSON string is invalid with respect to CheckoutPaymentMethod
+    */
+    public static CheckoutPaymentMethod fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, CheckoutPaymentMethod.class);
+    }
+
+    /**
+    * Convert an instance of CheckoutPaymentMethod to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
+    }
 }
 
