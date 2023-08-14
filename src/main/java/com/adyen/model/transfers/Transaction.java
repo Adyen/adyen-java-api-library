@@ -42,7 +42,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Transaction.JSON_PROPERTY_CATEGORY,
   Transaction.JSON_PROPERTY_COUNTERPARTY,
   Transaction.JSON_PROPERTY_CREATED_AT,
+  Transaction.JSON_PROPERTY_CREATION_DATE,
   Transaction.JSON_PROPERTY_DESCRIPTION,
+  Transaction.JSON_PROPERTY_EVENT_ID,
   Transaction.JSON_PROPERTY_ID,
   Transaction.JSON_PROPERTY_INSTRUCTED_AMOUNT,
   Transaction.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
@@ -124,8 +126,14 @@ public class Transaction {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
+  private OffsetDateTime creationDate;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_EVENT_ID = "eventId";
+  private String eventId;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -477,6 +485,31 @@ public class Transaction {
   }
 
 
+  public Transaction creationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+   * @return creationDate
+  **/
+  @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+
   public Transaction description(String description) {
     this.description = description;
     return this;
@@ -499,6 +532,31 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public Transaction eventId(String eventId) {
+    this.eventId = eventId;
+    return this;
+  }
+
+   /**
+   * The PSP reference in the journal.
+   * @return eventId
+  **/
+  @ApiModelProperty(value = "The PSP reference in the journal.")
+  @JsonProperty(JSON_PROPERTY_EVENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEventId() {
+    return eventId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EVENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
   }
 
 
@@ -747,7 +805,9 @@ public class Transaction {
         Objects.equals(this.category, transaction.category) &&
         Objects.equals(this.counterparty, transaction.counterparty) &&
         Objects.equals(this.createdAt, transaction.createdAt) &&
+        Objects.equals(this.creationDate, transaction.creationDate) &&
         Objects.equals(this.description, transaction.description) &&
+        Objects.equals(this.eventId, transaction.eventId) &&
         Objects.equals(this.id, transaction.id) &&
         Objects.equals(this.instructedAmount, transaction.instructedAmount) &&
         Objects.equals(this.paymentInstrumentId, transaction.paymentInstrumentId) &&
@@ -761,7 +821,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolderId, amount, balanceAccountId, balancePlatform, bookingDate, category, counterparty, createdAt, description, id, instructedAmount, paymentInstrumentId, reference, referenceForBeneficiary, status, transferId, type, valueDate);
+    return Objects.hash(accountHolderId, amount, balanceAccountId, balancePlatform, bookingDate, category, counterparty, createdAt, creationDate, description, eventId, id, instructedAmount, paymentInstrumentId, reference, referenceForBeneficiary, status, transferId, type, valueDate);
   }
 
   @Override
@@ -776,7 +836,9 @@ public class Transaction {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");

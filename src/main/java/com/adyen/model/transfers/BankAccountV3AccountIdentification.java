@@ -22,6 +22,7 @@ import com.adyen.model.transfers.BRLocalAccountIdentification;
 import com.adyen.model.transfers.CALocalAccountIdentification;
 import com.adyen.model.transfers.CZLocalAccountIdentification;
 import com.adyen.model.transfers.DKLocalAccountIdentification;
+import com.adyen.model.transfers.HKLocalAccountIdentification;
 import com.adyen.model.transfers.HULocalAccountIdentification;
 import com.adyen.model.transfers.IbanAccountIdentification;
 import com.adyen.model.transfers.NOLocalAccountIdentification;
@@ -107,9 +108,6 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // Local Object Mapper that forces strict validation
-            ObjectMapper localObjectMapper = JSON.getMapper();
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
             // deserialize AULocalAccountIdentification
             try {
@@ -128,7 +126,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(AULocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), AULocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), AULocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'AULocalAccountIdentification'");
@@ -156,7 +154,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(BRLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), BRLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), BRLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'BRLocalAccountIdentification'");
@@ -184,7 +182,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(CALocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), CALocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), CALocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CALocalAccountIdentification'");
@@ -212,7 +210,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(CZLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), CZLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), CZLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'CZLocalAccountIdentification'");
@@ -240,7 +238,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(DKLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), DKLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), DKLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'DKLocalAccountIdentification'");
@@ -248,6 +246,34 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'DKLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize HKLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (HKLocalAccountIdentification.class.equals(Integer.class) || HKLocalAccountIdentification.class.equals(Long.class) || HKLocalAccountIdentification.class.equals(Float.class) || HKLocalAccountIdentification.class.equals(Double.class) || HKLocalAccountIdentification.class.equals(Boolean.class) || HKLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((HKLocalAccountIdentification.class.equals(Integer.class) || HKLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((HKLocalAccountIdentification.class.equals(Float.class) || HKLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (HKLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (HKLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(HKLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), HKLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'HKLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'HKLocalAccountIdentification'", e);
             }
 
 
@@ -268,7 +294,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(HULocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), HULocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), HULocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'HULocalAccountIdentification'");
@@ -296,7 +322,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(IbanAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), IbanAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), IbanAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
@@ -324,7 +350,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(NOLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), NOLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), NOLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'NOLocalAccountIdentification'");
@@ -352,7 +378,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(NZLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), NZLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), NZLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'NZLocalAccountIdentification'");
@@ -380,7 +406,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(NumberAndBicAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), NumberAndBicAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), NumberAndBicAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'NumberAndBicAccountIdentification'");
@@ -408,7 +434,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(PLLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), PLLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), PLLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'PLLocalAccountIdentification'");
@@ -436,7 +462,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(SELocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), SELocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), SELocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'SELocalAccountIdentification'");
@@ -464,7 +490,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(SGLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), SGLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), SGLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'SGLocalAccountIdentification'");
@@ -492,7 +518,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(UKLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), UKLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), UKLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'UKLocalAccountIdentification'");
@@ -520,7 +546,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(USLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), USLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), USLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'USLocalAccountIdentification'");
@@ -539,7 +565,6 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
                 log.log(Level.WARNING, String.format("Warning, indecisive deserialization for BankAccountV3AccountIdentification: %d classes match result, expected 1", match));
             }
 
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             BankAccountV3AccountIdentification ret = new BankAccountV3AccountIdentification();
             ret.setActualInstance(deserialized);
             return ret;
@@ -582,6 +607,11 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     }
 
     public BankAccountV3AccountIdentification(DKLocalAccountIdentification o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public BankAccountV3AccountIdentification(HKLocalAccountIdentification o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -647,6 +677,8 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
         });
         schemas.put("DKLocalAccountIdentification", new GenericType<DKLocalAccountIdentification>() {
         });
+        schemas.put("HKLocalAccountIdentification", new GenericType<HKLocalAccountIdentification>() {
+        });
         schemas.put("HULocalAccountIdentification", new GenericType<HULocalAccountIdentification>() {
         });
         schemas.put("IbanAccountIdentification", new GenericType<IbanAccountIdentification>() {
@@ -678,7 +710,7 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
+     * AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -706,6 +738,11 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
         }
 
         if (JSON.isInstanceOf(DKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(HKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -760,14 +797,14 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
+        throw new RuntimeException("Invalid instance type. Must be AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
+     * AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
      *
-     * @return The actual instance (AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification)
+     * @return The actual instance (AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification)
      */
     @Override
     public Object getActualInstance() {
@@ -827,6 +864,17 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
      */
     public DKLocalAccountIdentification getDKLocalAccountIdentification() throws ClassCastException {
         return (DKLocalAccountIdentification)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `HKLocalAccountIdentification`. If the actual instance is not `HKLocalAccountIdentification`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `HKLocalAccountIdentification`
+     * @throws ClassCastException if the instance is not `HKLocalAccountIdentification`
+     */
+    public HKLocalAccountIdentification getHKLocalAccountIdentification() throws ClassCastException {
+        return (HKLocalAccountIdentification)super.getActualInstance();
     }
 
     /**
@@ -939,5 +987,24 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
         return (USLocalAccountIdentification)super.getActualInstance();
     }
 
+    /**
+    * Create an instance of BankAccountV3AccountIdentification given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of BankAccountV3AccountIdentification
+    * @throws IOException if the JSON string is invalid with respect to BankAccountV3AccountIdentification
+    */
+    public static BankAccountV3AccountIdentification fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, BankAccountV3AccountIdentification.class);
+    }
+
+    /**
+    * Convert an instance of BankAccountV3AccountIdentification to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
+    }
 }
 

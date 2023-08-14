@@ -28,30 +28,26 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * BRLocalAccountIdentification
+ * HKLocalAccountIdentification
  */
 @JsonPropertyOrder({
-  BRLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
-  BRLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
-  BRLocalAccountIdentification.JSON_PROPERTY_BRANCH_NUMBER,
-  BRLocalAccountIdentification.JSON_PROPERTY_TYPE
+  HKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  HKLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
+  HKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
-public class BRLocalAccountIdentification {
+public class HKLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
   public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
   private String bankCode;
 
-  public static final String JSON_PROPERTY_BRANCH_NUMBER = "branchNumber";
-  private String branchNumber;
-
   /**
-   * **brLocal**
+   * **hkLocal**
    */
   public enum TypeEnum {
-    BRLOCAL("brLocal");
+    HKLOCAL("hkLocal");
 
     private String value;
 
@@ -81,21 +77,21 @@ public class BRLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BRLOCAL;
+  private TypeEnum type = TypeEnum.HKLOCAL;
 
-  public BRLocalAccountIdentification() { 
+  public HKLocalAccountIdentification() { 
   }
 
-  public BRLocalAccountIdentification accountNumber(String accountNumber) {
+  public HKLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
    /**
-   * The bank account number, without separators or whitespace.
+   * The 6- to 19-character bank account number (alphanumeric), without separators or whitespace.
    * @return accountNumber
   **/
-  @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
+  @ApiModelProperty(required = true, value = "The 6- to 19-character bank account number (alphanumeric), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -111,16 +107,16 @@ public class BRLocalAccountIdentification {
   }
 
 
-  public BRLocalAccountIdentification bankCode(String bankCode) {
+  public HKLocalAccountIdentification bankCode(String bankCode) {
     this.bankCode = bankCode;
     return this;
   }
 
    /**
-   * The 3-digit bank code, with leading zeros.
+   * The 6-digit bank code including the 3-digit bank code and 3-digit branch code, without separators or whitespace.
    * @return bankCode
   **/
-  @ApiModelProperty(required = true, value = "The 3-digit bank code, with leading zeros.")
+  @ApiModelProperty(required = true, value = "The 6-digit bank code including the 3-digit bank code and 3-digit branch code, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -136,41 +132,16 @@ public class BRLocalAccountIdentification {
   }
 
 
-  public BRLocalAccountIdentification branchNumber(String branchNumber) {
-    this.branchNumber = branchNumber;
-    return this;
-  }
-
-   /**
-   * The bank account branch number, without separators or whitespace.
-   * @return branchNumber
-  **/
-  @ApiModelProperty(required = true, value = "The bank account branch number, without separators or whitespace.")
-  @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBranchNumber() {
-    return branchNumber;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBranchNumber(String branchNumber) {
-    this.branchNumber = branchNumber;
-  }
-
-
-  public BRLocalAccountIdentification type(TypeEnum type) {
+  public HKLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * **brLocal**
+   * **hkLocal**
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "**brLocal**")
+  @ApiModelProperty(required = true, value = "**hkLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -187,7 +158,7 @@ public class BRLocalAccountIdentification {
 
 
   /**
-   * Return true if this BRLocalAccountIdentification object is equal to o.
+   * Return true if this HKLocalAccountIdentification object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -197,25 +168,23 @@ public class BRLocalAccountIdentification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BRLocalAccountIdentification brLocalAccountIdentification = (BRLocalAccountIdentification) o;
-    return Objects.equals(this.accountNumber, brLocalAccountIdentification.accountNumber) &&
-        Objects.equals(this.bankCode, brLocalAccountIdentification.bankCode) &&
-        Objects.equals(this.branchNumber, brLocalAccountIdentification.branchNumber) &&
-        Objects.equals(this.type, brLocalAccountIdentification.type);
+    HKLocalAccountIdentification hkLocalAccountIdentification = (HKLocalAccountIdentification) o;
+    return Objects.equals(this.accountNumber, hkLocalAccountIdentification.accountNumber) &&
+        Objects.equals(this.bankCode, hkLocalAccountIdentification.bankCode) &&
+        Objects.equals(this.type, hkLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, branchNumber, type);
+    return Objects.hash(accountNumber, bankCode, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BRLocalAccountIdentification {\n");
+    sb.append("class HKLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
-    sb.append("    branchNumber: ").append(toIndentedString(branchNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -233,17 +202,17 @@ public class BRLocalAccountIdentification {
   }
 
 /**
-   * Create an instance of BRLocalAccountIdentification given an JSON string
+   * Create an instance of HKLocalAccountIdentification given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BRLocalAccountIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to BRLocalAccountIdentification
+   * @return An instance of HKLocalAccountIdentification
+   * @throws JsonProcessingException if the JSON string is invalid with respect to HKLocalAccountIdentification
    */
-  public static BRLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, BRLocalAccountIdentification.class);
+  public static HKLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, HKLocalAccountIdentification.class);
   }
 /**
-  * Convert an instance of BRLocalAccountIdentification to an JSON string
+  * Convert an instance of HKLocalAccountIdentification to an JSON string
   *
   * @return JSON string
   */
