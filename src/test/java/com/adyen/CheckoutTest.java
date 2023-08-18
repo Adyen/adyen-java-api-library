@@ -438,9 +438,12 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestCheckoutPaymentMethodSerialisation() throws Exception {
+        // Checks that unknown parameters (in this case googlePayCardNetwork) in oneOf classes are not strict and will
+        // not throw an error.
         CheckoutPaymentMethod checkoutPaymentMethodGoogle = CheckoutPaymentMethod.fromJson("{\n" +
                 "    \"type\": \"paywithgoogle\",\n" +
-                "    \"googlePayToken\": \"==Payload as retrieved from Google Pay response==\"\n" +
+                "    \"googlePayToken\": \"==Payload as retrieved from Google Pay response==\",\n" +
+                "    \"googlePayCardNetwork\": \"not supposed to be here\"\n" +
                 "  }");
 
         CheckoutPaymentMethod checkoutPaymentMethodScheme = CheckoutPaymentMethod.fromJson("{\n" +
@@ -449,7 +452,8 @@ public class CheckoutTest extends BaseTest {
                 "    \"cvc\": \"737\",\n" +
                 "    \"expiryMonth\": \"03\",\n" +
                 "    \"expiryYear\": \"2030\",\n" +
-                "    \"holderName\": \"John Smith\"\n" +
+                "    \"holderName\": \"John Smith\",\n" +
+                "    \"someMumboJumbo\": \"value\"\n" +
                 "  }");
 
         CheckoutPaymentMethod checkoutPaymentMethodApple = CheckoutPaymentMethod.fromJson("{\n" +

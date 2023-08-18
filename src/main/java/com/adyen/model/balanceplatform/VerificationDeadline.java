@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   VerificationDeadline.JSON_PROPERTY_CAPABILITIES,
+  VerificationDeadline.JSON_PROPERTY_ENTITY_IDS,
   VerificationDeadline.JSON_PROPERTY_EXPIRES_AT
 })
 
@@ -173,6 +174,9 @@ public class VerificationDeadline {
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private List<CapabilitiesEnum> capabilities = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_ENTITY_IDS = "entityIds";
+  private List<String> entityIds = null;
+
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
 
@@ -206,6 +210,39 @@ public class VerificationDeadline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
+  }
+
+
+  public VerificationDeadline entityIds(List<String> entityIds) {
+    this.entityIds = entityIds;
+    return this;
+  }
+
+  public VerificationDeadline addEntityIdsItem(String entityIdsItem) {
+    if (this.entityIds == null) {
+      this.entityIds = new ArrayList<>();
+    }
+    this.entityIds.add(entityIdsItem);
+    return this;
+  }
+
+   /**
+   * The unique identifiers of the bank account(s) that the deadline applies to
+   * @return entityIds
+  **/
+  @ApiModelProperty(value = "The unique identifiers of the bank account(s) that the deadline applies to")
+  @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getEntityIds() {
+    return entityIds;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEntityIds(List<String> entityIds) {
+    this.entityIds = entityIds;
   }
 
 
@@ -247,12 +284,13 @@ public class VerificationDeadline {
     }
     VerificationDeadline verificationDeadline = (VerificationDeadline) o;
     return Objects.equals(this.capabilities, verificationDeadline.capabilities) &&
+        Objects.equals(this.entityIds, verificationDeadline.entityIds) &&
         Objects.equals(this.expiresAt, verificationDeadline.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, expiresAt);
+    return Objects.hash(capabilities, entityIds, expiresAt);
   }
 
   @Override
@@ -260,6 +298,7 @@ public class VerificationDeadline {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerificationDeadline {\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    entityIds: ").append(toIndentedString(entityIds)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
