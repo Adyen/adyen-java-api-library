@@ -96,9 +96,6 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // Local Object Mapper that forces strict validation
-            ObjectMapper localObjectMapper = JSON.getMapper();
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
             // deserialize InstallAndroidAppDetails
             try {
@@ -117,7 +114,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
                 boolean typeMatch = Arrays.stream(InstallAndroidAppDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), InstallAndroidAppDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), InstallAndroidAppDetails.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'InstallAndroidAppDetails'");
@@ -145,7 +142,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
                 boolean typeMatch = Arrays.stream(InstallAndroidCertificateDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), InstallAndroidCertificateDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), InstallAndroidCertificateDetails.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'InstallAndroidCertificateDetails'");
@@ -173,7 +170,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
                 boolean typeMatch = Arrays.stream(ReleaseUpdateDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), ReleaseUpdateDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), ReleaseUpdateDetails.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'ReleaseUpdateDetails'");
@@ -201,7 +198,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
                 boolean typeMatch = Arrays.stream(UninstallAndroidAppDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), UninstallAndroidAppDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), UninstallAndroidAppDetails.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'UninstallAndroidAppDetails'");
@@ -229,7 +226,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
                 boolean typeMatch = Arrays.stream(UninstallAndroidCertificateDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), UninstallAndroidCertificateDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), UninstallAndroidCertificateDetails.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'UninstallAndroidCertificateDetails'");
@@ -248,7 +245,6 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
                 log.log(Level.WARNING, String.format("Warning, indecisive deserialization for ScheduleTerminalActionsRequestActionDetails: %d classes match result, expected 1", match));
             }
 
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             ScheduleTerminalActionsRequestActionDetails ret = new ScheduleTerminalActionsRequestActionDetails();
             ret.setActualInstance(deserialized);
             return ret;
@@ -418,5 +414,24 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         return (UninstallAndroidCertificateDetails)super.getActualInstance();
     }
 
+    /**
+    * Create an instance of ScheduleTerminalActionsRequestActionDetails given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of ScheduleTerminalActionsRequestActionDetails
+    * @throws IOException if the JSON string is invalid with respect to ScheduleTerminalActionsRequestActionDetails
+    */
+    public static ScheduleTerminalActionsRequestActionDetails fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, ScheduleTerminalActionsRequestActionDetails.class);
+    }
+
+    /**
+    * Convert an instance of ScheduleTerminalActionsRequestActionDetails to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
+    }
 }
 

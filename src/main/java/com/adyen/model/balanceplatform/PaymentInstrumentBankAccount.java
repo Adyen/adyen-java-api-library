@@ -93,9 +93,6 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // Local Object Mapper that forces strict validation
-            ObjectMapper localObjectMapper = JSON.getMapper();
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
             // deserialize IbanAccountIdentification
             try {
@@ -114,7 +111,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(IbanAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), IbanAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), IbanAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
@@ -142,7 +139,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
                 boolean typeMatch = Arrays.stream(USLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), USLocalAccountIdentification.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), USLocalAccountIdentification.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema 'USLocalAccountIdentification'");
@@ -161,7 +158,6 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
                 log.log(Level.WARNING, String.format("Warning, indecisive deserialization for PaymentInstrumentBankAccount: %d classes match result, expected 1", match));
             }
 
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             PaymentInstrumentBankAccount ret = new PaymentInstrumentBankAccount();
             ret.setActualInstance(deserialized);
             return ret;
@@ -262,5 +258,24 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
         return (USLocalAccountIdentification)super.getActualInstance();
     }
 
+    /**
+    * Create an instance of PaymentInstrumentBankAccount given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of PaymentInstrumentBankAccount
+    * @throws IOException if the JSON string is invalid with respect to PaymentInstrumentBankAccount
+    */
+    public static PaymentInstrumentBankAccount fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, PaymentInstrumentBankAccount.class);
+    }
+
+    /**
+    * Convert an instance of PaymentInstrumentBankAccount to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
+    }
 }
 

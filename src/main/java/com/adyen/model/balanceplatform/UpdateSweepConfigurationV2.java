@@ -36,7 +36,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * UpdateSweepConfigurationV2
  */
 @JsonPropertyOrder({
-  UpdateSweepConfigurationV2.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
   UpdateSweepConfigurationV2.JSON_PROPERTY_CATEGORY,
   UpdateSweepConfigurationV2.JSON_PROPERTY_COUNTERPARTY,
   UpdateSweepConfigurationV2.JSON_PROPERTY_CURRENCY,
@@ -48,15 +47,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdateSweepConfigurationV2.JSON_PROPERTY_STATUS,
   UpdateSweepConfigurationV2.JSON_PROPERTY_SWEEP_AMOUNT,
   UpdateSweepConfigurationV2.JSON_PROPERTY_TARGET_AMOUNT,
-  UpdateSweepConfigurationV2.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
   UpdateSweepConfigurationV2.JSON_PROPERTY_TRIGGER_AMOUNT,
   UpdateSweepConfigurationV2.JSON_PROPERTY_TYPE
 })
 
 public class UpdateSweepConfigurationV2 {
-  public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
-  private String balanceAccountId;
-
   /**
    * The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting &#x60;priorities&#x60;.
    */
@@ -264,9 +259,6 @@ public class UpdateSweepConfigurationV2 {
   public static final String JSON_PROPERTY_TARGET_AMOUNT = "targetAmount";
   private Amount targetAmount;
 
-  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
-  private String transferInstrumentId;
-
   public static final String JSON_PROPERTY_TRIGGER_AMOUNT = "triggerAmount";
   private Amount triggerAmount;
 
@@ -310,31 +302,6 @@ public class UpdateSweepConfigurationV2 {
 
   public UpdateSweepConfigurationV2() { 
   }
-
-  public UpdateSweepConfigurationV2 balanceAccountId(String balanceAccountId) {
-    this.balanceAccountId = balanceAccountId;
-    return this;
-  }
-
-   /**
-   * The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   You can only use this for periodic sweep schedules such as &#x60;schedule.type&#x60; **daily** or **monthly**.
-   * @return balanceAccountId
-  **/
-  @ApiModelProperty(value = "The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   You can only use this for periodic sweep schedules such as `schedule.type` **daily** or **monthly**.")
-  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBalanceAccountId() {
-    return balanceAccountId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBalanceAccountId(String balanceAccountId) {
-    this.balanceAccountId = balanceAccountId;
-  }
-
 
   public UpdateSweepConfigurationV2 category(CategoryEnum category) {
     this.category = category;
@@ -619,31 +586,6 @@ public class UpdateSweepConfigurationV2 {
   }
 
 
-  public UpdateSweepConfigurationV2 transferInstrumentId(String transferInstrumentId) {
-    this.transferInstrumentId = transferInstrumentId;
-    return this;
-  }
-
-   /**
-   * The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/transferInstruments__resParam_id).  You can also use this in combination with a &#x60;merchantAccount&#x60; and a &#x60;type&#x60; **pull** to start a direct debit request from the source transfer instrument. To use this feature, reach out to your Adyen contact.
-   * @return transferInstrumentId
-  **/
-  @ApiModelProperty(value = "The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/transferInstruments__resParam_id).  You can also use this in combination with a `merchantAccount` and a `type` **pull** to start a direct debit request from the source transfer instrument. To use this feature, reach out to your Adyen contact.")
-  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getTransferInstrumentId() {
-    return transferInstrumentId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransferInstrumentId(String transferInstrumentId) {
-    this.transferInstrumentId = transferInstrumentId;
-  }
-
-
   public UpdateSweepConfigurationV2 triggerAmount(Amount triggerAmount) {
     this.triggerAmount = triggerAmount;
     return this;
@@ -706,8 +648,7 @@ public class UpdateSweepConfigurationV2 {
       return false;
     }
     UpdateSweepConfigurationV2 updateSweepConfigurationV2 = (UpdateSweepConfigurationV2) o;
-    return Objects.equals(this.balanceAccountId, updateSweepConfigurationV2.balanceAccountId) &&
-        Objects.equals(this.category, updateSweepConfigurationV2.category) &&
+    return Objects.equals(this.category, updateSweepConfigurationV2.category) &&
         Objects.equals(this.counterparty, updateSweepConfigurationV2.counterparty) &&
         Objects.equals(this.currency, updateSweepConfigurationV2.currency) &&
         Objects.equals(this.description, updateSweepConfigurationV2.description) &&
@@ -718,21 +659,19 @@ public class UpdateSweepConfigurationV2 {
         Objects.equals(this.status, updateSweepConfigurationV2.status) &&
         Objects.equals(this.sweepAmount, updateSweepConfigurationV2.sweepAmount) &&
         Objects.equals(this.targetAmount, updateSweepConfigurationV2.targetAmount) &&
-        Objects.equals(this.transferInstrumentId, updateSweepConfigurationV2.transferInstrumentId) &&
         Objects.equals(this.triggerAmount, updateSweepConfigurationV2.triggerAmount) &&
         Objects.equals(this.type, updateSweepConfigurationV2.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, category, counterparty, currency, description, id, priorities, reason, schedule, status, sweepAmount, targetAmount, transferInstrumentId, triggerAmount, type);
+    return Objects.hash(category, counterparty, currency, description, id, priorities, reason, schedule, status, sweepAmount, targetAmount, triggerAmount, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSweepConfigurationV2 {\n");
-    sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
@@ -744,7 +683,6 @@ public class UpdateSweepConfigurationV2 {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    sweepAmount: ").append(toIndentedString(sweepAmount)).append("\n");
     sb.append("    targetAmount: ").append(toIndentedString(targetAmount)).append("\n");
-    sb.append("    transferInstrumentId: ").append(toIndentedString(transferInstrumentId)).append("\n");
     sb.append("    triggerAmount: ").append(toIndentedString(triggerAmount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
