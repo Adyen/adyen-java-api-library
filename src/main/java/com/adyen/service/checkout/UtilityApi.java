@@ -28,11 +28,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UtilityApi extends Service {
+
+    public static final String API_VERSION = "70";
+
     protected String baseURL;
 
     public UtilityApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
+    }
+
+    public UtilityApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
