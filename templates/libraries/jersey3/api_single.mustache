@@ -25,7 +25,7 @@ public class {{smallServiceName}} extends Service {
     * {{#operation}}{{#-first}}{{vendorExtensions.x-groupName}}{{/-first}}{{/operation}} constructor in {@link {{{package}}} package}.
     * @param client {@link Client }  (required)
     */
-    public {{classname}}(Client client) {
+    public {{smallServiceName}}(Client client) {
         super(client);
         this.baseURL = createBaseURL("{{{basePath}}}");
     }
@@ -36,7 +36,7 @@ public class {{smallServiceName}} extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
-    public {{classname}}(Client client, String baseURL) {
+    public {{smallServiceName}}(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
     }
