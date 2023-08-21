@@ -41,11 +41,21 @@ public class ModificationsApi extends Service {
 
     protected String baseURL;
 
+    /**
+    * Modifications  constructor in {@link com.adyen.service.checkout package}.
+    * @param client {@link Client }  (required)
+    */
     public ModificationsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }
 
+    /**
+    * Modifications  constructor in {@link com.adyen.service.checkout package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client }  (required)
+    * @param baseURL {@link String }  (required)
+    */
     public ModificationsApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
