@@ -27,11 +27,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentLinksApi extends Service {
+
+    public static final String API_VERSION = "70";
+
     protected String baseURL;
 
     public PaymentLinksApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
+    }
+
+    public PaymentLinksApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

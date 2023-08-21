@@ -28,11 +28,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClassicCheckoutSdkApi extends Service {
+
+    public static final String API_VERSION = "70";
+
     protected String baseURL;
 
     public ClassicCheckoutSdkApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
+    }
+
+    public ClassicCheckoutSdkApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

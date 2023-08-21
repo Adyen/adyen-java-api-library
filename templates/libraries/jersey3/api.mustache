@@ -16,11 +16,19 @@ import java.util.Map;
 
 {{#operations}}
 public class {{classname}} extends Service {
+
+    public static final String API_VERSION = "{{{version}}}";
+
     protected String baseURL;
 
     public {{classname}}(Client client) {
         super(client);
         this.baseURL = createBaseURL("{{{basePath}}}");
+    }
+
+    public {{classname}}(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 {{#operation}}
 
