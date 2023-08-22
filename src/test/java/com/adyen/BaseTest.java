@@ -94,7 +94,6 @@ public class BaseTest {
         client.setHttpClient(adyenHttpClient);
 
         Config config = new Config();
-        config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
         return client;
@@ -320,7 +319,6 @@ public class BaseTest {
         Client client = new Client();
         client.setHttpClient(adyenHttpClient);
         Config config = new Config();
-        config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
         return client;
