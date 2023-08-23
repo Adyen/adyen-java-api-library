@@ -66,18 +66,19 @@ public class PaymentsApi extends Service {
     * Get the result of a payment session
     *
     * @param sessionId {@link String } A unique identifier of the session. (required)
+    * @param sessionResult {@link String } The &#x60;sessionResult&#x60; value from the Drop-in or Component. (required)
     * @return {@link SessionResultResponse }
     * @throws ApiException if fails to make API call
     */
-    public SessionResultResponse getResultOfPaymentSession(String sessionId) throws ApiException, IOException {
-        return getResultOfPaymentSession(sessionId, null,  null);
+    public SessionResultResponse getResultOfPaymentSession(String sessionId, String sessionResult) throws ApiException, IOException {
+        return getResultOfPaymentSession(sessionId, sessionResult,  null);
     }
 
     /**
     * Get the result of a payment session
     *
     * @param sessionId {@link String } A unique identifier of the session. (required)
-    * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the Drop-in or Component. (optional)
+    * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the Drop-in or Component. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link SessionResultResponse }
     * @throws ApiException if fails to make API call

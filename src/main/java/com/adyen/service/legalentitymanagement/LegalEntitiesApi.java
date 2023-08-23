@@ -29,11 +29,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LegalEntitiesApi extends Service {
+
+    public static final String API_VERSION = "3";
+
     protected String baseURL;
 
+    /**
+    * Legal entities constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * @param client {@link Client } (required)
+    */
     public LegalEntitiesApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://kyc-test.adyen.com/lem/v3");
+    }
+
+    /**
+    * Legal entities constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public LegalEntitiesApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

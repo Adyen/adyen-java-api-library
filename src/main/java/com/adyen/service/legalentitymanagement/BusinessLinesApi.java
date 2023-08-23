@@ -27,11 +27,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BusinessLinesApi extends Service {
+
+    public static final String API_VERSION = "3";
+
     protected String baseURL;
 
+    /**
+    * Business lines constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * @param client {@link Client } (required)
+    */
     public BusinessLinesApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://kyc-test.adyen.com/lem/v3");
+    }
+
+    /**
+    * Business lines constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public BusinessLinesApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
@@ -61,7 +79,7 @@ public class BusinessLinesApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/businessLines/{id}", null);
-        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
     }
 
     /**

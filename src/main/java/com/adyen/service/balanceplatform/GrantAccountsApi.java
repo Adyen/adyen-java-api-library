@@ -25,11 +25,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GrantAccountsApi extends Service {
+
+    public static final String API_VERSION = "2";
+
     protected String baseURL;
 
+    /**
+    * Grant accounts constructor in {@link com.adyen.service.balanceplatform package}.
+    * @param client {@link Client } (required)
+    */
     public GrantAccountsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2");
+    }
+
+    /**
+    * Grant accounts constructor in {@link com.adyen.service.balanceplatform package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public GrantAccountsApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

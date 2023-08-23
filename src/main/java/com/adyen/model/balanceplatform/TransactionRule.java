@@ -73,6 +73,8 @@ public class TransactionRule {
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule. If not provided, by default, this is set to **hardBlock**.  Possible values:   * **hardBlock**: the transaction is declined.  * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined.
    */
   public enum OutcomeTypeEnum {
+    ENFORCESCA("enforceSCA"),
+    
     HARDBLOCK("hardBlock"),
     
     SCOREBASED("scoreBased");
