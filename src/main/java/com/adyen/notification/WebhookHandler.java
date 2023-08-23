@@ -20,7 +20,6 @@
  */
 package com.adyen.notification;
 
-import com.adyen.model.checkout.AdditionalDataCarRental;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.payout.JSON;
 import com.adyen.model.terminal.TerminalAPIRequest;
