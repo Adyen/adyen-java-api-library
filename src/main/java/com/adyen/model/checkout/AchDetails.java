@@ -32,6 +32,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   AchDetails.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
+  AchDetails.JSON_PROPERTY_BANK_ACCOUNT_TYPE,
   AchDetails.JSON_PROPERTY_BANK_LOCATION_ID,
   AchDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   AchDetails.JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER,
@@ -45,6 +46,54 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class AchDetails {
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
+
+  /**
+   * The bank account type (checking, savings...).
+   */
+  public enum BankAccountTypeEnum {
+    BALANCE("balance"),
+    
+    CHECKING("checking"),
+    
+    DEPOSIT("deposit"),
+    
+    GENERAL("general"),
+    
+    OTHER("other"),
+    
+    PAYMENT("payment"),
+    
+    SAVINGS("savings");
+
+    private String value;
+
+    BankAccountTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static BankAccountTypeEnum fromValue(String value) {
+      for (BankAccountTypeEnum b : BankAccountTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_BANK_ACCOUNT_TYPE = "bankAccountType";
+  private BankAccountTypeEnum bankAccountType;
 
   public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
   private String bankLocationId;
@@ -130,6 +179,31 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+  }
+
+
+  public AchDetails bankAccountType(BankAccountTypeEnum bankAccountType) {
+    this.bankAccountType = bankAccountType;
+    return this;
+  }
+
+   /**
+   * The bank account type (checking, savings...).
+   * @return bankAccountType
+  **/
+  @ApiModelProperty(value = "The bank account type (checking, savings...).")
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BankAccountTypeEnum getBankAccountType() {
+    return bankAccountType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankAccountType(BankAccountTypeEnum bankAccountType) {
+    this.bankAccountType = bankAccountType;
   }
 
 
@@ -349,6 +423,7 @@ public class AchDetails {
     }
     AchDetails achDetails = (AchDetails) o;
     return Objects.equals(this.bankAccountNumber, achDetails.bankAccountNumber) &&
+        Objects.equals(this.bankAccountType, achDetails.bankAccountType) &&
         Objects.equals(this.bankLocationId, achDetails.bankLocationId) &&
         Objects.equals(this.checkoutAttemptId, achDetails.checkoutAttemptId) &&
         Objects.equals(this.encryptedBankAccountNumber, achDetails.encryptedBankAccountNumber) &&
@@ -361,7 +436,7 @@ public class AchDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccountNumber, bankLocationId, checkoutAttemptId, encryptedBankAccountNumber, encryptedBankLocationId, ownerName, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(bankAccountNumber, bankAccountType, bankLocationId, checkoutAttemptId, encryptedBankAccountNumber, encryptedBankLocationId, ownerName, recurringDetailReference, storedPaymentMethodId, type);
   }
 
   @Override
@@ -369,6 +444,7 @@ public class AchDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class AchDetails {\n");
     sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
+    sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
     sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    encryptedBankAccountNumber: ").append(toIndentedString(encryptedBankAccountNumber)).append("\n");

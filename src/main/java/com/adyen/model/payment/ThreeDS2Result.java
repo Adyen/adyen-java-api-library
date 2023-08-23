@@ -35,12 +35,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   ThreeDS2Result.JSON_PROPERTY_AUTHENTICATION_VALUE,
   ThreeDS2Result.JSON_PROPERTY_CAVV_ALGORITHM,
   ThreeDS2Result.JSON_PROPERTY_CHALLENGE_CANCEL,
-  ThreeDS2Result.JSON_PROPERTY_CHALLENGE_INDICATOR,
   ThreeDS2Result.JSON_PROPERTY_DS_TRANS_I_D,
   ThreeDS2Result.JSON_PROPERTY_ECI,
   ThreeDS2Result.JSON_PROPERTY_EXEMPTION_INDICATOR,
   ThreeDS2Result.JSON_PROPERTY_MESSAGE_VERSION,
   ThreeDS2Result.JSON_PROPERTY_RISK_SCORE,
+  ThreeDS2Result.JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND,
   ThreeDS2Result.JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D,
   ThreeDS2Result.JSON_PROPERTY_TIMESTAMP,
   ThreeDS2Result.JSON_PROPERTY_TRANS_STATUS,
@@ -103,48 +103,6 @@ public class ThreeDS2Result {
   public static final String JSON_PROPERTY_CHALLENGE_CANCEL = "challengeCancel";
   private ChallengeCancelEnum challengeCancel;
 
-  /**
-   * Specifies a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
-   */
-  public enum ChallengeIndicatorEnum {
-    NOPREFERENCE("noPreference"),
-    
-    REQUESTNOCHALLENGE("requestNoChallenge"),
-    
-    REQUESTCHALLENGE("requestChallenge"),
-    
-    REQUESTCHALLENGEASMANDATE("requestChallengeAsMandate");
-
-    private String value;
-
-    ChallengeIndicatorEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ChallengeIndicatorEnum fromValue(String value) {
-      for (ChallengeIndicatorEnum b : ChallengeIndicatorEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
-  private ChallengeIndicatorEnum challengeIndicator;
-
   public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
 
@@ -198,6 +156,52 @@ public class ThreeDS2Result {
 
   public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private String riskScore;
+
+  /**
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+   */
+  public enum ThreeDSRequestorChallengeIndEnum {
+    _01("01"),
+    
+    _02("02"),
+    
+    _03("03"),
+    
+    _04("04"),
+    
+    _05("05"),
+    
+    _06("06");
+
+    private String value;
+
+    ThreeDSRequestorChallengeIndEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ThreeDSRequestorChallengeIndEnum fromValue(String value) {
+      for (ThreeDSRequestorChallengeIndEnum b : ThreeDSRequestorChallengeIndEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND = "threeDSRequestorChallengeInd";
+  private ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd;
 
   public static final String JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D = "threeDSServerTransID";
   private String threeDSServerTransID;
@@ -289,31 +293,6 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
-  }
-
-
-  public ThreeDS2Result challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
-    this.challengeIndicator = challengeIndicator;
-    return this;
-  }
-
-   /**
-   * Specifies a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
-   * @return challengeIndicator
-  **/
-  @ApiModelProperty(value = "Specifies a preference for receiving a challenge from the issuer. Allowed values: * `noPreference` * `requestNoChallenge` * `requestChallenge` * `requestChallengeAsMandate` ")
-  @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public ChallengeIndicatorEnum getChallengeIndicator() {
-    return challengeIndicator;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
-    this.challengeIndicator = challengeIndicator;
   }
 
 
@@ -439,6 +418,31 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
     this.riskScore = riskScore;
+  }
+
+
+  public ThreeDS2Result threeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
+    this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    return this;
+  }
+
+   /**
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+   * @return threeDSRequestorChallengeInd
+  **/
+  @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
+    return threeDSRequestorChallengeInd;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
+    this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
   }
 
 
@@ -582,12 +586,12 @@ public class ThreeDS2Result {
     return Objects.equals(this.authenticationValue, threeDS2Result.authenticationValue) &&
         Objects.equals(this.cavvAlgorithm, threeDS2Result.cavvAlgorithm) &&
         Objects.equals(this.challengeCancel, threeDS2Result.challengeCancel) &&
-        Objects.equals(this.challengeIndicator, threeDS2Result.challengeIndicator) &&
         Objects.equals(this.dsTransID, threeDS2Result.dsTransID) &&
         Objects.equals(this.eci, threeDS2Result.eci) &&
         Objects.equals(this.exemptionIndicator, threeDS2Result.exemptionIndicator) &&
         Objects.equals(this.messageVersion, threeDS2Result.messageVersion) &&
         Objects.equals(this.riskScore, threeDS2Result.riskScore) &&
+        Objects.equals(this.threeDSRequestorChallengeInd, threeDS2Result.threeDSRequestorChallengeInd) &&
         Objects.equals(this.threeDSServerTransID, threeDS2Result.threeDSServerTransID) &&
         Objects.equals(this.timestamp, threeDS2Result.timestamp) &&
         Objects.equals(this.transStatus, threeDS2Result.transStatus) &&
@@ -597,7 +601,7 @@ public class ThreeDS2Result {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationValue, cavvAlgorithm, challengeCancel, challengeIndicator, dsTransID, eci, exemptionIndicator, messageVersion, riskScore, threeDSServerTransID, timestamp, transStatus, transStatusReason, whiteListStatus);
+    return Objects.hash(authenticationValue, cavvAlgorithm, challengeCancel, dsTransID, eci, exemptionIndicator, messageVersion, riskScore, threeDSRequestorChallengeInd, threeDSServerTransID, timestamp, transStatus, transStatusReason, whiteListStatus);
   }
 
   @Override
@@ -607,12 +611,12 @@ public class ThreeDS2Result {
     sb.append("    authenticationValue: ").append(toIndentedString(authenticationValue)).append("\n");
     sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
     sb.append("    challengeCancel: ").append(toIndentedString(challengeCancel)).append("\n");
-    sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
     sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
     sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
     sb.append("    exemptionIndicator: ").append(toIndentedString(exemptionIndicator)).append("\n");
     sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
     sb.append("    riskScore: ").append(toIndentedString(riskScore)).append("\n");
+    sb.append("    threeDSRequestorChallengeInd: ").append(toIndentedString(threeDSRequestorChallengeInd)).append("\n");
     sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    transStatus: ").append(toIndentedString(transStatus)).append("\n");
