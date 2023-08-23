@@ -20,6 +20,8 @@
  */
 package com.adyen.model.notification;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
@@ -49,10 +51,12 @@ public class NotificationRequest {
         return this;
     }
 
+    @JsonProperty("notificationItems")
     public List<NotificationRequestItemContainer> getNotificationItemContainers() {
         return notificationItemContainers;
     }
 
+    @JsonProperty("notificationItems")
     public void setNotificationItemContainers(List<NotificationRequestItemContainer> notificationItemContainers) {
         this.notificationItemContainers = notificationItemContainers;
     }
