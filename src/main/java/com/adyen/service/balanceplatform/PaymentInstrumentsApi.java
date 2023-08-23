@@ -31,11 +31,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentInstrumentsApi extends Service {
+
+    public static final String API_VERSION = "2";
+
     protected String baseURL;
 
+    /**
+    * Payment instruments constructor in {@link com.adyen.service.balanceplatform package}.
+    * @param client {@link Client } (required)
+    */
     public PaymentInstrumentsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2");
+    }
+
+    /**
+    * Payment instruments constructor in {@link com.adyen.service.balanceplatform package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public PaymentInstrumentsApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

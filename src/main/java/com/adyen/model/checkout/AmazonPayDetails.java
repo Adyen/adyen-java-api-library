@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   AmazonPayDetails.JSON_PROPERTY_AMAZON_PAY_TOKEN,
   AmazonPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  AmazonPayDetails.JSON_PROPERTY_CHECKOUT_SESSION_ID,
   AmazonPayDetails.JSON_PROPERTY_TYPE
 })
 
@@ -42,6 +43,9 @@ public class AmazonPayDetails {
 
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  public static final String JSON_PROPERTY_CHECKOUT_SESSION_ID = "checkoutSessionId";
+  private String checkoutSessionId;
 
   /**
    * **amazonpay**
@@ -88,10 +92,10 @@ public class AmazonPayDetails {
   }
 
    /**
-   * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response.
+   * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.
    * @return amazonPayToken
   **/
-  @ApiModelProperty(value = "This is the `amazonPayToken` that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response.")
+  @ApiModelProperty(value = "This is the `amazonPayToken` that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.")
   @JsonProperty(JSON_PROPERTY_AMAZON_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -129,6 +133,31 @@ public class AmazonPayDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
+  public AmazonPayDetails checkoutSessionId(String checkoutSessionId) {
+    this.checkoutSessionId = checkoutSessionId;
+    return this;
+  }
+
+   /**
+   * The &#x60;checkoutSessionId&#x60; is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.
+   * @return checkoutSessionId
+  **/
+  @ApiModelProperty(value = "The `checkoutSessionId` is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.")
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_SESSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCheckoutSessionId() {
+    return checkoutSessionId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CHECKOUT_SESSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCheckoutSessionId(String checkoutSessionId) {
+    this.checkoutSessionId = checkoutSessionId;
   }
 
 
@@ -171,12 +200,13 @@ public class AmazonPayDetails {
     AmazonPayDetails amazonPayDetails = (AmazonPayDetails) o;
     return Objects.equals(this.amazonPayToken, amazonPayDetails.amazonPayToken) &&
         Objects.equals(this.checkoutAttemptId, amazonPayDetails.checkoutAttemptId) &&
+        Objects.equals(this.checkoutSessionId, amazonPayDetails.checkoutSessionId) &&
         Objects.equals(this.type, amazonPayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amazonPayToken, checkoutAttemptId, type);
+    return Objects.hash(amazonPayToken, checkoutAttemptId, checkoutSessionId, type);
   }
 
   @Override
@@ -185,6 +215,7 @@ public class AmazonPayDetails {
     sb.append("class AmazonPayDetails {\n");
     sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    checkoutSessionId: ").append(toIndentedString(checkoutSessionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

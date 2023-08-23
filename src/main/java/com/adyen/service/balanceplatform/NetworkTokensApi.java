@@ -26,11 +26,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NetworkTokensApi extends Service {
+
+    public static final String API_VERSION = "2";
+
     protected String baseURL;
 
+    /**
+    * Network tokens constructor in {@link com.adyen.service.balanceplatform package}.
+    * @param client {@link Client } (required)
+    */
     public NetworkTokensApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2");
+    }
+
+    /**
+    * Network tokens constructor in {@link com.adyen.service.balanceplatform package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public NetworkTokensApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
@@ -95,6 +113,6 @@ public class NetworkTokensApi extends Service {
 
         String requestBody = updateNetworkTokenRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/networkTokens/{networkTokenId}", null);
-        resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
     }
 }

@@ -37,6 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   KlarnaDetails.JSON_PROPERTY_PERSONAL_DETAILS,
   KlarnaDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   KlarnaDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  KlarnaDetails.JSON_PROPERTY_SUBTYPE,
   KlarnaDetails.JSON_PROPERTY_TYPE
 })
 
@@ -58,6 +59,9 @@ public class KlarnaDetails {
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  public static final String JSON_PROPERTY_SUBTYPE = "subtype";
+  private String subtype;
 
   /**
    * **klarna**
@@ -263,6 +267,31 @@ public class KlarnaDetails {
   }
 
 
+  public KlarnaDetails subtype(String subtype) {
+    this.subtype = subtype;
+    return this;
+  }
+
+   /**
+   * The type of flow to initiate.
+   * @return subtype
+  **/
+  @ApiModelProperty(value = "The type of flow to initiate.")
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSubtype() {
+    return subtype;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubtype(String subtype) {
+    this.subtype = subtype;
+  }
+
+
   public KlarnaDetails type(TypeEnum type) {
     this.type = type;
     return this;
@@ -306,12 +335,13 @@ public class KlarnaDetails {
         Objects.equals(this.personalDetails, klarnaDetails.personalDetails) &&
         Objects.equals(this.recurringDetailReference, klarnaDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, klarnaDetails.storedPaymentMethodId) &&
+        Objects.equals(this.subtype, klarnaDetails.subtype) &&
         Objects.equals(this.type, klarnaDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, checkoutAttemptId, deliveryAddress, personalDetails, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(billingAddress, checkoutAttemptId, deliveryAddress, personalDetails, recurringDetailReference, storedPaymentMethodId, subtype, type);
   }
 
   @Override
@@ -324,6 +354,7 @@ public class KlarnaDetails {
     sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
