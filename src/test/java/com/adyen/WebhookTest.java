@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
 import com.adyen.model.balanceplatform.BankAccountIdentificationValidationRequest;
 import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
 import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
@@ -34,6 +35,7 @@ import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.notification.BankingWebhookHandler;
 import com.adyen.notification.WebhookHandler;
 import com.adyen.util.HMACValidator;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.JsonParser;
 import org.junit.Assert;
 import org.junit.Before;
@@ -267,6 +269,56 @@ Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder(
         HMACValidator hmacValidator = new HMACValidator();
         boolean response = hmacValidator.validateHMAC(hmacKey, signKey, notification);
         Assert.assertTrue(response);
+    }
+
+    @Test
+    public void testBankingWebhookAcsParsing() {
+        String notification = "{\n" +
+                "               \"data\" : {\n" +
+                "                  \"balancePlatform\" : \"YOUR_BALANCE_PLATFORM\",\n" +
+                "                  \"creationDate\" : \"2023-01-19T17:07:59+01:00\",\n" +
+                "                  \"id\" : \"a8fc7a40-6e48-498a-bdc2-494daf0f490a\",\n" +
+                "                  \"authentication\" : {\n" +
+                "                     \"acsTransId\" : \"a8fc7a40-6e48-498a-bdc2-494daf0f490a\",\n" +
+                "                     \"challenge\" : {\n" +
+                "                        \"flow\" : \"OTP_SMS\",\n" +
+                "                        \"lastInteraction\" : \"2023-01-19T17:37:13+01:00\",\n" +
+                "                        \"phoneNumber\" : \"******6789\",\n" +
+                "                        \"resends\" : 0,\n" +
+                "                        \"retries\" : 2\n" +
+                "                     },\n" +
+                "                     \"challengeIndicator\" : \"01\",\n" +
+                "                     \"createdAt\" : \"2023-01-19T17:07:17+01:00\",\n" +
+                "                     \"deviceChannel\" : \"app\",\n" +
+                "                     \"dsTransID\" : \"59de4e30-7f84-4a77-aaf8-1ca493092ef9\",\n" +
+                "                     \"exemptionIndicator\" : \"noExemptionApplied\",\n" +
+                "                     \"inPSD2Scope\" : false,\n" +
+                "                     \"messageCategory\" : \"payment\",\n" +
+                "                     \"messageVersion\" : \"2.2.0\",\n" +
+                "                     \"threeDSServerTransID\" : \"8bc0fdbd-5c8a-4bed-a171-9d10347e7798\",\n" +
+                "                     \"transStatus\" : \"N\",\n" +
+                "                     \"transStatusReason\" : \"19\",\n" +
+                "                     \"type\" : \"challenge\"\n" +
+                "                  },\n" +
+                "                  \"paymentInstrumentId\" : \"PI3227C223222B5BPCMFXD2XG\",\n" +
+                "                  \"purchase\" : {\n" +
+                "                     \"date\" : \"2022-12-22T15:49:03+01:00\",\n" +
+                "                     \"merchantName\" : \"TeaShop_NL\",\n" +
+                "                     \"originalAmount\" : {\n" +
+                "                        \"currency\" : \"EUR\",\n" +
+                "                        \"value\" : 1000\n" +
+                "                     }\n" +
+                "                  },\n" +
+                "                  \"status\" : \"rejected\"\n" +
+                "               },\n" +
+                "               \"environment\" : \"test\",\n" +
+                "               \"type\" : \"balancePlatform.authentication.created\"\n" +
+                "            }";
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(notification);
+        Assert.assertTrue(webhookHandler.getAuthenticationNotificationRequest().isPresent());
+        AuthenticationNotificationRequest request = webhookHandler.getAuthenticationNotificationRequest().get();
+        Assert.assertEquals(request.getData().getId(), "a8fc7a40-6e48-498a-bdc2-494daf0f490a");
+        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
     }
 
     @Test
