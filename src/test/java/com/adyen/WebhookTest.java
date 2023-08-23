@@ -293,6 +293,7 @@ Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder(
                 "}";
         WebhookHandler webhookHolder = new WebhookHandler();
         NotificationRequest notificationRequest = webhookHolder.handleNotificationJsonJackson(notification);
-        System.out.println(notificationRequest.getNotificationItemContainers().get(0).getNotificationItem().getAmount().getCurrency());
+        Assert.assertEquals(notificationRequest.getNotificationItemContainers().get(0).getNotificationItem().getAmount().getCurrency(), "EUR");
+        Assert.assertEquals(notificationRequest.getNotificationItemContainers().get(0).getNotificationItem().getAdditionalData().get("originalMerchantAccountCode"), "LengrandECOM");
     }
 }
