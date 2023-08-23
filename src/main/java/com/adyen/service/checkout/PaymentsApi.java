@@ -37,29 +37,48 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentsApi extends Service {
+
+    public static final String API_VERSION = "70";
+
     protected String baseURL;
 
+    /**
+    * Payments constructor in {@link com.adyen.service.checkout package}.
+    * @param client {@link Client } (required)
+    */
     public PaymentsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }
 
     /**
-    * Get the result of a payment session
-    *
-    * @param sessionId {@link String } A unique identifier of the session. (required)
-    * @return {@link SessionResultResponse }
-    * @throws ApiException if fails to make API call
+    * Payments constructor in {@link com.adyen.service.checkout package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    public SessionResultResponse getResultOfPaymentSession(String sessionId) throws ApiException, IOException {
-        return getResultOfPaymentSession(sessionId, null,  null);
+    public PaymentsApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
     * Get the result of a payment session
     *
     * @param sessionId {@link String } A unique identifier of the session. (required)
-    * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the Drop-in or Component. (optional)
+    * @param sessionResult {@link String } The &#x60;sessionResult&#x60; value from the Drop-in or Component. (required)
+    * @return {@link SessionResultResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public SessionResultResponse getResultOfPaymentSession(String sessionId, String sessionResult) throws ApiException, IOException {
+        return getResultOfPaymentSession(sessionId, sessionResult,  null);
+    }
+
+    /**
+    * Get the result of a payment session
+    *
+    * @param sessionId {@link String } A unique identifier of the session. (required)
+    * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the Drop-in or Component. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link SessionResultResponse }
     * @throws ApiException if fails to make API call

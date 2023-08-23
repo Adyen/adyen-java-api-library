@@ -21,6 +21,7 @@
 package com.adyen.notification;
 
 import com.adyen.model.notification.NotificationRequest;
+import com.adyen.model.payout.JSON;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
 import com.google.gson.Gson;
@@ -43,6 +44,10 @@ public class WebhookHandler {
 
     public NotificationRequest handleNotificationJson(String json) throws IOException {
         return NotificationRequest.fromJson(json);
+    }
+
+    public NotificationRequest handleNotificationJsonJackson(String json) throws IOException {
+        return JSON.getMapper().readValue(json, NotificationRequest.class);
     }
 
     // Note that terminal notifications are structured as TerminalAPIRequest objects

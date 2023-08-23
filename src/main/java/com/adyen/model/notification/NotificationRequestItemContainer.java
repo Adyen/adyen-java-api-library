@@ -20,6 +20,7 @@
  */
 package com.adyen.model.notification;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import static com.adyen.util.Util.toIndentedString;
@@ -31,10 +32,12 @@ public class NotificationRequestItemContainer {
     @SerializedName("NotificationRequestItem")
     private NotificationRequestItem notificationItem = null;
 
+    @JsonProperty("NotificationRequestItem")
     public NotificationRequestItem getNotificationItem() {
         return notificationItem;
     }
 
+    @JsonProperty("NotificationRequestItem")
     public void setNotificationItem(NotificationRequestItem notificationItem) {
         this.notificationItem = notificationItem;
     }

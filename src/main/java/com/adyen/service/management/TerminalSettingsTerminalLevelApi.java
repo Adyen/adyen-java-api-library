@@ -26,11 +26,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TerminalSettingsTerminalLevelApi extends Service {
+
+    public static final String API_VERSION = "1";
+
     protected String baseURL;
 
+    /**
+    * Terminal settings - terminal level constructor in {@link com.adyen.service.management package}.
+    * @param client {@link Client } (required)
+    */
     public TerminalSettingsTerminalLevelApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://management-test.adyen.com/v1");
+    }
+
+    /**
+    * Terminal settings - terminal level constructor in {@link com.adyen.service.management package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public TerminalSettingsTerminalLevelApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

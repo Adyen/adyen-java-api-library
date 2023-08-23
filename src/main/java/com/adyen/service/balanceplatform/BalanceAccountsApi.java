@@ -31,11 +31,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BalanceAccountsApi extends Service {
+
+    public static final String API_VERSION = "2";
+
     protected String baseURL;
 
+    /**
+    * Balance accounts constructor in {@link com.adyen.service.balanceplatform package}.
+    * @param client {@link Client } (required)
+    */
     public BalanceAccountsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2");
+    }
+
+    /**
+    * Balance accounts constructor in {@link com.adyen.service.balanceplatform package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public BalanceAccountsApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
@@ -71,7 +89,7 @@ public class BalanceAccountsApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}", null);
-        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
     }
 
     /**

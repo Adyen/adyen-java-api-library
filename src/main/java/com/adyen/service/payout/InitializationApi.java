@@ -30,11 +30,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InitializationApi extends Service {
+
+    public static final String API_VERSION = "68";
+
     protected String baseURL;
 
+    /**
+    * Initialization constructor in {@link com.adyen.service.payout package}.
+    * @param client {@link Client } (required)
+    */
     public InitializationApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/Payout/v68");
+    }
+
+    /**
+    * Initialization constructor in {@link com.adyen.service.payout package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public InitializationApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

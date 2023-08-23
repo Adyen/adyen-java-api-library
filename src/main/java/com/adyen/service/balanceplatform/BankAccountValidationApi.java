@@ -25,11 +25,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BankAccountValidationApi extends Service {
+
+    public static final String API_VERSION = "2";
+
     protected String baseURL;
 
+    /**
+    * Bank account validation constructor in {@link com.adyen.service.balanceplatform package}.
+    * @param client {@link Client } (required)
+    */
     public BankAccountValidationApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2");
+    }
+
+    /**
+    * Bank account validation constructor in {@link com.adyen.service.balanceplatform package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public BankAccountValidationApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
@@ -53,6 +71,6 @@ public class BankAccountValidationApi extends Service {
 
         String requestBody = bankAccountIdentificationValidationRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/validateBankAccountIdentification", null);
-        resource.request(requestBody, null, ApiConstants.HttpMethod.POST, null);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
     }
 }
