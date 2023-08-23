@@ -269,4 +269,30 @@ Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder(
         Assert.assertTrue(response);
     }
 
+    @Test
+    public void testDonationWebhookJackson() throws SignatureException, IOException {
+        String notification = "{\n" +
+                "  \"live\": \"false\",\n" +
+                "  \"notificationItems\": [\n" +
+                "    {\n" +
+                "      \"NotificationRequestItem\": {\n" +
+                "        \"additionalData\": { \"originalMerchantAccountCode\": \"LengrandECOM\" },\n" +
+                "        \"amount\": { \"currency\": \"EUR\", \"value\": 500 },\n" +
+                "        \"eventCode\": \"DONATION\",\n" +
+                "        \"eventDate\": \"2023-08-22T15:05:06+02:00\",\n" +
+                "        \"merchantAccountCode\": \"MyCharity_Giving_TEST\",\n" +
+                "        \"merchantReference\": \"9035b75a-e733-4247-a6f3-cda4c480db3d\",\n" +
+                "        \"originalReference\": \"WJZ75L2RPV5X8N82\",\n" +
+                "        \"paymentMethod\": \"mc\",\n" +
+                "        \"pspReference\": \"FGLQR59BM3RZNN82\",\n" +
+                "        \"reason\": \"062791:1115:03/2030\",\n" +
+                "        \"success\": \"true\"\n" +
+                "      }\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}";
+        WebhookHandler webhookHolder = new WebhookHandler();
+        NotificationRequest notificationRequest = webhookHolder.handleNotificationJsonJackson(notification);
+        System.out.println(notificationRequest.getNotificationItemContainers().get(0).getNotificationItem().getAmount().getCurrency());
+    }
 }
