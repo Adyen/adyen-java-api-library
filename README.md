@@ -166,8 +166,8 @@ if (notificationRequestItem.isPresent()) {
 Or if you would like to deserialize the Banking Webhooks, first check if the payload is authentic: 
 ~~~~ java
 String payload = "WEBHOOK_PAYLOAD";
-String signKey = "SIGNATURE_RETREIVED_FROM_CA";
-String hmacKey = "HMACKEY_RETREIVED_FROM_WEBHOOK_HEADER";
+String signKey = "SIGNATURE_RETRIEVED_FROM_CA";
+String hmacKey = "HMAC_KEY_RETRIEVED_FROM_WEBHOOK_HEADER";
 HMACValidator hmacValidator = new HMACValidator();
 boolean authenticity = hmacValidator.validateHMAC(hmacKey, signKey, payload);
 ~~~~
