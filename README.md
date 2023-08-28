@@ -165,7 +165,7 @@ if (notificationRequestItem.isPresent()) {
     }
 }
 ~~~~
-Or if you would like to deserialize the Banking Webhooks, first check if the payload is authentic: 
+If you would like to deserialize the Banking Webhooks, first check if the payload is authentic: 
 ~~~~ java
 String payload = "WEBHOOK_PAYLOAD";
 String signKey = "SIGNATURE_RETREIVED_FROM_CA";
@@ -186,6 +186,15 @@ webhookHandler.getBalanceAccountNotificationRequest().ifPresent((BalanceAccountN
 });
 
 ~~~~
+To deserialize Management Webhooks instead, please use the specific webhook handler:
+~~~~ java
+ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(payload);
+// onMerchantCreatedNotificationRequest
+webhookHandler.getMerchantCreatedNotificationRequest().isPresent((MerchantCreatedNotificationRequest event) -> {
+System.out.println(event.getData().getMerchantId());
+});
+~~~~
+
 ### Proxy configuration
 You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.
 
