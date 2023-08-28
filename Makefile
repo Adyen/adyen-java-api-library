@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=jersey3
-modelGen:=acswebhooks balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks
+modelGen:=acswebhooks balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks managementwebhooks
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -43,6 +43,8 @@ acswebhooks: spec=BalancePlatformAcsNotification-v1
 configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
 reportwebhooks: spec=BalancePlatformReportNotification-v1
 transferwebhooks: spec=BalancePlatformTransferNotification-v3
+# Management Webhooks
+managementwebhooks: spec=ManagementNotificationService-v1
 
 $(modelGen): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)

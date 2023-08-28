@@ -30,13 +30,14 @@ The Library supports all APIs under the following services:
 ## Supported Webhook versions
 The library supports all webhooks under the following model directories:
 
-| Webhooks                                                                                          | Description                                                                                                                                                                             | Model Name                                                                   | Supported Version |
-|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-------------------|
-| [Authentication Webhooks](https://docs.adyen.com/api-explorer/acs-webhook/1/overview)             | Adyen sends this webhook when the process of cardholder authentication is finalized, whether it is completed successfully, fails, or expires.                                           | [acswebhooks](src/main/java/com/adyen/model/acswebhooks)                     | **v1**            |
-| [Configuration Webhooks](https://docs.adyen.com/api-explorer/balanceplatform-webhooks/1/overview) | You can use these webhooks to build your implementation. For example, you can use this information to update internal statuses when the status of a capability is changed.              | [configurationwebhooks](src/main/java/com/adyen/model/configurationwebhooks) | **v1**            |
-| [Transfer Webhooks](https://docs.adyen.com/api-explorer/transfer-webhooks/3/overview)             | You can use these webhooks to build your implementation. For example, you can use this information to update balances in your own dashboards or to keep track of incoming funds.        | [transferwebhooks](src/main/java/com/adyen/model/transferwebhooks)           | **v3**            |
-| [Report Webhooks](https://docs.adyen.com/api-explorer/report-webhooks/1/overview)                 | You can download reports programmatically by making an HTTP GET request, or manually from your Balance Platform Customer Area                                                           | [reportwebhooks](src/main/java/com/adyen/model/reportwebhooks)               | **v1**            |
-| [Notification Webhooks](https://docs.adyen.com/api-explorer/Webhooks/1/overview)                  | We use webhooks to send you updates about payment status updates, newly available reports, and other events that you can subscribe to. For more information, refer to our documentation | [notification](src/main/java/com/adyen/model/notification)                   | **v1**            |
+| Webhooks                                                                                          | Description                                                                                                                                                                                | Model Name                                                                   | Supported Version |
+|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-------------------|
+| [Authentication Webhooks](https://docs.adyen.com/api-explorer/acs-webhook/1/overview)             | Adyen sends this webhook when the process of cardholder authentication is finalized, whether it is completed successfully, fails, or expires.                                              | [acswebhooks](src/main/java/com/adyen/model/acswebhooks)                     | **v1**            |
+| [Configuration Webhooks](https://docs.adyen.com/api-explorer/balanceplatform-webhooks/1/overview) | You can use these webhooks to build your implementation. For example, you can use this information to update internal statuses when the status of a capability is changed.                 | [configurationwebhooks](src/main/java/com/adyen/model/configurationwebhooks) | **v1**            |
+| [Transfer Webhooks](https://docs.adyen.com/api-explorer/transfer-webhooks/3/overview)             | You can use these webhooks to build your implementation. For example, you can use this information to update balances in your own dashboards or to keep track of incoming funds.           | [transferwebhooks](src/main/java/com/adyen/model/transferwebhooks)           | **v3**            |
+| [Report Webhooks](https://docs.adyen.com/api-explorer/report-webhooks/1/overview)                 | You can download reports programmatically by making an HTTP GET request, or manually from your Balance Platform Customer Area                                                              | [reportwebhooks](src/main/java/com/adyen/model/reportwebhooks)               | **v1**            |
+| [Notification Webhooks](https://docs.adyen.com/api-explorer/Webhooks/1/overview)                  | We use webhooks to send you updates about payment status updates, newly available reports, and other events that you can subscribe to. For more information, refer to our documentation    | [notification](src/main/java/com/adyen/model/notification)                   | **v1**            |
+| [Management Webhooks](https://docs.adyen.com/api-explorer/ManagementNotification/1/overview)      | Adyen uses webhooks to inform your system about events that happen with your Adyen company and merchant accounts, stores, payment terminals, and payment methods when using Management API | [managementwebhooks](src/main/java/com/adyen/model/managementwebhooks)       | **v1**            |
 
 For more information, refer to our [documentation](https://docs.adyen.com/) or
 the [API Explorer](https://docs.adyen.com/api-explorer/).
@@ -164,7 +165,7 @@ if (notificationRequestItem.isPresent()) {
     }
 }
 ~~~~
-Or if you would like to deserialize the Banking Webhooks, first check if the payload is authentic: 
+If you would like to deserialize the Banking Webhooks, first check if the payload is authentic: 
 ~~~~ java
 String payload = "WEBHOOK_PAYLOAD";
 String signKey = "SIGNATURE_RETREIVED_FROM_CA";
@@ -185,6 +186,15 @@ webhookHandler.getBalanceAccountNotificationRequest().ifPresent((BalanceAccountN
 });
 
 ~~~~
+To deserialize Management Webhooks instead, please use the specific webhook handler:
+~~~~ java
+ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(payload);
+// onMerchantCreatedNotificationRequest
+webhookHandler.getMerchantCreatedNotificationRequest().isPresent((MerchantCreatedNotificationRequest event) -> {
+System.out.println(event.getData().getMerchantId());
+});
+~~~~
+
 ### Proxy configuration
 You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.
 
