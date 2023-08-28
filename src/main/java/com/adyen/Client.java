@@ -30,10 +30,8 @@ import java.security.KeyStore;
 public class Client {
     private ClientInterface httpClient;
     private Config config;
-    public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "21.2.0";
-    public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
+    public static final String LIB_VERSION = "21.3.0";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
 
@@ -65,14 +63,6 @@ public class Client {
         this.config.setClientKeyStorePassword(clientKeyStorePassword);
         this.config.setClientKeyStore(clientKeyStore);
         this.config.setTrustKeyStore(trustStore);
-        this.config.setEndpoint(ENDPOINT_CERT_LIVE);
-
-        if (region != null) {
-            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, region.name().toLowerCase()));
-        } else {
-            // default to EU if not provided
-            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, Region.EU.name().toLowerCase()));
-        }
     }
 
     public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {
