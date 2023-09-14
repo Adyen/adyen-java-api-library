@@ -38,6 +38,7 @@ import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.service.TerminalLocalAPI;
+import com.adyen.service.TerminalLocalAPIUnencrypted;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -134,5 +135,21 @@ public class TerminalLocalAPITest extends BaseTest {
         assertNotNull(paymentResult.getAmountsResp());
         assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
         assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());
+    }
+
+    /**
+     * Test success flow for local request unencrypted
+     */
+    @Test
+    public void unencryptedPaymentRequestSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/terminal-api/payment-sync-success.json");
+        TerminalLocalAPIUnencrypted terminalLocalAPIUnencrypted = new TerminalLocalAPIUnencrypted(client);
+        TerminalAPIResponse response = terminalLocalAPIUnencrypted.request(createTerminalAPIPaymentRequest());
+        assertNotNull(response);
+        assertNotNull(response.getSaleToPOIResponse());
+
+        SaleToPOIResponse saleToPoiResponse = response.getSaleToPOIResponse();
+        assertNotNull(saleToPoiResponse.getMessageHeader());
+        assertNotNull(saleToPoiResponse.getPaymentResponse());
     }
 }
