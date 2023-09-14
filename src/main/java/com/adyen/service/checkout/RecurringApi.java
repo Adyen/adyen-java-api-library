@@ -56,11 +56,10 @@ public class RecurringApi extends Service {
     * @param storedPaymentMethodId {@link String } The unique identifier of the token. (required)
     * @param shopperReference {@link String } Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (required)
     * @param merchantAccount {@link String } Your merchant account. (required)
-    * @return {@link StoredPaymentMethodResource }
     * @throws ApiException if fails to make API call
     */
-    public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String storedPaymentMethodId, String shopperReference, String merchantAccount) throws ApiException, IOException {
-        return deleteTokenForStoredPaymentDetails(storedPaymentMethodId, shopperReference,  merchantAccount,  null);
+    public void deleteTokenForStoredPaymentDetails(String storedPaymentMethodId, String shopperReference, String merchantAccount) throws ApiException, IOException {
+         deleteTokenForStoredPaymentDetails(storedPaymentMethodId, shopperReference,  merchantAccount,  null);
     }
 
     /**
@@ -70,10 +69,9 @@ public class RecurringApi extends Service {
     * @param shopperReference {@link String } Query: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (required)
     * @param merchantAccount {@link String } Query: Your merchant account. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link StoredPaymentMethodResource }
     * @throws ApiException if fails to make API call
     */
-    public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String storedPaymentMethodId, String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {
+    public void deleteTokenForStoredPaymentDetails(String storedPaymentMethodId, String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (storedPaymentMethodId == null) {
@@ -91,8 +89,7 @@ public class RecurringApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/storedPaymentMethods/{storedPaymentMethodId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams, queryParams);
-        return StoredPaymentMethodResource.fromJson(jsonResult);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams, queryParams);
     }
 
     /**
