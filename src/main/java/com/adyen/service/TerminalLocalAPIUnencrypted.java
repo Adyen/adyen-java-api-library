@@ -1,7 +1,7 @@
 package com.adyen.service;
 
-import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.Service;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.service.resource.terminal.local.LocalRequest;
@@ -16,7 +16,7 @@ import com.google.gson.reflect.TypeToken;
  * <p>
  * Be sure to remove the encryption key details on the Customer Area as it will not work with encryption key details set up.
  */
-public class TerminalLocalAPIUnencrypted extends ApiKeyAuthenticatedService {
+public class TerminalLocalAPIUnencrypted extends Service {
 
     private final LocalRequest localRequest;
 
