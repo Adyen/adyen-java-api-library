@@ -231,6 +231,8 @@ In order to submit In-Person requests with [Terminal API over Cloud](https://doc
 import com.adyen.Client;
 import com.adyen.enums.Environment;
 import com.adyen.service.TerminalCloudAPI;
+import com.adyen.model.nexo.*;
+import com.adyen.model.terminal.*;
 
 // Step 2: Initialize the client object
 Client client = new Client("Your YOUR_API_KEY", Environment.TEST);
@@ -365,8 +367,10 @@ TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIReque
 ## Using the Local Terminal API Integration
 The request and response payloads are identical to the Cloud Terminal API, however, additional encryption details are required to perform the requests.
 ```java
-// Step 1: Import TerminalLocalAPI
+// Step 1: Import the required classes
 import com.adyen.service.TerminalLocalAPI;
+import com.adyen.model.nexo.*;
+import com.adyen.model.terminal.*;
 
 // Step 2: Add your Certificate Path and Local Endpoint to the config path. Install the certificate from [here](https://docs.adyen.com/point-of-sale/choose-your-architecture/local#protect-communications).
 Client client = new Client();
@@ -394,8 +398,10 @@ TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIRe
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
 If you wish to develop the Local Terminal API integration parallel to your encryption implementation, you can opt for the unencrypted version. Be sure to remove any encryption details from the CA terminal config page.
 ```java
-// Step 1: Import TerminalLocalAPIUnencrypted
+// Step 1: Import the required classes
 import com.adyen.service.TerminalLocalAPIUnencrypted;
+import com.adyen.model.nexo.*;
+import com.adyen.model.terminal.*;
 
 // Step 2: Add your Certificate Path and Local Endpoint to the config path.
 Client client = new Client();
