@@ -33,11 +33,15 @@ balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
 legalentitymanagement: spec=LegalEntityService-v3
 # Classic Platforms
-marketpay/account: spec=AccountService-v6
-marketpay/fund: spec=FundService-v6
-marketpay/configuration: spec=NotificationConfigurationService-v6
-marketpay/webhooks: spec=MarketPayNotificationService-v6
-hop: spec=HopService-v6
+marketpayaccount: spec=AccountService-v6
+marketpayaccount: smallServiceName=ClassicPlatformAccountApi
+marketpayfund: spec=FundService-v6
+marketpayfund: smallServiceName=ClassicPlatformFundApi
+marketpayconfiguration: spec=NotificationConfigurationService-v6
+marketpayconfiguration: smallServiceName=ClassicPlatformConfigurationApi
+marketpayhop: spec=HopService-v6
+marketpayhop: smallServiceName=ClassicPlatformHopApi
+#marketpaywebhooks: spec=MarketPayNotificationService-v6
 # Balance Webhooks
 acswebhooks: spec=BalancePlatformAcsNotification-v1
 configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
