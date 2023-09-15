@@ -119,6 +119,7 @@ public class MarketPayTest extends BaseTest{
                 "}");
         String jsonRequest = request.toJson();
         GetTaxFormResponse response = GetTaxFormResponse.fromJson("{\n" +
+                "  \"content\": \"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\",\n" +
                 "  \"contentType\": \"String\",\n" +
                 "  \"invalidFields\": [\n" +
                 "    {\n" +
@@ -135,8 +136,8 @@ public class MarketPayTest extends BaseTest{
                 "  \"resultCode\": \"string\"\n" +
                 "}");
         // For some reason setting this content byte [] is broken
-        // response.setContent("U29tZXJhbmRvbXN0cmluZ0Jhc2U2NEVuY29kZWQ".getBytes(StandardCharsets.UTF_8));
         String json = response.toJson();
+        System.out.println(new String(response.getContent()));
         Client client = createMockClientFromResponse(json);
         ClassicPlatformAccountApi api = new ClassicPlatformAccountApi(client);
 

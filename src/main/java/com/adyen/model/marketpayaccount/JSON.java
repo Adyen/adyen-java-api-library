@@ -1,5 +1,6 @@
 package com.adyen.model.marketpayaccount;
 
+import com.adyen.serializer.ByteArrayDeserializer;
 import com.adyen.serializer.ByteArraySerializer;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
@@ -33,6 +34,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
     // Custom ByteSerializer
     SimpleModule simpleModule = new SimpleModule();
     simpleModule.addSerializer(byte[].class, new ByteArraySerializer());
+    simpleModule.addDeserializer(byte[].class, new ByteArrayDeserializer());
     mapper.registerModule(simpleModule);
   }
 
