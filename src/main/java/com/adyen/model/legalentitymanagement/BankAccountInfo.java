@@ -34,6 +34,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   BankAccountInfo.JSON_PROPERTY_ACCOUNT_IDENTIFICATION,
   BankAccountInfo.JSON_PROPERTY_ACCOUNT_TYPE,
+  BankAccountInfo.JSON_PROPERTY_BANK_NAME,
   BankAccountInfo.JSON_PROPERTY_COUNTRY_CODE,
   BankAccountInfo.JSON_PROPERTY_TRUSTED_SOURCE
 })
@@ -44,6 +45,9 @@ public class BankAccountInfo {
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private String accountType;
+
+  public static final String JSON_PROPERTY_BANK_NAME = "bankName";
+  private String bankName;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
@@ -104,6 +108,31 @@ public class BankAccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
     this.accountType = accountType;
+  }
+
+
+  public BankAccountInfo bankName(String bankName) {
+    this.bankName = bankName;
+    return this;
+  }
+
+   /**
+   * The name of the banking institution where the bank account is held.
+   * @return bankName
+  **/
+  @ApiModelProperty(value = "The name of the banking institution where the bank account is held.")
+  @JsonProperty(JSON_PROPERTY_BANK_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBankName() {
+    return bankName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BANK_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankName(String bankName) {
+    this.bankName = bankName;
   }
 
 
@@ -171,13 +200,14 @@ public class BankAccountInfo {
     BankAccountInfo bankAccountInfo = (BankAccountInfo) o;
     return Objects.equals(this.accountIdentification, bankAccountInfo.accountIdentification) &&
         Objects.equals(this.accountType, bankAccountInfo.accountType) &&
+        Objects.equals(this.bankName, bankAccountInfo.bankName) &&
         Objects.equals(this.countryCode, bankAccountInfo.countryCode) &&
         Objects.equals(this.trustedSource, bankAccountInfo.trustedSource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountIdentification, accountType, countryCode, trustedSource);
+    return Objects.hash(accountIdentification, accountType, bankName, countryCode, trustedSource);
   }
 
   @Override
@@ -186,6 +216,7 @@ public class BankAccountInfo {
     sb.append("class BankAccountInfo {\n");
     sb.append("    accountIdentification: ").append(toIndentedString(accountIdentification)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    trustedSource: ").append(toIndentedString(trustedSource)).append("\n");
     sb.append("}");

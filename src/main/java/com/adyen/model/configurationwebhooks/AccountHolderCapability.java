@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.AccountSupportingEntityCapability;
+import com.adyen.model.configurationwebhooks.CapabilityProblem;
 import com.adyen.model.configurationwebhooks.CapabilitySettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -100,7 +101,7 @@ public class AccountHolderCapability {
   private Boolean enabled;
 
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
-  private List<Object> problems = null;
+  private List<CapabilityProblem> problems = null;
 
   public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
@@ -298,12 +299,12 @@ public class AccountHolderCapability {
   }
 
 
-  public AccountHolderCapability problems(List<Object> problems) {
+  public AccountHolderCapability problems(List<CapabilityProblem> problems) {
     this.problems = problems;
     return this;
   }
 
-  public AccountHolderCapability addProblemsItem(Object problemsItem) {
+  public AccountHolderCapability addProblemsItem(CapabilityProblem problemsItem) {
     if (this.problems == null) {
       this.problems = new ArrayList<>();
     }
@@ -319,14 +320,14 @@ public class AccountHolderCapability {
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getProblems() {
+  public List<CapabilityProblem> getProblems() {
     return problems;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProblems(List<Object> problems) {
+  public void setProblems(List<CapabilityProblem> problems) {
     this.problems = problems;
   }
 

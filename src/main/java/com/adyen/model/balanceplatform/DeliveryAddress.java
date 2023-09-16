@@ -121,10 +121,10 @@ public class DeliveryAddress {
   }
 
    /**
-   * First line of the address.
+   * The street name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;Rokin\&quot;.
    * @return line1
   **/
-  @ApiModelProperty(value = "First line of the address.")
+  @ApiModelProperty(value = "The street name. For example, if the address is \"Rokin 49\", provide \"Rokin\".")
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -146,10 +146,10 @@ public class DeliveryAddress {
   }
 
    /**
-   * Second line of the address.
+   * The house number or name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;49\&quot;.
    * @return line2
   **/
-  @ApiModelProperty(value = "Second line of the address.")
+  @ApiModelProperty(value = "The house number or name. For example, if the address is \"Rokin 49\", provide \"49\".")
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -171,10 +171,10 @@ public class DeliveryAddress {
   }
 
    /**
-   * Third line of the address.
+   * Optional information about the address.
    * @return line3
   **/
-  @ApiModelProperty(value = "Third line of the address.")
+  @ApiModelProperty(value = "Optional information about the address.")
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

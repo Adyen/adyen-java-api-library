@@ -105,10 +105,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * The name or ID of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces
+   * The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    * @return enhancedSchemeDataEmployeeName
   **/
-  @ApiModelProperty(value = "The name or ID of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces")
+  @ApiModelProperty(value = "The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -130,10 +130,10 @@ public class AdditionalDataTemporaryServices {
   }
 
    /**
-   * The job description of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces
+   * The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    * @return enhancedSchemeDataJobDescription
   **/
-  @ApiModelProperty(value = "The job description of the person working in a temporary capacity. * maxLength: 40 * Must not be all zeros * Must not be all spaces")
+  @ApiModelProperty(value = "The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
