@@ -384,8 +384,7 @@ public class CheckoutTest extends BaseTest {
     public void TestDeleteStoredPaymentMethods() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
         RecurringApi checkout = new RecurringApi(client);
-        StoredPaymentMethodResource response = checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
-        assertEquals(response.getType(), "string");
+        checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
     }
 
     /**
