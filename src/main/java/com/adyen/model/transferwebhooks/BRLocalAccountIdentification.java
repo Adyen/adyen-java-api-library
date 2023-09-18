@@ -92,10 +92,10 @@ public class BRLocalAccountIdentification {
   }
 
    /**
-   * The bank account number (without separators or whitespace).
+   * The bank account number, without separators or whitespace.
    * @return accountNumber
   **/
-  @ApiModelProperty(required = true, value = "The bank account number (without separators or whitespace).")
+  @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,10 +117,10 @@ public class BRLocalAccountIdentification {
   }
 
    /**
-   * The 3-digit Brazilian bank code (with leading zeros).
+   * The 3-digit bank code, with leading zeros.
    * @return bankCode
   **/
-  @ApiModelProperty(required = true, value = "The 3-digit Brazilian bank code (with leading zeros).")
+  @ApiModelProperty(required = true, value = "The 3-digit bank code, with leading zeros.")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,10 +142,10 @@ public class BRLocalAccountIdentification {
   }
 
    /**
-   * The bank account branch number (without separators or whitespace).
+   * The bank account branch number, without separators or whitespace.
    * @return branchNumber
   **/
-  @ApiModelProperty(required = true, value = "The bank account branch number (without separators or whitespace).")
+  @ApiModelProperty(required = true, value = "The bank account branch number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

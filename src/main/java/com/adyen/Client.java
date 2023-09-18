@@ -1,23 +1,3 @@
-/*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
- * Adyen Java API Library
- *
- * Copyright (c) 2021 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
 package com.adyen;
 
 import com.adyen.enums.Environment;
@@ -31,7 +11,7 @@ public class Client {
     private ClientInterface httpClient;
     private Config config;
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "21.3.0";
+    public static final String LIB_VERSION = "21.4.0";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
 

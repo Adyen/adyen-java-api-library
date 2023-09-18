@@ -80,10 +80,10 @@ public class SweepCounterparty {
   }
 
    /**
-   * The merchant account that will be the source of funds, if you are processing payments with Adyen. You can only use this with sweeps of &#x60;type&#x60; **pull** and &#x60;schedule.type&#x60; **balance**.
+   * The merchant account that will be the source of funds.  You can only use this parameter with sweeps of &#x60;type&#x60; **pull** and &#x60;schedule.type&#x60; **balance**, and if you are processing payments with Adyen.
    * @return merchantAccount
   **/
-  @ApiModelProperty(value = "The merchant account that will be the source of funds, if you are processing payments with Adyen. You can only use this with sweeps of `type` **pull** and `schedule.type` **balance**.")
+  @ApiModelProperty(value = "The merchant account that will be the source of funds.  You can only use this parameter with sweeps of `type` **pull** and `schedule.type` **balance**, and if you are processing payments with Adyen.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -105,10 +105,10 @@ public class SweepCounterparty {
   }
 
    /**
-   * The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/transferInstruments__resParam_id).  You can also use this in combination with a &#x60;merchantAccount&#x60; and a &#x60;type&#x60; **pull** to start a direct debit request from the source transfer instrument. To use this feature, reach out to your Adyen contact.
+   * The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep &#x60;type&#x60;  . To [set up automated top-up sweeps to balance accounts](https://docs.adyen.com/marketplaces-and-platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a &#x60;merchantAccount&#x60; and a sweep &#x60;type&#x60; of **pull**. Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.
    * @return transferInstrumentId
   **/
-  @ApiModelProperty(value = "The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/transferInstruments__resParam_id).  You can also use this in combination with a `merchantAccount` and a `type` **pull** to start a direct debit request from the source transfer instrument. To use this feature, reach out to your Adyen contact.")
+  @ApiModelProperty(value = "The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep `type`  . To [set up automated top-up sweeps to balance accounts](https://docs.adyen.com/marketplaces-and-platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a `merchantAccount` and a sweep `type` of **pull**. Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

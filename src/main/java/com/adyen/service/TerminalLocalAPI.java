@@ -20,8 +20,8 @@
  */
 package com.adyen.service;
 
-import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.Service;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.TerminalAPISecuredRequest;
@@ -35,7 +35,7 @@ import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
+public class TerminalLocalAPI extends Service {
 
     private final LocalRequest localRequest;
 

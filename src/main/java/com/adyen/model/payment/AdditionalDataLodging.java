@@ -158,10 +158,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
+   * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    * @return lodgingCustomerServiceTollFreeNumber
   **/
-  @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
+  @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -233,10 +233,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space * Must not be all zeros
+   * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space *Must not be all zeros.
    * @return lodgingFolioNumber
   **/
-  @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space * Must not be all zeros")
+  @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters. * Must not start with a space *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -333,10 +333,10 @@ public class AdditionalDataLodging {
   }
 
    /**
-   * The lodging property location&#39;s phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
+   * The lodging property location&#39;s phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    * @return lodgingPropertyPhoneNumber
   **/
-  @ApiModelProperty(value = "The lodging property location's phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
+  @ApiModelProperty(value = "The lodging property location's phone number. * Format: numeric. * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_LODGING_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

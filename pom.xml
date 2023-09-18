@@ -4,7 +4,7 @@
     <groupId>com.adyen</groupId>
     <artifactId>adyen-java-api-library</artifactId>
     <packaging>jar</packaging>
-    <version>21.3.0</version>
+    <version>21.4.0</version>
     <name>Adyen Java API Library</name>
     <description>Adyen API Client Library for Java</description>
     <url>https://github.com/adyen/adyen-java-api-library</url>
@@ -104,7 +104,7 @@
                 <configuration>
                     <source>8</source>
                 </configuration>
-                <version>3.5.0</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -230,7 +230,7 @@
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>2.2.15</version>
+            <version>2.2.16</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

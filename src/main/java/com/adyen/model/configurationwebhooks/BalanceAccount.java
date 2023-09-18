@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.Balance;
 import com.adyen.model.configurationwebhooks.PaymentInstrumentReference;
-import com.adyen.model.configurationwebhooks.SweepConfiguration;
+import com.adyen.model.configurationwebhooks.PlatformPaymentConfiguration;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -44,10 +44,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   BalanceAccount.JSON_PROPERTY_DESCRIPTION,
   BalanceAccount.JSON_PROPERTY_ID,
   BalanceAccount.JSON_PROPERTY_METADATA,
+  BalanceAccount.JSON_PROPERTY_MIGRATED_ACCOUNT_CODE,
   BalanceAccount.JSON_PROPERTY_PAYMENT_INSTRUMENTS,
+  BalanceAccount.JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION,
   BalanceAccount.JSON_PROPERTY_REFERENCE,
   BalanceAccount.JSON_PROPERTY_STATUS,
-  BalanceAccount.JSON_PROPERTY_SWEEP_CONFIGURATIONS,
   BalanceAccount.JSON_PROPERTY_TIME_ZONE
 })
 
@@ -70,8 +71,14 @@ public class BalanceAccount {
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
 
+  public static final String JSON_PROPERTY_MIGRATED_ACCOUNT_CODE = "migratedAccountCode";
+  private String migratedAccountCode;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENTS = "paymentInstruments";
   private List<PaymentInstrumentReference> paymentInstruments = null;
+
+  public static final String JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION = "platformPaymentConfiguration";
+  private PlatformPaymentConfiguration platformPaymentConfiguration;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -117,9 +124,6 @@ public class BalanceAccount {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
-
-  public static final String JSON_PROPERTY_SWEEP_CONFIGURATIONS = "sweepConfigurations";
-  private Map<String, SweepConfiguration> sweepConfigurations = null;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
   private String timeZone;
@@ -274,10 +278,10 @@ public class BalanceAccount {
   }
 
    /**
-   * A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+   * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return metadata
   **/
-  @ApiModelProperty(value = "A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
+  @ApiModelProperty(value = "A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -290,6 +294,31 @@ public class BalanceAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+
+  public BalanceAccount migratedAccountCode(String migratedAccountCode) {
+    this.migratedAccountCode = migratedAccountCode;
+    return this;
+  }
+
+   /**
+   * The unique identifier of the account of the migrated account holder in the classic integration.
+   * @return migratedAccountCode
+  **/
+  @ApiModelProperty(value = "The unique identifier of the account of the migrated account holder in the classic integration.")
+  @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMigratedAccountCode() {
+    return migratedAccountCode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMigratedAccountCode(String migratedAccountCode) {
+    this.migratedAccountCode = migratedAccountCode;
   }
 
 
@@ -323,6 +352,31 @@ public class BalanceAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstruments(List<PaymentInstrumentReference> paymentInstruments) {
     this.paymentInstruments = paymentInstruments;
+  }
+
+
+  public BalanceAccount platformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
+    this.platformPaymentConfiguration = platformPaymentConfiguration;
+    return this;
+  }
+
+   /**
+   * Get platformPaymentConfiguration
+   * @return platformPaymentConfiguration
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PlatformPaymentConfiguration getPlatformPaymentConfiguration() {
+    return platformPaymentConfiguration;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
+    this.platformPaymentConfiguration = platformPaymentConfiguration;
   }
 
 
@@ -376,39 +430,6 @@ public class BalanceAccount {
   }
 
 
-  public BalanceAccount sweepConfigurations(Map<String, SweepConfiguration> sweepConfigurations) {
-    this.sweepConfigurations = sweepConfigurations;
-    return this;
-  }
-
-  public BalanceAccount putSweepConfigurationsItem(String key, SweepConfiguration sweepConfigurationsItem) {
-    if (this.sweepConfigurations == null) {
-      this.sweepConfigurations = new HashMap<>();
-    }
-    this.sweepConfigurations.put(key, sweepConfigurationsItem);
-    return this;
-  }
-
-   /**
-   * Contains key-value pairs that specify configurations for balance sweeps per currency code. A sweep pulls in or pushes out funds based on a defined schedule, amount, and a source (for pulling funds) or a destination (for pushing funds).  The key must be a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**. The value must be an object containing the sweep configuration.
-   * @return sweepConfigurations
-  **/
-  @ApiModelProperty(value = "Contains key-value pairs that specify configurations for balance sweeps per currency code. A sweep pulls in or pushes out funds based on a defined schedule, amount, and a source (for pulling funds) or a destination (for pushing funds).  The key must be a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**. The value must be an object containing the sweep configuration.")
-  @JsonProperty(JSON_PROPERTY_SWEEP_CONFIGURATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, SweepConfiguration> getSweepConfigurations() {
-    return sweepConfigurations;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SWEEP_CONFIGURATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSweepConfigurations(Map<String, SweepConfiguration> sweepConfigurations) {
-    this.sweepConfigurations = sweepConfigurations;
-  }
-
-
   public BalanceAccount timeZone(String timeZone) {
     this.timeZone = timeZone;
     return this;
@@ -452,16 +473,17 @@ public class BalanceAccount {
         Objects.equals(this.description, balanceAccount.description) &&
         Objects.equals(this.id, balanceAccount.id) &&
         Objects.equals(this.metadata, balanceAccount.metadata) &&
+        Objects.equals(this.migratedAccountCode, balanceAccount.migratedAccountCode) &&
         Objects.equals(this.paymentInstruments, balanceAccount.paymentInstruments) &&
+        Objects.equals(this.platformPaymentConfiguration, balanceAccount.platformPaymentConfiguration) &&
         Objects.equals(this.reference, balanceAccount.reference) &&
         Objects.equals(this.status, balanceAccount.status) &&
-        Objects.equals(this.sweepConfigurations, balanceAccount.sweepConfigurations) &&
         Objects.equals(this.timeZone, balanceAccount.timeZone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolderId, balances, defaultCurrencyCode, description, id, metadata, paymentInstruments, reference, status, sweepConfigurations, timeZone);
+    return Objects.hash(accountHolderId, balances, defaultCurrencyCode, description, id, metadata, migratedAccountCode, paymentInstruments, platformPaymentConfiguration, reference, status, timeZone);
   }
 
   @Override
@@ -474,10 +496,11 @@ public class BalanceAccount {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    migratedAccountCode: ").append(toIndentedString(migratedAccountCode)).append("\n");
     sb.append("    paymentInstruments: ").append(toIndentedString(paymentInstruments)).append("\n");
+    sb.append("    platformPaymentConfiguration: ").append(toIndentedString(platformPaymentConfiguration)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    sweepConfigurations: ").append(toIndentedString(sweepConfigurations)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("}");
     return sb.toString();

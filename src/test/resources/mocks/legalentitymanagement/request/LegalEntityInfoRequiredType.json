@@ -16,7 +16,7 @@
       "issuerState": "string",
       "nationalIdExempt": true,
       "number": "string",
-      "type": "bankStatement"
+      "type": "proofOfNationalIdNumber"
     },
     "name": {
       "firstName": "string",
