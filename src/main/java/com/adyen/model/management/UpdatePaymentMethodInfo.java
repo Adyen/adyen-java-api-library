@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
+import com.adyen.model.management.GenericPmWithTdiInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,9 +39,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdatePaymentMethodInfo.JSON_PROPERTY_BCMC,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CARTES_BANCAIRES,
   UpdatePaymentMethodInfo.JSON_PROPERTY_COUNTRIES,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_CUP,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CURRENCIES,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_DINERS,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_DISCOVER,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   UpdatePaymentMethodInfo.JSON_PROPERTY_ENABLED,
-  UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_IDS
+  UpdatePaymentMethodInfo.JSON_PROPERTY_GIROCARD,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_IDEAL,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_INTERAC_CARD,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_JCB,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_MAESTRO,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_MC,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_IDS,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_VISA
 })
 
 public class UpdatePaymentMethodInfo {
@@ -53,14 +65,47 @@ public class UpdatePaymentMethodInfo {
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private List<String> countries = null;
 
+  public static final String JSON_PROPERTY_CUP = "cup";
+  private GenericPmWithTdiInfo cup;
+
   public static final String JSON_PROPERTY_CURRENCIES = "currencies";
   private List<String> currencies = null;
+
+  public static final String JSON_PROPERTY_DINERS = "diners";
+  private GenericPmWithTdiInfo diners;
+
+  public static final String JSON_PROPERTY_DISCOVER = "discover";
+  private GenericPmWithTdiInfo discover;
+
+  public static final String JSON_PROPERTY_EFTPOS_AUSTRALIA = "eftpos_australia";
+  private GenericPmWithTdiInfo eftposAustralia;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  public static final String JSON_PROPERTY_GIROCARD = "girocard";
+  private GenericPmWithTdiInfo girocard;
+
+  public static final String JSON_PROPERTY_IDEAL = "ideal";
+  private GenericPmWithTdiInfo ideal;
+
+  public static final String JSON_PROPERTY_INTERAC_CARD = "interac_card";
+  private GenericPmWithTdiInfo interacCard;
+
+  public static final String JSON_PROPERTY_JCB = "jcb";
+  private GenericPmWithTdiInfo jcb;
+
+  public static final String JSON_PROPERTY_MAESTRO = "maestro";
+  private GenericPmWithTdiInfo maestro;
+
+  public static final String JSON_PROPERTY_MC = "mc";
+  private GenericPmWithTdiInfo mc;
+
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
   private List<String> storeIds = null;
+
+  public static final String JSON_PROPERTY_VISA = "visa";
+  private GenericPmWithTdiInfo visa;
 
   public UpdatePaymentMethodInfo() { 
   }
@@ -148,6 +193,31 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+  public UpdatePaymentMethodInfo cup(GenericPmWithTdiInfo cup) {
+    this.cup = cup;
+    return this;
+  }
+
+   /**
+   * Get cup
+   * @return cup
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getCup() {
+    return cup;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCup(GenericPmWithTdiInfo cup) {
+    this.cup = cup;
+  }
+
+
   public UpdatePaymentMethodInfo currencies(List<String> currencies) {
     this.currencies = currencies;
     return this;
@@ -181,6 +251,81 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+  public UpdatePaymentMethodInfo diners(GenericPmWithTdiInfo diners) {
+    this.diners = diners;
+    return this;
+  }
+
+   /**
+   * Get diners
+   * @return diners
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DINERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getDiners() {
+    return diners;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DINERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDiners(GenericPmWithTdiInfo diners) {
+    this.diners = diners;
+  }
+
+
+  public UpdatePaymentMethodInfo discover(GenericPmWithTdiInfo discover) {
+    this.discover = discover;
+    return this;
+  }
+
+   /**
+   * Get discover
+   * @return discover
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DISCOVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getDiscover() {
+    return discover;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DISCOVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDiscover(GenericPmWithTdiInfo discover) {
+    this.discover = discover;
+  }
+
+
+  public UpdatePaymentMethodInfo eftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
+    this.eftposAustralia = eftposAustralia;
+    return this;
+  }
+
+   /**
+   * Get eftposAustralia
+   * @return eftposAustralia
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getEftposAustralia() {
+    return eftposAustralia;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
+    this.eftposAustralia = eftposAustralia;
+  }
+
+
   public UpdatePaymentMethodInfo enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -203,6 +348,156 @@ public class UpdatePaymentMethodInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+
+  public UpdatePaymentMethodInfo girocard(GenericPmWithTdiInfo girocard) {
+    this.girocard = girocard;
+    return this;
+  }
+
+   /**
+   * Get girocard
+   * @return girocard
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GIROCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getGirocard() {
+    return girocard;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GIROCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGirocard(GenericPmWithTdiInfo girocard) {
+    this.girocard = girocard;
+  }
+
+
+  public UpdatePaymentMethodInfo ideal(GenericPmWithTdiInfo ideal) {
+    this.ideal = ideal;
+    return this;
+  }
+
+   /**
+   * Get ideal
+   * @return ideal
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_IDEAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getIdeal() {
+    return ideal;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IDEAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIdeal(GenericPmWithTdiInfo ideal) {
+    this.ideal = ideal;
+  }
+
+
+  public UpdatePaymentMethodInfo interacCard(GenericPmWithTdiInfo interacCard) {
+    this.interacCard = interacCard;
+    return this;
+  }
+
+   /**
+   * Get interacCard
+   * @return interacCard
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getInteracCard() {
+    return interacCard;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInteracCard(GenericPmWithTdiInfo interacCard) {
+    this.interacCard = interacCard;
+  }
+
+
+  public UpdatePaymentMethodInfo jcb(GenericPmWithTdiInfo jcb) {
+    this.jcb = jcb;
+    return this;
+  }
+
+   /**
+   * Get jcb
+   * @return jcb
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_JCB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getJcb() {
+    return jcb;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_JCB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setJcb(GenericPmWithTdiInfo jcb) {
+    this.jcb = jcb;
+  }
+
+
+  public UpdatePaymentMethodInfo maestro(GenericPmWithTdiInfo maestro) {
+    this.maestro = maestro;
+    return this;
+  }
+
+   /**
+   * Get maestro
+   * @return maestro
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MAESTRO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getMaestro() {
+    return maestro;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAESTRO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaestro(GenericPmWithTdiInfo maestro) {
+    this.maestro = maestro;
+  }
+
+
+  public UpdatePaymentMethodInfo mc(GenericPmWithTdiInfo mc) {
+    this.mc = mc;
+    return this;
+  }
+
+   /**
+   * Get mc
+   * @return mc
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getMc() {
+    return mc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMc(GenericPmWithTdiInfo mc) {
+    this.mc = mc;
   }
 
 
@@ -239,6 +534,31 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+  public UpdatePaymentMethodInfo visa(GenericPmWithTdiInfo visa) {
+    this.visa = visa;
+    return this;
+  }
+
+   /**
+   * Get visa
+   * @return visa
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VISA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public GenericPmWithTdiInfo getVisa() {
+    return visa;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VISA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVisa(GenericPmWithTdiInfo visa) {
+    this.visa = visa;
+  }
+
+
   /**
    * Return true if this UpdatePaymentMethodInfo object is equal to o.
    */
@@ -254,14 +574,25 @@ public class UpdatePaymentMethodInfo {
     return Objects.equals(this.bcmc, updatePaymentMethodInfo.bcmc) &&
         Objects.equals(this.cartesBancaires, updatePaymentMethodInfo.cartesBancaires) &&
         Objects.equals(this.countries, updatePaymentMethodInfo.countries) &&
+        Objects.equals(this.cup, updatePaymentMethodInfo.cup) &&
         Objects.equals(this.currencies, updatePaymentMethodInfo.currencies) &&
+        Objects.equals(this.diners, updatePaymentMethodInfo.diners) &&
+        Objects.equals(this.discover, updatePaymentMethodInfo.discover) &&
+        Objects.equals(this.eftposAustralia, updatePaymentMethodInfo.eftposAustralia) &&
         Objects.equals(this.enabled, updatePaymentMethodInfo.enabled) &&
-        Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds);
+        Objects.equals(this.girocard, updatePaymentMethodInfo.girocard) &&
+        Objects.equals(this.ideal, updatePaymentMethodInfo.ideal) &&
+        Objects.equals(this.interacCard, updatePaymentMethodInfo.interacCard) &&
+        Objects.equals(this.jcb, updatePaymentMethodInfo.jcb) &&
+        Objects.equals(this.maestro, updatePaymentMethodInfo.maestro) &&
+        Objects.equals(this.mc, updatePaymentMethodInfo.mc) &&
+        Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds) &&
+        Objects.equals(this.visa, updatePaymentMethodInfo.visa);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bcmc, cartesBancaires, countries, currencies, enabled, storeIds);
+    return Objects.hash(bcmc, cartesBancaires, countries, cup, currencies, diners, discover, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, storeIds, visa);
   }
 
   @Override
@@ -271,9 +602,20 @@ public class UpdatePaymentMethodInfo {
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    cup: ").append(toIndentedString(cup)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
+    sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
+    sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
+    sb.append("    ideal: ").append(toIndentedString(ideal)).append("\n");
+    sb.append("    interacCard: ").append(toIndentedString(interacCard)).append("\n");
+    sb.append("    jcb: ").append(toIndentedString(jcb)).append("\n");
+    sb.append("    maestro: ").append(toIndentedString(maestro)).append("\n");
+    sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
+    sb.append("    visa: ").append(toIndentedString(visa)).append("\n");
     sb.append("}");
     return sb.toString();
   }

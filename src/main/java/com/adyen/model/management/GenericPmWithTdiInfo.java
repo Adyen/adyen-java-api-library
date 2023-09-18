@@ -29,49 +29,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * BcmcInfo
+ * GenericPmWithTdiInfo
  */
 @JsonPropertyOrder({
-  BcmcInfo.JSON_PROPERTY_ENABLE_BCMC_MOBILE,
-  BcmcInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION
+  GenericPmWithTdiInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION
 })
 
-public class BcmcInfo {
-  public static final String JSON_PROPERTY_ENABLE_BCMC_MOBILE = "enableBcmcMobile";
-  private Boolean enableBcmcMobile;
-
+public class GenericPmWithTdiInfo {
   public static final String JSON_PROPERTY_TRANSACTION_DESCRIPTION = "transactionDescription";
   private TransactionDescriptionInfo transactionDescription;
 
-  public BcmcInfo() { 
+  public GenericPmWithTdiInfo() { 
   }
 
-  public BcmcInfo enableBcmcMobile(Boolean enableBcmcMobile) {
-    this.enableBcmcMobile = enableBcmcMobile;
-    return this;
-  }
-
-   /**
-   * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
-   * @return enableBcmcMobile
-  **/
-  @ApiModelProperty(value = "Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.")
-  @JsonProperty(JSON_PROPERTY_ENABLE_BCMC_MOBILE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getEnableBcmcMobile() {
-    return enableBcmcMobile;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ENABLE_BCMC_MOBILE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnableBcmcMobile(Boolean enableBcmcMobile) {
-    this.enableBcmcMobile = enableBcmcMobile;
-  }
-
-
-  public BcmcInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
+  public GenericPmWithTdiInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
     return this;
   }
@@ -97,7 +68,7 @@ public class BcmcInfo {
 
 
   /**
-   * Return true if this BcmcInfo object is equal to o.
+   * Return true if this GenericPmWithTdiInfo object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,21 +78,19 @@ public class BcmcInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BcmcInfo bcmcInfo = (BcmcInfo) o;
-    return Objects.equals(this.enableBcmcMobile, bcmcInfo.enableBcmcMobile) &&
-        Objects.equals(this.transactionDescription, bcmcInfo.transactionDescription);
+    GenericPmWithTdiInfo genericPmWithTdiInfo = (GenericPmWithTdiInfo) o;
+    return Objects.equals(this.transactionDescription, genericPmWithTdiInfo.transactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableBcmcMobile, transactionDescription);
+    return Objects.hash(transactionDescription);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BcmcInfo {\n");
-    sb.append("    enableBcmcMobile: ").append(toIndentedString(enableBcmcMobile)).append("\n");
+    sb.append("class GenericPmWithTdiInfo {\n");
     sb.append("    transactionDescription: ").append(toIndentedString(transactionDescription)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -139,17 +108,17 @@ public class BcmcInfo {
   }
 
 /**
-   * Create an instance of BcmcInfo given an JSON string
+   * Create an instance of GenericPmWithTdiInfo given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BcmcInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to BcmcInfo
+   * @return An instance of GenericPmWithTdiInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to GenericPmWithTdiInfo
    */
-  public static BcmcInfo fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, BcmcInfo.class);
+  public static GenericPmWithTdiInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, GenericPmWithTdiInfo.class);
   }
 /**
-  * Convert an instance of BcmcInfo to an JSON string
+  * Convert an instance of GenericPmWithTdiInfo to an JSON string
   *
   * @return JSON string
   */

@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.management.TransactionDescriptionInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,12 +32,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * CartesBancairesInfo
  */
 @JsonPropertyOrder({
-  CartesBancairesInfo.JSON_PROPERTY_SIRET
+  CartesBancairesInfo.JSON_PROPERTY_SIRET,
+  CartesBancairesInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION
 })
 
 public class CartesBancairesInfo {
   public static final String JSON_PROPERTY_SIRET = "siret";
   private String siret;
+
+  public static final String JSON_PROPERTY_TRANSACTION_DESCRIPTION = "transactionDescription";
+  private TransactionDescriptionInfo transactionDescription;
 
   public CartesBancairesInfo() { 
   }
@@ -66,6 +71,31 @@ public class CartesBancairesInfo {
   }
 
 
+  public CartesBancairesInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
+    this.transactionDescription = transactionDescription;
+    return this;
+  }
+
+   /**
+   * Get transactionDescription
+   * @return transactionDescription
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TransactionDescriptionInfo getTransactionDescription() {
+    return transactionDescription;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {
+    this.transactionDescription = transactionDescription;
+  }
+
+
   /**
    * Return true if this CartesBancairesInfo object is equal to o.
    */
@@ -78,12 +108,13 @@ public class CartesBancairesInfo {
       return false;
     }
     CartesBancairesInfo cartesBancairesInfo = (CartesBancairesInfo) o;
-    return Objects.equals(this.siret, cartesBancairesInfo.siret);
+    return Objects.equals(this.siret, cartesBancairesInfo.siret) &&
+        Objects.equals(this.transactionDescription, cartesBancairesInfo.transactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(siret);
+    return Objects.hash(siret, transactionDescription);
   }
 
   @Override
@@ -91,6 +122,7 @@ public class CartesBancairesInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class CartesBancairesInfo {\n");
     sb.append("    siret: ").append(toIndentedString(siret)).append("\n");
+    sb.append("    transactionDescription: ").append(toIndentedString(transactionDescription)).append("\n");
     sb.append("}");
     return sb.toString();
   }

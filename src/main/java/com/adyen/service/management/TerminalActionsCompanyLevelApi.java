@@ -14,8 +14,6 @@ package com.adyen.service.management;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.AndroidAppsResponse;
-import com.adyen.model.management.AndroidCertificatesResponse;
 import com.adyen.model.management.ExternalTerminalAction;
 import com.adyen.model.management.ListExternalTerminalActionsResponse;
 import com.adyen.model.management.RestServiceError;
@@ -51,104 +49,6 @@ public class TerminalActionsCompanyLevelApi extends Service {
     public TerminalActionsCompanyLevelApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
-    }
-
-    /**
-    * Get a list of Android apps
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @return {@link AndroidAppsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AndroidAppsResponse listAndroidApps(String companyId) throws ApiException, IOException {
-        return listAndroidApps(companyId, null,  null,  null,  null,  null);
-    }
-
-    /**
-    * Get a list of Android apps
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
-    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)
-    * @param packageName {@link String } Query: The package name that uniquely identifies the Android app. (optional)
-    * @param versionCode {@link Integer } Query: The version number of the app. (optional)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AndroidAppsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AndroidAppsResponse listAndroidApps(String companyId, Integer pageNumber, Integer pageSize, String packageName, Integer versionCode, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        //Add query params
-        Map<String, String> queryParams = new HashMap<>();
-        if (pageNumber != null) {
-        queryParams.put("pageNumber", pageNumber.toString());
-        }
-        if (pageSize != null) {
-        queryParams.put("pageSize", pageSize.toString());
-        }
-        if (packageName != null) {
-        queryParams.put("packageName", packageName);
-        }
-        if (versionCode != null) {
-        queryParams.put("versionCode", versionCode.toString());
-        }
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidApps", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
-        return AndroidAppsResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get a list of Android certificates
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @return {@link AndroidCertificatesResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AndroidCertificatesResponse listAndroidCertificates(String companyId) throws ApiException, IOException {
-        return listAndroidCertificates(companyId, null,  null,  null,  null);
-    }
-
-    /**
-    * Get a list of Android certificates
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
-    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)
-    * @param certificateName {@link String } Query: The name of the certificate. (optional)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AndroidCertificatesResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AndroidCertificatesResponse listAndroidCertificates(String companyId, Integer pageNumber, Integer pageSize, String certificateName, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        //Add query params
-        Map<String, String> queryParams = new HashMap<>();
-        if (pageNumber != null) {
-        queryParams.put("pageNumber", pageNumber.toString());
-        }
-        if (pageSize != null) {
-        queryParams.put("pageSize", pageSize.toString());
-        }
-        if (certificateName != null) {
-        queryParams.put("certificateName", certificateName);
-        }
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidCertificates", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
-        return AndroidCertificatesResponse.fromJson(jsonResult);
     }
 
     /**

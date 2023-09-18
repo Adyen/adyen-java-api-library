@@ -28,26 +28,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * HKLocalAccountIdentification
+ * NZLocalAccountIdentification
  */
 @JsonPropertyOrder({
-  HKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
-  HKLocalAccountIdentification.JSON_PROPERTY_CLEARING_CODE,
-  HKLocalAccountIdentification.JSON_PROPERTY_TYPE
+  NZLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  NZLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
-public class HKLocalAccountIdentification {
+public class NZLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
-  public static final String JSON_PROPERTY_CLEARING_CODE = "clearingCode";
-  private String clearingCode;
-
   /**
-   * **hkLocal**
+   * **nzLocal**
    */
   public enum TypeEnum {
-    HKLOCAL("hkLocal");
+    NZLOCAL("nzLocal");
 
     private String value;
 
@@ -77,21 +73,21 @@ public class HKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HKLOCAL;
+  private TypeEnum type = TypeEnum.NZLOCAL;
 
-  public HKLocalAccountIdentification() { 
+  public NZLocalAccountIdentification() { 
   }
 
-  public HKLocalAccountIdentification accountNumber(String accountNumber) {
+  public NZLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
    /**
-   * The 9- to 12-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
+   * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    * @return accountNumber
   **/
-  @ApiModelProperty(required = true, value = "The 9- to 12-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.")
+  @ApiModelProperty(required = true, value = "The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -107,41 +103,16 @@ public class HKLocalAccountIdentification {
   }
 
 
-  public HKLocalAccountIdentification clearingCode(String clearingCode) {
-    this.clearingCode = clearingCode;
-    return this;
-  }
-
-   /**
-   * The 3-digit clearing code, without separators or whitespace.
-   * @return clearingCode
-  **/
-  @ApiModelProperty(required = true, value = "The 3-digit clearing code, without separators or whitespace.")
-  @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getClearingCode() {
-    return clearingCode;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClearingCode(String clearingCode) {
-    this.clearingCode = clearingCode;
-  }
-
-
-  public HKLocalAccountIdentification type(TypeEnum type) {
+  public NZLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * **hkLocal**
+   * **nzLocal**
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "**hkLocal**")
+  @ApiModelProperty(required = true, value = "**nzLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -158,7 +129,7 @@ public class HKLocalAccountIdentification {
 
 
   /**
-   * Return true if this HKLocalAccountIdentification object is equal to o.
+   * Return true if this NZLocalAccountIdentification object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -168,23 +139,21 @@ public class HKLocalAccountIdentification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HKLocalAccountIdentification hkLocalAccountIdentification = (HKLocalAccountIdentification) o;
-    return Objects.equals(this.accountNumber, hkLocalAccountIdentification.accountNumber) &&
-        Objects.equals(this.clearingCode, hkLocalAccountIdentification.clearingCode) &&
-        Objects.equals(this.type, hkLocalAccountIdentification.type);
+    NZLocalAccountIdentification nzLocalAccountIdentification = (NZLocalAccountIdentification) o;
+    return Objects.equals(this.accountNumber, nzLocalAccountIdentification.accountNumber) &&
+        Objects.equals(this.type, nzLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, clearingCode, type);
+    return Objects.hash(accountNumber, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HKLocalAccountIdentification {\n");
+    sb.append("class NZLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    clearingCode: ").append(toIndentedString(clearingCode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -202,17 +171,17 @@ public class HKLocalAccountIdentification {
   }
 
 /**
-   * Create an instance of HKLocalAccountIdentification given an JSON string
+   * Create an instance of NZLocalAccountIdentification given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of HKLocalAccountIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to HKLocalAccountIdentification
+   * @return An instance of NZLocalAccountIdentification
+   * @throws JsonProcessingException if the JSON string is invalid with respect to NZLocalAccountIdentification
    */
-  public static HKLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, HKLocalAccountIdentification.class);
+  public static NZLocalAccountIdentification fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, NZLocalAccountIdentification.class);
   }
 /**
-  * Convert an instance of HKLocalAccountIdentification to an JSON string
+  * Convert an instance of NZLocalAccountIdentification to an JSON string
   *
   * @return JSON string
   */

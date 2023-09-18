@@ -32,6 +32,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   AndroidApp.JSON_PROPERTY_DESCRIPTION,
+  AndroidApp.JSON_PROPERTY_ERROR_CODE,
   AndroidApp.JSON_PROPERTY_ID,
   AndroidApp.JSON_PROPERTY_LABEL,
   AndroidApp.JSON_PROPERTY_PACKAGE_NAME,
@@ -43,6 +44,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class AndroidApp {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
+  private String errorCode;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -87,6 +91,31 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public AndroidApp errorCode(String errorCode) {
+    this.errorCode = errorCode;
+    return this;
+  }
+
+   /**
+   * The error code of the app. It exists if the status is error or invalid.
+   * @return errorCode
+  **/
+  @ApiModelProperty(value = "The error code of the app. It exists if the status is error or invalid.")
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getErrorCode() {
+    return errorCode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorCode(String errorCode) {
+    this.errorCode = errorCode;
   }
 
 
@@ -171,10 +200,10 @@ public class AndroidApp {
   }
 
    /**
-   * The status of the app. Possible values:  * &#x60;processing&#x60;: The app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: Something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: There is something wrong with the APK file of the app. * &#x60;ready&#x60;: The app has been signed and converted. * &#x60;archived&#x60;: The app is no longer available.
+   * The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "The status of the app. Possible values:  * `processing`: The app is being signed and converted to a format that the terminal can handle. * `error`: Something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * `invalid`: There is something wrong with the APK file of the app. * `ready`: The app has been signed and converted. * `archived`: The app is no longer available.")
+  @ApiModelProperty(required = true, value = "The status of the app. Possible values:  * `processing`: the app is being signed and converted to a format that the terminal can handle. * `error`: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * `invalid`: there is something wrong with the APK file of the app. * `ready`: the app has been signed and converted. * `archived`: the app is no longer available.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -253,6 +282,7 @@ public class AndroidApp {
     }
     AndroidApp androidApp = (AndroidApp) o;
     return Objects.equals(this.description, androidApp.description) &&
+        Objects.equals(this.errorCode, androidApp.errorCode) &&
         Objects.equals(this.id, androidApp.id) &&
         Objects.equals(this.label, androidApp.label) &&
         Objects.equals(this.packageName, androidApp.packageName) &&
@@ -263,7 +293,7 @@ public class AndroidApp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, label, packageName, status, versionCode, versionName);
+    return Objects.hash(description, errorCode, id, label, packageName, status, versionCode, versionName);
   }
 
   @Override
@@ -271,6 +301,7 @@ public class AndroidApp {
     StringBuilder sb = new StringBuilder();
     sb.append("class AndroidApp {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    packageName: ").append(toIndentedString(packageName)).append("\n");
