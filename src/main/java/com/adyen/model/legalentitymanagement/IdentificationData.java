@@ -60,36 +60,10 @@ public class IdentificationData {
   private String number;
 
   /**
-   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * Type of identity data. For **individual**, the &#x60;type&#x60; value is **nationalIdNumber**.
    */
   public enum TypeEnum {
-    BANKSTATEMENT("bankStatement"),
-    
-    DRIVERSLICENSE("driversLicense"),
-    
-    IDENTITYCARD("identityCard"),
-    
-    NATIONALIDNUMBER("nationalIdNumber"),
-    
-    PASSPORT("passport"),
-    
-    PROOFOFADDRESS("proofOfAddress"),
-    
-    PROOFOFNATIONALIDNUMBER("proofOfNationalIdNumber"),
-    
-    PROOFOFRESIDENCY("proofOfResidency"),
-    
-    REGISTRATIONDOCUMENT("registrationDocument"),
-    
-    VATDOCUMENT("vatDocument"),
-    
-    PROOFOFORGANIZATIONTAXINFO("proofOfOrganizationTaxInfo"),
-    
-    PROOFOFINDUSTRY("proofOfIndustry"),
-    
-    CONSTITUTIONALDOCUMENT("constitutionalDocument"),
-    
-    PROOFOFFUNDINGORWEALTHSOURCE("proofOfFundingOrWealthSource");
+    PROOFOFNATIONALIDNUMBER("proofOfNationalIdNumber");
 
     private String value;
 
@@ -286,10 +260,10 @@ public class IdentificationData {
   }
 
    /**
-   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * Type of identity data. For **individual**, the &#x60;type&#x60; value is **nationalIdNumber**.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
+  @ApiModelProperty(required = true, value = "Type of identity data. For **individual**, the `type` value is **nationalIdNumber**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

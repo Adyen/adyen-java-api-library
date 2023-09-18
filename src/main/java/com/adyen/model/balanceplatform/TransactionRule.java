@@ -113,7 +113,7 @@ public class TransactionRule {
   private String reference;
 
   /**
-   * Indicates the type of request to which the rule applies.  Possible values: **authorization**, **authentication**, **tokenization**.
+   * Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.
    */
   public enum RequestTypeEnum {
     AUTHENTICATION("authentication"),
@@ -452,10 +452,10 @@ public class TransactionRule {
   }
 
    /**
-   * Indicates the type of request to which the rule applies.  Possible values: **authorization**, **authentication**, **tokenization**.
+   * Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.
    * @return requestType
   **/
-  @ApiModelProperty(value = "Indicates the type of request to which the rule applies.  Possible values: **authorization**, **authentication**, **tokenization**.")
+  @ApiModelProperty(value = "Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.")
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -130,7 +130,7 @@ public class PciQuestionnairesApi extends Service {
     /**
     * Generate PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who will sign the PCI questionnaire. (required)
+    * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
     * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
     * @return {@link GeneratePciDescriptionResponse }
     * @throws ApiException if fails to make API call
@@ -142,7 +142,7 @@ public class PciQuestionnairesApi extends Service {
     /**
     * Generate PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who will sign the PCI questionnaire. (required)
+    * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
     * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GeneratePciDescriptionResponse }

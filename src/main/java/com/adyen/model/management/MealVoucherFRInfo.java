@@ -112,10 +112,10 @@ public class MealVoucherFRInfo {
   }
 
    /**
-   * The list of additional payment methods. Allowed values: **mealVoucher_FR_endenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
+   * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    * @return subTypes
   **/
-  @ApiModelProperty(required = true, value = "The list of additional payment methods. Allowed values: **mealVoucher_FR_endenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.")
+  @ApiModelProperty(required = true, value = "The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.")
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

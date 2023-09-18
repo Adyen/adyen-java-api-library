@@ -18,6 +18,7 @@ import com.adyen.model.balanceplatform.BalanceAccount;
 import com.adyen.model.balanceplatform.BalanceAccountInfo;
 import com.adyen.model.balanceplatform.BalanceAccountUpdateRequest;
 import com.adyen.model.balanceplatform.BalanceSweepConfigurationsResponse;
+import com.adyen.model.balanceplatform.CreateSweepConfigurationV2;
 import com.adyen.model.balanceplatform.PaginatedPaymentInstrumentsResponse;
 import com.adyen.model.balanceplatform.RestServiceError;
 import com.adyen.model.balanceplatform.SweepConfigurationV2;
@@ -357,24 +358,24 @@ public class BalanceAccountsApi extends Service {
     * Create a sweep
     *
     * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
-    * @param sweepConfigurationV2 {@link SweepConfigurationV2 }  (required)
+    * @param createSweepConfigurationV2 {@link CreateSweepConfigurationV2 }  (required)
     * @return {@link SweepConfigurationV2 }
     * @throws ApiException if fails to make API call
     */
-    public SweepConfigurationV2 createSweep(String balanceAccountId, SweepConfigurationV2 sweepConfigurationV2) throws ApiException, IOException {
-        return createSweep(balanceAccountId, sweepConfigurationV2, null);
+    public SweepConfigurationV2 createSweep(String balanceAccountId, CreateSweepConfigurationV2 createSweepConfigurationV2) throws ApiException, IOException {
+        return createSweep(balanceAccountId, createSweepConfigurationV2, null);
     }
 
     /**
     * Create a sweep
     *
     * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
-    * @param sweepConfigurationV2 {@link SweepConfigurationV2 }  (required)
+    * @param createSweepConfigurationV2 {@link CreateSweepConfigurationV2 }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link SweepConfigurationV2 }
     * @throws ApiException if fails to make API call
     */
-    public SweepConfigurationV2 createSweep(String balanceAccountId, SweepConfigurationV2 sweepConfigurationV2, RequestOptions requestOptions) throws ApiException, IOException {
+    public SweepConfigurationV2 createSweep(String balanceAccountId, CreateSweepConfigurationV2 createSweepConfigurationV2, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (balanceAccountId == null) {
@@ -382,7 +383,7 @@ public class BalanceAccountsApi extends Service {
         }
         pathParams.put("balanceAccountId", balanceAccountId);
 
-        String requestBody = sweepConfigurationV2.toJson();
+        String requestBody = createSweepConfigurationV2.toJson();
         Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{balanceAccountId}/sweeps", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return SweepConfigurationV2.fromJson(jsonResult);

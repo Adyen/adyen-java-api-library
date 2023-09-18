@@ -58,7 +58,7 @@ public class RecurringApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public void deleteTokenForStoredPaymentDetails(String storedPaymentMethodId, String shopperReference, String merchantAccount) throws ApiException, IOException {
-         deleteTokenForStoredPaymentDetails(storedPaymentMethodId, shopperReference,  merchantAccount,  null);
+        deleteTokenForStoredPaymentDetails(storedPaymentMethodId, shopperReference,  merchantAccount,  null);
     }
 
     /**
