@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Amount;
 import com.adyen.model.transferwebhooks.AmountAdjustment;
 import com.adyen.model.transferwebhooks.BalanceMutation;
+import com.adyen.model.transferwebhooks.TransferOperation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -47,6 +48,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferEvent.JSON_PROPERTY_REASON,
   TransferEvent.JSON_PROPERTY_STATUS,
   TransferEvent.JSON_PROPERTY_TRANSACTION_ID,
+  TransferEvent.JSON_PROPERTY_TRANSFER_OPERATION,
   TransferEvent.JSON_PROPERTY_TYPE,
   TransferEvent.JSON_PROPERTY_UPDATE_DATE,
   TransferEvent.JSON_PROPERTY_VALUE_DATE
@@ -236,6 +238,14 @@ public class TransferEvent {
     
     MISCCOSTPENDING("miscCostPending"),
     
+    OPERATIONAUTHORIZED("operationAuthorized"),
+    
+    OPERATIONBOOKED("operationBooked"),
+    
+    OPERATIONPENDING("operationPending"),
+    
+    OPERATIONRECEIVED("operationReceived"),
+    
     PAYMENTCOST("paymentCost"),
     
     PAYMENTCOSTPENDING("paymentCostPending"),
@@ -298,6 +308,9 @@ public class TransferEvent {
 
   public static final String JSON_PROPERTY_TRANSACTION_ID = "transactionId";
   private String transactionId;
+
+  public static final String JSON_PROPERTY_TRANSFER_OPERATION = "transferOperation";
+  private TransferOperation transferOperation;
 
   /**
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
@@ -612,6 +625,31 @@ public class TransferEvent {
   }
 
 
+  public TransferEvent transferOperation(TransferOperation transferOperation) {
+    this.transferOperation = transferOperation;
+    return this;
+  }
+
+   /**
+   * Get transferOperation
+   * @return transferOperation
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_OPERATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TransferOperation getTransferOperation() {
+    return transferOperation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRANSFER_OPERATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransferOperation(TransferOperation transferOperation) {
+    this.transferOperation = transferOperation;
+  }
+
+
   public TransferEvent type(TypeEnum type) {
     this.type = type;
     return this;
@@ -709,6 +747,7 @@ public class TransferEvent {
         Objects.equals(this.reason, transferEvent.reason) &&
         Objects.equals(this.status, transferEvent.status) &&
         Objects.equals(this.transactionId, transferEvent.transactionId) &&
+        Objects.equals(this.transferOperation, transferEvent.transferOperation) &&
         Objects.equals(this.type, transferEvent.type) &&
         Objects.equals(this.updateDate, transferEvent.updateDate) &&
         Objects.equals(this.valueDate, transferEvent.valueDate);
@@ -716,7 +755,7 @@ public class TransferEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountAdjustments, bookingDate, estimatedArrivalTime, id, mutations, originalAmount, reason, status, transactionId, type, updateDate, valueDate);
+    return Objects.hash(amount, amountAdjustments, bookingDate, estimatedArrivalTime, id, mutations, originalAmount, reason, status, transactionId, transferOperation, type, updateDate, valueDate);
   }
 
   @Override
@@ -733,6 +772,7 @@ public class TransferEvent {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
+    sb.append("    transferOperation: ").append(toIndentedString(transferOperation)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    valueDate: ").append(toIndentedString(valueDate)).append("\n");

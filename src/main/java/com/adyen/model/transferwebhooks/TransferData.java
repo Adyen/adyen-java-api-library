@@ -576,6 +576,14 @@ public class TransferData {
     
     MISCCOSTPENDING("miscCostPending"),
     
+    OPERATIONAUTHORIZED("operationAuthorized"),
+    
+    OPERATIONBOOKED("operationBooked"),
+    
+    OPERATIONPENDING("operationPending"),
+    
+    OPERATIONRECEIVED("operationReceived"),
+    
     PAYMENTCOST("paymentCost"),
     
     PAYMENTCOSTPENDING("paymentCostPending"),

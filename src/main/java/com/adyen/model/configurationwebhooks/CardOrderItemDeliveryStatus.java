@@ -31,13 +31,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * CardOrderItemDeliveryStatus
  */
 @JsonPropertyOrder({
+  CardOrderItemDeliveryStatus.JSON_PROPERTY_ERROR_MESSAGE,
   CardOrderItemDeliveryStatus.JSON_PROPERTY_STATUS,
-  CardOrderItemDeliveryStatus.JSON_PROPERTY_STATUS_ERROR,
-  CardOrderItemDeliveryStatus.JSON_PROPERTY_STATUS_ERROR_MESSAGE,
   CardOrderItemDeliveryStatus.JSON_PROPERTY_TRACKING_NUMBER
 })
 
 public class CardOrderItemDeliveryStatus {
+  public static final String JSON_PROPERTY_ERROR_MESSAGE = "errorMessage";
+  private String errorMessage;
+
   /**
    * Status of the delivery.
    */
@@ -45,6 +47,8 @@ public class CardOrderItemDeliveryStatus {
     CREATED("created"),
     
     DELIVERED("delivered"),
+    
+    NOTAPPLICABLE("notApplicable"),
     
     PROCESSING("processing"),
     
@@ -86,17 +90,36 @@ public class CardOrderItemDeliveryStatus {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String JSON_PROPERTY_STATUS_ERROR = "statusError";
-  private String statusError;
-
-  public static final String JSON_PROPERTY_STATUS_ERROR_MESSAGE = "statusErrorMessage";
-  private String statusErrorMessage;
-
   public static final String JSON_PROPERTY_TRACKING_NUMBER = "trackingNumber";
   private String trackingNumber;
 
   public CardOrderItemDeliveryStatus() { 
   }
+
+  public CardOrderItemDeliveryStatus errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Error message.
+   * @return errorMessage
+  **/
+  @ApiModelProperty(value = "Error message.")
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
 
   public CardOrderItemDeliveryStatus status(StatusEnum status) {
     this.status = status;
@@ -120,56 +143,6 @@ public class CardOrderItemDeliveryStatus {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
-  }
-
-
-  public CardOrderItemDeliveryStatus statusError(String statusError) {
-    this.statusError = statusError;
-    return this;
-  }
-
-   /**
-   * Error status, if any.
-   * @return statusError
-  **/
-  @ApiModelProperty(value = "Error status, if any.")
-  @JsonProperty(JSON_PROPERTY_STATUS_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getStatusError() {
-    return statusError;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatusError(String statusError) {
-    this.statusError = statusError;
-  }
-
-
-  public CardOrderItemDeliveryStatus statusErrorMessage(String statusErrorMessage) {
-    this.statusErrorMessage = statusErrorMessage;
-    return this;
-  }
-
-   /**
-   * Error message, if any.
-   * @return statusErrorMessage
-  **/
-  @ApiModelProperty(value = "Error message, if any.")
-  @JsonProperty(JSON_PROPERTY_STATUS_ERROR_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getStatusErrorMessage() {
-    return statusErrorMessage;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS_ERROR_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatusErrorMessage(String statusErrorMessage) {
-    this.statusErrorMessage = statusErrorMessage;
   }
 
 
@@ -210,24 +183,22 @@ public class CardOrderItemDeliveryStatus {
       return false;
     }
     CardOrderItemDeliveryStatus cardOrderItemDeliveryStatus = (CardOrderItemDeliveryStatus) o;
-    return Objects.equals(this.status, cardOrderItemDeliveryStatus.status) &&
-        Objects.equals(this.statusError, cardOrderItemDeliveryStatus.statusError) &&
-        Objects.equals(this.statusErrorMessage, cardOrderItemDeliveryStatus.statusErrorMessage) &&
+    return Objects.equals(this.errorMessage, cardOrderItemDeliveryStatus.errorMessage) &&
+        Objects.equals(this.status, cardOrderItemDeliveryStatus.status) &&
         Objects.equals(this.trackingNumber, cardOrderItemDeliveryStatus.trackingNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, statusError, statusErrorMessage, trackingNumber);
+    return Objects.hash(errorMessage, status, trackingNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardOrderItemDeliveryStatus {\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    statusError: ").append(toIndentedString(statusError)).append("\n");
-    sb.append("    statusErrorMessage: ").append(toIndentedString(statusErrorMessage)).append("\n");
     sb.append("    trackingNumber: ").append(toIndentedString(trackingNumber)).append("\n");
     sb.append("}");
     return sb.toString();
