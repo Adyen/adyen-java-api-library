@@ -174,7 +174,7 @@ public class BalancePlatformTest extends BaseTest {
     public void BalanceAccountsCreateSweepTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
         BalanceAccountsApi service = new BalanceAccountsApi(client);
-        SweepConfigurationV2 request = SweepConfigurationV2.fromJson("{\n" +
+        CreateSweepConfigurationV2 request = CreateSweepConfigurationV2.fromJson("{\n" +
                 "  \"counterparty\": {\n" +
                 "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
                 "  },\n" +
