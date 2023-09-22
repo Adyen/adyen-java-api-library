@@ -143,11 +143,10 @@ public class ClassicPlatformConfigurationApi extends Service {
     /**
     * Get a list of notification subscription configurations
     *
-    * @param body {@link Object }  (required)
     * @return {@link GetNotificationConfigurationListResponse }
     * @throws ApiException if fails to make API call
     */
-    public GetNotificationConfigurationListResponse getNotificationConfigurationList(Object body) throws ApiException, IOException {
+    public GetNotificationConfigurationListResponse getNotificationConfigurationList() throws ApiException, IOException {
         return getNotificationConfigurationList(null);
     }
 
