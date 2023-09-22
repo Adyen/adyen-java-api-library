@@ -51,10 +51,10 @@ public class AcceptTermsOfServiceRequest {
   }
 
    /**
-   * The individual legal entity ID of the user accepting the Terms of Service. This can also be the legal entity ID of the signatory for an organization.
+   * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.
    * @return acceptedBy
   **/
-  @ApiModelProperty(required = true, value = "The individual legal entity ID of the user accepting the Terms of Service. This can also be the legal entity ID of the signatory for an organization.")
+  @ApiModelProperty(required = true, value = "The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

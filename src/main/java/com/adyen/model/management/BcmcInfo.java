@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.management.TransactionDescriptionInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,12 +32,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * BcmcInfo
  */
 @JsonPropertyOrder({
-  BcmcInfo.JSON_PROPERTY_ENABLE_BCMC_MOBILE
+  BcmcInfo.JSON_PROPERTY_ENABLE_BCMC_MOBILE,
+  BcmcInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION
 })
 
 public class BcmcInfo {
   public static final String JSON_PROPERTY_ENABLE_BCMC_MOBILE = "enableBcmcMobile";
   private Boolean enableBcmcMobile;
+
+  public static final String JSON_PROPERTY_TRANSACTION_DESCRIPTION = "transactionDescription";
+  private TransactionDescriptionInfo transactionDescription;
 
   public BcmcInfo() { 
   }
@@ -66,6 +71,31 @@ public class BcmcInfo {
   }
 
 
+  public BcmcInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
+    this.transactionDescription = transactionDescription;
+    return this;
+  }
+
+   /**
+   * Get transactionDescription
+   * @return transactionDescription
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TransactionDescriptionInfo getTransactionDescription() {
+    return transactionDescription;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {
+    this.transactionDescription = transactionDescription;
+  }
+
+
   /**
    * Return true if this BcmcInfo object is equal to o.
    */
@@ -78,12 +108,13 @@ public class BcmcInfo {
       return false;
     }
     BcmcInfo bcmcInfo = (BcmcInfo) o;
-    return Objects.equals(this.enableBcmcMobile, bcmcInfo.enableBcmcMobile);
+    return Objects.equals(this.enableBcmcMobile, bcmcInfo.enableBcmcMobile) &&
+        Objects.equals(this.transactionDescription, bcmcInfo.transactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableBcmcMobile);
+    return Objects.hash(enableBcmcMobile, transactionDescription);
   }
 
   @Override
@@ -91,6 +122,7 @@ public class BcmcInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class BcmcInfo {\n");
     sb.append("    enableBcmcMobile: ").append(toIndentedString(enableBcmcMobile)).append("\n");
+    sb.append("    transactionDescription: ").append(toIndentedString(transactionDescription)).append("\n");
     sb.append("}");
     return sb.toString();
   }
