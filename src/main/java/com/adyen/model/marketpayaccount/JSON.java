@@ -1,21 +1,13 @@
-package {{modelPackage}};
+package com.adyen.model.marketpayaccount;
 
-import com.adyen.serializer.ByteArraySerializer;
 import com.adyen.serializer.ByteArrayDeserializer;
+import com.adyen.serializer.ByteArraySerializer;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-{{#openApiNullable}}
-import org.openapitools.jackson.nullable.JsonNullableModule;
-{{/openApiNullable}}
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-{{#joda}}
-import com.fasterxml.jackson.datatype.joda.JodaModule;
-{{/joda}}
-{{#models.0}}
-import {{modelPackage}}.*;
-{{/models.0}}
+import com.adyen.model.marketpayaccount.*;
 
 import java.text.DateFormat;
 import java.util.HashMap;
@@ -39,13 +31,6 @@ public class JSON implements ContextResolver<ObjectMapper> {
     mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
     mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
     mapper.registerModule(new JavaTimeModule());
-    {{#joda}}
-    mapper.registerModule(new JodaModule());
-    {{/joda}}
-    {{#openApiNullable}}
-    JsonNullableModule jnm = new JsonNullableModule();
-    mapper.registerModule(jnm);
-    {{/openApiNullable}}
     // Custom ByteSerializer
     SimpleModule simpleModule = new SimpleModule();
     simpleModule.addSerializer(byte[].class, new ByteArraySerializer());
