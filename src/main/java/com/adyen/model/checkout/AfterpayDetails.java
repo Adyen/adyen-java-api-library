@@ -67,7 +67,9 @@ public class AfterpayDetails {
     
     AFTERPAYTOUCH("afterpaytouch"),
     
-    AFTERPAY_B2B("afterpay_b2b");
+    AFTERPAY_B2B("afterpay_b2b"),
+    
+    CLEARPAY("clearpay");
 
     private String value;
 

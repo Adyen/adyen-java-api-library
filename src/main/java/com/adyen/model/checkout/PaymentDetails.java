@@ -155,8 +155,6 @@ public class PaymentDetails {
     
     GOPAY_WALLET("gopay_wallet"),
     
-    POLI("poli"),
-    
     KCP_NAVERPAY("kcp_naverpay"),
     
     ONLINEBANKING_IN("onlinebanking_IN"),
