@@ -31,7 +31,7 @@ public class TransfersTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-success-200.json");
         TransactionsApi transactions = new TransactionsApi(client);
         TransactionSearchResponse response = transactions.getAllTransactions(null, null);
-        Transaction transactionsResponse = response.getData().get(1);
+        TransactionData transactionsResponse = response.getData().get(1);
         assertEquals(transactionsResponse.getAccountHolderId(), "AHA1B2C3D4E5F6G7H8I9J0");
         assertEquals(transactionsResponse.getCounterparty().getBalanceAccountId(), "BAB8B2C3D4E5F6G7H8D9J6GD4");
         assertEquals(transactionsResponse.getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
@@ -41,7 +41,7 @@ public class TransfersTest extends BaseTest {
     public void TransactionsRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-id-success-200.json");
         TransactionsApi transactions = new TransactionsApi(client);
-        Transaction response = transactions.getTransaction("1");
+        TransactionData response = transactions.getTransaction("1");
         assertEquals(response.getAccountHolderId(), "AHA1B2C3D4E5F6G7H8I9J0");
         assertEquals(response.getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
         assertEquals(response.getTransferId(), "2QP32A5U7IWC5WKG");
