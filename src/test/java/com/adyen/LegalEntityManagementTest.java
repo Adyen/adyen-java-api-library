@@ -3,10 +3,13 @@ package com.adyen;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.legalentitymanagement.*;
 import com.adyen.service.legalentitymanagement.*;
+import com.fasterxml.jackson.databind.JsonSerializable;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -319,7 +322,8 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
         Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
-        assertEquals("Thisisanbase64encodedstring", new String(response.getAttachments().get(0).getContent()));
+        String attachments = new String(Base64.getDecoder().decode(response.getAttachments().get(0).getContent()));
+        assertEquals("Thisisanbase64encodedstring", attachments);
     }
 
     @Test

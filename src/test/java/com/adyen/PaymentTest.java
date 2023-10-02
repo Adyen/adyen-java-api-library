@@ -40,10 +40,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
@@ -443,9 +440,6 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestByteArrayDeserialization() throws Exception {
 
-        Client client = createMockClientFromFile("mocks/authorise-success.json");
-        PaymentApi payment = new PaymentApi(client);
-
         final String expectedBytesAsString = "Let's pretend/ this a jpg or something=";
         final byte[] expectedBytes = expectedBytesAsString.getBytes(StandardCharsets.UTF_8);
         final ByteString expectedByteString = ByteString.of(expectedBytes);
@@ -454,9 +448,10 @@ public class PaymentTest extends BaseTest {
 
         // Act
         byte[] actualDeserializedBytes = JSON.getMapper().readValue(serializedBytesWithQuotes, byte[].class);
+        String actualString = new String(Base64.getDecoder().decode(actualDeserializedBytes));
 
         // Assert
-        assertEquals(expectedBytesAsString, new String(actualDeserializedBytes, StandardCharsets.UTF_8));
+        assertEquals(expectedBytesAsString, actualString);
     }
 
     @Test
