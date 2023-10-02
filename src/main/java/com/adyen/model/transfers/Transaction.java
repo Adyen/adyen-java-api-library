@@ -13,17 +13,11 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.adyen.model.transfers.Amount;
-import com.adyen.model.transfers.CounterpartyV3;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,32 +25,32 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * TransactionData
+ * Transaction
  */
 @JsonPropertyOrder({
-  TransactionData.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
-  TransactionData.JSON_PROPERTY_AMOUNT,
-  TransactionData.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
-  TransactionData.JSON_PROPERTY_BALANCE_PLATFORM,
-  TransactionData.JSON_PROPERTY_BOOKING_DATE,
-  TransactionData.JSON_PROPERTY_CATEGORY,
-  TransactionData.JSON_PROPERTY_COUNTERPARTY,
-  TransactionData.JSON_PROPERTY_CREATED_AT,
-  TransactionData.JSON_PROPERTY_CREATION_DATE,
-  TransactionData.JSON_PROPERTY_DESCRIPTION,
-  TransactionData.JSON_PROPERTY_EVENT_ID,
-  TransactionData.JSON_PROPERTY_ID,
-  TransactionData.JSON_PROPERTY_INSTRUCTED_AMOUNT,
-  TransactionData.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
-  TransactionData.JSON_PROPERTY_REFERENCE,
-  TransactionData.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
-  TransactionData.JSON_PROPERTY_STATUS,
-  TransactionData.JSON_PROPERTY_TRANSFER_ID,
-  TransactionData.JSON_PROPERTY_TYPE,
-  TransactionData.JSON_PROPERTY_VALUE_DATE
+  Transaction.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
+  Transaction.JSON_PROPERTY_AMOUNT,
+  Transaction.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
+  Transaction.JSON_PROPERTY_BALANCE_PLATFORM,
+  Transaction.JSON_PROPERTY_BOOKING_DATE,
+  Transaction.JSON_PROPERTY_CATEGORY,
+  Transaction.JSON_PROPERTY_COUNTERPARTY,
+  Transaction.JSON_PROPERTY_CREATED_AT,
+  Transaction.JSON_PROPERTY_CREATION_DATE,
+  Transaction.JSON_PROPERTY_DESCRIPTION,
+  Transaction.JSON_PROPERTY_EVENT_ID,
+  Transaction.JSON_PROPERTY_ID,
+  Transaction.JSON_PROPERTY_INSTRUCTED_AMOUNT,
+  Transaction.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
+  Transaction.JSON_PROPERTY_REFERENCE,
+  Transaction.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
+  Transaction.JSON_PROPERTY_STATUS,
+  Transaction.JSON_PROPERTY_TRANSFER_ID,
+  Transaction.JSON_PROPERTY_TYPE,
+  Transaction.JSON_PROPERTY_VALUE_DATE
 })
 
-public class TransactionData {
+public class Transaction {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
@@ -298,10 +292,10 @@ public class TransactionData {
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
 
-  public TransactionData() { 
+  public Transaction() {
   }
 
-  public TransactionData accountHolderId(String accountHolderId) {
+  public Transaction accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
     return this;
   }
@@ -326,7 +320,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData amount(Amount amount) {
+  public Transaction amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -351,7 +345,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData balanceAccountId(String balanceAccountId) {
+  public Transaction balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     return this;
   }
@@ -376,7 +370,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData balancePlatform(String balancePlatform) {
+  public Transaction balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
@@ -401,7 +395,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData bookingDate(OffsetDateTime bookingDate) {
+  public Transaction bookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
     return this;
   }
@@ -426,7 +420,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData category(CategoryEnum category) {
+  public Transaction category(CategoryEnum category) {
     this.category = category;
     return this;
   }
@@ -451,7 +445,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData counterparty(CounterpartyV3 counterparty) {
+  public Transaction counterparty(CounterpartyV3 counterparty) {
     this.counterparty = counterparty;
     return this;
   }
@@ -476,7 +470,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData createdAt(OffsetDateTime createdAt) {
+  public Transaction createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -501,7 +495,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData creationDate(OffsetDateTime creationDate) {
+  public Transaction creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
   }
@@ -526,7 +520,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData description(String description) {
+  public Transaction description(String description) {
     this.description = description;
     return this;
   }
@@ -551,7 +545,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData eventId(String eventId) {
+  public Transaction eventId(String eventId) {
     this.eventId = eventId;
     return this;
   }
@@ -576,7 +570,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData id(String id) {
+  public Transaction id(String id) {
     this.id = id;
     return this;
   }
@@ -601,7 +595,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData instructedAmount(Amount instructedAmount) {
+  public Transaction instructedAmount(Amount instructedAmount) {
     this.instructedAmount = instructedAmount;
     return this;
   }
@@ -626,7 +620,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData paymentInstrumentId(String paymentInstrumentId) {
+  public Transaction paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
@@ -651,7 +645,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData reference(String reference) {
+  public Transaction reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -676,7 +670,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData referenceForBeneficiary(String referenceForBeneficiary) {
+  public Transaction referenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
     return this;
   }
@@ -701,7 +695,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData status(StatusEnum status) {
+  public Transaction status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -726,7 +720,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData transferId(String transferId) {
+  public Transaction transferId(String transferId) {
     this.transferId = transferId;
     return this;
   }
@@ -751,7 +745,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData type(TypeEnum type) {
+  public Transaction type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -776,7 +770,7 @@ public class TransactionData {
   }
 
 
-  public TransactionData valueDate(OffsetDateTime valueDate) {
+  public Transaction valueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
     return this;
   }
@@ -802,7 +796,7 @@ public class TransactionData {
 
 
   /**
-   * Return true if this TransactionData object is equal to o.
+   * Return true if this Transaction object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -812,27 +806,27 @@ public class TransactionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransactionData transactionData = (TransactionData) o;
-    return Objects.equals(this.accountHolderId, transactionData.accountHolderId) &&
-        Objects.equals(this.amount, transactionData.amount) &&
-        Objects.equals(this.balanceAccountId, transactionData.balanceAccountId) &&
-        Objects.equals(this.balancePlatform, transactionData.balancePlatform) &&
-        Objects.equals(this.bookingDate, transactionData.bookingDate) &&
-        Objects.equals(this.category, transactionData.category) &&
-        Objects.equals(this.counterparty, transactionData.counterparty) &&
-        Objects.equals(this.createdAt, transactionData.createdAt) &&
-        Objects.equals(this.creationDate, transactionData.creationDate) &&
-        Objects.equals(this.description, transactionData.description) &&
-        Objects.equals(this.eventId, transactionData.eventId) &&
-        Objects.equals(this.id, transactionData.id) &&
-        Objects.equals(this.instructedAmount, transactionData.instructedAmount) &&
-        Objects.equals(this.paymentInstrumentId, transactionData.paymentInstrumentId) &&
-        Objects.equals(this.reference, transactionData.reference) &&
-        Objects.equals(this.referenceForBeneficiary, transactionData.referenceForBeneficiary) &&
-        Objects.equals(this.status, transactionData.status) &&
-        Objects.equals(this.transferId, transactionData.transferId) &&
-        Objects.equals(this.type, transactionData.type) &&
-        Objects.equals(this.valueDate, transactionData.valueDate);
+    Transaction transaction = (Transaction) o;
+    return Objects.equals(this.accountHolderId, transaction.accountHolderId) &&
+        Objects.equals(this.amount, transaction.amount) &&
+        Objects.equals(this.balanceAccountId, transaction.balanceAccountId) &&
+        Objects.equals(this.balancePlatform, transaction.balancePlatform) &&
+        Objects.equals(this.bookingDate, transaction.bookingDate) &&
+        Objects.equals(this.category, transaction.category) &&
+        Objects.equals(this.counterparty, transaction.counterparty) &&
+        Objects.equals(this.createdAt, transaction.createdAt) &&
+        Objects.equals(this.creationDate, transaction.creationDate) &&
+        Objects.equals(this.description, transaction.description) &&
+        Objects.equals(this.eventId, transaction.eventId) &&
+        Objects.equals(this.id, transaction.id) &&
+        Objects.equals(this.instructedAmount, transaction.instructedAmount) &&
+        Objects.equals(this.paymentInstrumentId, transaction.paymentInstrumentId) &&
+        Objects.equals(this.reference, transaction.reference) &&
+        Objects.equals(this.referenceForBeneficiary, transaction.referenceForBeneficiary) &&
+        Objects.equals(this.status, transaction.status) &&
+        Objects.equals(this.transferId, transaction.transferId) &&
+        Objects.equals(this.type, transaction.type) &&
+        Objects.equals(this.valueDate, transaction.valueDate);
   }
 
   @Override
@@ -843,7 +837,7 @@ public class TransactionData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionData {\n");
+    sb.append("class Transaction {\n");
     sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
@@ -880,17 +874,17 @@ public class TransactionData {
   }
 
 /**
-   * Create an instance of TransactionData given an JSON string
+   * Create an instance of Transaction given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TransactionData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to TransactionData
+   * @return An instance of Transaction
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Transaction
    */
-  public static TransactionData fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, TransactionData.class);
+  public static Transaction fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Transaction.class);
   }
 /**
-  * Convert an instance of TransactionData to an JSON string
+  * Convert an instance of Transaction to an JSON string
   *
   * @return JSON string
   */

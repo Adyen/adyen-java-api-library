@@ -15,8 +15,8 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import java.time.OffsetDateTime;
-import com.adyen.model.transfers.RestServiceError;
-import com.adyen.model.transfers.TransactionData;
+
+import com.adyen.model.transfers.Transaction;
 import com.adyen.model.transfers.TransactionSearchResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
@@ -117,10 +117,10 @@ public class TransactionsApi extends Service {
     * Get a transaction
     *
     * @param id {@link String } Unique identifier of the transaction. (required)
-    * @return {@link TransactionData }
+    * @return {@link Transaction }
     * @throws ApiException if fails to make API call
     */
-    public TransactionData getTransaction(String id) throws ApiException, IOException {
+    public Transaction getTransaction(String id) throws ApiException, IOException {
         return getTransaction(id, null);
     }
 
@@ -129,10 +129,10 @@ public class TransactionsApi extends Service {
     *
     * @param id {@link String } Unique identifier of the transaction. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TransactionData }
+    * @return {@link Transaction }
     * @throws ApiException if fails to make API call
     */
-    public TransactionData getTransaction(String id, RequestOptions requestOptions) throws ApiException, IOException {
+    public Transaction getTransaction(String id, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (id == null) {
@@ -143,6 +143,6 @@ public class TransactionsApi extends Service {
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/transactions/{id}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return TransactionData.fromJson(jsonResult);
+        return Transaction.fromJson(jsonResult);
     }
 }
