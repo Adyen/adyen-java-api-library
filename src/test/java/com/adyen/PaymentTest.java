@@ -40,7 +40,11 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
+import java.util.Base64;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
@@ -448,10 +452,9 @@ public class PaymentTest extends BaseTest {
 
         // Act
         byte[] actualDeserializedBytes = JSON.getMapper().readValue(serializedBytesWithQuotes, byte[].class);
-        String actualString = new String(Base64.getDecoder().decode(actualDeserializedBytes));
 
         // Assert
-        assertEquals(expectedBytesAsString, actualString);
+        assertEquals(expectedBytesAsString, new String(Base64.getDecoder().decode(actualDeserializedBytes)));
     }
 
     @Test
