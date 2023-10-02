@@ -32,6 +32,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * MerchantData
  */
 @JsonPropertyOrder({
+  MerchantData.JSON_PROPERTY_ACQUIRER_ID,
   MerchantData.JSON_PROPERTY_MCC,
   MerchantData.JSON_PROPERTY_MERCHANT_ID,
   MerchantData.JSON_PROPERTY_NAME_LOCATION,
@@ -39,6 +40,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class MerchantData {
+  public static final String JSON_PROPERTY_ACQUIRER_ID = "acquirerId";
+  private String acquirerId;
+
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
 
@@ -53,6 +57,31 @@ public class MerchantData {
 
   public MerchantData() { 
   }
+
+  public MerchantData acquirerId(String acquirerId) {
+    this.acquirerId = acquirerId;
+    return this;
+  }
+
+   /**
+   * The unique identifier of the merchant&#39;s acquirer.
+   * @return acquirerId
+  **/
+  @ApiModelProperty(value = "The unique identifier of the merchant's acquirer.")
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAcquirerId() {
+    return acquirerId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAcquirerId(String acquirerId) {
+    this.acquirerId = acquirerId;
+  }
+
 
   public MerchantData mcc(String mcc) {
     this.mcc = mcc;
@@ -166,7 +195,8 @@ public class MerchantData {
       return false;
     }
     MerchantData merchantData = (MerchantData) o;
-    return Objects.equals(this.mcc, merchantData.mcc) &&
+    return Objects.equals(this.acquirerId, merchantData.acquirerId) &&
+        Objects.equals(this.mcc, merchantData.mcc) &&
         Objects.equals(this.merchantId, merchantData.merchantId) &&
         Objects.equals(this.nameLocation, merchantData.nameLocation) &&
         Objects.equals(this.postalCode, merchantData.postalCode);
@@ -174,13 +204,14 @@ public class MerchantData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mcc, merchantId, nameLocation, postalCode);
+    return Objects.hash(acquirerId, mcc, merchantId, nameLocation, postalCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MerchantData {\n");
+    sb.append("    acquirerId: ").append(toIndentedString(acquirerId)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    nameLocation: ").append(toIndentedString(nameLocation)).append("\n");

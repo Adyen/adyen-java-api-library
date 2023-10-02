@@ -13,17 +13,11 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.adyen.model.transfers.Amount;
-import com.adyen.model.transfers.CounterpartyV3;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -88,7 +82,9 @@ public class Transaction {
     
     MIGRATION("migration"),
     
-    PLATFORMPAYMENT("platformPayment");
+    PLATFORMPAYMENT("platformPayment"),
+    
+    UPGRADE("upgrade");
 
     private String value;
 
@@ -201,6 +197,8 @@ public class Transaction {
     
     BALANCEADJUSTMENT("balanceAdjustment"),
     
+    BALANCEMIGRATION("balanceMigration"),
+    
     BALANCEROLLOVER("balanceRollover"),
     
     BANKTRANSFER("bankTransfer"),
@@ -211,9 +209,19 @@ public class Transaction {
     
     CARDTRANSFER("cardTransfer"),
     
+    CASHOUTFEE("cashOutFee"),
+    
+    CASHOUTFUNDING("cashOutFunding"),
+    
+    CASHOUTINSTRUCTION("cashOutInstruction"),
+    
     CHARGEBACK("chargeback"),
     
+    CHARGEBACKCORRECTION("chargebackCorrection"),
+    
     CHARGEBACKREVERSAL("chargebackReversal"),
+    
+    CHARGEBACKREVERSALCORRECTION("chargebackReversalCorrection"),
     
     DEPOSITCORRECTION("depositCorrection"),
     
@@ -247,7 +255,9 @@ public class Transaction {
     
     RESERVEADJUSTMENT("reserveAdjustment"),
     
-    SECONDCHARGEBACK("secondChargeback");
+    SECONDCHARGEBACK("secondChargeback"),
+    
+    SECONDCHARGEBACKCORRECTION("secondChargebackCorrection");
 
     private String value;
 
@@ -282,7 +292,7 @@ public class Transaction {
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
 
-  public Transaction() { 
+  public Transaction() {
   }
 
   public Transaction accountHolderId(String accountHolderId) {
@@ -366,10 +376,10 @@ public class Transaction {
   }
 
    /**
-   * Unique identifier of the balance platform.
+   * The unique identifier of the balance platform.
    * @return balancePlatform
   **/
-  @ApiModelProperty(required = true, value = "Unique identifier of the balance platform.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -391,10 +401,10 @@ public class Transaction {
   }
 
    /**
-   * The date the transaction was booked to the balance account.
+   * The date the transaction was booked into the balance account.
    * @return bookingDate
   **/
-  @ApiModelProperty(required = true, value = "The date the transaction was booked to the balance account.")
+  @ApiModelProperty(required = true, value = "The date the transaction was booked into the balance account.")
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -541,10 +551,10 @@ public class Transaction {
   }
 
    /**
-   * The PSP reference in the journal.
+   * The PSP reference of the transaction in the journal.
    * @return eventId
   **/
-  @ApiModelProperty(value = "The PSP reference in the journal.")
+  @ApiModelProperty(value = "The PSP reference of the transaction in the journal.")
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -566,10 +576,10 @@ public class Transaction {
   }
 
    /**
-   * Unique identifier of the transaction.
+   * The unique identifier of the transaction.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "Unique identifier of the transaction.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the transaction.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -616,10 +626,10 @@ public class Transaction {
   }
 
    /**
-   * Unique identifier of the payment instrument that was used for the transaction.
+   * The unique identifier of the payment instrument that was used for the transaction.
    * @return paymentInstrumentId
   **/
-  @ApiModelProperty(value = "Unique identifier of the payment instrument that was used for the transaction.")
+  @ApiModelProperty(value = "The unique identifier of the payment instrument that was used for the transaction.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
