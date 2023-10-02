@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -319,7 +320,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
         Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
-        assertEquals("Thisisanbase64encodedstring", new String(response.getAttachments().get(0).getContent()));
+        assertEquals("Thisisanbase64encodedstring", new String(Base64.getDecoder().decode(response.getAttachments().get(0).getContent())));
     }
 
     @Test
