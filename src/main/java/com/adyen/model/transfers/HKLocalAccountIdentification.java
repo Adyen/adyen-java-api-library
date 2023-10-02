@@ -32,7 +32,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   HKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
-  HKLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
+  HKLocalAccountIdentification.JSON_PROPERTY_CLEARING_CODE,
   HKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -40,8 +40,8 @@ public class HKLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
-  public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
-  private String bankCode;
+  public static final String JSON_PROPERTY_CLEARING_CODE = "clearingCode";
+  private String clearingCode;
 
   /**
    * **hkLocal**
@@ -88,10 +88,10 @@ public class HKLocalAccountIdentification {
   }
 
    /**
-   * The 6- to 19-character bank account number (alphanumeric), without separators or whitespace.
+   * The 9- to 12-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    * @return accountNumber
   **/
-  @ApiModelProperty(required = true, value = "The 6- to 19-character bank account number (alphanumeric), without separators or whitespace.")
+  @ApiModelProperty(required = true, value = "The 9- to 12-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -107,28 +107,28 @@ public class HKLocalAccountIdentification {
   }
 
 
-  public HKLocalAccountIdentification bankCode(String bankCode) {
-    this.bankCode = bankCode;
+  public HKLocalAccountIdentification clearingCode(String clearingCode) {
+    this.clearingCode = clearingCode;
     return this;
   }
 
    /**
-   * The 6-digit bank code including the 3-digit bank code and 3-digit branch code, without separators or whitespace.
-   * @return bankCode
+   * The 3-digit clearing code, without separators or whitespace.
+   * @return clearingCode
   **/
-  @ApiModelProperty(required = true, value = "The 6-digit bank code including the 3-digit bank code and 3-digit branch code, without separators or whitespace.")
-  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @ApiModelProperty(required = true, value = "The 3-digit clearing code, without separators or whitespace.")
+  @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBankCode() {
-    return bankCode;
+  public String getClearingCode() {
+    return clearingCode;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankCode(String bankCode) {
-    this.bankCode = bankCode;
+  public void setClearingCode(String clearingCode) {
+    this.clearingCode = clearingCode;
   }
 
 
@@ -170,13 +170,13 @@ public class HKLocalAccountIdentification {
     }
     HKLocalAccountIdentification hkLocalAccountIdentification = (HKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, hkLocalAccountIdentification.accountNumber) &&
-        Objects.equals(this.bankCode, hkLocalAccountIdentification.bankCode) &&
+        Objects.equals(this.clearingCode, hkLocalAccountIdentification.clearingCode) &&
         Objects.equals(this.type, hkLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, type);
+    return Objects.hash(accountNumber, clearingCode, type);
   }
 
   @Override
@@ -184,7 +184,7 @@ public class HKLocalAccountIdentification {
     StringBuilder sb = new StringBuilder();
     sb.append("class HKLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+    sb.append("    clearingCode: ").append(toIndentedString(clearingCode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

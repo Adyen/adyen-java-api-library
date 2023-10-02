@@ -15,7 +15,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import java.time.OffsetDateTime;
-import com.adyen.model.transfers.RestServiceError;
+
 import com.adyen.model.transfers.Transaction;
 import com.adyen.model.transfers.TransactionSearchResponse;
 import com.adyen.model.RequestOptions;
@@ -67,10 +67,10 @@ public class TransactionsApi extends Service {
     /**
     * Get all transactions
     *
-    * @param balancePlatform {@link String } Query: Unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id). (optional)
-    * @param paymentInstrumentId {@link String } Query: Unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_). (optional)
-    * @param accountHolderId {@link String } Query: Unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_id). (optional)
-    * @param balanceAccountId {@link String } Query: Unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id). (optional)
+    * @param balancePlatform {@link String } Query: The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id).  Required if you don&#39;t provide a &#x60;balanceAccountId&#x60; or &#x60;accountHolderId&#x60;. (optional)
+    * @param paymentInstrumentId {@link String } Query: The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).  To use this parameter, you must also provide a &#x60;balanceAccountId&#x60;, &#x60;accountHolderId&#x60;, or &#x60;balancePlatform&#x60;.  The &#x60;paymentInstrumentId&#x60; must be related to the &#x60;balanceAccountId&#x60; or &#x60;accountHolderId&#x60; that you provide. (optional)
+    * @param accountHolderId {@link String } Query: The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_id).  Required if you don&#39;t provide a &#x60;balanceAccountId&#x60; or &#x60;balancePlatform&#x60;.  If you provide a &#x60;balanceAccountId&#x60;, the &#x60;accountHolderId&#x60; must be related to the &#x60;balanceAccountId&#x60;. (optional)
+    * @param balanceAccountId {@link String } Query: The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id).  Required if you don&#39;t provide an &#x60;accountHolderId&#x60; or &#x60;balancePlatform&#x60;.  If you provide an &#x60;accountHolderId&#x60;, the &#x60;balanceAccountId&#x60; must be related to the &#x60;accountHolderId&#x60;. (optional)
     * @param cursor {@link String } Query: The &#x60;cursor&#x60; returned in the links of the previous response. (optional)
     * @param createdSince {@link OffsetDateTime } Query: Only include transactions that have been created on or after this point in time. The value must be in ISO 8601 format. For example, **2021-05-30T15:07:40Z**. (required)
     * @param createdUntil {@link OffsetDateTime } Query: Only include transactions that have been created on or before this point in time. The value must be in ISO 8601 format. For example, **2021-05-30T15:07:40Z**. (required)

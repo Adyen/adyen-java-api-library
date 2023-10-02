@@ -15,6 +15,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.transfers.RestServiceError;
+import com.adyen.model.transfers.ServiceError;
 import com.adyen.model.transfers.Transfer;
 import com.adyen.model.transfers.TransferInfo;
 import com.adyen.model.RequestOptions;

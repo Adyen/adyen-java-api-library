@@ -39,7 +39,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferInfo.JSON_PROPERTY_CATEGORY,
   TransferInfo.JSON_PROPERTY_COUNTERPARTY,
   TransferInfo.JSON_PROPERTY_DESCRIPTION,
-  TransferInfo.JSON_PROPERTY_ID,
   TransferInfo.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
   TransferInfo.JSON_PROPERTY_PRIORITY,
   TransferInfo.JSON_PROPERTY_REFERENCE,
@@ -103,9 +102,6 @@ public class TransferInfo {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
@@ -295,31 +291,6 @@ public class TransferInfo {
   }
 
 
-  public TransferInfo id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of the resource.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID of the resource.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
   public TransferInfo paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
@@ -462,7 +433,6 @@ public class TransferInfo {
         Objects.equals(this.category, transferInfo.category) &&
         Objects.equals(this.counterparty, transferInfo.counterparty) &&
         Objects.equals(this.description, transferInfo.description) &&
-        Objects.equals(this.id, transferInfo.id) &&
         Objects.equals(this.paymentInstrumentId, transferInfo.paymentInstrumentId) &&
         Objects.equals(this.priority, transferInfo.priority) &&
         Objects.equals(this.reference, transferInfo.reference) &&
@@ -472,7 +442,7 @@ public class TransferInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, balanceAccountId, category, counterparty, description, id, paymentInstrumentId, priority, reference, referenceForBeneficiary, ultimateParty);
+    return Objects.hash(amount, balanceAccountId, category, counterparty, description, paymentInstrumentId, priority, reference, referenceForBeneficiary, ultimateParty);
   }
 
   @Override
@@ -484,7 +454,6 @@ public class TransferInfo {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
