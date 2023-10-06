@@ -13,17 +13,11 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.adyen.model.transfers.Amount;
-import com.adyen.model.transfers.CounterpartyV3;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,7 +36,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Transaction.JSON_PROPERTY_CATEGORY,
   Transaction.JSON_PROPERTY_COUNTERPARTY,
   Transaction.JSON_PROPERTY_CREATED_AT,
+  Transaction.JSON_PROPERTY_CREATION_DATE,
   Transaction.JSON_PROPERTY_DESCRIPTION,
+  Transaction.JSON_PROPERTY_EVENT_ID,
   Transaction.JSON_PROPERTY_ID,
   Transaction.JSON_PROPERTY_INSTRUCTED_AMOUNT,
   Transaction.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
@@ -86,7 +82,9 @@ public class Transaction {
     
     MIGRATION("migration"),
     
-    PLATFORMPAYMENT("platformPayment");
+    PLATFORMPAYMENT("platformPayment"),
+    
+    UPGRADE("upgrade");
 
     private String value;
 
@@ -124,8 +122,14 @@ public class Transaction {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
+  private OffsetDateTime creationDate;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_EVENT_ID = "eventId";
+  private String eventId;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -193,6 +197,8 @@ public class Transaction {
     
     BALANCEADJUSTMENT("balanceAdjustment"),
     
+    BALANCEMIGRATION("balanceMigration"),
+    
     BALANCEROLLOVER("balanceRollover"),
     
     BANKTRANSFER("bankTransfer"),
@@ -201,9 +207,21 @@ public class Transaction {
     
     CAPTUREREVERSAL("captureReversal"),
     
+    CARDTRANSFER("cardTransfer"),
+    
+    CASHOUTFEE("cashOutFee"),
+    
+    CASHOUTFUNDING("cashOutFunding"),
+    
+    CASHOUTINSTRUCTION("cashOutInstruction"),
+    
     CHARGEBACK("chargeback"),
     
+    CHARGEBACKCORRECTION("chargebackCorrection"),
+    
     CHARGEBACKREVERSAL("chargebackReversal"),
+    
+    CHARGEBACKREVERSALCORRECTION("chargebackReversalCorrection"),
     
     DEPOSITCORRECTION("depositCorrection"),
     
@@ -237,7 +255,9 @@ public class Transaction {
     
     RESERVEADJUSTMENT("reserveAdjustment"),
     
-    SECONDCHARGEBACK("secondChargeback");
+    SECONDCHARGEBACK("secondChargeback"),
+    
+    SECONDCHARGEBACKCORRECTION("secondChargebackCorrection");
 
     private String value;
 
@@ -272,7 +292,7 @@ public class Transaction {
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
 
-  public Transaction() { 
+  public Transaction() {
   }
 
   public Transaction accountHolderId(String accountHolderId) {
@@ -356,10 +376,10 @@ public class Transaction {
   }
 
    /**
-   * Unique identifier of the balance platform.
+   * The unique identifier of the balance platform.
    * @return balancePlatform
   **/
-  @ApiModelProperty(required = true, value = "Unique identifier of the balance platform.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -381,10 +401,10 @@ public class Transaction {
   }
 
    /**
-   * The date the transaction was booked to the balance account.
+   * The date the transaction was booked into the balance account.
    * @return bookingDate
   **/
-  @ApiModelProperty(required = true, value = "The date the transaction was booked to the balance account.")
+  @ApiModelProperty(required = true, value = "The date the transaction was booked into the balance account.")
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -475,6 +495,31 @@ public class Transaction {
   }
 
 
+  public Transaction creationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+   * @return creationDate
+  **/
+  @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+
   public Transaction description(String description) {
     this.description = description;
     return this;
@@ -500,16 +545,41 @@ public class Transaction {
   }
 
 
+  public Transaction eventId(String eventId) {
+    this.eventId = eventId;
+    return this;
+  }
+
+   /**
+   * The PSP reference of the transaction in the journal.
+   * @return eventId
+  **/
+  @ApiModelProperty(value = "The PSP reference of the transaction in the journal.")
+  @JsonProperty(JSON_PROPERTY_EVENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEventId() {
+    return eventId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EVENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+
   public Transaction id(String id) {
     this.id = id;
     return this;
   }
 
    /**
-   * Unique identifier of the transaction.
+   * The unique identifier of the transaction.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "Unique identifier of the transaction.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the transaction.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -556,10 +626,10 @@ public class Transaction {
   }
 
    /**
-   * Unique identifier of the payment instrument that was used for the transaction.
+   * The unique identifier of the payment instrument that was used for the transaction.
    * @return paymentInstrumentId
   **/
-  @ApiModelProperty(value = "Unique identifier of the payment instrument that was used for the transaction.")
+  @ApiModelProperty(value = "The unique identifier of the payment instrument that was used for the transaction.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -745,7 +815,9 @@ public class Transaction {
         Objects.equals(this.category, transaction.category) &&
         Objects.equals(this.counterparty, transaction.counterparty) &&
         Objects.equals(this.createdAt, transaction.createdAt) &&
+        Objects.equals(this.creationDate, transaction.creationDate) &&
         Objects.equals(this.description, transaction.description) &&
+        Objects.equals(this.eventId, transaction.eventId) &&
         Objects.equals(this.id, transaction.id) &&
         Objects.equals(this.instructedAmount, transaction.instructedAmount) &&
         Objects.equals(this.paymentInstrumentId, transaction.paymentInstrumentId) &&
@@ -759,7 +831,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolderId, amount, balanceAccountId, balancePlatform, bookingDate, category, counterparty, createdAt, description, id, instructedAmount, paymentInstrumentId, reference, referenceForBeneficiary, status, transferId, type, valueDate);
+    return Objects.hash(accountHolderId, amount, balanceAccountId, balancePlatform, bookingDate, category, counterparty, createdAt, creationDate, description, eventId, id, instructedAmount, paymentInstrumentId, reference, referenceForBeneficiary, status, transferId, type, valueDate);
   }
 
   @Override
@@ -774,7 +846,9 @@ public class Transaction {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");

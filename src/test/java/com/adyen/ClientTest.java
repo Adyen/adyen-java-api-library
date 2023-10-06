@@ -37,17 +37,6 @@ public class ClientTest {
     }
 
     @Test
-    public void testConfigLiveNoPrefixCheckoutClient() {
-        Config config = new Config();
-        config.setEnvironment(Environment.LIVE);
-        config.setApiKey(apiKey);
-        IllegalArgumentException ex = Assert.assertThrows(IllegalArgumentException.class, () -> {
-            new Client(config).getConfig().getCheckoutEndpoint();
-        });
-        Assert.assertEquals(ex.getMessage(), "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.");
-    }
-
-    @Test
     public void testClientCertificateAuth() {
         Client client = new Client(clientCertificateAuthSSLContext, apiKey, null);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
@@ -58,7 +47,6 @@ public class ClientTest {
         Client client = new Client(clientCertificateAuthSSLContext, apiKey, Region.AU);
 
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        Assert.assertEquals("https://checkoutcert-live-au.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
         assertCommonEndpoints(client.getConfig());
     }
 
@@ -67,12 +55,10 @@ public class ClientTest {
         Client client = new Client(clientCertificateAuthSSLContext, apiKey, Region.US);
 
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        Assert.assertEquals("https://checkoutcert-live-us.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
         assertCommonEndpoints(client.getConfig());
     }
 
     private void assertCommonEndpoints(Config config) {
-        Assert.assertEquals(Client.ENDPOINT_CERT_LIVE, config.getEndpoint());
         Assert.assertEquals(Client.TERMINAL_API_ENDPOINT_LIVE, config.getTerminalApiCloudEndpoint());
     }
 }

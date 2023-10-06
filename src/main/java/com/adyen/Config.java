@@ -1,23 +1,3 @@
-/*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
- * Adyen Java API Library
- *
- * Copyright (c) 2018 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
 package com.adyen;
 
 import com.adyen.enums.Environment;
@@ -28,9 +8,7 @@ import javax.net.ssl.SSLContext;
 public class Config {
     protected String username;
     protected String password;
-    protected String merchantAccount;
     protected Environment environment;
-    protected String endpoint;
 
     /**
      * Application name: used as HTTP client User-Agent
@@ -39,9 +17,6 @@ public class Config {
     protected String apiKey;
     protected int connectionTimeoutMillis;
     protected int readTimeoutMillis;
-
-    //Checkout Specific
-    protected String checkoutEndpoint;
 
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
@@ -70,28 +45,12 @@ public class Config {
         this.password = password;
     }
 
-    public String getMerchantAccount() {
-        return merchantAccount;
-    }
-
-    public void setMerchantAccount(String merchantAccount) {
-        this.merchantAccount = merchantAccount;
-    }
-
     public Environment getEnvironment() {
         return environment;
     }
 
     public void setEnvironment(Environment environment) {
         this.environment = environment;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
     }
 
     public String getApplicationName() {
@@ -108,18 +67,6 @@ public class Config {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
-    }
-
-    public String getCheckoutEndpoint() {
-        if (checkoutEndpoint == null || checkoutEndpoint.isEmpty()) {
-            String message = "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.";
-            throw new IllegalArgumentException(message);
-        }
-        return checkoutEndpoint;
-    }
-
-    public void setCheckoutEndpoint(String checkoutEndpoint) {
-        this.checkoutEndpoint = checkoutEndpoint;
     }
 
     public String getTerminalApiCloudEndpoint() {

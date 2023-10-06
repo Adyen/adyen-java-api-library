@@ -14,355 +14,568 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.balanceplatform.AULocalAccountIdentification;
 import com.adyen.model.balanceplatform.AdditionalBankIdentification;
+import com.adyen.model.balanceplatform.BRLocalAccountIdentification;
 import com.adyen.model.balanceplatform.CALocalAccountIdentification;
 import com.adyen.model.balanceplatform.CZLocalAccountIdentification;
+import com.adyen.model.balanceplatform.DKLocalAccountIdentification;
+import com.adyen.model.balanceplatform.HKLocalAccountIdentification;
 import com.adyen.model.balanceplatform.HULocalAccountIdentification;
 import com.adyen.model.balanceplatform.IbanAccountIdentification;
 import com.adyen.model.balanceplatform.NOLocalAccountIdentification;
+import com.adyen.model.balanceplatform.NZLocalAccountIdentification;
 import com.adyen.model.balanceplatform.NumberAndBicAccountIdentification;
 import com.adyen.model.balanceplatform.PLLocalAccountIdentification;
 import com.adyen.model.balanceplatform.SELocalAccountIdentification;
 import com.adyen.model.balanceplatform.SGLocalAccountIdentification;
 import com.adyen.model.balanceplatform.UKLocalAccountIdentification;
 import com.adyen.model.balanceplatform.USLocalAccountIdentification;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import jakarta.ws.rs.core.GenericType;
-
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.HashMap;
-import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-
-import com.adyen.model.balanceplatform.JSON;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 
+@JsonDeserialize(using = BankAccountIdentificationValidationRequestAccountIdentification.BankAccountIdentificationValidationRequestAccountIdentificationDeserializer.class)
+@JsonSerialize(using = BankAccountIdentificationValidationRequestAccountIdentification.BankAccountIdentificationValidationRequestAccountIdentificationSerializer.class)
 public class BankAccountIdentificationValidationRequestAccountIdentification extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(BankAccountIdentificationValidationRequestAccountIdentification.class.getName());
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
+    public static class BankAccountIdentificationValidationRequestAccountIdentificationSerializer extends StdSerializer<BankAccountIdentificationValidationRequestAccountIdentification> {
+        public BankAccountIdentificationValidationRequestAccountIdentificationSerializer(Class<BankAccountIdentificationValidationRequestAccountIdentification> t) {
+            super(t);
+        }
+
+        public BankAccountIdentificationValidationRequestAccountIdentificationSerializer() {
+            this(null);
+        }
+
         @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!BankAccountIdentificationValidationRequestAccountIdentification.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'BankAccountIdentificationValidationRequestAccountIdentification' and its subtypes
+        public void serialize(BankAccountIdentificationValidationRequestAccountIdentification value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
+    public static class BankAccountIdentificationValidationRequestAccountIdentificationDeserializer extends StdDeserializer<BankAccountIdentificationValidationRequestAccountIdentification> {
+        public BankAccountIdentificationValidationRequestAccountIdentificationDeserializer() {
+            this(BankAccountIdentificationValidationRequestAccountIdentification.class);
+        }
+
+        public BankAccountIdentificationValidationRequestAccountIdentificationDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public BankAccountIdentificationValidationRequestAccountIdentification deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+
+            // deserialize AULocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AULocalAccountIdentification.class.equals(Integer.class) || AULocalAccountIdentification.class.equals(Long.class) || AULocalAccountIdentification.class.equals(Float.class) || AULocalAccountIdentification.class.equals(Double.class) || AULocalAccountIdentification.class.equals(Boolean.class) || AULocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AULocalAccountIdentification.class.equals(Integer.class) || AULocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AULocalAccountIdentification.class.equals(Float.class) || AULocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AULocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AULocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(AULocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), AULocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AULocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AULocalAccountIdentification'", e);
             }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AULocalAccountIdentification> adapterAULocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(AULocalAccountIdentification.class));
-            final TypeAdapter<CALocalAccountIdentification> adapterCALocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(CALocalAccountIdentification.class));
-            final TypeAdapter<CZLocalAccountIdentification> adapterCZLocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(CZLocalAccountIdentification.class));
-            final TypeAdapter<HULocalAccountIdentification> adapterHULocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(HULocalAccountIdentification.class));
-            final TypeAdapter<IbanAccountIdentification> adapterIbanAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(IbanAccountIdentification.class));
-            final TypeAdapter<NOLocalAccountIdentification> adapterNOLocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(NOLocalAccountIdentification.class));
-            final TypeAdapter<NumberAndBicAccountIdentification> adapterNumberAndBicAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(NumberAndBicAccountIdentification.class));
-            final TypeAdapter<PLLocalAccountIdentification> adapterPLLocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(PLLocalAccountIdentification.class));
-            final TypeAdapter<SELocalAccountIdentification> adapterSELocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(SELocalAccountIdentification.class));
-            final TypeAdapter<SGLocalAccountIdentification> adapterSGLocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(SGLocalAccountIdentification.class));
-            final TypeAdapter<UKLocalAccountIdentification> adapterUKLocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(UKLocalAccountIdentification.class));
-            final TypeAdapter<USLocalAccountIdentification> adapterUSLocalAccountIdentification = gson.getDelegateAdapter(this, TypeToken.get(USLocalAccountIdentification.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<BankAccountIdentificationValidationRequestAccountIdentification>() {
-                @Override
-                public void write(JsonWriter out, BankAccountIdentificationValidationRequestAccountIdentification value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
+
+            // deserialize BRLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (BRLocalAccountIdentification.class.equals(Integer.class) || BRLocalAccountIdentification.class.equals(Long.class) || BRLocalAccountIdentification.class.equals(Float.class) || BRLocalAccountIdentification.class.equals(Double.class) || BRLocalAccountIdentification.class.equals(Boolean.class) || BRLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((BRLocalAccountIdentification.class.equals(Integer.class) || BRLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((BRLocalAccountIdentification.class.equals(Float.class) || BRLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (BRLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (BRLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
-
-                    // check if the actual instance is of the type `AULocalAccountIdentification`
-                    if (value.getActualInstance() instanceof AULocalAccountIdentification) {
-                        JsonObject obj = adapterAULocalAccountIdentification.toJsonTree((AULocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CALocalAccountIdentification`
-                    if (value.getActualInstance() instanceof CALocalAccountIdentification) {
-                        JsonObject obj = adapterCALocalAccountIdentification.toJsonTree((CALocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `CZLocalAccountIdentification`
-                    if (value.getActualInstance() instanceof CZLocalAccountIdentification) {
-                        JsonObject obj = adapterCZLocalAccountIdentification.toJsonTree((CZLocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `HULocalAccountIdentification`
-                    if (value.getActualInstance() instanceof HULocalAccountIdentification) {
-                        JsonObject obj = adapterHULocalAccountIdentification.toJsonTree((HULocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `IbanAccountIdentification`
-                    if (value.getActualInstance() instanceof IbanAccountIdentification) {
-                        JsonObject obj = adapterIbanAccountIdentification.toJsonTree((IbanAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `NOLocalAccountIdentification`
-                    if (value.getActualInstance() instanceof NOLocalAccountIdentification) {
-                        JsonObject obj = adapterNOLocalAccountIdentification.toJsonTree((NOLocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `NumberAndBicAccountIdentification`
-                    if (value.getActualInstance() instanceof NumberAndBicAccountIdentification) {
-                        JsonObject obj = adapterNumberAndBicAccountIdentification.toJsonTree((NumberAndBicAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `PLLocalAccountIdentification`
-                    if (value.getActualInstance() instanceof PLLocalAccountIdentification) {
-                        JsonObject obj = adapterPLLocalAccountIdentification.toJsonTree((PLLocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `SELocalAccountIdentification`
-                    if (value.getActualInstance() instanceof SELocalAccountIdentification) {
-                        JsonObject obj = adapterSELocalAccountIdentification.toJsonTree((SELocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `SGLocalAccountIdentification`
-                    if (value.getActualInstance() instanceof SGLocalAccountIdentification) {
-                        JsonObject obj = adapterSGLocalAccountIdentification.toJsonTree((SGLocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `UKLocalAccountIdentification`
-                    if (value.getActualInstance() instanceof UKLocalAccountIdentification) {
-                        JsonObject obj = adapterUKLocalAccountIdentification.toJsonTree((UKLocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `USLocalAccountIdentification`
-                    if (value.getActualInstance() instanceof USLocalAccountIdentification) {
-                        JsonObject obj = adapterUSLocalAccountIdentification.toJsonTree((USLocalAccountIdentification)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
-
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
                 }
-
-                @Override
-                public BankAccountIdentificationValidationRequestAccountIdentification read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
-
-                    int match = 0;
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
-
-                    // deserialize AULocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        AULocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterAULocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'AULocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for AULocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'AULocalAccountIdentification'", e);
-                    }
-
-                    // deserialize CALocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CALocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterCALocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CALocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CALocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CALocalAccountIdentification'", e);
-                    }
-
-                    // deserialize CZLocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CZLocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterCZLocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CZLocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CZLocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CZLocalAccountIdentification'", e);
-                    }
-
-                    // deserialize HULocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        HULocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterHULocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'HULocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for HULocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'HULocalAccountIdentification'", e);
-                    }
-
-                    // deserialize IbanAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        IbanAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterIbanAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for IbanAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'IbanAccountIdentification'", e);
-                    }
-
-                    // deserialize NOLocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        NOLocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterNOLocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'NOLocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for NOLocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'NOLocalAccountIdentification'", e);
-                    }
-
-                    // deserialize NumberAndBicAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        NumberAndBicAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterNumberAndBicAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'NumberAndBicAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for NumberAndBicAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'NumberAndBicAccountIdentification'", e);
-                    }
-
-                    // deserialize PLLocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PLLocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterPLLocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'PLLocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PLLocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PLLocalAccountIdentification'", e);
-                    }
-
-                    // deserialize SELocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SELocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterSELocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SELocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SELocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SELocalAccountIdentification'", e);
-                    }
-
-                    // deserialize SGLocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SGLocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterSGLocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SGLocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SGLocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SGLocalAccountIdentification'", e);
-                    }
-
-                    // deserialize UKLocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        UKLocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterUKLocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'UKLocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for UKLocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'UKLocalAccountIdentification'", e);
-                    }
-
-                    // deserialize USLocalAccountIdentification
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        USLocalAccountIdentification.validateJsonObject(jsonObject, true);
-                        actualAdapter = adapterUSLocalAccountIdentification;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'USLocalAccountIdentification'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for USLocalAccountIdentification failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'USLocalAccountIdentification'", e);
-                    }
-
-                    if (match == 1) {
-                        BankAccountIdentificationValidationRequestAccountIdentification ret = new BankAccountIdentificationValidationRequestAccountIdentification();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
-                        return ret;
-                    }
-
-                    throw new IOException(String.format("Failed deserialization for BankAccountIdentificationValidationRequestAccountIdentification: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(BRLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), BRLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'BRLocalAccountIdentification'");
                 }
-            }.nullSafe();
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'BRLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize CALocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CALocalAccountIdentification.class.equals(Integer.class) || CALocalAccountIdentification.class.equals(Long.class) || CALocalAccountIdentification.class.equals(Float.class) || CALocalAccountIdentification.class.equals(Double.class) || CALocalAccountIdentification.class.equals(Boolean.class) || CALocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CALocalAccountIdentification.class.equals(Integer.class) || CALocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CALocalAccountIdentification.class.equals(Float.class) || CALocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CALocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CALocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CALocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), CALocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CALocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CALocalAccountIdentification'", e);
+            }
+
+
+            // deserialize CZLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CZLocalAccountIdentification.class.equals(Integer.class) || CZLocalAccountIdentification.class.equals(Long.class) || CZLocalAccountIdentification.class.equals(Float.class) || CZLocalAccountIdentification.class.equals(Double.class) || CZLocalAccountIdentification.class.equals(Boolean.class) || CZLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CZLocalAccountIdentification.class.equals(Integer.class) || CZLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CZLocalAccountIdentification.class.equals(Float.class) || CZLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CZLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CZLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CZLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), CZLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CZLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CZLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize DKLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (DKLocalAccountIdentification.class.equals(Integer.class) || DKLocalAccountIdentification.class.equals(Long.class) || DKLocalAccountIdentification.class.equals(Float.class) || DKLocalAccountIdentification.class.equals(Double.class) || DKLocalAccountIdentification.class.equals(Boolean.class) || DKLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((DKLocalAccountIdentification.class.equals(Integer.class) || DKLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((DKLocalAccountIdentification.class.equals(Float.class) || DKLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (DKLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (DKLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(DKLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), DKLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'DKLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'DKLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize HKLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (HKLocalAccountIdentification.class.equals(Integer.class) || HKLocalAccountIdentification.class.equals(Long.class) || HKLocalAccountIdentification.class.equals(Float.class) || HKLocalAccountIdentification.class.equals(Double.class) || HKLocalAccountIdentification.class.equals(Boolean.class) || HKLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((HKLocalAccountIdentification.class.equals(Integer.class) || HKLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((HKLocalAccountIdentification.class.equals(Float.class) || HKLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (HKLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (HKLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(HKLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), HKLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'HKLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'HKLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize HULocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (HULocalAccountIdentification.class.equals(Integer.class) || HULocalAccountIdentification.class.equals(Long.class) || HULocalAccountIdentification.class.equals(Float.class) || HULocalAccountIdentification.class.equals(Double.class) || HULocalAccountIdentification.class.equals(Boolean.class) || HULocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((HULocalAccountIdentification.class.equals(Integer.class) || HULocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((HULocalAccountIdentification.class.equals(Float.class) || HULocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (HULocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (HULocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(HULocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), HULocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'HULocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'HULocalAccountIdentification'", e);
+            }
+
+
+            // deserialize IbanAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (IbanAccountIdentification.class.equals(Integer.class) || IbanAccountIdentification.class.equals(Long.class) || IbanAccountIdentification.class.equals(Float.class) || IbanAccountIdentification.class.equals(Double.class) || IbanAccountIdentification.class.equals(Boolean.class) || IbanAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((IbanAccountIdentification.class.equals(Integer.class) || IbanAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((IbanAccountIdentification.class.equals(Float.class) || IbanAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (IbanAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (IbanAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(IbanAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), IbanAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'IbanAccountIdentification'", e);
+            }
+
+
+            // deserialize NOLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (NOLocalAccountIdentification.class.equals(Integer.class) || NOLocalAccountIdentification.class.equals(Long.class) || NOLocalAccountIdentification.class.equals(Float.class) || NOLocalAccountIdentification.class.equals(Double.class) || NOLocalAccountIdentification.class.equals(Boolean.class) || NOLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((NOLocalAccountIdentification.class.equals(Integer.class) || NOLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((NOLocalAccountIdentification.class.equals(Float.class) || NOLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (NOLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (NOLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(NOLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), NOLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'NOLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'NOLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize NZLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (NZLocalAccountIdentification.class.equals(Integer.class) || NZLocalAccountIdentification.class.equals(Long.class) || NZLocalAccountIdentification.class.equals(Float.class) || NZLocalAccountIdentification.class.equals(Double.class) || NZLocalAccountIdentification.class.equals(Boolean.class) || NZLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((NZLocalAccountIdentification.class.equals(Integer.class) || NZLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((NZLocalAccountIdentification.class.equals(Float.class) || NZLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (NZLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (NZLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(NZLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), NZLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'NZLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'NZLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize NumberAndBicAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (NumberAndBicAccountIdentification.class.equals(Integer.class) || NumberAndBicAccountIdentification.class.equals(Long.class) || NumberAndBicAccountIdentification.class.equals(Float.class) || NumberAndBicAccountIdentification.class.equals(Double.class) || NumberAndBicAccountIdentification.class.equals(Boolean.class) || NumberAndBicAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((NumberAndBicAccountIdentification.class.equals(Integer.class) || NumberAndBicAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((NumberAndBicAccountIdentification.class.equals(Float.class) || NumberAndBicAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (NumberAndBicAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (NumberAndBicAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(NumberAndBicAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), NumberAndBicAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'NumberAndBicAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'NumberAndBicAccountIdentification'", e);
+            }
+
+
+            // deserialize PLLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (PLLocalAccountIdentification.class.equals(Integer.class) || PLLocalAccountIdentification.class.equals(Long.class) || PLLocalAccountIdentification.class.equals(Float.class) || PLLocalAccountIdentification.class.equals(Double.class) || PLLocalAccountIdentification.class.equals(Boolean.class) || PLLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((PLLocalAccountIdentification.class.equals(Integer.class) || PLLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((PLLocalAccountIdentification.class.equals(Float.class) || PLLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (PLLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (PLLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(PLLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), PLLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'PLLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'PLLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize SELocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (SELocalAccountIdentification.class.equals(Integer.class) || SELocalAccountIdentification.class.equals(Long.class) || SELocalAccountIdentification.class.equals(Float.class) || SELocalAccountIdentification.class.equals(Double.class) || SELocalAccountIdentification.class.equals(Boolean.class) || SELocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((SELocalAccountIdentification.class.equals(Integer.class) || SELocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((SELocalAccountIdentification.class.equals(Float.class) || SELocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (SELocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (SELocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(SELocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), SELocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'SELocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SELocalAccountIdentification'", e);
+            }
+
+
+            // deserialize SGLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (SGLocalAccountIdentification.class.equals(Integer.class) || SGLocalAccountIdentification.class.equals(Long.class) || SGLocalAccountIdentification.class.equals(Float.class) || SGLocalAccountIdentification.class.equals(Double.class) || SGLocalAccountIdentification.class.equals(Boolean.class) || SGLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((SGLocalAccountIdentification.class.equals(Integer.class) || SGLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((SGLocalAccountIdentification.class.equals(Float.class) || SGLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (SGLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (SGLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(SGLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), SGLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'SGLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SGLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize UKLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (UKLocalAccountIdentification.class.equals(Integer.class) || UKLocalAccountIdentification.class.equals(Long.class) || UKLocalAccountIdentification.class.equals(Float.class) || UKLocalAccountIdentification.class.equals(Double.class) || UKLocalAccountIdentification.class.equals(Boolean.class) || UKLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((UKLocalAccountIdentification.class.equals(Integer.class) || UKLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((UKLocalAccountIdentification.class.equals(Float.class) || UKLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (UKLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (UKLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(UKLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), UKLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'UKLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'UKLocalAccountIdentification'", e);
+            }
+
+
+            // deserialize USLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (USLocalAccountIdentification.class.equals(Integer.class) || USLocalAccountIdentification.class.equals(Long.class) || USLocalAccountIdentification.class.equals(Float.class) || USLocalAccountIdentification.class.equals(Double.class) || USLocalAccountIdentification.class.equals(Boolean.class) || USLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((USLocalAccountIdentification.class.equals(Integer.class) || USLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((USLocalAccountIdentification.class.equals(Float.class) || USLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (USLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (USLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(USLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), USLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'USLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'USLocalAccountIdentification'", e);
+            }
+
+            // Throw error if there is no match
+            if (match == 0) {
+                throw new IOException(String.format("Failed deserialization for BankAccountIdentificationValidationRequestAccountIdentification: %d classes match result, expected 1", match));
+            }
+            // Log warning if there is more than one match
+            if (match > 1) {
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for BankAccountIdentificationValidationRequestAccountIdentification: %d classes match result, expected 1", match));
+            }
+
+            BankAccountIdentificationValidationRequestAccountIdentification ret = new BankAccountIdentificationValidationRequestAccountIdentification();
+            ret.setActualInstance(deserialized);
+            return ret;
+        }
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public BankAccountIdentificationValidationRequestAccountIdentification getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "BankAccountIdentificationValidationRequestAccountIdentification cannot be null");
         }
     }
 
@@ -378,12 +591,27 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
         setActualInstance(o);
     }
 
+    public BankAccountIdentificationValidationRequestAccountIdentification(BRLocalAccountIdentification o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public BankAccountIdentificationValidationRequestAccountIdentification(CALocalAccountIdentification o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     public BankAccountIdentificationValidationRequestAccountIdentification(CZLocalAccountIdentification o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public BankAccountIdentificationValidationRequestAccountIdentification(DKLocalAccountIdentification o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public BankAccountIdentificationValidationRequestAccountIdentification(HKLocalAccountIdentification o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -399,6 +627,11 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     }
 
     public BankAccountIdentificationValidationRequestAccountIdentification(NOLocalAccountIdentification o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public BankAccountIdentificationValidationRequestAccountIdentification(NZLocalAccountIdentification o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -436,15 +669,23 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     static {
         schemas.put("AULocalAccountIdentification", new GenericType<AULocalAccountIdentification>() {
         });
+        schemas.put("BRLocalAccountIdentification", new GenericType<BRLocalAccountIdentification>() {
+        });
         schemas.put("CALocalAccountIdentification", new GenericType<CALocalAccountIdentification>() {
         });
         schemas.put("CZLocalAccountIdentification", new GenericType<CZLocalAccountIdentification>() {
+        });
+        schemas.put("DKLocalAccountIdentification", new GenericType<DKLocalAccountIdentification>() {
+        });
+        schemas.put("HKLocalAccountIdentification", new GenericType<HKLocalAccountIdentification>() {
         });
         schemas.put("HULocalAccountIdentification", new GenericType<HULocalAccountIdentification>() {
         });
         schemas.put("IbanAccountIdentification", new GenericType<IbanAccountIdentification>() {
         });
         schemas.put("NOLocalAccountIdentification", new GenericType<NOLocalAccountIdentification>() {
+        });
+        schemas.put("NZLocalAccountIdentification", new GenericType<NZLocalAccountIdentification>() {
         });
         schemas.put("NumberAndBicAccountIdentification", new GenericType<NumberAndBicAccountIdentification>() {
         });
@@ -458,6 +699,7 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
         });
         schemas.put("USLocalAccountIdentification", new GenericType<USLocalAccountIdentification>() {
         });
+        JSON.registerDescendants(BankAccountIdentificationValidationRequestAccountIdentification.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -468,81 +710,101 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
+     * AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof AULocalAccountIdentification) {
+        if (JSON.isInstanceOf(AULocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CALocalAccountIdentification) {
+        if (JSON.isInstanceOf(BRLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CZLocalAccountIdentification) {
+        if (JSON.isInstanceOf(CALocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof HULocalAccountIdentification) {
+        if (JSON.isInstanceOf(CZLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof IbanAccountIdentification) {
+        if (JSON.isInstanceOf(DKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof NOLocalAccountIdentification) {
+        if (JSON.isInstanceOf(HKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof NumberAndBicAccountIdentification) {
+        if (JSON.isInstanceOf(HULocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof PLLocalAccountIdentification) {
+        if (JSON.isInstanceOf(IbanAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof SELocalAccountIdentification) {
+        if (JSON.isInstanceOf(NOLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof SGLocalAccountIdentification) {
+        if (JSON.isInstanceOf(NZLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof UKLocalAccountIdentification) {
+        if (JSON.isInstanceOf(NumberAndBicAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof USLocalAccountIdentification) {
+        if (JSON.isInstanceOf(PLLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
+        if (JSON.isInstanceOf(SELocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(SGLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(UKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(USLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
+     * AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
      *
-     * @return The actual instance (AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification)
+     * @return The actual instance (AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification)
      */
     @Override
     public Object getActualInstance() {
@@ -558,6 +820,17 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
      */
     public AULocalAccountIdentification getAULocalAccountIdentification() throws ClassCastException {
         return (AULocalAccountIdentification)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BRLocalAccountIdentification`. If the actual instance is not `BRLocalAccountIdentification`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BRLocalAccountIdentification`
+     * @throws ClassCastException if the instance is not `BRLocalAccountIdentification`
+     */
+    public BRLocalAccountIdentification getBRLocalAccountIdentification() throws ClassCastException {
+        return (BRLocalAccountIdentification)super.getActualInstance();
     }
 
     /**
@@ -580,6 +853,28 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
      */
     public CZLocalAccountIdentification getCZLocalAccountIdentification() throws ClassCastException {
         return (CZLocalAccountIdentification)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `DKLocalAccountIdentification`. If the actual instance is not `DKLocalAccountIdentification`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `DKLocalAccountIdentification`
+     * @throws ClassCastException if the instance is not `DKLocalAccountIdentification`
+     */
+    public DKLocalAccountIdentification getDKLocalAccountIdentification() throws ClassCastException {
+        return (DKLocalAccountIdentification)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `HKLocalAccountIdentification`. If the actual instance is not `HKLocalAccountIdentification`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `HKLocalAccountIdentification`
+     * @throws ClassCastException if the instance is not `HKLocalAccountIdentification`
+     */
+    public HKLocalAccountIdentification getHKLocalAccountIdentification() throws ClassCastException {
+        return (HKLocalAccountIdentification)super.getActualInstance();
     }
 
     /**
@@ -613,6 +908,17 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
      */
     public NOLocalAccountIdentification getNOLocalAccountIdentification() throws ClassCastException {
         return (NOLocalAccountIdentification)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `NZLocalAccountIdentification`. If the actual instance is not `NZLocalAccountIdentification`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `NZLocalAccountIdentification`
+     * @throws ClassCastException if the instance is not `NZLocalAccountIdentification`
+     */
+    public NZLocalAccountIdentification getNZLocalAccountIdentification() throws ClassCastException {
+        return (NZLocalAccountIdentification)super.getActualInstance();
     }
 
     /**
@@ -681,148 +987,24 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
         return (USLocalAccountIdentification)super.getActualInstance();
     }
 
+    /**
+    * Create an instance of BankAccountIdentificationValidationRequestAccountIdentification given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of BankAccountIdentificationValidationRequestAccountIdentification
+    * @throws IOException if the JSON string is invalid with respect to BankAccountIdentificationValidationRequestAccountIdentification
+    */
+    public static BankAccountIdentificationValidationRequestAccountIdentification fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, BankAccountIdentificationValidationRequestAccountIdentification.class);
+    }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BankAccountIdentificationValidationRequestAccountIdentification
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with AULocalAccountIdentification
-    try {
-      Logger.getLogger(AULocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      AULocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for AULocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    /**
+    * Convert an instance of BankAccountIdentificationValidationRequestAccountIdentification to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
     }
-    // validate the json string with CALocalAccountIdentification
-    try {
-      Logger.getLogger(CALocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      CALocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CALocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with CZLocalAccountIdentification
-    try {
-      Logger.getLogger(CZLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      CZLocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for CZLocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with HULocalAccountIdentification
-    try {
-      Logger.getLogger(HULocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      HULocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for HULocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with IbanAccountIdentification
-    try {
-      Logger.getLogger(IbanAccountIdentification.class.getName()).setLevel(Level.OFF);
-      IbanAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for IbanAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with NOLocalAccountIdentification
-    try {
-      Logger.getLogger(NOLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      NOLocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for NOLocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with NumberAndBicAccountIdentification
-    try {
-      Logger.getLogger(NumberAndBicAccountIdentification.class.getName()).setLevel(Level.OFF);
-      NumberAndBicAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for NumberAndBicAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PLLocalAccountIdentification
-    try {
-      Logger.getLogger(PLLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      PLLocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PLLocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with SELocalAccountIdentification
-    try {
-      Logger.getLogger(SELocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      SELocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for SELocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with SGLocalAccountIdentification
-    try {
-      Logger.getLogger(SGLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      SGLocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for SGLocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with UKLocalAccountIdentification
-    try {
-      Logger.getLogger(UKLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      UKLocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for UKLocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with USLocalAccountIdentification
-    try {
-      Logger.getLogger(USLocalAccountIdentification.class.getName()).setLevel(Level.OFF);
-      USLocalAccountIdentification.validateJsonObject(jsonObj, true);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for USLocalAccountIdentification failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    if (validCount != 1) {
-      throw new IOException(String.format("The JSON string is invalid for BankAccountIdentificationValidationRequestAccountIdentification with oneOf schemas: AULocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
-    }
-  }
-
- /**
-  * Create an instance of BankAccountIdentificationValidationRequestAccountIdentification given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BankAccountIdentificationValidationRequestAccountIdentification
-  * @throws IOException if the JSON string is invalid with respect to BankAccountIdentificationValidationRequestAccountIdentification
-  */
-  public static BankAccountIdentificationValidationRequestAccountIdentification fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BankAccountIdentificationValidationRequestAccountIdentification.class);
-  }
-
- /**
-  * Convert an instance of BankAccountIdentificationValidationRequestAccountIdentification to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

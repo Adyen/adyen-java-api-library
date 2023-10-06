@@ -1,19 +1,17 @@
 package com.adyen;
 
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.checkout.CheckoutAwaitAction;
 import com.adyen.model.legalentitymanagement.*;
-import com.adyen.model.recurring.BankAccount;
 import com.adyen.service.legalentitymanagement.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 
 public class LegalEntityManagementTest extends BaseTest {
@@ -322,7 +320,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
         Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
-        assertEquals("Thisisanbase64encodedstring", new String(response.getAttachments().get(0).getContent()));
+        assertEquals("Thisisanbase64encodedstring", new String(Base64.getDecoder().decode(response.getAttachments().get(0).getContent())));
     }
 
     @Test

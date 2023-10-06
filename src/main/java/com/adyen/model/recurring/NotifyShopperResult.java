@@ -15,75 +15,58 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.recurring.JSON;
 
 /**
  * NotifyShopperResult
  */
+@JsonPropertyOrder({
+  NotifyShopperResult.JSON_PROPERTY_DISPLAYED_REFERENCE,
+  NotifyShopperResult.JSON_PROPERTY_MESSAGE,
+  NotifyShopperResult.JSON_PROPERTY_PSP_REFERENCE,
+  NotifyShopperResult.JSON_PROPERTY_REFERENCE,
+  NotifyShopperResult.JSON_PROPERTY_RESULT_CODE,
+  NotifyShopperResult.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
+  NotifyShopperResult.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID
+})
 
 public class NotifyShopperResult {
-  public static final String SERIALIZED_NAME_DISPLAYED_REFERENCE = "displayedReference";
-  @SerializedName(SERIALIZED_NAME_DISPLAYED_REFERENCE)
+  public static final String JSON_PROPERTY_DISPLAYED_REFERENCE = "displayedReference";
   private String displayedReference;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_REFERENCE = "reference";
-  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  public static final String SERIALIZED_NAME_RESULT_CODE = "resultCode";
-  @SerializedName(SERIALIZED_NAME_RESULT_CODE)
+  public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
 
-  public static final String SERIALIZED_NAME_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
-  @SerializedName(SERIALIZED_NAME_SHOPPER_NOTIFICATION_REFERENCE)
+  public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
   private String shopperNotificationReference;
 
-  public static final String SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
-  @SerializedName(SERIALIZED_NAME_STORED_PAYMENT_METHOD_ID)
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
   public NotifyShopperResult() { 
   }
 
   public NotifyShopperResult displayedReference(String displayedReference) {
-    
     this.displayedReference = displayedReference;
     return this;
   }
@@ -93,19 +76,22 @@ public class NotifyShopperResult {
    * @return displayedReference
   **/
   @ApiModelProperty(value = "Reference of Pre-debit notification that is displayed to the shopper")
+  @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDisplayedReference() {
     return displayedReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
     this.displayedReference = displayedReference;
   }
 
 
   public NotifyShopperResult message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -115,19 +101,22 @@ public class NotifyShopperResult {
    * @return message
   **/
   @ApiModelProperty(value = "A simple description of the `resultCode`.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
     return message;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public NotifyShopperResult pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -137,19 +126,22 @@ public class NotifyShopperResult {
    * @return pspReference
   **/
   @ApiModelProperty(value = "The unique reference that is associated with the request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public NotifyShopperResult reference(String reference) {
-    
     this.reference = reference;
     return this;
   }
@@ -159,19 +151,22 @@ public class NotifyShopperResult {
    * @return reference
   **/
   @ApiModelProperty(value = "Reference of Pre-debit notification sent in my the merchant")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReference() {
     return reference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
 
   public NotifyShopperResult resultCode(String resultCode) {
-    
     this.resultCode = resultCode;
     return this;
   }
@@ -181,19 +176,22 @@ public class NotifyShopperResult {
    * @return resultCode
   **/
   @ApiModelProperty(value = "The code indicating the status of notification.")
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResultCode() {
     return resultCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }
 
 
   public NotifyShopperResult shopperNotificationReference(String shopperNotificationReference) {
-    
     this.shopperNotificationReference = shopperNotificationReference;
     return this;
   }
@@ -203,19 +201,22 @@ public class NotifyShopperResult {
    * @return shopperNotificationReference
   **/
   @ApiModelProperty(value = "The unique reference for the request sent downstream.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getShopperNotificationReference() {
     return shopperNotificationReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
   }
 
 
   public NotifyShopperResult storedPaymentMethodId(String storedPaymentMethodId) {
-    
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
@@ -225,18 +226,24 @@ public class NotifyShopperResult {
    * @return storedPaymentMethodId
   **/
   @ApiModelProperty(value = "This is the recurringDetailReference returned in the response when token was created")
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
 
-
+  /**
+   * Return true if this NotifyShopperResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -286,128 +293,23 @@ public class NotifyShopperResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("displayedReference");
-    openapiFields.add("message");
-    openapiFields.add("pspReference");
-    openapiFields.add("reference");
-    openapiFields.add("resultCode");
-    openapiFields.add("shopperNotificationReference");
-    openapiFields.add("storedPaymentMethodId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of NotifyShopperResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of NotifyShopperResult
+   * @throws JsonProcessingException if the JSON string is invalid with respect to NotifyShopperResult
+   */
+  public static NotifyShopperResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, NotifyShopperResult.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(NotifyShopperResult.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to NotifyShopperResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (NotifyShopperResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NotifyShopperResult is not found in the empty JSON string", NotifyShopperResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!NotifyShopperResult.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `NotifyShopperResult` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field displayedReference
-      if (jsonObj.get("displayedReference") != null && !jsonObj.get("displayedReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `displayedReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayedReference").toString()));
-      }
-      // validate the optional field message
-      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field reference
-      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
-      }
-      // validate the optional field resultCode
-      if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
-      }
-      // validate the optional field shopperNotificationReference
-      if (jsonObj.get("shopperNotificationReference") != null && !jsonObj.get("shopperNotificationReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `shopperNotificationReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperNotificationReference").toString()));
-      }
-      // validate the optional field storedPaymentMethodId
-      if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!NotifyShopperResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NotifyShopperResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<NotifyShopperResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(NotifyShopperResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<NotifyShopperResult>() {
-           @Override
-           public void write(JsonWriter out, NotifyShopperResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public NotifyShopperResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of NotifyShopperResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of NotifyShopperResult
-  * @throws IOException if the JSON string is invalid with respect to NotifyShopperResult
-  */
-  public static NotifyShopperResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, NotifyShopperResult.class);
-  }
-
- /**
+/**
   * Convert an instance of NotifyShopperResult to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

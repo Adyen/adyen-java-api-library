@@ -15,59 +15,42 @@ package com.adyen.model.dataprotection;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.dataprotection.JSON;
 
 /**
  * SubjectErasureByPspReferenceRequest
  */
+@JsonPropertyOrder({
+  SubjectErasureByPspReferenceRequest.JSON_PROPERTY_FORCE_ERASURE,
+  SubjectErasureByPspReferenceRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  SubjectErasureByPspReferenceRequest.JSON_PROPERTY_PSP_REFERENCE
+})
 
 public class SubjectErasureByPspReferenceRequest {
-  public static final String SERIALIZED_NAME_FORCE_ERASURE = "forceErasure";
-  @SerializedName(SERIALIZED_NAME_FORCE_ERASURE)
+  public static final String JSON_PROPERTY_FORCE_ERASURE = "forceErasure";
   private Boolean forceErasure;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
+  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
   public SubjectErasureByPspReferenceRequest() { 
   }
 
   public SubjectErasureByPspReferenceRequest forceErasure(Boolean forceErasure) {
-    
     this.forceErasure = forceErasure;
     return this;
   }
@@ -77,19 +60,22 @@ public class SubjectErasureByPspReferenceRequest {
    * @return forceErasure
   **/
   @ApiModelProperty(value = "Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.")
+  @JsonProperty(JSON_PROPERTY_FORCE_ERASURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceErasure() {
     return forceErasure;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FORCE_ERASURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceErasure(Boolean forceErasure) {
     this.forceErasure = forceErasure;
   }
 
 
   public SubjectErasureByPspReferenceRequest merchantAccount(String merchantAccount) {
-    
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -99,19 +85,22 @@ public class SubjectErasureByPspReferenceRequest {
    * @return merchantAccount
   **/
   @ApiModelProperty(value = "Your merchant account")
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
 
   public SubjectErasureByPspReferenceRequest pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -121,18 +110,24 @@ public class SubjectErasureByPspReferenceRequest {
    * @return pspReference
   **/
   @ApiModelProperty(value = "The PSP reference of the payment. We will delete all shopper-related data for this payment.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
-
+  /**
+   * Return true if this SubjectErasureByPspReferenceRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,104 +169,23 @@ public class SubjectErasureByPspReferenceRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("forceErasure");
-    openapiFields.add("merchantAccount");
-    openapiFields.add("pspReference");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of SubjectErasureByPspReferenceRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SubjectErasureByPspReferenceRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SubjectErasureByPspReferenceRequest
+   */
+  public static SubjectErasureByPspReferenceRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SubjectErasureByPspReferenceRequest.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(SubjectErasureByPspReferenceRequest.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SubjectErasureByPspReferenceRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SubjectErasureByPspReferenceRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SubjectErasureByPspReferenceRequest is not found in the empty JSON string", SubjectErasureByPspReferenceRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!SubjectErasureByPspReferenceRequest.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `SubjectErasureByPspReferenceRequest` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field merchantAccount
-      if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SubjectErasureByPspReferenceRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SubjectErasureByPspReferenceRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SubjectErasureByPspReferenceRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SubjectErasureByPspReferenceRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SubjectErasureByPspReferenceRequest>() {
-           @Override
-           public void write(JsonWriter out, SubjectErasureByPspReferenceRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SubjectErasureByPspReferenceRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SubjectErasureByPspReferenceRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SubjectErasureByPspReferenceRequest
-  * @throws IOException if the JSON string is invalid with respect to SubjectErasureByPspReferenceRequest
-  */
-  public static SubjectErasureByPspReferenceRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SubjectErasureByPspReferenceRequest.class);
-  }
-
- /**
+/**
   * Convert an instance of SubjectErasureByPspReferenceRequest to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

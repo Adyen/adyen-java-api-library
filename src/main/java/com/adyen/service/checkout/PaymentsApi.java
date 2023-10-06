@@ -16,17 +16,18 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.checkout.CardDetailsRequest;
 import com.adyen.model.checkout.CardDetailsResponse;
-import com.adyen.model.checkout.CheckoutDonationPaymentRequest;
-import com.adyen.model.checkout.CheckoutPaymentRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
-import com.adyen.model.checkout.DetailsRequest;
-import com.adyen.model.checkout.DonationResponse;
+import com.adyen.model.checkout.DonationPaymentRequest;
+import com.adyen.model.checkout.DonationPaymentResponse;
+import com.adyen.model.checkout.PaymentDetailsRequest;
 import com.adyen.model.checkout.PaymentDetailsResponse;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
+import com.adyen.model.checkout.PaymentRequest;
 import com.adyen.model.checkout.PaymentResponse;
 import com.adyen.model.checkout.ServiceError;
+import com.adyen.model.checkout.SessionResultResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -36,11 +37,69 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentsApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "70";
+
+    protected String baseURL;
+
+    /**
+    * Payments constructor in {@link com.adyen.service.checkout package}.
+    * @param client {@link Client } (required)
+    */
     public PaymentsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
+    }
+
+    /**
+    * Payments constructor in {@link com.adyen.service.checkout package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public PaymentsApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
+    }
+
+    /**
+    * Get the result of a payment session
+    *
+    * @param sessionId {@link String } A unique identifier of the session. (required)
+    * @param sessionResult {@link String } The &#x60;sessionResult&#x60; value from the Drop-in or Component. (required)
+    * @return {@link SessionResultResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public SessionResultResponse getResultOfPaymentSession(String sessionId, String sessionResult) throws ApiException, IOException {
+        return getResultOfPaymentSession(sessionId, sessionResult,  null);
+    }
+
+    /**
+    * Get the result of a payment session
+    *
+    * @param sessionId {@link String } A unique identifier of the session. (required)
+    * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the Drop-in or Component. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link SessionResultResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public SessionResultResponse getResultOfPaymentSession(String sessionId, String sessionResult, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (sessionId == null) {
+            throw new IllegalArgumentException("Please provide the sessionId path parameter");
+        }
+        pathParams.put("sessionId", sessionId);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (sessionResult != null) {
+        queryParams.put("sessionResult", sessionResult);
+        }
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/sessions/{sessionId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return SessionResultResponse.fromJson(jsonResult);
     }
 
     /**
@@ -73,28 +132,28 @@ public class PaymentsApi extends Service {
     /**
     * Start a transaction for donations
     *
-    * @param checkoutDonationPaymentRequest {@link CheckoutDonationPaymentRequest }  (required)
-    * @return {@link DonationResponse }
+    * @param donationPaymentRequest {@link DonationPaymentRequest }  (required)
+    * @return {@link DonationPaymentResponse }
     * @throws ApiException if fails to make API call
     */
-    public DonationResponse donations(CheckoutDonationPaymentRequest checkoutDonationPaymentRequest) throws ApiException, IOException {
-        return donations(checkoutDonationPaymentRequest, null);
+    public DonationPaymentResponse donations(DonationPaymentRequest donationPaymentRequest) throws ApiException, IOException {
+        return donations(donationPaymentRequest, null);
     }
 
     /**
     * Start a transaction for donations
     *
-    * @param checkoutDonationPaymentRequest {@link CheckoutDonationPaymentRequest }  (required)
+    * @param donationPaymentRequest {@link DonationPaymentRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link DonationResponse }
+    * @return {@link DonationPaymentResponse }
     * @throws ApiException if fails to make API call
     */
-    public DonationResponse donations(CheckoutDonationPaymentRequest checkoutDonationPaymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public DonationPaymentResponse donations(DonationPaymentRequest donationPaymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = checkoutDonationPaymentRequest.toJson();
+        String requestBody = donationPaymentRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/donations", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return DonationResponse.fromJson(jsonResult);
+        return DonationPaymentResponse.fromJson(jsonResult);
     }
 
     /**
@@ -127,25 +186,25 @@ public class PaymentsApi extends Service {
     /**
     * Start a transaction
     *
-    * @param checkoutPaymentRequest {@link CheckoutPaymentRequest }  (required)
+    * @param paymentRequest {@link PaymentRequest }  (required)
     * @return {@link PaymentResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentResponse payments(CheckoutPaymentRequest checkoutPaymentRequest) throws ApiException, IOException {
-        return payments(checkoutPaymentRequest, null);
+    public PaymentResponse payments(PaymentRequest paymentRequest) throws ApiException, IOException {
+        return payments(paymentRequest, null);
     }
 
     /**
     * Start a transaction
     *
-    * @param checkoutPaymentRequest {@link CheckoutPaymentRequest }  (required)
+    * @param paymentRequest {@link PaymentRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaymentResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentResponse payments(CheckoutPaymentRequest checkoutPaymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentResponse payments(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = checkoutPaymentRequest.toJson();
+        String requestBody = paymentRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentResponse.fromJson(jsonResult);
@@ -154,25 +213,25 @@ public class PaymentsApi extends Service {
     /**
     * Submit details for a payment
     *
-    * @param detailsRequest {@link DetailsRequest }  (required)
+    * @param paymentDetailsRequest {@link PaymentDetailsRequest }  (required)
     * @return {@link PaymentDetailsResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentDetailsResponse paymentsDetails(DetailsRequest detailsRequest) throws ApiException, IOException {
-        return paymentsDetails(detailsRequest, null);
+    public PaymentDetailsResponse paymentsDetails(PaymentDetailsRequest paymentDetailsRequest) throws ApiException, IOException {
+        return paymentsDetails(paymentDetailsRequest, null);
     }
 
     /**
     * Submit details for a payment
     *
-    * @param detailsRequest {@link DetailsRequest }  (required)
+    * @param paymentDetailsRequest {@link PaymentDetailsRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaymentDetailsResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaymentDetailsResponse paymentsDetails(DetailsRequest detailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentDetailsResponse paymentsDetails(PaymentDetailsRequest paymentDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = detailsRequest.toJson();
+        String requestBody = paymentDetailsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/details", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentDetailsResponse.fromJson(jsonResult);

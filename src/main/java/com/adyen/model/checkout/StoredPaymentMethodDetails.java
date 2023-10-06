@@ -81,6 +81,8 @@ public class StoredPaymentMethodDetails {
     
     GCASH("gcash"),
     
+    DANA("dana"),
+    
     KAKAOPAY("kakaopay"),
     
     TRUEMONEY("truemoney");

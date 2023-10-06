@@ -1,27 +1,6 @@
-/*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
- * Adyen Java API Library
- *
- * Copyright (c) 2021 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
@@ -30,10 +9,8 @@ import javax.net.ssl.SSLContext;
 public class Client {
     private ClientInterface httpClient;
     private Config config;
-    public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "20.1.2";
-    public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
+    public static final String LIB_VERSION = "21.5.0";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
 
@@ -56,19 +33,10 @@ public class Client {
      * Other services will just use API key for authentication.
      * @param sslContext {@link SSLContext} for client certificate authentication
      * @param apiKey Adyen API Key
-     * @param region Data center region (EU/US/AU), default EU if not provided
      */
-    public Client(SSLContext sslContext, String apiKey, Region region) {
+    public Client(SSLContext sslContext, String apiKey) {
         this(apiKey, Environment.LIVE);
         this.config.setSSLContext(sslContext);
-        this.config.setEndpoint(ENDPOINT_CERT_LIVE);
-
-        if (region != null) {
-            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, region.name().toLowerCase()));
-        } else {
-            // default to EU if not provided
-            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, Region.EU.name().toLowerCase()));
-        }
     }
 
     public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {

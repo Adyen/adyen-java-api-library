@@ -16,6 +16,7 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.AccountHolder;
 import com.adyen.model.balanceplatform.AccountHolderInfo;
+import com.adyen.model.balanceplatform.AccountHolderUpdateRequest;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
 import com.adyen.model.balanceplatform.RestServiceError;
 import com.adyen.model.RequestOptions;
@@ -27,11 +28,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AccountHoldersApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "2";
+
+    protected String baseURL;
+
+    /**
+    * Account holders constructor in {@link com.adyen.service.balanceplatform package}.
+    * @param client {@link Client } (required)
+    */
     public AccountHoldersApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2");
+    }
+
+    /**
+    * Account holders constructor in {@link com.adyen.service.balanceplatform package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public AccountHoldersApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
@@ -114,24 +133,24 @@ public class AccountHoldersApi extends Service {
     * Update an account holder
     *
     * @param id {@link String } The unique identifier of the account holder. (required)
-    * @param accountHolder {@link AccountHolder }  (required)
+    * @param accountHolderUpdateRequest {@link AccountHolderUpdateRequest }  (required)
     * @return {@link AccountHolder }
     * @throws ApiException if fails to make API call
     */
-    public AccountHolder updateAccountHolder(String id, AccountHolder accountHolder) throws ApiException, IOException {
-        return updateAccountHolder(id, accountHolder, null);
+    public AccountHolder updateAccountHolder(String id, AccountHolderUpdateRequest accountHolderUpdateRequest) throws ApiException, IOException {
+        return updateAccountHolder(id, accountHolderUpdateRequest, null);
     }
 
     /**
     * Update an account holder
     *
     * @param id {@link String } The unique identifier of the account holder. (required)
-    * @param accountHolder {@link AccountHolder }  (required)
+    * @param accountHolderUpdateRequest {@link AccountHolderUpdateRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link AccountHolder }
     * @throws ApiException if fails to make API call
     */
-    public AccountHolder updateAccountHolder(String id, AccountHolder accountHolder, RequestOptions requestOptions) throws ApiException, IOException {
+    public AccountHolder updateAccountHolder(String id, AccountHolderUpdateRequest accountHolderUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (id == null) {
@@ -139,7 +158,7 @@ public class AccountHoldersApi extends Service {
         }
         pathParams.put("id", id);
 
-        String requestBody = accountHolder.toJson();
+        String requestBody = accountHolderUpdateRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/accountHolders/{id}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return AccountHolder.fromJson(jsonResult);

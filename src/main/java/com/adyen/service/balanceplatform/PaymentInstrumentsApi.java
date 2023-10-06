@@ -14,6 +14,7 @@ package com.adyen.service.balanceplatform;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.balanceplatform.ListNetworkTokensResponse;
 import com.adyen.model.balanceplatform.PaymentInstrument;
 import com.adyen.model.balanceplatform.PaymentInstrumentInfo;
 import com.adyen.model.balanceplatform.PaymentInstrumentRevealInfo;
@@ -30,11 +31,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentInstrumentsApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "2";
+
+    protected String baseURL;
+
+    /**
+    * Payment instruments constructor in {@link com.adyen.service.balanceplatform package}.
+    * @param client {@link Client } (required)
+    */
     public PaymentInstrumentsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2");
+    }
+
+    /**
+    * Payment instruments constructor in {@link com.adyen.service.balanceplatform package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public PaymentInstrumentsApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
@@ -68,6 +87,39 @@ public class PaymentInstrumentsApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return PaymentInstrument.fromJson(jsonResult);
+    }
+
+    /**
+    * List network tokens
+    *
+    * @param id {@link String } The unique identifier of the payment instrument. (required)
+    * @return {@link ListNetworkTokensResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public ListNetworkTokensResponse listNetworkTokens(String id) throws ApiException, IOException {
+        return listNetworkTokens(id, null);
+    }
+
+    /**
+    * List network tokens
+    *
+    * @param id {@link String } The unique identifier of the payment instrument. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ListNetworkTokensResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public ListNetworkTokensResponse listNetworkTokens(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}/networkTokens", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return ListNetworkTokensResponse.fromJson(jsonResult);
     }
 
     /**

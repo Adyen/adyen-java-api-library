@@ -15,55 +15,38 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.recurring.JSON;
 
 /**
  * DisablePermitResult
  */
+@JsonPropertyOrder({
+  DisablePermitResult.JSON_PROPERTY_PSP_REFERENCE,
+  DisablePermitResult.JSON_PROPERTY_STATUS
+})
 
 public class DisablePermitResult {
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
   public DisablePermitResult() { 
   }
 
   public DisablePermitResult pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -73,19 +56,22 @@ public class DisablePermitResult {
    * @return pspReference
   **/
   @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public DisablePermitResult status(String status) {
-    
     this.status = status;
     return this;
   }
@@ -95,18 +81,24 @@ public class DisablePermitResult {
    * @return status
   **/
   @ApiModelProperty(value = "Status of the disable request.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
 
 
-
+  /**
+   * Return true if this DisablePermitResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,103 +138,23 @@ public class DisablePermitResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("pspReference");
-    openapiFields.add("status");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of DisablePermitResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DisablePermitResult
+   * @throws JsonProcessingException if the JSON string is invalid with respect to DisablePermitResult
+   */
+  public static DisablePermitResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DisablePermitResult.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(DisablePermitResult.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DisablePermitResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (DisablePermitResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DisablePermitResult is not found in the empty JSON string", DisablePermitResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!DisablePermitResult.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `DisablePermitResult` properties.", entry.getKey()));
-        }
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field status
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DisablePermitResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DisablePermitResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DisablePermitResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DisablePermitResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<DisablePermitResult>() {
-           @Override
-           public void write(JsonWriter out, DisablePermitResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public DisablePermitResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of DisablePermitResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DisablePermitResult
-  * @throws IOException if the JSON string is invalid with respect to DisablePermitResult
-  */
-  public static DisablePermitResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DisablePermitResult.class);
-  }
-
- /**
+/**
   * Convert an instance of DisablePermitResult to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

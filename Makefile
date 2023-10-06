@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=jersey3
-modelGen:=balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks
+modelGen:=acswebhooks balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks managementwebhooks
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -33,15 +33,22 @@ balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
 legalentitymanagement: spec=LegalEntityService-v3
 # Classic Platforms
-marketpay/account: spec=AccountService-v6
-marketpay/fund: spec=FundService-v6
-marketpay/configuration: spec=NotificationConfigurationService-v6
-marketpay/webhooks: spec=MarketPayNotificationService-v6
-hop: spec=HopService-v6
+marketpayaccount: spec=AccountService-v6
+marketpayaccount: smallServiceName=ClassicPlatformAccountApi
+marketpayfund: spec=FundService-v6
+marketpayfund: smallServiceName=ClassicPlatformFundApi
+marketpayconfiguration: spec=NotificationConfigurationService-v6
+marketpayconfiguration: smallServiceName=ClassicPlatformConfigurationApi
+marketpayhop: spec=HopService-v6
+marketpayhop: smallServiceName=ClassicPlatformHopApi
+#marketpaywebhooks: spec=MarketPayNotificationService-v6
 # Balance Webhooks
+acswebhooks: spec=BalancePlatformAcsNotification-v1
 configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
 reportwebhooks: spec=BalancePlatformReportNotification-v1
 transferwebhooks: spec=BalancePlatformTransferNotification-v3
+# Management Webhooks
+managementwebhooks: spec=ManagementNotificationService-v1
 
 $(modelGen): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)
@@ -57,7 +64,7 @@ $(modelGen): target/spec $(openapi-generator-jar)
 		--library $(library) \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings CheckoutDonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=resourceClass=$(resourceClass)Resource
@@ -87,7 +94,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings CheckoutDonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false
 	mv $(output)/$(models)/$@ $(models)/$@
@@ -114,7 +121,7 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings CheckoutDonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=smallServiceName=$(smallServiceName)
@@ -145,5 +152,13 @@ clean:
 	git checkout $(models)
 	git clean -f -d $(models)
 
+## Releases
 
-.PHONY: templates models $(services)
+version:
+	perl -lne 'print "currentVersion=$$1" if /version>(.+?)<\/version/' < pom.xml | head -1 >> "$$GITHUB_OUTPUT"
+
+version_files:=pom.xml src/main/java/com/adyen/Client.java README.md
+bump:
+	perl -i -pe 's/$$ENV{"CURRENT_VERSION"}/$$ENV{"NEXT_VERSION"}/' $(version_files) 
+
+.PHONY: templates models $(services) version bump

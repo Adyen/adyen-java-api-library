@@ -15,6 +15,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.transfers.RestServiceError;
+import com.adyen.model.transfers.ServiceError;
 import com.adyen.model.transfers.Transfer;
 import com.adyen.model.transfers.TransferInfo;
 import com.adyen.model.RequestOptions;
@@ -26,11 +27,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TransfersApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "3";
+
+    protected String baseURL;
+
+    /**
+    * Transfers constructor in {@link com.adyen.service.transfers package}.
+    * @param client {@link Client } (required)
+    */
     public TransfersApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/btl/v3");
+    }
+
+    /**
+    * Transfers constructor in {@link com.adyen.service.transfers package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public TransfersApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

@@ -14,51 +14,47 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.adyen.model.balanceplatform.Amount;
-import com.adyen.model.balanceplatform.SweepConfigurationV2Schedule;
 import com.adyen.model.balanceplatform.SweepCounterparty;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.adyen.model.balanceplatform.SweepSchedule;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * SweepConfigurationV2
  */
+@JsonPropertyOrder({
+  SweepConfigurationV2.JSON_PROPERTY_CATEGORY,
+  SweepConfigurationV2.JSON_PROPERTY_COUNTERPARTY,
+  SweepConfigurationV2.JSON_PROPERTY_CURRENCY,
+  SweepConfigurationV2.JSON_PROPERTY_DESCRIPTION,
+  SweepConfigurationV2.JSON_PROPERTY_ID,
+  SweepConfigurationV2.JSON_PROPERTY_PRIORITIES,
+  SweepConfigurationV2.JSON_PROPERTY_REASON,
+  SweepConfigurationV2.JSON_PROPERTY_SCHEDULE,
+  SweepConfigurationV2.JSON_PROPERTY_STATUS,
+  SweepConfigurationV2.JSON_PROPERTY_SWEEP_AMOUNT,
+  SweepConfigurationV2.JSON_PROPERTY_TARGET_AMOUNT,
+  SweepConfigurationV2.JSON_PROPERTY_TRIGGER_AMOUNT,
+  SweepConfigurationV2.JSON_PROPERTY_TYPE
+})
 
 public class SweepConfigurationV2 {
   /**
    * The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting &#x60;priorities&#x60;.
    */
-  @JsonAdapter(CategoryEnum.Adapter.class)
   public enum CategoryEnum {
     BANK("bank"),
     
@@ -72,6 +68,7 @@ public class SweepConfigurationV2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -81,6 +78,7 @@ public class SweepConfigurationV2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static CategoryEnum fromValue(String value) {
       for (CategoryEnum b : CategoryEnum.values()) {
         if (b.value.equals(value)) {
@@ -89,45 +87,26 @@ public class SweepConfigurationV2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<CategoryEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CategoryEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CategoryEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CategoryEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_CATEGORY = "category";
-  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
-  public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
-  @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
+  public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private SweepCounterparty counterparty;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   /**
    * Gets or Sets priorities
    */
-  @JsonAdapter(PrioritiesEnum.Adapter.class)
   public enum PrioritiesEnum {
     CROSSBORDER("crossBorder"),
     
@@ -149,6 +128,7 @@ public class SweepConfigurationV2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -158,6 +138,7 @@ public class SweepConfigurationV2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static PrioritiesEnum fromValue(String value) {
       for (PrioritiesEnum b : PrioritiesEnum.values()) {
         if (b.value.equals(value)) {
@@ -166,29 +147,14 @@ public class SweepConfigurationV2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<PrioritiesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PrioritiesEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public PrioritiesEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return PrioritiesEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
-  @SerializedName(SERIALIZED_NAME_PRIORITIES)
+  public static final String JSON_PROPERTY_PRIORITIES = "priorities";
   private List<PrioritiesEnum> priorities = null;
 
   /**
    * The reason for disabling the sweep.
    */
-  @JsonAdapter(ReasonEnum.Adapter.class)
   public enum ReasonEnum {
     AMOUNTLIMITEXCEEDED("amountLimitExceeded"),
     
@@ -222,6 +188,7 @@ public class SweepConfigurationV2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -231,6 +198,7 @@ public class SweepConfigurationV2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ReasonEnum fromValue(String value) {
       for (ReasonEnum b : ReasonEnum.values()) {
         if (b.value.equals(value)) {
@@ -239,33 +207,17 @@ public class SweepConfigurationV2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ReasonEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ReasonEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ReasonEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ReasonEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_REASON = "reason";
-  @SerializedName(SERIALIZED_NAME_REASON)
+  public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
 
-  public static final String SERIALIZED_NAME_SCHEDULE = "schedule";
-  @SerializedName(SERIALIZED_NAME_SCHEDULE)
-  private SweepConfigurationV2Schedule schedule;
+  public static final String JSON_PROPERTY_SCHEDULE = "schedule";
+  private SweepSchedule schedule;
 
   /**
    * The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     ACTIVE("active"),
     
@@ -277,6 +229,7 @@ public class SweepConfigurationV2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -286,6 +239,7 @@ public class SweepConfigurationV2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
@@ -294,41 +248,23 @@ public class SweepConfigurationV2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_SWEEP_AMOUNT = "sweepAmount";
-  @SerializedName(SERIALIZED_NAME_SWEEP_AMOUNT)
+  public static final String JSON_PROPERTY_SWEEP_AMOUNT = "sweepAmount";
   private Amount sweepAmount;
 
-  public static final String SERIALIZED_NAME_TARGET_AMOUNT = "targetAmount";
-  @SerializedName(SERIALIZED_NAME_TARGET_AMOUNT)
+  public static final String JSON_PROPERTY_TARGET_AMOUNT = "targetAmount";
   private Amount targetAmount;
 
-  public static final String SERIALIZED_NAME_TRIGGER_AMOUNT = "triggerAmount";
-  @SerializedName(SERIALIZED_NAME_TRIGGER_AMOUNT)
+  public static final String JSON_PROPERTY_TRIGGER_AMOUNT = "triggerAmount";
   private Amount triggerAmount;
 
   /**
    * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     PULL("pull"),
     
@@ -340,6 +276,7 @@ public class SweepConfigurationV2 {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -349,6 +286,7 @@ public class SweepConfigurationV2 {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -357,40 +295,15 @@ public class SweepConfigurationV2 {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.PUSH;
 
   public SweepConfigurationV2() { 
   }
 
-  
-  public SweepConfigurationV2(
-     String id, 
-     ReasonEnum reason
-  ) {
-    this();
-    this.id = id;
-    this.reason = reason;
-  }
-
   public SweepConfigurationV2 category(CategoryEnum category) {
-    
     this.category = category;
     return this;
   }
@@ -400,19 +313,22 @@ public class SweepConfigurationV2 {
    * @return category
   **/
   @ApiModelProperty(value = "The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting `priorities`.")
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CategoryEnum getCategory() {
     return category;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
 
 
   public SweepConfigurationV2 counterparty(SweepCounterparty counterparty) {
-    
     this.counterparty = counterparty;
     return this;
   }
@@ -422,19 +338,22 @@ public class SweepConfigurationV2 {
    * @return counterparty
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SweepCounterparty getCounterparty() {
     return counterparty;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(SweepCounterparty counterparty) {
     this.counterparty = counterparty;
   }
 
 
   public SweepConfigurationV2 currency(String currency) {
-    
     this.currency = currency;
     return this;
   }
@@ -444,19 +363,22 @@ public class SweepConfigurationV2 {
    * @return currency
   **/
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCurrency() {
     return currency;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
 
   public SweepConfigurationV2 description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -466,32 +388,47 @@ public class SweepConfigurationV2 {
    * @return description
   **/
   @ApiModelProperty(value = "The message that will be used in the sweep transfer's description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
+
+  public SweepConfigurationV2 id(String id) {
+    this.id = id;
+    return this;
+  }
 
    /**
    * The unique identifier of the sweep.
    * @return id
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of the sweep.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
     return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public SweepConfigurationV2 priorities(List<PrioritiesEnum> priorities) {
-    
     this.priorities = priorities;
     return this;
   }
@@ -509,32 +446,47 @@ public class SweepConfigurationV2 {
    * @return priorities
   **/
   @ApiModelProperty(value = "The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority listed first, and if that's not possible, it moves on to the next option in the order of provided priorities.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).  Set `category` to **bank**. For more details, see [optional priorities setup](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).")
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<PrioritiesEnum> getPriorities() {
     return priorities;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
   }
 
+
+  public SweepConfigurationV2 reason(ReasonEnum reason) {
+    this.reason = reason;
+    return this;
+  }
 
    /**
    * The reason for disabling the sweep.
    * @return reason
   **/
   @ApiModelProperty(value = "The reason for disabling the sweep.")
+  @JsonProperty(JSON_PROPERTY_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ReasonEnum getReason() {
     return reason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReason(ReasonEnum reason) {
+    this.reason = reason;
+  }
 
 
-  public SweepConfigurationV2 schedule(SweepConfigurationV2Schedule schedule) {
-    
+  public SweepConfigurationV2 schedule(SweepSchedule schedule) {
     this.schedule = schedule;
     return this;
   }
@@ -544,19 +496,22 @@ public class SweepConfigurationV2 {
    * @return schedule
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_SCHEDULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SweepConfigurationV2Schedule getSchedule() {
+  public SweepSchedule getSchedule() {
     return schedule;
   }
 
 
-  public void setSchedule(SweepConfigurationV2Schedule schedule) {
+  @JsonProperty(JSON_PROPERTY_SCHEDULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSchedule(SweepSchedule schedule) {
     this.schedule = schedule;
   }
 
 
   public SweepConfigurationV2 status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -566,19 +521,22 @@ public class SweepConfigurationV2 {
    * @return status
   **/
   @ApiModelProperty(value = "The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   ")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
   public SweepConfigurationV2 sweepAmount(Amount sweepAmount) {
-    
     this.sweepAmount = sweepAmount;
     return this;
   }
@@ -588,19 +546,22 @@ public class SweepConfigurationV2 {
    * @return sweepAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SWEEP_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getSweepAmount() {
     return sweepAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SWEEP_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSweepAmount(Amount sweepAmount) {
     this.sweepAmount = sweepAmount;
   }
 
 
   public SweepConfigurationV2 targetAmount(Amount targetAmount) {
-    
     this.targetAmount = targetAmount;
     return this;
   }
@@ -610,19 +571,22 @@ public class SweepConfigurationV2 {
    * @return targetAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TARGET_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getTargetAmount() {
     return targetAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TARGET_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTargetAmount(Amount targetAmount) {
     this.targetAmount = targetAmount;
   }
 
 
   public SweepConfigurationV2 triggerAmount(Amount triggerAmount) {
-    
     this.triggerAmount = triggerAmount;
     return this;
   }
@@ -632,19 +596,22 @@ public class SweepConfigurationV2 {
    * @return triggerAmount
   **/
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRIGGER_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Amount getTriggerAmount() {
     return triggerAmount;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRIGGER_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggerAmount(Amount triggerAmount) {
     this.triggerAmount = triggerAmount;
   }
 
 
   public SweepConfigurationV2 type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
@@ -654,18 +621,24 @@ public class SweepConfigurationV2 {
    * @return type
   **/
   @ApiModelProperty(value = "The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this SweepConfigurationV2 object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -727,182 +700,23 @@ public class SweepConfigurationV2 {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("category");
-    openapiFields.add("counterparty");
-    openapiFields.add("currency");
-    openapiFields.add("description");
-    openapiFields.add("id");
-    openapiFields.add("priorities");
-    openapiFields.add("reason");
-    openapiFields.add("schedule");
-    openapiFields.add("status");
-    openapiFields.add("sweepAmount");
-    openapiFields.add("targetAmount");
-    openapiFields.add("triggerAmount");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("counterparty");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("schedule");
+/**
+   * Create an instance of SweepConfigurationV2 given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SweepConfigurationV2
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SweepConfigurationV2
+   */
+  public static SweepConfigurationV2 fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SweepConfigurationV2.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to SweepConfigurationV2
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (SweepConfigurationV2.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SweepConfigurationV2 is not found in the empty JSON string", SweepConfigurationV2.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!SweepConfigurationV2.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SweepConfigurationV2` properties.", entry.getKey()));
-            }
-          }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SweepConfigurationV2.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // ensure the field category can be parsed to an enum value
-      if (jsonObj.get("category") != null) {
-        if(!jsonObj.get("category").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
-        }
-        CategoryEnum.fromValue(jsonObj.get("category").getAsString());
-      }
-      // validate the optional field `counterparty`
-      if (jsonObj.getAsJsonObject("counterparty") != null) {
-        SweepCounterparty.validateJsonObject(jsonObj.getAsJsonObject("counterparty"));
-      }
-      // validate the optional field currency
-      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-      // validate the optional field description
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field id
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
-      }
-      // ensure the field reason can be parsed to an enum value
-      if (jsonObj.get("reason") != null) {
-        if(!jsonObj.get("reason").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
-        }
-        ReasonEnum.fromValue(jsonObj.get("reason").getAsString());
-      }
-      // validate the optional field `schedule`
-      if (jsonObj.getAsJsonObject("schedule") != null) {
-        SweepConfigurationV2Schedule.validateJsonObject(jsonObj.getAsJsonObject("schedule"));
-      }
-      // ensure the field status can be parsed to an enum value
-      if (jsonObj.get("status") != null) {
-        if(!jsonObj.get("status").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-        }
-        StatusEnum.fromValue(jsonObj.get("status").getAsString());
-      }
-      // validate the optional field `sweepAmount`
-      if (jsonObj.getAsJsonObject("sweepAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("sweepAmount"));
-      }
-      // validate the optional field `targetAmount`
-      if (jsonObj.getAsJsonObject("targetAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("targetAmount"));
-      }
-      // validate the optional field `triggerAmount`
-      if (jsonObj.getAsJsonObject("triggerAmount") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("triggerAmount"));
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SweepConfigurationV2.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SweepConfigurationV2' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SweepConfigurationV2> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SweepConfigurationV2.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SweepConfigurationV2>() {
-           @Override
-           public void write(JsonWriter out, SweepConfigurationV2 value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SweepConfigurationV2 read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SweepConfigurationV2 given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SweepConfigurationV2
-  * @throws IOException if the JSON string is invalid with respect to SweepConfigurationV2
-  */
-  public static SweepConfigurationV2 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SweepConfigurationV2.class);
-  }
-
- /**
+/**
   * Convert an instance of SweepConfigurationV2 to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

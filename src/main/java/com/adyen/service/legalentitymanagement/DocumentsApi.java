@@ -25,11 +25,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DocumentsApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "3";
+
+    protected String baseURL;
+
+    /**
+    * Documents constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * @param client {@link Client } (required)
+    */
     public DocumentsApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://kyc-test.adyen.com/lem/v3");
+    }
+
+    /**
+    * Documents constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public DocumentsApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**

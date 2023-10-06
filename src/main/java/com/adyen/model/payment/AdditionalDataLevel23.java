@@ -112,10 +112,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The customer code, if supplied by a customer.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * The customer code. * Encoding: ASCII * Max length: 25 characters * Must not start with a space or be all spaces * Must not be all zeros.
    * @return enhancedSchemeDataCustomerReference
   **/
-  @ApiModelProperty(value = "The customer code, if supplied by a customer.  Encoding: ASCII  Max length: 25 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "The customer code. * Encoding: ASCII * Max length: 25 characters * Must not start with a space or be all spaces * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -137,10 +137,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address.  Encoding: ASCII  Fixed length: 3 characters
+   * The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address. * Encoding: ASCII * Fixed length: 3 characters
    * @return enhancedSchemeDataDestinationCountryCode
   **/
-  @ApiModelProperty(value = "The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address.  Encoding: ASCII  Fixed length: 3 characters")
+  @ApiModelProperty(value = "The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address. * Encoding: ASCII * Fixed length: 3 characters")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -162,10 +162,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The postal code of the destination address.  Encoding: ASCII  Max length: 10 characters  Must not start with a space
+   * The postal code of the destination address. * Encoding: ASCII * Max length: 10 characters * Must not start with a space
    * @return enhancedSchemeDataDestinationPostalCode
   **/
-  @ApiModelProperty(value = "The postal code of the destination address.  Encoding: ASCII  Max length: 10 characters  Must not start with a space")
+  @ApiModelProperty(value = "The postal code of the destination address. * Encoding: ASCII * Max length: 10 characters * Must not start with a space")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -187,10 +187,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * Destination state or province code.  Encoding: ASCII  Max length: 3 characters  Must not start with a space
+   * Destination state or province code. * Encoding: ASCII * Max length: 3 characters * Must not start with a space
    * @return enhancedSchemeDataDestinationStateProvinceCode
   **/
-  @ApiModelProperty(value = "Destination state or province code.  Encoding: ASCII  Max length: 3 characters  Must not start with a space")
+  @ApiModelProperty(value = "Destination state or province code. * Encoding: ASCII * Max length: 3 characters * Must not start with a space")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -212,10 +212,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
+   * The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters
    * @return enhancedSchemeDataDutyAmount
   **/
-  @ApiModelProperty(value = "The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @ApiModelProperty(value = "The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -237,10 +237,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
+   * The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric *Max length: 12 characters
    * @return enhancedSchemeDataFreightAmount
   **/
-  @ApiModelProperty(value = "The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @ApiModelProperty(value = "The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric *Max length: 12 characters")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -262,10 +262,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The [UNSPC commodity code](https://www.unspsc.org/) of the item.  Encoding: ASCII  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * The [UNSPC commodity code](https://www.unspsc.org/) of the item. * Encoding: ASCII * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.
    * @return enhancedSchemeDataItemDetailLineItemNrCommodityCode
   **/
-  @ApiModelProperty(value = "The [UNSPC commodity code](https://www.unspsc.org/) of the item.  Encoding: ASCII  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "The [UNSPC commodity code](https://www.unspsc.org/) of the item. * Encoding: ASCII * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -287,10 +287,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * A description of the item.  Encoding: ASCII  Max length: 26 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * A description of the item. * Encoding: ASCII * Max length: 26 characters * Must not start with a space or be all spaces * Must not be all zeros.
    * @return enhancedSchemeDataItemDetailLineItemNrDescription
   **/
-  @ApiModelProperty(value = "A description of the item.  Encoding: ASCII  Max length: 26 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "A description of the item. * Encoding: ASCII * Max length: 26 characters * Must not start with a space or be all spaces * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -312,10 +312,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
+   * The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters
    * @return enhancedSchemeDataItemDetailLineItemNrDiscountAmount
   **/
-  @ApiModelProperty(value = "The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @ApiModelProperty(value = "The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -337,10 +337,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The product code.  Encoding: ASCII.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * The product code. * Encoding: ASCII. * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.
    * @return enhancedSchemeDataItemDetailLineItemNrProductCode
   **/
-  @ApiModelProperty(value = "The product code.  Encoding: ASCII.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "The product code. * Encoding: ASCII. * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -362,10 +362,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The number of items. Must be an integer greater than zero.  Encoding: Numeric  Max length: 12 characters  Must not start with a space or be all spaces  
+   * The number of items. Must be an integer greater than zero. * Encoding: Numeric * Max length: 12 characters * Must not start with a space or be all spaces  
    * @return enhancedSchemeDataItemDetailLineItemNrQuantity
   **/
-  @ApiModelProperty(value = "The number of items. Must be an integer greater than zero.  Encoding: Numeric  Max length: 12 characters  Must not start with a space or be all spaces  ")
+  @ApiModelProperty(value = "The number of items. Must be an integer greater than zero. * Encoding: Numeric * Max length: 12 characters * Must not start with a space or be all spaces  ")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -387,10 +387,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.
    * @return enhancedSchemeDataItemDetailLineItemNrTotalAmount
   **/
-  @ApiModelProperty(value = "The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Max length: 12 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -412,10 +412,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The unit of measurement for an item.  Encoding: ASCII  Max length: 3 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * The unit of measurement for an item. * Encoding: ASCII  Max length: 3 characters * Must not start with a space or be all spaces * Must not be all zeros.
    * @return enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure
   **/
-  @ApiModelProperty(value = "The unit of measurement for an item.  Encoding: ASCII  Max length: 3 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "The unit of measurement for an item. * Encoding: ASCII  Max length: 3 characters * Must not start with a space or be all spaces * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -437,10 +437,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters
+   * The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not be all zeros.
    * @return enhancedSchemeDataItemDetailLineItemNrUnitPrice
   **/
-  @ApiModelProperty(value = "The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters")
+  @ApiModelProperty(value = "The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -462,10 +462,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The order date. * Format: &#x60;ddMMyy&#x60;  Encoding: ASCII  Max length: 6 characters
+   * The order date. * Format: &#x60;ddMMyy&#x60; * Encoding: ASCII * Max length: 6 characters
    * @return enhancedSchemeDataOrderDate
   **/
-  @ApiModelProperty(value = "The order date. * Format: `ddMMyy`  Encoding: ASCII  Max length: 6 characters")
+  @ApiModelProperty(value = "The order date. * Format: `ddMMyy` * Encoding: ASCII * Max length: 6 characters")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -487,10 +487,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The postal code of the address the item is shipped from.  Encoding: ASCII  Max length: 10 characters  Must not start with a space or be all spaces  Must not be all zeros
+   * The postal code of the address the item is shipped from. * Encoding: ASCII * Max length: 10 characters * Must not start with a space or be all spaces * Must not be all zeros.
    * @return enhancedSchemeDataShipFromPostalCode
   **/
-  @ApiModelProperty(value = "The postal code of the address the item is shipped from.  Encoding: ASCII  Max length: 10 characters  Must not start with a space or be all spaces  Must not be all zeros")
+  @ApiModelProperty(value = "The postal code of the address the item is shipped from. * Encoding: ASCII * Max length: 10 characters * Must not start with a space or be all spaces * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -512,10 +512,10 @@ public class AdditionalDataLevel23 {
   }
 
    /**
-   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters  
+   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. *Encoding: Numeric *Max length: 12 characters * Must not be all zeros.
    * @return enhancedSchemeDataTotalTaxAmount
   **/
-  @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).  For example, 2000 means USD 20.00.  Encoding: Numeric  Max length: 12 characters  ")
+  @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. *Encoding: Numeric *Max length: 12 characters * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

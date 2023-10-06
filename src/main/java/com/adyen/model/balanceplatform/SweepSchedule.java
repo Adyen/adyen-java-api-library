@@ -14,46 +14,34 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * SweepSchedule
  */
+@JsonPropertyOrder({
+  SweepSchedule.JSON_PROPERTY_CRON_EXPRESSION,
+  SweepSchedule.JSON_PROPERTY_TYPE
+})
 
 public class SweepSchedule {
+  public static final String JSON_PROPERTY_CRON_EXPRESSION = "cronExpression";
+  private String cronExpression;
+
   /**
-   * The schedule type.  Possible values:  * **cron**: push out funds based on a cron expression.  * **daily**: push out funds daily at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM CET.  * **monthly**: push out funds every first of the month at 07:00 AM CET.  * **balance**: pull in funds instantly if the balance is less than or equal to the &#x60;triggerAmount&#x60;. You can only use this for sweeps of &#x60;type&#x60; **pull** and when the source is a &#x60;merchantAccount&#x60; or &#x60;transferInstrument&#x60;.If the source is transferInstrument, merchant account identifier is still required, with which you want to process the transaction.
+   * The schedule type.  Possible values:  * **cron**: push out funds based on a &#x60;cronExpression&#x60;.  * **daily**: push out funds daily at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM CET.  * **monthly**: push out funds every first of the month at 07:00 AM CET.  * **balance**: pull in funds instantly if the balance is less than or equal to the &#x60;triggerAmount&#x60;. You can only use this for sweeps of &#x60;type&#x60; **pull** and when the source is a &#x60;merchantAccount&#x60; or &#x60;transferInstrument&#x60;. If the source is transferInstrument, merchant account identifier is still required, with which you want to process the transaction. 
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     DAILY("daily"),
     
@@ -71,6 +59,7 @@ public class SweepSchedule {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -80,6 +69,7 @@ public class SweepSchedule {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -88,51 +78,67 @@ public class SweepSchedule {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
   public SweepSchedule() { 
   }
 
+  public SweepSchedule cronExpression(String cronExpression) {
+    this.cronExpression = cronExpression;
+    return this;
+  }
+
+   /**
+   * A [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that is used to set the sweep schedule. The schedule uses the time zone of the balance account.  For example, **30 17 * * MON** schedules a sweep every Monday at 17:30.  The expression must have five values separated by a single space in the following order:  * Minute: **0-59**  * Hour: **0-23**  * Day of the month: **1-31**  * Month: **1-12** or **JAN-DEC**  * Day of the week: **0-7** (0 and 7 are Sunday) or **MON-SUN**.  The following non-standard characters are supported: **&amp;ast;**, **L**, **#**, **W** and **_/_**. See [crontab guru](https://crontab.guru/) for more examples.  Required when &#x60;type&#x60; is **cron**. 
+   * @return cronExpression
+  **/
+  @ApiModelProperty(value = "A [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that is used to set the sweep schedule. The schedule uses the time zone of the balance account.  For example, **30 17 * * MON** schedules a sweep every Monday at 17:30.  The expression must have five values separated by a single space in the following order:  * Minute: **0-59**  * Hour: **0-23**  * Day of the month: **1-31**  * Month: **1-12** or **JAN-DEC**  * Day of the week: **0-7** (0 and 7 are Sunday) or **MON-SUN**.  The following non-standard characters are supported: **&ast;**, **L**, **#**, **W** and **_/_**. See [crontab guru](https://crontab.guru/) for more examples.  Required when `type` is **cron**. ")
+  @JsonProperty(JSON_PROPERTY_CRON_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCronExpression() {
+    return cronExpression;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CRON_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCronExpression(String cronExpression) {
+    this.cronExpression = cronExpression;
+  }
+
+
   public SweepSchedule type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
 
    /**
-   * The schedule type.  Possible values:  * **cron**: push out funds based on a cron expression.  * **daily**: push out funds daily at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM CET.  * **monthly**: push out funds every first of the month at 07:00 AM CET.  * **balance**: pull in funds instantly if the balance is less than or equal to the &#x60;triggerAmount&#x60;. You can only use this for sweeps of &#x60;type&#x60; **pull** and when the source is a &#x60;merchantAccount&#x60; or &#x60;transferInstrument&#x60;.If the source is transferInstrument, merchant account identifier is still required, with which you want to process the transaction.
+   * The schedule type.  Possible values:  * **cron**: push out funds based on a &#x60;cronExpression&#x60;.  * **daily**: push out funds daily at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM CET.  * **monthly**: push out funds every first of the month at 07:00 AM CET.  * **balance**: pull in funds instantly if the balance is less than or equal to the &#x60;triggerAmount&#x60;. You can only use this for sweeps of &#x60;type&#x60; **pull** and when the source is a &#x60;merchantAccount&#x60; or &#x60;transferInstrument&#x60;. If the source is transferInstrument, merchant account identifier is still required, with which you want to process the transaction. 
    * @return type
   **/
-  @ApiModelProperty(value = "The schedule type.  Possible values:  * **cron**: push out funds based on a cron expression.  * **daily**: push out funds daily at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM CET.  * **monthly**: push out funds every first of the month at 07:00 AM CET.  * **balance**: pull in funds instantly if the balance is less than or equal to the `triggerAmount`. You can only use this for sweeps of `type` **pull** and when the source is a `merchantAccount` or `transferInstrument`.If the source is transferInstrument, merchant account identifier is still required, with which you want to process the transaction.")
+  @ApiModelProperty(required = true, value = "The schedule type.  Possible values:  * **cron**: push out funds based on a `cronExpression`.  * **daily**: push out funds daily at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM CET.  * **monthly**: push out funds every first of the month at 07:00 AM CET.  * **balance**: pull in funds instantly if the balance is less than or equal to the `triggerAmount`. You can only use this for sweeps of `type` **pull** and when the source is a `merchantAccount` or `transferInstrument`. If the source is transferInstrument, merchant account identifier is still required, with which you want to process the transaction. ")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-
+  /**
+   * Return true if this SweepSchedule object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,18 +148,20 @@ public class SweepSchedule {
       return false;
     }
     SweepSchedule sweepSchedule = (SweepSchedule) o;
-    return Objects.equals(this.type, sweepSchedule.type);
+    return Objects.equals(this.cronExpression, sweepSchedule.cronExpression) &&
+        Objects.equals(this.type, sweepSchedule.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type);
+    return Objects.hash(cronExpression, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SweepSchedule {\n");
+    sb.append("    cronExpression: ").append(toIndentedString(cronExpression)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -170,102 +178,23 @@ public class SweepSchedule {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of SweepSchedule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SweepSchedule
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SweepSchedule
+   */
+  public static SweepSchedule fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SweepSchedule.class);
   }
-
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    validateJsonObject(jsonObj, false);
-  }
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @param strictValidation reject (new) fields missing from the specifications
-  * @throws IOException if the JSON Object is invalid with respect to SweepSchedule
-  */
-  public static void validateJsonObject(JsonObject jsonObj, boolean strictValidation) throws IOException {
-      if (jsonObj == null) {
-        if (SweepSchedule.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SweepSchedule is not found in the empty JSON string", SweepSchedule.openapiRequiredFields.toString()));
-        }
-      }
-      if (strictValidation) {
-          Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-          // check to see if the JSON string contains additional fields
-          for (Entry<String, JsonElement> entry : entries) {
-            if (!SweepSchedule.openapiFields.contains(entry.getKey())) {
-              throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SweepSchedule` properties.", entry.getKey()));
-            }
-          }
-      }
-      // ensure the field type can be parsed to an enum value
-      if (jsonObj.get("type") != null) {
-        if(!jsonObj.get("type").isJsonPrimitive()) {
-          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-        }
-        TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SweepSchedule.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SweepSchedule' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SweepSchedule> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SweepSchedule.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SweepSchedule>() {
-           @Override
-           public void write(JsonWriter out, SweepSchedule value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SweepSchedule read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SweepSchedule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SweepSchedule
-  * @throws IOException if the JSON string is invalid with respect to SweepSchedule
-  */
-  public static SweepSchedule fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SweepSchedule.class);
-  }
-
- /**
+/**
   * Convert an instance of SweepSchedule to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

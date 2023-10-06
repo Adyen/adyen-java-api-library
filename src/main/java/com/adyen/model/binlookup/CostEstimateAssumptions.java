@@ -15,59 +15,42 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * CostEstimateAssumptions
  */
+@JsonPropertyOrder({
+  CostEstimateAssumptions.JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED,
+  CostEstimateAssumptions.JSON_PROPERTY_ASSUME_LEVEL3_DATA,
+  CostEstimateAssumptions.JSON_PROPERTY_INSTALLMENTS
+})
 
 public class CostEstimateAssumptions {
-  public static final String SERIALIZED_NAME_ASSUME3_D_SECURE_AUTHENTICATED = "assume3DSecureAuthenticated";
-  @SerializedName(SERIALIZED_NAME_ASSUME3_D_SECURE_AUTHENTICATED)
+  public static final String JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED = "assume3DSecureAuthenticated";
   private Boolean assume3DSecureAuthenticated;
 
-  public static final String SERIALIZED_NAME_ASSUME_LEVEL3_DATA = "assumeLevel3Data";
-  @SerializedName(SERIALIZED_NAME_ASSUME_LEVEL3_DATA)
+  public static final String JSON_PROPERTY_ASSUME_LEVEL3_DATA = "assumeLevel3Data";
   private Boolean assumeLevel3Data;
 
-  public static final String SERIALIZED_NAME_INSTALLMENTS = "installments";
-  @SerializedName(SERIALIZED_NAME_INSTALLMENTS)
+  public static final String JSON_PROPERTY_INSTALLMENTS = "installments";
   private Integer installments;
 
   public CostEstimateAssumptions() { 
   }
 
   public CostEstimateAssumptions assume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
-    
     this.assume3DSecureAuthenticated = assume3DSecureAuthenticated;
     return this;
   }
@@ -77,19 +60,22 @@ public class CostEstimateAssumptions {
    * @return assume3DSecureAuthenticated
   **/
   @ApiModelProperty(value = "If true, the cardholder is expected to successfully authorise via 3D Secure.")
+  @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAssume3DSecureAuthenticated() {
     return assume3DSecureAuthenticated;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
     this.assume3DSecureAuthenticated = assume3DSecureAuthenticated;
   }
 
 
   public CostEstimateAssumptions assumeLevel3Data(Boolean assumeLevel3Data) {
-    
     this.assumeLevel3Data = assumeLevel3Data;
     return this;
   }
@@ -99,19 +85,22 @@ public class CostEstimateAssumptions {
    * @return assumeLevel3Data
   **/
   @ApiModelProperty(value = "If true, the transaction is expected to have valid Level 3 data.")
+  @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAssumeLevel3Data() {
     return assumeLevel3Data;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssumeLevel3Data(Boolean assumeLevel3Data) {
     this.assumeLevel3Data = assumeLevel3Data;
   }
 
 
   public CostEstimateAssumptions installments(Integer installments) {
-    
     this.installments = installments;
     return this;
   }
@@ -121,18 +110,24 @@ public class CostEstimateAssumptions {
    * @return installments
   **/
   @ApiModelProperty(value = "If not zero, the number of installments.")
+  @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getInstallments() {
     return installments;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Integer installments) {
     this.installments = installments;
   }
 
 
-
+  /**
+   * Return true if this CostEstimateAssumptions object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,96 +169,23 @@ public class CostEstimateAssumptions {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("assume3DSecureAuthenticated");
-    openapiFields.add("assumeLevel3Data");
-    openapiFields.add("installments");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of CostEstimateAssumptions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CostEstimateAssumptions
+   * @throws JsonProcessingException if the JSON string is invalid with respect to CostEstimateAssumptions
+   */
+  public static CostEstimateAssumptions fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CostEstimateAssumptions.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(CostEstimateAssumptions.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CostEstimateAssumptions
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CostEstimateAssumptions.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CostEstimateAssumptions is not found in the empty JSON string", CostEstimateAssumptions.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CostEstimateAssumptions.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `CostEstimateAssumptions` properties.", entry.getKey()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CostEstimateAssumptions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CostEstimateAssumptions' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CostEstimateAssumptions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CostEstimateAssumptions.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CostEstimateAssumptions>() {
-           @Override
-           public void write(JsonWriter out, CostEstimateAssumptions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CostEstimateAssumptions read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CostEstimateAssumptions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CostEstimateAssumptions
-  * @throws IOException if the JSON string is invalid with respect to CostEstimateAssumptions
-  */
-  public static CostEstimateAssumptions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CostEstimateAssumptions.class);
-  }
-
- /**
+/**
   * Convert an instance of CostEstimateAssumptions to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

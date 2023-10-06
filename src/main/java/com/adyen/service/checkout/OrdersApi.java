@@ -14,12 +14,12 @@ package com.adyen.service.checkout;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.checkout.CheckoutBalanceCheckRequest;
-import com.adyen.model.checkout.CheckoutBalanceCheckResponse;
-import com.adyen.model.checkout.CheckoutCancelOrderRequest;
-import com.adyen.model.checkout.CheckoutCancelOrderResponse;
-import com.adyen.model.checkout.CheckoutCreateOrderRequest;
-import com.adyen.model.checkout.CheckoutCreateOrderResponse;
+import com.adyen.model.checkout.BalanceCheckRequest;
+import com.adyen.model.checkout.BalanceCheckResponse;
+import com.adyen.model.checkout.CancelOrderRequest;
+import com.adyen.model.checkout.CancelOrderResponse;
+import com.adyen.model.checkout.CreateOrderRequest;
+import com.adyen.model.checkout.CreateOrderResponse;
 import com.adyen.model.checkout.ServiceError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
@@ -30,91 +30,109 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OrdersApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "70";
+
+    protected String baseURL;
+
+    /**
+    * Orders constructor in {@link com.adyen.service.checkout package}.
+    * @param client {@link Client } (required)
+    */
     public OrdersApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }
 
     /**
-    * Create an order
-    *
-    * @param checkoutCreateOrderRequest {@link CheckoutCreateOrderRequest }  (required)
-    * @return {@link CheckoutCreateOrderResponse }
-    * @throws ApiException if fails to make API call
+    * Orders constructor in {@link com.adyen.service.checkout package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest) throws ApiException, IOException {
-        return orders(checkoutCreateOrderRequest, null);
+    public OrdersApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
     * Create an order
     *
-    * @param checkoutCreateOrderRequest {@link CheckoutCreateOrderRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CheckoutCreateOrderResponse }
+    * @param createOrderRequest {@link CreateOrderRequest }  (required)
+    * @return {@link CreateOrderResponse }
     * @throws ApiException if fails to make API call
     */
-    public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public CreateOrderResponse orders(CreateOrderRequest createOrderRequest) throws ApiException, IOException {
+        return orders(createOrderRequest, null);
+    }
 
-        String requestBody = checkoutCreateOrderRequest.toJson();
+    /**
+    * Create an order
+    *
+    * @param createOrderRequest {@link CreateOrderRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CreateOrderResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateOrderResponse orders(CreateOrderRequest createOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = createOrderRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/orders", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return CheckoutCreateOrderResponse.fromJson(jsonResult);
+        return CreateOrderResponse.fromJson(jsonResult);
     }
 
     /**
     * Cancel an order
     *
-    * @param checkoutCancelOrderRequest {@link CheckoutCancelOrderRequest }  (required)
-    * @return {@link CheckoutCancelOrderResponse }
+    * @param cancelOrderRequest {@link CancelOrderRequest }  (required)
+    * @return {@link CancelOrderResponse }
     * @throws ApiException if fails to make API call
     */
-    public CheckoutCancelOrderResponse cancelOrder(CheckoutCancelOrderRequest checkoutCancelOrderRequest) throws ApiException, IOException {
-        return cancelOrder(checkoutCancelOrderRequest, null);
+    public CancelOrderResponse cancelOrder(CancelOrderRequest cancelOrderRequest) throws ApiException, IOException {
+        return cancelOrder(cancelOrderRequest, null);
     }
 
     /**
     * Cancel an order
     *
-    * @param checkoutCancelOrderRequest {@link CheckoutCancelOrderRequest }  (required)
+    * @param cancelOrderRequest {@link CancelOrderRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CheckoutCancelOrderResponse }
+    * @return {@link CancelOrderResponse }
     * @throws ApiException if fails to make API call
     */
-    public CheckoutCancelOrderResponse cancelOrder(CheckoutCancelOrderRequest checkoutCancelOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public CancelOrderResponse cancelOrder(CancelOrderRequest cancelOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = checkoutCancelOrderRequest.toJson();
+        String requestBody = cancelOrderRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/orders/cancel", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return CheckoutCancelOrderResponse.fromJson(jsonResult);
+        return CancelOrderResponse.fromJson(jsonResult);
     }
 
     /**
     * Get the balance of a gift card
     *
-    * @param checkoutBalanceCheckRequest {@link CheckoutBalanceCheckRequest }  (required)
-    * @return {@link CheckoutBalanceCheckResponse }
+    * @param balanceCheckRequest {@link BalanceCheckRequest }  (required)
+    * @return {@link BalanceCheckResponse }
     * @throws ApiException if fails to make API call
     */
-    public CheckoutBalanceCheckResponse getBalanceOfGiftCard(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest) throws ApiException, IOException {
-        return getBalanceOfGiftCard(checkoutBalanceCheckRequest, null);
+    public BalanceCheckResponse getBalanceOfGiftCard(BalanceCheckRequest balanceCheckRequest) throws ApiException, IOException {
+        return getBalanceOfGiftCard(balanceCheckRequest, null);
     }
 
     /**
     * Get the balance of a gift card
     *
-    * @param checkoutBalanceCheckRequest {@link CheckoutBalanceCheckRequest }  (required)
+    * @param balanceCheckRequest {@link BalanceCheckRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CheckoutBalanceCheckResponse }
+    * @return {@link BalanceCheckResponse }
     * @throws ApiException if fails to make API call
     */
-    public CheckoutBalanceCheckResponse getBalanceOfGiftCard(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public BalanceCheckResponse getBalanceOfGiftCard(BalanceCheckRequest balanceCheckRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = checkoutBalanceCheckRequest.toJson();
+        String requestBody = balanceCheckRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentMethods/balance", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return CheckoutBalanceCheckResponse.fromJson(jsonResult);
+        return BalanceCheckResponse.fromJson(jsonResult);
     }
 }

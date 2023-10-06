@@ -1,8 +1,11 @@
 package com.adyen.model.checkout;
 
+import com.adyen.serializer.ByteArraySerializer;
+import com.adyen.serializer.ByteArrayDeserializer;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.adyen.model.checkout.*;
 
@@ -28,6 +31,11 @@ public class JSON implements ContextResolver<ObjectMapper> {
     mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
     mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
     mapper.registerModule(new JavaTimeModule());
+    // Custom ByteSerializer
+    SimpleModule simpleModule = new SimpleModule();
+    simpleModule.addSerializer(byte[].class, new ByteArraySerializer());
+    simpleModule.addDeserializer(byte[].class, new ByteArrayDeserializer());
+    mapper.registerModule(simpleModule);
   }
 
   /**

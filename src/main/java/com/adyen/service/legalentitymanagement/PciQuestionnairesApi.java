@@ -30,11 +30,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PciQuestionnairesApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "3";
+
+    protected String baseURL;
+
+    /**
+    * PCI questionnaires constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * @param client {@link Client } (required)
+    */
     public PciQuestionnairesApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://kyc-test.adyen.com/lem/v3");
+    }
+
+    /**
+    * PCI questionnaires constructor in {@link com.adyen.service.legalentitymanagement package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public PciQuestionnairesApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
@@ -112,7 +130,7 @@ public class PciQuestionnairesApi extends Service {
     /**
     * Generate PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who will sign the PCI questionnaire. (required)
+    * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
     * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
     * @return {@link GeneratePciDescriptionResponse }
     * @throws ApiException if fails to make API call
@@ -124,7 +142,7 @@ public class PciQuestionnairesApi extends Service {
     /**
     * Generate PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who will sign the PCI questionnaire. (required)
+    * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
     * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GeneratePciDescriptionResponse }

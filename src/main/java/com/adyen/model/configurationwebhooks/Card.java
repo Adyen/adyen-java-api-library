@@ -46,7 +46,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Card.JSON_PROPERTY_EXPIRATION,
   Card.JSON_PROPERTY_FORM_FACTOR,
   Card.JSON_PROPERTY_LAST_FOUR,
-  Card.JSON_PROPERTY_NUMBER
+  Card.JSON_PROPERTY_NUMBER,
+  Card.JSON_PROPERTY_THREE_D_SECURE
 })
 
 public class Card {
@@ -122,6 +123,9 @@ public class Card {
 
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  public static final String JSON_PROPERTY_THREE_D_SECURE = "threeDSecure";
+  private String threeDSecure;
 
   public Card() { 
   }
@@ -207,10 +211,10 @@ public class Card {
   }
 
    /**
-   * The brand variant of the physical or the virtual card. &gt;Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.
+   * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return brandVariant
   **/
-  @ApiModelProperty(required = true, value = "The brand variant of the physical or the virtual card. >Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.")
+  @ApiModelProperty(required = true, value = "The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. >Reach out to your Adyen contact to get the values relevant for your integration.")
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -426,6 +430,31 @@ public class Card {
   }
 
 
+  public Card threeDSecure(String threeDSecure) {
+    this.threeDSecure = threeDSecure;
+    return this;
+  }
+
+   /**
+   * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
+   * @return threeDSecure
+  **/
+  @ApiModelProperty(value = "Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. >Reach out to your Adyen contact to get the values relevant for your integration.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getThreeDSecure() {
+    return threeDSecure;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDSecure(String threeDSecure) {
+    this.threeDSecure = threeDSecure;
+  }
+
+
   /**
    * Return true if this Card object is equal to o.
    */
@@ -449,12 +478,13 @@ public class Card {
         Objects.equals(this.expiration, card.expiration) &&
         Objects.equals(this.formFactor, card.formFactor) &&
         Objects.equals(this.lastFour, card.lastFour) &&
-        Objects.equals(this.number, card.number);
+        Objects.equals(this.number, card.number) &&
+        Objects.equals(this.threeDSecure, card.threeDSecure);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication, bin, brand, brandVariant, cardholderName, configuration, cvc, deliveryContact, expiration, formFactor, lastFour, number);
+    return Objects.hash(authentication, bin, brand, brandVariant, cardholderName, configuration, cvc, deliveryContact, expiration, formFactor, lastFour, number, threeDSecure);
   }
 
   @Override
@@ -473,6 +503,7 @@ public class Card {
     sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    threeDSecure: ").append(toIndentedString(threeDSecure)).append("\n");
     sb.append("}");
     return sb.toString();
   }

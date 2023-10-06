@@ -5,6 +5,8 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.*;
 
 import com.adyen.service.balanceplatform.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.gson.JsonSyntaxException;
 import org.junit.Rule;
 import org.junit.Test;
@@ -77,7 +79,7 @@ public class BalancePlatformTest extends BaseTest {
     public void AccountHoldersUpdateTest() throws  Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/AccountHolder.json");
         AccountHoldersApi service = new AccountHoldersApi(client);
-        AccountHolder request = AccountHolder.fromJson("{\n" +
+        AccountHolderUpdateRequest request = AccountHolderUpdateRequest.fromJson("{\n" +
                 "  \"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\n" +
                 "  \"contactDetails\": {\n" +
                 "    \"address\": {\n" +
@@ -172,7 +174,7 @@ public class BalancePlatformTest extends BaseTest {
     public void BalanceAccountsCreateSweepTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
         BalanceAccountsApi service = new BalanceAccountsApi(client);
-        SweepConfigurationV2 request = SweepConfigurationV2.fromJson("{\n" +
+        CreateSweepConfigurationV2 request = CreateSweepConfigurationV2.fromJson("{\n" +
                 "  \"counterparty\": {\n" +
                 "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
                 "  },\n" +
@@ -208,29 +210,8 @@ public class BalancePlatformTest extends BaseTest {
                 "  }\n" +
                 "}");
         
-        assertThat(request.getSchedule().getActualInstance(), instanceOf(SweepSchedule.class));
-        assertEquals(SweepSchedule.TypeEnum.BALANCE, request.getSchedule().getSweepSchedule().getType());
-    }
-
-    @Test
-    public void sweepScheduleUnknownFieldTest() {
-        JsonSyntaxException err = assertThrows(JsonSyntaxException.class, () -> {
-            SweepConfigurationV2.fromJson("{\n" +
-                    "  \"counterparty\": {\n" +
-                    "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
-                    "  },\n" +
-                    "  \"currency\": \"EUR\",\n" +
-                    "  \"id\": \"SWPC4227C224555B5FTD2NT2JV4WN5\",\n" +
-                    "  \"schedule\": {\n" +
-                    "    \"type\": \"balance\",\n" +
-                    "    \"troubleMaker\": \"I'm not part of the specs yet, and that's not cool bro\"\n" +
-                    "  }\n" +
-                    "}");
-        });
-        String msg = err.getMessage();
-        
-        assertTrue(msg.contains("0 class(es) match the result, expected 1"));
-        assertTrue(msg.contains("The field `troubleMaker` in the JSON string is not defined"));
+        assertThat(request.getSchedule(), instanceOf(SweepSchedule.class));
+        assertEquals(SweepSchedule.TypeEnum.BALANCE, request.getSchedule().getType());
     }
 
     @Test
@@ -248,19 +229,19 @@ public class BalancePlatformTest extends BaseTest {
                 "  }\n" +
                 "}");
         
-        assertThat(request.getSchedule().getActualInstance(), instanceOf(CronSweepSchedule.class));
-        assertEquals(CronSweepSchedule.TypeEnum.CRON, request.getSchedule().getCronSweepSchedule().getType());
-        assertEquals("*/5 * * * *", request.getSchedule().getCronSweepSchedule().getCronExpression());
+        assertThat(request.getSchedule(), instanceOf(SweepSchedule.class));
+        assertEquals(SweepSchedule.TypeEnum.CRON, request.getSchedule().getType());
+        assertEquals("*/5 * * * *", request.getSchedule().getCronExpression());
     }
 
     @Test
-    public void cronSweepScheduleToJsonTest() {
+    public void cronSweepScheduleToJsonTest() throws JsonProcessingException {
         SweepConfigurationV2 request = new SweepConfigurationV2();
         request.setType(SweepConfigurationV2.TypeEnum.PULL);
-        CronSweepSchedule cron = new CronSweepSchedule();
-        cron.setType(CronSweepSchedule.TypeEnum.CRON);
+        SweepSchedule cron = new SweepSchedule();
+        cron.setType(SweepSchedule.TypeEnum.CRON);
         cron.setCronExpression("6 6 6");
-        request.setSchedule(new SweepConfigurationV2Schedule(cron));
+        request.setSchedule(cron);
         
         // request to json
         String json = request.toJson();
@@ -269,12 +250,12 @@ public class BalancePlatformTest extends BaseTest {
     }
 
     @Test
-    public void sweepScheduleToJsonTest() {
+    public void sweepScheduleToJsonTest() throws JsonProcessingException {
         SweepConfigurationV2 request = new SweepConfigurationV2();
         request.setType(SweepConfigurationV2.TypeEnum.PUSH);
         SweepSchedule schedule = new SweepSchedule();
         schedule.setType(SweepSchedule.TypeEnum.DAILY);
-        request.setSchedule(new SweepConfigurationV2Schedule(schedule));
+        request.setSchedule(schedule);
 
         // request to json
         String json = request.toJson();
@@ -302,7 +283,7 @@ public class BalancePlatformTest extends BaseTest {
     public void BalanceAccountsUpdateSweepTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
         BalanceAccountsApi service = new BalanceAccountsApi(client);
-        SweepConfigurationV2 request = SweepConfigurationV2.fromJson("{\n" +
+        UpdateSweepConfigurationV2 request = UpdateSweepConfigurationV2.fromJson("{\n" +
                 "  \"counterparty\": {\n" +
                 "    \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"\n" +
                 "  },\n" +

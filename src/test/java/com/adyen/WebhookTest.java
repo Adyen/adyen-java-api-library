@@ -20,9 +20,13 @@
  */
 package com.adyen;
 
+import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
 import com.adyen.model.balanceplatform.BankAccountIdentificationValidationRequest;
 import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
 import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
+import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
+import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
+import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
 import com.adyen.model.nexo.EventNotification;
@@ -32,8 +36,10 @@ import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.notification.BankingWebhookHandler;
+import com.adyen.notification.ManagementWebhookHandler;
 import com.adyen.notification.WebhookHandler;
 import com.adyen.util.HMACValidator;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.JsonParser;
 import org.junit.Assert;
 import org.junit.Before;
@@ -247,7 +253,7 @@ public class WebhookTest extends BaseTest {
         String jsonRequest = "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"Mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"Active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
         BankingWebhookHandler webhookHandler = new BankingWebhookHandler(jsonRequest);
 AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest().get();
-Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder().getId(), "AH00000000000000000000001");
+Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationRequest.getData().getAccountHolder().getId());
     }
 
     @Test
@@ -269,4 +275,154 @@ Assert.assertEquals(accountHolderNotificationRequest.getData().getAccountHolder(
         Assert.assertTrue(response);
     }
 
+    @Test
+    public void testBankingWebhookAcsParsing() {
+        String notification = "{\n" +
+                "               \"data\" : {\n" +
+                "                  \"balancePlatform\" : \"YOUR_BALANCE_PLATFORM\",\n" +
+                "                  \"creationDate\" : \"2023-01-19T17:07:59+01:00\",\n" +
+                "                  \"id\" : \"a8fc7a40-6e48-498a-bdc2-494daf0f490a\",\n" +
+                "                  \"authentication\" : {\n" +
+                "                     \"acsTransId\" : \"a8fc7a40-6e48-498a-bdc2-494daf0f490a\",\n" +
+                "                     \"challenge\" : {\n" +
+                "                        \"flow\" : \"OTP_SMS\",\n" +
+                "                        \"lastInteraction\" : \"2023-01-19T17:37:13+01:00\",\n" +
+                "                        \"phoneNumber\" : \"******6789\",\n" +
+                "                        \"resends\" : 0,\n" +
+                "                        \"retries\" : 2\n" +
+                "                     },\n" +
+                "                     \"challengeIndicator\" : \"01\",\n" +
+                "                     \"createdAt\" : \"2023-01-19T17:07:17+01:00\",\n" +
+                "                     \"deviceChannel\" : \"app\",\n" +
+                "                     \"dsTransID\" : \"59de4e30-7f84-4a77-aaf8-1ca493092ef9\",\n" +
+                "                     \"exemptionIndicator\" : \"noExemptionApplied\",\n" +
+                "                     \"inPSD2Scope\" : false,\n" +
+                "                     \"messageCategory\" : \"payment\",\n" +
+                "                     \"messageVersion\" : \"2.2.0\",\n" +
+                "                     \"threeDSServerTransID\" : \"8bc0fdbd-5c8a-4bed-a171-9d10347e7798\",\n" +
+                "                     \"transStatus\" : \"N\",\n" +
+                "                     \"transStatusReason\" : \"19\",\n" +
+                "                     \"type\" : \"challenge\"\n" +
+                "                  },\n" +
+                "                  \"paymentInstrumentId\" : \"PI3227C223222B5BPCMFXD2XG\",\n" +
+                "                  \"purchase\" : {\n" +
+                "                     \"date\" : \"2022-12-22T15:49:03+01:00\",\n" +
+                "                     \"merchantName\" : \"TeaShop_NL\",\n" +
+                "                     \"originalAmount\" : {\n" +
+                "                        \"currency\" : \"EUR\",\n" +
+                "                        \"value\" : 1000\n" +
+                "                     }\n" +
+                "                  },\n" +
+                "                  \"status\" : \"rejected\"\n" +
+                "               },\n" +
+                "               \"environment\" : \"test\",\n" +
+                "               \"type\" : \"balancePlatform.authentication.created\"\n" +
+                "            }";
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(notification);
+        Assert.assertTrue(webhookHandler.getAuthenticationNotificationRequest().isPresent());
+        AuthenticationNotificationRequest request = webhookHandler.getAuthenticationNotificationRequest().get();
+        Assert.assertEquals("a8fc7a40-6e48-498a-bdc2-494daf0f490a", request.getData().getId());
+        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
+    }
+
+    @Test
+    public void testDonationWebhookJackson() throws SignatureException, IOException {
+        String notification = "{\n" +
+                "  \"live\": \"false\",\n" +
+                "  \"notificationItems\": [\n" +
+                "    {\n" +
+                "      \"NotificationRequestItem\": {\n" +
+                "        \"additionalData\": { \"originalMerchantAccountCode\": \"LengrandECOM\" },\n" +
+                "        \"amount\": { \"currency\": \"EUR\", \"value\": 500 },\n" +
+                "        \"eventCode\": \"DONATION\",\n" +
+                "        \"eventDate\": \"2023-08-22T15:05:06+02:00\",\n" +
+                "        \"merchantAccountCode\": \"MyCharity_Giving_TEST\",\n" +
+                "        \"merchantReference\": \"9035b75a-e733-4247-a6f3-cda4c480db3d\",\n" +
+                "        \"originalReference\": \"WJZ75L2RPV5X8N82\",\n" +
+                "        \"paymentMethod\": \"mc\",\n" +
+                "        \"pspReference\": \"FGLQR59BM3RZNN82\",\n" +
+                "        \"reason\": \"062791:1115:03/2030\",\n" +
+                "        \"success\": \"true\"\n" +
+                "      }\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}";
+        WebhookHandler webhookHolder = new WebhookHandler();
+        NotificationRequest notificationRequest = webhookHolder.handleNotificationJsonJackson(notification);
+        Assert.assertEquals("EUR", notificationRequest.getNotificationItemContainers().get(0).getNotificationItem().getAmount().getCurrency());
+        Assert.assertEquals("LengrandECOM", notificationRequest.getNotificationItemContainers().get(0).getNotificationItem().getAdditionalData().get("originalMerchantAccountCode"));
+    }
+
+    @Test
+    public void testManagementWebhookPaymentMethodCreatedParsing() {
+        String notification = "{\n" +
+                "  \"createdAt\": \"2022-01-24T14:59:11+01:00\",\n" +
+                "  \"data\": {\n" +
+                "    \"id\": \"PM3224R223224K5FH4M2K9B86\",\n" +
+                "    \"merchantId\": \"MERCHANT_ACCOUNT\",\n" +
+                "    \"result\": \"SUCCESS\",\n" +
+                "    \"storeId\": \"ST322LJ223223K5F4SQNR9XL5\",\n" +
+                "    \"type\": \"visa\"\n" +
+                "  },\n" +
+                "  \"environment\": \"test\",\n" +
+                "  \"type\": \"paymentMethod.created\"\n" +
+                "}";
+        ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(notification);
+        Assert.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
+        PaymentMethodCreatedNotificationRequest request = webhookHandler.getPaymentMethodCreatedNotificationRequest().get();
+        Assert.assertEquals("PM3224R223224K5FH4M2K9B86", request.getData().getId());
+        Assert.assertEquals(PaymentMethodCreatedNotificationRequest.TypeEnum.PAYMENTMETHOD_CREATED, request.getType());
+    }
+
+    @Test
+    public void testManagementWebhookMerchantUpdatedParsing() {
+        String notification = "{\n" +
+                "   \"type\": \"merchant.updated\",\n" +
+                "   \"environment\": \"test\",\n" +
+                "   \"createdAt\": \"2022-09-20T13:42:31+02:00\",\n" +
+                "   \"data\": {\n" +
+                "      \"capabilities\": {\n" +
+                "         \"receivePayments\": {\n" +
+                "            \"allowed\": true,\n" +
+                "            \"requested\": true,\n" +
+                "            \"requestedLevel\": \"notApplicable\",\n" +
+                "            \"verificationStatus\": \"valid\"\n" +
+                "         }\n" +
+                "      },\n" +
+                "      \"legalEntityId\": \"LE322KH223222F5GNNW694PZN\",\n" +
+                "      \"merchantId\": \"YOUR_MERCHANT_ID\",\n" +
+                "      \"status\": \"PreActive\"\n" +
+                "   }\n" +
+                "}";
+        ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(notification);
+        Assert.assertTrue(webhookHandler.getMerchantUpdatedNotificationRequest().isPresent());
+        MerchantUpdatedNotificationRequest request = webhookHandler.getMerchantUpdatedNotificationRequest().get();
+        Assert.assertEquals("LE322KH223222F5GNNW694PZN", request.getData().getLegalEntityId());
+        Assert.assertEquals(MerchantUpdatedNotificationRequest.TypeEnum.MERCHANT_UPDATED, request.getType());
+    }
+
+    @Test
+    public void testManagementWebhookMerchantCreatedParsing() {
+        String notification = "{\n" +
+                "   \"type\": \"merchant.created\",\n" +
+                "   \"environment\": \"test\",\n" +
+                "   \"createdAt\": \"2022-08-12T10:50:01+02:00\",\n" +
+                "   \"data\": {\n" +
+                "      \"capabilities\": {\n" +
+                "         \"sendToTransferInstrument\": {\n" +
+                "            \"requested\": true,\n" +
+                "            \"requestedLevel\": \"notApplicable\"\n" +
+                "         }\n" +
+                "      },\n" +
+                "      \"companyId\": \"YOUR_COMPANY_ID\",\n" +
+                "      \"merchantId\": \"MC3224X22322535GH8D537TJR\",\n" +
+                "      \"status\": \"PreActive\"\n" +
+                "   }\n" +
+                "}";
+        ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(notification);
+        Assert.assertTrue(webhookHandler.getMerchantCreatedNotificationRequest().isPresent());
+        MerchantCreatedNotificationRequest request = webhookHandler.getMerchantCreatedNotificationRequest().get();
+        Assert.assertEquals("MC3224X22322535GH8D537TJR", request.getData().getMerchantId());
+        Assert.assertEquals(MerchantCreatedNotificationRequest.TypeEnum.MERCHANT_CREATED, request.getType());
+    }
 }

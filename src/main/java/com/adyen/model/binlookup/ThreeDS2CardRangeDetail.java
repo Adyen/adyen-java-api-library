@@ -15,73 +15,56 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * ThreeDS2CardRangeDetail
  */
+@JsonPropertyOrder({
+  ThreeDS2CardRangeDetail.JSON_PROPERTY_ACS_INFO_IND,
+  ThreeDS2CardRangeDetail.JSON_PROPERTY_BRAND_CODE,
+  ThreeDS2CardRangeDetail.JSON_PROPERTY_END_RANGE,
+  ThreeDS2CardRangeDetail.JSON_PROPERTY_START_RANGE,
+  ThreeDS2CardRangeDetail.JSON_PROPERTY_THREE_D_S2_VERSIONS,
+  ThreeDS2CardRangeDetail.JSON_PROPERTY_THREE_D_S_METHOD_U_R_L
+})
 
 public class ThreeDS2CardRangeDetail {
-  public static final String SERIALIZED_NAME_ACS_INFO_IND = "acsInfoInd";
-  @SerializedName(SERIALIZED_NAME_ACS_INFO_IND)
+  public static final String JSON_PROPERTY_ACS_INFO_IND = "acsInfoInd";
   private List<String> acsInfoInd = null;
 
-  public static final String SERIALIZED_NAME_BRAND_CODE = "brandCode";
-  @SerializedName(SERIALIZED_NAME_BRAND_CODE)
+  public static final String JSON_PROPERTY_BRAND_CODE = "brandCode";
   private String brandCode;
 
-  public static final String SERIALIZED_NAME_END_RANGE = "endRange";
-  @SerializedName(SERIALIZED_NAME_END_RANGE)
+  public static final String JSON_PROPERTY_END_RANGE = "endRange";
   private String endRange;
 
-  public static final String SERIALIZED_NAME_START_RANGE = "startRange";
-  @SerializedName(SERIALIZED_NAME_START_RANGE)
+  public static final String JSON_PROPERTY_START_RANGE = "startRange";
   private String startRange;
 
-  public static final String SERIALIZED_NAME_THREE_D_S2_VERSIONS = "threeDS2Versions";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S2_VERSIONS)
+  public static final String JSON_PROPERTY_THREE_D_S2_VERSIONS = "threeDS2Versions";
   private List<String> threeDS2Versions = null;
 
-  public static final String SERIALIZED_NAME_THREE_D_S_METHOD_U_R_L = "threeDSMethodURL";
-  @SerializedName(SERIALIZED_NAME_THREE_D_S_METHOD_U_R_L)
+  public static final String JSON_PROPERTY_THREE_D_S_METHOD_U_R_L = "threeDSMethodURL";
   private String threeDSMethodURL;
 
   public ThreeDS2CardRangeDetail() { 
   }
 
   public ThreeDS2CardRangeDetail acsInfoInd(List<String> acsInfoInd) {
-    
     this.acsInfoInd = acsInfoInd;
     return this;
   }
@@ -99,19 +82,22 @@ public class ThreeDS2CardRangeDetail {
    * @return acsInfoInd
   **/
   @ApiModelProperty(value = "Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)")
+  @JsonProperty(JSON_PROPERTY_ACS_INFO_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getAcsInfoInd() {
     return acsInfoInd;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ACS_INFO_IND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsInfoInd(List<String> acsInfoInd) {
     this.acsInfoInd = acsInfoInd;
   }
 
 
   public ThreeDS2CardRangeDetail brandCode(String brandCode) {
-    
     this.brandCode = brandCode;
     return this;
   }
@@ -121,19 +107,22 @@ public class ThreeDS2CardRangeDetail {
    * @return brandCode
   **/
   @ApiModelProperty(value = "Card brand.")
+  @JsonProperty(JSON_PROPERTY_BRAND_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBrandCode() {
     return brandCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BRAND_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandCode(String brandCode) {
     this.brandCode = brandCode;
   }
 
 
   public ThreeDS2CardRangeDetail endRange(String endRange) {
-    
     this.endRange = endRange;
     return this;
   }
@@ -143,19 +132,22 @@ public class ThreeDS2CardRangeDetail {
    * @return endRange
   **/
   @ApiModelProperty(value = "BIN end range.")
+  @JsonProperty(JSON_PROPERTY_END_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEndRange() {
     return endRange;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_END_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndRange(String endRange) {
     this.endRange = endRange;
   }
 
 
   public ThreeDS2CardRangeDetail startRange(String startRange) {
-    
     this.startRange = startRange;
     return this;
   }
@@ -165,19 +157,22 @@ public class ThreeDS2CardRangeDetail {
    * @return startRange
   **/
   @ApiModelProperty(value = "BIN start range.")
+  @JsonProperty(JSON_PROPERTY_START_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStartRange() {
     return startRange;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_START_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartRange(String startRange) {
     this.startRange = startRange;
   }
 
 
   public ThreeDS2CardRangeDetail threeDS2Versions(List<String> threeDS2Versions) {
-    
     this.threeDS2Versions = threeDS2Versions;
     return this;
   }
@@ -195,19 +190,22 @@ public class ThreeDS2CardRangeDetail {
    * @return threeDS2Versions
   **/
   @ApiModelProperty(value = "Supported 3D Secure protocol versions")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_VERSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getThreeDS2Versions() {
     return threeDS2Versions;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_VERSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Versions(List<String> threeDS2Versions) {
     this.threeDS2Versions = threeDS2Versions;
   }
 
 
   public ThreeDS2CardRangeDetail threeDSMethodURL(String threeDSMethodURL) {
-    
     this.threeDSMethodURL = threeDSMethodURL;
     return this;
   }
@@ -217,18 +215,24 @@ public class ThreeDS2CardRangeDetail {
    * @return threeDSMethodURL
   **/
   @ApiModelProperty(value = "In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_METHOD_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getThreeDSMethodURL() {
     return threeDSMethodURL;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_METHOD_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSMethodURL(String threeDSMethodURL) {
     this.threeDSMethodURL = threeDSMethodURL;
   }
 
 
-
+  /**
+   * Return true if this ThreeDS2CardRangeDetail object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -276,123 +280,23 @@ public class ThreeDS2CardRangeDetail {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acsInfoInd");
-    openapiFields.add("brandCode");
-    openapiFields.add("endRange");
-    openapiFields.add("startRange");
-    openapiFields.add("threeDS2Versions");
-    openapiFields.add("threeDSMethodURL");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+/**
+   * Create an instance of ThreeDS2CardRangeDetail given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ThreeDS2CardRangeDetail
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDS2CardRangeDetail
+   */
+  public static ThreeDS2CardRangeDetail fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ThreeDS2CardRangeDetail.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(ThreeDS2CardRangeDetail.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ThreeDS2CardRangeDetail
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ThreeDS2CardRangeDetail.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2CardRangeDetail is not found in the empty JSON string", ThreeDS2CardRangeDetail.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ThreeDS2CardRangeDetail.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2CardRangeDetail` properties.", entry.getKey()));
-        }
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("acsInfoInd") != null && !jsonObj.get("acsInfoInd").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `acsInfoInd` to be an array in the JSON string but got `%s`", jsonObj.get("acsInfoInd").toString()));
-      }
-      // validate the optional field brandCode
-      if (jsonObj.get("brandCode") != null && !jsonObj.get("brandCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `brandCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brandCode").toString()));
-      }
-      // validate the optional field endRange
-      if (jsonObj.get("endRange") != null && !jsonObj.get("endRange").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `endRange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endRange").toString()));
-      }
-      // validate the optional field startRange
-      if (jsonObj.get("startRange") != null && !jsonObj.get("startRange").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `startRange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startRange").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("threeDS2Versions") != null && !jsonObj.get("threeDS2Versions").isJsonArray()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDS2Versions` to be an array in the JSON string but got `%s`", jsonObj.get("threeDS2Versions").toString()));
-      }
-      // validate the optional field threeDSMethodURL
-      if (jsonObj.get("threeDSMethodURL") != null && !jsonObj.get("threeDSMethodURL").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `threeDSMethodURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSMethodURL").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ThreeDS2CardRangeDetail.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ThreeDS2CardRangeDetail' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ThreeDS2CardRangeDetail> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDS2CardRangeDetail.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ThreeDS2CardRangeDetail>() {
-           @Override
-           public void write(JsonWriter out, ThreeDS2CardRangeDetail value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ThreeDS2CardRangeDetail read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ThreeDS2CardRangeDetail given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ThreeDS2CardRangeDetail
-  * @throws IOException if the JSON string is invalid with respect to ThreeDS2CardRangeDetail
-  */
-  public static ThreeDS2CardRangeDetail fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ThreeDS2CardRangeDetail.class);
-  }
-
- /**
+/**
   * Convert an instance of ThreeDS2CardRangeDetail to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

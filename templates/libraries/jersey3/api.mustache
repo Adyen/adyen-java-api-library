@@ -16,11 +16,29 @@ import java.util.Map;
 
 {{#operations}}
 public class {{classname}} extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "{{{version}}}";
+
+    protected String baseURL;
+
+    /**
+    * {{#operation}}{{#-first}}{{vendorExtensions.x-groupName}}{{/-first}}{{/operation}} constructor in {@link {{{package}}} package}.
+    * @param client {@link Client } (required)
+    */
     public {{classname}}(Client client) {
         super(client);
         this.baseURL = createBaseURL("{{{basePath}}}");
+    }
+
+    /**
+    * {{#operation}}{{#-first}}{{vendorExtensions.x-groupName}}{{/-first}}{{/operation}} constructor in {@link {{{package}}} package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
+    */
+    public {{classname}}(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 {{#operation}}
 
@@ -65,7 +83,7 @@ public class {{classname}} extends Service {
         return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
         {{/returnType}}
         {{^returnType}}
-        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
         {{/returnType}}
     }
 {{/operation}}

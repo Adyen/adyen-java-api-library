@@ -197,7 +197,7 @@ public class Mandate {
    * The billing amount (in minor units) of the recurring transactions.
    * @return amount
   **/
-  @ApiModelProperty(value = "The billing amount (in minor units) of the recurring transactions.")
+  @ApiModelProperty(required = true, value = "The billing amount (in minor units) of the recurring transactions.")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -297,7 +297,7 @@ public class Mandate {
    * End date of the billing plan, in YYYY-MM-DD format.
    * @return endsAt
   **/
-  @ApiModelProperty(value = "End date of the billing plan, in YYYY-MM-DD format.")
+  @ApiModelProperty(required = true, value = "End date of the billing plan, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -322,7 +322,7 @@ public class Mandate {
    * The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
    * @return frequency
   **/
-  @ApiModelProperty(value = "The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.")
+  @ApiModelProperty(required = true, value = "The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

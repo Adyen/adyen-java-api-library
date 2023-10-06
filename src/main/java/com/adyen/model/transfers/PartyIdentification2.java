@@ -136,10 +136,10 @@ public class PartyIdentification2 {
   }
 
    /**
-   * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before 1st January 1900.  Allowed only when &#x60;type&#x60; is **individual**.
+   * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before January 1, 1900.  Allowed only when &#x60;type&#x60; is **individual**.
    * @return dateOfBirth
   **/
-  @ApiModelProperty(value = "The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before 1st January 1900.  Allowed only when `type` is **individual**.")
+  @ApiModelProperty(value = "The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before January 1, 1900.  Allowed only when `type` is **individual**.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -236,10 +236,10 @@ public class PartyIdentification2 {
   }
 
    /**
-   * Your unique reference of the party. This should be consistent for all transfers initiated to/from the same party/counterparty. e.g Your client&#39;s unique wallet or payee ID
+   * A unique reference to identify the party or counterparty involved in transfers. This identifier ensures consistency and uniqueness throughout all transactions initiated to and from the same party. For example, your client&#39;s unique wallet or payee ID.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your unique reference of the party. This should be consistent for all transfers initiated to/from the same party/counterparty. e.g Your client's unique wallet or payee ID")
+  @ApiModelProperty(value = "A unique reference to identify the party or counterparty involved in transfers. This identifier ensures consistency and uniqueness throughout all transactions initiated to and from the same party. For example, your client's unique wallet or payee ID.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

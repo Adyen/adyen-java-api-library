@@ -15,7 +15,6 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.checkout.ListStoredPaymentMethodsResponse;
-import com.adyen.model.checkout.StoredPaymentMethodResource;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -25,43 +24,59 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RecurringApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "70";
+
+    protected String baseURL;
+
+    /**
+    * Recurring constructor in {@link com.adyen.service.checkout package}.
+    * @param client {@link Client } (required)
+    */
     public RecurringApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }
 
     /**
-    * Delete a token for stored payment details
-    *
-    * @param recurringId {@link String } The unique identifier of the token. (required)
-    * @param shopperReference {@link String } Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (required)
-    * @param merchantAccount {@link String } Your merchant account. (required)
-    * @return {@link StoredPaymentMethodResource }
-    * @throws ApiException if fails to make API call
+    * Recurring constructor in {@link com.adyen.service.checkout package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId, String shopperReference, String merchantAccount) throws ApiException, IOException {
-        return deleteTokenForStoredPaymentDetails(recurringId, shopperReference,  merchantAccount,  null);
+    public RecurringApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
     * Delete a token for stored payment details
     *
-    * @param recurringId {@link String } The unique identifier of the token. (required)
+    * @param storedPaymentMethodId {@link String } The unique identifier of the token. (required)
+    * @param shopperReference {@link String } Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (required)
+    * @param merchantAccount {@link String } Your merchant account. (required)
+    * @throws ApiException if fails to make API call
+    */
+    public void deleteTokenForStoredPaymentDetails(String storedPaymentMethodId, String shopperReference, String merchantAccount) throws ApiException, IOException {
+        deleteTokenForStoredPaymentDetails(storedPaymentMethodId, shopperReference,  merchantAccount,  null);
+    }
+
+    /**
+    * Delete a token for stored payment details
+    *
+    * @param storedPaymentMethodId {@link String } The unique identifier of the token. (required)
     * @param shopperReference {@link String } Query: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (required)
     * @param merchantAccount {@link String } Query: Your merchant account. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link StoredPaymentMethodResource }
     * @throws ApiException if fails to make API call
     */
-    public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId, String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {
+    public void deleteTokenForStoredPaymentDetails(String storedPaymentMethodId, String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if (recurringId == null) {
-            throw new IllegalArgumentException("Please provide the recurringId path parameter");
+        if (storedPaymentMethodId == null) {
+            throw new IllegalArgumentException("Please provide the storedPaymentMethodId path parameter");
         }
-        pathParams.put("recurringId", recurringId);
+        pathParams.put("storedPaymentMethodId", storedPaymentMethodId);
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (shopperReference != null) {
@@ -72,9 +87,8 @@ public class RecurringApi extends Service {
         }
 
         String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/storedPaymentMethods/{recurringId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams, queryParams);
-        return StoredPaymentMethodResource.fromJson(jsonResult);
+        Resource resource = new Resource(this, this.baseURL + "/storedPaymentMethods/{storedPaymentMethodId}", null);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams, queryParams);
     }
 
     /**

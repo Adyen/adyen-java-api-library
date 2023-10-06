@@ -56,7 +56,7 @@ public class Document {
   private Attachment attachment;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<Attachment> attachments = new ArrayList<>();
+  private List<Attachment> attachments = null;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
@@ -89,7 +89,7 @@ public class Document {
   private OwnerEntity owner;
 
   /**
-   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the &#x60;type&#x60; values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading photo IDs: * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, or **passport**.  When uploading other documents: * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    */
   public enum TypeEnum {
     BANKSTATEMENT("bankStatement"),
@@ -184,6 +184,9 @@ public class Document {
   }
 
   public Document addAttachmentsItem(Attachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -192,7 +195,7 @@ public class Document {
    * Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    * @return attachments
   **/
-  @ApiModelProperty(required = true, value = "Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.")
+  @ApiModelProperty(value = "Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.")
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -451,7 +454,7 @@ public class Document {
    * Get owner
    * @return owner
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -473,10 +476,10 @@ public class Document {
   }
 
    /**
-   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the &#x60;type&#x60; values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading photo IDs: * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, or **passport**.  When uploading other documents: * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the `type` values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading photo IDs: * For **individual**, the `type` values can be **identityCard**, **driversLicense**, or **passport**.  When uploading other documents: * For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
+  @ApiModelProperty(required = true, value = "Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -14,66 +14,49 @@ package com.adyen.model.payout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.adyen.model.payout.JSON;
 
 /**
  * SubmitResponse
  */
+@JsonPropertyOrder({
+  SubmitResponse.JSON_PROPERTY_ADDITIONAL_DATA,
+  SubmitResponse.JSON_PROPERTY_PSP_REFERENCE,
+  SubmitResponse.JSON_PROPERTY_REFUSAL_REASON,
+  SubmitResponse.JSON_PROPERTY_RESULT_CODE
+})
 
 public class SubmitResponse {
-  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
+  public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
-  @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
+  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
-  public static final String SERIALIZED_NAME_REFUSAL_REASON = "refusalReason";
-  @SerializedName(SERIALIZED_NAME_REFUSAL_REASON)
+  public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
 
-  public static final String SERIALIZED_NAME_RESULT_CODE = "resultCode";
-  @SerializedName(SERIALIZED_NAME_RESULT_CODE)
+  public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
 
   public SubmitResponse() { 
   }
 
   public SubmitResponse additionalData(Map<String, String> additionalData) {
-    
     this.additionalData = additionalData;
     return this;
   }
@@ -91,19 +74,22 @@ public class SubmitResponse {
    * @return additionalData
   **/
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
 
   public SubmitResponse pspReference(String pspReference) {
-    
     this.pspReference = pspReference;
     return this;
   }
@@ -113,19 +99,22 @@ public class SubmitResponse {
    * @return pspReference
   **/
   @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPspReference() {
     return pspReference;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
 
   public SubmitResponse refusalReason(String refusalReason) {
-    
     this.refusalReason = refusalReason;
     return this;
   }
@@ -135,19 +124,22 @@ public class SubmitResponse {
    * @return refusalReason
   **/
   @ApiModelProperty(value = "In case of refusal, an informational message for the reason.")
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRefusalReason() {
     return refusalReason;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
 
 
   public SubmitResponse resultCode(String resultCode) {
-    
     this.resultCode = resultCode;
     return this;
   }
@@ -157,18 +149,24 @@ public class SubmitResponse {
    * @return resultCode
   **/
   @ApiModelProperty(required = true, value = "The response: * In case of success, it is `payout-submit-received`. * In case of an error, an informational message is returned.")
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResultCode() {
     return resultCode;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }
 
 
-
+  /**
+   * Return true if this SubmitResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -212,118 +210,23 @@ public class SubmitResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("additionalData");
-    openapiFields.add("pspReference");
-    openapiFields.add("refusalReason");
-    openapiFields.add("resultCode");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("pspReference");
-    openapiRequiredFields.add("resultCode");
+/**
+   * Create an instance of SubmitResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SubmitResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SubmitResponse
+   */
+  public static SubmitResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SubmitResponse.class);
   }
-  /**
-  * logger for Deserialization Errors
-  */
-  private static final Logger log = Logger.getLogger(SubmitResponse.class.getName());
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SubmitResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SubmitResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SubmitResponse is not found in the empty JSON string", SubmitResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!SubmitResponse.openapiFields.contains(entry.getKey())) {
-          log.log(Level.WARNING, String.format("The field `%s` in the JSON string is not defined in the `SubmitResponse` properties.", entry.getKey()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SubmitResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field pspReference
-      if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
-      }
-      // validate the optional field refusalReason
-      if (jsonObj.get("refusalReason") != null && !jsonObj.get("refusalReason").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `refusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReason").toString()));
-      }
-      // validate the optional field resultCode
-      if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        log.log(Level.WARNING, String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SubmitResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SubmitResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SubmitResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SubmitResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SubmitResponse>() {
-           @Override
-           public void write(JsonWriter out, SubmitResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SubmitResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of SubmitResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SubmitResponse
-  * @throws IOException if the JSON string is invalid with respect to SubmitResponse
-  */
-  public static SubmitResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SubmitResponse.class);
-  }
-
- /**
+/**
   * Convert an instance of SubmitResponse to an JSON string
   *
   * @return JSON string
   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 }
 

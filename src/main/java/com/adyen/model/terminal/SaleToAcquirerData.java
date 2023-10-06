@@ -52,6 +52,7 @@ public class SaleToAcquirerData {
     private String authorisationType;
     private String ssc;
     private RecurringProcessingModelEnum recurringProcessingModel;
+    private String redemptionType;
     private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public SaleToAcquirerData() {
@@ -207,6 +208,15 @@ public class SaleToAcquirerData {
     public void setSsc(String ssc) {
         this.ssc = ssc;
     }
+
+    public String getRedemptionType() {
+        return redemptionType;
+    }
+
+    public void setRedemptionType(String redemptionType) {
+        this.redemptionType = redemptionType;
+    }
+
     public static Gson getPrettyPrintGson() {
         return PRETTY_PRINT_GSON;
     }
@@ -235,12 +245,13 @@ public class SaleToAcquirerData {
                 Objects.equals(additionalData, that.additionalData) &&
                 Objects.equals(authorisationType, that.authorisationType) &&
                 Objects.equals(ssc, that.ssc) &&
-                Objects.equals(recurringProcessingModel, that.recurringProcessingModel);
+                Objects.equals(recurringProcessingModel, that.recurringProcessingModel) &&
+                Objects.equals(redemptionType, that.redemptionType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData, authorisationType, ssc, recurringProcessingModel);
+        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData, authorisationType, ssc, recurringProcessingModel, redemptionType);
     }
 
     @Override
@@ -261,7 +272,8 @@ public class SaleToAcquirerData {
                 ", additionalData=" + additionalData +
                 ", authorisationType=" + authorisationType +
                 ", ssc='" + ssc + '\'' +
-                ", recurringProcessingModel=" + recurringProcessingModel +
+                ", recurringProcessingModel=" + recurringProcessingModel + '\'' +
+                ", redemptionType=" + redemptionType +
                 '}';
     }
 

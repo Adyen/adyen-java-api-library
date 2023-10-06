@@ -79,9 +79,6 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // Local Object Mapper that forces strict validation
-            ObjectMapper localObjectMapper = JSON.getMapper();
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
             {{#oneOf}}
 
             // deserialize {{{.}}}
@@ -104,7 +101,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 boolean typeMatch = Arrays.stream({{{.}}}.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = localObjectMapper.readValue(tree.toString(), {{{.}}}.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), {{{.}}}.class);
                     // typeMatch should enforce proper deserialization
                     match++;
                     log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
@@ -124,7 +121,6 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 log.log(Level.WARNING, String.format("Warning, indecisive deserialization for {{classname}}: %d classes match result, expected 1", match));
             }
 
-            localObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             {{classname}} ret = new {{classname}}();
             ret.setActualInstance(deserialized);
             return ret;
@@ -245,4 +241,23 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     }
 
     {{/oneOf}}
+    /**
+    * Create an instance of {{classname}} given an JSON string
+    *
+    * @param jsonString JSON string
+    * @return An instance of {{classname}}
+    * @throws IOException if the JSON string is invalid with respect to {{classname}}
+    */
+    public static {{{classname}}} fromJson(String jsonString) throws IOException {
+        return JSON.getMapper().readValue(jsonString, {{{classname}}}.class);
+    }
+
+    /**
+    * Convert an instance of {{classname}} to an JSON string
+    *
+    * @return JSON string
+    */
+    public String toJson() throws JsonProcessingException {
+        return JSON.getMapper().writeValueAsString(this);
+    }
 }

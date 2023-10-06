@@ -14,11 +14,11 @@ package com.adyen.service.checkout;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.checkout.ApplePaySessionRequest;
 import com.adyen.model.checkout.ApplePaySessionResponse;
-import com.adyen.model.checkout.CheckoutUtilityRequest;
-import com.adyen.model.checkout.CheckoutUtilityResponse;
-import com.adyen.model.checkout.CreateApplePaySessionRequest;
 import com.adyen.model.checkout.ServiceError;
+import com.adyen.model.checkout.UtilityRequest;
+import com.adyen.model.checkout.UtilityResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -28,35 +28,53 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UtilityApi extends Service {
-    private final String baseURL;
 
+    public static final String API_VERSION = "70";
+
+    protected String baseURL;
+
+    /**
+    * Utility constructor in {@link com.adyen.service.checkout package}.
+    * @param client {@link Client } (required)
+    */
     public UtilityApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }
 
     /**
-    * Get an Apple Pay session
-    *
-    * @param createApplePaySessionRequest {@link CreateApplePaySessionRequest }  (required)
-    * @return {@link ApplePaySessionResponse }
-    * @throws ApiException if fails to make API call
+    * Utility constructor in {@link com.adyen.service.checkout package}.
+    * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    public ApplePaySessionResponse getApplePaySession(CreateApplePaySessionRequest createApplePaySessionRequest) throws ApiException, IOException {
-        return getApplePaySession(createApplePaySessionRequest, null);
+    public UtilityApi(Client client, String baseURL) {
+        super(client);
+        this.baseURL = baseURL;
     }
 
     /**
     * Get an Apple Pay session
     *
-    * @param createApplePaySessionRequest {@link CreateApplePaySessionRequest }  (required)
+    * @param applePaySessionRequest {@link ApplePaySessionRequest }  (required)
+    * @return {@link ApplePaySessionResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public ApplePaySessionResponse getApplePaySession(ApplePaySessionRequest applePaySessionRequest) throws ApiException, IOException {
+        return getApplePaySession(applePaySessionRequest, null);
+    }
+
+    /**
+    * Get an Apple Pay session
+    *
+    * @param applePaySessionRequest {@link ApplePaySessionRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link ApplePaySessionResponse }
     * @throws ApiException if fails to make API call
     */
-    public ApplePaySessionResponse getApplePaySession(CreateApplePaySessionRequest createApplePaySessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public ApplePaySessionResponse getApplePaySession(ApplePaySessionRequest applePaySessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = createApplePaySessionRequest.toJson();
+        String requestBody = applePaySessionRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/applePay/sessions", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return ApplePaySessionResponse.fromJson(jsonResult);
@@ -65,31 +83,31 @@ public class UtilityApi extends Service {
     /**
     * Create originKey values for domains
     *
-    * @param checkoutUtilityRequest {@link CheckoutUtilityRequest }  (required)
-    * @return {@link CheckoutUtilityResponse }
+    * @param utilityRequest {@link UtilityRequest }  (required)
+    * @return {@link UtilityResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */
     @Deprecated
-    public CheckoutUtilityResponse originKeys(CheckoutUtilityRequest checkoutUtilityRequest) throws ApiException, IOException {
-        return originKeys(checkoutUtilityRequest, null);
+    public UtilityResponse originKeys(UtilityRequest utilityRequest) throws ApiException, IOException {
+        return originKeys(utilityRequest, null);
     }
 
     /**
     * Create originKey values for domains
     *
-    * @param checkoutUtilityRequest {@link CheckoutUtilityRequest }  (required)
+    * @param utilityRequest {@link UtilityRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CheckoutUtilityResponse }
+    * @return {@link UtilityResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */
    @Deprecated
-    public CheckoutUtilityResponse originKeys(CheckoutUtilityRequest checkoutUtilityRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public UtilityResponse originKeys(UtilityRequest utilityRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = checkoutUtilityRequest.toJson();
+        String requestBody = utilityRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/originKeys", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return CheckoutUtilityResponse.fromJson(jsonResult);
+        return UtilityResponse.fromJson(jsonResult);
     }
 }

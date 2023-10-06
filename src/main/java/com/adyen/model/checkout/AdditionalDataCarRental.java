@@ -160,10 +160,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -
+   * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    * @return carRentalCustomerServiceTollFreeNumber
   **/
-  @ApiModelProperty(value = "The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not be all zeros * Must not contain any special characters such as + or -")
+  @ApiModelProperty(value = "The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,10 +185,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 2 * Must not be all spaces
+   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    * @return carRentalDaysRented
   **/
-  @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 2 * Must not be all spaces")
+  @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -235,10 +235,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces * Must not be all zeros
+   * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
    * @return carRentalInsuranceCharges
   **/
-  @ApiModelProperty(value = "Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_INSURANCE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -260,10 +260,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros
+   * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalLocationCity
   **/
-  @ApiModelProperty(value = "The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -310,10 +310,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces * Must not be all zeros
+   * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalLocationStateProvince
   **/
-  @ApiModelProperty(value = "The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -435,10 +435,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces * Must not be all zeros
+   * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalRentalAgreementNumber
   **/
-  @ApiModelProperty(value = "The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_AGREEMENT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -460,10 +460,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces * Must not be all zeros
+   * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalRentalClassId
   **/
-  @ApiModelProperty(value = "The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_CLASS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -485,10 +485,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces * Must not be all zeros
+   * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalRenterName
   **/
-  @ApiModelProperty(value = "The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -510,10 +510,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros
+   * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalReturnCity
   **/
-  @ApiModelProperty(value = "The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -585,10 +585,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces * Must not be all zeros
+   * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalReturnLocationId
   **/
-  @ApiModelProperty(value = "The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -610,10 +610,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces * Must not be all zeros
+   * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalReturnStateProvince
   **/
-  @ApiModelProperty(value = "The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces * Must not be all zeros")
+  @ApiModelProperty(value = "The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -660,10 +660,10 @@ public class AdditionalDataCarRental {
   }
 
    /**
-   * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 2
+   * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    * @return travelEntertainmentAuthDataDuration
   **/
-  @ApiModelProperty(value = "Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 2")
+  @ApiModelProperty(value = "Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4")
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

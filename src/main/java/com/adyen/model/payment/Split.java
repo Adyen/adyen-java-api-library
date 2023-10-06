@@ -67,27 +67,13 @@ public class Split {
     
     PAYMENTFEE("PaymentFee"),
     
-    PAYMENTFEEACQUIRING("PaymentFeeAcquiring"),
-    
-    PAYMENTFEEADYEN("PaymentFeeAdyen"),
-    
-    PAYMENTFEEADYENCOMMISSION("PaymentFeeAdyenCommission"),
-    
-    PAYMENTFEEADYENMARKUP("PaymentFeeAdyenMarkup"),
-    
-    PAYMENTFEEINTERCHANGE("PaymentFeeInterchange"),
-    
-    PAYMENTFEESCHEMEFEE("PaymentFeeSchemeFee"),
-    
     REMAINDER("Remainder"),
     
     SURCHARGE("Surcharge"),
     
     TIP("Tip"),
     
-    VAT("VAT"),
-    
-    VERIFICATION("Verification");
+    VAT("VAT");
 
     private String value;
 

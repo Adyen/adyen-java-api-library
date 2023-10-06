@@ -96,10 +96,10 @@ public class GetTermsOfServiceDocumentRequest {
   }
 
    /**
-   * The language to be used for the Terms of Service document, specified by the two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. For example, **nl** for Dutch.
+   * The language to be used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    * @return language
   **/
-  @ApiModelProperty(value = "The language to be used for the Terms of Service document, specified by the two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. For example, **nl** for Dutch.")
+  @ApiModelProperty(required = true, value = "The language to be used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -124,7 +124,7 @@ public class GetTermsOfServiceDocumentRequest {
    * The type of Terms of Service.
    * @return type
   **/
-  @ApiModelProperty(value = "The type of Terms of Service.")
+  @ApiModelProperty(required = true, value = "The type of Terms of Service.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

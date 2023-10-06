@@ -131,8 +131,6 @@ public class PaymentDetails {
     
     NETELLER("neteller"),
     
-    DANA("dana"),
-    
     PAYSAFECARD("paysafecard"),
     
     CASHTICKET("cashticket"),
@@ -156,8 +154,6 @@ public class PaymentDetails {
     OMANNET("omannet"),
     
     GOPAY_WALLET("gopay_wallet"),
-    
-    POLI("poli"),
     
     KCP_NAVERPAY("kcp_naverpay"),
     
