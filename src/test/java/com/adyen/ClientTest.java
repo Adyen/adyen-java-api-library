@@ -38,24 +38,8 @@ public class ClientTest {
 
     @Test
     public void testClientCertificateAuth() {
-        Client client = new Client(clientCertificateAuthSSLContext, apiKey, null);
+        Client client = new Client(clientCertificateAuthSSLContext, apiKey);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-    }
-
-    @Test
-    public void testClientCertificateAuth_AU() {
-        Client client = new Client(clientCertificateAuthSSLContext, apiKey, Region.AU);
-
-        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        assertCommonEndpoints(client.getConfig());
-    }
-
-    @Test
-    public void testClientCertificateAuth_US() {
-        Client client = new Client(clientCertificateAuthSSLContext, apiKey, Region.US);
-
-        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        assertCommonEndpoints(client.getConfig());
     }
 
     private void assertCommonEndpoints(Config config) {
