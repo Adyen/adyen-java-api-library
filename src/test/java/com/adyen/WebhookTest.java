@@ -21,12 +21,11 @@
 package com.adyen;
 
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
-import com.adyen.model.balanceplatform.BankAccountIdentificationValidationRequest;
 import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
-import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
 import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;
+import com.adyen.model.marketpaywebhooks.AccountHolderCreateNotification;
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
 import com.adyen.model.nexo.EventNotification;
@@ -45,7 +44,6 @@ import com.google.gson.JsonParser;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.function.ThrowingRunnable;
 
 import java.io.IOException;
 import java.security.SignatureException;
@@ -679,6 +677,7 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
                 "}";
         ClassicPlatformWebhookHandler webhookHandler = new ClassicPlatformWebhookHandler(notification);
         Assert.assertTrue(webhookHandler.getAccountHolderCreateNotification().isPresent());
-        System.out.println(webhookHandler.getAccountHolderCreateNotification().get().toJson());
+        AccountHolderCreateNotification payload = webhookHandler.getAccountHolderCreateNotification().get();
+        Assert.assertEquals(payload.getEventType(), "ACCOUNT_HOLDER_CREATED");
     }
 }

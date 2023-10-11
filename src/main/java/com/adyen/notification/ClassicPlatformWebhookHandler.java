@@ -1,6 +1,23 @@
 package com.adyen.notification;
 
-import com.adyen.model.marketpaywebhooks.*;
+import com.adyen.model.marketpaywebhooks.AccountCloseNotification;
+import com.adyen.model.marketpaywebhooks.AccountCreateNotification;
+import com.adyen.model.marketpaywebhooks.AccountFundsBelowThresholdNotification;
+import com.adyen.model.marketpaywebhooks.AccountHolderCreateNotification;
+import com.adyen.model.marketpaywebhooks.AccountHolderPayoutNotification;
+import com.adyen.model.marketpaywebhooks.AccountHolderStatusChangeNotification;
+import com.adyen.model.marketpaywebhooks.AccountHolderUpcomingDeadlineNotification;
+import com.adyen.model.marketpaywebhooks.AccountHolderUpdateNotification;
+import com.adyen.model.marketpaywebhooks.AccountHolderVerificationNotification;
+import com.adyen.model.marketpaywebhooks.AccountUpdateNotification;
+import com.adyen.model.marketpaywebhooks.BeneficiarySetupNotification;
+import com.adyen.model.marketpaywebhooks.CompensateNegativeBalanceNotification;
+import com.adyen.model.marketpaywebhooks.DirectDebitInitiatedNotification;
+import com.adyen.model.marketpaywebhooks.PaymentFailureNotification;
+import com.adyen.model.marketpaywebhooks.RefundFundsTransferNotification;
+import com.adyen.model.marketpaywebhooks.ReportAvailableNotification;
+import com.adyen.model.marketpaywebhooks.ScheduledRefundsNotification;
+import com.adyen.model.marketpaywebhooks.TransferFundsNotification;
 import com.adyen.model.transferwebhooks.JSON;
 
 import java.util.Optional;
