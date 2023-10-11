@@ -1,0 +1,71 @@
+{
+  "defenseReasons": [
+    {
+      "defenseDocumentTypes": [
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "TIDorInvoice",
+          "requirementLevel": "Optional"
+        },
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "GoodsNotReturned",
+          "requirementLevel": "Required"
+        }
+      ],
+      "defenseReasonCode": "GoodsNotReturned",
+      "satisfied": false
+    },
+    {
+      "defenseDocumentTypes": [
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "TIDorInvoice",
+          "requirementLevel": "Optional"
+        },
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "GoodsRepairedOrReplaced",
+          "requirementLevel": "Required"
+        }
+      ],
+      "defenseReasonCode": "GoodsRepairedOrReplaced",
+      "satisfied": false
+    },
+    {
+      "defenseDocumentTypes": [
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "GoodsWereAsDescribed",
+          "requirementLevel": "Required"
+        },
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "TIDorInvoice",
+          "requirementLevel": "Required"
+        }
+      ],
+      "defenseReasonCode": "GoodsWereAsDescribed",
+      "satisfied": false
+    },
+    {
+      "defenseDocumentTypes": [
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "TIDorInvoice",
+          "requirementLevel": "Optional"
+        },
+        {
+          "available": false,
+          "defenseDocumentTypeCode": "DefenseMaterial",
+          "requirementLevel": "Required"
+        }
+      ],
+      "defenseReasonCode": "SupplyDefenseMaterial",
+      "satisfied": false
+    }
+  ],
+  "disputeServiceResult": {
+    "success": true
+  }
+}
