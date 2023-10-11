@@ -41,7 +41,7 @@ marketpayconfiguration: spec=NotificationConfigurationService-v6
 marketpayconfiguration: smallServiceName=ClassicPlatformConfigurationApi
 marketpayhop: spec=HopService-v6
 marketpayhop: smallServiceName=ClassicPlatformHopApi
-#marketpaywebhooks: spec=MarketPayNotificationService-v6
+marketpaywebhooks: spec=MarketPayNotificationService-v6
 # Balance Webhooks
 acswebhooks: spec=BalancePlatformAcsNotification-v1
 configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
