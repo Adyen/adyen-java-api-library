@@ -71,7 +71,11 @@ public class DokuDetails {
     
     ALFAMART("doku_alfamart"),
     
-    INDOMARET("doku_indomaret");
+    INDOMARET("doku_indomaret"),
+    
+    WALLET("doku_wallet"),
+    
+    OVO("doku_ovo");
 
     private String value;
 
