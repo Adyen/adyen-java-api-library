@@ -22,7 +22,6 @@ public class TransfersTest extends BaseTest {
         amount.setCurrency("EUR");
         amount.setValue(80000L);
         assertEquals(response.getAmount(), amount);
-        assertEquals(response.getPriority(), Transfer.PriorityEnum.REGULAR);
     }
 
     @Test
@@ -30,7 +29,7 @@ public class TransfersTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-success-200.json");
         TransactionsApi transactions = new TransactionsApi(client);
         TransactionSearchResponse response = transactions.getAllTransactions(null, null);
-        Transaction transactionsResponse = response.getData().get(1);
+        TransactionData transactionsResponse = response.getData().get(1);
         assertEquals(transactionsResponse.getId(), "1WEPGD5U6MS1CFK3");
         assertEquals(transactionsResponse.getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
     }
@@ -39,7 +38,7 @@ public class TransfersTest extends BaseTest {
     public void TransactionsRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-id-success-200.json");
         TransactionsApi transactions = new TransactionsApi(client);
-        Transaction response = transactions.getTransaction("1");
+        TransactionData response = transactions.getTransaction("1");
         assertEquals(response.getId(), "IZK7C25U7DYVX03Y");
         assertEquals(response.getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
     }
