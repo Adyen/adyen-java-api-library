@@ -286,7 +286,6 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
                 "                     \"challenge\" : {\n" +
                 "                        \"flow\" : \"OTP_SMS\",\n" +
                 "                        \"lastInteraction\" : \"2023-01-19T17:37:13+01:00\",\n" +
-                "                        \"phoneNumber\" : \"******6789\",\n" +
                 "                        \"resends\" : 0,\n" +
                 "                        \"retries\" : 2\n" +
                 "                     },\n" +
@@ -566,15 +565,6 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
                 "      \"metadata\": {\n" +
                 "        \"MetaKey\": \"MetaValue\"\n" +
                 "      },\n" +
-                "      \"payoutInstrumentTokens\": [\n" +
-                "        {\n" +
-                "          \"merchantAccount\": \"MA000001\",\n" +
-                "          \"payoutInstrumentTokenCode\": \"PIT000001\",\n" +
-                "          \"payoutInstrumentTokenType\": \"CardToken\",\n" +
-                "          \"recurringDetailReference\": \"RDR0000001\",\n" +
-                "          \"shopperReference\": \"SR000001\"\n" +
-                "        }\n" +
-                "      ],\n" +
                 "      \"phoneNumber\": {\n" +
                 "        \"phoneCountryCode\": \"NL\",\n" +
                 "        \"phoneNumber\": \"858888138\",\n" +
@@ -653,24 +643,6 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
                 "          ],\n" +
                 "          \"shareholderCode\": \"SH000001\"\n" +
                 "        }\n" +
-                "      ],\n" +
-                "      \"bankAccounts\": [\n" +
-                "        {\n" +
-                "          \"checks\": [\n" +
-                "            {\n" +
-                "              \"type\": \"IDENTITY_VERIFICATION\",\n" +
-                "              \"status\": \"PENDING\",\n" +
-                "              \"summary\": {\n" +
-                "                \"kycCheckCode\": 100,\n" +
-                "                \"kycCheckDescription\": \"KYC check summary description\"\n" +
-                "              },\n" +
-                "              \"requiredFields\": [\n" +
-                "                \"field.missing\"\n" +
-                "              ]\n" +
-                "            }\n" +
-                "          ],\n" +
-                "          \"bankAccountUUID\": \"00000000-0000-0000-0000-000000000000\"\n" +
-                "        }\n" +
                 "      ]\n" +
                 "    }\n" +
                 "  }\n" +
@@ -678,6 +650,6 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
         ClassicPlatformWebhookHandler webhookHandler = new ClassicPlatformWebhookHandler(notification);
         Assert.assertTrue(webhookHandler.getAccountHolderCreateNotification().isPresent());
         AccountHolderCreateNotification payload = webhookHandler.getAccountHolderCreateNotification().get();
-        Assert.assertEquals(payload.getEventType(), "ACCOUNT_HOLDER_CREATED");
+        Assert.assertEquals("ACCOUNT_HOLDER_CREATED", payload.getEventType());
     }
 }
