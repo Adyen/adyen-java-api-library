@@ -13,9 +13,17 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.adyen.model.transfers.Links;
+import com.adyen.model.transfers.TransactionData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +44,7 @@ public class TransactionSearchResponse {
   private Links links;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Transaction> data = null;
+  private List<TransactionData> data = null;
 
   public TransactionSearchResponse() { 
   }
@@ -66,12 +74,12 @@ public class TransactionSearchResponse {
   }
 
 
-  public TransactionSearchResponse data(List<Transaction> data) {
+  public TransactionSearchResponse data(List<TransactionData> data) {
     this.data = data;
     return this;
   }
 
-  public TransactionSearchResponse addDataItem(Transaction dataItem) {
+  public TransactionSearchResponse addDataItem(TransactionData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -87,14 +95,14 @@ public class TransactionSearchResponse {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Transaction> getData() {
+  public List<TransactionData> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(List<Transaction> data) {
+  public void setData(List<TransactionData> data) {
     this.data = data;
   }
 
