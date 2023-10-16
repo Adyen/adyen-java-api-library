@@ -441,8 +441,9 @@ securityKey.setAdyenCryptoVersion(1);
 securityKey.setKeyIdentifier("keyIdentifier");
 securityKey.setPassphrase("passphrase");
 
-TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
 // Use TerminalLocalAPI
+TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
+TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIRequest);
 ~~~~
 
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
