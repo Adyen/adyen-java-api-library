@@ -21,12 +21,11 @@
 package com.adyen;
 
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
-import com.adyen.model.balanceplatform.BankAccountIdentificationValidationRequest;
 import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
-import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
 import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;
+import com.adyen.model.marketpaywebhooks.AccountHolderCreateNotification;
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
 import com.adyen.model.nexo.EventNotification;
@@ -36,6 +35,7 @@ import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.notification.BankingWebhookHandler;
+import com.adyen.notification.ClassicPlatformWebhookHandler;
 import com.adyen.notification.ManagementWebhookHandler;
 import com.adyen.notification.WebhookHandler;
 import com.adyen.util.HMACValidator;
@@ -44,7 +44,6 @@ import com.google.gson.JsonParser;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.function.ThrowingRunnable;
 
 import java.io.IOException;
 import java.security.SignatureException;
@@ -287,7 +286,6 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
                 "                     \"challenge\" : {\n" +
                 "                        \"flow\" : \"OTP_SMS\",\n" +
                 "                        \"lastInteraction\" : \"2023-01-19T17:37:13+01:00\",\n" +
-                "                        \"phoneNumber\" : \"******6789\",\n" +
                 "                        \"resends\" : 0,\n" +
                 "                        \"retries\" : 2\n" +
                 "                     },\n" +
@@ -424,5 +422,234 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
         MerchantCreatedNotificationRequest request = webhookHandler.getMerchantCreatedNotificationRequest().get();
         Assert.assertEquals("MC3224X22322535GH8D537TJR", request.getData().getMerchantId());
         Assert.assertEquals(MerchantCreatedNotificationRequest.TypeEnum.MERCHANT_CREATED, request.getType());
+    }
+
+    @Test
+    public void testClassicPlatformParsing() throws JsonProcessingException {
+        String notification = "{\n" +
+                "  \"error\": {\n" +
+                "    \"errorCode\": \"000\",\n" +
+                "    \"message\": \"test error message\"\n" +
+                "  },\n" +
+                "  \"eventDate\": \"2019-01-02T01:00:00+01:00\",\n" +
+                "  \"eventType\": \"ACCOUNT_HOLDER_CREATED\",\n" +
+                "  \"executingUserKey\": \"executing-user-key\",\n" +
+                "  \"live\": false,\n" +
+                "  \"pspReference\": \"TSTPSPR0001\",\n" +
+                "  \"content\": {\n" +
+                "    \"invalidFields\": [\n" +
+                "      {\n" +
+                "        \"errorCode\": 1,\n" +
+                "        \"errorDescription\": \"Field is missing\",\n" +
+                "        \"fieldType\": {\n" +
+                "          \"field\": \"AccountHolderDetails.BusinessDetails.Shareholders.unknown\",\n" +
+                "          \"fieldName\": \"unknown\",\n" +
+                "          \"shareholderCode\": \"SH00001\"\n" +
+                "        }\n" +
+                "      }\n" +
+                "    ],\n" +
+                "    \"pspReference\": \"TSTPSPR0001\",\n" +
+                "    \"resultCode\": \"Success\",\n" +
+                "    \"accountCode\": \"AC0000000001\",\n" +
+                "    \"accountHolderCode\": \"AHC00000001\",\n" +
+                "    \"accountHolderDetails\": {\n" +
+                "      \"address\": {\n" +
+                "        \"city\": \"Amsterdam\",\n" +
+                "        \"country\": \"NL\",\n" +
+                "        \"houseNumberOrName\": \"96/A\",\n" +
+                "        \"postalCode\": \"1000AA\",\n" +
+                "        \"stateOrProvince\": \"NH\",\n" +
+                "        \"street\": \"Street\"\n" +
+                "      },\n" +
+                "      \"bankAccountDetails\": [\n" +
+                "        {\n" +
+                "          \"accountNumber\": \"00000000\",\n" +
+                "          \"accountType\": \"checking\",\n" +
+                "          \"bankAccountName\": \"Account name\",\n" +
+                "          \"bankAccountReference\": \"Ref#000001\",\n" +
+                "          \"bankAccountUUID\": \"00000000-0000-0000-0000-000000000000\",\n" +
+                "          \"bankBicSwift\": \"BSWFT\",\n" +
+                "          \"bankCity\": \"Amsterdam\",\n" +
+                "          \"bankCode\": \"00000000\",\n" +
+                "          \"bankName\": \"Bank Name Co\",\n" +
+                "          \"branchCode\": \"00000000\",\n" +
+                "          \"checkCode\": \"1234\",\n" +
+                "          \"countryCode\": \"NL\",\n" +
+                "          \"currencyCode\": \"EUR\",\n" +
+                "          \"iban\": \"NL00NONE1234123412\",\n" +
+                "          \"ownerCity\": \"Amsterdam\",\n" +
+                "          \"ownerCountryCode\": \"NL\",\n" +
+                "          \"ownerDateOfBirth\": \"1981-02-27\",\n" +
+                "          \"ownerHouseNumberOrName\": \"32/B\",\n" +
+                "          \"ownerName\": \"Owner Name\",\n" +
+                "          \"ownerNationality\": \"NL\",\n" +
+                "          \"ownerPostalCode\": \"1000AA\",\n" +
+                "          \"ownerState\": \"NH\",\n" +
+                "          \"ownerStreet\": \"Owner Street\",\n" +
+                "          \"primaryAccount\": false,\n" +
+                "          \"taxId\": \"OT#12345\",\n" +
+                "          \"urlForVerification\": \"http://adyen.com\"\n" +
+                "        }\n" +
+                "      ],\n" +
+                "      \"businessDetails\": {\n" +
+                "        \"doingBusinessAs\": \"Business name\",\n" +
+                "        \"legalBusinessName\": \"Legal Business Co\",\n" +
+                "        \"registrationNumber\": \"Reg#1234\",\n" +
+                "        \"shareholders\": [\n" +
+                "          {\n" +
+                "            \"address\": {\n" +
+                "              \"city\": \"Amsterdam\",\n" +
+                "              \"country\": \"NL\",\n" +
+                "              \"houseNumberOrName\": \"96/A\",\n" +
+                "              \"postalCode\": \"1000AA\",\n" +
+                "              \"stateOrProvince\": \"NH\",\n" +
+                "              \"street\": \"Street\"\n" +
+                "            },\n" +
+                "            \"email\": \"contact@merchant.com\",\n" +
+                "            \"fullPhoneNumber\": \"+3112345678\",\n" +
+                "            \"name\": {\n" +
+                "              \"firstName\": \"Firstname\",\n" +
+                "              \"gender\": \"UNKNOWN\",\n" +
+                "              \"infix\": \"infix\",\n" +
+                "              \"lastName\": \"Lastname\"\n" +
+                "            },\n" +
+                "            \"personalData\": {\n" +
+                "              \"dateOfBirth\": \"1981-02-27\",\n" +
+                "              \"documentData\": [\n" +
+                "                {\n" +
+                "                  \"expirationDate\": \"2030-12-31\",\n" +
+                "                  \"issuerCountry\": \"NL\",\n" +
+                "                  \"issuerState\": \"NH\",\n" +
+                "                  \"number\": \"ID#123456\",\n" +
+                "                  \"type\": \"ID\"\n" +
+                "                }\n" +
+                "              ],\n" +
+                "              \"nationality\": \"NL\"\n" +
+                "            },\n" +
+                "            \"phoneNumber\": {\n" +
+                "              \"phoneCountryCode\": \"NL\",\n" +
+                "              \"phoneNumber\": \"858888138\",\n" +
+                "              \"phoneType\": \"Landline\"\n" +
+                "            },\n" +
+                "            \"shareholderCode\": \"SH00001\",\n" +
+                "            \"shareholderReference\": \"SHREF#0000001\",\n" +
+                "            \"webAddress\": \"https://www.adyen.com/\"\n" +
+                "          }\n" +
+                "        ],\n" +
+                "        \"taxId\": \"TaxID#1234\"\n" +
+                "      },\n" +
+                "      \"email\": \"contact@adyen.com\",\n" +
+                "      \"fullPhoneNumber\": \"+31858888138\",\n" +
+                "      \"individualDetails\": {\n" +
+                "        \"name\": {\n" +
+                "          \"firstName\": \"Firstname\",\n" +
+                "          \"gender\": \"UNKNOWN\",\n" +
+                "          \"infix\": \"infix\",\n" +
+                "          \"lastName\": \"Lastname\"\n" +
+                "        },\n" +
+                "        \"personalData\": {\n" +
+                "          \"dateOfBirth\": \"1981-02-27\",\n" +
+                "          \"documentData\": [\n" +
+                "            {\n" +
+                "              \"expirationDate\": \"2030-12-31\",\n" +
+                "              \"issuerCountry\": \"NL\",\n" +
+                "              \"issuerState\": \"NH\",\n" +
+                "              \"number\": \"ID#123456\",\n" +
+                "              \"type\": \"ID\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"nationality\": \"NL\"\n" +
+                "        }\n" +
+                "      },\n" +
+                "      \"merchantCategoryCode\": \"1212\",\n" +
+                "      \"metadata\": {\n" +
+                "        \"MetaKey\": \"MetaValue\"\n" +
+                "      },\n" +
+                "      \"phoneNumber\": {\n" +
+                "        \"phoneCountryCode\": \"NL\",\n" +
+                "        \"phoneNumber\": \"858888138\",\n" +
+                "        \"phoneType\": \"Landline\"\n" +
+                "      },\n" +
+                "      \"webAddress\": \"https://adyen.com\"\n" +
+                "    },\n" +
+                "    \"accountHolderStatus\": {\n" +
+                "      \"status\": \"Active\",\n" +
+                "      \"statusReason\": \"Reason of status\",\n" +
+                "      \"processingState\": {\n" +
+                "        \"disabled\": true,\n" +
+                "        \"disableReason\": \"Reason for disabled status\",\n" +
+                "        \"processedFrom\": {\n" +
+                "          \"currency\": \"EUR\",\n" +
+                "          \"value\": 10\n" +
+                "        },\n" +
+                "        \"processedTo\": {\n" +
+                "          \"currency\": \"EUR\",\n" +
+                "          \"value\": 100\n" +
+                "        },\n" +
+                "        \"tierNumber\": 2\n" +
+                "      },\n" +
+                "      \"payoutState\": {\n" +
+                "        \"allowPayout\": false,\n" +
+                "        \"payoutLimit\": {\n" +
+                "          \"currency\": \"EUR\",\n" +
+                "          \"value\": 1000\n" +
+                "        },\n" +
+                "        \"disabled\": true,\n" +
+                "        \"disableReason\": \"Reason for disabled status\",\n" +
+                "        \"tierNumber\": 2,\n" +
+                "        \"notAllowedReason\": \"Reason of not allowed\"\n" +
+                "      },\n" +
+                "      \"events\": [\n" +
+                "        {\n" +
+                "          \"event\": \"InactivateAccount\",\n" +
+                "          \"executionDate\": \"2019-01-01T01:00:00+01:00\",\n" +
+                "          \"reason\": \"Reason of event\"\n" +
+                "        }\n" +
+                "      ]\n" +
+                "    },\n" +
+                "    \"description\": \"Description for account holder\",\n" +
+                "    \"legalEntity\": \"Business\",\n" +
+                "    \"primaryCurrency\": \"EUR\",\n" +
+                "    \"verification\": {\n" +
+                "      \"accountHolder\": {\n" +
+                "        \"checks\": [\n" +
+                "          {\n" +
+                "            \"type\": \"IDENTITY_VERIFICATION\",\n" +
+                "            \"status\": \"PENDING\",\n" +
+                "            \"summary\": {\n" +
+                "              \"kycCheckCode\": 100,\n" +
+                "              \"kycCheckDescription\": \"KYC check summary description\"\n" +
+                "            },\n" +
+                "            \"requiredFields\": [\n" +
+                "              \"field.missing\"\n" +
+                "            ]\n" +
+                "          }\n" +
+                "        ]\n" +
+                "      },\n" +
+                "      \"shareholders\": [\n" +
+                "        {\n" +
+                "          \"checks\": [\n" +
+                "            {\n" +
+                "              \"type\": \"IDENTITY_VERIFICATION\",\n" +
+                "              \"status\": \"PENDING\",\n" +
+                "              \"summary\": {\n" +
+                "                \"kycCheckCode\": 100,\n" +
+                "                \"kycCheckDescription\": \"KYC check summary description\"\n" +
+                "              },\n" +
+                "              \"requiredFields\": [\n" +
+                "                \"field.missing\"\n" +
+                "              ]\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"shareholderCode\": \"SH000001\"\n" +
+                "        }\n" +
+                "      ]\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+        ClassicPlatformWebhookHandler webhookHandler = new ClassicPlatformWebhookHandler(notification);
+        Assert.assertTrue(webhookHandler.getAccountHolderCreateNotification().isPresent());
+        AccountHolderCreateNotification payload = webhookHandler.getAccountHolderCreateNotification().get();
+        Assert.assertEquals("ACCOUNT_HOLDER_CREATED", payload.getEventType());
     }
 }
