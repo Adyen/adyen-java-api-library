@@ -398,35 +398,6 @@ TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIReque
 
 ## Using the Local Terminal API Integration
 The request and response payloads are identical to the Cloud Terminal API, however, additional encryption details are required to perform the requests.
-```java
-// Step 1: Import the required classes
-import com.adyen.service.TerminalLocalAPI;
-import com.adyen.model.nexo.*;
-import com.adyen.model.terminal.*;
-
-// Step 2: Add your Certificate Path and Local Endpoint to the config path. Install the certificate from [here](https://docs.adyen.com/point-of-sale/choose-your-architecture/local#protect-communications).
-Client client = new Client();
-client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
-client.getConfig().setEnvironment(Environment.TEST);
-client.getConfig().setTerminalCertificate("YOUR_CERTIFICATE_PATH");
-
-// Step 3: Setup a security password for you terminal in CA, and import the security key object:
-SecurityKey securityKey = new SecurityKey();
-securityKey.setKeyVersion(1);
-securityKey.setAdyenCryptoVersion(1);
-securityKey.setKeyIdentifier("keyIdentifier");
-securityKey.setPassphrase("passphrase");
-
-// Step 4 Initialize the API object
-TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
-
-// Step 5: Create the request object
-TerminalAPIRequest terminalAPIRequest = ///....same as the one used for Cloud API ;
-
-// Step 6: Make the request
-TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIRequest);
-```
-
 ### Local terminal API Using Keystore
 ~~~~ java
 // Import the required classes
@@ -435,6 +406,8 @@ import com.adyen.Config;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.TerminalLocalAPIHostnameVerifier;
 import com.adyen.service.TerminalLocalAPI;
+import com.adyen.model.terminal.security.*;
+import com.adyen.model.terminal.*;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 import java.security.KeyStore;
@@ -461,6 +434,13 @@ config.setSSLContext(sslContext);
 config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(environment));
 Client client = new Client(config);
 
+// Create your SecurityKey object used for encrypting the payload (keyIdentifier/passphrase you set up beforehand in CA)
+SecurityKey securityKey = new SecurityKey();
+securityKey.setKeyVersion(1);
+securityKey.setAdyenCryptoVersion(1);
+securityKey.setKeyIdentifier("keyIdentifier");
+securityKey.setPassphrase("passphrase");
+
 TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
 // Use TerminalLocalAPI
 ~~~~
@@ -477,7 +457,6 @@ import com.adyen.model.terminal.*;
 Client client = new Client();
 client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
 client.getConfig().setEnvironment(Environment.TEST);
-client.getConfig().setTerminalCertificate("YOUR_CERTIFICATE_PATH");
 
 // Step 3 Initialize the client and the API objects;
 TerminalLocalAPIUnencrypted terminalLocalAPIUnencrypted = new TerminalLocalAPIUnencrypted(client);
