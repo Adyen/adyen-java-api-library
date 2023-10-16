@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=jersey3
-modelGen:=acswebhooks balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks managementwebhooks
+modelGen:=acswebhooks balancecontrol balanceplatform binlookup checkout dataprotection legalentitymanagement management payment payout posterminalmanagement recurring transfers storedvalue configurationwebhooks reportwebhooks transferwebhooks managementwebhooks disputes
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -41,7 +41,7 @@ marketpayconfiguration: spec=NotificationConfigurationService-v6
 marketpayconfiguration: smallServiceName=ClassicPlatformConfigurationApi
 marketpayhop: spec=HopService-v6
 marketpayhop: smallServiceName=ClassicPlatformHopApi
-#marketpaywebhooks: spec=MarketPayNotificationService-v6
+marketpaywebhooks: spec=MarketPayNotificationService-v6
 # Balance Webhooks
 acswebhooks: spec=BalancePlatformAcsNotification-v1
 configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
@@ -49,6 +49,9 @@ reportwebhooks: spec=BalancePlatformReportNotification-v1
 transferwebhooks: spec=BalancePlatformTransferNotification-v3
 # Management Webhooks
 managementwebhooks: spec=ManagementNotificationService-v1
+# Disputes
+disputes: spec=DisputeService-v30
+disputes: smallServiceName=DisputesApi
 
 $(modelGen): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)
@@ -73,7 +76,7 @@ $(modelGen): target/spec $(openapi-generator-jar)
 
 # Full service + models automation
 bigServices:=balanceplatform checkout payout management legalentitymanagement transfers
-singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment
+singleFileServices:=balancecontrol binlookup dataprotection storedvalue posterminalmanagement recurring payment disputes
 
 services: $(bigServices) $(singleFileServices)
 
