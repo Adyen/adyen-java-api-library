@@ -17,12 +17,13 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.AccountInfo;
-import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
+import com.adyen.model.checkout.BillingAddress;
 import com.adyen.model.checkout.CheckoutSessionInstallmentOption;
 import com.adyen.model.checkout.Company;
+import com.adyen.model.checkout.DeliveryAddress;
 import com.adyen.model.checkout.FundOrigin;
 import com.adyen.model.checkout.FundRecipient;
 import com.adyen.model.checkout.LineItem;
@@ -133,7 +134,7 @@ public class CreateCheckoutSessionRequest {
   private AuthenticationData authenticationData;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
-  private Address billingAddress;
+  private BillingAddress billingAddress;
 
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
   private List<String> blockedPaymentMethods = null;
@@ -194,7 +195,7 @@ public class CreateCheckoutSessionRequest {
   private OffsetDateTime deliverAt;
 
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
-  private Address deliveryAddress;
+  private DeliveryAddress deliveryAddress;
 
   public static final String JSON_PROPERTY_ENABLE_ONE_CLICK = "enableOneClick";
   private Boolean enableOneClick;
@@ -620,7 +621,7 @@ public class CreateCheckoutSessionRequest {
   }
 
 
-  public CreateCheckoutSessionRequest billingAddress(Address billingAddress) {
+  public CreateCheckoutSessionRequest billingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
@@ -633,14 +634,14 @@ public class CreateCheckoutSessionRequest {
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getBillingAddress() {
+  public BillingAddress getBillingAddress() {
     return billingAddress;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(Address billingAddress) {
+  public void setBillingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
   }
 
@@ -828,7 +829,7 @@ public class CreateCheckoutSessionRequest {
   }
 
 
-  public CreateCheckoutSessionRequest deliveryAddress(Address deliveryAddress) {
+  public CreateCheckoutSessionRequest deliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -841,14 +842,14 @@ public class CreateCheckoutSessionRequest {
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getDeliveryAddress() {
+  public DeliveryAddress getDeliveryAddress() {
     return deliveryAddress;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeliveryAddress(Address deliveryAddress) {
+  public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
   }
 

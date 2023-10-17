@@ -17,13 +17,14 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.AccountInfo;
-import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
+import com.adyen.model.checkout.BillingAddress;
 import com.adyen.model.checkout.BrowserInfo;
-import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
+import com.adyen.model.checkout.DeliveryAddress;
+import com.adyen.model.checkout.DonationPaymentMethod;
 import com.adyen.model.checkout.EncryptedOrderData;
 import com.adyen.model.checkout.ForexQuote;
 import com.adyen.model.checkout.FundOrigin;
@@ -61,10 +62,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   DonationPaymentRequest.JSON_PROPERTY_ACCOUNT_INFO,
   DonationPaymentRequest.JSON_PROPERTY_ADDITIONAL_AMOUNT,
   DonationPaymentRequest.JSON_PROPERTY_ADDITIONAL_DATA,
+  DonationPaymentRequest.JSON_PROPERTY_ALLOWED_PAYMENT_METHODS,
   DonationPaymentRequest.JSON_PROPERTY_AMOUNT,
   DonationPaymentRequest.JSON_PROPERTY_APPLICATION_INFO,
   DonationPaymentRequest.JSON_PROPERTY_AUTHENTICATION_DATA,
   DonationPaymentRequest.JSON_PROPERTY_BILLING_ADDRESS,
+  DonationPaymentRequest.JSON_PROPERTY_BLOCKED_PAYMENT_METHODS,
   DonationPaymentRequest.JSON_PROPERTY_BROWSER_INFO,
   DonationPaymentRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
   DonationPaymentRequest.JSON_PROPERTY_CHANNEL,
@@ -88,6 +91,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   DonationPaymentRequest.JSON_PROPERTY_FRAUD_OFFSET,
   DonationPaymentRequest.JSON_PROPERTY_FUND_ORIGIN,
   DonationPaymentRequest.JSON_PROPERTY_FUND_RECIPIENT,
+  DonationPaymentRequest.JSON_PROPERTY_FUNDING_SOURCE,
   DonationPaymentRequest.JSON_PROPERTY_INDUSTRY_USAGE,
   DonationPaymentRequest.JSON_PROPERTY_INSTALLMENTS,
   DonationPaymentRequest.JSON_PROPERTY_LINE_ITEMS,
@@ -112,6 +116,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   DonationPaymentRequest.JSON_PROPERTY_REFERENCE,
   DonationPaymentRequest.JSON_PROPERTY_RETURN_URL,
   DonationPaymentRequest.JSON_PROPERTY_RISK_DATA,
+  DonationPaymentRequest.JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
   DonationPaymentRequest.JSON_PROPERTY_SESSION_VALIDITY,
   DonationPaymentRequest.JSON_PROPERTY_SHOPPER_EMAIL,
   DonationPaymentRequest.JSON_PROPERTY_SHOPPER_I_P,
@@ -140,6 +145,9 @@ public class DonationPaymentRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
+  public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
+  private List<String> allowedPaymentMethods = null;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
@@ -150,7 +158,10 @@ public class DonationPaymentRequest {
   private AuthenticationData authenticationData;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
-  private Address billingAddress;
+  private BillingAddress billingAddress;
+
+  public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
+  private List<String> blockedPaymentMethods = null;
 
   public static final String JSON_PROPERTY_BROWSER_INFO = "browserInfo";
   private BrowserInfo browserInfo;
@@ -220,7 +231,7 @@ public class DonationPaymentRequest {
   private OffsetDateTime deliverAt;
 
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
-  private Address deliveryAddress;
+  private DeliveryAddress deliveryAddress;
 
   public static final String JSON_PROPERTY_DELIVERY_DATE = "deliveryDate";
   private OffsetDateTime deliveryDate;
@@ -292,6 +303,42 @@ public class DonationPaymentRequest {
 
   public static final String JSON_PROPERTY_FUND_RECIPIENT = "fundRecipient";
   private FundRecipient fundRecipient;
+
+  /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   */
+  public enum FundingSourceEnum {
+    DEBIT("debit");
+
+    private String value;
+
+    FundingSourceEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FundingSourceEnum fromValue(String value) {
+      for (FundingSourceEnum b : FundingSourceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
+  private FundingSourceEnum fundingSource;
 
   /**
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
@@ -373,7 +420,7 @@ public class DonationPaymentRequest {
   private String origin;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
-  private CheckoutPaymentMethod paymentMethod;
+  private DonationPaymentMethod paymentMethod;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
@@ -438,6 +485,9 @@ public class DonationPaymentRequest {
 
   public static final String JSON_PROPERTY_RISK_DATA = "riskData";
   private RiskData riskData;
+
+  public static final String JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE = "selectedRecurringDetailReference";
+  private String selectedRecurringDetailReference;
 
   public static final String JSON_PROPERTY_SESSION_VALIDITY = "sessionValidity";
   private String sessionValidity;
@@ -612,6 +662,39 @@ public class DonationPaymentRequest {
   }
 
 
+  public DonationPaymentRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
+    this.allowedPaymentMethods = allowedPaymentMethods;
+    return this;
+  }
+
+  public DonationPaymentRequest addAllowedPaymentMethodsItem(String allowedPaymentMethodsItem) {
+    if (this.allowedPaymentMethods == null) {
+      this.allowedPaymentMethods = new ArrayList<>();
+    }
+    this.allowedPaymentMethods.add(allowedPaymentMethodsItem);
+    return this;
+  }
+
+   /**
+   * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+   * @return allowedPaymentMethods
+  **/
+  @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getAllowedPaymentMethods() {
+    return allowedPaymentMethods;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
+    this.allowedPaymentMethods = allowedPaymentMethods;
+  }
+
+
   public DonationPaymentRequest amount(Amount amount) {
     this.amount = amount;
     return this;
@@ -687,7 +770,7 @@ public class DonationPaymentRequest {
   }
 
 
-  public DonationPaymentRequest billingAddress(Address billingAddress) {
+  public DonationPaymentRequest billingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
@@ -700,15 +783,48 @@ public class DonationPaymentRequest {
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getBillingAddress() {
+  public BillingAddress getBillingAddress() {
     return billingAddress;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(Address billingAddress) {
+  public void setBillingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
+  }
+
+
+  public DonationPaymentRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
+    this.blockedPaymentMethods = blockedPaymentMethods;
+    return this;
+  }
+
+  public DonationPaymentRequest addBlockedPaymentMethodsItem(String blockedPaymentMethodsItem) {
+    if (this.blockedPaymentMethods == null) {
+      this.blockedPaymentMethods = new ArrayList<>();
+    }
+    this.blockedPaymentMethods.add(blockedPaymentMethodsItem);
+    return this;
+  }
+
+   /**
+   * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+   * @return blockedPaymentMethods
+  **/
+  @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
+  @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getBlockedPaymentMethods() {
+    return blockedPaymentMethods;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
+    this.blockedPaymentMethods = blockedPaymentMethods;
   }
 
 
@@ -965,7 +1081,7 @@ public class DonationPaymentRequest {
   }
 
 
-  public DonationPaymentRequest deliveryAddress(Address deliveryAddress) {
+  public DonationPaymentRequest deliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -978,14 +1094,14 @@ public class DonationPaymentRequest {
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getDeliveryAddress() {
+  public DeliveryAddress getDeliveryAddress() {
     return deliveryAddress;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeliveryAddress(Address deliveryAddress) {
+  public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
   }
 
@@ -998,9 +1114,7 @@ public class DonationPaymentRequest {
    /**
    * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    * @return deliveryDate
-   * @deprecated
   **/
-  @Deprecated
   @ApiModelProperty(value = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
   @JsonProperty(JSON_PROPERTY_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1010,7 +1124,6 @@ public class DonationPaymentRequest {
   }
 
 
-  @Deprecated
   @JsonProperty(JSON_PROPERTY_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryDate(OffsetDateTime deliveryDate) {
@@ -1290,6 +1403,31 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundRecipient(FundRecipient fundRecipient) {
     this.fundRecipient = fundRecipient;
+  }
+
+
+  public DonationPaymentRequest fundingSource(FundingSourceEnum fundingSource) {
+    this.fundingSource = fundingSource;
+    return this;
+  }
+
+   /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   * @return fundingSource
+  **/
+  @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FundingSourceEnum getFundingSource() {
+    return fundingSource;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFundingSource(FundingSourceEnum fundingSource) {
+    this.fundingSource = fundingSource;
   }
 
 
@@ -1667,7 +1805,7 @@ public class DonationPaymentRequest {
   }
 
 
-  public DonationPaymentRequest paymentMethod(CheckoutPaymentMethod paymentMethod) {
+  public DonationPaymentRequest paymentMethod(DonationPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
@@ -1680,14 +1818,14 @@ public class DonationPaymentRequest {
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CheckoutPaymentMethod getPaymentMethod() {
+  public DonationPaymentMethod getPaymentMethod() {
     return paymentMethod;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethod(CheckoutPaymentMethod paymentMethod) {
+  public void setPaymentMethod(DonationPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
@@ -1914,6 +2052,31 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskData(RiskData riskData) {
     this.riskData = riskData;
+  }
+
+
+  public DonationPaymentRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
+    this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    return this;
+  }
+
+   /**
+   * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
+   * @return selectedRecurringDetailReference
+  **/
+  @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
+  @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSelectedRecurringDetailReference() {
+    return selectedRecurringDetailReference;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
+    this.selectedRecurringDetailReference = selectedRecurringDetailReference;
   }
 
 
@@ -2343,10 +2506,12 @@ public class DonationPaymentRequest {
     return Objects.equals(this.accountInfo, donationPaymentRequest.accountInfo) &&
         Objects.equals(this.additionalAmount, donationPaymentRequest.additionalAmount) &&
         Objects.equals(this.additionalData, donationPaymentRequest.additionalData) &&
+        Objects.equals(this.allowedPaymentMethods, donationPaymentRequest.allowedPaymentMethods) &&
         Objects.equals(this.amount, donationPaymentRequest.amount) &&
         Objects.equals(this.applicationInfo, donationPaymentRequest.applicationInfo) &&
         Objects.equals(this.authenticationData, donationPaymentRequest.authenticationData) &&
         Objects.equals(this.billingAddress, donationPaymentRequest.billingAddress) &&
+        Objects.equals(this.blockedPaymentMethods, donationPaymentRequest.blockedPaymentMethods) &&
         Objects.equals(this.browserInfo, donationPaymentRequest.browserInfo) &&
         Objects.equals(this.captureDelayHours, donationPaymentRequest.captureDelayHours) &&
         Objects.equals(this.channel, donationPaymentRequest.channel) &&
@@ -2370,6 +2535,7 @@ public class DonationPaymentRequest {
         Objects.equals(this.fraudOffset, donationPaymentRequest.fraudOffset) &&
         Objects.equals(this.fundOrigin, donationPaymentRequest.fundOrigin) &&
         Objects.equals(this.fundRecipient, donationPaymentRequest.fundRecipient) &&
+        Objects.equals(this.fundingSource, donationPaymentRequest.fundingSource) &&
         Objects.equals(this.industryUsage, donationPaymentRequest.industryUsage) &&
         Objects.equals(this.installments, donationPaymentRequest.installments) &&
         Objects.equals(this.lineItems, donationPaymentRequest.lineItems) &&
@@ -2394,6 +2560,7 @@ public class DonationPaymentRequest {
         Objects.equals(this.reference, donationPaymentRequest.reference) &&
         Objects.equals(this.returnUrl, donationPaymentRequest.returnUrl) &&
         Objects.equals(this.riskData, donationPaymentRequest.riskData) &&
+        Objects.equals(this.selectedRecurringDetailReference, donationPaymentRequest.selectedRecurringDetailReference) &&
         Objects.equals(this.sessionValidity, donationPaymentRequest.sessionValidity) &&
         Objects.equals(this.shopperEmail, donationPaymentRequest.shopperEmail) &&
         Objects.equals(this.shopperIP, donationPaymentRequest.shopperIP) &&
@@ -2414,7 +2581,7 @@ public class DonationPaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, fundingSource, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, selectedRecurringDetailReference, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2424,10 +2591,12 @@ public class DonationPaymentRequest {
     sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
     sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+    sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
     sb.append("    authenticationData: ").append(toIndentedString(authenticationData)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
     sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
     sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
@@ -2451,6 +2620,7 @@ public class DonationPaymentRequest {
     sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
     sb.append("    fundOrigin: ").append(toIndentedString(fundOrigin)).append("\n");
     sb.append("    fundRecipient: ").append(toIndentedString(fundRecipient)).append("\n");
+    sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
     sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
@@ -2475,6 +2645,7 @@ public class DonationPaymentRequest {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
     sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
+    sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
     sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
