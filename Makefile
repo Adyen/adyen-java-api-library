@@ -28,9 +28,9 @@ payment: smallServiceName=PaymentApi
 recurring: spec=RecurringService-v68
 recurring: smallServiceName=RecurringApi
 payout: spec=PayoutService-v68
-management: spec=ManagementService-v1
+management: spec=ManagementService-v3
 balanceplatform: spec=BalancePlatformService-v2
-transfers: spec=TransferService-v3
+transfers: spec=TransferService-v4
 legalentitymanagement: spec=LegalEntityService-v3
 # Classic Platforms
 marketpayaccount: spec=AccountService-v6
