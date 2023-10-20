@@ -46,7 +46,7 @@ marketpaywebhooks: spec=MarketPayNotificationService-v6
 acswebhooks: spec=BalancePlatformAcsNotification-v1
 configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
 reportwebhooks: spec=BalancePlatformReportNotification-v1
-transferwebhooks: spec=BalancePlatformTransferNotification-v3
+transferwebhooks: spec=BalancePlatformTransferNotification-v4
 # Management Webhooks
 managementwebhooks: spec=ManagementNotificationService-v1
 # Disputes
