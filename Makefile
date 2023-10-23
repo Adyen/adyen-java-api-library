@@ -48,7 +48,7 @@ configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
 reportwebhooks: spec=BalancePlatformReportNotification-v1
 transferwebhooks: spec=BalancePlatformTransferNotification-v4
 # Management Webhooks
-managementwebhooks: spec=ManagementNotificationService-v1
+managementwebhooks: spec=ManagementNotificationService-v3
 # Disputes
 disputes: spec=DisputeService-v30
 disputes: smallServiceName=DisputesApi
