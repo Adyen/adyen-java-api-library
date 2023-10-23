@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.managementwebhooks.AccountUpdateNotificationData;
+import com.adyen.model.managementwebhooks.MidServiceNotificationData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,21 +30,21 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * MerchantUpdatedNotificationRequest
+ * PaymentMethodRequestRemovedNotificationRequest
  */
 @JsonPropertyOrder({
-  MerchantUpdatedNotificationRequest.JSON_PROPERTY_CREATED_AT,
-  MerchantUpdatedNotificationRequest.JSON_PROPERTY_DATA,
-  MerchantUpdatedNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
-  MerchantUpdatedNotificationRequest.JSON_PROPERTY_TYPE
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_CREATED_AT,
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_DATA,
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_TYPE
 })
 
-public class MerchantUpdatedNotificationRequest {
+public class PaymentMethodRequestRemovedNotificationRequest {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private AccountUpdateNotificationData data;
+  private MidServiceNotificationData data;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private String environment;
@@ -53,7 +53,7 @@ public class MerchantUpdatedNotificationRequest {
    * Type of notification.
    */
   public enum TypeEnum {
-    MERCHANT_UPDATED("merchant.updated");
+    PAYMENTMETHOD_REQUESTREMOVED("paymentMethod.requestRemoved");
 
     private String value;
 
@@ -85,10 +85,10 @@ public class MerchantUpdatedNotificationRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public MerchantUpdatedNotificationRequest() { 
+  public PaymentMethodRequestRemovedNotificationRequest() { 
   }
 
-  public MerchantUpdatedNotificationRequest createdAt(OffsetDateTime createdAt) {
+  public PaymentMethodRequestRemovedNotificationRequest createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -113,7 +113,7 @@ public class MerchantUpdatedNotificationRequest {
   }
 
 
-  public MerchantUpdatedNotificationRequest data(AccountUpdateNotificationData data) {
+  public PaymentMethodRequestRemovedNotificationRequest data(MidServiceNotificationData data) {
     this.data = data;
     return this;
   }
@@ -126,19 +126,19 @@ public class MerchantUpdatedNotificationRequest {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AccountUpdateNotificationData getData() {
+  public MidServiceNotificationData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(AccountUpdateNotificationData data) {
+  public void setData(MidServiceNotificationData data) {
     this.data = data;
   }
 
 
-  public MerchantUpdatedNotificationRequest environment(String environment) {
+  public PaymentMethodRequestRemovedNotificationRequest environment(String environment) {
     this.environment = environment;
     return this;
   }
@@ -163,7 +163,7 @@ public class MerchantUpdatedNotificationRequest {
   }
 
 
-  public MerchantUpdatedNotificationRequest type(TypeEnum type) {
+  public PaymentMethodRequestRemovedNotificationRequest type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -189,7 +189,7 @@ public class MerchantUpdatedNotificationRequest {
 
 
   /**
-   * Return true if this MerchantUpdatedNotificationRequest object is equal to o.
+   * Return true if this PaymentMethodRequestRemovedNotificationRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -199,11 +199,11 @@ public class MerchantUpdatedNotificationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MerchantUpdatedNotificationRequest merchantUpdatedNotificationRequest = (MerchantUpdatedNotificationRequest) o;
-    return Objects.equals(this.createdAt, merchantUpdatedNotificationRequest.createdAt) &&
-        Objects.equals(this.data, merchantUpdatedNotificationRequest.data) &&
-        Objects.equals(this.environment, merchantUpdatedNotificationRequest.environment) &&
-        Objects.equals(this.type, merchantUpdatedNotificationRequest.type);
+    PaymentMethodRequestRemovedNotificationRequest paymentMethodRequestRemovedNotificationRequest = (PaymentMethodRequestRemovedNotificationRequest) o;
+    return Objects.equals(this.createdAt, paymentMethodRequestRemovedNotificationRequest.createdAt) &&
+        Objects.equals(this.data, paymentMethodRequestRemovedNotificationRequest.data) &&
+        Objects.equals(this.environment, paymentMethodRequestRemovedNotificationRequest.environment) &&
+        Objects.equals(this.type, paymentMethodRequestRemovedNotificationRequest.type);
   }
 
   @Override
@@ -214,7 +214,7 @@ public class MerchantUpdatedNotificationRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MerchantUpdatedNotificationRequest {\n");
+    sb.append("class PaymentMethodRequestRemovedNotificationRequest {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
@@ -235,17 +235,17 @@ public class MerchantUpdatedNotificationRequest {
   }
 
 /**
-   * Create an instance of MerchantUpdatedNotificationRequest given an JSON string
+   * Create an instance of PaymentMethodRequestRemovedNotificationRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of MerchantUpdatedNotificationRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MerchantUpdatedNotificationRequest
+   * @return An instance of PaymentMethodRequestRemovedNotificationRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentMethodRequestRemovedNotificationRequest
    */
-  public static MerchantUpdatedNotificationRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, MerchantUpdatedNotificationRequest.class);
+  public static PaymentMethodRequestRemovedNotificationRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PaymentMethodRequestRemovedNotificationRequest.class);
   }
 /**
-  * Convert an instance of MerchantUpdatedNotificationRequest to an JSON string
+  * Convert an instance of PaymentMethodRequestRemovedNotificationRequest to an JSON string
   *
   * @return JSON string
   */

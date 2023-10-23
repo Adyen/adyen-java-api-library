@@ -137,7 +137,6 @@ public class MarketPayTest extends BaseTest{
                 "}");
         // For some reason setting this content byte [] is broken
         String json = response.toJson();
-        System.out.println(new String(response.getContent()));
         Client client = createMockClientFromResponse(json);
         ClassicPlatformAccountApi api = new ClassicPlatformAccountApi(client);
 
