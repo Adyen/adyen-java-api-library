@@ -16,7 +16,7 @@
       "issuerState": "string",
       "nationalIdExempt": true,
       "number": "string",
-      "type": "proofOfNationalIdNumber"
+      "type": "nationalIdNumber"
     },
     "name": {
       "firstName": "string",

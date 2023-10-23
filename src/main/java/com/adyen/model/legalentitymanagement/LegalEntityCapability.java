@@ -157,10 +157,10 @@ public class LegalEntityCapability {
   }
 
    /**
-   * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful 
+   * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
    * @return allowed
   **/
-  @ApiModelProperty(value = "Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful ")
+  @ApiModelProperty(value = "Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.")
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -232,10 +232,10 @@ public class LegalEntityCapability {
   }
 
    /**
-   * Indicates whether the capability is requested. To check whether the Legal Entity is permitted to use the capability, 
+   * Indicates whether the capability is requested. To check whether the legal entity is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    * @return requested
   **/
-  @ApiModelProperty(value = "Indicates whether the capability is requested. To check whether the Legal Entity is permitted to use the capability, ")
+  @ApiModelProperty(value = "Indicates whether the capability is requested. To check whether the legal entity is permitted to use the capability, refer to the `allowed` field.")
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -315,10 +315,10 @@ public class LegalEntityCapability {
   }
 
    /**
-   * Capability status for transfer instruments associated with legal entity
+   * The capability status of transfer instruments associated with the legal entity.
    * @return transferInstruments
   **/
-  @ApiModelProperty(value = "Capability status for transfer instruments associated with legal entity")
+  @ApiModelProperty(value = "The capability status of transfer instruments associated with the legal entity.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
