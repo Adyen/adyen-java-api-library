@@ -32,7 +32,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * TransferRoute
  */
 @JsonPropertyOrder({
-  TransferRoute.JSON_PROPERTY_BALANCE_PLATFORM,
   TransferRoute.JSON_PROPERTY_CATEGORY,
   TransferRoute.JSON_PROPERTY_COUNTRY,
   TransferRoute.JSON_PROPERTY_CURRENCY,
@@ -41,9 +40,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class TransferRoute {
-  public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
-  private String balancePlatform;
-
   /**
    *  The type of transfer.   Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
    */
@@ -60,7 +56,9 @@ public class TransferRoute {
     
     MIGRATION("migration"),
     
-    PLATFORMPAYMENT("platformPayment");
+    PLATFORMPAYMENT("platformPayment"),
+    
+    UPGRADE("upgrade");
 
     private String value;
 
@@ -149,31 +147,6 @@ public class TransferRoute {
 
   public TransferRoute() { 
   }
-
-  public TransferRoute balancePlatform(String balancePlatform) {
-    this.balancePlatform = balancePlatform;
-    return this;
-  }
-
-   /**
-   * The unique identifier assigned to the balance platform associated with the account holder.
-   * @return balancePlatform
-  **/
-  @ApiModelProperty(value = "The unique identifier assigned to the balance platform associated with the account holder.")
-  @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBalancePlatform() {
-    return balancePlatform;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBalancePlatform(String balancePlatform) {
-    this.balancePlatform = balancePlatform;
-  }
-
 
   public TransferRoute category(CategoryEnum category) {
     this.category = category;
@@ -312,8 +285,7 @@ public class TransferRoute {
       return false;
     }
     TransferRoute transferRoute = (TransferRoute) o;
-    return Objects.equals(this.balancePlatform, transferRoute.balancePlatform) &&
-        Objects.equals(this.category, transferRoute.category) &&
+    return Objects.equals(this.category, transferRoute.category) &&
         Objects.equals(this.country, transferRoute.country) &&
         Objects.equals(this.currency, transferRoute.currency) &&
         Objects.equals(this.priority, transferRoute.priority) &&
@@ -322,14 +294,13 @@ public class TransferRoute {
 
   @Override
   public int hashCode() {
-    return Objects.hash(balancePlatform, category, country, currency, priority, requirements);
+    return Objects.hash(category, country, currency, priority, requirements);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransferRoute {\n");
-    sb.append("    balancePlatform: ").append(toIndentedString(balancePlatform)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");

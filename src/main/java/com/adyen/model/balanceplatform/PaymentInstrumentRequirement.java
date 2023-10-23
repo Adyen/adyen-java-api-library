@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   PaymentInstrumentRequirement.JSON_PROPERTY_DESCRIPTION,
   PaymentInstrumentRequirement.JSON_PROPERTY_ISSUING_COUNTRY_CODE,
+  PaymentInstrumentRequirement.JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM,
   PaymentInstrumentRequirement.JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE,
   PaymentInstrumentRequirement.JSON_PROPERTY_TYPE
 })
@@ -43,6 +44,9 @@ public class PaymentInstrumentRequirement {
 
   public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODE = "issuingCountryCode";
   private String issuingCountryCode;
+
+  public static final String JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM = "onlyForCrossBalancePlatform";
+  private Boolean onlyForCrossBalancePlatform;
 
   /**
    * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
@@ -171,6 +175,31 @@ public class PaymentInstrumentRequirement {
   }
 
 
+  public PaymentInstrumentRequirement onlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
+    this.onlyForCrossBalancePlatform = onlyForCrossBalancePlatform;
+    return this;
+  }
+
+   /**
+   * Specifies if the requirement only applies to transfers to another balance platform.
+   * @return onlyForCrossBalancePlatform
+  **/
+  @ApiModelProperty(value = "Specifies if the requirement only applies to transfers to another balance platform.")
+  @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getOnlyForCrossBalancePlatform() {
+    return onlyForCrossBalancePlatform;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOnlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
+    this.onlyForCrossBalancePlatform = onlyForCrossBalancePlatform;
+  }
+
+
   public PaymentInstrumentRequirement paymentInstrumentType(PaymentInstrumentTypeEnum paymentInstrumentType) {
     this.paymentInstrumentType = paymentInstrumentType;
     return this;
@@ -235,13 +264,14 @@ public class PaymentInstrumentRequirement {
     PaymentInstrumentRequirement paymentInstrumentRequirement = (PaymentInstrumentRequirement) o;
     return Objects.equals(this.description, paymentInstrumentRequirement.description) &&
         Objects.equals(this.issuingCountryCode, paymentInstrumentRequirement.issuingCountryCode) &&
+        Objects.equals(this.onlyForCrossBalancePlatform, paymentInstrumentRequirement.onlyForCrossBalancePlatform) &&
         Objects.equals(this.paymentInstrumentType, paymentInstrumentRequirement.paymentInstrumentType) &&
         Objects.equals(this.type, paymentInstrumentRequirement.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, issuingCountryCode, paymentInstrumentType, type);
+    return Objects.hash(description, issuingCountryCode, onlyForCrossBalancePlatform, paymentInstrumentType, type);
   }
 
   @Override
@@ -250,6 +280,7 @@ public class PaymentInstrumentRequirement {
     sb.append("class PaymentInstrumentRequirement {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    issuingCountryCode: ").append(toIndentedString(issuingCountryCode)).append("\n");
+    sb.append("    onlyForCrossBalancePlatform: ").append(toIndentedString(onlyForCrossBalancePlatform)).append("\n");
     sb.append("    paymentInstrumentType: ").append(toIndentedString(paymentInstrumentType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

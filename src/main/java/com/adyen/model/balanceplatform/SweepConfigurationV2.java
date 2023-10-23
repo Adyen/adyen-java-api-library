@@ -110,8 +110,6 @@ public class SweepConfigurationV2 {
   public enum PrioritiesEnum {
     CROSSBORDER("crossBorder"),
     
-    DIRECTDEBIT("directDebit"),
-    
     FAST("fast"),
     
     INSTANT("instant"),
@@ -160,6 +158,8 @@ public class SweepConfigurationV2 {
     
     APPROVED("approved"),
     
+    BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE("balanceAccountTemporarilyBlockedByTransactionRule"),
+    
     COUNTERPARTYACCOUNTBLOCKED("counterpartyAccountBlocked"),
     
     COUNTERPARTYACCOUNTCLOSED("counterpartyAccountClosed"),
@@ -172,6 +172,8 @@ public class SweepConfigurationV2 {
     
     COUNTERPARTYBANKUNAVAILABLE("counterpartyBankUnavailable"),
     
+    DECLINEDBYTRANSACTIONRULE("declinedByTransactionRule"),
+    
     ERROR("error"),
     
     NOTENOUGHBALANCE("notEnoughBalance"),
@@ -179,6 +181,8 @@ public class SweepConfigurationV2 {
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
     ROUTENOTFOUND("routeNotFound"),
+    
+    SCAFAILED("scaFailed"),
     
     UNKNOWN("unknown");
 

@@ -38,7 +38,7 @@ public class ManagementTest extends BaseTest {
         service.listMerchantAccounts(null, 25, null);
 
         verify(client.getHttpClient()).request(
-                "https://management-test.adyen.com/v1/merchants",
+                "https://management-test.adyen.com/v3/merchants",
                 null,
                 client.getConfig(),
                 false,
@@ -72,7 +72,7 @@ public class ManagementTest extends BaseTest {
         assertNotNull(response.getReceiptPrinting().getShopperApproved());
         assertTrue(response.getReceiptPrinting().getShopperApproved());
         verify(client.getHttpClient()).request(
-                "https://management-test.adyen.com/v1/terminals/123ABC/terminalSettings",
+                "https://management-test.adyen.com/v3/terminals/123ABC/terminalSettings",
                 "{\"receiptPrinting\":{\"shopperApproved\":true}}",
                 client.getConfig(),
                 false,
@@ -93,7 +93,7 @@ public class ManagementTest extends BaseTest {
 
         assertEquals("YOUR_STORE_ID", store.getId());
         verify(client.getHttpClient()).request(
-                "https://management-test.adyen.com/v1/merchants/YOUR_MERCHANT_ACCOUNT_ID/stores",
+                "https://management-test.adyen.com/v3/merchants/YOUR_MERCHANT_ACCOUNT_ID/stores",
                 "{\"description\":\"City centre store\"}",
                 client.getConfig(),
                 false,
@@ -111,7 +111,7 @@ public class ManagementTest extends BaseTest {
         service.removeAllowedOrigin("ID");
 
         verify(client.getHttpClient()).request(
-                "https://management-test.adyen.com/v1/me/allowedOrigins/ID",
+                "https://management-test.adyen.com/v3/me/allowedOrigins/ID",
                 null,
                 client.getConfig(),
                 false,

@@ -274,10 +274,10 @@ public class BusinessLine {
   }
 
    /**
-   * List of the verification errors from capabilities for this supporting entity.
+   * The verification errors related to capabilities for this supporting entity.
    * @return problems
   **/
-  @ApiModelProperty(value = "List of the verification errors from capabilities for this supporting entity.")
+  @ApiModelProperty(value = "The verification errors related to capabilities for this supporting entity.")
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
