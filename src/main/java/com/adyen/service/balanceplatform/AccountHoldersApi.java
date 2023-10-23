@@ -17,6 +17,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.AccountHolder;
 import com.adyen.model.balanceplatform.AccountHolderInfo;
 import com.adyen.model.balanceplatform.AccountHolderUpdateRequest;
+import com.adyen.model.balanceplatform.GetTaxFormResponse;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
 import com.adyen.model.balanceplatform.RestServiceError;
 import com.adyen.model.RequestOptions;
@@ -127,6 +128,51 @@ public class AccountHoldersApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/accountHolders/{id}/balanceAccounts", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return PaginatedBalanceAccountsResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get a tax form
+    *
+    * @param id {@link String } The unique identifier of the account holder. (required)
+    * @param formType {@link String } The type of tax form you want to retrieve. Accepted values are **us1099k** and **us1099nec** (required)
+    * @param year {@link Integer } The tax year in YYYY format for the tax form you want to retrieve (required)
+    * @return {@link GetTaxFormResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public GetTaxFormResponse getTaxForm(String id, String formType, Integer year) throws ApiException, IOException {
+        return getTaxForm(id, formType,  year,  null);
+    }
+
+    /**
+    * Get a tax form
+    *
+    * @param id {@link String } The unique identifier of the account holder. (required)
+    * @param formType {@link String } Query: The type of tax form you want to retrieve. Accepted values are **us1099k** and **us1099nec** (required)
+    * @param year {@link Integer } Query: The tax year in YYYY format for the tax form you want to retrieve (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link GetTaxFormResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public GetTaxFormResponse getTaxForm(String id, String formType, Integer year, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (formType != null) {
+        queryParams.put("formType", formType);
+        }
+        if (year != null) {
+        queryParams.put("year", year.toString());
+        }
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/accountHolders/{id}/taxForms", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return GetTaxFormResponse.fromJson(jsonResult);
     }
 
     /**

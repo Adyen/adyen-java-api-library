@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -31,15 +33,91 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * GeneratePciDescriptionRequest
  */
 @JsonPropertyOrder({
+  GeneratePciDescriptionRequest.JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS,
   GeneratePciDescriptionRequest.JSON_PROPERTY_LANGUAGE
 })
 
 public class GeneratePciDescriptionRequest {
+  /**
+   * Gets or Sets additionalSalesChannels
+   */
+  public enum AdditionalSalesChannelsEnum {
+    ECOMMERCE("eCommerce"),
+    
+    ECOMMOTO("ecomMoto"),
+    
+    POS("pos"),
+    
+    POSMOTO("posMoto");
+
+    private String value;
+
+    AdditionalSalesChannelsEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static AdditionalSalesChannelsEnum fromValue(String value) {
+      for (AdditionalSalesChannelsEnum b : AdditionalSalesChannelsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS = "additionalSalesChannels";
+  private List<AdditionalSalesChannelsEnum> additionalSalesChannels = null;
+
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
   public GeneratePciDescriptionRequest() { 
   }
+
+  public GeneratePciDescriptionRequest additionalSalesChannels(List<AdditionalSalesChannelsEnum> additionalSalesChannels) {
+    this.additionalSalesChannels = additionalSalesChannels;
+    return this;
+  }
+
+  public GeneratePciDescriptionRequest addAdditionalSalesChannelsItem(AdditionalSalesChannelsEnum additionalSalesChannelsItem) {
+    if (this.additionalSalesChannels == null) {
+      this.additionalSalesChannels = new ArrayList<>();
+    }
+    this.additionalSalesChannels.add(additionalSalesChannelsItem);
+    return this;
+  }
+
+   /**
+   * An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/marketplaces-and-platforms/additional-for-platform-setup/create-stores/) and [add payment methods](https://docs.adyen.com/marketplaces-and-platforms/payment-methods/) for your user.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
+   * @return additionalSalesChannels
+  **/
+  @ApiModelProperty(value = "An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/marketplaces-and-platforms/additional-for-platform-setup/create-stores/) and [add payment methods](https://docs.adyen.com/marketplaces-and-platforms/payment-methods/) for your user.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  ")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<AdditionalSalesChannelsEnum> getAdditionalSalesChannels() {
+    return additionalSalesChannels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdditionalSalesChannels(List<AdditionalSalesChannelsEnum> additionalSalesChannels) {
+    this.additionalSalesChannels = additionalSalesChannels;
+  }
+
 
   public GeneratePciDescriptionRequest language(String language) {
     this.language = language;
@@ -78,18 +156,20 @@ public class GeneratePciDescriptionRequest {
       return false;
     }
     GeneratePciDescriptionRequest generatePciDescriptionRequest = (GeneratePciDescriptionRequest) o;
-    return Objects.equals(this.language, generatePciDescriptionRequest.language);
+    return Objects.equals(this.additionalSalesChannels, generatePciDescriptionRequest.additionalSalesChannels) &&
+        Objects.equals(this.language, generatePciDescriptionRequest.language);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language);
+    return Objects.hash(additionalSalesChannels, language);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeneratePciDescriptionRequest {\n");
+    sb.append("    additionalSalesChannels: ").append(toIndentedString(additionalSalesChannels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("}");
     return sb.toString();

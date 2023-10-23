@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.ActiveNetworkTokensRestriction;
 import com.adyen.model.balanceplatform.BrandVariantsRestriction;
+import com.adyen.model.balanceplatform.CounterpartyBankRestriction;
 import com.adyen.model.balanceplatform.CountriesRestriction;
 import com.adyen.model.balanceplatform.DayOfWeekRestriction;
 import com.adyen.model.balanceplatform.DifferentCurrenciesRestriction;
@@ -47,6 +48,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   TransactionRuleRestrictions.JSON_PROPERTY_ACTIVE_NETWORK_TOKENS,
   TransactionRuleRestrictions.JSON_PROPERTY_BRAND_VARIANTS,
+  TransactionRuleRestrictions.JSON_PROPERTY_COUNTERPARTY_BANK,
   TransactionRuleRestrictions.JSON_PROPERTY_COUNTRIES,
   TransactionRuleRestrictions.JSON_PROPERTY_DAY_OF_WEEK,
   TransactionRuleRestrictions.JSON_PROPERTY_DIFFERENT_CURRENCIES,
@@ -67,6 +69,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_BRAND_VARIANTS = "brandVariants";
   private BrandVariantsRestriction brandVariants;
+
+  public static final String JSON_PROPERTY_COUNTERPARTY_BANK = "counterpartyBank";
+  private CounterpartyBankRestriction counterpartyBank;
 
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private CountriesRestriction countries;
@@ -154,6 +159,31 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariants(BrandVariantsRestriction brandVariants) {
     this.brandVariants = brandVariants;
+  }
+
+
+  public TransactionRuleRestrictions counterpartyBank(CounterpartyBankRestriction counterpartyBank) {
+    this.counterpartyBank = counterpartyBank;
+    return this;
+  }
+
+   /**
+   * Get counterpartyBank
+   * @return counterpartyBank
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY_BANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CounterpartyBankRestriction getCounterpartyBank() {
+    return counterpartyBank;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY_BANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCounterpartyBank(CounterpartyBankRestriction counterpartyBank) {
+    this.counterpartyBank = counterpartyBank;
   }
 
 
@@ -471,6 +501,7 @@ public class TransactionRuleRestrictions {
     TransactionRuleRestrictions transactionRuleRestrictions = (TransactionRuleRestrictions) o;
     return Objects.equals(this.activeNetworkTokens, transactionRuleRestrictions.activeNetworkTokens) &&
         Objects.equals(this.brandVariants, transactionRuleRestrictions.brandVariants) &&
+        Objects.equals(this.counterpartyBank, transactionRuleRestrictions.counterpartyBank) &&
         Objects.equals(this.countries, transactionRuleRestrictions.countries) &&
         Objects.equals(this.dayOfWeek, transactionRuleRestrictions.dayOfWeek) &&
         Objects.equals(this.differentCurrencies, transactionRuleRestrictions.differentCurrencies) &&
@@ -487,7 +518,7 @@ public class TransactionRuleRestrictions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, timeOfDay, totalAmount);
   }
 
   @Override
@@ -496,6 +527,7 @@ public class TransactionRuleRestrictions {
     sb.append("class TransactionRuleRestrictions {\n");
     sb.append("    activeNetworkTokens: ").append(toIndentedString(activeNetworkTokens)).append("\n");
     sb.append("    brandVariants: ").append(toIndentedString(brandVariants)).append("\n");
+    sb.append("    counterpartyBank: ").append(toIndentedString(counterpartyBank)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    dayOfWeek: ").append(toIndentedString(dayOfWeek)).append("\n");
     sb.append("    differentCurrencies: ").append(toIndentedString(differentCurrencies)).append("\n");

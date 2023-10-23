@@ -368,10 +368,10 @@ public class LegalEntity {
   }
 
    /**
-   * List of the verification errors from capabilities for the legal entity.
+   * List of verification errors related to capabilities for the legal entity.
    * @return problems
   **/
-  @ApiModelProperty(value = "List of the verification errors from capabilities for the legal entity.")
+  @ApiModelProperty(value = "List of verification errors related to capabilities for the legal entity.")
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

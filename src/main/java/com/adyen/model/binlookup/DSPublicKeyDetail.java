@@ -35,7 +35,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   DSPublicKeyDetail.JSON_PROPERTY_BRAND,
   DSPublicKeyDetail.JSON_PROPERTY_DIRECTORY_SERVER_ID,
   DSPublicKeyDetail.JSON_PROPERTY_FROM_S_D_K_VERSION,
-  DSPublicKeyDetail.JSON_PROPERTY_PUBLIC_KEY
+  DSPublicKeyDetail.JSON_PROPERTY_PUBLIC_KEY,
+  DSPublicKeyDetail.JSON_PROPERTY_ROOT_CERTIFICATES
 })
 
 public class DSPublicKeyDetail {
@@ -50,6 +51,9 @@ public class DSPublicKeyDetail {
 
   public static final String JSON_PROPERTY_PUBLIC_KEY = "publicKey";
   private byte[] publicKey;
+
+  public static final String JSON_PROPERTY_ROOT_CERTIFICATES = "rootCertificates";
+  private String rootCertificates;
 
   public DSPublicKeyDetail() { 
   }
@@ -154,6 +158,31 @@ public class DSPublicKeyDetail {
   }
 
 
+  public DSPublicKeyDetail rootCertificates(String rootCertificates) {
+    this.rootCertificates = rootCertificates;
+    return this;
+  }
+
+   /**
+   * Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.
+   * @return rootCertificates
+  **/
+  @ApiModelProperty(value = "Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.")
+  @JsonProperty(JSON_PROPERTY_ROOT_CERTIFICATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRootCertificates() {
+    return rootCertificates;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ROOT_CERTIFICATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRootCertificates(String rootCertificates) {
+    this.rootCertificates = rootCertificates;
+  }
+
+
   /**
    * Return true if this DSPublicKeyDetail object is equal to o.
    */
@@ -169,12 +198,13 @@ public class DSPublicKeyDetail {
     return Objects.equals(this.brand, dsPublicKeyDetail.brand) &&
         Objects.equals(this.directoryServerId, dsPublicKeyDetail.directoryServerId) &&
         Objects.equals(this.fromSDKVersion, dsPublicKeyDetail.fromSDKVersion) &&
-        Arrays.equals(this.publicKey, dsPublicKeyDetail.publicKey);
+        Arrays.equals(this.publicKey, dsPublicKeyDetail.publicKey) &&
+        Objects.equals(this.rootCertificates, dsPublicKeyDetail.rootCertificates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, directoryServerId, fromSDKVersion, Arrays.hashCode(publicKey));
+    return Objects.hash(brand, directoryServerId, fromSDKVersion, Arrays.hashCode(publicKey), rootCertificates);
   }
 
   @Override
@@ -185,6 +215,7 @@ public class DSPublicKeyDetail {
     sb.append("    directoryServerId: ").append(toIndentedString(directoryServerId)).append("\n");
     sb.append("    fromSDKVersion: ").append(toIndentedString(fromSDKVersion)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    rootCertificates: ").append(toIndentedString(rootCertificates)).append("\n");
     sb.append("}");
     return sb.toString();
   }

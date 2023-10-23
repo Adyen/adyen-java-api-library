@@ -63,7 +63,7 @@ public class IdentificationData {
    * Type of identity data. For **individual**, the &#x60;type&#x60; value is **nationalIdNumber**.
    */
   public enum TypeEnum {
-    PROOFOFNATIONALIDNUMBER("proofOfNationalIdNumber");
+    NATIONALIDNUMBER("nationalIdNumber");
 
     private String value;
 
