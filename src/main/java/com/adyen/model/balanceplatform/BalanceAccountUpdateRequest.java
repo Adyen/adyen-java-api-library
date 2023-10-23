@@ -36,7 +36,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   BalanceAccountUpdateRequest.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
-  BalanceAccountUpdateRequest.JSON_PROPERTY_DEFAULT_CURRENCY_CODE,
   BalanceAccountUpdateRequest.JSON_PROPERTY_DESCRIPTION,
   BalanceAccountUpdateRequest.JSON_PROPERTY_METADATA,
   BalanceAccountUpdateRequest.JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION,
@@ -48,9 +47,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class BalanceAccountUpdateRequest {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
-
-  public static final String JSON_PROPERTY_DEFAULT_CURRENCY_CODE = "defaultCurrencyCode";
-  private String defaultCurrencyCode;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -134,31 +130,6 @@ public class BalanceAccountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
-  }
-
-
-  public BalanceAccountUpdateRequest defaultCurrencyCode(String defaultCurrencyCode) {
-    this.defaultCurrencyCode = defaultCurrencyCode;
-    return this;
-  }
-
-   /**
-   * The default currency code of this balance account, in three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) format.  The default value is **EUR**.
-   * @return defaultCurrencyCode
-  **/
-  @ApiModelProperty(value = "The default currency code of this balance account, in three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) format.  The default value is **EUR**.")
-  @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDefaultCurrencyCode() {
-    return defaultCurrencyCode;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefaultCurrencyCode(String defaultCurrencyCode) {
-    this.defaultCurrencyCode = defaultCurrencyCode;
   }
 
 
@@ -333,7 +304,6 @@ public class BalanceAccountUpdateRequest {
     }
     BalanceAccountUpdateRequest balanceAccountUpdateRequest = (BalanceAccountUpdateRequest) o;
     return Objects.equals(this.accountHolderId, balanceAccountUpdateRequest.accountHolderId) &&
-        Objects.equals(this.defaultCurrencyCode, balanceAccountUpdateRequest.defaultCurrencyCode) &&
         Objects.equals(this.description, balanceAccountUpdateRequest.description) &&
         Objects.equals(this.metadata, balanceAccountUpdateRequest.metadata) &&
         Objects.equals(this.platformPaymentConfiguration, balanceAccountUpdateRequest.platformPaymentConfiguration) &&
@@ -344,7 +314,7 @@ public class BalanceAccountUpdateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolderId, defaultCurrencyCode, description, metadata, platformPaymentConfiguration, reference, status, timeZone);
+    return Objects.hash(accountHolderId, description, metadata, platformPaymentConfiguration, reference, status, timeZone);
   }
 
   @Override
@@ -352,7 +322,6 @@ public class BalanceAccountUpdateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class BalanceAccountUpdateRequest {\n");
     sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
-    sb.append("    defaultCurrencyCode: ").append(toIndentedString(defaultCurrencyCode)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    platformPaymentConfiguration: ").append(toIndentedString(platformPaymentConfiguration)).append("\n");

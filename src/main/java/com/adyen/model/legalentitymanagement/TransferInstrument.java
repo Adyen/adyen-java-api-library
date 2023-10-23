@@ -147,10 +147,10 @@ public class TransferInstrument {
   }
 
    /**
-   * List of capabilities for this supporting entity.
+   * List of capabilities for this transfer instrument.
    * @return capabilities
   **/
-  @ApiModelProperty(value = "List of capabilities for this supporting entity.")
+  @ApiModelProperty(value = "List of capabilities for this transfer instrument.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -263,10 +263,10 @@ public class TransferInstrument {
   }
 
    /**
-   * List of the verification errors from capabilities for this supporting entity.
+   * The verification errors related to capabilities for this transfer instrument.
    * @return problems
   **/
-  @ApiModelProperty(value = "List of the verification errors from capabilities for this supporting entity.")
+  @ApiModelProperty(value = "The verification errors related to capabilities for this transfer instrument.")
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

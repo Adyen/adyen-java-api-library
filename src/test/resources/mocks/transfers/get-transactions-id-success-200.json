@@ -1,27 +1,25 @@
 {
-  "accountHolderId": "AHA1B2C3D4E5F6G7H8I9J0",
+  "id": "EVJN4227C224222B5JBDHPTD672M52EUR",
   "amount": {
-    "currency": "EUR",
-    "value": 9887
+    "value": -10000,
+    "currency": "EUR"
   },
-  "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
-  "balancePlatform": "YOUR_BALANCE_PLATFORM",
-  "bookingDate": "2022-03-14T12:01:00+01:00",
-  "category": "bank",
-  "counterparty": {
-    "balanceAccountId": "NL29ADYX0000000001"
-  },
-  "createdAt": "2022-03-14T12:01:00+01:00",
-  "description": "YOUR_DESCRIPTION",
-  "id": "IZK7C25U7DYVX03Y",
-  "instructedAmount": {
-    "currency": "EUR",
-    "value": 9887
-  },
-  "reference": "2L6C6B5U7DYULLXC",
-  "referenceForBeneficiary": "YOUR_REFERENCE_FOR_BENEFICIARY",
   "status": "booked",
-  "transferId": "2QP32A5U7IWC5WKG",
-  "type": "bankTransfer",
-  "valueDate": "2022-03-14T12:01:00+01:00"
+  "eventId": "EVJN4227C224222B5JBDHPTD672M52",
+  "transfer": {
+    "id": "48TYZO5ZVURJ2FCW",
+    "reference": "Your internal reference for the transfer"
+  },
+  "valueDate": "2023-08-11T16:19:35+02:00",
+  "bookingDate": "2023-08-11T16:19:39+02:00",
+  "creationDate": "2023-08-11T16:19:35+02:00",
+  "accountHolder": {
+    "id": "AH00000000000000000000001",
+    "description": "Your description of the account holder"
+  },
+  "balanceAccount": {
+    "id": "BA00000000000000000000001",
+    "description": "Your description of the balance account"
+  },
+  "balancePlatform": "YOUR_BALANCE_PLATFORM"
 }

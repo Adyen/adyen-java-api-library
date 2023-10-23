@@ -88,10 +88,10 @@ public class HKLocalAccountIdentification {
   }
 
    /**
-   * The 9- to 12-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
+   * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    * @return accountNumber
   **/
-  @ApiModelProperty(required = true, value = "The 9- to 12-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.")
+  @ApiModelProperty(required = true, value = "The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

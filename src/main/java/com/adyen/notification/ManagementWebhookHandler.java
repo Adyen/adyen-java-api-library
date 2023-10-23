@@ -3,7 +3,9 @@ package com.adyen.notification;
 import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
 import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;
-import com.adyen.model.transferwebhooks.JSON;
+import com.adyen.model.managementwebhooks.PaymentMethodRequestRemovedNotificationRequest;
+import com.adyen.model.managementwebhooks.PaymentMethodScheduledForRemovalNotificationRequest;
+import com.adyen.model.managementwebhooks.JSON;
 
 import java.util.Optional;
 
@@ -23,6 +25,14 @@ public class ManagementWebhookHandler {
 
     public Optional<PaymentMethodCreatedNotificationRequest> getPaymentMethodCreatedNotificationRequest() {
         return getOptionalField(PaymentMethodCreatedNotificationRequest.class);
+    }
+
+    public Optional<PaymentMethodRequestRemovedNotificationRequest> getPaymentMethodRequestRemovedNotificationRequest() {
+        return getOptionalField(PaymentMethodRequestRemovedNotificationRequest.class);
+    }
+
+    public Optional<PaymentMethodScheduledForRemovalNotificationRequest> getPaymentMethodScheduledForRemovalNotificationRequest() {
+        return getOptionalField(PaymentMethodScheduledForRemovalNotificationRequest.class);
     }
 
     private <T> Optional<T> getOptionalField(Class<T> clazz) {

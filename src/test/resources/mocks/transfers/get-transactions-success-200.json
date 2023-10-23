@@ -1,84 +1,109 @@
 {
   "data": [
     {
-      "accountHolderId": "AHA1B2C3D4E5F6G7H8I9J0",
-      "counterparty": {
-        "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4"
+      "balancePlatform": "YOUR_BALANCE_PLATFORM",
+      "creationDate": "2023-08-10T14:51:20+02:00",
+      "id": "EVJN42272224222B5JB8BRC84N686ZEUR",
+      "accountHolder": {
+        "description": "Your description for the account holder",
+        "id": "AH00000000000000000000001"
       },
       "amount": {
-        "currency": "EUR",
-        "value": -9
+        "currency": "USD",
+        "value": -1000
       },
-      "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
-      "balancePlatform": "YOUR_BALANCE_PLATFORM",
-      "bookingDate": "2022-03-11T11:21:24+01:00",
-      "category": "internal",
-      "createdAt": "2022-03-11T11:21:24+01:00",
-      "id": "1VVF0D5U66PIUIVP",
-      "instructedAmount": {
-        "currency": "EUR",
-        "value": -9
+      "balanceAccount": {
+        "description": "Your description for the account holder",
+        "id": "BA00000000000000000000001"
       },
-      "reference": "REFERENCE_46e8c40e",
+      "bookingDate": "2023-08-10T14:51:33+02:00",
+      "eventId": "EVJN42272224222B5JB8BRC84N686Z",
       "status": "booked",
-      "transferId": "1VVF0D5U66PIUIVP",
-      "type": "fee",
-      "valueDate": "2022-03-11T11:21:24+01:00"
+      "transfer": {
+        "id": "3JNC3O5ZVFLLGV4B",
+        "reference": "Your internal reference for the transfer"
+      },
+      "valueDate": "2023-08-10T14:51:20+02:00"
     },
     {
-      "accountHolderId": "AHA1B2C3D4E5F6G7H8I9J0",
-      "counterparty": {
-        "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4"
+      "balancePlatform": "YOUR_BALANCE_PLATFORM",
+      "creationDate": "2023-08-10T15:34:31+02:00",
+      "id": "EVJN4227C224222B5JB8G3Q89N2NB6EUR",
+      "accountHolder": {
+        "description": "Your description for the account holder",
+        "id": "AH00000000000000000000001"
       },
       "amount": {
-        "currency": "EUR",
-        "value": -46
+        "currency": "USD",
+        "value": 123
       },
-      "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
-      "balancePlatform": "YOUR_BALANCE_PLATFORM",
-      "bookingDate": "2022-03-12T14:22:52+01:00",
-      "category": "internal",
-      "createdAt": "2022-03-12T14:22:52+01:00",
-      "id": "1WEPGD5U6MS1CFK3",
-      "instructedAmount": {
-        "currency": "EUR",
-        "value": -46
+      "balanceAccount": {
+        "description": "Your description for the account holder",
+        "id": "BA00000000000000000000001"
       },
-      "reference": "REFERENCE_46e8c40e",
+      "bookingDate": "2023-08-10T15:34:40+02:00",
+      "eventId": "EVJN4227C224222B5JB8G3Q89N2NB6",
       "status": "booked",
-      "transferId": "1WEPGD5U6MS1CFK3",
-      "type": "fee",
-      "valueDate": "2022-03-12T14:22:52+01:00"
+      "transfer": {
+        "id": "48POO45ZVG11166J",
+        "reference": "Your internal reference for the transfer"
+      },
+      "valueDate": "2023-08-10T15:34:31+02:00"
     },
     {
-      "accountHolderId": "AHA1B2C3D4E5F6G7H8I9J0",
-      "counterparty": {
-        "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4"
+      "balancePlatform": "YOUR_BALANCE_PLATFORM",
+      "creationDate": "2023-08-11T13:45:46+02:00",
+      "id": "EVJN4227C224222B5JBD3XHF8P3L8GUSD",
+      "accountHolder": {
+        "description": "Your description for the account holder",
+        "id": "AH00000000000000000000001"
       },
       "amount": {
-        "currency": "EUR",
-        "value": -8
+        "currency": "USD",
+        "value": -10000
       },
-      "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
-      "balancePlatform": "YOUR_BALANCE_PLATFORM",
-      "bookingDate": "2022-03-14T21:00:48+01:00",
-      "createdAt": "2022-03-14T15:00:00+01:00",
-      "description": "YOUR_DESCRIPTION_2",
-      "id": "2QP32A5U7IWC5WKG",
-      "reference": "REFERENCE_46e8c40e",
-
-      "instructedAmount": {
-        "currency": "EUR",
-        "value": -8
+      "balanceAccount": {
+        "description": "Your description for the account holder",
+        "id": "BA00000000000000000000001"
       },
+      "bookingDate": "2023-08-11T13:45:57+02:00",
+      "eventId": "EVJN4227C224222B5JBD3XHF8P3L8G",
       "status": "booked",
-      "valueDate": "2022-03-14T21:00:48+01:00"
+      "transfer": {
+        "id": "48RTTW5ZVT8KU9DV",
+        "reference": "my-reference"
+      },
+      "valueDate": "2023-08-11T13:45:46+02:00"
+    },
+    {
+      "balancePlatform": "YOUR_BALANCE_PLATFORM",
+      "creationDate": "2023-08-11T13:45:51+02:00",
+      "id": "EVJN42272224222B5JBD3XJGHF4J26USD",
+      "accountHolder": {
+        "description": "Your description for the account holder",
+        "id": "AH00000000000000000000001"
+      },
+      "amount": {
+        "currency": "USD",
+        "value": 1000
+      },
+      "balanceAccount": {
+        "description": "Your description for the account holder",
+        "id": "BA00000000000000000000001"
+      },
+      "bookingDate": "2023-08-11T13:45:58+02:00",
+      "eventId": "EVJN42272224222B5JBD3XJGHF4J26",
+      "status": "booked",
+      "transfer": {
+        "id": "48TYZO5ZVT8M1K47",
+        "reference": "my-reference"
+      },
+      "valueDate": "2023-08-11T13:45:51+02:00"
     }
   ],
   "_links": {
     "next": {
-      "href": "https://balanceplatform-api-test.adyen.com/btl/v2/transactions?balancePlatform=Bastronaut&createdUntil=2022-03-21T00%3A00%3A00Z&createdSince=2022-03-11T00%3A00%3A00Z&limit=3&cursor=S2B-TSAjOkIrYlIlbjdqe0RreHRyM32lKRSxubXBHRkhHL2E32XitQQz5SfzpucD5HbHwpM1p6NDR1eXVQLFF6MmY33J32sobDxQYT90MHIud1hwLnd6JitcX32xJ"
+      "href": "https://balanceplatform-api-test.adyen.com/btl/v4/transactions?balancePlatform=TestBalancePlatform&createdUntil=2023-08-20T13%3A07%3A40Z&createdSince=2023-08-10T10%3A50%3A40Z&cursor=S2B-c0p1N0tdN0l6RGhYK1YpM0lgOTUyMDlLXElyKE9LMCtyaFEuMj1NMHgidCsrJi1ZNnhqXCtqVi5JPGpRK1F2fCFqWzU33JTojSVNJc1J1VXhncS10QDd6JX9FQFl5Zn0uNyUvSXJNQTo"
     }
   }
 }
-
