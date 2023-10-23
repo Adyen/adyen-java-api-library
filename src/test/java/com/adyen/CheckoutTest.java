@@ -305,7 +305,7 @@ public class CheckoutTest extends BaseTest {
         paymentDonationRequest.setDonationAccount("YOUR_DONATION_ACCOUNT");
         paymentDonationRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
         CardDetails cardDetails = new CardDetails().type(CardDetails.TypeEnum.SCHEME);
-        paymentDonationRequest.paymentMethod(new CheckoutPaymentMethod(cardDetails));
+        paymentDonationRequest.paymentMethod(new DonationPaymentMethod(cardDetails));
         paymentDonationRequest.setReference("YOUR_MERCHANT_REFERENCE");
         paymentDonationRequest.setReturnUrl("https://your-company.com/...");
         PaymentsApi checkout = new PaymentsApi(client);

@@ -28,9 +28,9 @@ payment: smallServiceName=PaymentApi
 recurring: spec=RecurringService-v68
 recurring: smallServiceName=RecurringApi
 payout: spec=PayoutService-v68
-management: spec=ManagementService-v1
+management: spec=ManagementService-v3
 balanceplatform: spec=BalancePlatformService-v2
-transfers: spec=TransferService-v3
+transfers: spec=TransferService-v4
 legalentitymanagement: spec=LegalEntityService-v3
 # Classic Platforms
 marketpayaccount: spec=AccountService-v6
@@ -46,9 +46,9 @@ marketpaywebhooks: spec=MarketPayNotificationService-v6
 acswebhooks: spec=BalancePlatformAcsNotification-v1
 configurationwebhooks: spec=BalancePlatformConfigurationNotification-v1
 reportwebhooks: spec=BalancePlatformReportNotification-v1
-transferwebhooks: spec=BalancePlatformTransferNotification-v3
+transferwebhooks: spec=BalancePlatformTransferNotification-v4
 # Management Webhooks
-managementwebhooks: spec=ManagementNotificationService-v1
+managementwebhooks: spec=ManagementNotificationService-v3
 # Disputes
 disputes: spec=DisputeService-v30
 disputes: smallServiceName=DisputesApi
@@ -67,7 +67,8 @@ $(modelGen): target/spec $(openapi-generator-jar)
 		--library $(library) \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings PaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=DonationPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=resourceClass=$(resourceClass)Resource
@@ -97,7 +98,8 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings PaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=DonationPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false
 	mv $(output)/$(models)/$@ $(models)/$@
@@ -124,7 +126,8 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		--api-name-suffix Api \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings PaymentRequest_paymentMethod=CheckoutPaymentMethod \
+		--inline-schema-name-mappings DonationPaymentRequest_paymentMethod=DonationPaymentMethod \
 		--additional-properties=dateLibrary=java8 \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=smallServiceName=$(smallServiceName)

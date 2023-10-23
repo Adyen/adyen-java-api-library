@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.checkout.Address;
+import com.adyen.model.checkout.BillingAddress;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,7 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SubMerchantInfo {
   public static final String JSON_PROPERTY_ADDRESS = "address";
-  private Address address;
+  private BillingAddress address;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -58,7 +58,7 @@ public class SubMerchantInfo {
   public SubMerchantInfo() { 
   }
 
-  public SubMerchantInfo address(Address address) {
+  public SubMerchantInfo address(BillingAddress address) {
     this.address = address;
     return this;
   }
@@ -71,14 +71,14 @@ public class SubMerchantInfo {
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getAddress() {
+  public BillingAddress getAddress() {
     return address;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddress(Address address) {
+  public void setAddress(BillingAddress address) {
     this.address = address;
   }
 

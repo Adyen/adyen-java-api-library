@@ -19,13 +19,13 @@ The Library supports all APIs under the following services:
 | [DataProtection API](https://docs.adyen.com/development-resources/data-protection-api)                                       | Adyen Data Protection API provides a way for you to process [Subject Erasure Requests](https://gdpr-info.eu/art-17-gdpr/) as mandated in GDPR. Use our API to submit a request to delete shopper's data, including payment details and other related information (for example, delivery address or shopper email)                          | DataProtection                           | **v1**            |
 | [Legal Entity Management API](https://docs.adyen.com/api-explorer/legalentity/3/overview)                                    | Manage legal entities that contain information required for verification.                                                                                                                                                                                                                                                                  | legalentitymanagement package subclasses | **v3**            |
 | [Local/Cloud-based Terminal API](https://docs.adyen.com/point-of-sale/terminal-api-reference)                                | Our point-of-sale integration.                                                                                                                                                                                                                                                                                                             | TerminalLocalAPI or TerminalCloudAPI     | -                 |
-| [Management API](https://docs.adyen.com/api-explorer/Management/1/overview)                                                  | Configure and manage your Adyen company and merchant accounts, stores, and payment terminals.                                                                                                                                                                                                                                              | management package subclasses            | **v1**            |
+| [Management API](https://docs.adyen.com/api-explorer/Management/3/overview)                                                  | Configure and manage your Adyen company and merchant accounts, stores, and payment terminals.                                                                                                                                                                                                                                              | management package subclasses            | **v3**            |
 | [Payments API](https://docs.adyen.com/api-explorer/Payment/68/overview)                                                      | Our classic integration for online payments.                                                                                                                                                                                                                                                                                               | Payment                                  | **v68**           |
 | [Payouts API](https://docs.adyen.com/api-explorer/Payout/68/overview)                                                        | Endpoints for sending funds to your customers.                                                                                                                                                                                                                                                                                             | Payout                                   | **v68**           |
 | [POS Terminal Management API](https://docs.adyen.com/api-explorer/postfmapi/1/overview)                                      | Endpoints for managing your point-of-sale payment terminals.                                                                                                                                                                                                                                                                               | TerminalManagement                       | **v1**            |
 | [Recurring API](https://docs.adyen.com/api-explorer/Recurring/68/overview)                                                   | Endpoints for managing saved payment details.                                                                                                                                                                                                                                                                                              | Recurring                                | **v68**           |
 | [Stored Value API](https://docs.adyen.com/payment-methods/gift-cards/stored-value-api)                                       | Manage both online and point-of-sale gift cards and other stored-value cards.                                                                                                                                                                                                                                                              | StoredValue                              | **v46**           |
-| [Transfers API](https://docs.adyen.com/api-explorer/transfers/3/overview)                                                    | The Transfers API provides endpoints that can be used to get information about all your transactions, move funds within your balance platform or send funds from your balance platform to a transfer instrument.                                                                                                                           | Transfers                                | **v3**            |
+| [Transfers API](https://docs.adyen.com/api-explorer/transfers/4/overview)                                                    | The Transfers API provides endpoints that can be used to get information about all your transactions, move funds within your balance platform or send funds from your balance platform to a transfer instrument.                                                                                                                           | Transfers                                | **v4**            |
 | [Webhooks](https://docs.adyen.com/api-explorer/Webhooks/1/overview)                                                          | Adyen uses webhooks to send notifications about payment status updates, newly available reports, and other events that can be subscribed to. For more information, refer to our [documentation](https://docs.adyen.com/development-resources/webhooks).                                                                                    | *Models only*                            | **v1**            |
 | [Classic Platforms Account API](https://docs.adyen.com/api-explorer/Account/6/overview)                                      | This API is used for the classic integration. If you are just starting your implementation, refer to our new integration guide instead.                                                                                                                                                                                                    | ClassicPlatformAccountApi                | **v6**            |
 | [Classic Platforms Fund API](https://docs.adyen.com/api-explorer/Fund/6/overview)                                            | This API is used for the classic integration. If you are just starting your implementation, refer to our new integration guide instead.                                                                                                                                                                                                    | ClassicPlatformFundApi                   | **v6**            |
@@ -40,10 +40,10 @@ The library supports all webhooks under the following model directories:
 |---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-------------------|
 | [Authentication Webhooks](https://docs.adyen.com/api-explorer/acs-webhook/1/overview)             | Adyen sends this webhook when the process of cardholder authentication is finalized, whether it is completed successfully, fails, or expires.                                                                                                 | [acswebhooks](src/main/java/com/adyen/model/acswebhooks)                     | **v1**            |
 | [Configuration Webhooks](https://docs.adyen.com/api-explorer/balanceplatform-webhooks/1/overview) | You can use these webhooks to build your implementation. For example, you can use this information to update internal statuses when the status of a capability is changed.                                                                    | [configurationwebhooks](src/main/java/com/adyen/model/configurationwebhooks) | **v1**            |
-| [Transfer Webhooks](https://docs.adyen.com/api-explorer/transfer-webhooks/3/overview)             | You can use these webhooks to build your implementation. For example, you can use this information to update balances in your own dashboards or to keep track of incoming funds.                                                              | [transferwebhooks](src/main/java/com/adyen/model/transferwebhooks)           | **v3**            |
+| [Transfer Webhooks](https://docs.adyen.com/api-explorer/transfer-webhooks/4/overview)             | You can use these webhooks to build your implementation. For example, you can use this information to update balances in your own dashboards or to keep track of incoming funds.                                                              | [transferwebhooks](src/main/java/com/adyen/model/transferwebhooks)           | **v4**            |
 | [Report Webhooks](https://docs.adyen.com/api-explorer/report-webhooks/1/overview)                 | You can download reports programmatically by making an HTTP GET request, or manually from your Balance Platform Customer Area                                                                                                                 | [reportwebhooks](src/main/java/com/adyen/model/reportwebhooks)               | **v1**            |
 | [Notification Webhooks](https://docs.adyen.com/api-explorer/Webhooks/1/overview)                  | We use webhooks to send you updates about payment status updates, newly available reports, and other events that you can subscribe to. For more information, refer to our documentation                                                       | [notification](src/main/java/com/adyen/model/notification)                   | **v1**            |
-| [Management Webhooks](https://docs.adyen.com/api-explorer/ManagementNotification/1/overview)      | Adyen uses webhooks to inform your system about events that happen with your Adyen company and merchant accounts, stores, payment terminals, and payment methods when using Management API                                                    | [managementwebhooks](src/main/java/com/adyen/model/managementwebhooks)       | **v1**            |
+| [Management Webhooks](https://docs.adyen.com/api-explorer/ManagementNotification/3/overview)      | Adyen uses webhooks to inform your system about events that happen with your Adyen company and merchant accounts, stores, payment terminals, and payment methods when using Management API                                                    | [managementwebhooks](src/main/java/com/adyen/model/managementwebhooks)       | **v3**            |
 | [Classic Platform Webhooks](https://docs.adyen.com/api-explorer/Notification/6/overview#retry)    | The Notification API sends notifications to the endpoints specified in a given subscription. Subscriptions are managed through the Notification Configuration API. The API specifications listed here detail the format of each notification. | [marketpaywebhooks](src/main/java/com/adyen/model/marketpaywebhooks)         | **v6**            |
 
 For more information, refer to our [documentation](https://docs.adyen.com/) or
@@ -65,7 +65,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>21.6.0</version>
+  <version>22.0.0-beta</version>
 </dependency>
 ```
 
@@ -231,6 +231,31 @@ System.setProperty("https.proxyUser", "squid");
 System.setProperty("https.proxyPassword", "ward");
 ~~~~
 
+### Client certificate authentication
+~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import java.security.KeyStore;
+
+// Initialize a KeyManagerFactory with the client KeyStore and password
+KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+keyManagerFactory.init(clientKeyStore, clientKeyStorePassword);
+
+// Create a TrustManagerFactory that trusts the CAs in our Trust KeyStore
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(trustStore);
+
+// Create an SSLContext with the desired protocol that uses our KeyManagers and TrustManagers
+SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null);
+
+Client client = new Client(sslContext, apiKey);
+// Use the client
+~~~~
+
 ## Using the Cloud Terminal API Integration
 In order to submit In-Person requests with [Terminal API over Cloud](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/) you need to initialize the client in a similar way as the steps listed above for Ecommerce transactions, but make sure to include `TerminalCloudAPI`:
 ``` java
@@ -373,34 +398,53 @@ TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIReque
 
 ## Using the Local Terminal API Integration
 The request and response payloads are identical to the Cloud Terminal API, however, additional encryption details are required to perform the requests.
-```java
-// Step 1: Import the required classes
+### Local terminal API Using Keystore
+~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.enums.Environment;
+import com.adyen.httpclient.TerminalLocalAPIHostnameVerifier;
 import com.adyen.service.TerminalLocalAPI;
-import com.adyen.model.nexo.*;
+import com.adyen.model.terminal.security.*;
 import com.adyen.model.terminal.*;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 
-// Step 2: Add your Certificate Path and Local Endpoint to the config path. Install the certificate from [here](https://docs.adyen.com/point-of-sale/choose-your-architecture/local#protect-communications).
-Client client = new Client();
-client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
-client.getConfig().setEnvironment(Environment.TEST);
-client.getConfig().setTerminalCertificate("YOUR_CERTIFICATE_PATH");
+// Create a KeyStore for the terminal certificate
+KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+keyStore.load(null, null);
+keyStore.setCertificateEntry("adyenRootCertificate", adyenRootCertificate);
 
-// Step 3: Setup a security password for you terminal in CA, and import the security key object:
+// Create a TrustManagerFactory that trusts the CAs in our KeyStore
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(keyStore);
+
+// Create an SSLContext with the desired protocol that uses our TrustManagers
+SSLContext sslContext = SSLContext.getInstance("SSL");
+sslContext.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom());
+
+// Configure a client for TerminalLocalAPI
+Config config = new Config();
+config.setEnvironment(environment);
+config.setTerminalApiLocalEndpoint("https://" + terminalIpAddress);
+config.setSSLContext(sslContext);
+config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(environment));
+Client client = new Client(config);
+
+// Create your SecurityKey object used for encrypting the payload (keyIdentifier/passphrase you set up beforehand in CA)
 SecurityKey securityKey = new SecurityKey();
 securityKey.setKeyVersion(1);
 securityKey.setAdyenCryptoVersion(1);
 securityKey.setKeyIdentifier("keyIdentifier");
 securityKey.setPassphrase("passphrase");
 
-// Step 4 Initialize the API object
+// Use TerminalLocalAPI
 TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
-
-// Step 5: Create the request object
-TerminalAPIRequest terminalAPIRequest = ///....same as the one used for Cloud API ;
-
-// Step 6: Make the request
 TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIRequest);
-```
+~~~~
 
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
 If you wish to develop the Local Terminal API integration parallel to your encryption implementation, you can opt for the unencrypted version. Be sure to remove any encryption details from the CA terminal config page.
@@ -414,7 +458,6 @@ import com.adyen.model.terminal.*;
 Client client = new Client();
 client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
 client.getConfig().setEnvironment(Environment.TEST);
-client.getConfig().setTerminalCertificate("YOUR_CERTIFICATE_PATH");
 
 // Step 3 Initialize the client and the API objects;
 TerminalLocalAPIUnencrypted terminalLocalAPIUnencrypted = new TerminalLocalAPIUnencrypted(client);

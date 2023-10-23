@@ -1,17 +1,16 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
-import java.security.KeyStore;
+import javax.net.ssl.SSLContext;
 
 public class Client {
     private ClientInterface httpClient;
     private Config config;
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "21.6.0";
+    public static final String LIB_VERSION = "22.0.0-beta";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
 
@@ -32,17 +31,12 @@ public class Client {
      * Use this constructor to create client for client certificate authentication along with API key.
      * Note: Client certificate authentication is only applicable for PAL and Checkout services in LIVE,
      * Other services will just use API key for authentication.
-     * @param trustStore Trust store containing server certificate
-     * @param clientKeyStore Client Key store containing client certificate and key
-     * @param clientKeyStorePassword Password for client key store
+     * @param sslContext {@link SSLContext} for client certificate authentication
      * @param apiKey Adyen API Key
-     * @param region Data center region (EU/US/AU), default EU if not provided
      */
-    public Client(KeyStore trustStore, KeyStore clientKeyStore, String clientKeyStorePassword, String apiKey, Region region) {
+    public Client(SSLContext sslContext, String apiKey) {
         this(apiKey, Environment.LIVE);
-        this.config.setClientKeyStorePassword(clientKeyStorePassword);
-        this.config.setClientKeyStore(clientKeyStore);
-        this.config.setTrustKeyStore(trustStore);
+        this.config.setSSLContext(sslContext);
     }
 
     public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {
