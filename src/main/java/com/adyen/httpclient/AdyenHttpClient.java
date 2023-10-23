@@ -23,9 +23,7 @@ package com.adyen.httpclient;
 import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.constants.ApiConstants;
-import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
-import com.adyen.terminal.security.TerminalCommonNameValidator;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.hc.client5.http.classic.methods.HttpDelete;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -41,22 +39,16 @@ import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
 import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.net.URIBuilder;
+import org.apache.hc.core5.ssl.SSLContexts;
 
 import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
-import java.security.GeneralSecurityException;
-import java.security.KeyStore;
-import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -74,9 +66,6 @@ import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 public class AdyenHttpClient implements ClientInterface {
 
     private static final String CHARSET = "UTF-8";
-    private static final String TERMINAL_CERTIFICATE_ALIAS = "TerminalCertificate";
-    private static final String SSL = "SSL";
-    private static final String TLSV1_2 = "TLSv1.2";
     private Proxy proxy;
 
     public Proxy getProxy() {
@@ -203,14 +192,13 @@ public class AdyenHttpClient implements ClientInterface {
         }
     }
 
-    private CloseableHttpClient createCloseableHttpClient(Config config) throws HTTPClientException {
-        if (config.getClientKeyStore() != null && config.getTrustKeyStore() != null) {
-            return createHttpClientWithSocketFactory(getClientCertificateAuthSSLContext(config));
+    private CloseableHttpClient createCloseableHttpClient(Config config) {
+        SSLContext sslContext = config.getSSLContext();
+        if (sslContext == null) {
+            sslContext = SSLContexts.createDefault();
         }
-        if (config.getTerminalCertificate() != null) {
-            return createHttpClientWithSocketFactory(getTerminalCertificateSocketFactory(config));
-        }
-        return HttpClients.createSystem();
+        HostnameVerifier hostnameVerifier = config.getHostnameVerifier();
+        return createHttpClientWithSocketFactory(new SSLConnectionSocketFactory(sslContext, hostnameVerifier));
     }
 
     private CloseableHttpClient createHttpClientWithSocketFactory(SSLConnectionSocketFactory socketFactory) {
@@ -219,68 +207,6 @@ public class AdyenHttpClient implements ClientInterface {
                         .setSSLSocketFactory(socketFactory)
                         .build())
                 .build();
-    }
-
-    private SSLConnectionSocketFactory getTerminalCertificateSocketFactory(Config config) throws HTTPClientException {
-        try {
-            // Create new KeyStore for the terminal certificate
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keyStore.load(null, null);
-            keyStore.setCertificateEntry(TERMINAL_CERTIFICATE_ALIAS, config.getTerminalCertificate());
-
-            TrustManagerFactory trustFactory =
-                    TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            trustFactory.init(keyStore);
-            TrustManager[] trustManagers = trustFactory.getTrustManagers();
-
-            // Install the terminal certificate trust manager
-            SSLContext sc = SSLContext.getInstance(SSL);
-            sc.init(null, trustManagers, new java.security.SecureRandom());
-
-            return new SSLConnectionSocketFactory(sc, createHostnameVerifier(config.getEnvironment()));
-        } catch (GeneralSecurityException | IOException e) {
-            throw new HTTPClientException("Error loading certificate from path", e);
-        }
-    }
-
-    private SSLConnectionSocketFactory getClientCertificateAuthSSLContext(Config config) throws HTTPClientException {
-        try {
-            char[] password = null;
-            if (config.getClientKeyStorePassword() != null && !config.getClientKeyStorePassword().isEmpty()) {
-                password = config.getClientKeyStorePassword().toCharArray();
-            }
-
-            // Create a TrustManager that trusts the CAs in our Trust KeyStore
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            tmf.init(config.getTrustKeyStore());
-
-            KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-            keyManagerFactory.init(config.getClientKeyStore(), password);
-
-            // Create an SSLContext that uses our TrustManager
-            SSLContext context = SSLContext.getInstance(TLSV1_2);
-            context.init(keyManagerFactory.getKeyManagers(), tmf.getTrustManagers(), null);
-            return new SSLConnectionSocketFactory(context);
-        } catch (Exception e) {
-            throw new HTTPClientException("Error creating SSL Context", e);
-        }
-    }
-
-    private HostnameVerifier createHostnameVerifier(final Environment environment) {
-        return (host, session) -> {
-            try {
-                if (session.getPeerCertificates() != null && session.getPeerCertificates().length > 0) {
-                    // Assume the first certificate is the leaf, since chain will be ordered, according to Java documentation:
-                    // https://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLSession.html#getPeerCertificates()
-                    X509Certificate certificate = (X509Certificate) session.getPeerCertificates()[0];
-                    return TerminalCommonNameValidator.validateCertificate(certificate, environment);
-                }
-                return false;
-            } catch (SSLPeerUnverifiedException e) {
-                e.printStackTrace();
-                return false;
-            }
-        };
     }
 
     /**

@@ -231,6 +231,31 @@ System.setProperty("https.proxyUser", "squid");
 System.setProperty("https.proxyPassword", "ward");
 ~~~~
 
+### Client certificate authentication
+~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import java.security.KeyStore;
+
+// Initialize a KeyManagerFactory with the client KeyStore and password
+KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+keyManagerFactory.init(clientKeyStore, clientKeyStorePassword);
+
+// Create a TrustManagerFactory that trusts the CAs in our Trust KeyStore
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(trustStore);
+
+// Create an SSLContext with the desired protocol that uses our KeyManagers and TrustManagers
+SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null);
+
+Client client = new Client(sslContext, apiKey);
+// Use the client
+~~~~
+
 ## Using the Cloud Terminal API Integration
 In order to submit In-Person requests with [Terminal API over Cloud](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/) you need to initialize the client in a similar way as the steps listed above for Ecommerce transactions, but make sure to include `TerminalCloudAPI`:
 ``` java
@@ -373,34 +398,53 @@ TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIReque
 
 ## Using the Local Terminal API Integration
 The request and response payloads are identical to the Cloud Terminal API, however, additional encryption details are required to perform the requests.
-```java
-// Step 1: Import the required classes
+### Local terminal API Using Keystore
+~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.enums.Environment;
+import com.adyen.httpclient.TerminalLocalAPIHostnameVerifier;
 import com.adyen.service.TerminalLocalAPI;
-import com.adyen.model.nexo.*;
+import com.adyen.model.terminal.security.*;
 import com.adyen.model.terminal.*;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 
-// Step 2: Add your Certificate Path and Local Endpoint to the config path. Install the certificate from [here](https://docs.adyen.com/point-of-sale/choose-your-architecture/local#protect-communications).
-Client client = new Client();
-client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
-client.getConfig().setEnvironment(Environment.TEST);
-client.getConfig().setTerminalCertificate("YOUR_CERTIFICATE_PATH");
+// Create a KeyStore for the terminal certificate
+KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+keyStore.load(null, null);
+keyStore.setCertificateEntry("adyenRootCertificate", adyenRootCertificate);
 
-// Step 3: Setup a security password for you terminal in CA, and import the security key object:
+// Create a TrustManagerFactory that trusts the CAs in our KeyStore
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(keyStore);
+
+// Create an SSLContext with the desired protocol that uses our TrustManagers
+SSLContext sslContext = SSLContext.getInstance("SSL");
+sslContext.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom());
+
+// Configure a client for TerminalLocalAPI
+Config config = new Config();
+config.setEnvironment(environment);
+config.setTerminalApiLocalEndpoint("https://" + terminalIpAddress);
+config.setSSLContext(sslContext);
+config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(environment));
+Client client = new Client(config);
+
+// Create your SecurityKey object used for encrypting the payload (keyIdentifier/passphrase you set up beforehand in CA)
 SecurityKey securityKey = new SecurityKey();
 securityKey.setKeyVersion(1);
 securityKey.setAdyenCryptoVersion(1);
 securityKey.setKeyIdentifier("keyIdentifier");
 securityKey.setPassphrase("passphrase");
 
-// Step 4 Initialize the API object
+// Use TerminalLocalAPI
 TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
-
-// Step 5: Create the request object
-TerminalAPIRequest terminalAPIRequest = ///....same as the one used for Cloud API ;
-
-// Step 6: Make the request
 TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIRequest);
-```
+~~~~
 
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
 If you wish to develop the Local Terminal API integration parallel to your encryption implementation, you can opt for the unencrypted version. Be sure to remove any encryption details from the CA terminal config page.
@@ -414,7 +458,6 @@ import com.adyen.model.terminal.*;
 Client client = new Client();
 client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
 client.getConfig().setEnvironment(Environment.TEST);
-client.getConfig().setTerminalCertificate("YOUR_CERTIFICATE_PATH");
 
 // Step 3 Initialize the client and the API objects;
 TerminalLocalAPIUnencrypted terminalLocalAPIUnencrypted = new TerminalLocalAPIUnencrypted(client);

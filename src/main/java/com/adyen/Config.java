@@ -1,16 +1,9 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.util.CertificateUtil;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
 
 public class Config {
     protected String username;
@@ -28,13 +21,9 @@ public class Config {
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
-    protected Certificate terminalCertificate;
-
-    // Client certificate authentication
-    protected KeyStore trustKeyStore;
-    protected KeyStore clientKeyStore;
-    protected String clientKeyStorePassword;
     protected String liveEndpointUrlPrefix;
+    protected SSLContext sslContext;
+    protected HostnameVerifier hostnameVerifier;
 
     public Config() {
         // do nothing
@@ -112,59 +101,37 @@ public class Config {
         this.readTimeoutMillis = readTimeoutMillis;
     }
 
-    public Certificate getTerminalCertificate() {
-        return terminalCertificate;
-    }
-
-    public void setTerminalCertificate(Certificate terminalCertificate) {
-        this.terminalCertificate = terminalCertificate;
-    }
-
-    public void setTerminalCertificate(String terminalCertificatePath) throws FileNotFoundException, CertificateException {
-        this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificatePath);
-    }
-
-    public void setTerminalCertificate(InputStream terminalCertificateStream) throws CertificateException {
-        this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificateStream);
-    }
-
-       public KeyStore getTrustKeyStore() {
-        return trustKeyStore;
-    }
-
-    public void setTrustKeyStore(KeyStore trustKeyStore) {
-        this.trustKeyStore = trustKeyStore;
-    }
-
-    public void setTrustKeyStore(String trustKeyStorePath, String keyStoreType, String password) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        this.trustKeyStore = CertificateUtil.loadKeyStore(trustKeyStorePath, keyStoreType, password);
-    }
-
-    public KeyStore getClientKeyStore() {
-        return clientKeyStore;
-    }
-
-    public void setClientKeyStore(KeyStore clientKeyStore) {
-        this.clientKeyStore = clientKeyStore;
-    }
-
-    public void setClientKeyStore(String clientKeyStorePath, String keyStoreType, String clientKeyStorePassword) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        this.clientKeyStorePassword = clientKeyStorePassword;
-        this.clientKeyStore = CertificateUtil.loadKeyStore(clientKeyStorePath, keyStoreType, clientKeyStorePassword);
-    }
-
-    public String getClientKeyStorePassword() {
-        return clientKeyStorePassword;
-    }
-
-    public void setClientKeyStorePassword(String clientKeyStorePassword) {
-        this.clientKeyStorePassword = clientKeyStorePassword;
-    }
-
     public String getLiveEndpointUrlPrefix() {
         return this.liveEndpointUrlPrefix;
     }
     public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
         this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
+    }
+
+    public SSLContext getSSLContext() {
+        return sslContext;
+    }
+
+    /**
+     * Sets the {@link SSLContext} for the {@link com.adyen.httpclient.AdyenHttpClient}.
+     *
+     * @param sslContext The {@link SSLContext}
+     */
+    public void setSSLContext(SSLContext sslContext) {
+        this.sslContext = sslContext;
+    }
+
+    public HostnameVerifier getHostnameVerifier() {
+        return hostnameVerifier;
+    }
+
+    /**
+     * Sets the {@link HostnameVerifier} for the {@link com.adyen.httpclient.AdyenHttpClient}.
+     *
+     * @param hostnameVerifier The {@link HostnameVerifier}
+     * @see com.adyen.httpclient.TerminalLocalAPIHostnameVerifier
+     */
+    public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
+        this.hostnameVerifier = hostnameVerifier;
     }
 }
