@@ -27,8 +27,7 @@ import java.io.Reader;
 import java.util.Map;
 import java.util.Objects;
 
-import org.apache.commons.codec.binary.Base64;
-
+import java.util.Base64;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -279,11 +278,11 @@ public class SaleToAcquirerData {
 
     public String toBase64() {
         String json = PRETTY_PRINT_GSON.toJson(this);
-        return new String(Base64.encodeBase64(json.getBytes()));
+        return new String(Base64.getEncoder().encode(json.getBytes()));
     }
 
     public static SaleToAcquirerData fromBase64(String base64) {
-        byte[] decoded = Base64.decodeBase64(base64);
+        byte[] decoded = Base64.getDecoder().decode(base64);
         try (Reader reader = new InputStreamReader(new ByteArrayInputStream(decoded))) {
             return PRETTY_PRINT_GSON.fromJson(reader, SaleToAcquirerData.class);
         }

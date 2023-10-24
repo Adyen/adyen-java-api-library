@@ -22,7 +22,7 @@ package com.adyen.util;
 
 import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
-import org.apache.commons.codec.binary.Base64;
+import java.util.Base64;
 import org.apache.commons.codec.binary.Hex;
 
 import javax.crypto.Mac;
@@ -60,7 +60,7 @@ public class HMACValidator {
             byte[] rawHmac = mac.doFinal(data.getBytes(StandardCharsets.UTF_8));
 
             // Base64-encode the hmac
-            return new String(Base64.encodeBase64(rawHmac));
+            return new String(Base64.getEncoder().encode(rawHmac));
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Missing data or key.");
         } catch (Exception e) {

@@ -24,8 +24,7 @@ import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.hc.client5.http.classic.methods.HttpDelete;
+import java.util.Base64;import org.apache.hc.client5.http.classic.methods.HttpDelete;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpPatch;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
@@ -244,7 +243,7 @@ public class AdyenHttpClient implements ClientInterface {
     private void setBasicAuthentication(HttpUriRequest httpUriRequest, String username, String password) {
         // set basic authentication
         String authString = username + ":" + password;
-        byte[] authEncBytes = Base64.encodeBase64(authString.getBytes());
+        byte[] authEncBytes = Base64.getEncoder().encode(authString.getBytes());
         String authStringEnc = new String(authEncBytes);
 
         httpUriRequest.addHeader("Authorization", "Basic " + authStringEnc);

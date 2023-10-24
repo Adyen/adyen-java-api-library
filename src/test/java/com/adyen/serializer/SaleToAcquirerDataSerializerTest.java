@@ -7,8 +7,7 @@ import com.adyen.model.terminal.SaleToAcquirerData;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.GsonBuilder;
-import org.apache.commons.codec.binary.Base64;
-import org.junit.Test;
+import java.util.Base64;import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -105,7 +104,7 @@ public class SaleToAcquirerDataSerializerTest {
         
         // test if base64 works
         String serialized = saleToAcquirerDataModelAdapter.serialize(saleToAcquirerData, null, null).getAsString();
-        SaleToAcquirerData saleToAcquirerDataDecoded = new Gson().fromJson(new String(Base64.decodeBase64(serialized)), SaleToAcquirerData.class);
+        SaleToAcquirerData saleToAcquirerDataDecoded = new Gson().fromJson(new String(Base64.getDecoder().decode(serialized)), SaleToAcquirerData.class);
         assertEquals(saleToAcquirerData, saleToAcquirerDataDecoded);
     }
 
