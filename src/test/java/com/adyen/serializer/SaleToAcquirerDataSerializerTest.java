@@ -7,7 +7,8 @@ import com.adyen.model.terminal.SaleToAcquirerData;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.GsonBuilder;
-import java.util.Base64;import org.junit.Test;
+import java.util.Base64;
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
