@@ -23,7 +23,7 @@ package com.adyen.util;
 import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
 import java.util.Base64;
-import org.apache.commons.codec.binary.Hex;
+import javax.xml.bind.DatatypeConverter;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -46,7 +46,7 @@ public class HMACValidator {
                 throw new IllegalArgumentException();
             }
 
-            byte[] rawKey = Hex.decodeHex(key.toCharArray());
+            byte[] rawKey = DatatypeConverter.parseHexBinary(key);
             // Create an hmac_sha256 key from the raw key bytes
             SecretKeySpec signingKey = new SecretKeySpec(rawKey, HMAC_SHA256_ALGORITHM);
 
