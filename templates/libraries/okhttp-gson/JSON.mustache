@@ -20,7 +20,8 @@ import org.joda.time.format.DateTimeFormatterBuilder;
 import org.joda.time.format.ISODateTimeFormat;
 {{/joda}}
 
-import java.util.Base64;
+import org.apache.commons.codec.binary.Base64;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -217,7 +218,7 @@ public class JSON {
                     return null;
                 default:
                     String bytesAsBase64 = in.nextString();
-                    return Base64.getDecoder().decode(bytesAsBase64);
+                    return Base64.decodeBase64(bytesAsBase64);
             }
         }
     }
