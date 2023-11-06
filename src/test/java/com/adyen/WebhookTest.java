@@ -652,4 +652,14 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
         AccountHolderCreateNotification payload = webhookHandler.getAccountHolderCreateNotification().get();
         Assert.assertEquals("ACCOUNT_HOLDER_CREATED", payload.getEventType());
     }
+
+    @Test
+    public void testTransactionWebhookParsing() {
+        String notification = readNotificationRequestFromFile("mocks/notification/balancePlatform-transaction-created.json");
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(notification);
+        Assert.assertTrue(webhookHandler.getTransactionNotificationRequest().isPresent());
+        TransactionNotificationRequestV4 request = webhookHandler.getTransactionNotificationRequest().get();
+        Assert.assertEquals("EVJN42272224222B5JB8BRC84N686ZEUR", request.getData().getId());
+        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
+    }
 }
