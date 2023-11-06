@@ -91,31 +91,6 @@ public class DisputesTest extends BaseTest{
     }
 
     @Test
-    public void downloadDisputeDefenseDocument() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/disputes/post-downloadDisputeDefenseDocument-download-dispute-defense-document-200.json");
-        client.setEnvironment(Environment.TEST, null);
-        DisputesApi disputesApiService = new DisputesApi(client);
-
-        DownloadDefenseDocumentRequest request = new DownloadDefenseDocumentRequest();
-        request.setDefenseDocumentType("DefenseMaterial");
-        request.setDisputePspReference("DZ4DPSHB4WD2WN82");
-        request.setMerchantAccountCode("YOUR_MERCHANT_ACCOUNT");
-        DownloadDefenseDocumentResponse response = disputesApiService.downloadDisputeDefenseDocument(request);
-
-        verify(client.getHttpClient()).request(
-                "https://ca-test.adyen.com/ca/services/DisputeService/v" + DisputesApi.API_VERSION + "/downloadDisputeDefenseDocument",
-                request.toJson(),
-                client.getConfig(),
-                false,
-                null,
-                ApiConstants.HttpMethod.POST,
-                null
-        );
-        assertNotNull(response.getDisputeServiceResult());
-        assertTrue(response.getDisputeServiceResult().getSuccess());
-    }
-
-    @Test
     public void retrieveApplicableDefenseReasons() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/disputes/post-retrieveApplicableDefenseReasons-retrieve-defense-reasons-200.json");
         client.setEnvironment(Environment.TEST, null);

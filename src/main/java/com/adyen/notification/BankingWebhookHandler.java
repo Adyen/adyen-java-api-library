@@ -9,6 +9,7 @@ import com.adyen.model.configurationwebhooks.SweepConfigurationNotificationReque
 import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.transferwebhooks.JSON;
 import com.adyen.model.transferwebhooks.TransferNotificationRequest;
+import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import java.util.Optional;
 
 public class BankingWebhookHandler {
@@ -47,6 +48,10 @@ public class BankingWebhookHandler {
 
     public Optional<TransferNotificationRequest> getTransferNotificationRequest() {
         return getOptionalField(TransferNotificationRequest.class);
+    }
+
+    public Optional<TransactionNotificationRequestV4> getTransactionNotificationRequest() {
+        return getOptionalField(TransactionNotificationRequestV4.class);
     }
 
     private <T> Optional<T> getOptionalField(Class<T> clazz) {
