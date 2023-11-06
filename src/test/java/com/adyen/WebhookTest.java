@@ -34,6 +34,7 @@ import com.adyen.model.nexo.InfoQualifyType;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.notification.BankingWebhookHandler;
 import com.adyen.notification.ClassicPlatformWebhookHandler;
 import com.adyen.notification.ManagementWebhookHandler;
@@ -655,8 +656,8 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
 
     @Test
     public void testTransactionWebhookParsing() {
-        String notification = readNotificationRequestFromFile("mocks/notification/balancePlatform-transaction-created.json");
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(notification);
+        String json = getFileContents("mocks/notification/balancePlatform-transaction-created.json");
+        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(json);
         Assert.assertTrue(webhookHandler.getTransactionNotificationRequest().isPresent());
         TransactionNotificationRequestV4 request = webhookHandler.getTransactionNotificationRequest().get();
         Assert.assertEquals("EVJN42272224222B5JB8BRC84N686ZEUR", request.getData().getId());
