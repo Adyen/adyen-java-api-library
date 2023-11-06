@@ -404,7 +404,7 @@ public class CheckoutTest extends BaseTest {
         queryParams.put("shopperReference", "test-1234");
 
         verify(client.getHttpClient()).request(
-                "https://prefix-checkout-live.adyenpayments.com/checkout/v70/storedPaymentMethods/recurringId",
+                "https://prefix-checkout-live.adyenpayments.com/checkout/v71/storedPaymentMethods/recurringId",
                 null,
                 client.getConfig(),
                 false,
@@ -425,7 +425,7 @@ public class CheckoutTest extends BaseTest {
         queryParams.put("shopperReference", "test-1234");
 
         verify(client.getHttpClient()).request(
-                "https://prefix-checkout-live.adyenpayments.com/checkout/v70/storedPaymentMethods/recurringId",
+                "https://prefix-checkout-live.adyenpayments.com/checkout/v71/storedPaymentMethods/recurringId",
                 null,
                 client.getConfig(),
                 false,
