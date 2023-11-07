@@ -41,7 +41,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Transaction.JSON_PROPERTY_BALANCE_PLATFORM,
   Transaction.JSON_PROPERTY_BOOKING_DATE,
   Transaction.JSON_PROPERTY_CREATION_DATE,
-  Transaction.JSON_PROPERTY_EVENT_ID,
   Transaction.JSON_PROPERTY_ID,
   Transaction.JSON_PROPERTY_STATUS,
   Transaction.JSON_PROPERTY_TRANSFER,
@@ -66,9 +65,6 @@ public class Transaction {
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
-
-  public static final String JSON_PROPERTY_EVENT_ID = "eventId";
-  private String eventId;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -270,31 +266,6 @@ public class Transaction {
   }
 
 
-  public Transaction eventId(String eventId) {
-    this.eventId = eventId;
-    return this;
-  }
-
-   /**
-   * The PSP reference of the transaction in the journal.
-   * @return eventId
-  **/
-  @ApiModelProperty(value = "The PSP reference of the transaction in the journal.")
-  @JsonProperty(JSON_PROPERTY_EVENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getEventId() {
-    return eventId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EVENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-
   public Transaction id(String id) {
     this.id = id;
     return this;
@@ -413,7 +384,6 @@ public class Transaction {
         Objects.equals(this.balancePlatform, transaction.balancePlatform) &&
         Objects.equals(this.bookingDate, transaction.bookingDate) &&
         Objects.equals(this.creationDate, transaction.creationDate) &&
-        Objects.equals(this.eventId, transaction.eventId) &&
         Objects.equals(this.id, transaction.id) &&
         Objects.equals(this.status, transaction.status) &&
         Objects.equals(this.transfer, transaction.transfer) &&
@@ -422,7 +392,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, bookingDate, creationDate, eventId, id, status, transfer, valueDate);
+    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, bookingDate, creationDate, id, status, transfer, valueDate);
   }
 
   @Override
@@ -435,7 +405,6 @@ public class Transaction {
     sb.append("    balancePlatform: ").append(toIndentedString(balancePlatform)).append("\n");
     sb.append("    bookingDate: ").append(toIndentedString(bookingDate)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transfer: ").append(toIndentedString(transfer)).append("\n");
