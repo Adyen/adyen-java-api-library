@@ -96,7 +96,11 @@ public class Recurring {
   public enum TokenServiceEnum {
     VISATOKENSERVICE("VISATOKENSERVICE"),
     
-    MCTOKENSERVICE("MCTOKENSERVICE");
+    MCTOKENSERVICE("MCTOKENSERVICE"),
+    
+    AMEXTOKENSERVICE("AMEXTOKENSERVICE"),
+    
+    TOKEN_SHARING("TOKEN_SHARING");
 
     private String value;
 

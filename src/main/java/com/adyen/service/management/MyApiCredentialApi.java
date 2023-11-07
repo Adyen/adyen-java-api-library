@@ -195,23 +195,23 @@ public class MyApiCredentialApi extends Service {
     }
 
     /**
-    * Generate new client key for self
+    * Generate a client key
     *
     * @return {@link GenerateClientKeyResponse }
     * @throws ApiException if fails to make API call
     */
-    public GenerateClientKeyResponse generateNewClientKeyForSelf() throws ApiException, IOException {
-        return generateNewClientKeyForSelf(null);
+    public GenerateClientKeyResponse generateClientKey() throws ApiException, IOException {
+        return generateClientKey(null);
     }
 
     /**
-    * Generate new client key for self
+    * Generate a client key
     *
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GenerateClientKeyResponse }
     * @throws ApiException if fails to make API call
     */
-    public GenerateClientKeyResponse generateNewClientKeyForSelf(RequestOptions requestOptions) throws ApiException, IOException {
+    public GenerateClientKeyResponse generateClientKey(RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/me/generateClientKey", null);
