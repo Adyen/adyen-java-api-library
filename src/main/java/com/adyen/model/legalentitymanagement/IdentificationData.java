@@ -131,9 +131,7 @@ public class IdentificationData {
    /**
    * The expiry date of the document, in YYYY-MM-DD format.
    * @return expiryDate
-   * @deprecated
   **/
-  @Deprecated
   @ApiModelProperty(value = "The expiry date of the document, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +141,6 @@ public class IdentificationData {
   }
 
 
-  @Deprecated
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {

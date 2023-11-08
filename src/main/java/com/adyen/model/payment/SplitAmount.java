@@ -52,10 +52,10 @@ public class SplitAmount {
   }
 
    /**
-   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).  If this value is not provided, the currency in which the payment is made will be used.
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
    * @return currency
   **/
-  @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).  If this value is not provided, the currency in which the payment is made will be used.")
+  @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -77,10 +77,10 @@ public class SplitAmount {
   }
 
    /**
-   * The amount in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return value
   **/
-  @ApiModelProperty(required = true, value = "The amount in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(required = true, value = "The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
