@@ -50,14 +50,16 @@ public class TerminalAssignment {
   private TerminalReassignmentTarget reassignmentTarget;
 
   /**
-   * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.  
+   * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.   * &#x60;boarded&#x60;: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  
    */
   public enum StatusEnum {
-    REASSIGNMENTINPROGRESS("reassignmentInProgress"),
+    BOARDED("boarded"),
     
     DEPLOYED("deployed"),
     
-    INVENTORY("inventory");
+    INVENTORY("inventory"),
+    
+    REASSIGNMENTINPROGRESS("reassignmentInProgress");
 
     private String value;
 
@@ -176,10 +178,10 @@ public class TerminalAssignment {
   }
 
    /**
-   * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.  
+   * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.   * &#x60;boarded&#x60;: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "The status of the reassignment. Possible values:   * `reassignmentInProgress`: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * `deployed`: the terminal is deployed and reassigned.   * `inventory`: the terminal is in inventory and cannot process transactions.  ")
+  @ApiModelProperty(required = true, value = "The status of the reassignment. Possible values:   * `reassignmentInProgress`: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * `deployed`: the terminal is deployed and reassigned.   * `inventory`: the terminal is in inventory and cannot process transactions.   * `boarded`: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

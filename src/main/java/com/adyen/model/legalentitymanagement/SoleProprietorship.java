@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
+import com.adyen.model.legalentitymanagement.TaxInformation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -39,6 +42,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   SoleProprietorship.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
   SoleProprietorship.JSON_PROPERTY_REGISTERED_ADDRESS,
   SoleProprietorship.JSON_PROPERTY_REGISTRATION_NUMBER,
+  SoleProprietorship.JSON_PROPERTY_TAX_INFORMATION,
   SoleProprietorship.JSON_PROPERTY_VAT_ABSENCE_REASON,
   SoleProprietorship.JSON_PROPERTY_VAT_NUMBER
 })
@@ -64,6 +68,9 @@ public class SoleProprietorship {
 
   public static final String JSON_PROPERTY_REGISTRATION_NUMBER = "registrationNumber";
   private String registrationNumber;
+
+  public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
+  private List<TaxInformation> taxInformation = null;
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
@@ -284,6 +291,39 @@ public class SoleProprietorship {
   }
 
 
+  public SoleProprietorship taxInformation(List<TaxInformation> taxInformation) {
+    this.taxInformation = taxInformation;
+    return this;
+  }
+
+  public SoleProprietorship addTaxInformationItem(TaxInformation taxInformationItem) {
+    if (this.taxInformation == null) {
+      this.taxInformation = new ArrayList<>();
+    }
+    this.taxInformation.add(taxInformationItem);
+    return this;
+  }
+
+   /**
+   * The tax information of the entity.
+   * @return taxInformation
+  **/
+  @ApiModelProperty(value = "The tax information of the entity.")
+  @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TaxInformation> getTaxInformation() {
+    return taxInformation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTaxInformation(List<TaxInformation> taxInformation) {
+    this.taxInformation = taxInformation;
+  }
+
+
   public SoleProprietorship vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
     return this;
@@ -353,13 +393,14 @@ public class SoleProprietorship {
         Objects.equals(this.principalPlaceOfBusiness, soleProprietorship.principalPlaceOfBusiness) &&
         Objects.equals(this.registeredAddress, soleProprietorship.registeredAddress) &&
         Objects.equals(this.registrationNumber, soleProprietorship.registrationNumber) &&
+        Objects.equals(this.taxInformation, soleProprietorship.taxInformation) &&
         Objects.equals(this.vatAbsenceReason, soleProprietorship.vatAbsenceReason) &&
         Objects.equals(this.vatNumber, soleProprietorship.vatNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, vatAbsenceReason, vatNumber);
   }
 
   @Override
@@ -373,6 +414,7 @@ public class SoleProprietorship {
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");
     sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
     sb.append("    vatAbsenceReason: ").append(toIndentedString(vatAbsenceReason)).append("\n");
     sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
     sb.append("}");

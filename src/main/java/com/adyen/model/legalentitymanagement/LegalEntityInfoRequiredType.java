@@ -21,6 +21,7 @@ import com.adyen.model.legalentitymanagement.LegalEntityAssociation;
 import com.adyen.model.legalentitymanagement.LegalEntityCapability;
 import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
+import com.adyen.model.legalentitymanagement.Trust;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,6 +47,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntityInfoRequiredType.JSON_PROPERTY_ORGANIZATION,
   LegalEntityInfoRequiredType.JSON_PROPERTY_REFERENCE,
   LegalEntityInfoRequiredType.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
+  LegalEntityInfoRequiredType.JSON_PROPERTY_TRUST,
   LegalEntityInfoRequiredType.JSON_PROPERTY_TYPE
 })
 
@@ -68,8 +70,11 @@ public class LegalEntityInfoRequiredType {
   public static final String JSON_PROPERTY_SOLE_PROPRIETORSHIP = "soleProprietorship";
   private SoleProprietorship soleProprietorship;
 
+  public static final String JSON_PROPERTY_TRUST = "trust";
+  private Trust trust;
+
   /**
-   * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
+   * The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    */
   public enum TypeEnum {
     INDIVIDUAL("individual"),
@@ -281,16 +286,41 @@ public class LegalEntityInfoRequiredType {
   }
 
 
+  public LegalEntityInfoRequiredType trust(Trust trust) {
+    this.trust = trust;
+    return this;
+  }
+
+   /**
+   * Get trust
+   * @return trust
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRUST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Trust getTrust() {
+    return trust;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRUST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTrust(Trust trust) {
+    this.trust = trust;
+  }
+
+
   public LegalEntityInfoRequiredType type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
+   * The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.")
+  @ApiModelProperty(required = true, value = "The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -324,12 +354,13 @@ public class LegalEntityInfoRequiredType {
         Objects.equals(this.organization, legalEntityInfoRequiredType.organization) &&
         Objects.equals(this.reference, legalEntityInfoRequiredType.reference) &&
         Objects.equals(this.soleProprietorship, legalEntityInfoRequiredType.soleProprietorship) &&
+        Objects.equals(this.trust, legalEntityInfoRequiredType.trust) &&
         Objects.equals(this.type, legalEntityInfoRequiredType.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, entityAssociations, individual, organization, reference, soleProprietorship, type);
+    return Objects.hash(capabilities, entityAssociations, individual, organization, reference, soleProprietorship, trust, type);
   }
 
   @Override
@@ -342,6 +373,7 @@ public class LegalEntityInfoRequiredType {
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    soleProprietorship: ").append(toIndentedString(soleProprietorship)).append("\n");
+    sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

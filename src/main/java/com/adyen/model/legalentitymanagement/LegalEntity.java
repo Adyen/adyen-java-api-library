@@ -25,6 +25,7 @@ import com.adyen.model.legalentitymanagement.LegalEntityCapability;
 import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
 import com.adyen.model.legalentitymanagement.TransferInstrumentReference;
+import com.adyen.model.legalentitymanagement.Trust;
 import com.adyen.model.legalentitymanagement.VerificationDeadline;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -56,6 +57,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntity.JSON_PROPERTY_REFERENCE,
   LegalEntity.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
   LegalEntity.JSON_PROPERTY_TRANSFER_INSTRUMENTS,
+  LegalEntity.JSON_PROPERTY_TRUST,
   LegalEntity.JSON_PROPERTY_TYPE,
   LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES
 })
@@ -94,8 +96,11 @@ public class LegalEntity {
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENTS = "transferInstruments";
   private List<TransferInstrumentReference> transferInstruments = null;
 
+  public static final String JSON_PROPERTY_TRUST = "trust";
+  private Trust trust;
+
   /**
-   * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
+   * The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    */
   public enum TypeEnum {
     INDIVIDUAL("individual"),
@@ -470,16 +475,41 @@ public class LegalEntity {
   }
 
 
+  public LegalEntity trust(Trust trust) {
+    this.trust = trust;
+    return this;
+  }
+
+   /**
+   * Get trust
+   * @return trust
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRUST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Trust getTrust() {
+    return trust;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRUST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTrust(Trust trust) {
+    this.trust = trust;
+  }
+
+
   public LegalEntity type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
+   * The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    * @return type
   **/
-  @ApiModelProperty(value = "The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.")
+  @ApiModelProperty(value = "The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -551,13 +581,14 @@ public class LegalEntity {
         Objects.equals(this.reference, legalEntity.reference) &&
         Objects.equals(this.soleProprietorship, legalEntity.soleProprietorship) &&
         Objects.equals(this.transferInstruments, legalEntity.transferInstruments) &&
+        Objects.equals(this.trust, legalEntity.trust) &&
         Objects.equals(this.type, legalEntity.type) &&
         Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, type, verificationDeadlines);
+    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, trust, type, verificationDeadlines);
   }
 
   @Override
@@ -575,6 +606,7 @@ public class LegalEntity {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    soleProprietorship: ").append(toIndentedString(soleProprietorship)).append("\n");
     sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
+    sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    verificationDeadlines: ").append(toIndentedString(verificationDeadlines)).append("\n");
     sb.append("}");

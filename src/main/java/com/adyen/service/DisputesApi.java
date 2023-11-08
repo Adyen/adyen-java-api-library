@@ -23,8 +23,6 @@ import com.adyen.model.disputes.DefenseReasonsRequest;
 import com.adyen.model.disputes.DefenseReasonsResponse;
 import com.adyen.model.disputes.DeleteDefenseDocumentRequest;
 import com.adyen.model.disputes.DeleteDefenseDocumentResponse;
-import com.adyen.model.disputes.DownloadDefenseDocumentRequest;
-import com.adyen.model.disputes.DownloadDefenseDocumentResponse;
 import com.adyen.model.disputes.ServiceError;
 import com.adyen.model.disputes.SupplyDefenseDocumentRequest;
 import com.adyen.model.disputes.SupplyDefenseDocumentResponse;
@@ -141,33 +139,6 @@ public class DisputesApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/deleteDisputeDefenseDocument", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return DeleteDefenseDocumentResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Download a defense document
-    *
-    * @param downloadDefenseDocumentRequest {@link DownloadDefenseDocumentRequest }  (required)
-    * @return {@link DownloadDefenseDocumentResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public DownloadDefenseDocumentResponse downloadDisputeDefenseDocument(DownloadDefenseDocumentRequest downloadDefenseDocumentRequest) throws ApiException, IOException {
-        return downloadDisputeDefenseDocument(downloadDefenseDocumentRequest, null);
-    }
-
-    /**
-    * Download a defense document
-    *
-    * @param downloadDefenseDocumentRequest {@link DownloadDefenseDocumentRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link DownloadDefenseDocumentResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public DownloadDefenseDocumentResponse downloadDisputeDefenseDocument(DownloadDefenseDocumentRequest downloadDefenseDocumentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = downloadDefenseDocumentRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/downloadDisputeDefenseDocument", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return DownloadDefenseDocumentResponse.fromJson(jsonResult);
     }
 
     /**
