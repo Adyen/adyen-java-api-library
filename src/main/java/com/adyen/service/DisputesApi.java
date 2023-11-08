@@ -23,6 +23,7 @@ import com.adyen.model.disputes.DefenseReasonsRequest;
 import com.adyen.model.disputes.DefenseReasonsResponse;
 import com.adyen.model.disputes.DeleteDefenseDocumentRequest;
 import com.adyen.model.disputes.DeleteDefenseDocumentResponse;
+import com.adyen.model.disputes.ServiceError;
 import com.adyen.model.disputes.SupplyDefenseDocumentRequest;
 import com.adyen.model.disputes.SupplyDefenseDocumentResponse;
 import com.adyen.model.RequestOptions;
@@ -30,6 +31,8 @@ import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DisputesApi extends Service {
 
