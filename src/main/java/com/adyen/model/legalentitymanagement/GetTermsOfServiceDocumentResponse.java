@@ -52,7 +52,7 @@ public class GetTermsOfServiceDocumentResponse {
   private String termsOfServiceDocumentId;
 
   /**
-   * The type of Terms of Service.
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee**  
    */
   public enum TypeEnum {
     ADYENACCOUNT("adyenAccount"),
@@ -208,10 +208,10 @@ public class GetTermsOfServiceDocumentResponse {
   }
 
    /**
-   * The type of Terms of Service.
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee**  
    * @return type
   **/
-  @ApiModelProperty(value = "The type of Terms of Service.")
+  @ApiModelProperty(value = "The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

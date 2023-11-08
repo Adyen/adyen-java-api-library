@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -36,6 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntityAssociation.JSON_PROPERTY_JOB_TITLE,
   LegalEntityAssociation.JSON_PROPERTY_LEGAL_ENTITY_ID,
   LegalEntityAssociation.JSON_PROPERTY_NAME,
+  LegalEntityAssociation.JSON_PROPERTY_SETTLOR_EXEMPTION_REASON,
   LegalEntityAssociation.JSON_PROPERTY_TYPE
 })
 
@@ -55,21 +58,40 @@ public class LegalEntityAssociation {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_SETTLOR_EXEMPTION_REASON = "settlorExemptionReason";
+  private List<String> settlorExemptionReason = null;
+
   /**
-   * Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.
+   * Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.
    */
   public enum TypeEnum {
+    DEFINEDBENEFICIARY("definedBeneficiary"),
+    
+    DIRECTOR("director"),
+    
     PCISIGNATORY("pciSignatory"),
+    
+    PROTECTOR("protector"),
+    
+    SECONDARYTRUSTEE("secondaryTrustee"),
+    
+    SETTLOR("settlor"),
     
     SIGNATORY("signatory"),
     
     SOLEPROPRIETORSHIP("soleProprietorship"),
     
+    TRUST("trust"),
+    
+    TRUSTOWNERSHIP("trustOwnership"),
+    
     UBOTHROUGHCONTROL("uboThroughControl"),
     
     UBOTHROUGHOWNERSHIP("uboThroughOwnership"),
     
-    ULTIMATEPARENTCOMPANY("ultimateParentCompany");
+    ULTIMATEPARENTCOMPANY("ultimateParentCompany"),
+    
+    UNDEFINEDBENEFICIARY("undefinedBeneficiary");
 
     private String value;
 
@@ -229,16 +251,49 @@ public class LegalEntityAssociation {
   }
 
 
+  public LegalEntityAssociation settlorExemptionReason(List<String> settlorExemptionReason) {
+    this.settlorExemptionReason = settlorExemptionReason;
+    return this;
+  }
+
+  public LegalEntityAssociation addSettlorExemptionReasonItem(String settlorExemptionReasonItem) {
+    if (this.settlorExemptionReason == null) {
+      this.settlorExemptionReason = new ArrayList<>();
+    }
+    this.settlorExemptionReason.add(settlorExemptionReasonItem);
+    return this;
+  }
+
+   /**
+   * Defines the Kyc Exemption Reason for a Settlor associated with a trust.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
+   * @return settlorExemptionReason
+  **/
+  @ApiModelProperty(value = "Defines the Kyc Exemption Reason for a Settlor associated with a trust.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.")
+  @JsonProperty(JSON_PROPERTY_SETTLOR_EXEMPTION_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getSettlorExemptionReason() {
+    return settlorExemptionReason;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SETTLOR_EXEMPTION_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSettlorExemptionReason(List<String> settlorExemptionReason) {
+    this.settlorExemptionReason = settlorExemptionReason;
+  }
+
+
   public LegalEntityAssociation type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.
+   * Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.")
+  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -271,12 +326,13 @@ public class LegalEntityAssociation {
         Objects.equals(this.jobTitle, legalEntityAssociation.jobTitle) &&
         Objects.equals(this.legalEntityId, legalEntityAssociation.legalEntityId) &&
         Objects.equals(this.name, legalEntityAssociation.name) &&
+        Objects.equals(this.settlorExemptionReason, legalEntityAssociation.settlorExemptionReason) &&
         Objects.equals(this.type, legalEntityAssociation.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(associatorId, entityType, jobTitle, legalEntityId, name, type);
+    return Objects.hash(associatorId, entityType, jobTitle, legalEntityId, name, settlorExemptionReason, type);
   }
 
   @Override
@@ -288,6 +344,7 @@ public class LegalEntityAssociation {
     sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    settlorExemptionReason: ").append(toIndentedString(settlorExemptionReason)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
