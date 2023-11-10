@@ -444,7 +444,7 @@ securityKey.setPassphrase("passphrase");
 
 // Use TerminalLocalAPI
 TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
-TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIRequest);
+TerminalAPIResponse terminalAPIResponse = terminalLocalAPI.request(terminalAPIRequest);
 ~~~~
 
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
