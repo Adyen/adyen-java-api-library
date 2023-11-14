@@ -444,7 +444,7 @@ securityKey.setPassphrase("passphrase");
 
 // Use TerminalLocalAPI
 TerminalLocalAPI terminalLocalAPI = new TerminalLocalAPI(client, securityKey);
-TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIRequest);
+TerminalAPIResponse terminalAPIResponse = terminalLocalAPI.request(terminalAPIRequest);
 ~~~~
 
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
@@ -488,7 +488,7 @@ We value your input! Help us enhance our API Libraries and improve the integrati
 We encourage you to contribute to this repository, so everyone can benefit from new features, bug fixes, and any other improvements.
  
  
-Have a look at our [contributing guidelines](https://github.com/Adyen/adyen-java-api-library/blob/develop/CONTRIBUTING.md) to find out how to raise a pull request.
+Have a look at our [contributing guidelines](CONTRIBUTING.md) to find out how to raise a pull request.
  
  
 ## Support

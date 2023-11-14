@@ -159,13 +159,5 @@ clean:
 	git checkout $(models)
 	git clean -f -d $(models)
 
-## Releases
 
-version:
-	perl -lne 'print "currentVersion=$$1" if /version>(.+?)<\/version/' < pom.xml | head -1 >> "$$GITHUB_OUTPUT"
-
-version_files:=pom.xml src/main/java/com/adyen/Client.java README.md
-bump:
-	perl -i -pe 's/$$ENV{"CURRENT_VERSION"}/$$ENV{"NEXT_VERSION"}/' $(version_files) 
-
-.PHONY: templates models $(services) version bump
+.PHONY: templates models $(services)
