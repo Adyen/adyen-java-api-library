@@ -89,7 +89,7 @@ public class ResourceTest extends BaseTest {
                     .thenThrow(new HTTPClientException("message", 403, new HashMap<>(), null));
 
             Resource resource = new Resource(serviceMock, "", null);
-            String response = resource.request("request");
+            resource.request("request");
 
             fail("Expected exception");
         } catch (ApiException e) {
@@ -105,7 +105,7 @@ public class ResourceTest extends BaseTest {
         when(serviceMock.getClient()).thenReturn(client);
         try {
             Resource resource = new Resource(serviceMock, "", null);
-            String response = resource.request("request");
+            resource.request("request");
 
             fail("Expected exception");
         } catch (ApiException e) {
@@ -121,7 +121,7 @@ public class ResourceTest extends BaseTest {
         when(serviceMock.getClient()).thenReturn(client);
         try {
             Resource resource = new Resource(serviceMock, "", null);
-            String response = resource.request("request");
+            resource.request("request");
 
             fail("Expected exception");
         } catch (ApiException e) {
@@ -139,7 +139,7 @@ public class ResourceTest extends BaseTest {
         when(serviceMock.getClient()).thenReturn(client);
         try {
             Resource resource = new Resource(serviceMock, "", null);
-            String response = resource.request("request");
+            resource.request("request");
 
             fail("Expected exception");
         } catch (ApiException e) {

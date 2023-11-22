@@ -1,0 +1,13 @@
+{
+  "invalidFields": [
+    {
+      "errorCode": 92,
+      "errorDescription": "The fullPhoneNumber must be in the format of a beginning plus (+) followed by the country code and phone number.  Only digits and the leading plus are permitted.",
+      "fieldType": {
+        "field": "AccountHolderDetails.PhoneNumber.fullPhoneNumber",
+        "fieldName": "fullPhoneNumber"
+      }
+    }
+  ],
+  "pspReference": "123789"
+}

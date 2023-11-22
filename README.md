@@ -233,6 +233,7 @@ System.setProperty("https.proxyPassword", "ward");
 ~~~~
 
 ### Client certificate authentication
+
 ~~~~ java
 // Import the required classes
 import com.adyen.Client;
@@ -256,6 +257,25 @@ sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrust
 Client client = new Client(sslContext, apiKey);
 // Use the client
 ~~~~
+
+### Classic Platforms Error Handling
+
+When requests fail, the library throws exceptions. For Classic AFP endpoints like [Create Account Holder](https://docs.adyen.com/api-explorer/Account/6/post/createAccountHolder), you can decode further details from the exception:  
+
+```java
+Client client = new Client("Your YOUR_API_KEY", Environment.TEST);
+ClassicPlatformAccountApi api = new ClassicPlatformAccountApi(client);
+CreateAccountHolderRequest request = new CreateAccountHolderRequest();
+
+try {
+    api.createAccountHolder(request);
+} catch (ApiException e) {
+    CreateAccountHolderResponse error = CreateAccountHolderResponse.fromJson(e.getResponseBody());
+    // inspect the error
+    System.out.println(e.getStatusCode());
+    System.out.println(error.getInvalidFields());
+}
+```
 
 ## Using the Cloud Terminal API Integration
 In order to submit In-Person requests with [Terminal API over Cloud](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/) you need to initialize the client in a similar way as the steps listed above for Ecommerce transactions, but make sure to include `TerminalCloudAPI`:
