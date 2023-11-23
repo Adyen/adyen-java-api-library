@@ -78,7 +78,7 @@ public class HMACValidator {
     public boolean validateHMAC(String hmacSignature, String hmacKey, String payload) throws SignatureException {
         String calculatedSign = calculateHMAC(payload, hmacSignature);
         final byte [] expectedSign = calculatedSign.getBytes(StandardCharsets.UTF_8);
-        final byte[] merchantSign =  hmacKey.getBytes(StandardCharsets.UTF_8);
+        final byte[] merchantSign =  hmacSignature.getBytes(StandardCharsets.UTF_8);
         return MessageDigest.isEqual(expectedSign, merchantSign);
     }
 
