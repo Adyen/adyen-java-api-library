@@ -75,7 +75,7 @@ public class HMACValidator {
 
     //Calculate HMAC for BankingWebhooks and ManagementWebhooks (Generic webhooks)
     //First parameter is hmacSignature which is get from webhook and the second hmackey which is configured
-    public boolean validateHMAC(String hmacSignature, String hmacKey, String payload) throws SignatureException {
+    public boolean validateHMAC(String hmacKey, String hmacSignature, String payload) throws SignatureException {
         String calculatedSign = calculateHMAC(payload, hmacKey);
         final byte [] expectedSign = calculatedSign.getBytes(StandardCharsets.UTF_8);
         final byte[] merchantSign =  hmacSignature.getBytes(StandardCharsets.UTF_8);
