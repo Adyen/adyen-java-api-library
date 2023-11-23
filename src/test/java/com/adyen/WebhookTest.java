@@ -271,7 +271,7 @@ Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationReques
         String signKey = "D7DD5BA6146493707BF0BE7496F6404EC7A63616B7158EC927B9F54BB436765F";
         String hmacKey = "9Qz9S/0xpar1klkniKdshxpAhRKbiSAewPpWoxKefQA=";
         HMACValidator hmacValidator = new HMACValidator();
-        boolean response = hmacValidator.validateHMAC(hmacKey, signKey, notification);
+        boolean response = hmacValidator.validateHMAC(signKey,hmacKey,notification);
         Assert.assertTrue(response);
     }
 

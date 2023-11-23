@@ -73,8 +73,9 @@ public class HMACValidator {
         return calculateHMAC(getDataToSign(notificationRequestItem), key);
     }
 
-    // Calculate HMAC for BankingWebhooks and ManagementWebhooks (Generic webhooks)
-    public boolean validateHMAC(String hmacKey, String hmacSignature, String payload) throws SignatureException {
+    //Calculate HMAC for BankingWebhooks and ManagementWebhooks (Generic webhooks)
+    //First parameter is hmacSignature which is get from webhook and the second hmackey which is configured
+    public boolean validateHMAC(String hmacSignature, String hmacKey, String payload) throws SignatureException {
         String calculatedSign = calculateHMAC(payload, hmacSignature);
         final byte [] expectedSign = calculatedSign.getBytes(StandardCharsets.UTF_8);
         final byte[] merchantSign =  hmacKey.getBytes(StandardCharsets.UTF_8);
