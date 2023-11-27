@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.AccountHolderCapability;
 import com.adyen.model.configurationwebhooks.ContactDetails;
+import com.adyen.model.configurationwebhooks.VerificationDeadline;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +49,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AccountHolder.JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT,
   AccountHolder.JSON_PROPERTY_REFERENCE,
   AccountHolder.JSON_PROPERTY_STATUS,
-  AccountHolder.JSON_PROPERTY_TIME_ZONE
+  AccountHolder.JSON_PROPERTY_TIME_ZONE,
+  AccountHolder.JSON_PROPERTY_VERIFICATION_DEADLINES
 })
 
 public class AccountHolder {
@@ -125,6 +128,9 @@ public class AccountHolder {
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
   private String timeZone;
+
+  public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
+  private List<VerificationDeadline> verificationDeadlines = null;
 
   public AccountHolder() { 
   }
@@ -445,6 +451,39 @@ public class AccountHolder {
   }
 
 
+  public AccountHolder verificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+    this.verificationDeadlines = verificationDeadlines;
+    return this;
+  }
+
+  public AccountHolder addVerificationDeadlinesItem(VerificationDeadline verificationDeadlinesItem) {
+    if (this.verificationDeadlines == null) {
+      this.verificationDeadlines = new ArrayList<>();
+    }
+    this.verificationDeadlines.add(verificationDeadlinesItem);
+    return this;
+  }
+
+   /**
+   * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
+   * @return verificationDeadlines
+  **/
+  @ApiModelProperty(value = "List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<VerificationDeadline> getVerificationDeadlines() {
+    return verificationDeadlines;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
+    this.verificationDeadlines = verificationDeadlines;
+  }
+
+
   /**
    * Return true if this AccountHolder object is equal to o.
    */
@@ -468,12 +507,13 @@ public class AccountHolder {
         Objects.equals(this.primaryBalanceAccount, accountHolder.primaryBalanceAccount) &&
         Objects.equals(this.reference, accountHolder.reference) &&
         Objects.equals(this.status, accountHolder.status) &&
-        Objects.equals(this.timeZone, accountHolder.timeZone);
+        Objects.equals(this.timeZone, accountHolder.timeZone) &&
+        Objects.equals(this.verificationDeadlines, accountHolder.verificationDeadlines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balancePlatform, capabilities, contactDetails, description, id, legalEntityId, metadata, migratedAccountHolderCode, primaryBalanceAccount, reference, status, timeZone);
+    return Objects.hash(balancePlatform, capabilities, contactDetails, description, id, legalEntityId, metadata, migratedAccountHolderCode, primaryBalanceAccount, reference, status, timeZone, verificationDeadlines);
   }
 
   @Override
@@ -492,6 +532,7 @@ public class AccountHolder {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("    verificationDeadlines: ").append(toIndentedString(verificationDeadlines)).append("\n");
     sb.append("}");
     return sb.toString();
   }
