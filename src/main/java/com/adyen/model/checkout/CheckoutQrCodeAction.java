@@ -125,10 +125,10 @@ public class CheckoutQrCodeAction {
   }
 
    /**
-   * A value that must be submitted to the &#x60;/payments/details&#x60; endpoint to verify this payment.
+   * Encoded payment data.
    * @return paymentData
   **/
-  @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
+  @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
