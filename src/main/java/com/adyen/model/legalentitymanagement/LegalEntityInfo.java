@@ -22,6 +22,7 @@ import com.adyen.model.legalentitymanagement.LegalEntityCapability;
 import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
 import com.adyen.model.legalentitymanagement.Trust;
+import com.adyen.model.legalentitymanagement.UnincorporatedPartnership;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -48,7 +49,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntityInfo.JSON_PROPERTY_REFERENCE,
   LegalEntityInfo.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
   LegalEntityInfo.JSON_PROPERTY_TRUST,
-  LegalEntityInfo.JSON_PROPERTY_TYPE
+  LegalEntityInfo.JSON_PROPERTY_TYPE,
+  LegalEntityInfo.JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP
 })
 
 public class LegalEntityInfo {
@@ -116,6 +118,9 @@ public class LegalEntityInfo {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP = "unincorporatedPartnership";
+  private UnincorporatedPartnership unincorporatedPartnership;
 
   public LegalEntityInfo() { 
   }
@@ -336,6 +341,31 @@ public class LegalEntityInfo {
   }
 
 
+  public LegalEntityInfo unincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
+    this.unincorporatedPartnership = unincorporatedPartnership;
+    return this;
+  }
+
+   /**
+   * Get unincorporatedPartnership
+   * @return unincorporatedPartnership
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UnincorporatedPartnership getUnincorporatedPartnership() {
+    return unincorporatedPartnership;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUnincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
+    this.unincorporatedPartnership = unincorporatedPartnership;
+  }
+
+
   /**
    * Return true if this LegalEntityInfo object is equal to o.
    */
@@ -355,12 +385,13 @@ public class LegalEntityInfo {
         Objects.equals(this.reference, legalEntityInfo.reference) &&
         Objects.equals(this.soleProprietorship, legalEntityInfo.soleProprietorship) &&
         Objects.equals(this.trust, legalEntityInfo.trust) &&
-        Objects.equals(this.type, legalEntityInfo.type);
+        Objects.equals(this.type, legalEntityInfo.type) &&
+        Objects.equals(this.unincorporatedPartnership, legalEntityInfo.unincorporatedPartnership);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, entityAssociations, individual, organization, reference, soleProprietorship, trust, type);
+    return Objects.hash(capabilities, entityAssociations, individual, organization, reference, soleProprietorship, trust, type, unincorporatedPartnership);
   }
 
   @Override
@@ -375,6 +406,7 @@ public class LegalEntityInfo {
     sb.append("    soleProprietorship: ").append(toIndentedString(soleProprietorship)).append("\n");
     sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    unincorporatedPartnership: ").append(toIndentedString(unincorporatedPartnership)).append("\n");
     sb.append("}");
     return sb.toString();
   }

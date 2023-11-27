@@ -66,6 +66,8 @@ public class RecurringDetail {
    * The funding source of the payment method.
    */
   public enum FundingSourceEnum {
+    CREDIT("credit"),
+    
     DEBIT("debit");
 
     private String value;

@@ -42,8 +42,49 @@ public class AddressRequirement {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /**
+   * Gets or Sets requiredAddressFields
+   */
+  public enum RequiredAddressFieldsEnum {
+    CITY("city"),
+    
+    COUNTRY("country"),
+    
+    LINE1("line1"),
+    
+    POSTALCODE("postalCode"),
+    
+    STATEORPROVINCE("stateOrProvince");
+
+    private String value;
+
+    RequiredAddressFieldsEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static RequiredAddressFieldsEnum fromValue(String value) {
+      for (RequiredAddressFieldsEnum b : RequiredAddressFieldsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS = "requiredAddressFields";
-  private List<String> requiredAddressFields = null;
+  private List<RequiredAddressFieldsEnum> requiredAddressFields = null;
 
   /**
    * **addressRequirement**
@@ -109,12 +150,12 @@ public class AddressRequirement {
   }
 
 
-  public AddressRequirement requiredAddressFields(List<String> requiredAddressFields) {
+  public AddressRequirement requiredAddressFields(List<RequiredAddressFieldsEnum> requiredAddressFields) {
     this.requiredAddressFields = requiredAddressFields;
     return this;
   }
 
-  public AddressRequirement addRequiredAddressFieldsItem(String requiredAddressFieldsItem) {
+  public AddressRequirement addRequiredAddressFieldsItem(RequiredAddressFieldsEnum requiredAddressFieldsItem) {
     if (this.requiredAddressFields == null) {
       this.requiredAddressFields = new ArrayList<>();
     }
@@ -130,14 +171,14 @@ public class AddressRequirement {
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getRequiredAddressFields() {
+  public List<RequiredAddressFieldsEnum> getRequiredAddressFields() {
     return requiredAddressFields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequiredAddressFields(List<String> requiredAddressFields) {
+  public void setRequiredAddressFields(List<RequiredAddressFieldsEnum> requiredAddressFields) {
     this.requiredAddressFields = requiredAddressFields;
   }
 

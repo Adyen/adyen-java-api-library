@@ -63,6 +63,8 @@ public class PaymentMethod {
    * The funding source of the payment method.
    */
   public enum FundingSourceEnum {
+    CREDIT("credit"),
+    
     DEBIT("debit");
 
     private String value;

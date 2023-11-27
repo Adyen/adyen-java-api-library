@@ -17,7 +17,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.InvalidField;
-import com.adyen.model.balanceplatform.JSONObject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -63,7 +62,7 @@ public class RestServiceError {
   private String requestId;
 
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  private JSONObject response;
+  private Object response;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
@@ -210,7 +209,7 @@ public class RestServiceError {
   }
 
 
-  public RestServiceError response(JSONObject response) {
+  public RestServiceError response(Object response) {
     this.response = response;
     return this;
   }
@@ -223,14 +222,14 @@ public class RestServiceError {
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JSONObject getResponse() {
+  public Object getResponse() {
     return response;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(JSONObject response) {
+  public void setResponse(Object response) {
     this.response = response;
   }
 
