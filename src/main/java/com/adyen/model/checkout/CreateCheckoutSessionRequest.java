@@ -109,6 +109,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CreateCheckoutSessionRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD,
   CreateCheckoutSessionRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   CreateCheckoutSessionRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
+  CreateCheckoutSessionRequest.JSON_PROPERTY_THEME_ID,
   CreateCheckoutSessionRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
   CreateCheckoutSessionRequest.JSON_PROPERTY_TRUSTED_SHOPPER
 })
@@ -463,6 +464,9 @@ public class CreateCheckoutSessionRequest {
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  public static final String JSON_PROPERTY_THEME_ID = "themeId";
+  private String themeId;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   private Boolean threeDSAuthenticationOnly = false;
@@ -1904,6 +1908,31 @@ public class CreateCheckoutSessionRequest {
   }
 
 
+  public CreateCheckoutSessionRequest themeId(String themeId) {
+    this.themeId = themeId;
+    return this;
+  }
+
+   /**
+   * Sets a custom theme for the Adyen-hosted payment page. The value can be any of the **Theme ID** values from your Customer Area.
+   * @return themeId
+  **/
+  @ApiModelProperty(value = "Sets a custom theme for the Adyen-hosted payment page. The value can be any of the **Theme ID** values from your Customer Area.")
+  @JsonProperty(JSON_PROPERTY_THEME_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getThemeId() {
+    return themeId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_THEME_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThemeId(String themeId) {
+    this.themeId = themeId;
+  }
+
+
   public CreateCheckoutSessionRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;
@@ -2024,13 +2053,14 @@ public class CreateCheckoutSessionRequest {
         Objects.equals(this.storePaymentMethod, createCheckoutSessionRequest.storePaymentMethod) &&
         Objects.equals(this.storePaymentMethodMode, createCheckoutSessionRequest.storePaymentMethodMode) &&
         Objects.equals(this.telephoneNumber, createCheckoutSessionRequest.telephoneNumber) &&
+        Objects.equals(this.themeId, createCheckoutSessionRequest.themeId) &&
         Objects.equals(this.threeDSAuthenticationOnly, createCheckoutSessionRequest.threeDSAuthenticationOnly) &&
         Objects.equals(this.trustedShopper, createCheckoutSessionRequest.trustedShopper);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethod, storePaymentMethodMode, telephoneNumber, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethod, storePaymentMethodMode, telephoneNumber, themeId, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2092,6 +2122,7 @@ public class CreateCheckoutSessionRequest {
     sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
     sb.append("    storePaymentMethodMode: ").append(toIndentedString(storePaymentMethodMode)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+    sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
     sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
     sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
     sb.append("}");

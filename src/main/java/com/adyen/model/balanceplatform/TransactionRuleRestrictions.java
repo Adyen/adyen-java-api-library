@@ -29,6 +29,8 @@ import com.adyen.model.balanceplatform.MccsRestriction;
 import com.adyen.model.balanceplatform.MerchantNamesRestriction;
 import com.adyen.model.balanceplatform.MerchantsRestriction;
 import com.adyen.model.balanceplatform.ProcessingTypesRestriction;
+import com.adyen.model.balanceplatform.SameAmountRestriction;
+import com.adyen.model.balanceplatform.SameCounterpartyRestriction;
 import com.adyen.model.balanceplatform.TimeOfDayRestriction;
 import com.adyen.model.balanceplatform.TotalAmountRestriction;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -59,6 +61,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANT_NAMES,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANTS,
   TransactionRuleRestrictions.JSON_PROPERTY_PROCESSING_TYPES,
+  TransactionRuleRestrictions.JSON_PROPERTY_SAME_AMOUNT_RESTRICTION,
+  TransactionRuleRestrictions.JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION,
   TransactionRuleRestrictions.JSON_PROPERTY_TIME_OF_DAY,
   TransactionRuleRestrictions.JSON_PROPERTY_TOTAL_AMOUNT
 })
@@ -102,6 +106,12 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_PROCESSING_TYPES = "processingTypes";
   private ProcessingTypesRestriction processingTypes;
+
+  public static final String JSON_PROPERTY_SAME_AMOUNT_RESTRICTION = "sameAmountRestriction";
+  private SameAmountRestriction sameAmountRestriction;
+
+  public static final String JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION = "sameCounterpartyRestriction";
+  private SameCounterpartyRestriction sameCounterpartyRestriction;
 
   public static final String JSON_PROPERTY_TIME_OF_DAY = "timeOfDay";
   private TimeOfDayRestriction timeOfDay;
@@ -437,6 +447,56 @@ public class TransactionRuleRestrictions {
   }
 
 
+  public TransactionRuleRestrictions sameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
+    this.sameAmountRestriction = sameAmountRestriction;
+    return this;
+  }
+
+   /**
+   * Get sameAmountRestriction
+   * @return sameAmountRestriction
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SAME_AMOUNT_RESTRICTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SameAmountRestriction getSameAmountRestriction() {
+    return sameAmountRestriction;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SAME_AMOUNT_RESTRICTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
+    this.sameAmountRestriction = sameAmountRestriction;
+  }
+
+
+  public TransactionRuleRestrictions sameCounterpartyRestriction(SameCounterpartyRestriction sameCounterpartyRestriction) {
+    this.sameCounterpartyRestriction = sameCounterpartyRestriction;
+    return this;
+  }
+
+   /**
+   * Get sameCounterpartyRestriction
+   * @return sameCounterpartyRestriction
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SameCounterpartyRestriction getSameCounterpartyRestriction() {
+    return sameCounterpartyRestriction;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSameCounterpartyRestriction(SameCounterpartyRestriction sameCounterpartyRestriction) {
+    this.sameCounterpartyRestriction = sameCounterpartyRestriction;
+  }
+
+
   public TransactionRuleRestrictions timeOfDay(TimeOfDayRestriction timeOfDay) {
     this.timeOfDay = timeOfDay;
     return this;
@@ -512,13 +572,15 @@ public class TransactionRuleRestrictions {
         Objects.equals(this.merchantNames, transactionRuleRestrictions.merchantNames) &&
         Objects.equals(this.merchants, transactionRuleRestrictions.merchants) &&
         Objects.equals(this.processingTypes, transactionRuleRestrictions.processingTypes) &&
+        Objects.equals(this.sameAmountRestriction, transactionRuleRestrictions.sameAmountRestriction) &&
+        Objects.equals(this.sameCounterpartyRestriction, transactionRuleRestrictions.sameCounterpartyRestriction) &&
         Objects.equals(this.timeOfDay, transactionRuleRestrictions.timeOfDay) &&
         Objects.equals(this.totalAmount, transactionRuleRestrictions.totalAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, sameAmountRestriction, sameCounterpartyRestriction, timeOfDay, totalAmount);
   }
 
   @Override
@@ -538,6 +600,8 @@ public class TransactionRuleRestrictions {
     sb.append("    merchantNames: ").append(toIndentedString(merchantNames)).append("\n");
     sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");
     sb.append("    processingTypes: ").append(toIndentedString(processingTypes)).append("\n");
+    sb.append("    sameAmountRestriction: ").append(toIndentedString(sameAmountRestriction)).append("\n");
+    sb.append("    sameCounterpartyRestriction: ").append(toIndentedString(sameCounterpartyRestriction)).append("\n");
     sb.append("    timeOfDay: ").append(toIndentedString(timeOfDay)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("}");
