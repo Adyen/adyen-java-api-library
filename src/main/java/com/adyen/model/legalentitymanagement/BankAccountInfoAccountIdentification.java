@@ -75,6 +75,21 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 @JsonSerialize(using = BankAccountInfoAccountIdentification.BankAccountInfoAccountIdentificationSerializer.class)
 public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(BankAccountInfoAccountIdentification.class.getName());
+    public abstract class BaseSerializer<T> extends StdSerializer<T> {
+
+        public BaseSerializer(Class<T> t) {
+            super(t);
+        }
+
+        public BaseSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(T value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value);
+        }
+    }
 
     public static class BankAccountInfoAccountIdentificationSerializer extends StdSerializer<BankAccountInfoAccountIdentification> {
         public BankAccountInfoAccountIdentificationSerializer(Class<BankAccountInfoAccountIdentification> t) {
