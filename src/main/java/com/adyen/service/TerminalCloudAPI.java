@@ -71,14 +71,15 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      */
     public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
-
         String jsonResponse = terminalApiSync.request(jsonRequest);
 
-        if (jsonResponse == null || jsonResponse.isEmpty() || "ok".equals(jsonResponse)) {
+        if (shouldReturnNull(jsonResponse)) {
             return null;
         }
-
-        return terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPIResponse>() {
-        }.getType());
+        return terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPIResponse>() {}.getType());
     }
+    private boolean shouldReturnNull(String jsonResponse) {
+        return jsonResponse == null || jsonResponse.isEmpty() || "ok".equals(jsonResponse);
+    }
+
 }

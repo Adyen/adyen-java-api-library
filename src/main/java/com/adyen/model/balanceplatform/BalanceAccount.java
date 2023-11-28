@@ -143,7 +143,6 @@ public class BalanceAccount {
     return accountHolderId;
   }
 
-
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {

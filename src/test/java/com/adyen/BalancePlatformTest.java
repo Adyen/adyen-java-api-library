@@ -32,12 +32,20 @@ public class BalancePlatformTest extends BaseTest {
     }
 
     @Test
-    public void GeneralListAccountHoldersTest() throws  Exception {
+    public void testRetrievePaginatedAccountHolders() throws Exception {
+        // Arrange
         Client client = createMockClientFromFile("mocks/balancePlatform/PaginatedAccountHoldersResponse.json");
         PlatformApi service = new PlatformApi(client);
-        PaginatedAccountHoldersResponse response = service.getAllAccountHoldersUnderBalancePlatform("LE322KT223222D5FJ7THR293F",10,10 ,null);
-        assertEquals("123456789" ,response.getAccountHolders().get(0).getId());
-        assertEquals("LE322KT223222D5FJ7THR293F" ,response.getAccountHolders().get(0).getLegalEntityId());
+        // Act
+        PaginatedAccountHoldersResponse response = service.getAllAccountHoldersUnderBalancePlatform("LE322KT223222D5FJ7THR293F", 10, 10, null);
+        // Assert
+        assertAccountHolderDetails(response);
+    }
+
+    private void assertAccountHolderDetails(PaginatedAccountHoldersResponse response) {
+        AccountHolder firstAccountHolder = response.getAccountHolders().get(0);
+        assertEquals("123456789", firstAccountHolder.getId());
+        assertEquals("LE322KT223222D5FJ7THR293F", firstAccountHolder.getLegalEntityId());
     }
 
     @Test

@@ -12,10 +12,8 @@
 
 package com.adyen.model.balanceplatform;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
+
 import com.adyen.model.balanceplatform.AULocalAccountIdentification;
 import com.adyen.model.balanceplatform.AdditionalBankIdentification;
 import com.adyen.model.balanceplatform.BRLocalAccountIdentification;
@@ -50,9 +48,6 @@ import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -717,88 +712,43 @@ public class BankAccountIdentificationValidationRequestAccountIdentification ext
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(AULocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
+        if (isValidInstance(instance)) {
             super.setActualInstance(instance);
-            return;
+        } else {
+            throw new RuntimeException("Invalid instance type. Must be AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
         }
-
-        if (JSON.isInstanceOf(BRLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(CALocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(CZLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(DKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(HKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(HULocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(IbanAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(NOLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(NZLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(NumberAndBicAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(PLLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(SELocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(SGLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(UKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(USLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be AULocalAccountIdentification, BRLocalAccountIdentification, CALocalAccountIdentification, CZLocalAccountIdentification, DKLocalAccountIdentification, HKLocalAccountIdentification, HULocalAccountIdentification, IbanAccountIdentification, NOLocalAccountIdentification, NZLocalAccountIdentification, NumberAndBicAccountIdentification, PLLocalAccountIdentification, SELocalAccountIdentification, SGLocalAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
     }
+
+    private boolean isValidInstance(Object instance) {
+        Set<Class<?>> validClasses;
+        validClasses = new HashSet<>(Arrays.asList(
+                AULocalAccountIdentification.class,
+                BRLocalAccountIdentification.class,
+                CALocalAccountIdentification.class,
+                CZLocalAccountIdentification.class,
+                DKLocalAccountIdentification.class,
+                HKLocalAccountIdentification.class,
+                HULocalAccountIdentification.class,
+                IbanAccountIdentification.class,
+                NOLocalAccountIdentification.class,
+                NZLocalAccountIdentification.class,
+                NumberAndBicAccountIdentification.class,
+                PLLocalAccountIdentification.class,
+                SELocalAccountIdentification.class,
+                SGLocalAccountIdentification.class,
+                UKLocalAccountIdentification.class,
+                USLocalAccountIdentification.class
+        ));
+
+        for (Class<?> validClass : validClasses) {
+            if (JSON.isInstanceOf(validClass, instance, new HashSet<>())) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     /**
      * Get the actual instance, which can be the following:

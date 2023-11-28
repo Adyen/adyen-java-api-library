@@ -297,6 +297,34 @@ public final class TerminalAPIRequestBuilder {
         this.securityTrailer = securityTrailer;
         return this;
     }
+    public interface RequestStrategy {
+        void applyStrategy(SaleToPOIRequest saleToPOIRequest);
+    }
+    public class PaymentRequestStrategy implements RequestStrategy {
+        private PaymentRequest paymentRequest;
+
+        public PaymentRequestStrategy(PaymentRequest paymentRequest) {
+            this.paymentRequest = paymentRequest;
+        }
+
+        @Override
+        public void applyStrategy(SaleToPOIRequest saleToPOIRequest) {
+            saleToPOIRequest.setPaymentRequest(paymentRequest);
+        }
+    }
+
+    public class TransactionStatusRequestStrategy implements RequestStrategy {
+        private TransactionStatusRequest transactionStatusRequest;
+
+        public TransactionStatusRequestStrategy(TransactionStatusRequest transactionStatusRequest) {
+            this.transactionStatusRequest = transactionStatusRequest;
+        }
+
+        @Override
+        public void applyStrategy(SaleToPOIRequest saleToPOIRequest) {
+            saleToPOIRequest.setTransactionStatusRequest(transactionStatusRequest);
+        }
+    }
 
     public TerminalAPIRequest build() {
         messageHeader.setMessageClass(messageClass);
@@ -308,12 +336,6 @@ public final class TerminalAPIRequestBuilder {
 
         if (messageCategory != null) {
             switch (messageCategory) {
-                case PAYMENT:
-                    saleToPOIRequest.setPaymentRequest(paymentRequest);
-                    break;
-                case TRANSACTION_STATUS:
-                    saleToPOIRequest.setTransactionStatusRequest(transactionStatusRequest);
-                    break;
                 case ABORT:
                     saleToPOIRequest.setAbortRequest(abortRequest);
                     break;

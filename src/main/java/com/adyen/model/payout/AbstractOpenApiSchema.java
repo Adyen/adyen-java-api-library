@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 
 public abstract class AbstractOpenApiSchema {
-
+    public abstract Object getActualInstance();
     // store the actual instance of the schema/object
     private Object instance;
 
@@ -52,7 +52,7 @@ public abstract class AbstractOpenApiSchema {
      * @return an instance of the actual schema/object
      */
     @JsonValue
-    public Object getActualInstance() {return instance;}
+
 
     /**
      * Set the actual instance
@@ -71,14 +71,15 @@ public abstract class AbstractOpenApiSchema {
     }
 
     private Object getActualInstanceRecursively(AbstractOpenApiSchema object) {
-        if (object.getActualInstance() == null) {
-            return null;
-        } else if (object.getActualInstance() instanceof AbstractOpenApiSchema) {
-            return getActualInstanceRecursively((AbstractOpenApiSchema)object.getActualInstance());
+        Object actualInstance = object.getActualInstance();
+
+        if (actualInstance instanceof AbstractOpenApiSchema) {
+            return getActualInstanceRecursively((AbstractOpenApiSchema) actualInstance);
         } else {
-            return object.getActualInstance();
+            return actualInstance;
         }
     }
+
 
     /**
      * Get the schema type (e.g. anyOf, oneOf)
@@ -145,3 +146,5 @@ public abstract class AbstractOpenApiSchema {
 
 
 }
+
+
