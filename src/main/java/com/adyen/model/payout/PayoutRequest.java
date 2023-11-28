@@ -55,8 +55,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PayoutRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
-  private Amount amount;
-
+  private PaymentAmount amount;
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
@@ -138,7 +137,7 @@ public class PayoutRequest {
   public PayoutRequest() { 
   }
 
-  public PayoutRequest amount(Amount amount) {
+  public PayoutRequest amount(PaymentAmount amount) {
     this.amount = amount;
     return this;
   }
@@ -151,14 +150,14 @@ public class PayoutRequest {
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Amount getAmount() {
+  public PaymentAmount  getAmount() {
     return amount;
   }
 
 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(Amount amount) {
+  public void setAmount(PaymentAmount amount) {
     this.amount = amount;
   }
 
