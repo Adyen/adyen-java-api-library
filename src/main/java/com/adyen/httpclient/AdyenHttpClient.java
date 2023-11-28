@@ -213,14 +213,17 @@ public class AdyenHttpClient implements ClientInterface {
      * Sets content type
      */
     private void setAuthentication(HttpUriRequest httpUriRequest, boolean isApiKeyRequired, Config config) {
-        String apiKey = config.getApiKey();
-        // Use Api key if required or if provided
-        if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
-            setApiKey(httpUriRequest, apiKey);
+        if (shouldUseApiKey(isApiKeyRequired, config.getApiKey())) {
+            setApiKey(httpUriRequest, config.getApiKey());
         } else {
             setBasicAuthentication(httpUriRequest, config.getUsername(), config.getPassword());
         }
     }
+
+    private boolean shouldUseApiKey(boolean isApiKeyRequired, String apiKey) {
+        return isApiKeyRequired || (apiKey != null && !apiKey.isEmpty());
+    }
+
 
     /**
      * Sets content type
