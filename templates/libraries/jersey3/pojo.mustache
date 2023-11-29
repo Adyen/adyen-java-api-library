@@ -84,7 +84,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{^isContainer}}
   {{#description}}
 
-  // {{{.}}}
+/**
+* {{{.}}}
+*/
   {{/description}}
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
   {{/isContainer}}
