@@ -111,6 +111,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   ));
 
   {{/vendorExtensions.x-enum-as-string}}
+  {{#deprecated}}
+  @Deprecated
+  {{/deprecated}}
   public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
     {{#vendorExtensions.x-enum-as-string}}
     if (!{{{nameInSnakeCase}}}_VALUES.contains({{name}})) {
