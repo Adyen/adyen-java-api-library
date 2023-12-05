@@ -58,6 +58,8 @@ public class TransferRoute {
     
     PLATFORMPAYMENT("platformPayment"),
     
+    TOPUP("topUp"),
+    
     UPGRADE("upgrade");
 
     private String value;

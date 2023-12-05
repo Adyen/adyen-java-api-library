@@ -110,8 +110,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CreateCheckoutSessionResponse.JSON_PROPERTY_STORE_PAYMENT_METHOD,
   CreateCheckoutSessionResponse.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   CreateCheckoutSessionResponse.JSON_PROPERTY_TELEPHONE_NUMBER,
+  CreateCheckoutSessionResponse.JSON_PROPERTY_THEME_ID,
   CreateCheckoutSessionResponse.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
-  CreateCheckoutSessionResponse.JSON_PROPERTY_TRUSTED_SHOPPER
+  CreateCheckoutSessionResponse.JSON_PROPERTY_TRUSTED_SHOPPER,
+  CreateCheckoutSessionResponse.JSON_PROPERTY_URL
 })
 
 public class CreateCheckoutSessionResponse {
@@ -471,11 +473,17 @@ public class CreateCheckoutSessionResponse {
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
 
+  public static final String JSON_PROPERTY_THEME_ID = "themeId";
+  private String themeId;
+
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   private Boolean threeDSAuthenticationOnly = false;
 
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;
+
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
 
   public CreateCheckoutSessionResponse() { 
   }
@@ -1961,6 +1969,31 @@ public class CreateCheckoutSessionResponse {
   }
 
 
+  public CreateCheckoutSessionResponse themeId(String themeId) {
+    this.themeId = themeId;
+    return this;
+  }
+
+   /**
+   * Sets a custom theme for the Adyen-hosted payment page. The value can be any of the **Theme ID** values from your Customer Area.
+   * @return themeId
+  **/
+  @ApiModelProperty(value = "Sets a custom theme for the Adyen-hosted payment page. The value can be any of the **Theme ID** values from your Customer Area.")
+  @JsonProperty(JSON_PROPERTY_THEME_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getThemeId() {
+    return themeId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_THEME_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThemeId(String themeId) {
+    this.themeId = themeId;
+  }
+
+
   public CreateCheckoutSessionResponse threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;
@@ -2011,6 +2044,31 @@ public class CreateCheckoutSessionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
+  }
+
+
+  public CreateCheckoutSessionResponse url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.
+   * @return url
+  **/
+  @ApiModelProperty(value = "The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUrl() {
+    return url;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -2083,13 +2141,15 @@ public class CreateCheckoutSessionResponse {
         Objects.equals(this.storePaymentMethod, createCheckoutSessionResponse.storePaymentMethod) &&
         Objects.equals(this.storePaymentMethodMode, createCheckoutSessionResponse.storePaymentMethodMode) &&
         Objects.equals(this.telephoneNumber, createCheckoutSessionResponse.telephoneNumber) &&
+        Objects.equals(this.themeId, createCheckoutSessionResponse.themeId) &&
         Objects.equals(this.threeDSAuthenticationOnly, createCheckoutSessionResponse.threeDSAuthenticationOnly) &&
-        Objects.equals(this.trustedShopper, createCheckoutSessionResponse.trustedShopper);
+        Objects.equals(this.trustedShopper, createCheckoutSessionResponse.trustedShopper) &&
+        Objects.equals(this.url, createCheckoutSessionResponse.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, id, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethod, storePaymentMethodMode, telephoneNumber, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, id, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethod, storePaymentMethodMode, telephoneNumber, themeId, threeDSAuthenticationOnly, trustedShopper, url);
   }
 
   @Override
@@ -2153,8 +2213,10 @@ public class CreateCheckoutSessionResponse {
     sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
     sb.append("    storePaymentMethodMode: ").append(toIndentedString(storePaymentMethodMode)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+    sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
     sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
     sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
