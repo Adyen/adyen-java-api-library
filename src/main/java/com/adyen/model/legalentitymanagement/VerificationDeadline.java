@@ -194,10 +194,10 @@ public class VerificationDeadline {
   }
 
    /**
-   * The names of the capabilities to be disallowed.
+   * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
    * @return capabilities
   **/
-  @ApiModelProperty(required = true, value = "The names of the capabilities to be disallowed.")
+  @ApiModelProperty(required = true, value = "The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

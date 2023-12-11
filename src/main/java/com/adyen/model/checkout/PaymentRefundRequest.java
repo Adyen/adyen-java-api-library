@@ -43,7 +43,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRefundRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentRefundRequest.JSON_PROPERTY_MERCHANT_REFUND_REASON,
   PaymentRefundRequest.JSON_PROPERTY_REFERENCE,
-  PaymentRefundRequest.JSON_PROPERTY_SPLITS
+  PaymentRefundRequest.JSON_PROPERTY_SPLITS,
+  PaymentRefundRequest.JSON_PROPERTY_STORE
 })
 
 public class PaymentRefundRequest {
@@ -108,6 +109,9 @@ public class PaymentRefundRequest {
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
+
+  public static final String JSON_PROPERTY_STORE = "store";
+  private String store;
 
   public PaymentRefundRequest() { 
   }
@@ -303,6 +307,31 @@ public class PaymentRefundRequest {
   }
 
 
+  public PaymentRefundRequest store(String store) {
+    this.store = store;
+    return this;
+  }
+
+   /**
+   * The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
+   * @return store
+  **/
+  @ApiModelProperty(value = "The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.")
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getStore() {
+    return store;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStore(String store) {
+    this.store = store;
+  }
+
+
   /**
    * Return true if this PaymentRefundRequest object is equal to o.
    */
@@ -321,12 +350,13 @@ public class PaymentRefundRequest {
         Objects.equals(this.merchantAccount, paymentRefundRequest.merchantAccount) &&
         Objects.equals(this.merchantRefundReason, paymentRefundRequest.merchantRefundReason) &&
         Objects.equals(this.reference, paymentRefundRequest.reference) &&
-        Objects.equals(this.splits, paymentRefundRequest.splits);
+        Objects.equals(this.splits, paymentRefundRequest.splits) &&
+        Objects.equals(this.store, paymentRefundRequest.store);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, applicationInfo, lineItems, merchantAccount, merchantRefundReason, reference, splits);
+    return Objects.hash(amount, applicationInfo, lineItems, merchantAccount, merchantRefundReason, reference, splits, store);
   }
 
   @Override
@@ -340,6 +370,7 @@ public class PaymentRefundRequest {
     sb.append("    merchantRefundReason: ").append(toIndentedString(merchantRefundReason)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+    sb.append("    store: ").append(toIndentedString(store)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -37,6 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   SoleProprietorship.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
   SoleProprietorship.JSON_PROPERTY_DATE_OF_INCORPORATION,
+  SoleProprietorship.JSON_PROPERTY_DESCRIPTION,
   SoleProprietorship.JSON_PROPERTY_DOING_BUSINESS_AS,
   SoleProprietorship.JSON_PROPERTY_NAME,
   SoleProprietorship.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
@@ -53,6 +54,9 @@ public class SoleProprietorship {
 
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
@@ -163,6 +167,31 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
+  }
+
+
+  public SoleProprietorship description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Short description about the Legal Arrangement.
+   * @return description
+  **/
+  @ApiModelProperty(value = "Short description about the Legal Arrangement.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -388,6 +417,7 @@ public class SoleProprietorship {
     SoleProprietorship soleProprietorship = (SoleProprietorship) o;
     return Objects.equals(this.countryOfGoverningLaw, soleProprietorship.countryOfGoverningLaw) &&
         Objects.equals(this.dateOfIncorporation, soleProprietorship.dateOfIncorporation) &&
+        Objects.equals(this.description, soleProprietorship.description) &&
         Objects.equals(this.doingBusinessAs, soleProprietorship.doingBusinessAs) &&
         Objects.equals(this.name, soleProprietorship.name) &&
         Objects.equals(this.principalPlaceOfBusiness, soleProprietorship.principalPlaceOfBusiness) &&
@@ -400,7 +430,7 @@ public class SoleProprietorship {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, vatAbsenceReason, vatNumber);
   }
 
   @Override
@@ -409,6 +439,7 @@ public class SoleProprietorship {
     sb.append("class SoleProprietorship {\n");
     sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
     sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");
