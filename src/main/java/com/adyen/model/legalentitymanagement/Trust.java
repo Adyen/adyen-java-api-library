@@ -38,6 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   Trust.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
   Trust.JSON_PROPERTY_DATE_OF_INCORPORATION,
+  Trust.JSON_PROPERTY_DESCRIPTION,
   Trust.JSON_PROPERTY_DOING_BUSINESS_AS,
   Trust.JSON_PROPERTY_NAME,
   Trust.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
@@ -56,6 +57,9 @@ public class Trust {
 
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
@@ -233,6 +237,31 @@ public class Trust {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
+  }
+
+
+  public Trust description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Short description about the trust.
+   * @return description
+  **/
+  @ApiModelProperty(value = "Short description about the trust.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -516,6 +545,7 @@ public class Trust {
     Trust trust = (Trust) o;
     return Objects.equals(this.countryOfGoverningLaw, trust.countryOfGoverningLaw) &&
         Objects.equals(this.dateOfIncorporation, trust.dateOfIncorporation) &&
+        Objects.equals(this.description, trust.description) &&
         Objects.equals(this.doingBusinessAs, trust.doingBusinessAs) &&
         Objects.equals(this.name, trust.name) &&
         Objects.equals(this.principalPlaceOfBusiness, trust.principalPlaceOfBusiness) &&
@@ -530,7 +560,7 @@ public class Trust {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, type, undefinedBeneficiaryInfo, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, type, undefinedBeneficiaryInfo, vatAbsenceReason, vatNumber);
   }
 
   @Override
@@ -539,6 +569,7 @@ public class Trust {
     sb.append("class Trust {\n");
     sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
     sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");

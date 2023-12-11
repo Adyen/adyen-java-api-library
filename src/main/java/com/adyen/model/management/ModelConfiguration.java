@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   ModelConfiguration.JSON_PROPERTY_BRAND,
+  ModelConfiguration.JSON_PROPERTY_COUNTRY,
   ModelConfiguration.JSON_PROPERTY_CURRENCIES,
   ModelConfiguration.JSON_PROPERTY_SOURCES
 })
@@ -43,6 +44,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class ModelConfiguration {
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
+
+  public static final String JSON_PROPERTY_COUNTRY = "country";
+  private List<String> country = null;
 
   public static final String JSON_PROPERTY_CURRENCIES = "currencies";
   private List<Currency> currencies = new ArrayList<>();
@@ -75,6 +79,39 @@ public class ModelConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+  }
+
+
+  public ModelConfiguration country(List<String> country) {
+    this.country = country;
+    return this;
+  }
+
+  public ModelConfiguration addCountryItem(String countryItem) {
+    if (this.country == null) {
+      this.country = new ArrayList<>();
+    }
+    this.country.add(countryItem);
+    return this;
+  }
+
+   /**
+   * Countries, to filter different surcharge amounts for domestic or international cards.
+   * @return country
+  **/
+  @ApiModelProperty(value = "Countries, to filter different surcharge amounts for domestic or international cards.")
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getCountry() {
+    return country;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCountry(List<String> country) {
+    this.country = country;
   }
 
 
@@ -154,13 +191,14 @@ public class ModelConfiguration {
     }
     ModelConfiguration configuration = (ModelConfiguration) o;
     return Objects.equals(this.brand, configuration.brand) &&
+        Objects.equals(this.country, configuration.country) &&
         Objects.equals(this.currencies, configuration.currencies) &&
         Objects.equals(this.sources, configuration.sources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, currencies, sources);
+    return Objects.hash(brand, country, currencies, sources);
   }
 
   @Override
@@ -168,6 +206,7 @@ public class ModelConfiguration {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelConfiguration {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("}");
