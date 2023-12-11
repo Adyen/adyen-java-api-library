@@ -44,7 +44,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRefundResponse.JSON_PROPERTY_PSP_REFERENCE,
   PaymentRefundResponse.JSON_PROPERTY_REFERENCE,
   PaymentRefundResponse.JSON_PROPERTY_SPLITS,
-  PaymentRefundResponse.JSON_PROPERTY_STATUS
+  PaymentRefundResponse.JSON_PROPERTY_STATUS,
+  PaymentRefundResponse.JSON_PROPERTY_STORE
 })
 
 public class PaymentRefundResponse {
@@ -148,6 +149,9 @@ public class PaymentRefundResponse {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  public static final String JSON_PROPERTY_STORE = "store";
+  private String store;
 
   public PaymentRefundResponse() { 
   }
@@ -393,6 +397,31 @@ public class PaymentRefundResponse {
   }
 
 
+  public PaymentRefundResponse store(String store) {
+    this.store = store;
+    return this;
+  }
+
+   /**
+   * The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
+   * @return store
+  **/
+  @ApiModelProperty(value = "The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.")
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getStore() {
+    return store;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStore(String store) {
+    this.store = store;
+  }
+
+
   /**
    * Return true if this PaymentRefundResponse object is equal to o.
    */
@@ -413,12 +442,13 @@ public class PaymentRefundResponse {
         Objects.equals(this.pspReference, paymentRefundResponse.pspReference) &&
         Objects.equals(this.reference, paymentRefundResponse.reference) &&
         Objects.equals(this.splits, paymentRefundResponse.splits) &&
-        Objects.equals(this.status, paymentRefundResponse.status);
+        Objects.equals(this.status, paymentRefundResponse.status) &&
+        Objects.equals(this.store, paymentRefundResponse.store);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, lineItems, merchantAccount, merchantRefundReason, paymentPspReference, pspReference, reference, splits, status);
+    return Objects.hash(amount, lineItems, merchantAccount, merchantRefundReason, paymentPspReference, pspReference, reference, splits, status, store);
   }
 
   @Override
@@ -434,6 +464,7 @@ public class PaymentRefundResponse {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    store: ").append(toIndentedString(store)).append("\n");
     sb.append("}");
     return sb.toString();
   }
