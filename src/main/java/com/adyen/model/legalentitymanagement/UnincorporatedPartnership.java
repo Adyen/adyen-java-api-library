@@ -37,6 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   UnincorporatedPartnership.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
   UnincorporatedPartnership.JSON_PROPERTY_DATE_OF_INCORPORATION,
+  UnincorporatedPartnership.JSON_PROPERTY_DESCRIPTION,
   UnincorporatedPartnership.JSON_PROPERTY_DOING_BUSINESS_AS,
   UnincorporatedPartnership.JSON_PROPERTY_NAME,
   UnincorporatedPartnership.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
@@ -54,6 +55,9 @@ public class UnincorporatedPartnership {
 
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
@@ -228,6 +232,31 @@ public class UnincorporatedPartnership {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
+  }
+
+
+  public UnincorporatedPartnership description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Short description about the Legal Arrangement.
+   * @return description
+  **/
+  @ApiModelProperty(value = "Short description about the Legal Arrangement.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -478,6 +507,7 @@ public class UnincorporatedPartnership {
     UnincorporatedPartnership unincorporatedPartnership = (UnincorporatedPartnership) o;
     return Objects.equals(this.countryOfGoverningLaw, unincorporatedPartnership.countryOfGoverningLaw) &&
         Objects.equals(this.dateOfIncorporation, unincorporatedPartnership.dateOfIncorporation) &&
+        Objects.equals(this.description, unincorporatedPartnership.description) &&
         Objects.equals(this.doingBusinessAs, unincorporatedPartnership.doingBusinessAs) &&
         Objects.equals(this.name, unincorporatedPartnership.name) &&
         Objects.equals(this.principalPlaceOfBusiness, unincorporatedPartnership.principalPlaceOfBusiness) &&
@@ -491,7 +521,7 @@ public class UnincorporatedPartnership {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, type, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, type, vatAbsenceReason, vatNumber);
   }
 
   @Override
@@ -500,6 +530,7 @@ public class UnincorporatedPartnership {
     sb.append("class UnincorporatedPartnership {\n");
     sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
     sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");

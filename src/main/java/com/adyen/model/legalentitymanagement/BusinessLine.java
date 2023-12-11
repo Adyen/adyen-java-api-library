@@ -106,12 +106,10 @@ public class BusinessLine {
   private List<String> salesChannels = null;
 
   /**
-   * The service for which you are creating the business line.  Possible values: **paymentProcessing**, **issuing**, **banking**
+   * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    */
   public enum ServiceEnum {
     PAYMENTPROCESSING("paymentProcessing"),
-    
-    ISSUING("issuing"),
     
     BANKING("banking");
 
@@ -332,10 +330,10 @@ public class BusinessLine {
   }
 
    /**
-   * The service for which you are creating the business line.  Possible values: **paymentProcessing**, **issuing**, **banking**
+   * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    * @return service
   **/
-  @ApiModelProperty(required = true, value = "The service for which you are creating the business line.  Possible values: **paymentProcessing**, **issuing**, **banking**")
+  @ApiModelProperty(required = true, value = "The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  ")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

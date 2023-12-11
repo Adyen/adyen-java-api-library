@@ -39,6 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdateStoreRequest.JSON_PROPERTY_BUSINESS_LINE_IDS,
   UpdateStoreRequest.JSON_PROPERTY_DESCRIPTION,
   UpdateStoreRequest.JSON_PROPERTY_EXTERNAL_REFERENCE_ID,
+  UpdateStoreRequest.JSON_PROPERTY_PHONE_NUMBER,
   UpdateStoreRequest.JSON_PROPERTY_SPLIT_CONFIGURATION,
   UpdateStoreRequest.JSON_PROPERTY_STATUS
 })
@@ -55,6 +56,9 @@ public class UpdateStoreRequest {
 
   public static final String JSON_PROPERTY_EXTERNAL_REFERENCE_ID = "externalReferenceId";
   private String externalReferenceId;
+
+  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
+  private String phoneNumber;
 
   public static final String JSON_PROPERTY_SPLIT_CONFIGURATION = "splitConfiguration";
   private StoreSplitConfiguration splitConfiguration;
@@ -210,6 +214,31 @@ public class UpdateStoreRequest {
   }
 
 
+  public UpdateStoreRequest phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
+   * @return phoneNumber
+  **/
+  @ApiModelProperty(value = "The phone number of the store, including '+' and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. ")
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+
   public UpdateStoreRequest splitConfiguration(StoreSplitConfiguration splitConfiguration) {
     this.splitConfiguration = splitConfiguration;
     return this;
@@ -276,13 +305,14 @@ public class UpdateStoreRequest {
         Objects.equals(this.businessLineIds, updateStoreRequest.businessLineIds) &&
         Objects.equals(this.description, updateStoreRequest.description) &&
         Objects.equals(this.externalReferenceId, updateStoreRequest.externalReferenceId) &&
+        Objects.equals(this.phoneNumber, updateStoreRequest.phoneNumber) &&
         Objects.equals(this.splitConfiguration, updateStoreRequest.splitConfiguration) &&
         Objects.equals(this.status, updateStoreRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, businessLineIds, description, externalReferenceId, splitConfiguration, status);
+    return Objects.hash(address, businessLineIds, description, externalReferenceId, phoneNumber, splitConfiguration, status);
   }
 
   @Override
@@ -293,6 +323,7 @@ public class UpdateStoreRequest {
     sb.append("    businessLineIds: ").append(toIndentedString(businessLineIds)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    externalReferenceId: ").append(toIndentedString(externalReferenceId)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    splitConfiguration: ").append(toIndentedString(splitConfiguration)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
