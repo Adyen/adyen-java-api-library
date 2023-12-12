@@ -38,7 +38,7 @@ public final class TerminalCommonNameValidator {
 
     public static boolean validateCertificate(X509Certificate certificate, Environment environment) {
         String environmentName = environment.name().toLowerCase();
-        String name = certificate.getSubjectDN().getName();
+        String name = certificate.getSubjectX500Principal().getName();
         String patternRegex = "(?:^|,\\s?)(?:([A-Z]+)=(\"(?:[^\"]|\"\")+\"|[^,]+))+";
         Pattern pattern = Pattern.compile(patternRegex);
         Matcher matcher = pattern.matcher(name);
