@@ -33,12 +33,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * StoredPaymentMethod
  */
 @JsonPropertyOrder({
+  StoredPaymentMethod.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
+  StoredPaymentMethod.JSON_PROPERTY_BANK_LOCATION_ID,
   StoredPaymentMethod.JSON_PROPERTY_BRAND,
   StoredPaymentMethod.JSON_PROPERTY_EXPIRY_MONTH,
   StoredPaymentMethod.JSON_PROPERTY_EXPIRY_YEAR,
   StoredPaymentMethod.JSON_PROPERTY_HOLDER_NAME,
   StoredPaymentMethod.JSON_PROPERTY_IBAN,
   StoredPaymentMethod.JSON_PROPERTY_ID,
+  StoredPaymentMethod.JSON_PROPERTY_LABEL,
   StoredPaymentMethod.JSON_PROPERTY_LAST_FOUR,
   StoredPaymentMethod.JSON_PROPERTY_NAME,
   StoredPaymentMethod.JSON_PROPERTY_NETWORK_TX_REFERENCE,
@@ -50,6 +53,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class StoredPaymentMethod {
+  public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
+  private String bankAccountNumber;
+
+  public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
+  private String bankLocationId;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
@@ -67,6 +76,9 @@ public class StoredPaymentMethod {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_LABEL = "label";
+  private String label;
 
   public static final String JSON_PROPERTY_LAST_FOUR = "lastFour";
   private String lastFour;
@@ -94,6 +106,56 @@ public class StoredPaymentMethod {
 
   public StoredPaymentMethod() { 
   }
+
+  public StoredPaymentMethod bankAccountNumber(String bankAccountNumber) {
+    this.bankAccountNumber = bankAccountNumber;
+    return this;
+  }
+
+   /**
+   * The bank account number (without separators).
+   * @return bankAccountNumber
+  **/
+  @ApiModelProperty(value = "The bank account number (without separators).")
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBankAccountNumber() {
+    return bankAccountNumber;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankAccountNumber(String bankAccountNumber) {
+    this.bankAccountNumber = bankAccountNumber;
+  }
+
+
+  public StoredPaymentMethod bankLocationId(String bankLocationId) {
+    this.bankLocationId = bankLocationId;
+    return this;
+  }
+
+   /**
+   * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
+   * @return bankLocationId
+  **/
+  @ApiModelProperty(value = "The location id of the bank. The field value is `nil` in most cases.")
+  @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBankLocationId() {
+    return bankLocationId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankLocationId(String bankLocationId) {
+    this.bankLocationId = bankLocationId;
+  }
+
 
   public StoredPaymentMethod brand(String brand) {
     this.brand = brand;
@@ -242,6 +304,31 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public StoredPaymentMethod label(String label) {
+    this.label = label;
+    return this;
+  }
+
+   /**
+   * The shopper’s issuer account label
+   * @return label
+  **/
+  @ApiModelProperty(value = "The shopper’s issuer account label")
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLabel() {
+    return label;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabel(String label) {
+    this.label = label;
   }
 
 
@@ -473,12 +560,15 @@ public class StoredPaymentMethod {
       return false;
     }
     StoredPaymentMethod storedPaymentMethod = (StoredPaymentMethod) o;
-    return Objects.equals(this.brand, storedPaymentMethod.brand) &&
+    return Objects.equals(this.bankAccountNumber, storedPaymentMethod.bankAccountNumber) &&
+        Objects.equals(this.bankLocationId, storedPaymentMethod.bankLocationId) &&
+        Objects.equals(this.brand, storedPaymentMethod.brand) &&
         Objects.equals(this.expiryMonth, storedPaymentMethod.expiryMonth) &&
         Objects.equals(this.expiryYear, storedPaymentMethod.expiryYear) &&
         Objects.equals(this.holderName, storedPaymentMethod.holderName) &&
         Objects.equals(this.iban, storedPaymentMethod.iban) &&
         Objects.equals(this.id, storedPaymentMethod.id) &&
+        Objects.equals(this.label, storedPaymentMethod.label) &&
         Objects.equals(this.lastFour, storedPaymentMethod.lastFour) &&
         Objects.equals(this.name, storedPaymentMethod.name) &&
         Objects.equals(this.networkTxReference, storedPaymentMethod.networkTxReference) &&
@@ -491,19 +581,22 @@ public class StoredPaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, expiryMonth, expiryYear, holderName, iban, id, lastFour, name, networkTxReference, ownerName, shopperEmail, supportedRecurringProcessingModels, supportedShopperInteractions, type);
+    return Objects.hash(bankAccountNumber, bankLocationId, brand, expiryMonth, expiryYear, holderName, iban, id, label, lastFour, name, networkTxReference, ownerName, shopperEmail, supportedRecurringProcessingModels, supportedShopperInteractions, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoredPaymentMethod {\n");
+    sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
+    sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
