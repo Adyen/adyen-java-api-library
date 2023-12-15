@@ -474,11 +474,15 @@ If you wish to develop the Local Terminal API integration parallel to your encry
 import com.adyen.service.TerminalLocalAPIUnencrypted;
 import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.*;
+import javax.net.ssl.SSLContext;
 
 // Step 2: Add your Certificate Path and Local Endpoint to the config path.
 Client client = new Client();
 client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
 client.getConfig().setEnvironment(Environment.TEST);
+
+// Optionally: verify the certificate, the library will ignore this validation when set to null (!!)
+client.getConfig().setSSLContext(sslContext);
 
 // Step 3 Initialize the client and the API objects;
 TerminalLocalAPIUnencrypted terminalLocalAPIUnencrypted = new TerminalLocalAPIUnencrypted(client);

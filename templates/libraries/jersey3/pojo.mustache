@@ -94,12 +94,6 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#deprecated}}
   @Deprecated
   {{/deprecated}}
-  {{#description}}
-
-/**
-* {{{.}}}
-*/
-  {{/description}}
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
   {{/isContainer}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}

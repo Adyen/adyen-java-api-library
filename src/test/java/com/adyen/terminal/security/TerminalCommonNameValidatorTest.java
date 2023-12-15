@@ -29,6 +29,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.mockito.Mock;
 
+import javax.security.auth.x500.X500Principal;
 import java.security.cert.X509Certificate;
 import java.security.Principal;
 import java.util.Arrays;
@@ -85,7 +86,7 @@ public class TerminalCommonNameValidatorTest {
     @Mock
     private X509Certificate certificate;
     @Mock
-    private Principal principal;
+    private X500Principal principal;
 
     public TerminalCommonNameValidatorTest(String certificateName, Environment environment, boolean expectedResult) {
         this.certificateName = certificateName;
@@ -100,7 +101,7 @@ public class TerminalCommonNameValidatorTest {
 
     @Test
     public void testSerialize() {
-        when(certificate.getSubjectDN()).thenReturn(principal);
+        when(certificate.getSubjectX500Principal()).thenReturn(principal);
         when(principal.getName()).thenReturn(certificateName);
 
         boolean result = TerminalCommonNameValidator.validateCertificate(certificate, environment);
