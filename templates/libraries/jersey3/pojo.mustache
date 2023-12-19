@@ -205,9 +205,11 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   }
 
 
-/**
- *{{description}}{{^description}}{{name}}{{/description}}
- */ {{#vendorExtensions.x-is-jackson-optional-nullable}}
+ /**
+  * {{description}}{{^description}}{{name}}{{/description}}
+  *
+  * @param {{name}}
+  */ {{#vendorExtensions.x-is-jackson-optional-nullable}}
 {{> jackson_annotations}}
   public JsonNullable<{{{datatypeWithEnum}}}> {{getter}}_JsonNullable() {
     return {{name}};
