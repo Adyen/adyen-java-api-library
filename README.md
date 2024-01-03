@@ -284,7 +284,7 @@ In order to submit In-Person requests with [Terminal API over Cloud](https://doc
 import com.adyen.Client;
 import com.adyen.enums.Environment;
 import com.adyen.service.TerminalCloudAPI;
-import com.adyen.model.nexo.*;
+import com.adyen.terminal.*;
 import com.adyen.model.terminal.*;
 
 // Step 2: Initialize the client object
@@ -304,21 +304,21 @@ TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
 SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
 
 MessageHeader messageHeader = new MessageHeader();
-messageHeader.setMessageClass(MessageClassType.SERVICE);
-messageHeader.setMessageCategory(MessageCategoryType.PAYMENT);
+messageHeader.setMessageClass(MessageClass.SERVICE);
+messageHeader.setMessageCategory(MessageCategory.PAYMENT);
 messageHeader.setMessageType(MessageType.REQUEST);
 messageHeader.setProtocolVersion("3.0");
 messageHeader.setServiceID(serviceID);
-messageHeader.setSaleID(saleID);        
-messageHeader.setPOIID(POIID);        
+messageHeader.setSaleID(saleID);
+messageHeader.setPOIID(POIID);
 
 saleToPOIRequest.setMessageHeader(messageHeader);
         
-com.adyen.model.nexo.PaymentRequest paymentRequest = new com.adyen.model.nexo.PaymentRequest();   
+com.adyen.model.terminal.PaymentRequest paymentRequest = new com.adyen.model.terminal.PaymentRequest();   
 SaleData saleData = new SaleData();
-TransactionIdentification transactionIdentification = new TransactionIdentification();
-transactionIdentification.setTransactionID("001");
-XMLGregorianCalendar timestamp = DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar());
+TransactionIDType transactionIdentification = new TransactionIDType();
+transactionIdentification.setTransactionID(transactionID);
+OffsetDateTime timestamp = OffsetDateTime.now();
 transactionIdentification.setTimeStamp(timestamp);
 saleData.setSaleTransactionID(transactionIdentification);
       
@@ -329,14 +329,14 @@ merchantApplication.setVersion("1");
 merchantApplication.setName("Test");
 applicationInfo.setMerchantApplication(merchantApplication);
 saleToAcquirerData.setApplicationInfo(applicationInfo);
-saleData.setSaleToAcquirerData(saleToAcquirerData);
-      
+saleData.setSaleToAcquirerData(saleToAcquirerData.toBase64());
+
 PaymentTransaction paymentTransaction = new PaymentTransaction();
 AmountsReq amountsReq = new AmountsReq();
 amountsReq.setCurrency("EUR");
 amountsReq.setRequestedAmount(BigDecimal.valueOf(1000));
 paymentTransaction.setAmountsReq(amountsReq);
-    
+
 paymentRequest.setPaymentTransaction(paymentTransaction);
 paymentRequest.setSaleData(saleData);
 
@@ -356,8 +356,8 @@ TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
 SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
 
 MessageHeader messageHeader = new MessageHeader();
-messageHeader.setMessageClass(MessageClassType.SERVICE);
-messageHeader.setMessageCategory(MessageCategoryType.ABORT);
+messageHeader.setMessageClass(MessageClass.SERVICE);
+messageHeader.setMessageCategory(MessageCategory.ABORT);
 messageHeader.setMessageType(MessageType.REQUEST);
 messageHeader.setProtocolVersion("3.0");
 messageHeader.setServiceID("Different service ID");
@@ -367,7 +367,7 @@ messageHeader.setPOIID(POIID);
 AbortRequest abortRequest = new AbortRequest();
 abortRequest.setAbortReason("MerchantAbort");
 MessageReference messageReference = new MessageReference();
-messageReference.setMessageCategory(MessageCategoryType.PAYMENT);
+messageReference.setMessageCategory(MessageCategory.PAYMENT);
 messageReference.setSaleID(saleID);
 messageReference.setPOIID(POIID);
 // Service ID of the payment you're aborting
@@ -400,10 +400,10 @@ messageHeader.setPOIID(POIID);
 
 TransactionStatusRequest transactionStatusRequest = new TransactionStatusRequest();
 transactionStatusRequest.setReceiptReprintFlag(true);
-transactionStatusRequest.getDocumentQualifier().add(DocumentQualifierType.CASHIER_RECEIPT);
-transactionStatusRequest.getDocumentQualifier().add(DocumentQualifierType.CUSTOMER_RECEIPT);
+transactionStatusRequest.getDocumentQualifier().add(DocumentQualifier.CASHIERRECEIPT);
+transactionStatusRequest.getDocumentQualifier().add(DocumentQualifier.CUSTOMERRECEIPT);
 MessageReference messageReference = new MessageReference();
-messageReference.setMessageCategory(MessageCategoryType.PAYMENT);
+messageReference.setMessageCategory(MessageCategory.PAYMENT);
 messageReference.setSaleID(saleID);
 // serviceID of the transaction you want the status update from
 messageReference.setServiceID(serviceID);
@@ -427,7 +427,7 @@ import com.adyen.Config;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.TerminalLocalAPIHostnameVerifier;
 import com.adyen.service.TerminalLocalAPI;
-import com.adyen.model.terminal.security.*;
+import com.adyen.terminal.security.*;
 import com.adyen.model.terminal.*;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
@@ -472,7 +472,7 @@ If you wish to develop the Local Terminal API integration parallel to your encry
 ```java
 // Step 1: Import the required classes
 import com.adyen.service.TerminalLocalAPIUnencrypted;
-import com.adyen.model.nexo.*;
+import com.adyen.terminal.*;
 import com.adyen.model.terminal.*;
 import javax.net.ssl.SSLContext;
 
