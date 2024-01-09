@@ -292,9 +292,14 @@ In order to submit In-Person requests with [Terminal API over Cloud](https://doc
 // Step 1: Import the required classes
 import com.adyen.Client;
 import com.adyen.enums.Environment;
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.service.TerminalCloudAPI;
 import com.adyen.terminal.*;
 import com.adyen.model.terminal.*;
+
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 // Step 2: Initialize the client object
 Client client = new Client("Your YOUR_API_KEY", Environment.TEST);
@@ -436,8 +441,9 @@ import com.adyen.Config;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.TerminalLocalAPIHostnameVerifier;
 import com.adyen.service.TerminalLocalAPI;
-import com.adyen.terminal.security.*;
-import com.adyen.model.terminal.*;
+import com.adyen.terminal.TerminalAPIResponse;
+import com.adyen.terminal.security.SecurityKey;
+
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 import java.security.KeyStore;
