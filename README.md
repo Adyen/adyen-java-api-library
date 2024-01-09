@@ -136,6 +136,15 @@ PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
  
 ...
 ~~~~
+### Deserializing JSON Strings
+In some setups you might need to deserialize JSON strings to request objects. For example, when using the libraries in combination with [Dropin/Components](https://github.com/Adyen/adyen-web). Please use the built-in deserialization functions:
+~~~~ java
+// Import the required model class
+import com.adyen.model.checkout.PaymentRequest;
+
+// Deserialize using built-in function
+PaymentRequest paymentRequest = PaymentRequest.fromJson("YOUR_JSON_STRING");
+~~~~
 ### Using notification webhooks parser
 ~~~~ java
 // Import the required classes
