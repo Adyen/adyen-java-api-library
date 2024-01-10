@@ -1,6 +1,5 @@
 /*
  * Adyen Data Protection API
- * Adyen Data Protection API provides a way for you to process [Subject Erasure Requests](https://gdpr-info.eu/art-17-gdpr/) as mandated in GDPR.  Use our API to submit a request to delete shopper's data, including payment details and other related information (for example, delivery address or shopper email).## Authentication Each request to the Data Protection API must be signed with an API key. Get your API Key from your Customer Area, as described in [How to get the API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key). Then set this key to the `X-API-Key` header value, for example:  ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: Your_API_key\" \\ ... ``` Note that when going live, you need to generate a new API Key to access the [live endpoints](https://docs.adyen.com/development-resources/live-endpoints).  ## Versioning Data Protection Service API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://ca-test.adyen.com/ca/services/DataProtectionService/v1/requestSubjectErasure ```
  *
  * The version of the OpenAPI document: 1
  * 
@@ -76,6 +75,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The error code mapped to the error message.
+  *
+  * @param errorCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -101,6 +105,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The category of the error.
+  *
+  * @param errorType
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
@@ -126,6 +135,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * A short explanation of the issue.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -151,6 +165,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The PSP reference of the payment.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -176,6 +195,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The HTTP response status.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {

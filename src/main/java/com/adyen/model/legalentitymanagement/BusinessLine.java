@@ -175,6 +175,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
+  *
+  * @param capability
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,6 +206,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * The unique identifier of the business line.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -214,10 +224,10 @@ public class BusinessLine {
   }
 
    /**
-   * A code that represents the industry of the legal entity. For example, **4431A** for computer software stores.
+   * A code that represents the [industry of the legal entity](https://docs.adyen.com/marketplaces-and-platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    * @return industryCode
   **/
-  @ApiModelProperty(required = true, value = "A code that represents the industry of the legal entity. For example, **4431A** for computer software stores.")
+  @ApiModelProperty(required = true, value = "A code that represents the [industry of the legal entity](https://docs.adyen.com/marketplaces-and-platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -226,6 +236,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * A code that represents the [industry of the legal entity](https://docs.adyen.com/marketplaces-and-platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
+  *
+  * @param industryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryCode(String industryCode) {
@@ -251,6 +266,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
+  *
+  * @param legalEntityId
+  */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -284,6 +304,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * The verification errors related to capabilities for this supporting entity.
+  *
+  * @param problems
+  */ 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
@@ -317,6 +342,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
+  *
+  * @param salesChannels
+  */ 
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {
@@ -342,6 +372,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
+  *
+  * @param service
+  */ 
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setService(ServiceEnum service) {
@@ -367,6 +402,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * sourceOfFunds
+  *
+  * @param sourceOfFunds
+  */ 
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSourceOfFunds(SourceOfFunds sourceOfFunds) {
@@ -400,6 +440,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
+  *
+  * @param webData
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(List<WebData> webData) {
@@ -425,6 +470,11 @@ public class BusinessLine {
   }
 
 
+ /**
+  * webDataExemption
+  *
+  * @param webDataExemption
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebDataExemption(WebDataExemption webDataExemption) {

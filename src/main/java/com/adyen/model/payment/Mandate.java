@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -207,6 +206,11 @@ public class Mandate {
   }
 
 
+ /**
+  * The billing amount (in minor units) of the recurring transactions.
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(String amount) {
@@ -232,6 +236,11 @@ public class Mandate {
   }
 
 
+ /**
+  * The limitation rule of the billing amount.  Possible values:  * **max**: The transaction amount can not exceed the &#x60;amount&#x60;.   * **exact**: The transaction amount should be the same as the &#x60;amount&#x60;.  
+  *
+  * @param amountRule
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountRule(AmountRuleEnum amountRule) {
@@ -257,6 +266,11 @@ public class Mandate {
   }
 
 
+ /**
+  * The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.  Possible values:   * **on**: On a specific date.   * **before**:  Before and on a specific date.   * **after**: On and after a specific date.  
+  *
+  * @param billingAttemptsRule
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ATTEMPTS_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAttemptsRule(BillingAttemptsRuleEnum billingAttemptsRule) {
@@ -282,6 +296,11 @@ public class Mandate {
   }
 
 
+ /**
+  * The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.  Possible values: 1-31 based on the &#x60;frequency&#x60;.
+  *
+  * @param billingDay
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDay(String billingDay) {
@@ -307,6 +326,11 @@ public class Mandate {
   }
 
 
+ /**
+  * End date of the billing plan, in YYYY-MM-DD format.
+  *
+  * @param endsAt
+  */ 
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
@@ -332,6 +356,11 @@ public class Mandate {
   }
 
 
+ /**
+  * The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
+  *
+  * @param frequency
+  */ 
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
@@ -357,6 +386,11 @@ public class Mandate {
   }
 
 
+ /**
+  * The message shown by UPI to the shopper on the approval screen.
+  *
+  * @param remarks
+  */ 
   @JsonProperty(JSON_PROPERTY_REMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemarks(String remarks) {
@@ -382,6 +416,11 @@ public class Mandate {
   }
 
 
+ /**
+  * Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
+  *
+  * @param startsAt
+  */ 
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(String startsAt) {

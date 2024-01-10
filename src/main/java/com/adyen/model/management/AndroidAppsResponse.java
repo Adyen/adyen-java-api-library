@@ -70,6 +70,11 @@ public class AndroidAppsResponse {
   }
 
 
+ /**
+  * Apps uploaded for Android payment terminals.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<AndroidApp> data) {

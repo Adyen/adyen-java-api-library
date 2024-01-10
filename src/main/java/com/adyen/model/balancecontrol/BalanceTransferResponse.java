@@ -1,6 +1,5 @@
 /*
  * Adyen Balance Control API
- * The Balance Control API lets you transfer funds between merchant accounts that belong to the same legal entity and are under the same company account.  ## Authentication To connect to the Balance Control API, you must authenticate your requests with an [API key or basic auth username and password](https://docs.adyen.com/development-resources/api-authentication). To learn how you can generate these, see [API credentials](https://docs.adyen.com/development-resources/api-credentials).Here is an example of authenticating a request with an API key:  ``` curl -H \"X-API-Key: Your_API_key\" \\ -H \"Content-Type: application/json\" \\ ... ``` Note that when going live, you need to generate API credentials to access the [live endpoints](https://docs.adyen.com/development-resources/live-endpoints).  ## Versioning The Balance Control API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example:  ``` https://pal-test.adyen.com/pal/servlet/BalanceControl/v1/balanceTransfer ``` 
  *
  * The version of the OpenAPI document: 1
  * 
@@ -176,6 +175,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -201,6 +205,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The date when the balance transfer was requested.
+  *
+  * @param createdAt
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -226,6 +235,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -251,6 +265,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The unique identifier of the source merchant account from which funds are deducted.
+  *
+  * @param fromMerchant
+  */ 
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromMerchant(String fromMerchant) {
@@ -276,6 +295,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character string reference associated with the balance transfer.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -301,6 +325,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -326,6 +355,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -351,6 +385,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The unique identifier of the destination merchant account from which funds are transferred.
+  *
+  * @param toMerchant
+  */ 
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToMerchant(String toMerchant) {
@@ -376,6 +415,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

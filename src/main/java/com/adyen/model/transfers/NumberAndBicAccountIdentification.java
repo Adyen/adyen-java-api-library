@@ -105,6 +105,11 @@ public class NumberAndBicAccountIdentification {
   }
 
 
+ /**
+  * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -130,6 +135,11 @@ public class NumberAndBicAccountIdentification {
   }
 
 
+ /**
+  * additionalBankIdentification
+  *
+  * @param additionalBankIdentification
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalBankIdentification(AdditionalBankIdentification additionalBankIdentification) {
@@ -155,6 +165,11 @@ public class NumberAndBicAccountIdentification {
   }
 
 
+ /**
+  * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+  *
+  * @param bic
+  */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -180,6 +195,11 @@ public class NumberAndBicAccountIdentification {
   }
 
 
+ /**
+  * **numberAndBic**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

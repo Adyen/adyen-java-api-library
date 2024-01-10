@@ -122,6 +122,11 @@ public class UltimatePartyIdentification {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -147,6 +152,11 @@ public class UltimatePartyIdentification {
   }
 
 
+ /**
+  * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before January 1, 1900.  Allowed only when &#x60;type&#x60; is **individual**.
+  *
+  * @param dateOfBirth
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -172,6 +182,11 @@ public class UltimatePartyIdentification {
   }
 
 
+ /**
+  * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
+  *
+  * @param firstName
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -197,6 +212,11 @@ public class UltimatePartyIdentification {
   }
 
 
+ /**
+  * The name of the entity.
+  *
+  * @param fullName
+  */ 
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullName(String fullName) {
@@ -222,6 +242,11 @@ public class UltimatePartyIdentification {
   }
 
 
+ /**
+  * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
+  *
+  * @param lastName
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
@@ -247,6 +272,11 @@ public class UltimatePartyIdentification {
   }
 
 
+ /**
+  * A unique reference to identify the party or counterparty involved in transfers. This identifier ensures consistency and uniqueness throughout all transactions initiated to and from the same party. For example, your client&#39;s unique wallet or payee ID.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -272,6 +302,11 @@ public class UltimatePartyIdentification {
   }
 
 
+ /**
+  * The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -206,6 +206,11 @@ public class VerificationDeadline {
   }
 
 
+ /**
+  * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
+  *
+  * @param capabilities
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
@@ -239,6 +244,11 @@ public class VerificationDeadline {
   }
 
 
+ /**
+  * The unique identifiers of the bank account(s) that the deadline applies to
+  *
+  * @param entityIds
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityIds(List<String> entityIds) {
@@ -264,6 +274,11 @@ public class VerificationDeadline {
   }
 
 
+ /**
+  * The date that verification is due by before capabilities are disallowed.
+  *
+  * @param expiresAt
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {

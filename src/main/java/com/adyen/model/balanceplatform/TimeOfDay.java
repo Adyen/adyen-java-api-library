@@ -63,6 +63,11 @@ public class TimeOfDay {
   }
 
 
+ /**
+  * The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
+  *
+  * @param endTime
+  */ 
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndTime(String endTime) {
@@ -88,6 +93,11 @@ public class TimeOfDay {
   }
 
 
+ /**
+  * The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
+  *
+  * @param startTime
+  */ 
   @JsonProperty(JSON_PROPERTY_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartTime(String startTime) {

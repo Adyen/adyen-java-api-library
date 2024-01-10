@@ -125,6 +125,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * The identifier of the account holder to which the grant is offered.
+  *
+  * @param accountHolderId
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
@@ -150,6 +155,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -175,6 +185,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
+  *
+  * @param contractType
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContractType(ContractTypeEnum contractType) {
@@ -200,6 +215,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * expiresAt
+  *
+  * @param expiresAt
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(Object expiresAt) {
@@ -225,6 +245,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * fee
+  *
+  * @param fee
+  */ 
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
@@ -250,6 +275,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * The unique identifier of the grant offer.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -275,6 +305,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * repayment
+  *
+  * @param repayment
+  */ 
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
@@ -300,6 +335,11 @@ public class GrantOffer {
   }
 
 
+ /**
+  * startsAt
+  *
+  * @param startsAt
+  */ 
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(Object startsAt) {

@@ -125,6 +125,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The brand of the card.
+  *
+  * @param brand
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -150,6 +155,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The month the card expires.
+  *
+  * @param expiryMonth
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
@@ -175,6 +185,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The last two digits of the year the card expires. For example, **22** for the year 2022.
+  *
+  * @param expiryYear
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
@@ -200,6 +215,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The response code returned by an external system (for example after a provisioning operation).
+  *
+  * @param externalResponseCode
+  */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_RESPONSE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalResponseCode(String externalResponseCode) {
@@ -225,6 +245,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The token reference of a linked token in an external system (for example a network token reference).
+  *
+  * @param externalTokenReference
+  */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_TOKEN_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalTokenReference(String externalTokenReference) {
@@ -250,6 +275,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The unique payment method code.
+  *
+  * @param holderName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -275,6 +305,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The IBAN of the bank account.
+  *
+  * @param iban
+  */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -300,6 +335,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * A unique identifier of this stored payment method.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -325,6 +365,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The name of the issuer of token or card.
+  *
+  * @param issuerName
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerName(String issuerName) {
@@ -350,6 +395,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The last four digits of the PAN.
+  *
+  * @param lastFour
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastFour(String lastFour) {
@@ -375,6 +425,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The display name of the stored payment method.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -400,6 +455,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+  *
+  * @param networkTxReference
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
@@ -425,6 +485,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The name of the bank account holder.
+  *
+  * @param ownerName
+  */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
@@ -450,6 +515,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The shopper’s email address.
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -475,6 +545,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -508,6 +583,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
+  *
+  * @param supportedRecurringProcessingModels
+  */ 
   @JsonProperty(JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedRecurringProcessingModels(List<String> supportedRecurringProcessingModels) {
@@ -533,6 +613,11 @@ public class StoredPaymentMethodResource {
   }
 
 
+ /**
+  * The type of payment method.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

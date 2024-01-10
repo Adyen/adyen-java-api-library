@@ -138,6 +138,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
+  *
+  * @param accountHolderId
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
@@ -163,6 +168,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * The default three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance account. The default value is **EUR**. &gt; After a balance account is created, you cannot change its default currency.
+  *
+  * @param defaultCurrencyCode
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultCurrencyCode(String defaultCurrencyCode) {
@@ -188,6 +198,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -213,6 +228,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * The unique identifier of the balance account.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -246,6 +266,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+  *
+  * @param metadata
+  */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -271,6 +296,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * The unique identifier of the account of the migrated account holder in the classic integration.
+  *
+  * @param migratedAccountCode
+  */ 
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMigratedAccountCode(String migratedAccountCode) {
@@ -296,6 +326,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * platformPaymentConfiguration
+  *
+  * @param platformPaymentConfiguration
+  */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
@@ -321,6 +356,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * Your reference for the balance account, maximum 150 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -346,6 +386,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * The status of the balance account, set to **active** by default.  
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -371,6 +416,11 @@ public class BalanceAccountBase {
   }
 
 
+ /**
+  * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  *
+  * @param timeZone
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {

@@ -127,6 +127,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * A payment session identifier returned by the card issuer.
+  *
+  * @param MD
+  */ 
   @JsonProperty(JSON_PROPERTY_M_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMD(String MD) {
@@ -152,6 +157,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * (3D) Payment Authentication Request data for the card issuer.
+  *
+  * @param paReq
+  */ 
   @JsonProperty(JSON_PROPERTY_PA_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaReq(String paReq) {
@@ -177,6 +187,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * (3D) Payment Authentication Response data by the card issuer.
+  *
+  * @param paRes
+  */ 
   @JsonProperty(JSON_PROPERTY_PA_RES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaRes(String paRes) {
@@ -202,6 +217,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * authorizationToken
+  *
+  * @param authorizationToken
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorizationToken(String authorizationToken) {
@@ -227,6 +247,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * PayPal-generated token for recurring payments.
+  *
+  * @param billingToken
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingToken(String billingToken) {
@@ -252,6 +277,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * The SMS verification code collected from the shopper.
+  *
+  * @param cupsecureplusSmscode
+  */ 
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
@@ -277,6 +307,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * PayPal-generated third party access token.
+  *
+  * @param facilitatorAccessToken
+  */ 
   @JsonProperty(JSON_PROPERTY_FACILITATOR_ACCESS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFacilitatorAccessToken(String facilitatorAccessToken) {
@@ -302,6 +337,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * A random number sent to the mobile phone number of the shopper to verify the payment.
+  *
+  * @param oneTimePasscode
+  */ 
   @JsonProperty(JSON_PROPERTY_ONE_TIME_PASSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOneTimePasscode(String oneTimePasscode) {
@@ -327,6 +367,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * PayPal-assigned ID for the order.
+  *
+  * @param orderID
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderID(String orderID) {
@@ -352,6 +397,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * PayPal-assigned ID for the payer (shopper).
+  *
+  * @param payerID
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerID(String payerID) {
@@ -377,6 +427,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
+  *
+  * @param payload
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayload(String payload) {
@@ -402,6 +457,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * PayPal-generated ID for the payment.
+  *
+  * @param paymentID
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentID(String paymentID) {
@@ -427,6 +487,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
+  *
+  * @param paymentStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentStatus(String paymentStatus) {
@@ -452,6 +517,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * The result of the redirect as appended to the &#x60;returnURL&#x60;.
+  *
+  * @param redirectResult
+  */ 
   @JsonProperty(JSON_PROPERTY_REDIRECT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectResult(String redirectResult) {
@@ -477,6 +547,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * Value you received from the WeChat Pay SDK.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
@@ -502,6 +577,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
+  *
+  * @param threeDSResult
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSResult(String threeDSResult) {
@@ -527,6 +607,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
+  *
+  * @param threeds2ChallengeResult
+  */ 
   @JsonProperty(JSON_PROPERTY_THREEDS2_CHALLENGE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2ChallengeResult(String threeds2ChallengeResult) {
@@ -552,6 +637,11 @@ public class PaymentCompletionDetails {
   }
 
 
+ /**
+  * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
+  *
+  * @param threeds2Fingerprint
+  */ 
   @JsonProperty(JSON_PROPERTY_THREEDS2_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2Fingerprint(String threeds2Fingerprint) {

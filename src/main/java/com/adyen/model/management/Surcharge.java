@@ -66,6 +66,11 @@ public class Surcharge {
   }
 
 
+ /**
+  * Show the surcharge details on the terminal, so the shopper can confirm.
+  *
+  * @param askConfirmation
+  */ 
   @JsonProperty(JSON_PROPERTY_ASK_CONFIRMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskConfirmation(Boolean askConfirmation) {
@@ -99,6 +104,11 @@ public class Surcharge {
   }
 
 
+ /**
+  * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
+  *
+  * @param configurations
+  */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurations(List<ModelConfiguration> configurations) {

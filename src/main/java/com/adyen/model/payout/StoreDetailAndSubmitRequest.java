@@ -184,6 +184,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * This field contains additional data, which may be required for a particular request.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -209,6 +214,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -234,6 +244,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * bank
+  *
+  * @param bank
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
@@ -259,6 +274,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * billingAddress
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -284,6 +304,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * card
+  *
+  * @param card
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -309,6 +334,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
+  *
+  * @param dateOfBirth
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -334,6 +364,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The type of the entity the payout is processed for.
+  *
+  * @param entityType
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(EntityTypeEnum entityType) {
@@ -359,6 +394,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * An integer value that is added to the normal fraud score. The value can be either positive or negative.
+  *
+  * @param fraudOffset
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
@@ -384,6 +424,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -409,6 +454,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
+  *
+  * @param nationality
+  */ 
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
@@ -434,6 +484,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * recurring
+  *
+  * @param recurring
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
@@ -459,6 +514,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The merchant reference for this payment. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -484,6 +544,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
+  *
+  * @param selectedBrand
+  */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedBrand(String selectedBrand) {
@@ -509,6 +574,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The shopper&#39;s email address.
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -534,6 +604,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * shopperName
+  *
+  * @param shopperName
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -559,6 +634,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The shopper&#39;s reference for the payment transaction.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -584,6 +664,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
+  *
+  * @param shopperStatement
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
@@ -609,6 +694,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The shopper&#39;s social security number.
+  *
+  * @param socialSecurityNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
@@ -634,6 +724,11 @@ public class StoreDetailAndSubmitRequest {
   }
 
 
+ /**
+  * The shopper&#39;s phone number.
+  *
+  * @param telephoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {

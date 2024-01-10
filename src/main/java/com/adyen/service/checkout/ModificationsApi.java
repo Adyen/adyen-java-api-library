@@ -89,41 +89,6 @@ public class ModificationsApi extends Service {
     }
 
     /**
-    * Update an authorised amount
-    *
-    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
-    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest }  (required)
-    * @return {@link PaymentAmountUpdateResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentAmountUpdateResponse updateAuthorisedAmount(String paymentPspReference, PaymentAmountUpdateRequest paymentAmountUpdateRequest) throws ApiException, IOException {
-        return updateAuthorisedAmount(paymentPspReference, paymentAmountUpdateRequest, null);
-    }
-
-    /**
-    * Update an authorised amount
-    *
-    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
-    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentAmountUpdateResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentAmountUpdateResponse updateAuthorisedAmount(String paymentPspReference, PaymentAmountUpdateRequest paymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (paymentPspReference == null) {
-            throw new IllegalArgumentException("Please provide the paymentPspReference path parameter");
-        }
-        pathParams.put("paymentPspReference", paymentPspReference);
-
-        String requestBody = paymentAmountUpdateRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/amountUpdates", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return PaymentAmountUpdateResponse.fromJson(jsonResult);
-    }
-
-    /**
     * Cancel an authorised payment
     *
     * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
@@ -261,5 +226,40 @@ public class ModificationsApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/reversals", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return PaymentReversalResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Update an authorised amount
+    *
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
+    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest }  (required)
+    * @return {@link PaymentAmountUpdateResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentAmountUpdateResponse updateAuthorisedAmount(String paymentPspReference, PaymentAmountUpdateRequest paymentAmountUpdateRequest) throws ApiException, IOException {
+        return updateAuthorisedAmount(paymentPspReference, paymentAmountUpdateRequest, null);
+    }
+
+    /**
+    * Update an authorised amount
+    *
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
+    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentAmountUpdateResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentAmountUpdateResponse updateAuthorisedAmount(String paymentPspReference, PaymentAmountUpdateRequest paymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (paymentPspReference == null) {
+            throw new IllegalArgumentException("Please provide the paymentPspReference path parameter");
+        }
+        pathParams.put("paymentPspReference", paymentPspReference);
+
+        String requestBody = paymentAmountUpdateRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/payments/{paymentPspReference}/amountUpdates", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return PaymentAmountUpdateResponse.fromJson(jsonResult);
     }
 }

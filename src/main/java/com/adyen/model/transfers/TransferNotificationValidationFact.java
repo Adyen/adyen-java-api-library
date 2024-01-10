@@ -63,6 +63,11 @@ public class TransferNotificationValidationFact {
   }
 
 
+ /**
+  * The evaluation result of the validation fact.
+  *
+  * @param result
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
@@ -88,6 +93,11 @@ public class TransferNotificationValidationFact {
   }
 
 
+ /**
+  * The type of the validation fact.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

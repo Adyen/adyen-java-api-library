@@ -114,6 +114,11 @@ public class CardOrderItemDeliveryStatus {
   }
 
 
+ /**
+  * Error message.
+  *
+  * @param errorMessage
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
@@ -139,6 +144,11 @@ public class CardOrderItemDeliveryStatus {
   }
 
 
+ /**
+  * Status of the delivery.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -164,6 +174,11 @@ public class CardOrderItemDeliveryStatus {
   }
 
 
+ /**
+  * Tracking number of the delivery.
+  *
+  * @param trackingNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingNumber(String trackingNumber) {

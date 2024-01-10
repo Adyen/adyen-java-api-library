@@ -100,6 +100,11 @@ public class HKLocalAccountIdentification {
   }
 
 
+ /**
+  * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -125,6 +130,11 @@ public class HKLocalAccountIdentification {
   }
 
 
+ /**
+  * The 3-digit clearing code, without separators or whitespace.
+  *
+  * @param clearingCode
+  */ 
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingCode(String clearingCode) {
@@ -150,6 +160,11 @@ public class HKLocalAccountIdentification {
   }
 
 
+ /**
+  * **hkLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

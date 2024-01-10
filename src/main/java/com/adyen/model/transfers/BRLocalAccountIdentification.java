@@ -104,6 +104,11 @@ public class BRLocalAccountIdentification {
   }
 
 
+ /**
+  * The bank account number, without separators or whitespace.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -129,6 +134,11 @@ public class BRLocalAccountIdentification {
   }
 
 
+ /**
+  * The 3-digit bank code, with leading zeros.
+  *
+  * @param bankCode
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
@@ -154,6 +164,11 @@ public class BRLocalAccountIdentification {
   }
 
 
+ /**
+  * The bank account branch number, without separators or whitespace.
+  *
+  * @param branchNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranchNumber(String branchNumber) {
@@ -179,6 +194,11 @@ public class BRLocalAccountIdentification {
   }
 
 
+ /**
+  * **brLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -174,6 +174,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -207,6 +212,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+  *
+  * @param lineItems
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
@@ -232,6 +242,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * The merchant account that is used to process the payment.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -257,6 +272,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * Your reason for the refund request.
+  *
+  * @param merchantRefundReason
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
@@ -282,6 +302,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to refund. 
+  *
+  * @param paymentPspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
@@ -307,6 +332,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character reference associated with the refund request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -332,6 +362,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * Your reference for the refund request.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -365,6 +400,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
+  *
+  * @param splits
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
@@ -390,6 +430,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * The status of your request. This will always have the value **received**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -415,6 +460,11 @@ public class PaymentRefundResponse {
   }
 
 
+ /**
+  * The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
+  *
+  * @param store
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {

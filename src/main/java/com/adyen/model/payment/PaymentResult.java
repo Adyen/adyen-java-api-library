@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -172,6 +171,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -197,6 +201,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
+  *
+  * @param authCode
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
@@ -222,6 +231,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * dccAmount
+  *
+  * @param dccAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_DCC_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccAmount(Amount dccAmount) {
@@ -247,6 +261,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * Cryptographic signature used to verify &#x60;dccQuote&#x60;. &gt; This value only applies if you have implemented Dynamic Currency Conversion. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+  *
+  * @param dccSignature
+  */ 
   @JsonProperty(JSON_PROPERTY_DCC_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccSignature(String dccSignature) {
@@ -272,6 +291,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * fraudResult
+  *
+  * @param fraudResult
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
@@ -297,6 +321,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * The URL to direct the shopper to. &gt; In case of SecurePlus, do not redirect a shopper to this URL.
+  *
+  * @param issuerUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerUrl(String issuerUrl) {
@@ -322,6 +351,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * The payment session.
+  *
+  * @param md
+  */ 
   @JsonProperty(JSON_PROPERTY_MD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMd(String md) {
@@ -347,6 +381,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * The 3D request data for the issuer.  If the value is **CUPSecurePlus-CollectSMSVerificationCode**, collect an SMS code from the shopper and pass it in the &#x60;/authorise3D&#x60; request. For more information, see [3D Secure](https://docs.adyen.com/classic-integration/3d-secure).
+  *
+  * @param paRequest
+  */ 
   @JsonProperty(JSON_PROPERTY_PA_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaRequest(String paRequest) {
@@ -372,6 +411,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -397,6 +441,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+  *
+  * @param refusalReason
+  */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
@@ -422,6 +471,11 @@ public class PaymentResult {
   }
 
 
+ /**
+  * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {

@@ -52,6 +52,45 @@ public class TerminalActionsCompanyLevelApi extends Service {
     }
 
     /**
+    * Get terminal action
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param actionId {@link String } The unique identifier of the terminal action. (required)
+    * @return {@link ExternalTerminalAction }
+    * @throws ApiException if fails to make API call
+    */
+    public ExternalTerminalAction getTerminalAction(String companyId, String actionId) throws ApiException, IOException {
+        return getTerminalAction(companyId, actionId, null);
+    }
+
+    /**
+    * Get terminal action
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param actionId {@link String } The unique identifier of the terminal action. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ExternalTerminalAction }
+    * @throws ApiException if fails to make API call
+    */
+    public ExternalTerminalAction getTerminalAction(String companyId, String actionId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (actionId == null) {
+            throw new IllegalArgumentException("Please provide the actionId path parameter");
+        }
+        pathParams.put("actionId", actionId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalActions/{actionId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return ExternalTerminalAction.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of terminal actions
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -100,44 +139,5 @@ public class TerminalActionsCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalActions", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return ListExternalTerminalActionsResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get terminal action
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param actionId {@link String } The unique identifier of the terminal action. (required)
-    * @return {@link ExternalTerminalAction }
-    * @throws ApiException if fails to make API call
-    */
-    public ExternalTerminalAction getTerminalAction(String companyId, String actionId) throws ApiException, IOException {
-        return getTerminalAction(companyId, actionId, null);
-    }
-
-    /**
-    * Get terminal action
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param actionId {@link String } The unique identifier of the terminal action. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link ExternalTerminalAction }
-    * @throws ApiException if fails to make API call
-    */
-    public ExternalTerminalAction getTerminalAction(String companyId, String actionId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (actionId == null) {
-            throw new IllegalArgumentException("Please provide the actionId path parameter");
-        }
-        pathParams.put("actionId", actionId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalActions/{actionId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return ExternalTerminalAction.fromJson(jsonResult);
     }
 }

@@ -55,6 +55,80 @@ public class UsersCompanyLevelApi extends Service {
     }
 
     /**
+    * Create a new user
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param createCompanyUserRequest {@link CreateCompanyUserRequest }  (required)
+    * @return {@link CreateCompanyUserResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateCompanyUserResponse createNewUser(String companyId, CreateCompanyUserRequest createCompanyUserRequest) throws ApiException, IOException {
+        return createNewUser(companyId, createCompanyUserRequest, null);
+    }
+
+    /**
+    * Create a new user
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param createCompanyUserRequest {@link CreateCompanyUserRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CreateCompanyUserResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateCompanyUserResponse createNewUser(String companyId, CreateCompanyUserRequest createCompanyUserRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+
+        String requestBody = createCompanyUserRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/users", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return CreateCompanyUserResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get user details
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param userId {@link String } The unique identifier of the user. (required)
+    * @return {@link CompanyUser }
+    * @throws ApiException if fails to make API call
+    */
+    public CompanyUser getUserDetails(String companyId, String userId) throws ApiException, IOException {
+        return getUserDetails(companyId, userId, null);
+    }
+
+    /**
+    * Get user details
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param userId {@link String } The unique identifier of the user. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CompanyUser }
+    * @throws ApiException if fails to make API call
+    */
+    public CompanyUser getUserDetails(String companyId, String userId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (userId == null) {
+            throw new IllegalArgumentException("Please provide the userId path parameter");
+        }
+        pathParams.put("userId", userId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/users/{userId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return CompanyUser.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of users
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -102,45 +176,6 @@ public class UsersCompanyLevelApi extends Service {
     }
 
     /**
-    * Get user details
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param userId {@link String } The unique identifier of the user. (required)
-    * @return {@link CompanyUser }
-    * @throws ApiException if fails to make API call
-    */
-    public CompanyUser getUserDetails(String companyId, String userId) throws ApiException, IOException {
-        return getUserDetails(companyId, userId, null);
-    }
-
-    /**
-    * Get user details
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param userId {@link String } The unique identifier of the user. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CompanyUser }
-    * @throws ApiException if fails to make API call
-    */
-    public CompanyUser getUserDetails(String companyId, String userId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (userId == null) {
-            throw new IllegalArgumentException("Please provide the userId path parameter");
-        }
-        pathParams.put("userId", userId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/users/{userId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return CompanyUser.fromJson(jsonResult);
-    }
-
-    /**
     * Update user details
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -179,40 +214,5 @@ public class UsersCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/users/{userId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return CompanyUser.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a new user
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param createCompanyUserRequest {@link CreateCompanyUserRequest }  (required)
-    * @return {@link CreateCompanyUserResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateCompanyUserResponse createNewUser(String companyId, CreateCompanyUserRequest createCompanyUserRequest) throws ApiException, IOException {
-        return createNewUser(companyId, createCompanyUserRequest, null);
-    }
-
-    /**
-    * Create a new user
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param createCompanyUserRequest {@link CreateCompanyUserRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CreateCompanyUserResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateCompanyUserResponse createNewUser(String companyId, CreateCompanyUserRequest createCompanyUserRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-
-        String requestBody = createCompanyUserRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/users", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return CreateCompanyUserResponse.fromJson(jsonResult);
     }
 }

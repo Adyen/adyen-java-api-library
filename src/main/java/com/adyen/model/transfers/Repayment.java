@@ -69,6 +69,11 @@ public class Repayment {
   }
 
 
+ /**
+  * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
+  *
+  * @param basisPoints
+  */ 
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasisPoints(Integer basisPoints) {
@@ -94,6 +99,11 @@ public class Repayment {
   }
 
 
+ /**
+  * term
+  *
+  * @param term
+  */ 
   @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerm(RepaymentTerm term) {
@@ -119,6 +129,11 @@ public class Repayment {
   }
 
 
+ /**
+  * threshold
+  *
+  * @param threshold
+  */ 
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreshold(ThresholdRepayment threshold) {

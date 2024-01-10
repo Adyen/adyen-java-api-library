@@ -143,6 +143,11 @@ public class AddressRequirement {
   }
 
 
+ /**
+  * Specifies the required address related fields for a particular route.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -176,6 +181,11 @@ public class AddressRequirement {
   }
 
 
+ /**
+  * List of address fields.
+  *
+  * @param requiredAddressFields
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredAddressFields(List<RequiredAddressFieldsEnum> requiredAddressFields) {
@@ -201,6 +211,11 @@ public class AddressRequirement {
   }
 
 
+ /**
+  * **addressRequirement**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

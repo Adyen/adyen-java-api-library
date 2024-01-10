@@ -63,6 +63,11 @@ public class SofortInfo {
   }
 
 
+ /**
+  * Sofort currency code. For example, **EUR**.
+  *
+  * @param currencyCode
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
@@ -88,6 +93,11 @@ public class SofortInfo {
   }
 
 
+ /**
+  * Sofort logo. Format: Base64-encoded string.
+  *
+  * @param logo
+  */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {

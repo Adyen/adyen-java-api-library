@@ -1,6 +1,5 @@
 /*
  * Adyen Stored Value API
- * A set of API endpoints to manage stored value products.
  *
  * The version of the OpenAPI document: 46
  * 

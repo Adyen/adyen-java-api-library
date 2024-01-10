@@ -63,6 +63,11 @@ public class Name {
   }
 
 
+ /**
+  * The first name.
+  *
+  * @param firstName
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -88,6 +93,11 @@ public class Name {
   }
 
 
+ /**
+  * The last name.
+  *
+  * @param lastName
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {

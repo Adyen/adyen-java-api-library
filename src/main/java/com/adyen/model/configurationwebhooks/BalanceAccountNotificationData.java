@@ -64,6 +64,11 @@ public class BalanceAccountNotificationData {
   }
 
 
+ /**
+  * balanceAccount
+  *
+  * @param balanceAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(BalanceAccount balanceAccount) {
@@ -89,6 +94,11 @@ public class BalanceAccountNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {

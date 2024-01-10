@@ -119,6 +119,11 @@ public class CapabilityProblemEntity {
   }
 
 
+ /**
+  * List of document IDs to which the verification errors related to the capabilities correspond to.
+  *
+  * @param documents
+  */ 
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
@@ -144,6 +149,11 @@ public class CapabilityProblemEntity {
   }
 
 
+ /**
+  * The ID of the entity.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -169,6 +179,11 @@ public class CapabilityProblemEntity {
   }
 
 
+ /**
+  * owner
+  *
+  * @param owner
+  */ 
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwner(CapabilityProblemEntityRecursive owner) {
@@ -194,6 +209,11 @@ public class CapabilityProblemEntity {
   }
 
 
+ /**
+  * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

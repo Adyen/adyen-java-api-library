@@ -116,6 +116,11 @@ public class IdentificationData {
   }
 
 
+ /**
+  * The card number of the document that was issued (AU only).
+  *
+  * @param cardNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
@@ -141,6 +146,11 @@ public class IdentificationData {
   }
 
 
+ /**
+  * The expiry date of the document, in YYYY-MM-DD format.
+  *
+  * @param expiryDate
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
@@ -168,6 +178,11 @@ public class IdentificationData {
   }
 
 
+ /**
+  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
+  *
+  * @param issuerCountry
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,6 +209,11 @@ public class IdentificationData {
   }
 
 
+ /**
+  * The state or province where the document was issued (AU only).
+  *
+  * @param issuerState
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerState(String issuerState) {
@@ -219,6 +239,11 @@ public class IdentificationData {
   }
 
 
+ /**
+  * Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
+  *
+  * @param nationalIdExempt
+  */ 
   @JsonProperty(JSON_PROPERTY_NATIONAL_ID_EXEMPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationalIdExempt(Boolean nationalIdExempt) {
@@ -244,6 +269,11 @@ public class IdentificationData {
   }
 
 
+ /**
+  * The number in the document.
+  *
+  * @param number
+  */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -269,6 +299,11 @@ public class IdentificationData {
   }
 
 
+ /**
+  * Type of identity data. For **individual**, the &#x60;type&#x60; value is **nationalIdNumber**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

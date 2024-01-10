@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -105,6 +104,11 @@ public class PlatformChargebackLogic {
   }
 
 
+ /**
+  * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
+  *
+  * @param behavior
+  */ 
   @JsonProperty(JSON_PROPERTY_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBehavior(BehaviorEnum behavior) {
@@ -130,6 +134,11 @@ public class PlatformChargebackLogic {
   }
 
 
+ /**
+  * The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
+  *
+  * @param costAllocationAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_COST_ALLOCATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostAllocationAccount(String costAllocationAccount) {
@@ -155,6 +164,11 @@ public class PlatformChargebackLogic {
   }
 
 
+ /**
+  * The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
+  *
+  * @param targetAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_TARGET_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTargetAccount(String targetAccount) {

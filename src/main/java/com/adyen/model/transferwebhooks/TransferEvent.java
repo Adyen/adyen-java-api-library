@@ -47,8 +47,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferEvent.JSON_PROPERTY_MUTATIONS,
   TransferEvent.JSON_PROPERTY_ORIGINAL_AMOUNT,
   TransferEvent.JSON_PROPERTY_REASON,
-  TransferEvent.JSON_PROPERTY_SCHEME_TRACE_I_D,
-  TransferEvent.JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_I_D,
   TransferEvent.JSON_PROPERTY_STATUS,
   TransferEvent.JSON_PROPERTY_TRANSACTION_ID,
   TransferEvent.JSON_PROPERTY_TYPE,
@@ -146,12 +144,6 @@ public class TransferEvent {
 
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
-
-  public static final String JSON_PROPERTY_SCHEME_TRACE_I_D = "schemeTraceID";
-  private String schemeTraceID;
-
-  public static final String JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_I_D = "schemeUniqueTransactionID";
-  private String schemeUniqueTransactionID;
 
   /**
    * The status of the transfer event.
@@ -383,6 +375,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -416,6 +413,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The amount adjustments in this transfer.
+  *
+  * @param amountAdjustments
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountAdjustments(List<AmountAdjustment> amountAdjustments) {
@@ -441,6 +443,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The date when the transfer request was sent.
+  *
+  * @param bookingDate
+  */ 
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
@@ -466,6 +473,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The estimated time the beneficiary should have access to the funds.
+  *
+  * @param estimatedArrivalTime
+  */ 
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
@@ -491,6 +503,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The unique identifier of the transfer event.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -516,6 +533,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * modification
+  *
+  * @param modification
+  */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModification(Modification modification) {
@@ -549,6 +571,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The list of the balance mutation per event.
+  *
+  * @param mutations
+  */ 
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMutations(List<BalanceMutation> mutations) {
@@ -574,6 +601,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * originalAmount
+  *
+  * @param originalAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {
@@ -599,60 +631,15 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The reason for the transfer status.
+  *
+  * @param reason
+  */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
-  }
-
-
-  public TransferEvent schemeTraceID(String schemeTraceID) {
-    this.schemeTraceID = schemeTraceID;
-    return this;
-  }
-
-   /**
-   * SchemeTraceID retrieved from scheme.
-   * @return schemeTraceID
-  **/
-  @ApiModelProperty(value = "SchemeTraceID retrieved from scheme.")
-  @JsonProperty(JSON_PROPERTY_SCHEME_TRACE_I_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSchemeTraceID() {
-    return schemeTraceID;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SCHEME_TRACE_I_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSchemeTraceID(String schemeTraceID) {
-    this.schemeTraceID = schemeTraceID;
-  }
-
-
-  public TransferEvent schemeUniqueTransactionID(String schemeUniqueTransactionID) {
-    this.schemeUniqueTransactionID = schemeUniqueTransactionID;
-    return this;
-  }
-
-   /**
-   * SchemeUniqueTransactionID retrieved from scheme.
-   * @return schemeUniqueTransactionID
-  **/
-  @ApiModelProperty(value = "SchemeUniqueTransactionID retrieved from scheme.")
-  @JsonProperty(JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_I_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSchemeUniqueTransactionID() {
-    return schemeUniqueTransactionID;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_I_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSchemeUniqueTransactionID(String schemeUniqueTransactionID) {
-    this.schemeUniqueTransactionID = schemeUniqueTransactionID;
   }
 
 
@@ -674,6 +661,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The status of the transfer event.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -699,6 +691,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
+  *
+  * @param transactionId
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionId(String transactionId) {
@@ -724,6 +721,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The type of the transfer event. Possible values: **accounting**, **tracking**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -749,6 +751,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * The date when the tracking status was updated.
+  *
+  * @param updateDate
+  */ 
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateDate(OffsetDateTime updateDate) {
@@ -774,6 +781,11 @@ public class TransferEvent {
   }
 
 
+ /**
+  * A future date, when the funds are expected to be deducted from or credited to the balance account.
+  *
+  * @param valueDate
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {
@@ -802,8 +814,6 @@ public class TransferEvent {
         Objects.equals(this.mutations, transferEvent.mutations) &&
         Objects.equals(this.originalAmount, transferEvent.originalAmount) &&
         Objects.equals(this.reason, transferEvent.reason) &&
-        Objects.equals(this.schemeTraceID, transferEvent.schemeTraceID) &&
-        Objects.equals(this.schemeUniqueTransactionID, transferEvent.schemeUniqueTransactionID) &&
         Objects.equals(this.status, transferEvent.status) &&
         Objects.equals(this.transactionId, transferEvent.transactionId) &&
         Objects.equals(this.type, transferEvent.type) &&
@@ -813,7 +823,7 @@ public class TransferEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountAdjustments, bookingDate, estimatedArrivalTime, id, modification, mutations, originalAmount, reason, schemeTraceID, schemeUniqueTransactionID, status, transactionId, type, updateDate, valueDate);
+    return Objects.hash(amount, amountAdjustments, bookingDate, estimatedArrivalTime, id, modification, mutations, originalAmount, reason, status, transactionId, type, updateDate, valueDate);
   }
 
   @Override
@@ -829,8 +839,6 @@ public class TransferEvent {
     sb.append("    mutations: ").append(toIndentedString(mutations)).append("\n");
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    schemeTraceID: ").append(toIndentedString(schemeTraceID)).append("\n");
-    sb.append("    schemeUniqueTransactionID: ").append(toIndentedString(schemeUniqueTransactionID)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -71,6 +71,11 @@ public class Signature {
   }
 
 
+ /**
+  * If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
+  *
+  * @param askSignatureOnScreen
+  */ 
   @JsonProperty(JSON_PROPERTY_ASK_SIGNATURE_ON_SCREEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskSignatureOnScreen(Boolean askSignatureOnScreen) {
@@ -96,6 +101,11 @@ public class Signature {
   }
 
 
+ /**
+  * Name that identifies the terminal.
+  *
+  * @param deviceName
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceName(String deviceName) {
@@ -121,6 +131,11 @@ public class Signature {
   }
 
 
+ /**
+  * Slogan shown on the start screen of the device.
+  *
+  * @param deviceSlogan
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_SLOGAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceSlogan(String deviceSlogan) {
@@ -146,6 +161,11 @@ public class Signature {
   }
 
 
+ /**
+  * Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
+  *
+  * @param skipSignature
+  */ 
   @JsonProperty(JSON_PROPERTY_SKIP_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSkipSignature(Boolean skipSignature) {

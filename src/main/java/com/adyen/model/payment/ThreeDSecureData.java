@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -235,6 +234,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.
+  *
+  * @param authenticationResponse
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationResponse(AuthenticationResponseEnum authenticationResponse) {
@@ -260,6 +264,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * The cardholder authentication value (base64 encoded, 20 bytes in a decoded form).
+  *
+  * @param cavv
+  */ 
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(byte[] cavv) {
@@ -285,6 +294,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * The CAVV algorithm used. Include this only for 3D Secure 1.
+  *
+  * @param cavvAlgorithm
+  */ 
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
@@ -310,6 +324,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+  *
+  * @param challengeCancel
+  */ 
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
@@ -335,6 +354,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.
+  *
+  * @param directoryResponse
+  */ 
   @JsonProperty(JSON_PROPERTY_DIRECTORY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectoryResponse(DirectoryResponseEnum directoryResponse) {
@@ -360,6 +384,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.
+  *
+  * @param dsTransID
+  */ 
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
@@ -385,6 +414,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * The electronic commerce indicator.
+  *
+  * @param eci
+  */ 
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
@@ -410,6 +444,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * Risk score calculated by Directory Server (DS). Required for Cartes Bancaires integrations.
+  *
+  * @param riskScore
+  */ 
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
@@ -435,6 +474,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * The version of the 3D Secure protocol.
+  *
+  * @param threeDSVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
@@ -460,6 +504,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * Network token authentication verification value (TAVV). The network token cryptogram.
+  *
+  * @param tokenAuthenticationVerificationValue
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenAuthenticationVerificationValue(byte[] tokenAuthenticationVerificationValue) {
@@ -485,6 +534,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
+  *
+  * @param transStatusReason
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
@@ -510,6 +564,11 @@ public class ThreeDSecureData {
   }
 
 
+ /**
+  * Supported for 3D Secure 1. The transaction identifier (Base64-encoded, 20 bytes in a decoded form).
+  *
+  * @param xid
+  */ 
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(byte[] xid) {

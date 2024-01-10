@@ -104,6 +104,11 @@ public class SweepSchedule {
   }
 
 
+ /**
+  * A [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that is used to set the sweep schedule. The schedule uses the time zone of the balance account.  For example, **30 17 * * MON** schedules a sweep every Monday at 17:30.  The expression must have five values separated by a single space in the following order:  * Minute: **0-59**  * Hour: **0-23**  * Day of the month: **1-31**  * Month: **1-12** or **JAN-DEC**  * Day of the week: **0-7** (0 and 7 are Sunday) or **MON-SUN**.  The following non-standard characters are supported: **&amp;ast;**, **L**, **#**, **W** and **_/_**. See [crontab guru](https://crontab.guru/) for more examples.  Required when &#x60;type&#x60; is **cron**. 
+  *
+  * @param cronExpression
+  */ 
   @JsonProperty(JSON_PROPERTY_CRON_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCronExpression(String cronExpression) {
@@ -129,6 +134,11 @@ public class SweepSchedule {
   }
 
 
+ /**
+  * The schedule type.  Possible values:  * **cron**: push out funds based on a &#x60;cronExpression&#x60;.  * **daily**: push out funds daily at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM CET.  * **monthly**: push out funds every first of the month at 07:00 AM CET.  * **balance**: pull in funds instantly if the balance is less than or equal to the &#x60;triggerAmount&#x60;. You can only use this for sweeps of &#x60;type&#x60; **pull** and when the source is a &#x60;merchantAccount&#x60; or &#x60;transferInstrument&#x60;. If the source is transferInstrument, merchant account identifier is still required, with which you want to process the transaction. 
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

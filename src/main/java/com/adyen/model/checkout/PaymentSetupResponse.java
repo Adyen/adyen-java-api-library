@@ -66,6 +66,11 @@ public class PaymentSetupResponse {
   }
 
 
+ /**
+  * The encoded payment session that you need to pass to the SDK.
+  *
+  * @param paymentSession
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_SESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentSession(String paymentSession) {
@@ -101,6 +106,11 @@ public class PaymentSetupResponse {
   }
 
 
+ /**
+  * The detailed list of stored payment details required to generate payment forms. Will be empty if oneClick is set to false in the request.
+  *
+  * @param recurringDetails
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

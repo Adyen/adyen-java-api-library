@@ -1,6 +1,5 @@
 /*
  * Adyen Stored Value API
- * A set of API endpoints to manage stored value products.
  *
  * The version of the OpenAPI document: 46
  * 
@@ -80,6 +79,11 @@ public class StoredValueVoidRequest {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -105,6 +109,11 @@ public class StoredValueVoidRequest {
   }
 
 
+ /**
+  * The original pspReference of the payment to modify.
+  *
+  * @param originalReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
@@ -130,6 +139,11 @@ public class StoredValueVoidRequest {
   }
 
 
+ /**
+  * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -155,6 +169,11 @@ public class StoredValueVoidRequest {
   }
 
 
+ /**
+  * The physical store, for which this payment is processed.
+  *
+  * @param store
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
@@ -180,6 +199,11 @@ public class StoredValueVoidRequest {
   }
 
 
+ /**
+  * The reference of the tender.
+  *
+  * @param tenderReference
+  */ 
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenderReference(String tenderReference) {
@@ -205,6 +229,11 @@ public class StoredValueVoidRequest {
   }
 
 
+ /**
+  * The unique ID of a POS terminal.
+  *
+  * @param uniqueTerminalId
+  */ 
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {

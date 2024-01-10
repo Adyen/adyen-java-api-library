@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   GooglePayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   GooglePayDetails.JSON_PROPERTY_FUNDING_SOURCE,
+  GooglePayDetails.JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK,
   GooglePayDetails.JSON_PROPERTY_GOOGLE_PAY_TOKEN,
   GooglePayDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   GooglePayDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
@@ -80,6 +81,9 @@ public class GooglePayDetails {
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
+
+  public static final String JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK = "googlePayCardNetwork";
+  private String googlePayCardNetwork;
 
   public static final String JSON_PROPERTY_GOOGLE_PAY_TOKEN = "googlePayToken";
   private String googlePayToken;
@@ -147,6 +151,11 @@ public class GooglePayDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -172,10 +181,45 @@ public class GooglePayDetails {
   }
 
 
+ /**
+  * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+  *
+  * @param fundingSource
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+  }
+
+
+  public GooglePayDetails googlePayCardNetwork(String googlePayCardNetwork) {
+    this.googlePayCardNetwork = googlePayCardNetwork;
+    return this;
+  }
+
+   /**
+   * The selected payment card network. 
+   * @return googlePayCardNetwork
+  **/
+  @ApiModelProperty(value = "The selected payment card network. ")
+  @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getGooglePayCardNetwork() {
+    return googlePayCardNetwork;
+  }
+
+
+ /**
+  * The selected payment card network. 
+  *
+  * @param googlePayCardNetwork
+  */ 
+  @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGooglePayCardNetwork(String googlePayCardNetwork) {
+    this.googlePayCardNetwork = googlePayCardNetwork;
   }
 
 
@@ -197,6 +241,11 @@ public class GooglePayDetails {
   }
 
 
+ /**
+  * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
+  *
+  * @param googlePayToken
+  */ 
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePayToken(String googlePayToken) {
@@ -224,6 +273,11 @@ public class GooglePayDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,6 +304,11 @@ public class GooglePayDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -275,6 +334,11 @@ public class GooglePayDetails {
   }
 
 
+ /**
+  * **googlepay**, **paywithgoogle**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -296,6 +360,7 @@ public class GooglePayDetails {
     GooglePayDetails googlePayDetails = (GooglePayDetails) o;
     return Objects.equals(this.checkoutAttemptId, googlePayDetails.checkoutAttemptId) &&
         Objects.equals(this.fundingSource, googlePayDetails.fundingSource) &&
+        Objects.equals(this.googlePayCardNetwork, googlePayDetails.googlePayCardNetwork) &&
         Objects.equals(this.googlePayToken, googlePayDetails.googlePayToken) &&
         Objects.equals(this.recurringDetailReference, googlePayDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, googlePayDetails.storedPaymentMethodId) &&
@@ -304,7 +369,7 @@ public class GooglePayDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, fundingSource, googlePayToken, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, fundingSource, googlePayCardNetwork, googlePayToken, recurringDetailReference, storedPaymentMethodId, type);
   }
 
   @Override
@@ -313,6 +378,7 @@ public class GooglePayDetails {
     sb.append("class GooglePayDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+    sb.append("    googlePayCardNetwork: ").append(toIndentedString(googlePayCardNetwork)).append("\n");
     sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");

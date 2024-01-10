@@ -59,6 +59,11 @@ public class SwishInfo {
   }
 
 
+ /**
+  * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
+  *
+  * @param swishNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SWISH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSwishNumber(String swishNumber) {

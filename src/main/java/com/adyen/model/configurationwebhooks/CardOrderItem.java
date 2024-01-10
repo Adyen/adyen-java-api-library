@@ -89,6 +89,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -114,6 +119,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * card
+  *
+  * @param card
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardOrderItemDeliveryStatus card) {
@@ -139,6 +149,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * The unique identifier of the card order item.
+  *
+  * @param cardOrderItemId
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_ORDER_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardOrderItemId(String cardOrderItemId) {
@@ -164,6 +179,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+  *
+  * @param creationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -189,6 +209,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * The ID of the resource.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -214,6 +239,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * The unique identifier of the payment instrument related to the card order item.
+  *
+  * @param paymentInstrumentId
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -239,6 +269,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * pin
+  *
+  * @param pin
+  */ 
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPin(CardOrderItemDeliveryStatus pin) {
@@ -264,6 +299,11 @@ public class CardOrderItem {
   }
 
 
+ /**
+  * Shipping method used to deliver the card or the PIN.
+  *
+  * @param shippingMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingMethod(String shippingMethod) {

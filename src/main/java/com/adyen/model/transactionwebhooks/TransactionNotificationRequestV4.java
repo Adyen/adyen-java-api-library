@@ -101,6 +101,11 @@ public class TransactionNotificationRequestV4 {
   }
 
 
+ /**
+  * data
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Transaction data) {
@@ -126,6 +131,11 @@ public class TransactionNotificationRequestV4 {
   }
 
 
+ /**
+  * The environment from which the webhook originated.  Possible values: **test**, **live**.
+  *
+  * @param environment
+  */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -151,6 +161,11 @@ public class TransactionNotificationRequestV4 {
   }
 
 
+ /**
+  * Type of the webhook.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -126,6 +126,11 @@ public class TransferInstrument {
   }
 
 
+ /**
+  * bankAccount
+  *
+  * @param bankAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountInfo bankAccount) {
@@ -159,6 +164,11 @@ public class TransferInstrument {
   }
 
 
+ /**
+  * List of capabilities for this transfer instrument.
+  *
+  * @param capabilities
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, SupportingEntityCapability> capabilities) {
@@ -192,6 +202,11 @@ public class TransferInstrument {
   }
 
 
+ /**
+  * List of documents uploaded for the transfer instrument.
+  *
+  * @param documentDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocumentDetails(List<DocumentReference> documentDetails) {
@@ -217,6 +232,11 @@ public class TransferInstrument {
   }
 
 
+ /**
+  * The unique identifier of the transfer instrument.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -242,6 +262,11 @@ public class TransferInstrument {
   }
 
 
+ /**
+  * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
+  *
+  * @param legalEntityId
+  */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -275,6 +300,11 @@ public class TransferInstrument {
   }
 
 
+ /**
+  * The verification errors related to capabilities for this transfer instrument.
+  *
+  * @param problems
+  */ 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
@@ -300,6 +330,11 @@ public class TransferInstrument {
   }
 
 
+ /**
+  * The type of transfer instrument.  Possible value: **bankAccount**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

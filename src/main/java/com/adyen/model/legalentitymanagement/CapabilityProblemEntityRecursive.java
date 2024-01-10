@@ -117,6 +117,11 @@ public class CapabilityProblemEntityRecursive {
   }
 
 
+ /**
+  * List of document IDs corresponding to the verification errors from capabilities.
+  *
+  * @param documents
+  */ 
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
@@ -142,6 +147,11 @@ public class CapabilityProblemEntityRecursive {
   }
 
 
+ /**
+  * id
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -167,6 +177,11 @@ public class CapabilityProblemEntityRecursive {
   }
 
 
+ /**
+  * type
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

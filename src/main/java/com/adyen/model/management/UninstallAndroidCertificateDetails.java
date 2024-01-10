@@ -96,6 +96,11 @@ public class UninstallAndroidCertificateDetails {
   }
 
 
+ /**
+  * The unique identifier of the certificate to be uninstalled.
+  *
+  * @param certificateId
+  */ 
   @JsonProperty(JSON_PROPERTY_CERTIFICATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertificateId(String certificateId) {
@@ -121,6 +126,11 @@ public class UninstallAndroidCertificateDetails {
   }
 
 
+ /**
+  * Type of terminal action: Uninstall an Android certificate.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

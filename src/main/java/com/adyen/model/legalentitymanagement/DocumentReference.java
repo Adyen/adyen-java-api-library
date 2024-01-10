@@ -87,6 +87,11 @@ public class DocumentReference {
   }
 
 
+ /**
+  * Identifies whether the document is active and used for checks.
+  *
+  * @param active
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -112,6 +117,11 @@ public class DocumentReference {
   }
 
 
+ /**
+  * Your description for the document.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -137,6 +147,11 @@ public class DocumentReference {
   }
 
 
+ /**
+  * Document name.
+  *
+  * @param fileName
+  */ 
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
@@ -162,6 +177,11 @@ public class DocumentReference {
   }
 
 
+ /**
+  * The unique identifier of the resource.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -187,6 +207,11 @@ public class DocumentReference {
   }
 
 
+ /**
+  * The modification date of the document.
+  *
+  * @param modificationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationDate(OffsetDateTime modificationDate) {
@@ -220,6 +245,11 @@ public class DocumentReference {
   }
 
 
+ /**
+  * List of document pages
+  *
+  * @param pages
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPages(List<DocumentPage> pages) {
@@ -245,6 +275,11 @@ public class DocumentReference {
   }
 
 
+ /**
+  * Type of document, used when providing an ID number or uploading a document.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

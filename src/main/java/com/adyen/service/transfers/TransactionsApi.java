@@ -116,7 +116,7 @@ public class TransactionsApi extends Service {
     /**
     * Get a transaction
     *
-    * @param id {@link String } Unique identifier of the transaction. (required)
+    * @param id {@link String } The unique identifier of the transaction. (required)
     * @return {@link Transaction }
     * @throws ApiException if fails to make API call
     */
@@ -127,7 +127,7 @@ public class TransactionsApi extends Service {
     /**
     * Get a transaction
     *
-    * @param id {@link String } Unique identifier of the transaction. (required)
+    * @param id {@link String } The unique identifier of the transaction. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link Transaction }
     * @throws ApiException if fails to make API call

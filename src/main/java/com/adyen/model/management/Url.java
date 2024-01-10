@@ -71,6 +71,11 @@ public class Url {
   }
 
 
+ /**
+  * Indicates if the message sent to this URL should be encrypted.
+  *
+  * @param encrypted
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncrypted(Boolean encrypted) {
@@ -96,6 +101,11 @@ public class Url {
   }
 
 
+ /**
+  * The password for authentication of the notifications.
+  *
+  * @param password
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
@@ -121,6 +131,11 @@ public class Url {
   }
 
 
+ /**
+  * The URL in the format: http(s)://domain.com.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
@@ -146,6 +161,11 @@ public class Url {
   }
 
 
+ /**
+  * The username for authentication of the notifications.
+  *
+  * @param username
+  */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
