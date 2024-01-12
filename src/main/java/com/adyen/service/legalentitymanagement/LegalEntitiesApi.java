@@ -15,6 +15,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.legalentitymanagement.BusinessLines;
+import com.adyen.model.legalentitymanagement.DataReviewConfirmationResponse;
 import com.adyen.model.legalentitymanagement.LegalEntity;
 import com.adyen.model.legalentitymanagement.LegalEntityInfo;
 import com.adyen.model.legalentitymanagement.LegalEntityInfoRequiredType;
@@ -213,5 +214,38 @@ public class LegalEntitiesApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/checkVerificationErrors", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return VerificationErrors.fromJson(jsonResult);
+    }
+
+    /**
+    * Confirm data review
+    *
+    * @param id {@link String } The unique identifier of the legal entity. (required)
+    * @return {@link DataReviewConfirmationResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public DataReviewConfirmationResponse confirmDataReview(String id) throws ApiException, IOException {
+        return confirmDataReview(id, null);
+    }
+
+    /**
+    * Confirm data review
+    *
+    * @param id {@link String } The unique identifier of the legal entity. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link DataReviewConfirmationResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public DataReviewConfirmationResponse confirmDataReview(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/confirmDataReview", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return DataReviewConfirmationResponse.fromJson(jsonResult);
     }
 }

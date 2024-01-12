@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
 import com.adyen.model.legalentitymanagement.TaxInformation;
-import com.adyen.model.legalentitymanagement.UndefinedBeneficiary;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,25 +32,24 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * Trust
+ * UnincorporatedPartnership
  */
 @JsonPropertyOrder({
-  Trust.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
-  Trust.JSON_PROPERTY_DATE_OF_INCORPORATION,
-  Trust.JSON_PROPERTY_DESCRIPTION,
-  Trust.JSON_PROPERTY_DOING_BUSINESS_AS,
-  Trust.JSON_PROPERTY_NAME,
-  Trust.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
-  Trust.JSON_PROPERTY_REGISTERED_ADDRESS,
-  Trust.JSON_PROPERTY_REGISTRATION_NUMBER,
-  Trust.JSON_PROPERTY_TAX_INFORMATION,
-  Trust.JSON_PROPERTY_TYPE,
-  Trust.JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO,
-  Trust.JSON_PROPERTY_VAT_ABSENCE_REASON,
-  Trust.JSON_PROPERTY_VAT_NUMBER
+  UnincorporatedPartnership.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
+  UnincorporatedPartnership.JSON_PROPERTY_DATE_OF_INCORPORATION,
+  UnincorporatedPartnership.JSON_PROPERTY_DESCRIPTION,
+  UnincorporatedPartnership.JSON_PROPERTY_DOING_BUSINESS_AS,
+  UnincorporatedPartnership.JSON_PROPERTY_NAME,
+  UnincorporatedPartnership.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
+  UnincorporatedPartnership.JSON_PROPERTY_REGISTERED_ADDRESS,
+  UnincorporatedPartnership.JSON_PROPERTY_REGISTRATION_NUMBER,
+  UnincorporatedPartnership.JSON_PROPERTY_TAX_INFORMATION,
+  UnincorporatedPartnership.JSON_PROPERTY_TYPE,
+  UnincorporatedPartnership.JSON_PROPERTY_VAT_ABSENCE_REASON,
+  UnincorporatedPartnership.JSON_PROPERTY_VAT_NUMBER
 })
 
-public class Trust {
+public class UnincorporatedPartnership {
   public static final String JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW = "countryOfGoverningLaw";
   private String countryOfGoverningLaw;
 
@@ -80,38 +78,38 @@ public class Trust {
   private List<TaxInformation> taxInformation = null;
 
   /**
-   * Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.
+   * Type of Partnership. Possible values:  **limitedPartnership**, **generalPartnership**, **familyPartnership**, **commercialPartnership**, **publicPartnership**, **otherPartnership**, **gbr**, **kgaa**, **cv**, **vof**, **maatschap**, **privateFundLimitedPartnership**, **businessTrustEntity**, or **businessPartnership**.
    */
   public enum TypeEnum {
-    CASHMANAGEMENTTRUST("cashManagementTrust"),
+    LIMITEDPARTNERSHIP("limitedPartnership"),
     
-    CORPORATEUNITTRUST("corporateUnitTrust"),
+    GENERALPARTNERSHIP("generalPartnership"),
     
-    DECEASEDESTATE("deceasedEstate"),
+    FAMILYPARTNERSHIP("familyPartnership"),
     
-    DISCRETIONARYINVESTMENTTRUST("discretionaryInvestmentTrust"),
+    COMMERCIALPARTNERSHIP("commercialPartnership"),
     
-    DISCRETIONARYSERVICESMANAGEMENTTRUST("discretionaryServicesManagementTrust"),
+    PUBLICPARTNERSHIP("publicPartnership"),
     
-    DISCRETIONARYTRADINGTRUST("discretionaryTradingTrust"),
+    OTHERPARTNERSHIP("otherPartnership"),
     
-    FIRSTHOMESAVERACCOUNTSTRUST("firstHomeSaverAccountsTrust"),
+    GBR("gbr"),
     
-    FIXEDTRUST("fixedTrust"),
+    GMBH("gmbh"),
     
-    FIXEDUNITTRUST("fixedUnitTrust"),
+    KGAA("kgaa"),
     
-    HYBRIDTRUST("hybridTrust"),
+    CV("cv"),
     
-    LISTEDPUBLICUNITTRUST("listedPublicUnitTrust"),
+    VOF("vof"),
     
-    OTHERTRUST("otherTrust"),
+    MAATSCHAP("maatschap"),
     
-    POOLEDSUPERANNUATIONTRUST("pooledSuperannuationTrust"),
+    PRIVATEFUNDLIMITEDPARTNERSHIP("privateFundLimitedPartnership"),
     
-    PUBLICTRADINGTRUST("publicTradingTrust"),
+    BUSINESSTRUSTENTITY("businessTrustEntity"),
     
-    UNLISTEDPUBLICUNITTRUST("unlistedPublicUnitTrust");
+    BUSINESSPARTNERSHIP("businessPartnership");
 
     private String value;
 
@@ -142,9 +140,6 @@ public class Trust {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
-
-  public static final String JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO = "undefinedBeneficiaryInfo";
-  private List<UndefinedBeneficiary> undefinedBeneficiaryInfo = null;
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
@@ -187,10 +182,10 @@ public class Trust {
   public static final String JSON_PROPERTY_VAT_NUMBER = "vatNumber";
   private String vatNumber;
 
-  public Trust() { 
+  public UnincorporatedPartnership() { 
   }
 
-  public Trust countryOfGoverningLaw(String countryOfGoverningLaw) {
+  public UnincorporatedPartnership countryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
     return this;
   }
@@ -215,7 +210,7 @@ public class Trust {
   }
 
 
-  public Trust dateOfIncorporation(String dateOfIncorporation) {
+  public UnincorporatedPartnership dateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
     return this;
   }
@@ -240,16 +235,16 @@ public class Trust {
   }
 
 
-  public Trust description(String description) {
+  public UnincorporatedPartnership description(String description) {
     this.description = description;
     return this;
   }
 
    /**
-   * Short description about the trust.
+   * Short description about the Legal Arrangement.
    * @return description
   **/
-  @ApiModelProperty(value = "Short description about the trust.")
+  @ApiModelProperty(value = "Short description about the Legal Arrangement.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -265,7 +260,7 @@ public class Trust {
   }
 
 
-  public Trust doingBusinessAs(String doingBusinessAs) {
+  public UnincorporatedPartnership doingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
     return this;
   }
@@ -290,7 +285,7 @@ public class Trust {
   }
 
 
-  public Trust name(String name) {
+  public UnincorporatedPartnership name(String name) {
     this.name = name;
     return this;
   }
@@ -315,7 +310,7 @@ public class Trust {
   }
 
 
-  public Trust principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
+  public UnincorporatedPartnership principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
     return this;
   }
@@ -340,7 +335,7 @@ public class Trust {
   }
 
 
-  public Trust registeredAddress(Address registeredAddress) {
+  public UnincorporatedPartnership registeredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
     return this;
   }
@@ -365,7 +360,7 @@ public class Trust {
   }
 
 
-  public Trust registrationNumber(String registrationNumber) {
+  public UnincorporatedPartnership registrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
     return this;
   }
@@ -390,12 +385,12 @@ public class Trust {
   }
 
 
-  public Trust taxInformation(List<TaxInformation> taxInformation) {
+  public UnincorporatedPartnership taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
     return this;
   }
 
-  public Trust addTaxInformationItem(TaxInformation taxInformationItem) {
+  public UnincorporatedPartnership addTaxInformationItem(TaxInformation taxInformationItem) {
     if (this.taxInformation == null) {
       this.taxInformation = new ArrayList<>();
     }
@@ -423,16 +418,16 @@ public class Trust {
   }
 
 
-  public Trust type(TypeEnum type) {
+  public UnincorporatedPartnership type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.
+   * Type of Partnership. Possible values:  **limitedPartnership**, **generalPartnership**, **familyPartnership**, **commercialPartnership**, **publicPartnership**, **otherPartnership**, **gbr**, **kgaa**, **cv**, **vof**, **maatschap**, **privateFundLimitedPartnership**, **businessTrustEntity**, or **businessPartnership**.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.")
+  @ApiModelProperty(required = true, value = "Type of Partnership. Possible values:  **limitedPartnership**, **generalPartnership**, **familyPartnership**, **commercialPartnership**, **publicPartnership**, **otherPartnership**, **gbr**, **kgaa**, **cv**, **vof**, **maatschap**, **privateFundLimitedPartnership**, **businessTrustEntity**, or **businessPartnership**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -448,40 +443,7 @@ public class Trust {
   }
 
 
-  public Trust undefinedBeneficiaryInfo(List<UndefinedBeneficiary> undefinedBeneficiaryInfo) {
-    this.undefinedBeneficiaryInfo = undefinedBeneficiaryInfo;
-    return this;
-  }
-
-  public Trust addUndefinedBeneficiaryInfoItem(UndefinedBeneficiary undefinedBeneficiaryInfoItem) {
-    if (this.undefinedBeneficiaryInfo == null) {
-      this.undefinedBeneficiaryInfo = new ArrayList<>();
-    }
-    this.undefinedBeneficiaryInfo.add(undefinedBeneficiaryInfoItem);
-    return this;
-  }
-
-   /**
-   * The undefined beneficiary information of the entity.
-   * @return undefinedBeneficiaryInfo
-  **/
-  @ApiModelProperty(value = "The undefined beneficiary information of the entity.")
-  @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<UndefinedBeneficiary> getUndefinedBeneficiaryInfo() {
-    return undefinedBeneficiaryInfo;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUndefinedBeneficiaryInfo(List<UndefinedBeneficiary> undefinedBeneficiaryInfo) {
-    this.undefinedBeneficiaryInfo = undefinedBeneficiaryInfo;
-  }
-
-
-  public Trust vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
+  public UnincorporatedPartnership vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
     return this;
   }
@@ -506,7 +468,7 @@ public class Trust {
   }
 
 
-  public Trust vatNumber(String vatNumber) {
+  public UnincorporatedPartnership vatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
     return this;
   }
@@ -532,7 +494,7 @@ public class Trust {
 
 
   /**
-   * Return true if this Trust object is equal to o.
+   * Return true if this UnincorporatedPartnership object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -542,31 +504,30 @@ public class Trust {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Trust trust = (Trust) o;
-    return Objects.equals(this.countryOfGoverningLaw, trust.countryOfGoverningLaw) &&
-        Objects.equals(this.dateOfIncorporation, trust.dateOfIncorporation) &&
-        Objects.equals(this.description, trust.description) &&
-        Objects.equals(this.doingBusinessAs, trust.doingBusinessAs) &&
-        Objects.equals(this.name, trust.name) &&
-        Objects.equals(this.principalPlaceOfBusiness, trust.principalPlaceOfBusiness) &&
-        Objects.equals(this.registeredAddress, trust.registeredAddress) &&
-        Objects.equals(this.registrationNumber, trust.registrationNumber) &&
-        Objects.equals(this.taxInformation, trust.taxInformation) &&
-        Objects.equals(this.type, trust.type) &&
-        Objects.equals(this.undefinedBeneficiaryInfo, trust.undefinedBeneficiaryInfo) &&
-        Objects.equals(this.vatAbsenceReason, trust.vatAbsenceReason) &&
-        Objects.equals(this.vatNumber, trust.vatNumber);
+    UnincorporatedPartnership unincorporatedPartnership = (UnincorporatedPartnership) o;
+    return Objects.equals(this.countryOfGoverningLaw, unincorporatedPartnership.countryOfGoverningLaw) &&
+        Objects.equals(this.dateOfIncorporation, unincorporatedPartnership.dateOfIncorporation) &&
+        Objects.equals(this.description, unincorporatedPartnership.description) &&
+        Objects.equals(this.doingBusinessAs, unincorporatedPartnership.doingBusinessAs) &&
+        Objects.equals(this.name, unincorporatedPartnership.name) &&
+        Objects.equals(this.principalPlaceOfBusiness, unincorporatedPartnership.principalPlaceOfBusiness) &&
+        Objects.equals(this.registeredAddress, unincorporatedPartnership.registeredAddress) &&
+        Objects.equals(this.registrationNumber, unincorporatedPartnership.registrationNumber) &&
+        Objects.equals(this.taxInformation, unincorporatedPartnership.taxInformation) &&
+        Objects.equals(this.type, unincorporatedPartnership.type) &&
+        Objects.equals(this.vatAbsenceReason, unincorporatedPartnership.vatAbsenceReason) &&
+        Objects.equals(this.vatNumber, unincorporatedPartnership.vatNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, type, undefinedBeneficiaryInfo, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, type, vatAbsenceReason, vatNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Trust {\n");
+    sb.append("class UnincorporatedPartnership {\n");
     sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
     sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -577,7 +538,6 @@ public class Trust {
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    undefinedBeneficiaryInfo: ").append(toIndentedString(undefinedBeneficiaryInfo)).append("\n");
     sb.append("    vatAbsenceReason: ").append(toIndentedString(vatAbsenceReason)).append("\n");
     sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
     sb.append("}");
@@ -596,17 +556,17 @@ public class Trust {
   }
 
 /**
-   * Create an instance of Trust given an JSON string
+   * Create an instance of UnincorporatedPartnership given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Trust
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Trust
+   * @return An instance of UnincorporatedPartnership
+   * @throws JsonProcessingException if the JSON string is invalid with respect to UnincorporatedPartnership
    */
-  public static Trust fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, Trust.class);
+  public static UnincorporatedPartnership fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, UnincorporatedPartnership.class);
   }
 /**
-  * Convert an instance of Trust to an JSON string
+  * Convert an instance of UnincorporatedPartnership to an JSON string
   *
   * @return JSON string
   */

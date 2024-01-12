@@ -66,7 +66,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>22.0.0</version>
+  <version>22.1.0</version>
 </dependency>
 ```
 
@@ -135,6 +135,15 @@ Client client = new Client("Your username", "Your password", Environment.LIVE, "
 PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
  
 ...
+~~~~
+### Deserializing JSON Strings
+In some setups you might need to deserialize JSON strings to request objects. For example, when using the libraries in combination with [Dropin/Components](https://github.com/Adyen/adyen-web). Please use the built-in deserialization functions:
+~~~~ java
+// Import the required model class
+import com.adyen.model.checkout.PaymentRequest;
+
+// Deserialize using built-in function
+PaymentRequest paymentRequest = PaymentRequest.fromJson("YOUR_JSON_STRING");
 ~~~~
 ### Using notification webhooks parser
 ~~~~ java
@@ -474,11 +483,15 @@ If you wish to develop the Local Terminal API integration parallel to your encry
 import com.adyen.service.TerminalLocalAPIUnencrypted;
 import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.*;
+import javax.net.ssl.SSLContext;
 
 // Step 2: Add your Certificate Path and Local Endpoint to the config path.
 Client client = new Client();
 client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
 client.getConfig().setEnvironment(Environment.TEST);
+
+// Optionally: verify the certificate, the library will ignore this validation when set to null (!!)
+client.getConfig().setSSLContext(sslContext);
 
 // Step 3 Initialize the client and the API objects;
 TerminalLocalAPIUnencrypted terminalLocalAPIUnencrypted = new TerminalLocalAPIUnencrypted(client);
