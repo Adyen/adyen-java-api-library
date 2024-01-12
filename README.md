@@ -295,7 +295,10 @@ import com.adyen.enums.Environment;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.service.TerminalCloudAPI;
-import com.adyen.terminal.*;
+import com.adyen.terminal.SaleToAcquirerData;
+import com.adyen.terminal.SaleToPOIRequest;
+import com.adyen.terminal.TerminalAPIRequest;
+import com.adyen.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.*;
 
 import java.math.BigDecimal;
@@ -487,7 +490,8 @@ If you wish to develop the Local Terminal API integration parallel to your encry
 ```java
 // Step 1: Import the required classes
 import com.adyen.service.TerminalLocalAPIUnencrypted;
-import com.adyen.terminal.*;
+import com.adyen.terminal.TerminalAPIRequest;
+import com.adyen.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.*;
 import javax.net.ssl.SSLContext;
 
