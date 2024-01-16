@@ -76,6 +76,11 @@ public class WebhookLinks {
   }
 
 
+ /**
+  * company
+  *
+  * @param company
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
@@ -101,6 +106,11 @@ public class WebhookLinks {
   }
 
 
+ /**
+  * generateHmac
+  *
+  * @param generateHmac
+  */ 
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateHmac(LinksElement generateHmac) {
@@ -126,6 +136,11 @@ public class WebhookLinks {
   }
 
 
+ /**
+  * merchant
+  *
+  * @param merchant
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
@@ -151,6 +166,11 @@ public class WebhookLinks {
   }
 
 
+ /**
+  * self
+  *
+  * @param self
+  */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
@@ -176,6 +196,11 @@ public class WebhookLinks {
   }
 
 
+ /**
+  * testWebhook
+  *
+  * @param testWebhook
+  */ 
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestWebhook(LinksElement testWebhook) {

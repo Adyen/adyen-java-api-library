@@ -128,6 +128,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
+  *
+  * @param brandVariant
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
@@ -153,6 +158,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
+  *
+  * @param creationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -178,6 +188,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * device
+  *
+  * @param device
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDevice(DeviceInfo device) {
@@ -203,6 +218,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * The unique identifier of the network token.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -228,6 +248,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * The unique identifier of the payment instrument to which this network token belongs to.
+  *
+  * @param paymentInstrumentId
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -253,6 +278,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -278,6 +308,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * The last four digits of the network token &#x60;id&#x60;.
+  *
+  * @param tokenLastFour
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenLastFour(String tokenLastFour) {
@@ -303,6 +338,11 @@ public class NetworkToken {
   }
 
 
+ /**
+  * The type of wallet the network token is associated with. For example, **applePay**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

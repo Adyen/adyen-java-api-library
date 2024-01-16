@@ -60,6 +60,11 @@ public class BinDetail {
   }
 
 
+ /**
+  * The country where the card was issued.
+  *
+  * @param issuerCountry
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {

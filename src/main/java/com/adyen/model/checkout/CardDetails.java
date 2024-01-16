@@ -146,9 +146,13 @@ public class CardDetails {
    * Default payment method details. Common for scheme payment methods, and for simple payment method details.
    */
   public enum TypeEnum {
+    BCMC("bcmc"),
+    
     SCHEME("scheme"),
     
     NETWORKTOKEN("networkToken"),
+    
+    GIFTCARD("giftcard"),
     
     CARD("card");
 
@@ -203,6 +207,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * Secondary brand of the card. For example: **plastix**, **hmclub**.
+  *
+  * @param brand
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -228,6 +237,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -255,6 +269,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * cupsecureplusSmscode
+  *
+  * @param cupsecureplusSmscode
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,6 +300,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
+  *
+  * @param cvc
+  */ 
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
@@ -306,6 +330,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The encrypted card number.
+  *
+  * @param encryptedCardNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
@@ -331,6 +360,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The encrypted card expiry month.
+  *
+  * @param encryptedExpiryMonth
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryMonth(String encryptedExpiryMonth) {
@@ -356,6 +390,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The encrypted card expiry year.
+  *
+  * @param encryptedExpiryYear
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryYear(String encryptedExpiryYear) {
@@ -381,6 +420,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The encrypted card verification code.
+  *
+  * @param encryptedSecurityCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedSecurityCode(String encryptedSecurityCode) {
@@ -406,6 +450,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
+  *
+  * @param expiryMonth
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
@@ -431,6 +480,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
+  *
+  * @param expiryYear
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
@@ -456,6 +510,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+  *
+  * @param fundingSource
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
@@ -481,6 +540,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The name of the card holder.
+  *
+  * @param holderName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -506,6 +570,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The network token reference. This is the [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment.
+  *
+  * @param networkPaymentReference
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkPaymentReference(String networkPaymentReference) {
@@ -531,6 +600,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
+  *
+  * @param number
+  */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -558,6 +632,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -584,6 +663,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used only for recurring payments in India.
+  *
+  * @param shopperNotificationReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
@@ -609,6 +693,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -634,6 +723,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
+  *
+  * @param threeDS2SdkVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2SdkVersion(String threeDS2SdkVersion) {
@@ -659,6 +753,11 @@ public class CardDetails {
   }
 
 
+ /**
+  * Default payment method details. Common for scheme payment methods, and for simple payment method details.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

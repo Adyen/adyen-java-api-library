@@ -59,6 +59,11 @@ public class DataReviewConfirmationResponse {
   }
 
 
+ /**
+  * Date when data review was confirmed.
+  *
+  * @param dataReviewedAt
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA_REVIEWED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataReviewedAt(String dataReviewedAt) {

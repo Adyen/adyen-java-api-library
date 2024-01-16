@@ -116,6 +116,11 @@ public class BacsDirectDebitDetails {
   }
 
 
+ /**
+  * The bank account number (without separators).
+  *
+  * @param bankAccountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
@@ -141,6 +146,11 @@ public class BacsDirectDebitDetails {
   }
 
 
+ /**
+  * The bank routing number of the account.
+  *
+  * @param bankLocationId
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
@@ -166,6 +176,11 @@ public class BacsDirectDebitDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -191,6 +206,11 @@ public class BacsDirectDebitDetails {
   }
 
 
+ /**
+  * The name of the bank account holder.
+  *
+  * @param holderName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -218,6 +238,11 @@ public class BacsDirectDebitDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,6 +269,11 @@ public class BacsDirectDebitDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -269,6 +299,11 @@ public class BacsDirectDebitDetails {
   }
 
 
+ /**
+  * **directdebit_GB**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

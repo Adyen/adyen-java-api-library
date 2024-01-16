@@ -63,6 +63,11 @@ public class RequestActivationResponse {
   }
 
 
+ /**
+  * The unique identifier of the company account.
+  *
+  * @param companyId
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -88,6 +93,11 @@ public class RequestActivationResponse {
   }
 
 
+ /**
+  * The unique identifier of the merchant account you requested to activate.
+  *
+  * @param merchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {

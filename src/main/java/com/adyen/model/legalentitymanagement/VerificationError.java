@@ -263,6 +263,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+  *
+  * @param capabilities
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
@@ -288,6 +293,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * The general error code.
+  *
+  * @param code
+  */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
@@ -313,6 +323,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * The general error message.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -346,6 +361,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * An object containing possible solutions to fix a verification error.
+  *
+  * @param remediatingActions
+  */ 
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
@@ -379,6 +399,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * An array containing more granular information about the cause of the verification error.
+  *
+  * @param subErrors
+  */ 
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubErrors(List<VerificationErrorRecursive> subErrors) {
@@ -404,6 +429,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * The type of error.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

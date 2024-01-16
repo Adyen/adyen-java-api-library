@@ -75,6 +75,11 @@ public class Contact {
   }
 
 
+ /**
+  * The individual&#39;s email address.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -100,6 +105,11 @@ public class Contact {
   }
 
 
+ /**
+  * The individual&#39;s first name.
+  *
+  * @param firstName
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -125,6 +135,11 @@ public class Contact {
   }
 
 
+ /**
+  * The infix in the individual&#39;s name, if any.
+  *
+  * @param infix
+  */ 
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfix(String infix) {
@@ -150,6 +165,11 @@ public class Contact {
   }
 
 
+ /**
+  * The individual&#39;s last name.
+  *
+  * @param lastName
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
@@ -175,6 +195,11 @@ public class Contact {
   }
 
 
+ /**
+  * The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
+  *
+  * @param phoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {

@@ -198,6 +198,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * Whether the chosen delivery address is identical to the billing address.
+  *
+  * @param addressMatch
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddressMatch(Boolean addressMatch) {
@@ -223,6 +228,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * Indicator regarding the delivery address. Allowed values: * &#x60;shipToBillingAddress&#x60; * &#x60;shipToVerifiedAddress&#x60; * &#x60;shipToNewAddress&#x60; * &#x60;shipToStore&#x60; * &#x60;digitalGoods&#x60; * &#x60;goodsNotShipped&#x60; * &#x60;other&#x60;
+  *
+  * @param deliveryAddressIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddressIndicator(DeliveryAddressIndicatorEnum deliveryAddressIndicator) {
@@ -250,6 +260,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * The delivery email address (for digital goods).
+  *
+  * @param deliveryEmail
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,6 +291,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters.
+  *
+  * @param deliveryEmailAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmailAddress(String deliveryEmailAddress) {
@@ -301,6 +321,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * The estimated delivery time for the shopper to receive the goods. Allowed values: * &#x60;electronicDelivery&#x60; * &#x60;sameDayShipping&#x60; * &#x60;overnightShipping&#x60; * &#x60;twoOrMoreDaysShipping&#x60;
+  *
+  * @param deliveryTimeframe
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryTimeframe(DeliveryTimeframeEnum deliveryTimeframe) {
@@ -326,6 +351,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * giftCardAmount
+  *
+  * @param giftCardAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardAmount(Amount giftCardAmount) {
@@ -351,6 +381,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.
+  *
+  * @param giftCardCount
+  */ 
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCount(Integer giftCardCount) {
@@ -376,6 +411,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification.
+  *
+  * @param giftCardCurr
+  */ 
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_CURR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCurr(String giftCardCurr) {
@@ -401,6 +441,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * For pre-order purchases, the expected date this product will be available to the shopper.
+  *
+  * @param preOrderDate
+  */ 
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderDate(OffsetDateTime preOrderDate) {
@@ -426,6 +471,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * Indicator for whether this transaction is for pre-ordering a product.
+  *
+  * @param preOrderPurchase
+  */ 
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchase(Boolean preOrderPurchase) {
@@ -451,6 +501,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * Indicates whether Cardholder is placing an order for merchandise with a future availability or release date.
+  *
+  * @param preOrderPurchaseInd
+  */ 
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchaseInd(String preOrderPurchaseInd) {
@@ -476,6 +531,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * Indicator for whether the shopper has already purchased the same items in the past.
+  *
+  * @param reorderItems
+  */ 
   @JsonProperty(JSON_PROPERTY_REORDER_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItems(Boolean reorderItems) {
@@ -501,6 +561,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * Indicates whether the cardholder is reordering previously purchased merchandise.
+  *
+  * @param reorderItemsInd
+  */ 
   @JsonProperty(JSON_PROPERTY_REORDER_ITEMS_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItemsInd(String reorderItemsInd) {
@@ -526,6 +591,11 @@ public class MerchantRiskIndicator {
   }
 
 
+ /**
+  * Indicates shipping method chosen for the transaction.
+  *
+  * @param shipIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_SHIP_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipIndicator(String shipIndicator) {

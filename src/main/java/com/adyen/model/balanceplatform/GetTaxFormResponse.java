@@ -96,6 +96,11 @@ public class GetTaxFormResponse {
   }
 
 
+ /**
+  * The content of the tax form in Base64 format.
+  *
+  * @param content
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -121,6 +126,11 @@ public class GetTaxFormResponse {
   }
 
 
+ /**
+  * The content type of the tax form.  Possible values: *  **application/pdf**  
+  *
+  * @param contentType
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(ContentTypeEnum contentType) {

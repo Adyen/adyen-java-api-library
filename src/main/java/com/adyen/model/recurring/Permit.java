@@ -78,6 +78,11 @@ public class Permit {
   }
 
 
+ /**
+  * Partner ID (when using the permit-per-partner token sharing model).
+  *
+  * @param partnerId
+  */ 
   @JsonProperty(JSON_PROPERTY_PARTNER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPartnerId(String partnerId) {
@@ -103,6 +108,11 @@ public class Permit {
   }
 
 
+ /**
+  * The profile to apply to this permit (when using the shared permits model).
+  *
+  * @param profileReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {
@@ -128,6 +138,11 @@ public class Permit {
   }
 
 
+ /**
+  * restriction
+  *
+  * @param restriction
+  */ 
   @JsonProperty(JSON_PROPERTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestriction(PermitRestriction restriction) {
@@ -153,6 +168,11 @@ public class Permit {
   }
 
 
+ /**
+  * The key to link permit requests to permit results.
+  *
+  * @param resultKey
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
@@ -178,6 +198,11 @@ public class Permit {
   }
 
 
+ /**
+  * The expiry date for this permit.
+  *
+  * @param validTillDate
+  */ 
   @JsonProperty(JSON_PROPERTY_VALID_TILL_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTillDate(OffsetDateTime validTillDate) {

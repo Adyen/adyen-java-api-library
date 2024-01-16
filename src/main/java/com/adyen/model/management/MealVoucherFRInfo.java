@@ -69,6 +69,11 @@ public class MealVoucherFRInfo {
   }
 
 
+ /**
+  * Meal Voucher conecsId. Format: digits only
+  *
+  * @param conecsId
+  */ 
   @JsonProperty(JSON_PROPERTY_CONECS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConecsId(String conecsId) {
@@ -94,6 +99,11 @@ public class MealVoucherFRInfo {
   }
 
 
+ /**
+  * Meal Voucher siret. Format: 14 digits.
+  *
+  * @param siret
+  */ 
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiret(String siret) {
@@ -124,6 +134,11 @@ public class MealVoucherFRInfo {
   }
 
 
+ /**
+  * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
+  *
+  * @param subTypes
+  */ 
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubTypes(List<String> subTypes) {

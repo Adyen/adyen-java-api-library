@@ -178,6 +178,11 @@ public class ShopperInput {
   }
 
 
+ /**
+  * Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(BillingAddressEnum billingAddress) {
@@ -203,6 +208,11 @@ public class ShopperInput {
   }
 
 
+ /**
+  * Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly
+  *
+  * @param deliveryAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(DeliveryAddressEnum deliveryAddress) {
@@ -228,6 +238,11 @@ public class ShopperInput {
   }
 
 
+ /**
+  * Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly
+  *
+  * @param personalDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPersonalDetails(PersonalDetailsEnum personalDetails) {

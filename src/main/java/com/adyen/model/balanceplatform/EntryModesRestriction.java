@@ -114,6 +114,11 @@ public class EntryModesRestriction {
   }
 
 
+ /**
+  * Defines how the condition must be evaluated.
+  *
+  * @param operation
+  */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
@@ -147,6 +152,11 @@ public class EntryModesRestriction {
   }
 
 
+ /**
+  * List of point-of-sale entry modes.  Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**.  
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {

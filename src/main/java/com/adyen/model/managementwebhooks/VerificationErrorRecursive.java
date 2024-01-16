@@ -112,6 +112,11 @@ public class VerificationErrorRecursive {
   }
 
 
+ /**
+  * The verification error code.
+  *
+  * @param code
+  */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
@@ -137,6 +142,11 @@ public class VerificationErrorRecursive {
   }
 
 
+ /**
+  * The verification error message.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -162,6 +172,11 @@ public class VerificationErrorRecursive {
   }
 
 
+ /**
+  * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -195,6 +210,11 @@ public class VerificationErrorRecursive {
   }
 
 
+ /**
+  * The actions that you can take to resolve the verification error.
+  *
+  * @param remediatingActions
+  */ 
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {

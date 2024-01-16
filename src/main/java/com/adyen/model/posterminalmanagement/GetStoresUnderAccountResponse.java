@@ -71,6 +71,11 @@ public class GetStoresUnderAccountResponse {
   }
 
 
+ /**
+  * Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.
+  *
+  * @param stores
+  */ 
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<Store> stores) {

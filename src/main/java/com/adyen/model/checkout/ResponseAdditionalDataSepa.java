@@ -67,6 +67,11 @@ public class ResponseAdditionalDataSepa {
   }
 
 
+ /**
+  * The transaction signature date.  Format: yyyy-MM-dd
+  *
+  * @param sepadirectdebitDateOfSignature
+  */ 
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitDateOfSignature(String sepadirectdebitDateOfSignature) {
@@ -92,6 +97,11 @@ public class ResponseAdditionalDataSepa {
   }
 
 
+ /**
+  * Its value corresponds to the pspReference value of the transaction.
+  *
+  * @param sepadirectdebitMandateId
+  */ 
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitMandateId(String sepadirectdebitMandateId) {
@@ -117,6 +127,11 @@ public class ResponseAdditionalDataSepa {
   }
 
 
+ /**
+  * This field can take one of the following values: * OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.  * First: (FRST) Initial/first collection in a series of direct debit instructions. * Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor. * Final: (FNAL) Last/final collection in a series of direct debit instructions.  Example: OOFF
+  *
+  * @param sepadirectdebitSequenceType
+  */ 
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitSequenceType(String sepadirectdebitSequenceType) {

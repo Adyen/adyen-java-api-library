@@ -75,6 +75,11 @@ public class TokenDetails {
   }
 
 
+ /**
+  * tokenData
+  *
+  * @param tokenData
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenData(Map<String, String> tokenData) {
@@ -100,6 +105,11 @@ public class TokenDetails {
   }
 
 
+ /**
+  * tokenDataType
+  *
+  * @param tokenDataType
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDataType(String tokenDataType) {

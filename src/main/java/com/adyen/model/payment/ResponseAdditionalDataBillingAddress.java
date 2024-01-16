@@ -80,6 +80,11 @@ public class ResponseAdditionalDataBillingAddress {
   }
 
 
+ /**
+  * The billing address city passed in the payment request.
+  *
+  * @param billingAddressCity
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressCity(String billingAddressCity) {
@@ -105,6 +110,11 @@ public class ResponseAdditionalDataBillingAddress {
   }
 
 
+ /**
+  * The billing address country passed in the payment request.  Example: NL
+  *
+  * @param billingAddressCountry
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressCountry(String billingAddressCountry) {
@@ -130,6 +140,11 @@ public class ResponseAdditionalDataBillingAddress {
   }
 
 
+ /**
+  * The billing address house number or name passed in the payment request.
+  *
+  * @param billingAddressHouseNumberOrName
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressHouseNumberOrName(String billingAddressHouseNumberOrName) {
@@ -155,6 +170,11 @@ public class ResponseAdditionalDataBillingAddress {
   }
 
 
+ /**
+  * The billing address postal code passed in the payment request.  Example: 1011 DJ
+  *
+  * @param billingAddressPostalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressPostalCode(String billingAddressPostalCode) {
@@ -180,6 +200,11 @@ public class ResponseAdditionalDataBillingAddress {
   }
 
 
+ /**
+  * The billing address state or province passed in the payment request.  Example: NH
+  *
+  * @param billingAddressStateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressStateOrProvince(String billingAddressStateOrProvince) {
@@ -205,6 +230,11 @@ public class ResponseAdditionalDataBillingAddress {
   }
 
 
+ /**
+  * The billing address street passed in the payment request.
+  *
+  * @param billingAddressStreet
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressStreet(String billingAddressStreet) {

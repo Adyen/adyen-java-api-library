@@ -32,12 +32,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   ReceiptOptions.JSON_PROPERTY_LOGO,
+  ReceiptOptions.JSON_PROPERTY_PROMPT_BEFORE_PRINTING,
   ReceiptOptions.JSON_PROPERTY_QR_CODE_DATA
 })
 
 public class ReceiptOptions {
   public static final String JSON_PROPERTY_LOGO = "logo";
   private String logo;
+
+  public static final String JSON_PROPERTY_PROMPT_BEFORE_PRINTING = "promptBeforePrinting";
+  private Boolean promptBeforePrinting;
 
   public static final String JSON_PROPERTY_QR_CODE_DATA = "qrCodeData";
   private String qrCodeData;
@@ -63,10 +67,45 @@ public class ReceiptOptions {
   }
 
 
+ /**
+  * The receipt logo converted to a Base64-encoded string. The image must be a .bmp file of &lt; 256 KB, dimensions 240 (H) x 384 (W) px.
+  *
+  * @param logo
+  */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
+  }
+
+
+  public ReceiptOptions promptBeforePrinting(Boolean promptBeforePrinting) {
+    this.promptBeforePrinting = promptBeforePrinting;
+    return this;
+  }
+
+   /**
+   * Indicates whether a screen appears asking if you want to print the shopper receipt.
+   * @return promptBeforePrinting
+  **/
+  @ApiModelProperty(value = "Indicates whether a screen appears asking if you want to print the shopper receipt.")
+  @JsonProperty(JSON_PROPERTY_PROMPT_BEFORE_PRINTING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPromptBeforePrinting() {
+    return promptBeforePrinting;
+  }
+
+
+ /**
+  * Indicates whether a screen appears asking if you want to print the shopper receipt.
+  *
+  * @param promptBeforePrinting
+  */ 
+  @JsonProperty(JSON_PROPERTY_PROMPT_BEFORE_PRINTING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPromptBeforePrinting(Boolean promptBeforePrinting) {
+    this.promptBeforePrinting = promptBeforePrinting;
   }
 
 
@@ -88,6 +127,11 @@ public class ReceiptOptions {
   }
 
 
+ /**
+  * Data to print on the receipt as a QR code. This can include static text and the following variables:  - &#x60;${merchantreference}&#x60;: the merchant reference of the transaction. - &#x60;${pspreference}&#x60;: the PSP reference of the transaction.   For example, **http://www.example.com/order/${pspreference}/${merchantreference}**.
+  *
+  * @param qrCodeData
+  */ 
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQrCodeData(String qrCodeData) {
@@ -108,12 +152,13 @@ public class ReceiptOptions {
     }
     ReceiptOptions receiptOptions = (ReceiptOptions) o;
     return Objects.equals(this.logo, receiptOptions.logo) &&
+        Objects.equals(this.promptBeforePrinting, receiptOptions.promptBeforePrinting) &&
         Objects.equals(this.qrCodeData, receiptOptions.qrCodeData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logo, qrCodeData);
+    return Objects.hash(logo, promptBeforePrinting, qrCodeData);
   }
 
   @Override
@@ -121,6 +166,7 @@ public class ReceiptOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReceiptOptions {\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
+    sb.append("    promptBeforePrinting: ").append(toIndentedString(promptBeforePrinting)).append("\n");
     sb.append("    qrCodeData: ").append(toIndentedString(qrCodeData)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -92,6 +92,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
+  *
+  * @param enhancedSchemeDataCustomerReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
@@ -117,6 +122,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
+  *
+  * @param enhancedSchemeDataEmployeeName
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataEmployeeName(String enhancedSchemeDataEmployeeName) {
@@ -142,6 +152,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
+  *
+  * @param enhancedSchemeDataJobDescription
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataJobDescription(String enhancedSchemeDataJobDescription) {
@@ -167,6 +182,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
+  *
+  * @param enhancedSchemeDataRegularHoursRate
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRegularHoursRate(String enhancedSchemeDataRegularHoursRate) {
@@ -192,6 +212,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
+  *
+  * @param enhancedSchemeDataRegularHoursWorked
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_WORKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRegularHoursWorked(String enhancedSchemeDataRegularHoursWorked) {
@@ -217,6 +242,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
+  *
+  * @param enhancedSchemeDataRequestName
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REQUEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRequestName(String enhancedSchemeDataRequestName) {
@@ -242,6 +272,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The billing period start date. * Format: ddMMyy * maxLength: 6
+  *
+  * @param enhancedSchemeDataTempStartDate
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTempStartDate(String enhancedSchemeDataTempStartDate) {
@@ -267,6 +302,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The billing period end date. * Format: ddMMyy * maxLength: 6
+  *
+  * @param enhancedSchemeDataTempWeekEnding
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_WEEK_ENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTempWeekEnding(String enhancedSchemeDataTempWeekEnding) {
@@ -292,6 +332,11 @@ public class AdditionalDataTemporaryServices {
   }
 
 
+ /**
+  * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
+  *
+  * @param enhancedSchemeDataTotalTaxAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {

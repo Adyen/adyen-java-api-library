@@ -61,6 +61,11 @@ public class FraudCheckResultWrapper {
   }
 
 
+ /**
+  * fraudCheckResult
+  *
+  * @param fraudCheckResult
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudCheckResult(FraudCheckResult fraudCheckResult) {

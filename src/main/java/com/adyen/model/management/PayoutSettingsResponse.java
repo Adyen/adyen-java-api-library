@@ -70,6 +70,11 @@ public class PayoutSettingsResponse {
   }
 
 
+ /**
+  * The list of payout accounts.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PayoutSettings> data) {

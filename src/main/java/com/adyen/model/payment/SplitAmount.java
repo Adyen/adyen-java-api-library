@@ -64,6 +64,11 @@ public class SplitAmount {
   }
 
 
+ /**
+  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -89,6 +94,11 @@ public class SplitAmount {
   }
 
 
+ /**
+  * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {

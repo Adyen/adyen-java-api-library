@@ -78,6 +78,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * cardBin
+  *
+  * @param cardBin
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(CardBin cardBin) {
@@ -103,6 +108,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * costEstimateAmount
+  *
+  * @param costEstimateAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateAmount(Amount costEstimateAmount) {
@@ -128,6 +138,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character reference associated with the request.
+  *
+  * @param costEstimateReference
+  */ 
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateReference(String costEstimateReference) {
@@ -153,6 +168,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * The result of the cost estimation.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
@@ -178,6 +198,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
+  *
+  * @param surchargeType
+  */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurchargeType(String surchargeType) {

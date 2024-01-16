@@ -128,6 +128,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * bcmc
+  *
+  * @param bcmc
+  */ 
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBcmc(BcmcInfo bcmc) {
@@ -153,6 +158,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * cartesBancaires
+  *
+  * @param cartesBancaires
+  */ 
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
@@ -186,6 +196,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * The list of countries where a payment method is available. By default, all countries supported by the payment method.
+  *
+  * @param countries
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(List<String> countries) {
@@ -211,6 +226,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * cup
+  *
+  * @param cup
+  */ 
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCup(GenericPmWithTdiInfo cup) {
@@ -244,6 +264,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
+  *
+  * @param currencies
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<String> currencies) {
@@ -269,6 +294,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * diners
+  *
+  * @param diners
+  */ 
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiners(GenericPmWithTdiInfo diners) {
@@ -294,6 +324,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * discover
+  *
+  * @param discover
+  */ 
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiscover(GenericPmWithTdiInfo discover) {
@@ -319,6 +354,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * eftposAustralia
+  *
+  * @param eftposAustralia
+  */ 
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
@@ -344,6 +384,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+  *
+  * @param enabled
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
@@ -369,6 +414,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * girocard
+  *
+  * @param girocard
+  */ 
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGirocard(GenericPmWithTdiInfo girocard) {
@@ -394,6 +444,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * ideal
+  *
+  * @param ideal
+  */ 
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdeal(GenericPmWithTdiInfo ideal) {
@@ -419,6 +474,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * interacCard
+  *
+  * @param interacCard
+  */ 
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInteracCard(GenericPmWithTdiInfo interacCard) {
@@ -444,6 +504,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * jcb
+  *
+  * @param jcb
+  */ 
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJcb(GenericPmWithTdiInfo jcb) {
@@ -469,6 +534,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * maestro
+  *
+  * @param maestro
+  */ 
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaestro(GenericPmWithTdiInfo maestro) {
@@ -494,6 +564,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * mc
+  *
+  * @param mc
+  */ 
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMc(GenericPmWithTdiInfo mc) {
@@ -527,6 +602,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * The list of stores for this payment method
+  *
+  * @param storeIds
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {
@@ -552,6 +632,11 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+ /**
+  * visa
+  *
+  * @param visa
+  */ 
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisa(GenericPmWithTdiInfo visa) {

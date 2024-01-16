@@ -133,6 +133,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -158,6 +163,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * balances
+  *
+  * @param balances
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(CapitalBalance balances) {
@@ -183,6 +193,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * counterparty
+  *
+  * @param counterparty
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
@@ -208,6 +223,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * fee
+  *
+  * @param fee
+  */ 
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
@@ -233,6 +253,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * The identifier of the grant account used for the grant.
+  *
+  * @param grantAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantAccountId(String grantAccountId) {
@@ -258,6 +283,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * The identifier of the grant offer that has been selected and from which the grant details will be used.
+  *
+  * @param grantOfferId
+  */ 
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOfferId(String grantOfferId) {
@@ -283,6 +313,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * The identifier of the grant reference.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -308,6 +343,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * repayment
+  *
+  * @param repayment
+  */ 
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
@@ -333,6 +373,11 @@ public class CapitalGrant {
   }
 
 
+ /**
+  * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

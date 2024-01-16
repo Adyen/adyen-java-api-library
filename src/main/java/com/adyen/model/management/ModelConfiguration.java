@@ -75,6 +75,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
+  *
+  * @param brand
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -108,6 +113,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * Countries, to filter different surcharge amounts for domestic or international cards.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(List<String> country) {
@@ -138,6 +148,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * Currency, and surcharge percentage or amount.
+  *
+  * @param currencies
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<Currency> currencies) {
@@ -171,6 +186,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * Funding source. Possible values: * **Credit** * **Debit**
+  *
+  * @param sources
+  */ 
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSources(List<String> sources) {

@@ -68,6 +68,11 @@ public class DefenseDocumentType {
   }
 
 
+ /**
+  * When **true**, you&#39;ve successfully uploaded this type of defense document. When **false**, you haven&#39;t uploaded this defense document type.
+  *
+  * @param available
+  */ 
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Boolean available) {
@@ -93,6 +98,11 @@ public class DefenseDocumentType {
   }
 
 
+ /**
+  * The document type code of the defense document.
+  *
+  * @param defenseDocumentTypeCode
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {
@@ -118,6 +128,11 @@ public class DefenseDocumentType {
   }
 
 
+ /**
+  * Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.
+  *
+  * @param requirementLevel
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUIREMENT_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirementLevel(String requirementLevel) {

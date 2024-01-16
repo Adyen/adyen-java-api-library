@@ -143,6 +143,11 @@ public class PaymentInstrumentRequirement {
   }
 
 
+ /**
+  * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -168,6 +173,11 @@ public class PaymentInstrumentRequirement {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.
+  *
+  * @param issuingCountryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
@@ -193,6 +203,11 @@ public class PaymentInstrumentRequirement {
   }
 
 
+ /**
+  * Specifies if the requirement only applies to transfers to another balance platform.
+  *
+  * @param onlyForCrossBalancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOnlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
@@ -218,6 +233,11 @@ public class PaymentInstrumentRequirement {
   }
 
 
+ /**
+  * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
+  *
+  * @param paymentInstrumentType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentType(PaymentInstrumentTypeEnum paymentInstrumentType) {
@@ -243,6 +263,11 @@ public class PaymentInstrumentRequirement {
   }
 
 
+ /**
+  * **paymentInstrumentRequirement**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

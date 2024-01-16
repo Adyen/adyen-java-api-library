@@ -93,6 +93,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -118,6 +123,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
+  *
+  * @param billingDate
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDate(String billingDate) {
@@ -143,6 +153,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
+  *
+  * @param billingSequenceNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingSequenceNumber(String billingSequenceNumber) {
@@ -168,6 +183,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
+  *
+  * @param displayedReference
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
@@ -193,6 +213,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * The merchant account identifier with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -218,6 +243,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -243,6 +273,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Pre-debit notification reference sent by the merchant. This is a mandatory field
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -268,6 +303,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -293,6 +333,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {

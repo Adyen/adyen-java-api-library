@@ -176,6 +176,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -201,6 +206,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The date when the balance transfer was requested.
+  *
+  * @param createdAt
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -226,6 +236,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -251,6 +266,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The unique identifier of the source merchant account from which funds are deducted.
+  *
+  * @param fromMerchant
+  */ 
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromMerchant(String fromMerchant) {
@@ -276,6 +296,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character string reference associated with the balance transfer.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -301,6 +326,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -326,6 +356,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -351,6 +386,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The unique identifier of the destination merchant account from which funds are transferred.
+  *
+  * @param toMerchant
+  */ 
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToMerchant(String toMerchant) {
@@ -376,6 +416,11 @@ public class BalanceTransferResponse {
   }
 
 
+ /**
+  * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

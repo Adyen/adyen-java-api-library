@@ -67,6 +67,11 @@ public class CapabilityProblem {
   }
 
 
+ /**
+  * entity
+  *
+  * @param entity
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(CapabilityProblemEntity entity) {
@@ -100,6 +105,11 @@ public class CapabilityProblem {
   }
 
 
+ /**
+  * Contains information about the verification error.
+  *
+  * @param verificationErrors
+  */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationErrors(List<VerificationError> verificationErrors) {

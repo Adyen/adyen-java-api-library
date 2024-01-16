@@ -76,6 +76,11 @@ public class SupplyDefenseDocumentRequest {
   }
 
 
+ /**
+  * An array containing a list of the defense documents.
+  *
+  * @param defenseDocuments
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocuments(List<DefenseDocument> defenseDocuments) {
@@ -101,6 +106,11 @@ public class SupplyDefenseDocumentRequest {
   }
 
 
+ /**
+  * The PSP reference assigned to the dispute.
+  *
+  * @param disputePspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
@@ -126,6 +136,11 @@ public class SupplyDefenseDocumentRequest {
   }
 
 
+ /**
+  * The merchant account identifier, for which you want to process the dispute transaction.
+  *
+  * @param merchantAccountCode
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {

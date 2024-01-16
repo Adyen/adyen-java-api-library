@@ -68,6 +68,11 @@ public class CounterpartyInfoV3 {
   }
 
 
+ /**
+  * Unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
+  *
+  * @param balanceAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
@@ -93,6 +98,11 @@ public class CounterpartyInfoV3 {
   }
 
 
+ /**
+  * bankAccount
+  *
+  * @param bankAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountV3 bankAccount) {
@@ -118,6 +128,11 @@ public class CounterpartyInfoV3 {
   }
 
 
+ /**
+  * Unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+  *
+  * @param transferInstrumentId
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {

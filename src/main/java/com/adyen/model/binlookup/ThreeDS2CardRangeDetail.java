@@ -90,6 +90,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)
+  *
+  * @param acsInfoInd
+  */ 
   @JsonProperty(JSON_PROPERTY_ACS_INFO_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsInfoInd(List<String> acsInfoInd) {
@@ -115,6 +120,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * Card brand.
+  *
+  * @param brandCode
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandCode(String brandCode) {
@@ -140,6 +150,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * BIN end range.
+  *
+  * @param endRange
+  */ 
   @JsonProperty(JSON_PROPERTY_END_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndRange(String endRange) {
@@ -165,6 +180,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * BIN start range.
+  *
+  * @param startRange
+  */ 
   @JsonProperty(JSON_PROPERTY_START_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartRange(String startRange) {
@@ -198,6 +218,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * Supported 3D Secure protocol versions
+  *
+  * @param threeDS2Versions
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_VERSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Versions(List<String> threeDS2Versions) {
@@ -223,6 +248,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.
+  *
+  * @param threeDSMethodURL
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_METHOD_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSMethodURL(String threeDSMethodURL) {

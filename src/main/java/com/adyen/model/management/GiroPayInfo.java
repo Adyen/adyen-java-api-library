@@ -59,6 +59,11 @@ public class GiroPayInfo {
   }
 
 
+ /**
+  * The email address of merchant support.
+  *
+  * @param supportEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {

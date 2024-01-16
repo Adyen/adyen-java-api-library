@@ -65,6 +65,11 @@ public class BankAccountV3 {
   }
 
 
+ /**
+  * accountHolder
+  *
+  * @param accountHolder
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(PartyIdentification accountHolder) {
@@ -90,6 +95,11 @@ public class BankAccountV3 {
   }
 
 
+ /**
+  * accountIdentification
+  *
+  * @param accountIdentification
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountV3AccountIdentification accountIdentification) {

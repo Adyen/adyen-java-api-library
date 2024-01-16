@@ -64,6 +64,11 @@ public class AuthenticationResultRequest {
   }
 
 
+ /**
+  * The merchant account identifier, with which the authentication was processed.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -89,6 +94,11 @@ public class AuthenticationResultRequest {
   }
 
 
+ /**
+  * The pspReference identifier for the transaction.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

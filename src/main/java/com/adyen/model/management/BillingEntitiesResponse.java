@@ -70,6 +70,11 @@ public class BillingEntitiesResponse {
   }
 
 
+ /**
+  * List of legal entities that can be used for the billing of orders.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<BillingEntity> data) {

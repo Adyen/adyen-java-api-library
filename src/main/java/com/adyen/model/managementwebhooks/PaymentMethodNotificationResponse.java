@@ -59,6 +59,11 @@ public class PaymentMethodNotificationResponse {
   }
 
 
+ /**
+  * Respond with **HTTP 200 OK** and &#x60;[accepted]&#x60; in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+  *
+  * @param notificationResponse
+  */ 
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotificationResponse(String notificationResponse) {

@@ -64,6 +64,11 @@ public class ModelFile {
   }
 
 
+ /**
+  * The certificate content converted to a Base64-encoded string.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(String data) {
@@ -89,6 +94,11 @@ public class ModelFile {
   }
 
 
+ /**
+  * The name of the certificate. Must be unique across Wi-Fi profiles.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {

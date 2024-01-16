@@ -73,6 +73,11 @@ public class PciSigningResponse {
   }
 
 
+ /**
+  * The unique identifiers of the signed PCI documents.
+  *
+  * @param pciQuestionnaireIds
+  */ 
   @JsonProperty(JSON_PROPERTY_PCI_QUESTIONNAIRE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciQuestionnaireIds(List<String> pciQuestionnaireIds) {
@@ -98,6 +103,11 @@ public class PciSigningResponse {
   }
 
 
+ /**
+  * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
+  *
+  * @param signedBy
+  */ 
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignedBy(String signedBy) {

@@ -88,6 +88,11 @@ public class Card {
   }
 
 
+ /**
+  * The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits &gt; If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. &gt; This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). &gt; When this value is returned in a response, it is always empty because it is not stored.
+  *
+  * @param cvc
+  */ 
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
@@ -113,6 +118,11 @@ public class Card {
   }
 
 
+ /**
+  * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
+  *
+  * @param expiryMonth
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
@@ -138,6 +148,11 @@ public class Card {
   }
 
 
+ /**
+  * The card expiry year. Format: 4 digits. For example: 2020
+  *
+  * @param expiryYear
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
@@ -163,6 +178,11 @@ public class Card {
   }
 
 
+ /**
+  * The name of the cardholder, as printed on the card.
+  *
+  * @param holderName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -188,6 +208,11 @@ public class Card {
   }
 
 
+ /**
+  * The issue number of the card (for some UK debit cards only).
+  *
+  * @param issueNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssueNumber(String issueNumber) {
@@ -213,6 +238,11 @@ public class Card {
   }
 
 
+ /**
+  * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
+  *
+  * @param number
+  */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -238,6 +268,11 @@ public class Card {
   }
 
 
+ /**
+  * The month component of the start date (for some UK debit cards only).
+  *
+  * @param startMonth
+  */ 
   @JsonProperty(JSON_PROPERTY_START_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartMonth(String startMonth) {
@@ -263,6 +298,11 @@ public class Card {
   }
 
 
+ /**
+  * The year component of the start date (for some UK debit cards only).
+  *
+  * @param startYear
+  */ 
   @JsonProperty(JSON_PROPERTY_START_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartYear(String startYear) {

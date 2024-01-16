@@ -61,7 +61,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntity.JSON_PROPERTY_TRUST,
   LegalEntity.JSON_PROPERTY_TYPE,
   LegalEntity.JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP,
-  LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES
+  LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES,
+  LegalEntity.JSON_PROPERTY_VERIFICATION_PLAN
 })
 
 public class LegalEntity {
@@ -151,6 +152,9 @@ public class LegalEntity {
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
   private List<VerificationDeadline> verificationDeadlines = null;
 
+  public static final String JSON_PROPERTY_VERIFICATION_PLAN = "verificationPlan";
+  private String verificationPlan;
+
   public LegalEntity() { 
   }
 
@@ -180,6 +184,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+  *
+  * @param capabilities
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, LegalEntityCapability> capabilities) {
@@ -213,6 +222,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * List of documents uploaded for the legal entity.
+  *
+  * @param documentDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocumentDetails(List<DocumentReference> documentDetails) {
@@ -248,6 +262,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * List of documents uploaded for the legal entity.
+  *
+  * @param documents
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,6 +301,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
+  *
+  * @param entityAssociations
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_ASSOCIATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityAssociations(List<LegalEntityAssociation> entityAssociations) {
@@ -307,6 +331,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * The unique identifier of the legal entity.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -332,6 +361,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * individual
+  *
+  * @param individual
+  */ 
   @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndividual(Individual individual) {
@@ -357,6 +391,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * organization
+  *
+  * @param organization
+  */ 
   @JsonProperty(JSON_PROPERTY_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrganization(Organization organization) {
@@ -390,6 +429,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * List of verification errors related to capabilities for the legal entity.
+  *
+  * @param problems
+  */ 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
@@ -415,6 +459,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * Your reference for the legal entity, maximum 150 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -440,6 +489,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * soleProprietorship
+  *
+  * @param soleProprietorship
+  */ 
   @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSoleProprietorship(SoleProprietorship soleProprietorship) {
@@ -473,6 +527,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * List of transfer instruments that the legal entity owns.
+  *
+  * @param transferInstruments
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstruments(List<TransferInstrumentReference> transferInstruments) {
@@ -498,6 +557,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * trust
+  *
+  * @param trust
+  */ 
   @JsonProperty(JSON_PROPERTY_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrust(Trust trust) {
@@ -523,6 +587,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -548,6 +617,11 @@ public class LegalEntity {
   }
 
 
+ /**
+  * unincorporatedPartnership
+  *
+  * @param unincorporatedPartnership
+  */ 
   @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUnincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
@@ -581,10 +655,45 @@ public class LegalEntity {
   }
 
 
+ /**
+  * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
+  *
+  * @param verificationDeadlines
+  */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
     this.verificationDeadlines = verificationDeadlines;
+  }
+
+
+  public LegalEntity verificationPlan(String verificationPlan) {
+    this.verificationPlan = verificationPlan;
+    return this;
+  }
+
+   /**
+   * A key-value pair that specifies the [verification process](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details/) for a legal entity. Set to **upfront** for [upfront verification](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details#upfront).
+   * @return verificationPlan
+  **/
+  @ApiModelProperty(value = "A key-value pair that specifies the [verification process](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details/) for a legal entity. Set to **upfront** for [upfront verification](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details#upfront).")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVerificationPlan() {
+    return verificationPlan;
+  }
+
+
+ /**
+  * A key-value pair that specifies the [verification process](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details/) for a legal entity. Set to **upfront** for [upfront verification](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details#upfront).
+  *
+  * @param verificationPlan
+  */ 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationPlan(String verificationPlan) {
+    this.verificationPlan = verificationPlan;
   }
 
 
@@ -614,12 +723,13 @@ public class LegalEntity {
         Objects.equals(this.trust, legalEntity.trust) &&
         Objects.equals(this.type, legalEntity.type) &&
         Objects.equals(this.unincorporatedPartnership, legalEntity.unincorporatedPartnership) &&
-        Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines);
+        Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines) &&
+        Objects.equals(this.verificationPlan, legalEntity.verificationPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, trust, type, unincorporatedPartnership, verificationDeadlines);
+    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, trust, type, unincorporatedPartnership, verificationDeadlines, verificationPlan);
   }
 
   @Override
@@ -641,6 +751,7 @@ public class LegalEntity {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    unincorporatedPartnership: ").append(toIndentedString(unincorporatedPartnership)).append("\n");
     sb.append("    verificationDeadlines: ").append(toIndentedString(verificationDeadlines)).append("\n");
+    sb.append("    verificationPlan: ").append(toIndentedString(verificationPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

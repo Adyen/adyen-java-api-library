@@ -60,6 +60,11 @@ public class BankAccountIdentificationValidationRequest {
   }
 
 
+ /**
+  * accountIdentification
+  *
+  * @param accountIdentification
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountIdentificationValidationRequestAccountIdentification accountIdentification) {

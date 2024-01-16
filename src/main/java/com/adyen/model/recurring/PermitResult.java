@@ -64,6 +64,11 @@ public class PermitResult {
   }
 
 
+ /**
+  * The key to link permit requests to permit results.
+  *
+  * @param resultKey
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
@@ -89,6 +94,11 @@ public class PermitResult {
   }
 
 
+ /**
+  * The permit token which is used to make payments by the partner company.
+  *
+  * @param token
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {

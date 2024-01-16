@@ -66,6 +66,11 @@ public class CounterpartyBankRestriction {
   }
 
 
+ /**
+  * Defines how the condition must be evaluated.
+  *
+  * @param operation
+  */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
@@ -99,6 +104,11 @@ public class CounterpartyBankRestriction {
   }
 
 
+ /**
+  * List of counterparty Bank Institutions and the operation.
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<BankIdentification> value) {

@@ -47,13 +47,9 @@ public class BillDeskDetails {
    * **billdesk**
    */
   public enum TypeEnum {
-    BILLDESK_ONLINE("billdesk_online"),
+    ONLINE("billdesk_online"),
     
-    BILLDESK_WALLET("billdesk_wallet"),
-    
-    ONLINEBANKING_IN("onlinebanking_IN"),
-    
-    WALLET_IN("wallet_IN");
+    WALLET("billdesk_wallet");
 
     private String value;
 
@@ -106,6 +102,11 @@ public class BillDeskDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -131,6 +132,11 @@ public class BillDeskDetails {
   }
 
 
+ /**
+  * The issuer id of the shopper&#39;s selected bank.
+  *
+  * @param issuer
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -156,6 +162,11 @@ public class BillDeskDetails {
   }
 
 
+ /**
+  * **billdesk**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -96,6 +96,11 @@ public class IbanAccountIdentification {
   }
 
 
+ /**
+  * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
+  *
+  * @param iban
+  */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -121,6 +126,11 @@ public class IbanAccountIdentification {
   }
 
 
+ /**
+  * **iban**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

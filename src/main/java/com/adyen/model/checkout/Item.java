@@ -63,6 +63,11 @@ public class Item {
   }
 
 
+ /**
+  * The value to provide in the result.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -88,6 +93,11 @@ public class Item {
   }
 
 
+ /**
+  * The display name.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {

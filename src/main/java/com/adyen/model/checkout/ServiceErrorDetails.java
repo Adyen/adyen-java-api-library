@@ -71,6 +71,11 @@ public class ServiceErrorDetails {
   }
 
 
+ /**
+  * errorCode
+  *
+  * @param errorCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -96,6 +101,11 @@ public class ServiceErrorDetails {
   }
 
 
+ /**
+  * errorType
+  *
+  * @param errorType
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
@@ -121,6 +131,11 @@ public class ServiceErrorDetails {
   }
 
 
+ /**
+  * message
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -146,6 +161,11 @@ public class ServiceErrorDetails {
   }
 
 
+ /**
+  * pspReference
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

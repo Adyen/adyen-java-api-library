@@ -76,6 +76,11 @@ public class RecurringDetailsResult {
   }
 
 
+ /**
+  * The date when the recurring details were created.
+  *
+  * @param creationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -109,6 +114,11 @@ public class RecurringDetailsResult {
   }
 
 
+ /**
+  * Payment details stored for recurring payments.
+  *
+  * @param details
+  */ 
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(List<RecurringDetailWrapper> details) {
@@ -134,6 +144,11 @@ public class RecurringDetailsResult {
   }
 
 
+ /**
+  * The most recent email for this shopper (if available).
+  *
+  * @param lastKnownShopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastKnownShopperEmail(String lastKnownShopperEmail) {
@@ -159,6 +174,11 @@ public class RecurringDetailsResult {
   }
 
 
+ /**
+  * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

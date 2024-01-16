@@ -122,6 +122,11 @@ public class DonationPaymentResponse {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -147,6 +152,11 @@ public class DonationPaymentResponse {
   }
 
 
+ /**
+  * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
+  *
+  * @param donationAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
@@ -172,6 +182,11 @@ public class DonationPaymentResponse {
   }
 
 
+ /**
+  * Your unique resource identifier.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -197,6 +212,11 @@ public class DonationPaymentResponse {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -222,6 +242,11 @@ public class DonationPaymentResponse {
   }
 
 
+ /**
+  * payment
+  *
+  * @param payment
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayment(PaymentResponse payment) {
@@ -247,6 +272,11 @@ public class DonationPaymentResponse {
   }
 
 
+ /**
+  * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -272,6 +302,11 @@ public class DonationPaymentResponse {
   }
 
 
+ /**
+  * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

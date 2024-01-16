@@ -65,6 +65,11 @@ public class Payment {
   }
 
 
+ /**
+  * The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+  *
+  * @param contactlessCurrency
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTACTLESS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactlessCurrency(String contactlessCurrency) {
@@ -98,6 +103,11 @@ public class Payment {
   }
 
 
+ /**
+  * Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
+  *
+  * @param hideMinorUnitsInCurrencies
+  */ 
   @JsonProperty(JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideMinorUnitsInCurrencies(List<String> hideMinorUnitsInCurrencies) {

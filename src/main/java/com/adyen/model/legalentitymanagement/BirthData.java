@@ -59,6 +59,11 @@ public class BirthData {
   }
 
 
+ /**
+  * The individual&#39;s date of birth, in YYYY-MM-DD format.
+  *
+  * @param dateOfBirth
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(String dateOfBirth) {

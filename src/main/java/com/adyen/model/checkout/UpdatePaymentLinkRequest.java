@@ -92,6 +92,11 @@ public class UpdatePaymentLinkRequest {
   }
 
 
+ /**
+  * Status of the payment link. Possible values: * **expired**
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

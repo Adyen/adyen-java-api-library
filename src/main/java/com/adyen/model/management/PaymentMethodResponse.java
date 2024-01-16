@@ -208,6 +208,11 @@ public class PaymentMethodResponse {
   }
 
 
+ /**
+  * links
+  *
+  * @param links
+  */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
@@ -241,6 +246,11 @@ public class PaymentMethodResponse {
   }
 
 
+ /**
+  * The list of supported payment methods and their details.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PaymentMethod> data) {
@@ -266,6 +276,11 @@ public class PaymentMethodResponse {
   }
 
 
+ /**
+  * Total number of items.
+  *
+  * @param itemsTotal
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
@@ -291,6 +306,11 @@ public class PaymentMethodResponse {
   }
 
 
+ /**
+  * Total number of pages.
+  *
+  * @param pagesTotal
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
@@ -324,6 +344,11 @@ public class PaymentMethodResponse {
   }
 
 
+ /**
+  * Payment method types with errors.
+  *
+  * @param typesWithErrors
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {

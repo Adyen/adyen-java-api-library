@@ -41,7 +41,7 @@ public class CardOrderItemDeliveryStatus {
   private String errorMessage;
 
   /**
-   * Status of the delivery.
+   * The status of the PIN delivery.
    */
   public enum StatusEnum {
     CREATED("created"),
@@ -102,10 +102,10 @@ public class CardOrderItemDeliveryStatus {
   }
 
    /**
-   * Error message.
+   * An error message.
    * @return errorMessage
   **/
-  @ApiModelProperty(value = "Error message.")
+  @ApiModelProperty(value = "An error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -114,6 +114,11 @@ public class CardOrderItemDeliveryStatus {
   }
 
 
+ /**
+  * An error message.
+  *
+  * @param errorMessage
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
@@ -127,10 +132,10 @@ public class CardOrderItemDeliveryStatus {
   }
 
    /**
-   * Status of the delivery.
+   * The status of the PIN delivery.
    * @return status
   **/
-  @ApiModelProperty(value = "Status of the delivery.")
+  @ApiModelProperty(value = "The status of the PIN delivery.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,6 +144,11 @@ public class CardOrderItemDeliveryStatus {
   }
 
 
+ /**
+  * The status of the PIN delivery.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -152,10 +162,10 @@ public class CardOrderItemDeliveryStatus {
   }
 
    /**
-   * Tracking number of the delivery.
+   * The tracking number of the PIN delivery.
    * @return trackingNumber
   **/
-  @ApiModelProperty(value = "Tracking number of the delivery.")
+  @ApiModelProperty(value = "The tracking number of the PIN delivery.")
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -164,6 +174,11 @@ public class CardOrderItemDeliveryStatus {
   }
 
 
+ /**
+  * The tracking number of the PIN delivery.
+  *
+  * @param trackingNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingNumber(String trackingNumber) {

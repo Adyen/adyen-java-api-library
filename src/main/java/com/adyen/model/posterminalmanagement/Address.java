@@ -80,6 +80,11 @@ public class Address {
   }
 
 
+ /**
+  * city
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -105,6 +110,11 @@ public class Address {
   }
 
 
+ /**
+  * countryCode
+  *
+  * @param countryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -130,6 +140,11 @@ public class Address {
   }
 
 
+ /**
+  * postalCode
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -155,6 +170,11 @@ public class Address {
   }
 
 
+ /**
+  * stateOrProvince
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -180,6 +200,11 @@ public class Address {
   }
 
 
+ /**
+  * streetAddress
+  *
+  * @param streetAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress(String streetAddress) {
@@ -205,6 +230,11 @@ public class Address {
   }
 
 
+ /**
+  * streetAddress2
+  *
+  * @param streetAddress2
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress2(String streetAddress2) {

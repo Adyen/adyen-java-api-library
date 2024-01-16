@@ -61,6 +61,11 @@ public class ThreeDS2ResultResponse {
   }
 
 
+ /**
+  * threeDS2Result
+  *
+  * @param threeDS2Result
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {

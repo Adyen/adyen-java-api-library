@@ -126,6 +126,11 @@ public class ModificationResult {
   }
 
 
+ /**
+  * This field contains additional data, which may be returned in a particular modification response.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -151,6 +156,11 @@ public class ModificationResult {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -176,6 +186,11 @@ public class ModificationResult {
   }
 
 
+ /**
+  * Indicates if the modification request has been received for processing.
+  *
+  * @param response
+  */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(ResponseEnum response) {

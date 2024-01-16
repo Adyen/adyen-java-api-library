@@ -143,6 +143,11 @@ public class CALocalAccountIdentification {
   }
 
 
+ /**
+  * The 5- to 12-digit bank account number, without separators or whitespace.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -168,6 +173,11 @@ public class CALocalAccountIdentification {
   }
 
 
+ /**
+  * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+  *
+  * @param accountType
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
@@ -193,6 +203,11 @@ public class CALocalAccountIdentification {
   }
 
 
+ /**
+  * The 3-digit institution number, without separators or whitespace.
+  *
+  * @param institutionNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstitutionNumber(String institutionNumber) {
@@ -218,6 +233,11 @@ public class CALocalAccountIdentification {
   }
 
 
+ /**
+  * The 5-digit transit number, without separators or whitespace.
+  *
+  * @param transitNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransitNumber(String transitNumber) {
@@ -243,6 +263,11 @@ public class CALocalAccountIdentification {
   }
 
 
+ /**
+  * **caLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

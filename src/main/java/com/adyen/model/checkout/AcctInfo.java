@@ -390,6 +390,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Length of time that the cardholder has had the account with the 3DS Requestor.  Allowed values: * **01** — No account * **02** — Created during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+  *
+  * @param chAccAgeInd
+  */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_AGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccAgeInd(ChAccAgeIndEnum chAccAgeInd) {
@@ -415,6 +420,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Format: **YYYYMMDD**
+  *
+  * @param chAccChange
+  */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccChange(String chAccChange) {
@@ -440,6 +450,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Allowed values: * **01** — Changed during this transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
+  *
+  * @param chAccChangeInd
+  */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_CHANGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccChangeInd(ChAccChangeIndEnum chAccChangeInd) {
@@ -465,6 +480,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Date that cardholder’s account with the 3DS Requestor had a password change or account reset.  Format: **YYYYMMDD**
+  *
+  * @param chAccPwChange
+  */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_PW_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccPwChange(String chAccPwChange) {
@@ -490,6 +510,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset.  Allowed values: * **01** — No change * **02** — Changed during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+  *
+  * @param chAccPwChangeInd
+  */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_PW_CHANGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccPwChangeInd(ChAccPwChangeIndEnum chAccPwChangeInd) {
@@ -515,6 +540,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Date that the cardholder opened the account with the 3DS Requestor.  Format: **YYYYMMDD**
+  *
+  * @param chAccString
+  */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccString(String chAccString) {
@@ -540,6 +570,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Number of purchases with this cardholder account during the previous six months. Max length: 4 characters.
+  *
+  * @param nbPurchaseAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_NB_PURCHASE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNbPurchaseAccount(String nbPurchaseAccount) {
@@ -565,6 +600,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * String that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Format: **YYYYMMDD**
+  *
+  * @param paymentAccAge
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACC_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccAge(String paymentAccAge) {
@@ -590,6 +630,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Allowed values: * **01** — No account (guest checkout) * **02** — During this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+  *
+  * @param paymentAccInd
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACC_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccInd(PaymentAccIndEnum paymentAccInd) {
@@ -615,6 +660,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Number of Add Card attempts in the last 24 hours. Max length: 3 characters.
+  *
+  * @param provisionAttemptsDay
+  */ 
   @JsonProperty(JSON_PROPERTY_PROVISION_ATTEMPTS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProvisionAttemptsDay(String provisionAttemptsDay) {
@@ -640,6 +690,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * String when the shipping address used for this transaction was first used with the 3DS Requestor.  Format: **YYYYMMDD**
+  *
+  * @param shipAddressUsage
+  */ 
   @JsonProperty(JSON_PROPERTY_SHIP_ADDRESS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipAddressUsage(String shipAddressUsage) {
@@ -665,6 +720,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.  Allowed values: * **01** — This transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
+  *
+  * @param shipAddressUsageInd
+  */ 
   @JsonProperty(JSON_PROPERTY_SHIP_ADDRESS_USAGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipAddressUsageInd(ShipAddressUsageIndEnum shipAddressUsageInd) {
@@ -690,6 +750,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction.  Allowed values: * **01** — Account Name identical to shipping Name * **02** — Account Name different to shipping Name
+  *
+  * @param shipNameIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_SHIP_NAME_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipNameIndicator(ShipNameIndicatorEnum shipNameIndicator) {
@@ -715,6 +780,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account.  Allowed values: * **01** — No suspicious activity has been observed * **02** — Suspicious activity has been observed
+  *
+  * @param suspiciousAccActivity
+  */ 
   @JsonProperty(JSON_PROPERTY_SUSPICIOUS_ACC_ACTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuspiciousAccActivity(SuspiciousAccActivityEnum suspiciousAccActivity) {
@@ -740,6 +810,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Max length: 3 characters.
+  *
+  * @param txnActivityDay
+  */ 
   @JsonProperty(JSON_PROPERTY_TXN_ACTIVITY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxnActivityDay(String txnActivityDay) {
@@ -765,6 +840,11 @@ public class AcctInfo {
   }
 
 
+ /**
+  * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Max length: 3 characters.
+  *
+  * @param txnActivityYear
+  */ 
   @JsonProperty(JSON_PROPERTY_TXN_ACTIVITY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxnActivityYear(String txnActivityYear) {

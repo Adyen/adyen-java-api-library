@@ -68,6 +68,11 @@ public class DeleteDefenseDocumentRequest {
   }
 
 
+ /**
+  * The document type code of the defense document.
+  *
+  * @param defenseDocumentType
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentType(String defenseDocumentType) {
@@ -93,6 +98,11 @@ public class DeleteDefenseDocumentRequest {
   }
 
 
+ /**
+  * The PSP reference assigned to the dispute.
+  *
+  * @param disputePspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
@@ -118,6 +128,11 @@ public class DeleteDefenseDocumentRequest {
   }
 
 
+ /**
+  * The merchant account identifier, for which you want to process the dispute transaction.
+  *
+  * @param merchantAccountCode
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {

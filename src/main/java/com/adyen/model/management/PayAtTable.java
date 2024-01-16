@@ -98,6 +98,11 @@ public class PayAtTable {
   }
 
 
+ /**
+  * Allowed authentication methods: Magswipe, Manual Entry.
+  *
+  * @param authenticationMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationMethod(AuthenticationMethodEnum authenticationMethod) {
@@ -123,6 +128,11 @@ public class PayAtTable {
   }
 
 
+ /**
+  * Enable Pay at table.
+  *
+  * @param enablePayAtTable
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayAtTable(Boolean enablePayAtTable) {

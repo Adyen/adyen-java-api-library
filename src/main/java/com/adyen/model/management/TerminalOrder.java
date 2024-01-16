@@ -92,6 +92,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * billingEntity
+  *
+  * @param billingEntity
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntity(BillingEntity billingEntity) {
@@ -117,6 +122,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * The merchant-defined purchase order number. This will be printed on the packing list.
+  *
+  * @param customerOrderReference
+  */ 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
@@ -142,6 +152,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * The unique identifier of the order.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -175,6 +190,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * The products included in the order.
+  *
+  * @param items
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
@@ -200,6 +220,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
+  *
+  * @param orderDate
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderDate(String orderDate) {
@@ -225,6 +250,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * shippingLocation
+  *
+  * @param shippingLocation
+  */ 
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocation(ShippingLocation shippingLocation) {
@@ -250,6 +280,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * The processing status of the order.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
@@ -275,6 +310,11 @@ public class TerminalOrder {
   }
 
 
+ /**
+  * The URL, provided by the carrier company, where the shipment can be tracked.
+  *
+  * @param trackingUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_TRACKING_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingUrl(String trackingUrl) {

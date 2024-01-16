@@ -401,6 +401,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+  *
+  * @param allowedPaymentMethods
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
@@ -426,6 +431,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -451,6 +461,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * applicationInfo
+  *
+  * @param applicationInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
@@ -476,6 +491,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * billingAddress
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -509,6 +529,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
+  *
+  * @param blockedPaymentMethods
+  */ 
   @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
@@ -534,6 +559,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The delay between the authorisation and scheduled auto-capture, specified in hours.
+  *
+  * @param captureDelayHours
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelayHours(Integer captureDelayHours) {
@@ -559,6 +589,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The shopper&#39;s two-letter country code.
+  *
+  * @param countryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -584,6 +619,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
+  *
+  * @param dateOfBirth
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -609,6 +649,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
+  *
+  * @param deliverAt
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVER_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliverAt(OffsetDateTime deliverAt) {
@@ -634,6 +679,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * deliveryAddress
+  *
+  * @param deliveryAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(Address deliveryAddress) {
@@ -659,6 +709,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * A short description visible on the payment page. Maximum length: 280 characters.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -684,6 +739,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The date when the payment link expires.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with time zone offset: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.  The maximum expiry date is 70 days after the payment link is created.  If not provided, the payment link expires 24 hours after it was created.
+  *
+  * @param expiresAt
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
@@ -709,6 +769,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * A unique identifier of the payment link.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -742,6 +807,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
+  *
+  * @param installmentOptions
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentOptions(Map<String, InstallmentOption> installmentOptions) {
@@ -775,6 +845,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, and Zip.
+  *
+  * @param lineItems
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
@@ -800,6 +875,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Indicates if the payment must be [captured manually](https://docs.adyen.com/online-payments/capture).
+  *
+  * @param manualCapture
+  */ 
   @JsonProperty(JSON_PROPERTY_MANUAL_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManualCapture(Boolean manualCapture) {
@@ -825,6 +905,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
+  *
+  * @param mcc
+  */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
@@ -850,6 +935,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The merchant account identifier for which the payment link is created.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -875,6 +965,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * This reference allows linking multiple transactions to each other for reporting purposes (for example, order auth-rate). The reference should be unique per billing cycle.
+  *
+  * @param merchantOrderReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantOrderReference(String merchantOrderReference) {
@@ -908,6 +1003,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Metadata consists of entries, each of which includes a key and a value. Limitations: * Maximum 20 key-value pairs per request. Otherwise, error \&quot;177\&quot; occurs: \&quot;Metadata size exceeds limit\&quot; * Maximum 20 characters per key. Otherwise, error \&quot;178\&quot; occurs: \&quot;Metadata key size exceeds limit\&quot; * A key cannot have the name &#x60;checkout.linkId&#x60;. Any value that you provide with this key is going to be replaced by the real payment link ID.
+  *
+  * @param metadata
+  */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -933,6 +1033,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Defines a recurring payment type. Required when &#x60;storePaymentMethodMode&#x60; is set to **askForConsent** or **enabled**. Possible values: * **Subscription** – A transaction for a fixed or variable amount, which follows a fixed schedule. * **CardOnFile** – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * **UnscheduledCardOnFile** – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
+  *
+  * @param recurringProcessingModel
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
@@ -958,6 +1063,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * A reference that is used to uniquely identify the payment in future communications about the payment status.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -991,6 +1101,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * List of fields that the shopper has to provide on the payment page before completing the payment. For more information, refer to [Provide shopper information](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#shopper-information).  Possible values: * **billingAddress** – The address where to send the invoice. * **deliveryAddress** – The address where the purchased goods should be delivered. * **shopperEmail** – The shopper&#39;s email address. * **shopperName** – The shopper&#39;s full name. * **telephoneNumber** – The shopper&#39;s phone number. 
+  *
+  * @param requiredShopperFields
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
@@ -1016,6 +1131,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Website URL used for redirection after payment is completed. If provided, a **Continue** button will be shown on the payment page. If shoppers select the button, they are redirected to the specified URL.
+  *
+  * @param returnUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnUrl(String returnUrl) {
@@ -1041,6 +1161,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Indicates whether the payment link can be reused for multiple payments. If not provided, this defaults to **false** which means the link can be used for one successful payment only.
+  *
+  * @param reusable
+  */ 
   @JsonProperty(JSON_PROPERTY_REUSABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReusable(Boolean reusable) {
@@ -1066,6 +1191,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * riskData
+  *
+  * @param riskData
+  */ 
   @JsonProperty(JSON_PROPERTY_RISK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskData(RiskData riskData) {
@@ -1091,6 +1221,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The shopper&#39;s email address.
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -1116,6 +1251,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The language to be used in the payment page, specified by a combination of a language and country code. For example, &#x60;en-US&#x60;.  For a list of shopper locales that Pay by Link supports, refer to [Language and localization](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#language).
+  *
+  * @param shopperLocale
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
@@ -1141,6 +1281,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * shopperName
+  *
+  * @param shopperName
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -1166,6 +1311,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -1191,6 +1341,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
+  *
+  * @param shopperStatement
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
@@ -1216,6 +1371,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Set to **false** to hide the button that lets the shopper remove a stored payment method.
+  *
+  * @param showRemovePaymentMethodButton
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
@@ -1241,6 +1401,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The shopper&#39;s social security number.
+  *
+  * @param socialSecurityNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
@@ -1266,6 +1431,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
+  *
+  * @param splitCardFundingSources
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitCardFundingSources(Boolean splitCardFundingSources) {
@@ -1299,6 +1469,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
+  *
+  * @param splits
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
@@ -1324,6 +1499,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Status of the payment link. Possible values: * **active**: The link can be used to make payments. * **expired**: The expiry date for the payment link has passed. Shoppers can no longer use the link to make payments. * **completed**: The shopper completed the payment. * **paymentPending**: The shopper is in the process of making the payment. Applies to payment methods with an asynchronous flow.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -1349,6 +1529,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The physical store, for which this payment is processed.
+  *
+  * @param store
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
@@ -1374,6 +1559,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.   When set to **askForConsent** or **enabled**, you must also include the &#x60;recurringProcessingModel&#x60; parameter.
+  *
+  * @param storePaymentMethodMode
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
@@ -1399,6 +1589,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The shopper&#39;s telephone number.
+  *
+  * @param telephoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -1424,6 +1619,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * A [theme](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#themes) to customize the appearance of the payment page. If not specified, the payment page is rendered according to the theme set as default in your Customer Area.
+  *
+  * @param themeId
+  */ 
   @JsonProperty(JSON_PROPERTY_THEME_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {
@@ -1449,6 +1649,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The date when the payment link status was updated.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
+  *
+  * @param updatedAt
+  */ 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatedAt(OffsetDateTime updatedAt) {
@@ -1474,6 +1679,11 @@ public class PaymentLinkResponse {
   }
 
 
+ /**
+  * The URL at which the shopper can complete the payment.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

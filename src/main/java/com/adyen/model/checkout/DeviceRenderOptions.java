@@ -143,6 +143,11 @@ public class DeviceRenderOptions {
   }
 
 
+ /**
+  * Supported SDK interface types. Allowed values: * native * html * both
+  *
+  * @param sdkInterface
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_INTERFACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkInterface(SdkInterfaceEnum sdkInterface) {
@@ -176,6 +181,11 @@ public class DeviceRenderOptions {
   }
 
 
+ /**
+  * UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
+  *
+  * @param sdkUiType
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_UI_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkUiType(List<SdkUiTypeEnum> sdkUiType) {

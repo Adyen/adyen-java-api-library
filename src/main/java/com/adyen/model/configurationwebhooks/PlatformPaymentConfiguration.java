@@ -63,6 +63,11 @@ public class PlatformPaymentConfiguration {
   }
 
 
+ /**
+  * Specifies at what time a [sales day](https://docs.adyen.com/marketplaces-and-platforms/settle-funds/sales-day-settlement#sales-day) ends.  Possible values: Time in **\&quot;HH:MM\&quot;** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\&quot;00:00\&quot;**.
+  *
+  * @param salesDayClosingTime
+  */ 
   @JsonProperty(JSON_PROPERTY_SALES_DAY_CLOSING_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesDayClosingTime(String salesDayClosingTime) {
@@ -88,6 +93,11 @@ public class PlatformPaymentConfiguration {
   }
 
 
+ /**
+  * Specifies after how many business days the funds in a [settlement batch](https://docs.adyen.com/marketplaces-and-platforms/settle-funds/sales-day-settlement#settlement-batch) are made available.  Possible values: **0** to **10**, or **null**. * Setting this value to an integer enables [Sales day settlement](https://docs.adyen.com/marketplaces-and-platforms/settle-funds/sales-day-settlement). * Setting this value to **null** enables [Pass-through settlement](https://docs.adyen.com/marketplaces-and-platforms/settle-funds/pass-through-settlement).  Default value: **null**.
+  *
+  * @param settlementDelayDays
+  */ 
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_DELAY_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettlementDelayDays(Integer settlementDelayDays) {

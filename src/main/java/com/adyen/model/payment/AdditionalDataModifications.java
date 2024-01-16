@@ -60,6 +60,11 @@ public class AdditionalDataModifications {
   }
 
 
+ /**
+  * This is the installment option selected by the shopper. It is required only if specified by the user.
+  *
+  * @param installmentPaymentDataSelectedInstallmentOption
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_SELECTED_INSTALLMENT_OPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataSelectedInstallmentOption(String installmentPaymentDataSelectedInstallmentOption) {

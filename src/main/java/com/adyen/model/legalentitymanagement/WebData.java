@@ -63,6 +63,11 @@ public class WebData {
   }
 
 
+ /**
+  * The URL of the website or the app store URL.
+  *
+  * @param webAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {
@@ -88,6 +93,11 @@ public class WebData {
   }
 
 
+ /**
+  * The unique identifier of the web address.
+  *
+  * @param webAddressId
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddressId(String webAddressId) {

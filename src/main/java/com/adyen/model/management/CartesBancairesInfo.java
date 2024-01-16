@@ -64,6 +64,11 @@ public class CartesBancairesInfo {
   }
 
 
+ /**
+  * Cartes Bancaires SIRET. Format: 14 digits.
+  *
+  * @param siret
+  */ 
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiret(String siret) {
@@ -89,6 +94,11 @@ public class CartesBancairesInfo {
   }
 
 
+ /**
+  * transactionDescription
+  *
+  * @param transactionDescription
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {

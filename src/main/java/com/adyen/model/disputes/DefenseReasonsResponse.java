@@ -76,6 +76,11 @@ public class DefenseReasonsResponse {
   }
 
 
+ /**
+  * The defense reasons that can be used to defend the dispute.
+  *
+  * @param defenseReasons
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasons(List<DefenseReason> defenseReasons) {
@@ -101,6 +106,11 @@ public class DefenseReasonsResponse {
   }
 
 
+ /**
+  * disputeServiceResult
+  *
+  * @param disputeServiceResult
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {

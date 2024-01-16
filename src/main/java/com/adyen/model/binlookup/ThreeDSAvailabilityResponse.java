@@ -81,6 +81,11 @@ public class ThreeDSAvailabilityResponse {
   }
 
 
+ /**
+  * binDetails
+  *
+  * @param binDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_BIN_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBinDetails(BinDetail binDetails) {
@@ -114,6 +119,11 @@ public class ThreeDSAvailabilityResponse {
   }
 
 
+ /**
+  * List of Directory Server (DS) public keys.
+  *
+  * @param dsPublicKeys
+  */ 
   @JsonProperty(JSON_PROPERTY_DS_PUBLIC_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsPublicKeys(List<DSPublicKeyDetail> dsPublicKeys) {
@@ -139,6 +149,11 @@ public class ThreeDSAvailabilityResponse {
   }
 
 
+ /**
+  * Indicator if 3D Secure 1 is supported.
+  *
+  * @param threeDS1Supported
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S1_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS1Supported(Boolean threeDS1Supported) {
@@ -172,6 +187,11 @@ public class ThreeDSAvailabilityResponse {
   }
 
 
+ /**
+  * List of brand and card range pairs.
+  *
+  * @param threeDS2CardRangeDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2CardRangeDetails(List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails) {
@@ -197,6 +217,11 @@ public class ThreeDSAvailabilityResponse {
   }
 
 
+ /**
+  * Indicator if 3D Secure 2 is supported.
+  *
+  * @param threeDS2supported
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2supported(Boolean threeDS2supported) {
