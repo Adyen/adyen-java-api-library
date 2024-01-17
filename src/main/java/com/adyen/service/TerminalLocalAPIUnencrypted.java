@@ -5,12 +5,10 @@ import com.adyen.Config;
 import com.adyen.Service;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.TerminalLocalAPIHostnameVerifier;
-import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.terminal.TerminalAPIResponse;
+
+import com.adyen.terminal.TerminalAPIRequest;
+import com.adyen.terminal.TerminalAPIResponse;
 import com.adyen.service.resource.terminal.local.LocalRequest;
-import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -31,14 +29,11 @@ public class TerminalLocalAPIUnencrypted extends Service {
 
     private final LocalRequest localRequest;
 
-    private final Gson terminalApiGson;
-
     public TerminalLocalAPIUnencrypted(Client client) {
         super(client);
         if (client.getConfig().getEnvironment() == Environment.LIVE) {
             throw new IllegalArgumentException("Cannot use this class in a Live environment");
         }
-        terminalApiGson = TerminalAPIGsonBuilder.create();
         Config config = super.getClient().getConfig();
         config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(Environment.TEST));
         if (config.getSSLContext() == null) {
@@ -56,7 +51,7 @@ public class TerminalLocalAPIUnencrypted extends Service {
      * @throws Exception exception
      */
     public TerminalAPIResponse request(TerminalAPIRequest terminalAPIRequest) throws Exception {
-        String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
+        String jsonRequest = terminalAPIRequest.toJson();
 
         String jsonResponse = localRequest.request(jsonRequest);
 
@@ -64,8 +59,7 @@ public class TerminalLocalAPIUnencrypted extends Service {
             return null;
         }
 
-        return terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPIResponse>() {
-        }.getType());
+        return TerminalAPIResponse.fromJson(jsonResponse);
     }
 
     private SSLContext createTrustSSLContext() {

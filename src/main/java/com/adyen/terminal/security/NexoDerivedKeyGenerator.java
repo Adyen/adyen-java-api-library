@@ -1,27 +1,4 @@
-/*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
- * Adyen Java API Library
- *
- * Copyright (c) 2019 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
-
 package com.adyen.terminal.security;
-
-import com.adyen.model.terminal.security.NexoDerivedKey;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -29,9 +6,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 
-import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_CIPHER_KEY_LENGTH;
-import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_HMAC_KEY_LENGTH;
-import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
+import static com.adyen.terminal.security.NexoDerivedKey.NEXO_CIPHER_KEY_LENGTH;
+import static com.adyen.terminal.security.NexoDerivedKey.NEXO_HMAC_KEY_LENGTH;
+import static com.adyen.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
 
 final class NexoDerivedKeyGenerator {
 
