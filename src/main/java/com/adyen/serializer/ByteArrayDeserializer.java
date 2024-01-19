@@ -1,6 +1,5 @@
 package com.adyen.serializer;
 
-import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -14,7 +13,7 @@ public class ByteArrayDeserializer extends StdDeserializer<byte[]> {
     }
 
     @Override
-    public byte[] deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+    public byte[] deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         return jsonParser.getValueAsString().getBytes(StandardCharsets.UTF_8);
     }
 }

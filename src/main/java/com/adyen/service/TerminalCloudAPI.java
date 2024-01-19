@@ -1,50 +1,24 @@
-/*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
- * Adyen Java API Library
- *
- * Copyright (c) 2019 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
 package com.adyen.service;
 
-import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.terminal.TerminalAPIResponse;
+import com.adyen.Service;
+import com.adyen.terminal.TerminalAPIRequest;
+import com.adyen.terminal.TerminalAPIResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.terminal.cloud.Async;
 import com.adyen.service.resource.terminal.cloud.Sync;
-import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
+public class TerminalCloudAPI extends Service {
 
     private final Async terminalApiAsync;
     private final Sync terminalApiSync;
-
-    private final Gson terminalApiGson;
 
     public TerminalCloudAPI(Client client) {
         super(client);
         terminalApiAsync = new Async(this);
         terminalApiSync = new Sync(this);
-        terminalApiGson = TerminalAPIGsonBuilder.create();
     }
 
     /**
@@ -56,7 +30,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public String async(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
-        String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
+        String jsonRequest = terminalAPIRequest.toJson();
 
         return terminalApiAsync.request(jsonRequest);
     }
@@ -70,7 +44,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
-        String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
+        String jsonRequest = terminalAPIRequest.toJson();
 
         String jsonResponse = terminalApiSync.request(jsonRequest);
 
@@ -78,7 +52,6 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
             return null;
         }
 
-        return terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPIResponse>() {
-        }.getType());
+        return TerminalAPIResponse.fromJson(jsonResponse);
     }
 }
