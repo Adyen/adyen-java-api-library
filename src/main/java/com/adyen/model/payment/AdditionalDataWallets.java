@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -80,6 +79,11 @@ public class AdditionalDataWallets {
   }
 
 
+ /**
+  * The Android Pay token retrieved from the SDK.
+  *
+  * @param androidpayToken
+  */ 
   @JsonProperty(JSON_PROPERTY_ANDROIDPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAndroidpayToken(String androidpayToken) {
@@ -105,6 +109,11 @@ public class AdditionalDataWallets {
   }
 
 
+ /**
+  * The Mastercard Masterpass Transaction ID retrieved from the SDK.
+  *
+  * @param masterpassTransactionId
+  */ 
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMasterpassTransactionId(String masterpassTransactionId) {
@@ -130,6 +139,11 @@ public class AdditionalDataWallets {
   }
 
 
+ /**
+  * The Apple Pay token retrieved from the SDK.
+  *
+  * @param paymentToken
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentToken(String paymentToken) {
@@ -155,6 +169,11 @@ public class AdditionalDataWallets {
   }
 
 
+ /**
+  * The Google Pay token retrieved from the SDK.
+  *
+  * @param paywithgoogleToken
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYWITHGOOGLE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaywithgoogleToken(String paywithgoogleToken) {
@@ -180,6 +199,11 @@ public class AdditionalDataWallets {
   }
 
 
+ /**
+  * The Samsung Pay token retrieved from the SDK.
+  *
+  * @param samsungpayToken
+  */ 
   @JsonProperty(JSON_PROPERTY_SAMSUNGPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSamsungpayToken(String samsungpayToken) {
@@ -205,6 +229,11 @@ public class AdditionalDataWallets {
   }
 
 
+ /**
+  * The Visa Checkout Call ID retrieved from the SDK.
+  *
+  * @param visacheckoutCallId
+  */ 
   @JsonProperty(JSON_PROPERTY_VISACHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisacheckoutCallId(String visacheckoutCallId) {

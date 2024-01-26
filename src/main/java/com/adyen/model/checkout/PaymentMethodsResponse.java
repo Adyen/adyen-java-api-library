@@ -75,6 +75,11 @@ public class PaymentMethodsResponse {
   }
 
 
+ /**
+  * Detailed list of payment methods required to generate payment forms.
+  *
+  * @param paymentMethods
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
@@ -108,6 +113,11 @@ public class PaymentMethodsResponse {
   }
 
 
+ /**
+  * List of all stored payment methods.
+  *
+  * @param storedPaymentMethods
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {

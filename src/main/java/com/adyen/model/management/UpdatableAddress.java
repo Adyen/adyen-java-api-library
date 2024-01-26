@@ -79,6 +79,11 @@ public class UpdatableAddress {
   }
 
 
+ /**
+  * The name of the city.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -104,6 +109,11 @@ public class UpdatableAddress {
   }
 
 
+ /**
+  * The street address.
+  *
+  * @param line1
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
@@ -129,6 +139,11 @@ public class UpdatableAddress {
   }
 
 
+ /**
+  * Second address line.
+  *
+  * @param line2
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
@@ -154,6 +169,11 @@ public class UpdatableAddress {
   }
 
 
+ /**
+  * Third address line.
+  *
+  * @param line3
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
@@ -179,6 +199,11 @@ public class UpdatableAddress {
   }
 
 
+ /**
+  * The postal code.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -204,6 +229,11 @@ public class UpdatableAddress {
   }
 
 
+ /**
+  * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {

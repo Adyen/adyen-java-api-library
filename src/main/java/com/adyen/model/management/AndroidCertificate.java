@@ -84,6 +84,11 @@ public class AndroidCertificate {
   }
 
 
+ /**
+  * The description that was provided when uploading the certificate.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -109,6 +114,11 @@ public class AndroidCertificate {
   }
 
 
+ /**
+  * The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
+  *
+  * @param extension
+  */ 
   @JsonProperty(JSON_PROPERTY_EXTENSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtension(String extension) {
@@ -134,6 +144,11 @@ public class AndroidCertificate {
   }
 
 
+ /**
+  * The unique identifier of the certificate.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -159,6 +174,11 @@ public class AndroidCertificate {
   }
 
 
+ /**
+  * The file name of the certificate. For example, **mycert**.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -184,6 +204,11 @@ public class AndroidCertificate {
   }
 
 
+ /**
+  * The date when the certificate stops to be valid.
+  *
+  * @param notAfter
+  */ 
   @JsonProperty(JSON_PROPERTY_NOT_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotAfter(OffsetDateTime notAfter) {
@@ -209,6 +234,11 @@ public class AndroidCertificate {
   }
 
 
+ /**
+  * The date when the certificate starts to be valid.
+  *
+  * @param notBefore
+  */ 
   @JsonProperty(JSON_PROPERTY_NOT_BEFORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotBefore(OffsetDateTime notBefore) {
@@ -234,6 +264,11 @@ public class AndroidCertificate {
   }
 
 
+ /**
+  * The status of the certificate.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

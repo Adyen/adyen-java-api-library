@@ -97,6 +97,11 @@ public class TransferNotificationTransferTracking {
   }
 
 
+ /**
+  * The estimated time the beneficiary should have access to the funds.
+  *
+  * @param estimatedArrivalTime
+  */ 
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
@@ -122,6 +127,11 @@ public class TransferNotificationTransferTracking {
   }
 
 
+ /**
+  * The tracking status of the transfer.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

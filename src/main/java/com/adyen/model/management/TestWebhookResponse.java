@@ -70,6 +70,11 @@ public class TestWebhookResponse {
   }
 
 
+ /**
+  * List with test results. Each test webhook we send has a list element with the result.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TestOutput> data) {

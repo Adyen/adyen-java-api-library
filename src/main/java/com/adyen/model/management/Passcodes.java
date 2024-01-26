@@ -71,6 +71,11 @@ public class Passcodes {
   }
 
 
+ /**
+  * The passcode for the Admin menu and the Settings menu.
+  *
+  * @param adminMenuPin
+  */ 
   @JsonProperty(JSON_PROPERTY_ADMIN_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdminMenuPin(String adminMenuPin) {
@@ -84,10 +89,10 @@ public class Passcodes {
   }
 
    /**
-   * The passcode for unreferenced refunds on standalone terminals.
+   * The passcode for referenced and unreferenced refunds on standalone terminals.
    * @return refundPin
   **/
-  @ApiModelProperty(value = "The passcode for unreferenced refunds on standalone terminals.")
+  @ApiModelProperty(value = "The passcode for referenced and unreferenced refunds on standalone terminals.")
   @JsonProperty(JSON_PROPERTY_REFUND_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,6 +101,11 @@ public class Passcodes {
   }
 
 
+ /**
+  * The passcode for referenced and unreferenced refunds on standalone terminals.
+  *
+  * @param refundPin
+  */ 
   @JsonProperty(JSON_PROPERTY_REFUND_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefundPin(String refundPin) {
@@ -121,6 +131,11 @@ public class Passcodes {
   }
 
 
+ /**
+  * The passcode to unlock the terminal screen after a timeout.
+  *
+  * @param screenLockPin
+  */ 
   @JsonProperty(JSON_PROPERTY_SCREEN_LOCK_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenLockPin(String screenLockPin) {
@@ -146,6 +161,11 @@ public class Passcodes {
   }
 
 
+ /**
+  * The passcode for the Transactions menu.
+  *
+  * @param txMenuPin
+  */ 
   @JsonProperty(JSON_PROPERTY_TX_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxMenuPin(String txMenuPin) {

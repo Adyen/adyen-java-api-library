@@ -63,6 +63,11 @@ public class VippsInfo {
   }
 
 
+ /**
+  * Vipps logo. Format: Base64-encoded string.
+  *
+  * @param logo
+  */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
@@ -88,6 +93,11 @@ public class VippsInfo {
   }
 
 
+ /**
+  * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
+  *
+  * @param subscriptionCancelUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriptionCancelUrl(String subscriptionCancelUrl) {

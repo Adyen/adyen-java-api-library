@@ -52,6 +52,33 @@ public class TransferInstrumentsApi extends Service {
     }
 
     /**
+    * Create a transfer instrument
+    *
+    * @param transferInstrumentInfo {@link TransferInstrumentInfo }  (required)
+    * @return {@link TransferInstrument }
+    * @throws ApiException if fails to make API call
+    */
+    public TransferInstrument createTransferInstrument(TransferInstrumentInfo transferInstrumentInfo) throws ApiException, IOException {
+        return createTransferInstrument(transferInstrumentInfo, null);
+    }
+
+    /**
+    * Create a transfer instrument
+    *
+    * @param transferInstrumentInfo {@link TransferInstrumentInfo }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TransferInstrument }
+    * @throws ApiException if fails to make API call
+    */
+    public TransferInstrument createTransferInstrument(TransferInstrumentInfo transferInstrumentInfo, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = transferInstrumentInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/transferInstruments", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return TransferInstrument.fromJson(jsonResult);
+    }
+
+    /**
     * Delete a transfer instrument
     *
     * @param id {@link String } The unique identifier of the transfer instrument to be deleted. (required)
@@ -146,33 +173,6 @@ public class TransferInstrumentsApi extends Service {
         String requestBody = transferInstrumentInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transferInstruments/{id}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return TransferInstrument.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a transfer instrument
-    *
-    * @param transferInstrumentInfo {@link TransferInstrumentInfo }  (required)
-    * @return {@link TransferInstrument }
-    * @throws ApiException if fails to make API call
-    */
-    public TransferInstrument createTransferInstrument(TransferInstrumentInfo transferInstrumentInfo) throws ApiException, IOException {
-        return createTransferInstrument(transferInstrumentInfo, null);
-    }
-
-    /**
-    * Create a transfer instrument
-    *
-    * @param transferInstrumentInfo {@link TransferInstrumentInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TransferInstrument }
-    * @throws ApiException if fails to make API call
-    */
-    public TransferInstrument createTransferInstrument(TransferInstrumentInfo transferInstrumentInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = transferInstrumentInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/transferInstruments", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return TransferInstrument.fromJson(jsonResult);
     }
 }

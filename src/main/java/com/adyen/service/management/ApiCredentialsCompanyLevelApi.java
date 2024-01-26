@@ -55,6 +55,80 @@ public class ApiCredentialsCompanyLevelApi extends Service {
     }
 
     /**
+    * Create an API credential.
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param createCompanyApiCredentialRequest {@link CreateCompanyApiCredentialRequest }  (required)
+    * @return {@link CreateCompanyApiCredentialResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateCompanyApiCredentialResponse createApiCredential(String companyId, CreateCompanyApiCredentialRequest createCompanyApiCredentialRequest) throws ApiException, IOException {
+        return createApiCredential(companyId, createCompanyApiCredentialRequest, null);
+    }
+
+    /**
+    * Create an API credential.
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param createCompanyApiCredentialRequest {@link CreateCompanyApiCredentialRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CreateCompanyApiCredentialResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateCompanyApiCredentialResponse createApiCredential(String companyId, CreateCompanyApiCredentialRequest createCompanyApiCredentialRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+
+        String requestBody = createCompanyApiCredentialRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return CreateCompanyApiCredentialResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get an API credential
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
+    * @return {@link CompanyApiCredential }
+    * @throws ApiException if fails to make API call
+    */
+    public CompanyApiCredential getApiCredential(String companyId, String apiCredentialId) throws ApiException, IOException {
+        return getApiCredential(companyId, apiCredentialId, null);
+    }
+
+    /**
+    * Get an API credential
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CompanyApiCredential }
+    * @throws ApiException if fails to make API call
+    */
+    public CompanyApiCredential getApiCredential(String companyId, String apiCredentialId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (apiCredentialId == null) {
+            throw new IllegalArgumentException("Please provide the apiCredentialId path parameter");
+        }
+        pathParams.put("apiCredentialId", apiCredentialId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return CompanyApiCredential.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of API credentials
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -98,45 +172,6 @@ public class ApiCredentialsCompanyLevelApi extends Service {
     }
 
     /**
-    * Get an API credential
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @return {@link CompanyApiCredential }
-    * @throws ApiException if fails to make API call
-    */
-    public CompanyApiCredential getApiCredential(String companyId, String apiCredentialId) throws ApiException, IOException {
-        return getApiCredential(companyId, apiCredentialId, null);
-    }
-
-    /**
-    * Get an API credential
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CompanyApiCredential }
-    * @throws ApiException if fails to make API call
-    */
-    public CompanyApiCredential getApiCredential(String companyId, String apiCredentialId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (apiCredentialId == null) {
-            throw new IllegalArgumentException("Please provide the apiCredentialId path parameter");
-        }
-        pathParams.put("apiCredentialId", apiCredentialId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return CompanyApiCredential.fromJson(jsonResult);
-    }
-
-    /**
     * Update an API credential.
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -175,40 +210,5 @@ public class ApiCredentialsCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return CompanyApiCredential.fromJson(jsonResult);
-    }
-
-    /**
-    * Create an API credential.
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param createCompanyApiCredentialRequest {@link CreateCompanyApiCredentialRequest }  (required)
-    * @return {@link CreateCompanyApiCredentialResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateCompanyApiCredentialResponse createApiCredential(String companyId, CreateCompanyApiCredentialRequest createCompanyApiCredentialRequest) throws ApiException, IOException {
-        return createApiCredential(companyId, createCompanyApiCredentialRequest, null);
-    }
-
-    /**
-    * Create an API credential.
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param createCompanyApiCredentialRequest {@link CreateCompanyApiCredentialRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CreateCompanyApiCredentialResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateCompanyApiCredentialResponse createApiCredential(String companyId, CreateCompanyApiCredentialRequest createCompanyApiCredentialRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-
-        String requestBody = createCompanyApiCredentialRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return CreateCompanyApiCredentialResponse.fromJson(jsonResult);
     }
 }

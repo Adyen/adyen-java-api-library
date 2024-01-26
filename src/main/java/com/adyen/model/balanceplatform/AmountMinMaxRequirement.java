@@ -104,6 +104,11 @@ public class AmountMinMaxRequirement {
   }
 
 
+ /**
+  * Specifies the eligible amounts for a particular route.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -129,6 +134,11 @@ public class AmountMinMaxRequirement {
   }
 
 
+ /**
+  * Maximum amount.
+  *
+  * @param max
+  */ 
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMax(Long max) {
@@ -154,6 +164,11 @@ public class AmountMinMaxRequirement {
   }
 
 
+ /**
+  * Minimum amount.
+  *
+  * @param min
+  */ 
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMin(Long min) {
@@ -179,6 +194,11 @@ public class AmountMinMaxRequirement {
   }
 
 
+ /**
+  * **amountMinMaxRequirement**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

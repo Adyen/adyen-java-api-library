@@ -98,6 +98,11 @@ public class Phone {
   }
 
 
+ /**
+  * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
+  *
+  * @param number
+  */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -123,6 +128,11 @@ public class Phone {
   }
 
 
+ /**
+  * Type of phone number. Possible values:  **Landline**, **Mobile**. 
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

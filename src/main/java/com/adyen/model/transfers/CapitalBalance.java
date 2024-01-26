@@ -71,6 +71,11 @@ public class CapitalBalance {
   }
 
 
+ /**
+  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -96,6 +101,11 @@ public class CapitalBalance {
   }
 
 
+ /**
+  * Fee amount.
+  *
+  * @param fee
+  */ 
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Long fee) {
@@ -121,6 +131,11 @@ public class CapitalBalance {
   }
 
 
+ /**
+  * Principal amount.
+  *
+  * @param principal
+  */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipal(Long principal) {
@@ -146,6 +161,11 @@ public class CapitalBalance {
   }
 
 
+ /**
+  * Total amount. A sum of principal amount and fee amount.
+  *
+  * @param total
+  */ 
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotal(Long total) {

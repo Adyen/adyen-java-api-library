@@ -70,6 +70,11 @@ public class OnboardingThemes {
   }
 
 
+ /**
+  * The next page. Only present if there is a next page.
+  *
+  * @param next
+  */ 
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(String next) {
@@ -95,6 +100,11 @@ public class OnboardingThemes {
   }
 
 
+ /**
+  * The previous page. Only present if there is a previous page.
+  *
+  * @param previous
+  */ 
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(String previous) {
@@ -125,6 +135,11 @@ public class OnboardingThemes {
   }
 
 
+ /**
+  * List of onboarding themes.
+  *
+  * @param themes
+  */ 
   @JsonProperty(JSON_PROPERTY_THEMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemes(List<OnboardingTheme> themes) {

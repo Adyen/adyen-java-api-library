@@ -100,6 +100,11 @@ public class InternalCategoryData {
   }
 
 
+ /**
+  * The capture&#39;s merchant reference included in the transfer.
+  *
+  * @param modificationMerchantReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationMerchantReference(String modificationMerchantReference) {
@@ -125,6 +130,11 @@ public class InternalCategoryData {
   }
 
 
+ /**
+  * The capture reference included in the transfer.
+  *
+  * @param modificationPspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationPspReference(String modificationPspReference) {
@@ -150,6 +160,11 @@ public class InternalCategoryData {
   }
 
 
+ /**
+  * **internal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

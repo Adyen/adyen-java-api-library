@@ -55,6 +55,80 @@ public class ApiCredentialsMerchantLevelApi extends Service {
     }
 
     /**
+    * Create an API credential
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param createMerchantApiCredentialRequest {@link CreateMerchantApiCredentialRequest }  (required)
+    * @return {@link CreateApiCredentialResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateApiCredentialResponse createApiCredential(String merchantId, CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest) throws ApiException, IOException {
+        return createApiCredential(merchantId, createMerchantApiCredentialRequest, null);
+    }
+
+    /**
+    * Create an API credential
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param createMerchantApiCredentialRequest {@link CreateMerchantApiCredentialRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CreateApiCredentialResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateApiCredentialResponse createApiCredential(String merchantId, CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+
+        String requestBody = createMerchantApiCredentialRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/apiCredentials", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return CreateApiCredentialResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get an API credential
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
+    * @return {@link ApiCredential }
+    * @throws ApiException if fails to make API call
+    */
+    public ApiCredential getApiCredential(String merchantId, String apiCredentialId) throws ApiException, IOException {
+        return getApiCredential(merchantId, apiCredentialId, null);
+    }
+
+    /**
+    * Get an API credential
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ApiCredential }
+    * @throws ApiException if fails to make API call
+    */
+    public ApiCredential getApiCredential(String merchantId, String apiCredentialId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (apiCredentialId == null) {
+            throw new IllegalArgumentException("Please provide the apiCredentialId path parameter");
+        }
+        pathParams.put("apiCredentialId", apiCredentialId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/apiCredentials/{apiCredentialId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return ApiCredential.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of API credentials
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -98,45 +172,6 @@ public class ApiCredentialsMerchantLevelApi extends Service {
     }
 
     /**
-    * Get an API credential
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @return {@link ApiCredential }
-    * @throws ApiException if fails to make API call
-    */
-    public ApiCredential getApiCredential(String merchantId, String apiCredentialId) throws ApiException, IOException {
-        return getApiCredential(merchantId, apiCredentialId, null);
-    }
-
-    /**
-    * Get an API credential
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link ApiCredential }
-    * @throws ApiException if fails to make API call
-    */
-    public ApiCredential getApiCredential(String merchantId, String apiCredentialId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (apiCredentialId == null) {
-            throw new IllegalArgumentException("Please provide the apiCredentialId path parameter");
-        }
-        pathParams.put("apiCredentialId", apiCredentialId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/apiCredentials/{apiCredentialId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return ApiCredential.fromJson(jsonResult);
-    }
-
-    /**
     * Update an API credential
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -175,40 +210,5 @@ public class ApiCredentialsMerchantLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/apiCredentials/{apiCredentialId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return ApiCredential.fromJson(jsonResult);
-    }
-
-    /**
-    * Create an API credential
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param createMerchantApiCredentialRequest {@link CreateMerchantApiCredentialRequest }  (required)
-    * @return {@link CreateApiCredentialResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateApiCredentialResponse createApiCredential(String merchantId, CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest) throws ApiException, IOException {
-        return createApiCredential(merchantId, createMerchantApiCredentialRequest, null);
-    }
-
-    /**
-    * Create an API credential
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param createMerchantApiCredentialRequest {@link CreateMerchantApiCredentialRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CreateApiCredentialResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateApiCredentialResponse createApiCredential(String merchantId, CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = createMerchantApiCredentialRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/apiCredentials", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return CreateApiCredentialResponse.fromJson(jsonResult);
     }
 }

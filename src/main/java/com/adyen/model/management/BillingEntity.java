@@ -76,6 +76,11 @@ public class BillingEntity {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -101,6 +106,11 @@ public class BillingEntity {
   }
 
 
+ /**
+  * The email address of the billing entity.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -126,6 +136,11 @@ public class BillingEntity {
   }
 
 
+ /**
+  * The unique identifier of the billing entity, for use as &#x60;billingEntityId&#x60; when creating an order.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -151,6 +166,11 @@ public class BillingEntity {
   }
 
 
+ /**
+  * The unique name of the billing entity.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -176,6 +196,11 @@ public class BillingEntity {
   }
 
 
+ /**
+  * The tax number of the billing entity.
+  *
+  * @param taxId
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {

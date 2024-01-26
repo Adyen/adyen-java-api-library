@@ -234,6 +234,11 @@ public class Modification {
   }
 
 
+ /**
+  * The direction of the money movement.
+  *
+  * @param direction
+  */ 
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirection(String direction) {
@@ -259,6 +264,11 @@ public class Modification {
   }
 
 
+ /**
+  * Our reference for the modification.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -284,6 +294,11 @@ public class Modification {
   }
 
 
+ /**
+  * Your reference for the modification, used internally within your platform.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -309,6 +324,11 @@ public class Modification {
   }
 
 
+ /**
+  * The status of the transfer event.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -334,6 +354,11 @@ public class Modification {
   }
 
 
+ /**
+  * The type of transfer modification.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

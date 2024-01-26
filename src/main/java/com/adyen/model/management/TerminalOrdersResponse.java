@@ -70,6 +70,11 @@ public class TerminalOrdersResponse {
   }
 
 
+ /**
+  * List of orders for payment terminal packages and parts.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TerminalOrder> data) {

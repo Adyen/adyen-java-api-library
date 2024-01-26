@@ -53,6 +53,33 @@ public class BusinessLinesApi extends Service {
     }
 
     /**
+    * Create a business line
+    *
+    * @param businessLineInfo {@link BusinessLineInfo }  (required)
+    * @return {@link BusinessLine }
+    * @throws ApiException if fails to make API call
+    */
+    public BusinessLine createBusinessLine(BusinessLineInfo businessLineInfo) throws ApiException, IOException {
+        return createBusinessLine(businessLineInfo, null);
+    }
+
+    /**
+    * Create a business line
+    *
+    * @param businessLineInfo {@link BusinessLineInfo }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link BusinessLine }
+    * @throws ApiException if fails to make API call
+    */
+    public BusinessLine createBusinessLine(BusinessLineInfo businessLineInfo, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = businessLineInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/businessLines", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return BusinessLine.fromJson(jsonResult);
+    }
+
+    /**
     * Delete a business line
     *
     * @param id {@link String } The unique identifier of the business line to be deleted. (required)
@@ -147,33 +174,6 @@ public class BusinessLinesApi extends Service {
         String requestBody = businessLineInfoUpdate.toJson();
         Resource resource = new Resource(this, this.baseURL + "/businessLines/{id}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return BusinessLine.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a business line
-    *
-    * @param businessLineInfo {@link BusinessLineInfo }  (required)
-    * @return {@link BusinessLine }
-    * @throws ApiException if fails to make API call
-    */
-    public BusinessLine createBusinessLine(BusinessLineInfo businessLineInfo) throws ApiException, IOException {
-        return createBusinessLine(businessLineInfo, null);
-    }
-
-    /**
-    * Create a business line
-    *
-    * @param businessLineInfo {@link BusinessLineInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link BusinessLine }
-    * @throws ApiException if fails to make API call
-    */
-    public BusinessLine createBusinessLine(BusinessLineInfo businessLineInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = businessLineInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/businessLines", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return BusinessLine.fromJson(jsonResult);
     }
 }

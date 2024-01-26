@@ -81,6 +81,11 @@ public class CreateCompanyApiCredentialRequest {
   }
 
 
+ /**
+  * List of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the new API credential.
+  *
+  * @param allowedOrigins
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<String> allowedOrigins) {
@@ -114,6 +119,11 @@ public class CreateCompanyApiCredentialRequest {
   }
 
 
+ /**
+  * List of merchant accounts that the API credential has access to.
+  *
+  * @param associatedMerchantAccounts
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -139,6 +149,11 @@ public class CreateCompanyApiCredentialRequest {
   }
 
 
+ /**
+  * Description of the API credential.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -172,6 +187,11 @@ public class CreateCompanyApiCredentialRequest {
   }
 
 
+ /**
+  * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
+  *
+  * @param roles
+  */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {

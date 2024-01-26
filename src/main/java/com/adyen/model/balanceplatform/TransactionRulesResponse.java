@@ -70,6 +70,11 @@ public class TransactionRulesResponse {
   }
 
 
+ /**
+  * List of transaction rules.
+  *
+  * @param transactionRules
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRules(List<TransactionRule> transactionRules) {

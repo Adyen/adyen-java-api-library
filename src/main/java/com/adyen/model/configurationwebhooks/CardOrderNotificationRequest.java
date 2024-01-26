@@ -103,6 +103,11 @@ public class CardOrderNotificationRequest {
   }
 
 
+ /**
+  * data
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(CardOrderItem data) {
@@ -128,6 +133,11 @@ public class CardOrderNotificationRequest {
   }
 
 
+ /**
+  * The environment from which the webhook originated.  Possible values: **test**, **live**.
+  *
+  * @param environment
+  */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -153,6 +163,11 @@ public class CardOrderNotificationRequest {
   }
 
 
+ /**
+  * Type of webhook.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

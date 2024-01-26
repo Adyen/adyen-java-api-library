@@ -59,6 +59,11 @@ public class GenerateApiKeyResponse {
   }
 
 
+ /**
+  * The generated API key.
+  *
+  * @param apiKey
+  */ 
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiKey(String apiKey) {

@@ -173,6 +173,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The voucher alternative reference code.
+  *
+  * @param alternativeReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ALTERNATIVE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlternativeReference(String alternativeReference) {
@@ -198,6 +203,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * A collection institution number (store number) for Econtext Pay-Easy ATM.
+  *
+  * @param collectionInstitutionNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCollectionInstitutionNumber(String collectionInstitutionNumber) {
@@ -223,6 +233,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The URL to download the voucher.
+  *
+  * @param downloadUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
@@ -248,6 +263,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * An entity number of Multibanco.
+  *
+  * @param entity
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(String entity) {
@@ -273,6 +293,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The date time of the voucher expiry.
+  *
+  * @param expiresAt
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
@@ -298,6 +323,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * initialAmount
+  *
+  * @param initialAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_INITIAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInitialAmount(Amount initialAmount) {
@@ -323,6 +353,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The URL to the detailed instructions to make payment using the voucher.
+  *
+  * @param instructionsUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstructionsUrl(String instructionsUrl) {
@@ -348,6 +383,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The issuer of the voucher.
+  *
+  * @param issuer
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -373,6 +413,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The shopper telephone number (partially masked).
+  *
+  * @param maskedTelephoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_MASKED_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaskedTelephoneNumber(String maskedTelephoneNumber) {
@@ -398,6 +443,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The merchant name.
+  *
+  * @param merchantName
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
@@ -423,6 +473,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The merchant reference.
+  *
+  * @param merchantReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
@@ -448,6 +503,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * A base64 encoded signature of all properties
+  *
+  * @param passCreationToken
+  */ 
   @JsonProperty(JSON_PROPERTY_PASS_CREATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassCreationToken(String passCreationToken) {
@@ -473,6 +533,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * Encoded payment data.
+  *
+  * @param paymentData
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -498,6 +563,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * Specifies the payment method.
+  *
+  * @param paymentMethodType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -523,6 +593,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The voucher reference code.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -548,6 +623,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The shopper email.
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -573,6 +653,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * The shopper name.
+  *
+  * @param shopperName
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(String shopperName) {
@@ -598,6 +683,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * surcharge
+  *
+  * @param surcharge
+  */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Amount surcharge) {
@@ -623,6 +713,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * totalAmount
+  *
+  * @param totalAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(Amount totalAmount) {
@@ -648,6 +743,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * **voucher**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -673,6 +773,11 @@ public class CheckoutVoucherAction {
   }
 
 
+ /**
+  * Specifies the URL to redirect to.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

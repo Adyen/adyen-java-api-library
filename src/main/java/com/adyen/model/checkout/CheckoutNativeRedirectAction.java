@@ -123,6 +123,11 @@ public class CheckoutNativeRedirectAction {
   }
 
 
+ /**
+  * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Map<String, String> data) {
@@ -148,6 +153,11 @@ public class CheckoutNativeRedirectAction {
   }
 
 
+ /**
+  * Specifies the HTTP method, for example GET or POST.
+  *
+  * @param method
+  */ 
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMethod(String method) {
@@ -173,6 +183,11 @@ public class CheckoutNativeRedirectAction {
   }
 
 
+ /**
+  * Native SDK&#39;s redirect data containing the direct issuer link and state data that must be submitted to the /v1/nativeRedirect/redirectResult.
+  *
+  * @param nativeRedirectData
+  */ 
   @JsonProperty(JSON_PROPERTY_NATIVE_REDIRECT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNativeRedirectData(String nativeRedirectData) {
@@ -198,6 +213,11 @@ public class CheckoutNativeRedirectAction {
   }
 
 
+ /**
+  * Specifies the payment method.
+  *
+  * @param paymentMethodType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -223,6 +243,11 @@ public class CheckoutNativeRedirectAction {
   }
 
 
+ /**
+  * **nativeRedirect**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -248,6 +273,11 @@ public class CheckoutNativeRedirectAction {
   }
 
 
+ /**
+  * Specifies the URL to redirect to.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

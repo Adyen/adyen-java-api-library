@@ -80,6 +80,11 @@ public class CheckoutOrderResponse {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -105,6 +110,11 @@ public class CheckoutOrderResponse {
   }
 
 
+ /**
+  * The expiry date for the order.
+  *
+  * @param expiresAt
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
@@ -130,6 +140,11 @@ public class CheckoutOrderResponse {
   }
 
 
+ /**
+  * The encrypted order data.
+  *
+  * @param orderData
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
@@ -155,6 +170,11 @@ public class CheckoutOrderResponse {
   }
 
 
+ /**
+  * The &#x60;pspReference&#x60; that belongs to the order.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -180,6 +200,11 @@ public class CheckoutOrderResponse {
   }
 
 
+ /**
+  * The merchant reference for the order.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -205,6 +230,11 @@ public class CheckoutOrderResponse {
   }
 
 
+ /**
+  * remainingAmount
+  *
+  * @param remainingAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {

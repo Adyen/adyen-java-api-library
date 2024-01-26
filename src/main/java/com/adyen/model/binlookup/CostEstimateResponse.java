@@ -1,6 +1,5 @@
 /*
  * Adyen BinLookup API
- * The BIN Lookup API provides endpoints for retrieving information, such as cost estimates, and 3D Secure supported version based on a given BIN.  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning The BinLookup API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/BinLookup/v54/get3dsAvailability ```## Going live  To authneticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/BinLookup/v54/get3dsAvailability ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 54
  * 
@@ -78,6 +77,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * cardBin
+  *
+  * @param cardBin
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(CardBin cardBin) {
@@ -103,6 +107,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * costEstimateAmount
+  *
+  * @param costEstimateAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateAmount(Amount costEstimateAmount) {
@@ -128,6 +137,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character reference associated with the request.
+  *
+  * @param costEstimateReference
+  */ 
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateReference(String costEstimateReference) {
@@ -153,6 +167,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * The result of the cost estimation.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
@@ -178,6 +197,11 @@ public class CostEstimateResponse {
   }
 
 
+ /**
+  * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
+  *
+  * @param surchargeType
+  */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurchargeType(String surchargeType) {

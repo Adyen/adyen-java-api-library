@@ -72,6 +72,11 @@ public class StandalonePaymentCancelRequest {
   }
 
 
+ /**
+  * applicationInfo
+  *
+  * @param applicationInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
@@ -97,6 +102,11 @@ public class StandalonePaymentCancelRequest {
   }
 
 
+ /**
+  * The merchant account that is used to process the payment.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -122,6 +132,11 @@ public class StandalonePaymentCancelRequest {
   }
 
 
+ /**
+  * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
+  *
+  * @param paymentReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentReference(String paymentReference) {
@@ -147,6 +162,11 @@ public class StandalonePaymentCancelRequest {
   }
 
 
+ /**
+  * Your reference for the cancel request. Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

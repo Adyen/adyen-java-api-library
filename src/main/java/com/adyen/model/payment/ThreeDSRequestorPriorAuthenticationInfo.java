@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -111,6 +110,11 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   }
 
 
+ /**
+  * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
+  *
+  * @param threeDSReqPriorAuthData
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqPriorAuthData(String threeDSReqPriorAuthData) {
@@ -136,6 +140,11 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   }
 
 
+ /**
+  * Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values: * **01** — Frictionless authentication occurred by ACS. * **02** — Cardholder challenge occurred by ACS. * **03** — AVS verified. * **04** — Other issuer methods.
+  *
+  * @param threeDSReqPriorAuthMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqPriorAuthMethod(ThreeDSReqPriorAuthMethodEnum threeDSReqPriorAuthMethod) {
@@ -161,6 +170,11 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   }
 
 
+ /**
+  * Date and time in UTC of the prior cardholder authentication. Format: YYYYMMDDHHMM
+  *
+  * @param threeDSReqPriorAuthTimestamp
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqPriorAuthTimestamp(String threeDSReqPriorAuthTimestamp) {
@@ -186,6 +200,11 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   }
 
 
+ /**
+  * This data element provides additional information to the ACS to determine the best approach for handing a request. This data element contains an ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder. Length: 30 characters.
+  *
+  * @param threeDSReqPriorRef
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqPriorRef(String threeDSReqPriorRef) {

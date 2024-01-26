@@ -82,6 +82,11 @@ public class PaymentInstrumentGroup {
   }
 
 
+ /**
+  * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -107,6 +112,11 @@ public class PaymentInstrumentGroup {
   }
 
 
+ /**
+  * Your description for the payment instrument group, maximum 300 characters.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -132,6 +142,11 @@ public class PaymentInstrumentGroup {
   }
 
 
+ /**
+  * The unique identifier of the payment instrument group.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -165,6 +180,11 @@ public class PaymentInstrumentGroup {
   }
 
 
+ /**
+  * Properties of the payment instrument group.
+  *
+  * @param properties
+  */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, String> properties) {
@@ -190,6 +210,11 @@ public class PaymentInstrumentGroup {
   }
 
 
+ /**
+  * Your reference for the payment instrument group, maximum 150 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -215,6 +240,11 @@ public class PaymentInstrumentGroup {
   }
 
 
+ /**
+  * The tx variant of the payment instrument group.
+  *
+  * @param txVariant
+  */ 
   @JsonProperty(JSON_PROPERTY_TX_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxVariant(String txVariant) {

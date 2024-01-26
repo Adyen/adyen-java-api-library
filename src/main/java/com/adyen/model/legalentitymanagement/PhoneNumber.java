@@ -63,6 +63,11 @@ public class PhoneNumber {
   }
 
 
+ /**
+  * The full phone number, including the country code. For example, **+3112345678**.
+  *
+  * @param number
+  */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -88,6 +93,11 @@ public class PhoneNumber {
   }
 
 
+ /**
+  * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

@@ -31,12 +31,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * Localization
  */
 @JsonPropertyOrder({
-  Localization.JSON_PROPERTY_LANGUAGE
+  Localization.JSON_PROPERTY_LANGUAGE,
+  Localization.JSON_PROPERTY_SECONDARY_LANGUAGE,
+  Localization.JSON_PROPERTY_TIMEZONE
 })
 
 public class Localization {
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
+
+  public static final String JSON_PROPERTY_SECONDARY_LANGUAGE = "secondaryLanguage";
+  private String secondaryLanguage;
+
+  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
+  private String timezone;
 
   public Localization() { 
   }
@@ -59,10 +67,75 @@ public class Localization {
   }
 
 
+ /**
+  * Language of the terminal.
+  *
+  * @param language
+  */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
+  }
+
+
+  public Localization secondaryLanguage(String secondaryLanguage) {
+    this.secondaryLanguage = secondaryLanguage;
+    return this;
+  }
+
+   /**
+   * Secondary language of the terminal.
+   * @return secondaryLanguage
+  **/
+  @ApiModelProperty(value = "Secondary language of the terminal.")
+  @JsonProperty(JSON_PROPERTY_SECONDARY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSecondaryLanguage() {
+    return secondaryLanguage;
+  }
+
+
+ /**
+  * Secondary language of the terminal.
+  *
+  * @param secondaryLanguage
+  */ 
+  @JsonProperty(JSON_PROPERTY_SECONDARY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSecondaryLanguage(String secondaryLanguage) {
+    this.secondaryLanguage = secondaryLanguage;
+  }
+
+
+  public Localization timezone(String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+   /**
+   * The time zone of the terminal.
+   * @return timezone
+  **/
+  @ApiModelProperty(value = "The time zone of the terminal.")
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTimezone() {
+    return timezone;
+  }
+
+
+ /**
+  * The time zone of the terminal.
+  *
+  * @param timezone
+  */ 
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
   }
 
 
@@ -78,12 +151,14 @@ public class Localization {
       return false;
     }
     Localization localization = (Localization) o;
-    return Objects.equals(this.language, localization.language);
+    return Objects.equals(this.language, localization.language) &&
+        Objects.equals(this.secondaryLanguage, localization.secondaryLanguage) &&
+        Objects.equals(this.timezone, localization.timezone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language);
+    return Objects.hash(language, secondaryLanguage, timezone);
   }
 
   @Override
@@ -91,6 +166,8 @@ public class Localization {
     StringBuilder sb = new StringBuilder();
     sb.append("class Localization {\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    secondaryLanguage: ").append(toIndentedString(secondaryLanguage)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -141,6 +141,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -166,6 +171,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -191,6 +201,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * The date that the order will expire.
+  *
+  * @param expiresAt
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
@@ -216,6 +231,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * fraudResult
+  *
+  * @param fraudResult
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
@@ -241,6 +261,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * The encrypted data that will be used by merchant for adding payments to the order.
+  *
+  * @param orderData
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
@@ -266,6 +291,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -291,6 +321,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * The reference provided by merchant for creating the order.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -316,6 +351,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+  *
+  * @param refusalReason
+  */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
@@ -341,6 +381,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * remainingAmount
+  *
+  * @param remainingAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
@@ -366,6 +411,11 @@ public class CreateOrderResponse {
   }
 
 
+ /**
+  * The result of the order creation request.  The value is always **Success**.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {

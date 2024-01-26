@@ -88,6 +88,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
+  *
+  * @param actionType
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionType(String actionType) {
@@ -113,6 +118,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * Technical information about the terminal action.
+  *
+  * @param config
+  */ 
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfig(String config) {
@@ -138,6 +148,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * The date and time when the action was carried out.
+  *
+  * @param confirmedAt
+  */ 
   @JsonProperty(JSON_PROPERTY_CONFIRMED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfirmedAt(OffsetDateTime confirmedAt) {
@@ -163,6 +178,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * The unique ID of the terminal action.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -188,6 +208,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * The result message for the action.
+  *
+  * @param result
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
@@ -213,6 +238,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * The date and time when the action was scheduled to happen.
+  *
+  * @param scheduledAt
+  */ 
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledAt(OffsetDateTime scheduledAt) {
@@ -238,6 +268,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
@@ -263,6 +298,11 @@ public class ExternalTerminalAction {
   }
 
 
+ /**
+  * The unique ID of the terminal that the action applies to.
+  *
+  * @param terminalId
+  */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {

@@ -59,6 +59,11 @@ public class Logo {
   }
 
 
+ /**
+  * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(String data) {

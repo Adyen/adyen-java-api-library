@@ -75,6 +75,11 @@ public class Balance {
   }
 
 
+ /**
+  * The remaining amount available for spending.
+  *
+  * @param available
+  */ 
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Long available) {
@@ -100,6 +105,11 @@ public class Balance {
   }
 
 
+ /**
+  * The total amount in the balance.
+  *
+  * @param balance
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
@@ -125,6 +135,11 @@ public class Balance {
   }
 
 
+ /**
+  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -150,6 +165,11 @@ public class Balance {
   }
 
 
+ /**
+  * The amount pending to be paid out but not yet available in the balance.
+  *
+  * @param pending
+  */ 
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPending(Long pending) {
@@ -175,6 +195,11 @@ public class Balance {
   }
 
 
+ /**
+  * The amount reserved for payments that have been authorised, but have not been captured yet.
+  *
+  * @param reserved
+  */ 
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {

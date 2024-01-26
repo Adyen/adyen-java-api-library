@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AccountCapabilityData.JSON_PROPERTY_PROBLEMS,
   AccountCapabilityData.JSON_PROPERTY_REQUESTED,
   AccountCapabilityData.JSON_PROPERTY_REQUESTED_LEVEL,
+  AccountCapabilityData.JSON_PROPERTY_VERIFICATION_DEADLINE,
   AccountCapabilityData.JSON_PROPERTY_VERIFICATION_STATUS
 })
 
@@ -61,6 +63,9 @@ public class AccountCapabilityData {
 
   public static final String JSON_PROPERTY_REQUESTED_LEVEL = "requestedLevel";
   private String requestedLevel;
+
+  public static final String JSON_PROPERTY_VERIFICATION_DEADLINE = "verificationDeadline";
+  private OffsetDateTime verificationDeadline;
 
   public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private String verificationStatus;
@@ -86,6 +91,11 @@ public class AccountCapabilityData {
   }
 
 
+ /**
+  * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
+  *
+  * @param allowed
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
@@ -111,6 +121,11 @@ public class AccountCapabilityData {
   }
 
 
+ /**
+  * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+  *
+  * @param allowedLevel
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedLevel(String allowedLevel) {
@@ -136,6 +151,11 @@ public class AccountCapabilityData {
   }
 
 
+ /**
+  * The name of the capability. For example, **sendToTransferInstrument**.
+  *
+  * @param capability
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapability(String capability) {
@@ -169,6 +189,11 @@ public class AccountCapabilityData {
   }
 
 
+ /**
+  * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
+  *
+  * @param problems
+  */ 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
@@ -194,6 +219,11 @@ public class AccountCapabilityData {
   }
 
 
+ /**
+  * Indicates whether you requested the capability.
+  *
+  * @param requested
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
@@ -219,10 +249,45 @@ public class AccountCapabilityData {
   }
 
 
+ /**
+  * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+  *
+  * @param requestedLevel
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(String requestedLevel) {
     this.requestedLevel = requestedLevel;
+  }
+
+
+  public AccountCapabilityData verificationDeadline(OffsetDateTime verificationDeadline) {
+    this.verificationDeadline = verificationDeadline;
+    return this;
+  }
+
+   /**
+   * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
+   * @return verificationDeadline
+  **/
+  @ApiModelProperty(value = "The verification deadline for the capability that will be disallowed if verification errors are not resolved.")
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getVerificationDeadline() {
+    return verificationDeadline;
+  }
+
+
+ /**
+  * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
+  *
+  * @param verificationDeadline
+  */ 
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerificationDeadline(OffsetDateTime verificationDeadline) {
+    this.verificationDeadline = verificationDeadline;
   }
 
 
@@ -244,6 +309,11 @@ public class AccountCapabilityData {
   }
 
 
+ /**
+  * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
+  *
+  * @param verificationStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(String verificationStatus) {
@@ -269,12 +339,13 @@ public class AccountCapabilityData {
         Objects.equals(this.problems, accountCapabilityData.problems) &&
         Objects.equals(this.requested, accountCapabilityData.requested) &&
         Objects.equals(this.requestedLevel, accountCapabilityData.requestedLevel) &&
+        Objects.equals(this.verificationDeadline, accountCapabilityData.verificationDeadline) &&
         Objects.equals(this.verificationStatus, accountCapabilityData.verificationStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, allowedLevel, capability, problems, requested, requestedLevel, verificationStatus);
+    return Objects.hash(allowed, allowedLevel, capability, problems, requested, requestedLevel, verificationDeadline, verificationStatus);
   }
 
   @Override
@@ -287,6 +358,7 @@ public class AccountCapabilityData {
     sb.append("    problems: ").append(toIndentedString(problems)).append("\n");
     sb.append("    requested: ").append(toIndentedString(requested)).append("\n");
     sb.append("    requestedLevel: ").append(toIndentedString(requestedLevel)).append("\n");
+    sb.append("    verificationDeadline: ").append(toIndentedString(verificationDeadline)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("}");
     return sb.toString();

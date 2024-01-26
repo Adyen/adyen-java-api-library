@@ -94,6 +94,11 @@ public class WebDataExemption {
   }
 
 
+ /**
+  * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
+  *
+  * @param reason
+  */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {

@@ -59,6 +59,11 @@ public class GenerateHmacKeyResponse {
   }
 
 
+ /**
+  * The HMAC key generated for this webhook.
+  *
+  * @param hmacKey
+  */ 
   @JsonProperty(JSON_PROPERTY_HMAC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHmacKey(String hmacKey) {

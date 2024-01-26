@@ -73,6 +73,11 @@ public class ContactDetails {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -98,6 +103,11 @@ public class ContactDetails {
   }
 
 
+ /**
+  * The email address of the account holder.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -123,6 +133,11 @@ public class ContactDetails {
   }
 
 
+ /**
+  * phone
+  *
+  * @param phone
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(Phone phone) {
@@ -148,6 +163,11 @@ public class ContactDetails {
   }
 
 
+ /**
+  * The URL of the account holder&#39;s website.
+  *
+  * @param webAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {

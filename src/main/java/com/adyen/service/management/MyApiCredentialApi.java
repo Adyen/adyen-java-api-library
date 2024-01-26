@@ -55,119 +55,6 @@ public class MyApiCredentialApi extends Service {
     }
 
     /**
-    * Remove allowed origin
-    *
-    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-    * @throws ApiException if fails to make API call
-    */
-    public void removeAllowedOrigin(String originId) throws ApiException, IOException {
-        removeAllowedOrigin(originId, null);
-    }
-
-    /**
-    * Remove allowed origin
-    *
-    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @throws ApiException if fails to make API call
-    */
-    public void removeAllowedOrigin(String originId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (originId == null) {
-            throw new IllegalArgumentException("Please provide the originId path parameter");
-        }
-        pathParams.put("originId", originId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins/{originId}", null);
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
-    }
-
-    /**
-    * Get API credential details
-    *
-    * @return {@link MeApiCredential }
-    * @throws ApiException if fails to make API call
-    */
-    public MeApiCredential getApiCredentialDetails() throws ApiException, IOException {
-        return getApiCredentialDetails(null);
-    }
-
-    /**
-    * Get API credential details
-    *
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link MeApiCredential }
-    * @throws ApiException if fails to make API call
-    */
-    public MeApiCredential getApiCredentialDetails(RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/me", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);
-        return MeApiCredential.fromJson(jsonResult);
-    }
-
-    /**
-    * Get allowed origins
-    *
-    * @return {@link AllowedOriginsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AllowedOriginsResponse getAllowedOrigins() throws ApiException, IOException {
-        return getAllowedOrigins(null);
-    }
-
-    /**
-    * Get allowed origins
-    *
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AllowedOriginsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AllowedOriginsResponse getAllowedOrigins(RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);
-        return AllowedOriginsResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get allowed origin details
-    *
-    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-    * @return {@link AllowedOrigin }
-    * @throws ApiException if fails to make API call
-    */
-    public AllowedOrigin getAllowedOriginDetails(String originId) throws ApiException, IOException {
-        return getAllowedOriginDetails(originId, null);
-    }
-
-    /**
-    * Get allowed origin details
-    *
-    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AllowedOrigin }
-    * @throws ApiException if fails to make API call
-    */
-    public AllowedOrigin getAllowedOriginDetails(String originId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (originId == null) {
-            throw new IllegalArgumentException("Please provide the originId path parameter");
-        }
-        pathParams.put("originId", originId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins/{originId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return AllowedOrigin.fromJson(jsonResult);
-    }
-
-    /**
     * Add allowed origin
     *
     * @param createAllowedOriginRequest {@link CreateAllowedOriginRequest }  (required)
@@ -217,5 +104,118 @@ public class MyApiCredentialApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/me/generateClientKey", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return GenerateClientKeyResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get allowed origin details
+    *
+    * @param originId {@link String } Unique identifier of the allowed origin. (required)
+    * @return {@link AllowedOrigin }
+    * @throws ApiException if fails to make API call
+    */
+    public AllowedOrigin getAllowedOriginDetails(String originId) throws ApiException, IOException {
+        return getAllowedOriginDetails(originId, null);
+    }
+
+    /**
+    * Get allowed origin details
+    *
+    * @param originId {@link String } Unique identifier of the allowed origin. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link AllowedOrigin }
+    * @throws ApiException if fails to make API call
+    */
+    public AllowedOrigin getAllowedOriginDetails(String originId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (originId == null) {
+            throw new IllegalArgumentException("Please provide the originId path parameter");
+        }
+        pathParams.put("originId", originId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins/{originId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return AllowedOrigin.fromJson(jsonResult);
+    }
+
+    /**
+    * Get allowed origins
+    *
+    * @return {@link AllowedOriginsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AllowedOriginsResponse getAllowedOrigins() throws ApiException, IOException {
+        return getAllowedOrigins(null);
+    }
+
+    /**
+    * Get allowed origins
+    *
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link AllowedOriginsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AllowedOriginsResponse getAllowedOrigins(RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);
+        return AllowedOriginsResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get API credential details
+    *
+    * @return {@link MeApiCredential }
+    * @throws ApiException if fails to make API call
+    */
+    public MeApiCredential getApiCredentialDetails() throws ApiException, IOException {
+        return getApiCredentialDetails(null);
+    }
+
+    /**
+    * Get API credential details
+    *
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link MeApiCredential }
+    * @throws ApiException if fails to make API call
+    */
+    public MeApiCredential getApiCredentialDetails(RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/me", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);
+        return MeApiCredential.fromJson(jsonResult);
+    }
+
+    /**
+    * Remove allowed origin
+    *
+    * @param originId {@link String } Unique identifier of the allowed origin. (required)
+    * @throws ApiException if fails to make API call
+    */
+    public void removeAllowedOrigin(String originId) throws ApiException, IOException {
+        removeAllowedOrigin(originId, null);
+    }
+
+    /**
+    * Remove allowed origin
+    *
+    * @param originId {@link String } Unique identifier of the allowed origin. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @throws ApiException if fails to make API call
+    */
+    public void removeAllowedOrigin(String originId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (originId == null) {
+            throw new IllegalArgumentException("Please provide the originId path parameter");
+        }
+        pathParams.put("originId", originId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins/{originId}", null);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
     }
 }

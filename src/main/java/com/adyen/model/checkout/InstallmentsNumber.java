@@ -59,6 +59,11 @@ public class InstallmentsNumber {
   }
 
 
+ /**
+  * Maximum number of installments
+  *
+  * @param maxNumberOfInstallments
+  */ 
   @JsonProperty(JSON_PROPERTY_MAX_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxNumberOfInstallments(Integer maxNumberOfInstallments) {

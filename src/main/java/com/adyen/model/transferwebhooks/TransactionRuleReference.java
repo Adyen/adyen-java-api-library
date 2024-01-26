@@ -75,6 +75,11 @@ public class TransactionRuleReference {
   }
 
 
+ /**
+  * The description of the resource.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -100,6 +105,11 @@ public class TransactionRuleReference {
   }
 
 
+ /**
+  * The unique identifier of the resource.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -125,6 +135,11 @@ public class TransactionRuleReference {
   }
 
 
+ /**
+  * The outcome type of the rule.
+  *
+  * @param outcomeType
+  */ 
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcomeType(String outcomeType) {
@@ -150,6 +165,11 @@ public class TransactionRuleReference {
   }
 
 
+ /**
+  * The reference for the resource.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -175,6 +195,11 @@ public class TransactionRuleReference {
   }
 
 
+ /**
+  * The score of the rule in case it&#39;s a scoreBased rule.
+  *
+  * @param score
+  */ 
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {

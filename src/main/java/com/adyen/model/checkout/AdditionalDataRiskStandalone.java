@@ -115,6 +115,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
+  *
+  * @param payPalCountryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalCountryCode(String payPalCountryCode) {
@@ -140,6 +145,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Shopper&#39;s email.
+  *
+  * @param payPalEmailId
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_EMAIL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalEmailId(String payPalEmailId) {
@@ -165,6 +175,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Shopper&#39;s first name.
+  *
+  * @param payPalFirstName
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalFirstName(String payPalFirstName) {
@@ -190,6 +205,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Shopper&#39;s last name.
+  *
+  * @param payPalLastName
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalLastName(String payPalLastName) {
@@ -215,6 +235,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
+  *
+  * @param payPalPayerId
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PAYER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalPayerId(String payPalPayerId) {
@@ -240,6 +265,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Shopper&#39;s phone number.
+  *
+  * @param payPalPhone
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalPhone(String payPalPhone) {
@@ -265,6 +295,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
+  *
+  * @param payPalProtectionEligibility
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PROTECTION_ELIGIBILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalProtectionEligibility(String payPalProtectionEligibility) {
@@ -290,6 +325,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Unique transaction ID of the payment.
+  *
+  * @param payPalTransactionId
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalTransactionId(String payPalTransactionId) {
@@ -315,6 +355,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Raw AVS result received from the acquirer, where available. Example: D
+  *
+  * @param avsResultRaw
+  */ 
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResultRaw(String avsResultRaw) {
@@ -340,6 +385,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/risk-management/standalone-risk#tokenised-pan-request).
+  *
+  * @param bin
+  */ 
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
@@ -365,6 +415,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Raw CVC result received from the acquirer, where available. Example: 1
+  *
+  * @param cvcResultRaw
+  */ 
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResultRaw(String cvcResultRaw) {
@@ -390,6 +445,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Unique identifier or token for the shopper&#39;s card details.
+  *
+  * @param riskToken
+  */ 
   @JsonProperty(JSON_PROPERTY_RISK_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskToken(String riskToken) {
@@ -415,6 +475,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
+  *
+  * @param threeDAuthenticated
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticated(String threeDAuthenticated) {
@@ -440,6 +505,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * A Boolean value indicating whether 3DS was offered for this payment. Example: true
+  *
+  * @param threeDOffered
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOffered(String threeDOffered) {
@@ -465,6 +535,11 @@ public class AdditionalDataRiskStandalone {
   }
 
 
+ /**
+  * Required for PayPal payments only. The only supported value is: **paypal**.
+  *
+  * @param tokenDataType
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDataType(String tokenDataType) {

@@ -67,6 +67,11 @@ public class GrantOffers {
   }
 
 
+ /**
+  * A list of available grant offers.
+  *
+  * @param grantOffers
+  */ 
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOffers(List<GrantOffer> grantOffers) {

@@ -56,33 +56,6 @@ public class OrdersApi extends Service {
     }
 
     /**
-    * Create an order
-    *
-    * @param createOrderRequest {@link CreateOrderRequest }  (required)
-    * @return {@link CreateOrderResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateOrderResponse orders(CreateOrderRequest createOrderRequest) throws ApiException, IOException {
-        return orders(createOrderRequest, null);
-    }
-
-    /**
-    * Create an order
-    *
-    * @param createOrderRequest {@link CreateOrderRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CreateOrderResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateOrderResponse orders(CreateOrderRequest createOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = createOrderRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/orders", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return CreateOrderResponse.fromJson(jsonResult);
-    }
-
-    /**
     * Cancel an order
     *
     * @param cancelOrderRequest {@link CancelOrderRequest }  (required)
@@ -134,5 +107,32 @@ public class OrdersApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/paymentMethods/balance", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return BalanceCheckResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Create an order
+    *
+    * @param createOrderRequest {@link CreateOrderRequest }  (required)
+    * @return {@link CreateOrderResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateOrderResponse orders(CreateOrderRequest createOrderRequest) throws ApiException, IOException {
+        return orders(createOrderRequest, null);
+    }
+
+    /**
+    * Create an order
+    *
+    * @param createOrderRequest {@link CreateOrderRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CreateOrderResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateOrderResponse orders(CreateOrderRequest createOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = createOrderRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/orders", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return CreateOrderResponse.fromJson(jsonResult);
     }
 }

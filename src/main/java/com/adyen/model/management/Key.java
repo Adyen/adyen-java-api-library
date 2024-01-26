@@ -67,6 +67,11 @@ public class Key {
   }
 
 
+ /**
+  * The unique identifier of the shared key.
+  *
+  * @param identifier
+  */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentifier(String identifier) {
@@ -92,6 +97,11 @@ public class Key {
   }
 
 
+ /**
+  * The secure passphrase to protect the shared key.
+  *
+  * @param passphrase
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassphrase(String passphrase) {
@@ -117,6 +127,11 @@ public class Key {
   }
 
 
+ /**
+  * The version number of the shared key.
+  *
+  * @param version
+  */ 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(Integer version) {
