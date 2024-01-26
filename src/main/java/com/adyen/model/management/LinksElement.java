@@ -59,6 +59,11 @@ public class LinksElement {
   }
 
 
+ /**
+  * href
+  *
+  * @param href
+  */ 
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHref(String href) {

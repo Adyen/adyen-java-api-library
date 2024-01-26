@@ -68,6 +68,11 @@ public class SubjectErasureByPspReferenceRequest {
   }
 
 
+ /**
+  * Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.
+  *
+  * @param forceErasure
+  */ 
   @JsonProperty(JSON_PROPERTY_FORCE_ERASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceErasure(Boolean forceErasure) {
@@ -93,6 +98,11 @@ public class SubjectErasureByPspReferenceRequest {
   }
 
 
+ /**
+  * Your merchant account
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -118,6 +128,11 @@ public class SubjectErasureByPspReferenceRequest {
   }
 
 
+ /**
+  * The PSP reference of the payment. We will delete all shopper-related data for this payment.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

@@ -100,6 +100,11 @@ public class AULocalAccountIdentification {
   }
 
 
+ /**
+  * The bank account number, without separators or whitespace.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -125,6 +130,11 @@ public class AULocalAccountIdentification {
   }
 
 
+ /**
+  * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
+  *
+  * @param bsbCode
+  */ 
   @JsonProperty(JSON_PROPERTY_BSB_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBsbCode(String bsbCode) {
@@ -150,6 +160,11 @@ public class AULocalAccountIdentification {
   }
 
 
+ /**
+  * **auLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

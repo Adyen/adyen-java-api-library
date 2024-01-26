@@ -60,6 +60,11 @@ public class DisableResult {
   }
 
 
+ /**
+  * Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].
+  *
+  * @param response
+  */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(String response) {

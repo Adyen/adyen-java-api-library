@@ -34,15 +34,27 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   FundOrigin.JSON_PROPERTY_BILLING_ADDRESS,
-  FundOrigin.JSON_PROPERTY_SHOPPER_NAME
+  FundOrigin.JSON_PROPERTY_SHOPPER_EMAIL,
+  FundOrigin.JSON_PROPERTY_SHOPPER_NAME,
+  FundOrigin.JSON_PROPERTY_TELEPHONE_NUMBER,
+  FundOrigin.JSON_PROPERTY_WALLET_IDENTIFIER
 })
 
 public class FundOrigin {
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
+  public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
+  private String shopperEmail;
+
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
+
+  public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
+  private String telephoneNumber;
+
+  public static final String JSON_PROPERTY_WALLET_IDENTIFIER = "walletIdentifier";
+  private String walletIdentifier;
 
   public FundOrigin() { 
   }
@@ -65,10 +77,45 @@ public class FundOrigin {
   }
 
 
+ /**
+  * billingAddress
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+  }
+
+
+  public FundOrigin shopperEmail(String shopperEmail) {
+    this.shopperEmail = shopperEmail;
+    return this;
+  }
+
+   /**
+   * Email address of the person.
+   * @return shopperEmail
+  **/
+  @ApiModelProperty(value = "Email address of the person.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getShopperEmail() {
+    return shopperEmail;
+  }
+
+
+ /**
+  * Email address of the person.
+  *
+  * @param shopperEmail
+  */ 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperEmail(String shopperEmail) {
+    this.shopperEmail = shopperEmail;
   }
 
 
@@ -90,10 +137,75 @@ public class FundOrigin {
   }
 
 
+ /**
+  * shopperName
+  *
+  * @param shopperName
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+  }
+
+
+  public FundOrigin telephoneNumber(String telephoneNumber) {
+    this.telephoneNumber = telephoneNumber;
+    return this;
+  }
+
+   /**
+   * Phone number of the person
+   * @return telephoneNumber
+  **/
+  @ApiModelProperty(value = "Phone number of the person")
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTelephoneNumber() {
+    return telephoneNumber;
+  }
+
+
+ /**
+  * Phone number of the person
+  *
+  * @param telephoneNumber
+  */ 
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTelephoneNumber(String telephoneNumber) {
+    this.telephoneNumber = telephoneNumber;
+  }
+
+
+  public FundOrigin walletIdentifier(String walletIdentifier) {
+    this.walletIdentifier = walletIdentifier;
+    return this;
+  }
+
+   /**
+   * Get walletIdentifier
+   * @return walletIdentifier
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getWalletIdentifier() {
+    return walletIdentifier;
+  }
+
+
+ /**
+  * walletIdentifier
+  *
+  * @param walletIdentifier
+  */ 
+  @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWalletIdentifier(String walletIdentifier) {
+    this.walletIdentifier = walletIdentifier;
   }
 
 
@@ -110,12 +222,15 @@ public class FundOrigin {
     }
     FundOrigin fundOrigin = (FundOrigin) o;
     return Objects.equals(this.billingAddress, fundOrigin.billingAddress) &&
-        Objects.equals(this.shopperName, fundOrigin.shopperName);
+        Objects.equals(this.shopperEmail, fundOrigin.shopperEmail) &&
+        Objects.equals(this.shopperName, fundOrigin.shopperName) &&
+        Objects.equals(this.telephoneNumber, fundOrigin.telephoneNumber) &&
+        Objects.equals(this.walletIdentifier, fundOrigin.walletIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, shopperName);
+    return Objects.hash(billingAddress, shopperEmail, shopperName, telephoneNumber, walletIdentifier);
   }
 
   @Override
@@ -123,7 +238,10 @@ public class FundOrigin {
     StringBuilder sb = new StringBuilder();
     sb.append("class FundOrigin {\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
+    sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+    sb.append("    walletIdentifier: ").append(toIndentedString(walletIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

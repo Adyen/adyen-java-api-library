@@ -72,6 +72,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param crv
+  */ 
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCrv(String crv) {
@@ -97,6 +102,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param kty
+  */ 
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKty(String kty) {
@@ -122,6 +132,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param x
+  */ 
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(String x) {
@@ -147,6 +162,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param y
+  */ 
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(String y) {

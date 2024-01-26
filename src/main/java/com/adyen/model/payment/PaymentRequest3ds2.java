@@ -331,6 +331,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * accountInfo
+  *
+  * @param accountInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountInfo(AccountInfo accountInfo) {
@@ -356,6 +361,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * additionalAmount
+  *
+  * @param additionalAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalAmount(Amount additionalAmount) {
@@ -389,6 +399,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -414,6 +429,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -439,6 +459,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * applicationInfo
+  *
+  * @param applicationInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
@@ -464,6 +489,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * billingAddress
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -489,6 +519,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * browserInfo
+  *
+  * @param browserInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_BROWSER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrowserInfo(BrowserInfo browserInfo) {
@@ -514,6 +549,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The delay between the authorisation and scheduled auto-capture, specified in hours.
+  *
+  * @param captureDelayHours
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelayHours(Integer captureDelayHours) {
@@ -539,6 +579,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
+  *
+  * @param dateOfBirth
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -564,6 +609,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * dccQuote
+  *
+  * @param dccQuote
+  */ 
   @JsonProperty(JSON_PROPERTY_DCC_QUOTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccQuote(ForexQuote dccQuote) {
@@ -589,6 +639,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * deliveryAddress
+  *
+  * @param deliveryAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(Address deliveryAddress) {
@@ -614,6 +669,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
+  *
+  * @param deliveryDate
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryDate(OffsetDateTime deliveryDate) {
@@ -639,6 +699,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
+  *
+  * @param deviceFingerprint
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceFingerprint(String deviceFingerprint) {
@@ -664,6 +729,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * An integer value that is added to the normal fraud score. The value can be either positive or negative.
+  *
+  * @param fraudOffset
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
@@ -689,6 +759,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * installments
+  *
+  * @param installments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Installments installments) {
@@ -722,6 +797,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The &#x60;localizedShopperStatement&#x60; field lets you use dynamic values for your shopper statement in a local character set. If not supplied, left empty, or for cross-border transactions, **shopperStatement** is used.  Adyen currently supports the ja-Kana character set for Visa and Mastercard payments in Japan using Japanese cards. This character set supports:  * UTF-8 based Katakana, capital letters, numbers and special characters.  * Half-width or full-width characters.
+  *
+  * @param localizedShopperStatement
+  */ 
   @JsonProperty(JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalizedShopperStatement(Map<String, String> localizedShopperStatement) {
@@ -747,6 +827,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
+  *
+  * @param mcc
+  */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
@@ -772,6 +857,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -797,6 +887,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
+  *
+  * @param merchantOrderReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantOrderReference(String merchantOrderReference) {
@@ -822,6 +917,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * merchantRiskIndicator
+  *
+  * @param merchantRiskIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_RISK_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
@@ -855,6 +955,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
+  *
+  * @param metadata
+  */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -880,6 +985,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * When you are doing multiple partial (gift card) payments, this is the &#x60;pspReference&#x60; of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the &#x60;merchantOrderReference&#x60;instead.
+  *
+  * @param orderReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderReference(String orderReference) {
@@ -905,6 +1015,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * recurring
+  *
+  * @param recurring
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
@@ -930,6 +1045,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
+  *
+  * @param recurringProcessingModel
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
@@ -955,6 +1075,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -980,6 +1105,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * Some payment methods require defining a value for this field to specify how to process the transaction.  For the Bancontact payment method, it can be set to: * &#x60;maestro&#x60; (default), to be processed like a Maestro card, or * &#x60;bcmc&#x60;, to be processed like a Bancontact card.
+  *
+  * @param selectedBrand
+  */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedBrand(String selectedBrand) {
@@ -1005,6 +1135,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
+  *
+  * @param selectedRecurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -1030,6 +1165,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * A session ID used to identify a payment session.
+  *
+  * @param sessionId
+  */ 
   @JsonProperty(JSON_PROPERTY_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSessionId(String sessionId) {
@@ -1055,6 +1195,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -1080,6 +1225,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+  *
+  * @param shopperIP
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
@@ -1105,6 +1255,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+  *
+  * @param shopperInteraction
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -1130,6 +1285,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The combination of a language code and a country code to specify the language to be used in the payment.
+  *
+  * @param shopperLocale
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
@@ -1155,6 +1315,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * shopperName
+  *
+  * @param shopperName
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -1180,6 +1345,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -1205,6 +1375,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
+  *
+  * @param shopperStatement
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
@@ -1230,6 +1405,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The shopper&#39;s social security number.
+  *
+  * @param socialSecurityNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
@@ -1263,6 +1443,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).
+  *
+  * @param splits
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
@@ -1288,6 +1473,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The ecommerce or point-of-sale store that is processing the payment. Used in:  * [Partner platform integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for the [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic). * [Platform setup integrations](https://docs.adyen.com/marketplaces-and-platforms/additional-for-platform-setup/route-payment-to-store) for the [Balance Platform](https://docs.adyen.com/marketplaces-and-platforms).
+  *
+  * @param store
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
@@ -1313,6 +1503,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The shopper&#39;s telephone number.
+  *
+  * @param telephoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -1338,6 +1533,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * threeDS2RequestData
+  *
+  * @param threeDS2RequestData
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
@@ -1363,6 +1563,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * threeDS2Result
+  *
+  * @param threeDS2Result
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
@@ -1388,6 +1593,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The ThreeDS2Token that was returned in the /authorise call.
+  *
+  * @param threeDS2Token
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Token(String threeDS2Token) {
@@ -1413,6 +1623,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
+  *
+  * @param threeDSAuthenticationOnly
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
@@ -1438,6 +1653,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available).
+  *
+  * @param totalsGroup
+  */ 
   @JsonProperty(JSON_PROPERTY_TOTALS_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalsGroup(String totalsGroup) {
@@ -1463,6 +1683,11 @@ public class PaymentRequest3ds2 {
   }
 
 
+ /**
+  * Set to true if the payment should be routed to a trusted MID.
+  *
+  * @param trustedShopper
+  */ 
   @JsonProperty(JSON_PROPERTY_TRUSTED_SHOPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedShopper(Boolean trustedShopper) {

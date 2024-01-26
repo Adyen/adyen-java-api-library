@@ -71,6 +71,11 @@ public class TerminalReassignmentRequest {
   }
 
 
+ /**
+  * The unique identifier of the company account to which the terminal is reassigned.
+  *
+  * @param companyId
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -96,6 +101,11 @@ public class TerminalReassignmentRequest {
   }
 
 
+ /**
+  * Must be specified when reassigning terminals to a merchant account:  - If set to **true**, reassigns terminals to the inventory of the merchant account and the terminals cannot process transactions.  - If set to **false**, reassigns terminals directly to the merchant account and the terminals can process transactions.
+  *
+  * @param inventory
+  */ 
   @JsonProperty(JSON_PROPERTY_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventory(Boolean inventory) {
@@ -121,6 +131,11 @@ public class TerminalReassignmentRequest {
   }
 
 
+ /**
+  * The unique identifier of the merchant account to which the terminal is reassigned. When reassigning terminals to a merchant account, you must specify the &#x60;inventory&#x60; field.
+  *
+  * @param merchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -146,6 +161,11 @@ public class TerminalReassignmentRequest {
   }
 
 
+ /**
+  * The unique identifier of the store to which the terminal is reassigned.
+  *
+  * @param storeId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {

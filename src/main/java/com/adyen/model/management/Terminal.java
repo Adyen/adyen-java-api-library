@@ -90,6 +90,11 @@ public class Terminal {
   }
 
 
+ /**
+  * assignment
+  *
+  * @param assignment
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignment(TerminalAssignment assignment) {
@@ -115,6 +120,11 @@ public class Terminal {
   }
 
 
+ /**
+  * connectivity
+  *
+  * @param connectivity
+  */ 
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(TerminalConnectivity connectivity) {
@@ -140,6 +150,11 @@ public class Terminal {
   }
 
 
+ /**
+  * The software release currently in use on the terminal.
+  *
+  * @param firmwareVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
@@ -165,6 +180,11 @@ public class Terminal {
   }
 
 
+ /**
+  * The unique identifier of the terminal.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -190,6 +210,11 @@ public class Terminal {
   }
 
 
+ /**
+  * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
+  *
+  * @param lastActivityAt
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityAt(OffsetDateTime lastActivityAt) {
@@ -215,6 +240,11 @@ public class Terminal {
   }
 
 
+ /**
+  * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
+  *
+  * @param lastTransactionAt
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionAt(OffsetDateTime lastTransactionAt) {
@@ -240,6 +270,11 @@ public class Terminal {
   }
 
 
+ /**
+  * The model name of the terminal.
+  *
+  * @param model
+  */ 
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModel(String model) {
@@ -265,6 +300,11 @@ public class Terminal {
   }
 
 
+ /**
+  * The serial number of the terminal.
+  *
+  * @param serialNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {

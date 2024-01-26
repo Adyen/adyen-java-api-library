@@ -106,6 +106,11 @@ public class SourceOfFunds {
   }
 
 
+ /**
+  * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+  *
+  * @param acquiringBusinessLineId
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,6 +137,11 @@ public class SourceOfFunds {
   }
 
 
+ /**
+  * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
+  *
+  * @param adyenProcessedFunds
+  */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_PROCESSED_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenProcessedFunds(Boolean adyenProcessedFunds) {
@@ -157,6 +167,11 @@ public class SourceOfFunds {
   }
 
 
+ /**
+  * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -182,6 +197,11 @@ public class SourceOfFunds {
   }
 
 
+ /**
+  * The type of the source of funds. Possible value: **business**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

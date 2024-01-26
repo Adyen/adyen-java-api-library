@@ -200,6 +200,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+ /**
+  * Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.
+  *
+  * @param allowed
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
@@ -225,6 +230,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+ /**
+  * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
+  *
+  * @param allowedLevel
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedLevel(AllowedLevelEnum allowedLevel) {
@@ -250,6 +260,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+ /**
+  * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
+  *
+  * @param enabled
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
@@ -275,6 +290,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+ /**
+  * The ID of the supporting entity.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -300,6 +320,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+ /**
+  * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
+  *
+  * @param requested
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
@@ -325,6 +350,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+ /**
+  * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
+  *
+  * @param requestedLevel
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(RequestedLevelEnum requestedLevel) {
@@ -350,6 +380,11 @@ public class AccountSupportingEntityCapability {
   }
 
 
+ /**
+  * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
+  *
+  * @param verificationStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(VerificationStatusEnum verificationStatus) {

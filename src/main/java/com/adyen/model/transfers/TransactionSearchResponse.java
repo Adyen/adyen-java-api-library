@@ -67,6 +67,11 @@ public class TransactionSearchResponse {
   }
 
 
+ /**
+  * links
+  *
+  * @param links
+  */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
@@ -100,6 +105,11 @@ public class TransactionSearchResponse {
   }
 
 
+ /**
+  * Contains the transactions that match the query parameters.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Transaction> data) {

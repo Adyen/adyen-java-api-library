@@ -64,6 +64,11 @@ public class DisablePermitResult {
   }
 
 
+ /**
+  * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -89,6 +94,11 @@ public class DisablePermitResult {
   }
 
 
+ /**
+  * Status of the disable request.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

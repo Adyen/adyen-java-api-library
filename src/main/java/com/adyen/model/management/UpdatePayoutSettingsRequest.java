@@ -59,6 +59,11 @@ public class UpdatePayoutSettingsRequest {
   }
 
 
+ /**
+  * Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both &#x60;enabled&#x60; and &#x60;allowed&#x60; must be **true**.
+  *
+  * @param enabled
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {

@@ -165,7 +165,7 @@ public class PciQuestionnairesApi extends Service {
     /**
     * Sign PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who signed the PCI questionnaire. (required)
+    * @param id {@link String } The legal entity ID of the user that has a contractual relationship with your platform. (required)
     * @param pciSigningRequest {@link PciSigningRequest }  (required)
     * @return {@link PciSigningResponse }
     * @throws ApiException if fails to make API call
@@ -177,7 +177,7 @@ public class PciQuestionnairesApi extends Service {
     /**
     * Sign PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who signed the PCI questionnaire. (required)
+    * @param id {@link String } The legal entity ID of the user that has a contractual relationship with your platform. (required)
     * @param pciSigningRequest {@link PciSigningRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PciSigningResponse }

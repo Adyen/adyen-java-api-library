@@ -18,8 +18,6 @@ import com.adyen.model.checkout.CardDetailsRequest;
 import com.adyen.model.checkout.CardDetailsResponse;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
-import com.adyen.model.checkout.DonationPaymentRequest;
-import com.adyen.model.checkout.DonationPaymentResponse;
 import com.adyen.model.checkout.PaymentDetailsRequest;
 import com.adyen.model.checkout.PaymentDetailsResponse;
 import com.adyen.model.checkout.PaymentMethodsRequest;
@@ -127,33 +125,6 @@ public class PaymentsApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/cardDetails", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return CardDetailsResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Start a transaction for donations
-    *
-    * @param donationPaymentRequest {@link DonationPaymentRequest }  (required)
-    * @return {@link DonationPaymentResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public DonationPaymentResponse donations(DonationPaymentRequest donationPaymentRequest) throws ApiException, IOException {
-        return donations(donationPaymentRequest, null);
-    }
-
-    /**
-    * Start a transaction for donations
-    *
-    * @param donationPaymentRequest {@link DonationPaymentRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link DonationPaymentResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public DonationPaymentResponse donations(DonationPaymentRequest donationPaymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = donationPaymentRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/donations", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return DonationPaymentResponse.fromJson(jsonResult);
     }
 
     /**

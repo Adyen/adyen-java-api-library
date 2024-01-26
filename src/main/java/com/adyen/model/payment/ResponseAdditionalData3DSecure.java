@@ -76,6 +76,11 @@ public class ResponseAdditionalData3DSecure {
   }
 
 
+ /**
+  * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
+  *
+  * @param cardHolderInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderInfo(String cardHolderInfo) {
@@ -101,6 +106,11 @@ public class ResponseAdditionalData3DSecure {
   }
 
 
+ /**
+  * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
+  *
+  * @param cavv
+  */ 
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(String cavv) {
@@ -126,6 +136,11 @@ public class ResponseAdditionalData3DSecure {
   }
 
 
+ /**
+  * The CAVV algorithm used.
+  *
+  * @param cavvAlgorithm
+  */ 
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
@@ -151,6 +166,11 @@ public class ResponseAdditionalData3DSecure {
   }
 
 
+ /**
+  * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
+  *
+  * @param scaExemptionRequested
+  */ 
   @JsonProperty(JSON_PROPERTY_SCA_EXEMPTION_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaExemptionRequested(String scaExemptionRequested) {
@@ -176,6 +196,11 @@ public class ResponseAdditionalData3DSecure {
   }
 
 
+ /**
+  * Indicates whether a card is enrolled for 3D Secure 2.
+  *
+  * @param threeds2CardEnrolled
+  */ 
   @JsonProperty(JSON_PROPERTY_THREEDS2_CARD_ENROLLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2CardEnrolled(Boolean threeds2CardEnrolled) {

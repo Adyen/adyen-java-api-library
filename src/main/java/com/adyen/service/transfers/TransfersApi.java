@@ -84,34 +84,34 @@ public class TransfersApi extends Service {
     /**
     * Return a transfer
     *
-    * @param id {@link String } The unique identifier of the transfer to be returned. (required)
+    * @param transferId {@link String } The unique identifier of the transfer to be returned. (required)
     * @param returnTransferRequest {@link ReturnTransferRequest }  (required)
     * @return {@link ReturnTransferResponse }
     * @throws ApiException if fails to make API call
     */
-    public ReturnTransferResponse returnTransfer(String id, ReturnTransferRequest returnTransferRequest) throws ApiException, IOException {
-        return returnTransfer(id, returnTransferRequest, null);
+    public ReturnTransferResponse returnTransfer(String transferId, ReturnTransferRequest returnTransferRequest) throws ApiException, IOException {
+        return returnTransfer(transferId, returnTransferRequest, null);
     }
 
     /**
     * Return a transfer
     *
-    * @param id {@link String } The unique identifier of the transfer to be returned. (required)
+    * @param transferId {@link String } The unique identifier of the transfer to be returned. (required)
     * @param returnTransferRequest {@link ReturnTransferRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link ReturnTransferResponse }
     * @throws ApiException if fails to make API call
     */
-    public ReturnTransferResponse returnTransfer(String id, ReturnTransferRequest returnTransferRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public ReturnTransferResponse returnTransfer(String transferId, ReturnTransferRequest returnTransferRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
+        if (transferId == null) {
+            throw new IllegalArgumentException("Please provide the transferId path parameter");
         }
-        pathParams.put("id", id);
+        pathParams.put("transferId", transferId);
 
         String requestBody = returnTransferRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/transfers/{id}/returns", null);
+        Resource resource = new Resource(this, this.baseURL + "/transfers/{transferId}/returns", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return ReturnTransferResponse.fromJson(jsonResult);
     }

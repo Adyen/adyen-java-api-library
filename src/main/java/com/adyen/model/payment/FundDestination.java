@@ -107,6 +107,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * a map of name/value pairs for passing in additional/industry-specific data
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -132,6 +137,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * billingAddress
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -157,6 +167,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * card
+  *
+  * @param card
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -182,6 +197,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
+  *
+  * @param selectedRecurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -207,6 +227,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * the email address of the person
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -232,6 +257,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * shopperName
+  *
+  * @param shopperName
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -257,6 +287,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -282,6 +317,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * subMerchant
+  *
+  * @param subMerchant
+  */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchant(SubMerchant subMerchant) {
@@ -307,6 +347,11 @@ public class FundDestination {
   }
 
 
+ /**
+  * the telephone number of the person
+  *
+  * @param telephoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {

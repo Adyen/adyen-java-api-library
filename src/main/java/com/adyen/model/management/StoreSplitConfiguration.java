@@ -63,6 +63,11 @@ public class StoreSplitConfiguration {
   }
 
 
+ /**
+  * The [unique identifier of the balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) to which the split amount must be booked, depending on the defined [split logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/_merchantId_/splitConfigurations#request-rules-splitLogic).
+  *
+  * @param balanceAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
@@ -88,6 +93,11 @@ public class StoreSplitConfiguration {
   }
 
 
+ /**
+  * The unique identifier of the [split configuration profile](https://docs.adyen.com/marketplaces-and-platforms/automatic-split-configuration/create-split-configuration/).
+  *
+  * @param splitConfigurationId
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfigurationId(String splitConfigurationId) {

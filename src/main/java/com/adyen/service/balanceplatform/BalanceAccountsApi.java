@@ -209,27 +209,28 @@ public class BalanceAccountsApi extends Service {
     }
 
     /**
-    * Get all payment instruments for a balance account
+    * Get payment instruments linked to a balance account
     *
     * @param id {@link String } The unique identifier of the balance account. (required)
     * @return {@link PaginatedPaymentInstrumentsResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaginatedPaymentInstrumentsResponse getAllPaymentInstrumentsForBalanceAccount(String id) throws ApiException, IOException {
-        return getAllPaymentInstrumentsForBalanceAccount(id, null,  null,  null);
+    public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id) throws ApiException, IOException {
+        return getPaymentInstrumentsLinkedToBalanceAccount(id, null,  null,  null,  null);
     }
 
     /**
-    * Get all payment instruments for a balance account
+    * Get payment instruments linked to a balance account
     *
     * @param id {@link String } The unique identifier of the balance account. (required)
     * @param offset {@link Integer } Query: The number of items that you want to skip. (optional)
     * @param limit {@link Integer } Query: The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page. (optional)
+    * @param status {@link String } Query: The status of the payment instruments that you want to get. By default, the response includes payment instruments with any status. (optional)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaginatedPaymentInstrumentsResponse }
     * @throws ApiException if fails to make API call
     */
-    public PaginatedPaymentInstrumentsResponse getAllPaymentInstrumentsForBalanceAccount(String id, Integer offset, Integer limit, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id, Integer offset, Integer limit, String status, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (id == null) {
@@ -243,6 +244,9 @@ public class BalanceAccountsApi extends Service {
         }
         if (limit != null) {
         queryParams.put("limit", limit.toString());
+        }
+        if (status != null) {
+        queryParams.put("status", status);
         }
 
         String requestBody = null;

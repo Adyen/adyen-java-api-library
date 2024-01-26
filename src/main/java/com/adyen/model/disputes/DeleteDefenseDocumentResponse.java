@@ -61,6 +61,11 @@ public class DeleteDefenseDocumentResponse {
   }
 
 
+ /**
+  * disputeServiceResult
+  *
+  * @param disputeServiceResult
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {

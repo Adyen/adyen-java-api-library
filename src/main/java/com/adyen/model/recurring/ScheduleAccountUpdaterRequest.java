@@ -92,6 +92,11 @@ public class ScheduleAccountUpdaterRequest {
   }
 
 
+ /**
+  * This field contains additional data, which may be required for a particular request.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -117,6 +122,11 @@ public class ScheduleAccountUpdaterRequest {
   }
 
 
+ /**
+  * card
+  *
+  * @param card
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -142,6 +152,11 @@ public class ScheduleAccountUpdaterRequest {
   }
 
 
+ /**
+  * Account of the merchant.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -167,6 +182,11 @@ public class ScheduleAccountUpdaterRequest {
   }
 
 
+ /**
+  * A reference that merchants can apply for the call.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -192,6 +212,11 @@ public class ScheduleAccountUpdaterRequest {
   }
 
 
+ /**
+  * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
+  *
+  * @param selectedRecurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -217,6 +242,11 @@ public class ScheduleAccountUpdaterRequest {
   }
 
 
+ /**
+  * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

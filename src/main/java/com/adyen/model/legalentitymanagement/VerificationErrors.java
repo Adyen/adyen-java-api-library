@@ -70,6 +70,11 @@ public class VerificationErrors {
   }
 
 
+ /**
+  * List of the verification errors.
+  *
+  * @param problems
+  */ 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {

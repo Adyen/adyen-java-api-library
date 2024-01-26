@@ -59,6 +59,11 @@ public class Notification {
   }
 
 
+ /**
+  * Shows or hides the event notification button on the terminal screen.
+  *
+  * @param showButton
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOW_BUTTON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowButton(Boolean showButton) {

@@ -112,6 +112,11 @@ public class CheckoutDelegatedAuthenticationAction {
   }
 
 
+ /**
+  * A token needed to authorise a payment.
+  *
+  * @param authorisationToken
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationToken(String authorisationToken) {
@@ -137,6 +142,11 @@ public class CheckoutDelegatedAuthenticationAction {
   }
 
 
+ /**
+  * Encoded payment data.
+  *
+  * @param paymentData
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -162,6 +172,11 @@ public class CheckoutDelegatedAuthenticationAction {
   }
 
 
+ /**
+  * Specifies the payment method.
+  *
+  * @param paymentMethodType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -187,6 +202,11 @@ public class CheckoutDelegatedAuthenticationAction {
   }
 
 
+ /**
+  * A token to pass to the delegatedAuthentication component.
+  *
+  * @param token
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
@@ -212,6 +232,11 @@ public class CheckoutDelegatedAuthenticationAction {
   }
 
 
+ /**
+  * **delegatedAuthentication**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -237,6 +262,11 @@ public class CheckoutDelegatedAuthenticationAction {
   }
 
 
+ /**
+  * Specifies the URL to redirect to.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

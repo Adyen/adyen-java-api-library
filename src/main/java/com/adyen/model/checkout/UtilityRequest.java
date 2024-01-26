@@ -66,6 +66,11 @@ public class UtilityRequest {
   }
 
 
+ /**
+  * The list of origin domains, for which origin keys are requested.
+  *
+  * @param originDomains
+  */ 
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginDomains(List<String> originDomains) {

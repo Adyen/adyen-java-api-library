@@ -68,6 +68,11 @@ public class ShopperInteractionDevice {
   }
 
 
+ /**
+  * Locale on the shopper interaction device.
+  *
+  * @param locale
+  */ 
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
@@ -93,6 +98,11 @@ public class ShopperInteractionDevice {
   }
 
 
+ /**
+  * Operating system running on the shopper interaction device.
+  *
+  * @param os
+  */ 
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOs(String os) {
@@ -118,6 +128,11 @@ public class ShopperInteractionDevice {
   }
 
 
+ /**
+  * Version of the operating system on the shopper interaction device.
+  *
+  * @param osVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {

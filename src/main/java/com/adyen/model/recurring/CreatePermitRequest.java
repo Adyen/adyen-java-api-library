@@ -75,6 +75,11 @@ public class CreatePermitRequest {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -105,6 +110,11 @@ public class CreatePermitRequest {
   }
 
 
+ /**
+  * The permits to create for this recurring contract.
+  *
+  * @param permits
+  */ 
   @JsonProperty(JSON_PROPERTY_PERMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermits(List<Permit> permits) {
@@ -130,6 +140,11 @@ public class CreatePermitRequest {
   }
 
 
+ /**
+  * The recurring contract the new permits will use.
+  *
+  * @param recurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -155,6 +170,11 @@ public class CreatePermitRequest {
   }
 
 
+ /**
+  * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

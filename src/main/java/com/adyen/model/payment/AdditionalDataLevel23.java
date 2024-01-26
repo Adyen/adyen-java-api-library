@@ -124,6 +124,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The customer code. * Encoding: ASCII * Max length: 25 characters * Must not start with a space or be all spaces * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataCustomerReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
@@ -149,6 +154,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The three-letter [ISO 3166-1 alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address. * Encoding: ASCII * Fixed length: 3 characters
+  *
+  * @param enhancedSchemeDataDestinationCountryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDestinationCountryCode(String enhancedSchemeDataDestinationCountryCode) {
@@ -174,6 +184,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The postal code of the destination address. * Encoding: ASCII * Max length: 10 characters * Must not start with a space
+  *
+  * @param enhancedSchemeDataDestinationPostalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDestinationPostalCode(String enhancedSchemeDataDestinationPostalCode) {
@@ -199,6 +214,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * Destination state or province code. * Encoding: ASCII * Max length: 3 characters * Must not start with a space
+  *
+  * @param enhancedSchemeDataDestinationStateProvinceCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDestinationStateProvinceCode(String enhancedSchemeDataDestinationStateProvinceCode) {
@@ -224,6 +244,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The duty amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters
+  *
+  * @param enhancedSchemeDataDutyAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDutyAmount(String enhancedSchemeDataDutyAmount) {
@@ -249,6 +274,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric *Max length: 12 characters
+  *
+  * @param enhancedSchemeDataFreightAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataFreightAmount(String enhancedSchemeDataFreightAmount) {
@@ -274,6 +304,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The [UNSPC commodity code](https://www.unspsc.org/) of the item. * Encoding: ASCII * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrCommodityCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrCommodityCode(String enhancedSchemeDataItemDetailLineItemNrCommodityCode) {
@@ -299,6 +334,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * A description of the item. * Encoding: ASCII * Max length: 26 characters * Must not start with a space or be all spaces * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrDescription
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrDescription(String enhancedSchemeDataItemDetailLineItemNrDescription) {
@@ -324,6 +364,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The discount amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrDiscountAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrDiscountAmount(String enhancedSchemeDataItemDetailLineItemNrDiscountAmount) {
@@ -349,6 +394,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The product code. * Encoding: ASCII. * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrProductCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrProductCode(String enhancedSchemeDataItemDetailLineItemNrProductCode) {
@@ -374,6 +424,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The number of items. Must be an integer greater than zero. * Encoding: Numeric * Max length: 12 characters * Must not start with a space or be all spaces  
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrQuantity
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrQuantity(String enhancedSchemeDataItemDetailLineItemNrQuantity) {
@@ -399,6 +454,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The total amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Max length: 12 characters * Must not start with a space or be all spaces * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrTotalAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrTotalAmount(String enhancedSchemeDataItemDetailLineItemNrTotalAmount) {
@@ -424,6 +484,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The unit of measurement for an item. * Encoding: ASCII  Max length: 3 characters * Must not start with a space or be all spaces * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure(String enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure) {
@@ -449,6 +514,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The unit price in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataItemDetailLineItemNrUnitPrice
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataItemDetailLineItemNrUnitPrice(String enhancedSchemeDataItemDetailLineItemNrUnitPrice) {
@@ -474,6 +544,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The order date. * Format: &#x60;ddMMyy&#x60; * Encoding: ASCII * Max length: 6 characters
+  *
+  * @param enhancedSchemeDataOrderDate
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataOrderDate(String enhancedSchemeDataOrderDate) {
@@ -499,6 +574,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The postal code of the address the item is shipped from. * Encoding: ASCII * Max length: 10 characters * Must not start with a space or be all spaces * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataShipFromPostalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataShipFromPostalCode(String enhancedSchemeDataShipFromPostalCode) {
@@ -524,6 +604,11 @@ public class AdditionalDataLevel23 {
   }
 
 
+ /**
+  * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. *Encoding: Numeric *Max length: 12 characters * Must not be all zeros.
+  *
+  * @param enhancedSchemeDataTotalTaxAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {

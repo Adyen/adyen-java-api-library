@@ -102,6 +102,11 @@ public class StringMatch {
   }
 
 
+ /**
+  * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
+  *
+  * @param operation
+  */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(OperationEnum operation) {
@@ -127,6 +132,11 @@ public class StringMatch {
   }
 
 
+ /**
+  * The string to be matched.
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {

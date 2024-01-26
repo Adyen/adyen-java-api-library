@@ -70,6 +70,11 @@ public class ListExternalTerminalActionsResponse {
   }
 
 
+ /**
+  * The list of terminal actions.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<ExternalTerminalAction> data) {

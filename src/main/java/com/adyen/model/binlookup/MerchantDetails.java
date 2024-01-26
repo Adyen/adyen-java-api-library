@@ -68,6 +68,11 @@ public class MerchantDetails {
   }
 
 
+ /**
+  * 2-letter ISO 3166 country code of the card acceptor location. &gt; This parameter is required for the merchants who don&#39;t use Adyen as the payment authorisation gateway.
+  *
+  * @param countryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -93,6 +98,11 @@ public class MerchantDetails {
   }
 
 
+ /**
+  * If true, indicates that the merchant is enrolled in 3D Secure for the card network.
+  *
+  * @param enrolledIn3DSecure
+  */ 
   @JsonProperty(JSON_PROPERTY_ENROLLED_IN3_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnrolledIn3DSecure(Boolean enrolledIn3DSecure) {
@@ -118,6 +128,11 @@ public class MerchantDetails {
   }
 
 
+ /**
+  * The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.  The list of MCCs can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).
+  *
+  * @param mcc
+  */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {

@@ -79,6 +79,11 @@ public class DefenseReason {
   }
 
 
+ /**
+  * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
+  *
+  * @param defenseDocumentTypes
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
@@ -104,6 +109,11 @@ public class DefenseReason {
   }
 
 
+ /**
+  * The defense reason code that was selected to defend this dispute.
+  *
+  * @param defenseReasonCode
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasonCode(String defenseReasonCode) {
@@ -129,6 +139,11 @@ public class DefenseReason {
   }
 
 
+ /**
+  * Indicates if sufficient defense material has been supplied.
+  *
+  * @param satisfied
+  */ 
   @JsonProperty(JSON_PROPERTY_SATISFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSatisfied(Boolean satisfied) {

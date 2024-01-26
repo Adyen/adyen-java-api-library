@@ -99,6 +99,11 @@ public class SubjectErasureResponse {
   }
 
 
+ /**
+  * The result of this operation.
+  *
+  * @param result
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(ResultEnum result) {

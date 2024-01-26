@@ -102,6 +102,11 @@ public class MolPayDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -127,6 +132,11 @@ public class MolPayDetails {
   }
 
 
+ /**
+  * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
+  *
+  * @param issuer
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -152,6 +162,11 @@ public class MolPayDetails {
   }
 
 
+ /**
+  * **molpay**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

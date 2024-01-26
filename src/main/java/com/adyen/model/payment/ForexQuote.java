@@ -106,6 +106,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The account name.
+  *
+  * @param account
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccount(String account) {
@@ -131,6 +136,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The account type.
+  *
+  * @param accountType
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
@@ -156,6 +166,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * baseAmount
+  *
+  * @param baseAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBaseAmount(Amount baseAmount) {
@@ -181,6 +196,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The base points.
+  *
+  * @param basePoints
+  */ 
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasePoints(Integer basePoints) {
@@ -206,6 +226,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * buy
+  *
+  * @param buy
+  */ 
   @JsonProperty(JSON_PROPERTY_BUY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBuy(Amount buy) {
@@ -231,6 +256,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * interbank
+  *
+  * @param interbank
+  */ 
   @JsonProperty(JSON_PROPERTY_INTERBANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterbank(Amount interbank) {
@@ -256,6 +286,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The reference assigned to the forex quote request.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -281,6 +316,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * sell
+  *
+  * @param sell
+  */ 
   @JsonProperty(JSON_PROPERTY_SELL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSell(Amount sell) {
@@ -306,6 +346,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The signature to validate the integrity.
+  *
+  * @param signature
+  */ 
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(String signature) {
@@ -331,6 +376,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The source of the forex quote.
+  *
+  * @param source
+  */ 
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSource(String source) {
@@ -356,6 +406,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The type of forex.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -381,6 +436,11 @@ public class ForexQuote {
   }
 
 
+ /**
+  * The date until which the forex quote is valid.
+  *
+  * @param validTill
+  */ 
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTill(OffsetDateTime validTill) {

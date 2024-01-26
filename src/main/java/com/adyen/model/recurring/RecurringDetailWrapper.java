@@ -61,6 +61,11 @@ public class RecurringDetailWrapper {
   }
 
 
+ /**
+  * recurringDetail
+  *
+  * @param recurringDetail
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetail(RecurringDetail recurringDetail) {

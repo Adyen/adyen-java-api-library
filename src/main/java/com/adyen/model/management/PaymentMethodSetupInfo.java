@@ -372,6 +372,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * afterpayTouch
+  *
+  * @param afterpayTouch
+  */ 
   @JsonProperty(JSON_PROPERTY_AFTERPAY_TOUCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAfterpayTouch(AfterpayTouchInfo afterpayTouch) {
@@ -397,6 +402,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * applePay
+  *
+  * @param applePay
+  */ 
   @JsonProperty(JSON_PROPERTY_APPLE_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplePay(ApplePayInfo applePay) {
@@ -422,6 +432,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * bcmc
+  *
+  * @param bcmc
+  */ 
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBcmc(BcmcInfo bcmc) {
@@ -435,10 +450,10 @@ public class PaymentMethodSetupInfo {
   }
 
    /**
-   * The unique identifier of the business line.
+   * The unique identifier of the business line. Required if you have a [platform setup](https://docs.adyen.com/marketplaces-and-platforms/platform-structure-resources/platform-setup/).
    * @return businessLineId
   **/
-  @ApiModelProperty(value = "The unique identifier of the business line.")
+  @ApiModelProperty(value = "The unique identifier of the business line. Required if you have a [platform setup](https://docs.adyen.com/marketplaces-and-platforms/platform-structure-resources/platform-setup/).")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -447,6 +462,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * The unique identifier of the business line. Required if you have a [platform setup](https://docs.adyen.com/marketplaces-and-platforms/platform-structure-resources/platform-setup/).
+  *
+  * @param businessLineId
+  */ 
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineId(String businessLineId) {
@@ -472,6 +492,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * cartesBancaires
+  *
+  * @param cartesBancaires
+  */ 
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
@@ -497,6 +522,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * clearpay
+  *
+  * @param clearpay
+  */ 
   @JsonProperty(JSON_PROPERTY_CLEARPAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearpay(ClearpayInfo clearpay) {
@@ -530,6 +560,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * The list of countries where a payment method is available. By default, all countries supported by the payment method.
+  *
+  * @param countries
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(List<String> countries) {
@@ -555,6 +590,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * cup
+  *
+  * @param cup
+  */ 
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCup(GenericPmWithTdiInfo cup) {
@@ -588,6 +628,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
+  *
+  * @param currencies
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<String> currencies) {
@@ -621,6 +666,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * The list of custom routing flags to route payment to the intended acquirer.
+  *
+  * @param customRoutingFlags
+  */ 
   @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomRoutingFlags(List<String> customRoutingFlags) {
@@ -646,6 +696,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * diners
+  *
+  * @param diners
+  */ 
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiners(GenericPmWithTdiInfo diners) {
@@ -671,6 +726,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * discover
+  *
+  * @param discover
+  */ 
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiscover(GenericPmWithTdiInfo discover) {
@@ -696,6 +756,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * eftposAustralia
+  *
+  * @param eftposAustralia
+  */ 
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
@@ -721,6 +786,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * giroPay
+  *
+  * @param giroPay
+  */ 
   @JsonProperty(JSON_PROPERTY_GIRO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiroPay(GiroPayInfo giroPay) {
@@ -746,6 +816,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * girocard
+  *
+  * @param girocard
+  */ 
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGirocard(GenericPmWithTdiInfo girocard) {
@@ -771,6 +846,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * googlePay
+  *
+  * @param googlePay
+  */ 
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePay(GooglePayInfo googlePay) {
@@ -796,6 +876,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * ideal
+  *
+  * @param ideal
+  */ 
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdeal(GenericPmWithTdiInfo ideal) {
@@ -821,6 +906,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * interacCard
+  *
+  * @param interacCard
+  */ 
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInteracCard(GenericPmWithTdiInfo interacCard) {
@@ -846,6 +936,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * jcb
+  *
+  * @param jcb
+  */ 
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJcb(GenericPmWithTdiInfo jcb) {
@@ -871,6 +966,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * klarna
+  *
+  * @param klarna
+  */ 
   @JsonProperty(JSON_PROPERTY_KLARNA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKlarna(KlarnaInfo klarna) {
@@ -896,6 +996,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * maestro
+  *
+  * @param maestro
+  */ 
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaestro(GenericPmWithTdiInfo maestro) {
@@ -921,6 +1026,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * mc
+  *
+  * @param mc
+  */ 
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMc(GenericPmWithTdiInfo mc) {
@@ -946,6 +1056,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * mealVoucherFR
+  *
+  * @param mealVoucherFR
+  */ 
   @JsonProperty(JSON_PROPERTY_MEAL_VOUCHER_F_R)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
@@ -971,6 +1086,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * paypal
+  *
+  * @param paypal
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaypal(PayPalInfo paypal) {
@@ -996,6 +1116,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * Your reference for the payment method. Supported characters a-z, A-Z, 0-9.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -1021,6 +1146,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+  *
+  * @param shopperInteraction
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -1046,6 +1176,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * sofort
+  *
+  * @param sofort
+  */ 
   @JsonProperty(JSON_PROPERTY_SOFORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSofort(SofortInfo sofort) {
@@ -1079,6 +1214,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * The unique identifier of the store for which to configure the payment method, if any.
+  *
+  * @param storeIds
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {
@@ -1104,6 +1244,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * swish
+  *
+  * @param swish
+  */ 
   @JsonProperty(JSON_PROPERTY_SWISH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSwish(SwishInfo swish) {
@@ -1129,6 +1274,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * twint
+  *
+  * @param twint
+  */ 
   @JsonProperty(JSON_PROPERTY_TWINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTwint(TwintInfo twint) {
@@ -1154,6 +1304,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -1179,6 +1334,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * vipps
+  *
+  * @param vipps
+  */ 
   @JsonProperty(JSON_PROPERTY_VIPPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVipps(VippsInfo vipps) {
@@ -1204,6 +1364,11 @@ public class PaymentMethodSetupInfo {
   }
 
 
+ /**
+  * visa
+  *
+  * @param visa
+  */ 
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisa(GenericPmWithTdiInfo visa) {

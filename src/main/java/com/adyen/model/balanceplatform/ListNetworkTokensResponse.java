@@ -70,6 +70,11 @@ public class ListNetworkTokensResponse {
   }
 
 
+ /**
+  * List of network tokens.
+  *
+  * @param networkTokens
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokens(List<NetworkToken> networkTokens) {

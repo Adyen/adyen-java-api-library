@@ -63,6 +63,11 @@ public class RemediatingAction {
   }
 
 
+ /**
+  * code
+  *
+  * @param code
+  */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
@@ -88,6 +93,11 @@ public class RemediatingAction {
   }
 
 
+ /**
+  * message
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {

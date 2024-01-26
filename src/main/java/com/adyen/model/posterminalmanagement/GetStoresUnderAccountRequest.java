@@ -64,6 +64,11 @@ public class GetStoresUnderAccountRequest {
   }
 
 
+ /**
+  * The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.
+  *
+  * @param companyAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
@@ -89,6 +94,11 @@ public class GetStoresUnderAccountRequest {
   }
 
 
+ /**
+  * The merchant account. With this parameter, the response only includes the stores of the specified merchant account.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {

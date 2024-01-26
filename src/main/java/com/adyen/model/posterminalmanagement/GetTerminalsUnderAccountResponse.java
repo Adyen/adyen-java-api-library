@@ -71,6 +71,11 @@ public class GetTerminalsUnderAccountResponse {
   }
 
 
+ /**
+  * Your company account.
+  *
+  * @param companyAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
@@ -104,6 +109,11 @@ public class GetTerminalsUnderAccountResponse {
   }
 
 
+ /**
+  * Array that returns a list of all terminals that are in the inventory of the company account.
+  *
+  * @param inventoryTerminals
+  */ 
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventoryTerminals(List<String> inventoryTerminals) {
@@ -137,6 +147,11 @@ public class GetTerminalsUnderAccountResponse {
   }
 
 
+ /**
+  * Array that returns a list of all merchant accounts belonging to the company account.
+  *
+  * @param merchantAccounts
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccounts(List<MerchantAccount> merchantAccounts) {

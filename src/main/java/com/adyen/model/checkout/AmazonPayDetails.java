@@ -104,6 +104,11 @@ public class AmazonPayDetails {
   }
 
 
+ /**
+  * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.
+  *
+  * @param amazonPayToken
+  */ 
   @JsonProperty(JSON_PROPERTY_AMAZON_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmazonPayToken(String amazonPayToken) {
@@ -129,6 +134,11 @@ public class AmazonPayDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -154,6 +164,11 @@ public class AmazonPayDetails {
   }
 
 
+ /**
+  * The &#x60;checkoutSessionId&#x60; is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.
+  *
+  * @param checkoutSessionId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutSessionId(String checkoutSessionId) {
@@ -179,6 +194,11 @@ public class AmazonPayDetails {
   }
 
 
+ /**
+  * **amazonpay**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -83,6 +83,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The name of the city.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -108,6 +113,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt;If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -133,6 +143,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The street name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;Rokin\&quot;.
+  *
+  * @param line1
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
@@ -158,6 +173,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The house number or name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;49\&quot;.
+  *
+  * @param line2
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
@@ -183,6 +203,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * Optional information about the address.
+  *
+  * @param line3
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
@@ -208,6 +233,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -233,6 +263,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The two-letterISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {

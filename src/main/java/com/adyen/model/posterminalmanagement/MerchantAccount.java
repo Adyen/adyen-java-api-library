@@ -83,6 +83,11 @@ public class MerchantAccount {
   }
 
 
+ /**
+  * List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.
+  *
+  * @param inStoreTerminals
+  */ 
   @JsonProperty(JSON_PROPERTY_IN_STORE_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInStoreTerminals(List<String> inStoreTerminals) {
@@ -116,6 +121,11 @@ public class MerchantAccount {
   }
 
 
+ /**
+  * List of terminals assigned to the inventory of this merchant account.
+  *
+  * @param inventoryTerminals
+  */ 
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventoryTerminals(List<String> inventoryTerminals) {
@@ -141,6 +151,11 @@ public class MerchantAccount {
   }
 
 
+ /**
+  * The merchant account.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -174,6 +189,11 @@ public class MerchantAccount {
   }
 
 
+ /**
+  * Array of stores under this merchant account.
+  *
+  * @param stores
+  */ 
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<Store> stores) {

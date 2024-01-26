@@ -87,6 +87,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The name of the city. Maximum length: 3000 characters.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -112,6 +117,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -137,6 +147,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * firstName
+  *
+  * @param firstName
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -162,6 +177,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The number or name of the house. Maximum length: 3000 characters.
+  *
+  * @param houseNumberOrName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
@@ -187,6 +207,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * lastName
+  *
+  * @param lastName
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
@@ -212,6 +237,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -237,6 +267,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -262,6 +297,11 @@ public class DeliveryAddress {
   }
 
 
+ /**
+  * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
+  *
+  * @param street
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {

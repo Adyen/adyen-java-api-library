@@ -64,6 +64,11 @@ public class CommonField {
   }
 
 
+ /**
+  * Name of the field. For example, Name of External Platform.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -89,6 +94,11 @@ public class CommonField {
   }
 
 
+ /**
+  * Version of the field. For example, Version of External Platform.
+  *
+  * @param version
+  */ 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {

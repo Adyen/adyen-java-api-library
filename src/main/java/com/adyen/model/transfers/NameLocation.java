@@ -79,6 +79,11 @@ public class NameLocation {
   }
 
 
+ /**
+  * The city where the merchant is located.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -104,6 +109,11 @@ public class NameLocation {
   }
 
 
+ /**
+  * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -129,6 +139,11 @@ public class NameLocation {
   }
 
 
+ /**
+  * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
+  *
+  * @param countryOfOrigin
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfOrigin(String countryOfOrigin) {
@@ -154,6 +169,11 @@ public class NameLocation {
   }
 
 
+ /**
+  * The name of the merchant&#39;s shop or service.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -179,6 +199,11 @@ public class NameLocation {
   }
 
 
+ /**
+  * The raw data.
+  *
+  * @param rawData
+  */ 
   @JsonProperty(JSON_PROPERTY_RAW_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRawData(String rawData) {
@@ -204,6 +229,11 @@ public class NameLocation {
   }
 
 
+ /**
+  * The state where the merchant is located.
+  *
+  * @param state
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(String state) {

@@ -84,6 +84,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * Reference of Pre-debit notification that is displayed to the shopper
+  *
+  * @param displayedReference
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
@@ -109,6 +114,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * A simple description of the &#x60;resultCode&#x60;.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -134,6 +144,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * The unique reference that is associated with the request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -159,6 +174,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * Reference of Pre-debit notification sent in my the merchant
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -184,6 +204,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * The code indicating the status of notification.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
@@ -209,6 +234,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * The unique reference for the request sent downstream.
+  *
+  * @param shopperNotificationReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
@@ -234,6 +264,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * This is the recurringDetailReference returned in the response when token was created
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {

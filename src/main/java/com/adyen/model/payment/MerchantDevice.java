@@ -68,6 +68,11 @@ public class MerchantDevice {
   }
 
 
+ /**
+  * Operating system running on the merchant device.
+  *
+  * @param os
+  */ 
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOs(String os) {
@@ -93,6 +98,11 @@ public class MerchantDevice {
   }
 
 
+ /**
+  * Version of the operating system on the merchant device.
+  *
+  * @param osVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
@@ -118,6 +128,11 @@ public class MerchantDevice {
   }
 
 
+ /**
+  * Merchant device reference.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

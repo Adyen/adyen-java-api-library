@@ -63,6 +63,11 @@ public class MatchingTransactionsRestriction {
   }
 
 
+ /**
+  * Defines how the condition must be evaluated.
+  *
+  * @param operation
+  */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
@@ -88,6 +93,11 @@ public class MatchingTransactionsRestriction {
   }
 
 
+ /**
+  * The number of transactions.
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {

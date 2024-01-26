@@ -122,6 +122,11 @@ public class AfterpayDetails {
   }
 
 
+ /**
+  * The address where to send the invoice.
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(String billingAddress) {
@@ -147,6 +152,11 @@ public class AfterpayDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -172,6 +182,11 @@ public class AfterpayDetails {
   }
 
 
+ /**
+  * The address where the goods should be delivered.
+  *
+  * @param deliveryAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(String deliveryAddress) {
@@ -197,6 +212,11 @@ public class AfterpayDetails {
   }
 
 
+ /**
+  * Shopper name, date of birth, phone number, and email address.
+  *
+  * @param personalDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPersonalDetails(String personalDetails) {
@@ -224,6 +244,11 @@ public class AfterpayDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,6 +275,11 @@ public class AfterpayDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -275,6 +305,11 @@ public class AfterpayDetails {
   }
 
 
+ /**
+  * **afterpay_default**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

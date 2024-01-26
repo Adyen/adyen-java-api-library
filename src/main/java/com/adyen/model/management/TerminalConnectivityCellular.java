@@ -104,6 +104,11 @@ public class TerminalConnectivityCellular {
   }
 
 
+ /**
+  * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+  *
+  * @param iccid
+  */ 
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
@@ -129,6 +134,11 @@ public class TerminalConnectivityCellular {
   }
 
 
+ /**
+  * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

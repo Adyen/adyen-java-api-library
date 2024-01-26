@@ -107,6 +107,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * links
+  *
+  * @param links
+  */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(ApiCredentialLinks links) {
@@ -132,6 +137,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.
+  *
+  * @param active
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -162,6 +172,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.
+  *
+  * @param allowedIpAddresses
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedIpAddresses(List<String> allowedIpAddresses) {
@@ -195,6 +210,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.
+  *
+  * @param allowedOrigins
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<AllowedOrigin> allowedOrigins) {
@@ -220,6 +240,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * The API key for the API credential that was created.
+  *
+  * @param apiKey
+  */ 
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiKey(String apiKey) {
@@ -250,6 +275,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * List of merchant accounts that the API credential has access to.
+  *
+  * @param associatedMerchantAccounts
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -275,6 +305,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.
+  *
+  * @param clientKey
+  */ 
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
@@ -300,6 +335,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * Description of the API credential.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -325,6 +365,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * Unique identifier of the API credential.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -350,6 +395,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * The password for the API credential that was created.
+  *
+  * @param password
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
@@ -380,6 +430,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
+  *
+  * @param roles
+  */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -405,6 +460,11 @@ public class CreateCompanyApiCredentialResponse {
   }
 
 
+ /**
+  * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
+  *
+  * @param username
+  */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {

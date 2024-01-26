@@ -92,6 +92,11 @@ public class ThreeDSAvailabilityRequest {
   }
 
 
+ /**
+  * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -125,6 +130,11 @@ public class ThreeDSAvailabilityRequest {
   }
 
 
+ /**
+  * List of brands.
+  *
+  * @param brands
+  */ 
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
@@ -150,6 +160,11 @@ public class ThreeDSAvailabilityRequest {
   }
 
 
+ /**
+  * Card number or BIN.
+  *
+  * @param cardNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
@@ -175,6 +190,11 @@ public class ThreeDSAvailabilityRequest {
   }
 
 
+ /**
+  * The merchant account identifier.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -200,6 +220,11 @@ public class ThreeDSAvailabilityRequest {
   }
 
 
+ /**
+  * A recurring detail reference corresponding to a card.
+  *
+  * @param recurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -225,6 +250,11 @@ public class ThreeDSAvailabilityRequest {
   }
 
 
+ /**
+  * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

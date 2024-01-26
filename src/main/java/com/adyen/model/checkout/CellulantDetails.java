@@ -100,6 +100,11 @@ public class CellulantDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -125,6 +130,11 @@ public class CellulantDetails {
   }
 
 
+ /**
+  * The Cellulant issuer.
+  *
+  * @param issuer
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -150,6 +160,11 @@ public class CellulantDetails {
   }
 
 
+ /**
+  * **Cellulant**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

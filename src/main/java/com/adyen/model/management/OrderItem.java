@@ -71,6 +71,11 @@ public class OrderItem {
   }
 
 
+ /**
+  * The unique identifier of the product.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -96,6 +101,11 @@ public class OrderItem {
   }
 
 
+ /**
+  * The number of installments for the specified product &#x60;id&#x60;.
+  *
+  * @param installments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Long installments) {
@@ -121,6 +131,11 @@ public class OrderItem {
   }
 
 
+ /**
+  * The name of the product.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -146,6 +161,11 @@ public class OrderItem {
   }
 
 
+ /**
+  * The number of items with the specified product &#x60;id&#x60; included in the order.
+  *
+  * @param quantity
+  */ 
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(Integer quantity) {

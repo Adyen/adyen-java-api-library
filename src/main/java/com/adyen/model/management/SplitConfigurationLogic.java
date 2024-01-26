@@ -539,6 +539,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the transaction fees. Should be combined with adyenFees.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+  *
+  * @param acquiringFees
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRING_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquiringFees(AcquiringFeesEnum acquiringFees) {
@@ -564,6 +569,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * additionalCommission
+  *
+  * @param additionalCommission
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalCommission(AdditionalCommission additionalCommission) {
@@ -589,6 +599,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the transaction fees. Should be combined with schemeFee, interchange &amp; adyenMarkup.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+  *
+  * @param adyenCommission
+  */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenCommission(AdyenCommissionEnum adyenCommission) {
@@ -614,6 +629,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the transaction fees. Should be combined with acquiringFees.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+  *
+  * @param adyenFees
+  */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenFees(AdyenFeesEnum adyenFees) {
@@ -639,6 +659,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the transaction fees. Should be combined with schemeFee, adyenCommission &amp; interchange.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+  *
+  * @param adyenMarkup
+  */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_MARKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenMarkup(AdyenMarkupEnum adyenMarkup) {
@@ -664,6 +689,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the chargeback amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
+  *
+  * @param chargeback
+  */ 
   @JsonProperty(JSON_PROPERTY_CHARGEBACK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChargeback(ChargebackEnum chargeback) {
@@ -689,6 +719,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when allocating the chargeback costs.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
+  *
+  * @param chargebackCostAllocation
+  */ 
   @JsonProperty(JSON_PROPERTY_CHARGEBACK_COST_ALLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChargebackCostAllocation(ChargebackCostAllocationEnum chargebackCostAllocation) {
@@ -714,6 +749,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * commission
+  *
+  * @param commission
+  */ 
   @JsonProperty(JSON_PROPERTY_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommission(Commission commission) {
@@ -739,6 +779,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the transaction fees. Should be combined with schemeFee, adyenCommission &amp; adyenMarkup.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+  *
+  * @param interchange
+  */ 
   @JsonProperty(JSON_PROPERTY_INTERCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterchange(InterchangeEnum interchange) {
@@ -764,6 +809,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the transaction fees. Cannot be combined with other fees.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+  *
+  * @param paymentFee
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentFee(PaymentFeeEnum paymentFee) {
@@ -789,6 +839,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the amount left over after currency conversion.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
+  *
+  * @param remainder
+  */ 
   @JsonProperty(JSON_PROPERTY_REMAINDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainder(RemainderEnum remainder) {
@@ -814,6 +869,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the transaction fees. Should be combined with interchange, adyenCommission &amp; adyenMarkup.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+  *
+  * @param schemeFee
+  */ 
   @JsonProperty(JSON_PROPERTY_SCHEME_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeFee(SchemeFeeEnum schemeFee) {
@@ -839,6 +899,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Unique identifier of the split logic that is applied when the split configuration conditions are met.
+  *
+  * @param splitLogicId
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_LOGIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitLogicId(String splitLogicId) {
@@ -864,6 +929,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking the surcharge amount.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**
+  *
+  * @param surcharge
+  */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(SurchargeEnum surcharge) {
@@ -889,6 +959,11 @@ public class SplitConfigurationLogic {
   }
 
 
+ /**
+  * Specifies the logic to apply when booking tips (gratuity).  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
+  *
+  * @param tip
+  */ 
   @JsonProperty(JSON_PROPERTY_TIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTip(TipEnum tip) {

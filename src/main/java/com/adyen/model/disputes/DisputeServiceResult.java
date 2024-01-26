@@ -64,6 +64,11 @@ public class DisputeServiceResult {
   }
 
 
+ /**
+  * The general error message.
+  *
+  * @param errorMessage
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
@@ -89,6 +94,11 @@ public class DisputeServiceResult {
   }
 
 
+ /**
+  * Indicates whether the request succeeded.
+  *
+  * @param success
+  */ 
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {

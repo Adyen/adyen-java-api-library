@@ -25,7 +25,6 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 public class DataProtectionApi extends Service {
 
     public static final String API_VERSION = "1";
@@ -33,7 +32,7 @@ public class DataProtectionApi extends Service {
     protected String baseURL;
 
     /**
-    * General constructor in {@link com.adyen.service package}.
+    * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
     public DataProtectionApi(Client client) {
@@ -42,7 +41,7 @@ public class DataProtectionApi extends Service {
     }
 
     /**
-    * General constructor in {@link com.adyen.service package}.
+    * Alternative constructor in {@link com.adyen.service package}.
     * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)

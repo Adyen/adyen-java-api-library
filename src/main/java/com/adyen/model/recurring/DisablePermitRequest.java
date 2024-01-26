@@ -64,6 +64,11 @@ public class DisablePermitRequest {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -89,6 +94,11 @@ public class DisablePermitRequest {
   }
 
 
+ /**
+  * The permit token to disable.
+  *
+  * @param token
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {

@@ -68,6 +68,11 @@ public class CostEstimateAssumptions {
   }
 
 
+ /**
+  * If true, the cardholder is expected to successfully authorise via 3D Secure.
+  *
+  * @param assume3DSecureAuthenticated
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
@@ -93,6 +98,11 @@ public class CostEstimateAssumptions {
   }
 
 
+ /**
+  * If true, the transaction is expected to have valid Level 3 data.
+  *
+  * @param assumeLevel3Data
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssumeLevel3Data(Boolean assumeLevel3Data) {
@@ -118,6 +128,11 @@ public class CostEstimateAssumptions {
   }
 
 
+ /**
+  * If not zero, the number of installments.
+  *
+  * @param installments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Integer installments) {

@@ -69,6 +69,11 @@ public class RecurringDetailsRequest {
   }
 
 
+ /**
+  * The merchant account identifier you want to process the (transaction) request with.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -94,6 +99,11 @@ public class RecurringDetailsRequest {
   }
 
 
+ /**
+  * recurring
+  *
+  * @param recurring
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
@@ -119,6 +129,11 @@ public class RecurringDetailsRequest {
   }
 
 
+ /**
+  * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

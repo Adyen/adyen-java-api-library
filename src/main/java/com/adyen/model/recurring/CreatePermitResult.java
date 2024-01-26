@@ -75,6 +75,11 @@ public class CreatePermitResult {
   }
 
 
+ /**
+  * List of new permits.
+  *
+  * @param permitResultList
+  */ 
   @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermitResultList(List<PermitResult> permitResultList) {
@@ -100,6 +105,11 @@ public class CreatePermitResult {
   }
 
 
+ /**
+  * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

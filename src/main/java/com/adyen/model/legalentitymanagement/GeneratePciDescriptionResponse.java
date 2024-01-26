@@ -69,6 +69,11 @@ public class GeneratePciDescriptionResponse {
   }
 
 
+ /**
+  * The generated questionnaires in a base64 encoded format.
+  *
+  * @param content
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -94,6 +99,11 @@ public class GeneratePciDescriptionResponse {
   }
 
 
+ /**
+  * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
+  *
+  * @param language
+  */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -127,6 +137,11 @@ public class GeneratePciDescriptionResponse {
   }
 
 
+ /**
+  * The array of Adyen-generated unique identifiers for the questionnaires.
+  *
+  * @param pciTemplateReferences
+  */ 
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciTemplateReferences(List<String> pciTemplateReferences) {

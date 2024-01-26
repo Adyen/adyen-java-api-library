@@ -104,6 +104,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
+  *
+  * @param installmentPaymentDataInstallmentType
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataInstallmentType(String installmentPaymentDataInstallmentType) {
@@ -129,6 +134,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Annual interest rate.
+  *
+  * @param installmentPaymentDataOptionItemNrAnnualPercentageRate
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrAnnualPercentageRate(String installmentPaymentDataOptionItemNrAnnualPercentageRate) {
@@ -154,6 +164,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * First Installment Amount in minor units.
+  *
+  * @param installmentPaymentDataOptionItemNrFirstInstallmentAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrFirstInstallmentAmount(String installmentPaymentDataOptionItemNrFirstInstallmentAmount) {
@@ -179,6 +194,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Installment fee amount in minor units.
+  *
+  * @param installmentPaymentDataOptionItemNrInstallmentFee
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrInstallmentFee(String installmentPaymentDataOptionItemNrInstallmentFee) {
@@ -204,6 +224,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Interest rate for the installment period.
+  *
+  * @param installmentPaymentDataOptionItemNrInterestRate
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrInterestRate(String installmentPaymentDataOptionItemNrInterestRate) {
@@ -229,6 +254,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Maximum number of installments possible for this payment.
+  *
+  * @param installmentPaymentDataOptionItemNrMaximumNumberOfInstallments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments(String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments) {
@@ -254,6 +284,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Minimum number of installments possible for this payment.
+  *
+  * @param installmentPaymentDataOptionItemNrMinimumNumberOfInstallments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments(String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments) {
@@ -279,6 +314,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Total number of installments possible for this payment.
+  *
+  * @param installmentPaymentDataOptionItemNrNumberOfInstallments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrNumberOfInstallments(String installmentPaymentDataOptionItemNrNumberOfInstallments) {
@@ -304,6 +344,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Subsequent Installment Amount in minor units.
+  *
+  * @param installmentPaymentDataOptionItemNrSubsequentInstallmentAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount(String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount) {
@@ -329,6 +374,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Total amount in minor units.
+  *
+  * @param installmentPaymentDataOptionItemNrTotalAmountDue
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataOptionItemNrTotalAmountDue(String installmentPaymentDataOptionItemNrTotalAmountDue) {
@@ -354,6 +404,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
+  *
+  * @param installmentPaymentDataPaymentOptions
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataPaymentOptions(String installmentPaymentDataPaymentOptions) {
@@ -379,6 +434,11 @@ public class ResponseAdditionalDataInstallments {
   }
 
 
+ /**
+  * The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
+  *
+  * @param installmentsValue
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentsValue(String installmentsValue) {

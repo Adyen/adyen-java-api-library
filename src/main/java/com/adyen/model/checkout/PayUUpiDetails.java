@@ -112,6 +112,11 @@ public class PayUUpiDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -139,6 +144,11 @@ public class PayUUpiDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,6 +175,11 @@ public class PayUUpiDetails {
   }
 
 
+ /**
+  * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
+  *
+  * @param shopperNotificationReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
@@ -190,6 +205,11 @@ public class PayUUpiDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -215,6 +235,11 @@ public class PayUUpiDetails {
   }
 
 
+ /**
+  * **payu_IN_upi**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -240,6 +265,11 @@ public class PayUUpiDetails {
   }
 
 
+ /**
+  * The virtual payment address for UPI.
+  *
+  * @param virtualPaymentAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVirtualPaymentAddress(String virtualPaymentAddress) {

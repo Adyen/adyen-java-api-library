@@ -63,6 +63,11 @@ public class Amount {
   }
 
 
+ /**
+  * The type of currency. Must be EUR (or EUR equivalent)
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -88,6 +93,11 @@ public class Amount {
   }
 
 
+ /**
+  * Total value of amount. Must be &gt;&#x3D; 0
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {

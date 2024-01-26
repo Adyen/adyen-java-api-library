@@ -64,6 +64,11 @@ public class ScheduleAccountUpdaterResult {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -89,6 +94,11 @@ public class ScheduleAccountUpdaterResult {
   }
 
 
+ /**
+  * The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
+  *
+  * @param result
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {

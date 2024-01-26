@@ -119,6 +119,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when the payment is approved.
+  *
+  * @param merchantApproved
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantApproved(Boolean merchantApproved) {
@@ -144,6 +149,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when the transaction is cancelled.
+  *
+  * @param merchantCancelled
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_CANCELLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCancelled(Boolean merchantCancelled) {
@@ -169,6 +179,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when capturing the payment is approved.
+  *
+  * @param merchantCaptureApproved
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureApproved(Boolean merchantCaptureApproved) {
@@ -194,6 +209,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when capturing the payment is refused.
+  *
+  * @param merchantCaptureRefused
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureRefused(Boolean merchantCaptureRefused) {
@@ -219,6 +239,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when the refund is approved.
+  *
+  * @param merchantRefundApproved
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundApproved(Boolean merchantRefundApproved) {
@@ -244,6 +269,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when the refund is refused.
+  *
+  * @param merchantRefundRefused
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundRefused(Boolean merchantRefundRefused) {
@@ -269,6 +299,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when the payment is refused.
+  *
+  * @param merchantRefused
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefused(Boolean merchantRefused) {
@@ -294,6 +329,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a merchant receipt when a previous transaction is voided.
+  *
+  * @param merchantVoid
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_VOID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantVoid(Boolean merchantVoid) {
@@ -319,6 +359,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when the payment is approved.
+  *
+  * @param shopperApproved
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperApproved(Boolean shopperApproved) {
@@ -344,6 +389,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when the transaction is cancelled.
+  *
+  * @param shopperCancelled
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_CANCELLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCancelled(Boolean shopperCancelled) {
@@ -369,6 +419,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when capturing the payment is approved.
+  *
+  * @param shopperCaptureApproved
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureApproved(Boolean shopperCaptureApproved) {
@@ -394,6 +449,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when capturing the payment is refused.
+  *
+  * @param shopperCaptureRefused
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureRefused(Boolean shopperCaptureRefused) {
@@ -419,6 +479,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when the refund is approved.
+  *
+  * @param shopperRefundApproved
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundApproved(Boolean shopperRefundApproved) {
@@ -444,6 +509,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when the refund is refused.
+  *
+  * @param shopperRefundRefused
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundRefused(Boolean shopperRefundRefused) {
@@ -469,6 +539,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when the payment is refused.
+  *
+  * @param shopperRefused
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefused(Boolean shopperRefused) {
@@ -494,6 +569,11 @@ public class ReceiptPrinting {
   }
 
 
+ /**
+  * Print a shopper receipt when a previous transaction is voided.
+  *
+  * @param shopperVoid
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_VOID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperVoid(Boolean shopperVoid) {

@@ -68,6 +68,11 @@ public class DefenseDocument {
   }
 
 
+ /**
+  * The content of the defense document.
+  *
+  * @param content
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -93,6 +98,11 @@ public class DefenseDocument {
   }
 
 
+ /**
+  * The content type of the defense document.
+  *
+  * @param contentType
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(String contentType) {
@@ -118,6 +128,11 @@ public class DefenseDocument {
   }
 
 
+ /**
+  * The document type code of the defense document.
+  *
+  * @param defenseDocumentTypeCode
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {

@@ -104,6 +104,11 @@ public class DocumentPage {
   }
 
 
+ /**
+  * pageName
+  *
+  * @param pageName
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageName(String pageName) {
@@ -129,6 +134,11 @@ public class DocumentPage {
   }
 
 
+ /**
+  * pageNumber
+  *
+  * @param pageNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageNumber(Integer pageNumber) {
@@ -154,6 +164,11 @@ public class DocumentPage {
   }
 
 
+ /**
+  * type
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

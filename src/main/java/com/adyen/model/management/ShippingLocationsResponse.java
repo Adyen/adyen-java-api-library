@@ -70,6 +70,11 @@ public class ShippingLocationsResponse {
   }
 
 
+ /**
+  * Physical locations where orders can be shipped to.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<ShippingLocation> data) {
