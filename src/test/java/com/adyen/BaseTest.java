@@ -24,20 +24,35 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
+import com.adyen.model.nexo.AmountsReq;
+import com.adyen.model.nexo.MessageCategoryType;
+import com.adyen.model.nexo.MessageClassType;
+import com.adyen.model.nexo.MessageHeader;
+import com.adyen.model.nexo.MessageType;
+import com.adyen.model.nexo.PaymentTransaction;
+import com.adyen.model.nexo.SaleData;
+import com.adyen.model.nexo.SaleToPOIRequest;
+import com.adyen.model.nexo.TransactionIdentification;
+import com.adyen.model.payment.ApplicationInfo;
 import com.adyen.model.payment.AuthenticationResultRequest;
 import com.adyen.model.payment.BrowserInfo;
 import com.adyen.model.payment.Card;
+import com.adyen.model.payment.CommonField;
 import com.adyen.model.payment.Name;
 import com.adyen.model.payment.PaymentRequest3d;
 import com.adyen.model.payment.PaymentRequest3ds2;
 import com.adyen.model.payment.ThreeDS2RequestData;
-import com.adyen.model.terminal.*;
+import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.payment.PaymentRequest;
-import com.adyen.terminal.SaleToPOIRequest;
+import com.adyen.terminal.serialization.XMLGregorianCalendarTypeAdapter;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
 import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,14 +61,22 @@ import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
 import java.util.*;
 
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class BaseTest {
+    protected final ApplicationInfo applicationInfo = new ApplicationInfo()
+            .adyenLibrary(new CommonField().name(LIB_NAME).version(LIB_VERSION));
+    protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder()
+            .registerTypeHierarchyAdapter(XMLGregorianCalendar.class, new XMLGregorianCalendarTypeAdapter())
+            .setPrettyPrinting().create();
     public static final String USER_AGENT = "User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36";
 
+    private static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     /**
      * Returns a Client object that has a mocked response
      */
@@ -301,13 +324,13 @@ public class BaseTest {
         return client;
     }
 
-    protected com.adyen.terminal.TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
+    protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
         SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
 
         MessageHeader messageHeader = new MessageHeader();
         messageHeader.setProtocolVersion("3.0");
-        messageHeader.setMessageClass(MessageClass.SERVICE);
-        messageHeader.setMessageCategory(MessageCategory.PAYMENT);
+        messageHeader.setMessageClass(MessageClassType.SERVICE);
+        messageHeader.setMessageCategory(MessageCategoryType.PAYMENT);
         messageHeader.setMessageType(MessageType.REQUEST);
         messageHeader.setSaleID("001");
         messageHeader.setServiceID("001");
@@ -315,12 +338,13 @@ public class BaseTest {
 
         saleToPOIRequest.setMessageHeader(messageHeader);
 
-        com.adyen.model.terminal.PaymentRequest paymentRequest = new com.adyen.model.terminal.PaymentRequest();
+        com.adyen.model.nexo.PaymentRequest paymentRequest = new com.adyen.model.nexo.PaymentRequest();
 
         SaleData saleData = new SaleData();
-        TransactionIDType transactionIdentification = new TransactionIDType();
+        TransactionIdentification transactionIdentification = new TransactionIdentification();
         transactionIdentification.setTransactionID("001");
-//        transactionIdentification.setTimeStamp(null);
+        XMLGregorianCalendar timestamp = DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar());
+        transactionIdentification.setTimeStamp(timestamp);
         saleData.setSaleTransactionID(transactionIdentification);
 
         PaymentTransaction paymentTransaction = new PaymentTransaction();
@@ -334,7 +358,7 @@ public class BaseTest {
 
         saleToPOIRequest.setPaymentRequest(paymentRequest);
 
-        com.adyen.terminal.TerminalAPIRequest terminalAPIRequest = new com.adyen.terminal.TerminalAPIRequest();
+        TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
         terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
 
         return terminalAPIRequest;
