@@ -108,6 +108,11 @@ public class InstallmentOption {
   }
 
 
+ /**
+  * The maximum number of installments offered for this payment method.
+  *
+  * @param maxValue
+  */ 
   @JsonProperty(JSON_PROPERTY_MAX_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxValue(Integer maxValue) {
@@ -141,6 +146,11 @@ public class InstallmentOption {
   }
 
 
+ /**
+  * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
+  *
+  * @param plans
+  */ 
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlans(List<PlansEnum> plans) {
@@ -166,6 +176,11 @@ public class InstallmentOption {
   }
 
 
+ /**
+  * Preselected number of installments offered for this payment method.
+  *
+  * @param preselectedValue
+  */ 
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreselectedValue(Integer preselectedValue) {
@@ -199,6 +214,11 @@ public class InstallmentOption {
   }
 
 
+ /**
+  * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
+  *
+  * @param values
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Integer> values) {

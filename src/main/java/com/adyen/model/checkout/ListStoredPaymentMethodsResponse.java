@@ -70,6 +70,11 @@ public class ListStoredPaymentMethodsResponse {
   }
 
 
+ /**
+  * Your merchant account.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -95,6 +100,11 @@ public class ListStoredPaymentMethodsResponse {
   }
 
 
+ /**
+  * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -128,6 +138,11 @@ public class ListStoredPaymentMethodsResponse {
   }
 
 
+ /**
+  * List of all stored payment methods.
+  *
+  * @param storedPaymentMethods
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethods(List<StoredPaymentMethodResource> storedPaymentMethods) {

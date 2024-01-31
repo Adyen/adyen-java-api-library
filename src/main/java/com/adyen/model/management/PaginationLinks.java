@@ -76,6 +76,11 @@ public class PaginationLinks {
   }
 
 
+ /**
+  * first
+  *
+  * @param first
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirst(LinksElement first) {
@@ -101,6 +106,11 @@ public class PaginationLinks {
   }
 
 
+ /**
+  * last
+  *
+  * @param last
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLast(LinksElement last) {
@@ -126,6 +136,11 @@ public class PaginationLinks {
   }
 
 
+ /**
+  * next
+  *
+  * @param next
+  */ 
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(LinksElement next) {
@@ -151,6 +166,11 @@ public class PaginationLinks {
   }
 
 
+ /**
+  * prev
+  *
+  * @param prev
+  */ 
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrev(LinksElement prev) {
@@ -176,6 +196,11 @@ public class PaginationLinks {
   }
 
 
+ /**
+  * self
+  *
+  * @param self
+  */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {

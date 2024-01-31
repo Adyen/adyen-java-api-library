@@ -63,6 +63,11 @@ public class TerminalConnectivityBluetooth {
   }
 
 
+ /**
+  * The terminal&#39;s Bluetooth IP address.
+  *
+  * @param ipAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -88,6 +93,11 @@ public class TerminalConnectivityBluetooth {
   }
 
 
+ /**
+  * The terminal&#39;s Bluetooth MAC address.
+  *
+  * @param macAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {

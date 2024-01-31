@@ -105,6 +105,11 @@ public class SweepConfigurationNotificationRequest {
   }
 
 
+ /**
+  * data
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(SweepConfigurationNotificationData data) {
@@ -130,6 +135,11 @@ public class SweepConfigurationNotificationRequest {
   }
 
 
+ /**
+  * The environment from which the webhook originated.  Possible values: **test**, **live**.
+  *
+  * @param environment
+  */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -155,6 +165,11 @@ public class SweepConfigurationNotificationRequest {
   }
 
 
+ /**
+  * Type of webhook.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

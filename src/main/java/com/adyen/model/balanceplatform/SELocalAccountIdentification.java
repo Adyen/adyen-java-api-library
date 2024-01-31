@@ -100,6 +100,11 @@ public class SELocalAccountIdentification {
   }
 
 
+ /**
+  * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -125,6 +130,11 @@ public class SELocalAccountIdentification {
   }
 
 
+ /**
+  * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
+  *
+  * @param clearingNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingNumber(String clearingNumber) {
@@ -150,6 +160,11 @@ public class SELocalAccountIdentification {
   }
 
 
+ /**
+  * **seLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

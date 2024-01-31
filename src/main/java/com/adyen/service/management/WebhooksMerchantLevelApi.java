@@ -57,25 +57,66 @@ public class WebhooksMerchantLevelApi extends Service {
     }
 
     /**
-    * Remove a webhook
+    * Generate an HMAC key
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @param webhookId {@link String }  (required)
+    * @return {@link GenerateHmacKeyResponse }
     * @throws ApiException if fails to make API call
     */
-    public void removeWebhook(String merchantId, String webhookId) throws ApiException, IOException {
-        removeWebhook(merchantId, webhookId, null);
+    public GenerateHmacKeyResponse generateHmacKey(String merchantId, String webhookId) throws ApiException, IOException {
+        return generateHmacKey(merchantId, webhookId, null);
     }
 
     /**
-    * Remove a webhook
+    * Generate an HMAC key
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param webhookId {@link String }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link GenerateHmacKeyResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public GenerateHmacKeyResponse generateHmacKey(String merchantId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (webhookId == null) {
+            throw new IllegalArgumentException("Please provide the webhookId path parameter");
+        }
+        pathParams.put("webhookId", webhookId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks/{webhookId}/generateHmac", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return GenerateHmacKeyResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get a webhook
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @return {@link Webhook }
+    * @throws ApiException if fails to make API call
+    */
+    public Webhook getWebhook(String merchantId, String webhookId) throws ApiException, IOException {
+        return getWebhook(merchantId, webhookId, null);
+    }
+
+    /**
+    * Get a webhook
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
     * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link Webhook }
     * @throws ApiException if fails to make API call
     */
-    public void removeWebhook(String merchantId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
+    public Webhook getWebhook(String merchantId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (merchantId == null) {
@@ -89,7 +130,8 @@ public class WebhooksMerchantLevelApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks/{webhookId}", null);
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return Webhook.fromJson(jsonResult);
     }
 
     /**
@@ -136,27 +178,25 @@ public class WebhooksMerchantLevelApi extends Service {
     }
 
     /**
-    * Get a webhook
+    * Remove a webhook
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
     * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @return {@link Webhook }
     * @throws ApiException if fails to make API call
     */
-    public Webhook getWebhook(String merchantId, String webhookId) throws ApiException, IOException {
-        return getWebhook(merchantId, webhookId, null);
+    public void removeWebhook(String merchantId, String webhookId) throws ApiException, IOException {
+        removeWebhook(merchantId, webhookId, null);
     }
 
     /**
-    * Get a webhook
+    * Remove a webhook
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
     * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Webhook }
     * @throws ApiException if fails to make API call
     */
-    public Webhook getWebhook(String merchantId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
+    public void removeWebhook(String merchantId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (merchantId == null) {
@@ -170,49 +210,7 @@ public class WebhooksMerchantLevelApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks/{webhookId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return Webhook.fromJson(jsonResult);
-    }
-
-    /**
-    * Update a webhook
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @param updateMerchantWebhookRequest {@link UpdateMerchantWebhookRequest }  (required)
-    * @return {@link Webhook }
-    * @throws ApiException if fails to make API call
-    */
-    public Webhook updateWebhook(String merchantId, String webhookId, UpdateMerchantWebhookRequest updateMerchantWebhookRequest) throws ApiException, IOException {
-        return updateWebhook(merchantId, webhookId, updateMerchantWebhookRequest, null);
-    }
-
-    /**
-    * Update a webhook
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @param updateMerchantWebhookRequest {@link UpdateMerchantWebhookRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Webhook }
-    * @throws ApiException if fails to make API call
-    */
-    public Webhook updateWebhook(String merchantId, String webhookId, UpdateMerchantWebhookRequest updateMerchantWebhookRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (webhookId == null) {
-            throw new IllegalArgumentException("Please provide the webhookId path parameter");
-        }
-        pathParams.put("webhookId", webhookId);
-
-        String requestBody = updateMerchantWebhookRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks/{webhookId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return Webhook.fromJson(jsonResult);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
     }
 
     /**
@@ -248,45 +246,6 @@ public class WebhooksMerchantLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return Webhook.fromJson(jsonResult);
-    }
-
-    /**
-    * Generate an HMAC key
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param webhookId {@link String }  (required)
-    * @return {@link GenerateHmacKeyResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public GenerateHmacKeyResponse generateHmacKey(String merchantId, String webhookId) throws ApiException, IOException {
-        return generateHmacKey(merchantId, webhookId, null);
-    }
-
-    /**
-    * Generate an HMAC key
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param webhookId {@link String }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link GenerateHmacKeyResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public GenerateHmacKeyResponse generateHmacKey(String merchantId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (webhookId == null) {
-            throw new IllegalArgumentException("Please provide the webhookId path parameter");
-        }
-        pathParams.put("webhookId", webhookId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks/{webhookId}/generateHmac", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return GenerateHmacKeyResponse.fromJson(jsonResult);
     }
 
     /**
@@ -328,5 +287,46 @@ public class WebhooksMerchantLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks/{webhookId}/test", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return TestWebhookResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Update a webhook
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @param updateMerchantWebhookRequest {@link UpdateMerchantWebhookRequest }  (required)
+    * @return {@link Webhook }
+    * @throws ApiException if fails to make API call
+    */
+    public Webhook updateWebhook(String merchantId, String webhookId, UpdateMerchantWebhookRequest updateMerchantWebhookRequest) throws ApiException, IOException {
+        return updateWebhook(merchantId, webhookId, updateMerchantWebhookRequest, null);
+    }
+
+    /**
+    * Update a webhook
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @param updateMerchantWebhookRequest {@link UpdateMerchantWebhookRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link Webhook }
+    * @throws ApiException if fails to make API call
+    */
+    public Webhook updateWebhook(String merchantId, String webhookId, UpdateMerchantWebhookRequest updateMerchantWebhookRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (webhookId == null) {
+            throw new IllegalArgumentException("Please provide the webhookId path parameter");
+        }
+        pathParams.put("webhookId", webhookId);
+
+        String requestBody = updateMerchantWebhookRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/webhooks/{webhookId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
+        return Webhook.fromJson(jsonResult);
     }
 }

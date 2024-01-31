@@ -67,6 +67,11 @@ public class Name {
   }
 
 
+ /**
+  * The individual&#39;s first name.
+  *
+  * @param firstName
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -92,6 +97,11 @@ public class Name {
   }
 
 
+ /**
+  * The infix in the individual&#39;s name, if any.
+  *
+  * @param infix
+  */ 
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfix(String infix) {
@@ -117,6 +127,11 @@ public class Name {
   }
 
 
+ /**
+  * The individual&#39;s last name.
+  *
+  * @param lastName
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {

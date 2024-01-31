@@ -59,6 +59,11 @@ public class ClearpayInfo {
   }
 
 
+ /**
+  * Support Url
+  *
+  * @param supportUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_SUPPORT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportUrl(String supportUrl) {

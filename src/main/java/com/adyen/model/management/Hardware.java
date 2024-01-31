@@ -32,12 +32,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   Hardware.JSON_PROPERTY_DISPLAY_MAXIMUM_BACK_LIGHT,
+  Hardware.JSON_PROPERTY_RESET_TOTALS_HOUR,
   Hardware.JSON_PROPERTY_RESTART_HOUR
 })
 
 public class Hardware {
   public static final String JSON_PROPERTY_DISPLAY_MAXIMUM_BACK_LIGHT = "displayMaximumBackLight";
   private Integer displayMaximumBackLight;
+
+  public static final String JSON_PROPERTY_RESET_TOTALS_HOUR = "resetTotalsHour";
+  private Integer resetTotalsHour;
 
   public static final String JSON_PROPERTY_RESTART_HOUR = "restartHour";
   private Integer restartHour;
@@ -63,10 +67,45 @@ public class Hardware {
   }
 
 
+ /**
+  * The brightness of the display when the terminal is being used, expressed as a percentage.
+  *
+  * @param displayMaximumBackLight
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPLAY_MAXIMUM_BACK_LIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayMaximumBackLight(Integer displayMaximumBackLight) {
     this.displayMaximumBackLight = displayMaximumBackLight;
+  }
+
+
+  public Hardware resetTotalsHour(Integer resetTotalsHour) {
+    this.resetTotalsHour = resetTotalsHour;
+    return this;
+  }
+
+   /**
+   * The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
+   * @return resetTotalsHour
+  **/
+  @ApiModelProperty(value = "The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.")
+  @JsonProperty(JSON_PROPERTY_RESET_TOTALS_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getResetTotalsHour() {
+    return resetTotalsHour;
+  }
+
+
+ /**
+  * The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
+  *
+  * @param resetTotalsHour
+  */ 
+  @JsonProperty(JSON_PROPERTY_RESET_TOTALS_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResetTotalsHour(Integer resetTotalsHour) {
+    this.resetTotalsHour = resetTotalsHour;
   }
 
 
@@ -76,10 +115,10 @@ public class Hardware {
   }
 
    /**
-   * The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal Minimum vaoue: 0, maximum value: 23.
+   * The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    * @return restartHour
   **/
-  @ApiModelProperty(value = "The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal Minimum vaoue: 0, maximum value: 23.")
+  @ApiModelProperty(value = "The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.")
   @JsonProperty(JSON_PROPERTY_RESTART_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -88,6 +127,11 @@ public class Hardware {
   }
 
 
+ /**
+  * The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
+  *
+  * @param restartHour
+  */ 
   @JsonProperty(JSON_PROPERTY_RESTART_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestartHour(Integer restartHour) {
@@ -108,12 +152,13 @@ public class Hardware {
     }
     Hardware hardware = (Hardware) o;
     return Objects.equals(this.displayMaximumBackLight, hardware.displayMaximumBackLight) &&
+        Objects.equals(this.resetTotalsHour, hardware.resetTotalsHour) &&
         Objects.equals(this.restartHour, hardware.restartHour);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayMaximumBackLight, restartHour);
+    return Objects.hash(displayMaximumBackLight, resetTotalsHour, restartHour);
   }
 
   @Override
@@ -121,6 +166,7 @@ public class Hardware {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hardware {\n");
     sb.append("    displayMaximumBackLight: ").append(toIndentedString(displayMaximumBackLight)).append("\n");
+    sb.append("    resetTotalsHour: ").append(toIndentedString(resetTotalsHour)).append("\n");
     sb.append("    restartHour: ").append(toIndentedString(restartHour)).append("\n");
     sb.append("}");
     return sb.toString();

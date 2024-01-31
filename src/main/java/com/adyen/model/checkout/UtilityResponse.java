@@ -70,6 +70,11 @@ public class UtilityResponse {
   }
 
 
+ /**
+  * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
+  *
+  * @param originKeys
+  */ 
   @JsonProperty(JSON_PROPERTY_ORIGIN_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginKeys(Map<String, String> originKeys) {

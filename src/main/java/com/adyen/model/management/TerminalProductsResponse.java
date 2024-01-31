@@ -70,6 +70,11 @@ public class TerminalProductsResponse {
   }
 
 
+ /**
+  * Terminal products that can be ordered.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TerminalProduct> data) {

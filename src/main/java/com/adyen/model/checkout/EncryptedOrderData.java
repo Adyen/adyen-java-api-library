@@ -63,6 +63,11 @@ public class EncryptedOrderData {
   }
 
 
+ /**
+  * The encrypted order data.
+  *
+  * @param orderData
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
@@ -88,6 +93,11 @@ public class EncryptedOrderData {
   }
 
 
+ /**
+  * The &#x60;pspReference&#x60; that belongs to the order.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

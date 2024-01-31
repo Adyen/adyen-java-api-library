@@ -67,6 +67,11 @@ public class ResponseAdditionalDataNetworkTokens {
   }
 
 
+ /**
+  * Indicates whether a network token is available for the specified card.
+  *
+  * @param networkTokenAvailable
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenAvailable(String networkTokenAvailable) {
@@ -92,6 +97,11 @@ public class ResponseAdditionalDataNetworkTokens {
   }
 
 
+ /**
+  * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
+  *
+  * @param networkTokenBin
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenBin(String networkTokenBin) {
@@ -117,6 +127,11 @@ public class ResponseAdditionalDataNetworkTokens {
   }
 
 
+ /**
+  * The last four digits of a network token.
+  *
+  * @param networkTokenTokenSummary
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_TOKEN_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenTokenSummary(String networkTokenTokenSummary) {

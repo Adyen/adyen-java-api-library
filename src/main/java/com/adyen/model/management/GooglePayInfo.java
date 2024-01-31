@@ -63,6 +63,11 @@ public class GooglePayInfo {
   }
 
 
+ /**
+  * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
+  *
+  * @param merchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -88,6 +93,11 @@ public class GooglePayInfo {
   }
 
 
+ /**
+  * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
+  *
+  * @param reuseMerchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_REUSE_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMerchantId(Boolean reuseMerchantId) {

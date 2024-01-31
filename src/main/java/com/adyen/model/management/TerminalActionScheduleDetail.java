@@ -63,6 +63,11 @@ public class TerminalActionScheduleDetail {
   }
 
 
+ /**
+  * The ID of the action on the specified terminal.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -88,6 +93,11 @@ public class TerminalActionScheduleDetail {
   }
 
 
+ /**
+  * The unique ID of the terminal that the action applies to.
+  *
+  * @param terminalId
+  */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {

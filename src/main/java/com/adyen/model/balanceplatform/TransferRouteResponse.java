@@ -70,6 +70,11 @@ public class TransferRouteResponse {
   }
 
 
+ /**
+  * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
+  *
+  * @param transferRoutes
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferRoutes(List<TransferRoute> transferRoutes) {

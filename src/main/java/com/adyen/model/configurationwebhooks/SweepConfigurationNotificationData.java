@@ -68,6 +68,11 @@ public class SweepConfigurationNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the balance account for which the sweep was configured.
+  *
+  * @param accountId
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(String accountId) {
@@ -93,6 +98,11 @@ public class SweepConfigurationNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -118,6 +128,11 @@ public class SweepConfigurationNotificationData {
   }
 
 
+ /**
+  * sweep
+  *
+  * @param sweep
+  */ 
   @JsonProperty(JSON_PROPERTY_SWEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSweep(SweepConfigurationV2 sweep) {

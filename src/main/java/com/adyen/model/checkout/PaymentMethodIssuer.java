@@ -67,6 +67,11 @@ public class PaymentMethodIssuer {
   }
 
 
+ /**
+  * A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
+  *
+  * @param disabled
+  */ 
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisabled(Boolean disabled) {
@@ -92,6 +97,11 @@ public class PaymentMethodIssuer {
   }
 
 
+ /**
+  * The unique identifier of this issuer, to submit in requests to /payments.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -117,6 +127,11 @@ public class PaymentMethodIssuer {
   }
 
 
+ /**
+  * A localized name of the issuer.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {

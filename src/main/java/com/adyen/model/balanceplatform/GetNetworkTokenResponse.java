@@ -60,6 +60,11 @@ public class GetNetworkTokenResponse {
   }
 
 
+ /**
+  * token
+  *
+  * @param token
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(NetworkToken token) {

@@ -205,6 +205,11 @@ public class Organization {
   }
 
 
+ /**
+  * The date when the organization was incorporated in YYYY-MM-DD format.
+  *
+  * @param dateOfIncorporation
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
@@ -230,6 +235,11 @@ public class Organization {
   }
 
 
+ /**
+  * Your description for the organization.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -255,6 +265,11 @@ public class Organization {
   }
 
 
+ /**
+  * The organization&#39;s trading name, if different from the registered legal name.
+  *
+  * @param doingBusinessAs
+  */ 
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
@@ -280,6 +295,11 @@ public class Organization {
   }
 
 
+ /**
+  * The email address of the legal entity.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -305,6 +325,11 @@ public class Organization {
   }
 
 
+ /**
+  * The organization&#39;s legal name.
+  *
+  * @param legalName
+  */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalName(String legalName) {
@@ -330,6 +355,11 @@ public class Organization {
   }
 
 
+ /**
+  * phone
+  *
+  * @param phone
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
@@ -355,6 +385,11 @@ public class Organization {
   }
 
 
+ /**
+  * principalPlaceOfBusiness
+  *
+  * @param principalPlaceOfBusiness
+  */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -380,6 +415,11 @@ public class Organization {
   }
 
 
+ /**
+  * registeredAddress
+  *
+  * @param registeredAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
@@ -405,6 +445,11 @@ public class Organization {
   }
 
 
+ /**
+  * The organization&#39;s registration number.
+  *
+  * @param registrationNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
@@ -430,6 +475,11 @@ public class Organization {
   }
 
 
+ /**
+  * stockData
+  *
+  * @param stockData
+  */ 
   @JsonProperty(JSON_PROPERTY_STOCK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockData(StockData stockData) {
@@ -463,6 +513,11 @@ public class Organization {
   }
 
 
+ /**
+  * The tax information of the organization.
+  *
+  * @param taxInformation
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
@@ -488,6 +543,11 @@ public class Organization {
   }
 
 
+ /**
+  * taxReportingClassification
+  *
+  * @param taxReportingClassification
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxReportingClassification(TaxReportingClassification taxReportingClassification) {
@@ -513,6 +573,11 @@ public class Organization {
   }
 
 
+ /**
+  * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -538,6 +603,11 @@ public class Organization {
   }
 
 
+ /**
+  * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
+  *
+  * @param vatAbsenceReason
+  */ 
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -563,6 +633,11 @@ public class Organization {
   }
 
 
+ /**
+  * The organization&#39;s VAT number.
+  *
+  * @param vatNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {
@@ -588,6 +663,11 @@ public class Organization {
   }
 
 
+ /**
+  * webData
+  *
+  * @param webData
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {

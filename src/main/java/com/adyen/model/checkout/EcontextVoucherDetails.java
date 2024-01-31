@@ -114,6 +114,11 @@ public class EcontextVoucherDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -139,6 +144,11 @@ public class EcontextVoucherDetails {
   }
 
 
+ /**
+  * The shopper&#39;s first name.
+  *
+  * @param firstName
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -164,6 +174,11 @@ public class EcontextVoucherDetails {
   }
 
 
+ /**
+  * The shopper&#39;s last name.
+  *
+  * @param lastName
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
@@ -189,6 +204,11 @@ public class EcontextVoucherDetails {
   }
 
 
+ /**
+  * The shopper&#39;s email.
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -214,6 +234,11 @@ public class EcontextVoucherDetails {
   }
 
 
+ /**
+  * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
+  *
+  * @param telephoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -239,6 +264,11 @@ public class EcontextVoucherDetails {
   }
 
 
+ /**
+  * **econtextvoucher**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

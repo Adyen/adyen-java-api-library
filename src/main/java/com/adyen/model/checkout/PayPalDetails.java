@@ -159,6 +159,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -184,6 +189,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * The unique ID associated with the order.
+  *
+  * @param orderID
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderID(String orderID) {
@@ -209,6 +219,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
+  *
+  * @param payeePreferred
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYEE_PREFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayeePreferred(String payeePreferred) {
@@ -234,6 +249,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * The unique ID associated with the payer.
+  *
+  * @param payerID
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerID(String payerID) {
@@ -259,6 +279,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * PAYPAL or PAYPAL_CREDIT
+  *
+  * @param payerSelected
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYER_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerSelected(String payerSelected) {
@@ -286,6 +311,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,6 +342,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -337,6 +372,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * The type of flow to initiate.
+  *
+  * @param subtype
+  */ 
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(SubtypeEnum subtype) {
@@ -362,6 +402,11 @@ public class PayPalDetails {
   }
 
 
+ /**
+  * **paypal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

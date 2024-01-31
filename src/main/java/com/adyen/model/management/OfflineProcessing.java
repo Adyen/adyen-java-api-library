@@ -66,6 +66,11 @@ public class OfflineProcessing {
   }
 
 
+ /**
+  * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param chipFloorLimit
+  */ 
   @JsonProperty(JSON_PROPERTY_CHIP_FLOOR_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChipFloorLimit(Integer chipFloorLimit) {
@@ -99,6 +104,11 @@ public class OfflineProcessing {
   }
 
 
+ /**
+  * The maximum offline transaction amount for swiped cards, in the specified currency.
+  *
+  * @param offlineSwipeLimits
+  */ 
   @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {

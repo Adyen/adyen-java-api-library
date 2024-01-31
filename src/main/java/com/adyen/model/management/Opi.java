@@ -67,6 +67,11 @@ public class Opi {
   }
 
 
+ /**
+  * Indicates if Pay at table is enabled.
+  *
+  * @param enablePayAtTable
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayAtTable(Boolean enablePayAtTable) {
@@ -92,6 +97,11 @@ public class Opi {
   }
 
 
+ /**
+  * The store number to use for Pay at Table.
+  *
+  * @param payAtTableStoreNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_STORE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTableStoreNumber(String payAtTableStoreNumber) {
@@ -117,6 +127,11 @@ public class Opi {
   }
 
 
+ /**
+  * The URL and port number used for Pay at Table communication.
+  *
+  * @param payAtTableURL
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTableURL(String payAtTableURL) {

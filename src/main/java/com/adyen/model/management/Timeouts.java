@@ -59,6 +59,11 @@ public class Timeouts {
   }
 
 
+ /**
+  * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
+  *
+  * @param fromActiveToSleep
+  */ 
   @JsonProperty(JSON_PROPERTY_FROM_ACTIVE_TO_SLEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromActiveToSleep(Integer fromActiveToSleep) {

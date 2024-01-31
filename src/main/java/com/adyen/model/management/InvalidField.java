@@ -67,6 +67,11 @@ public class InvalidField {
   }
 
 
+ /**
+  * Description of the validation error.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -92,6 +97,11 @@ public class InvalidField {
   }
 
 
+ /**
+  * The field that has an invalid value.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -117,6 +127,11 @@ public class InvalidField {
   }
 
 
+ /**
+  * The invalid value.
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {

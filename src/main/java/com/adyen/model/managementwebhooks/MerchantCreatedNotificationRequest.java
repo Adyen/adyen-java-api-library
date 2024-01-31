@@ -106,6 +106,11 @@ public class MerchantCreatedNotificationRequest {
   }
 
 
+ /**
+  * Timestamp for when the webhook was created.
+  *
+  * @param createdAt
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -131,6 +136,11 @@ public class MerchantCreatedNotificationRequest {
   }
 
 
+ /**
+  * data
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(AccountCreateNotificationData data) {
@@ -156,6 +166,11 @@ public class MerchantCreatedNotificationRequest {
   }
 
 
+ /**
+  * The environment from which the webhook originated.  Possible values: **test**, **live**.
+  *
+  * @param environment
+  */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -181,6 +196,11 @@ public class MerchantCreatedNotificationRequest {
   }
 
 
+ /**
+  * Type of notification.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -64,6 +64,11 @@ public class BcmcInfo {
   }
 
 
+ /**
+  * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
+  *
+  * @param enableBcmcMobile
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_BCMC_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableBcmcMobile(Boolean enableBcmcMobile) {
@@ -89,6 +94,11 @@ public class BcmcInfo {
   }
 
 
+ /**
+  * transactionDescription
+  *
+  * @param transactionDescription
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {

@@ -162,6 +162,11 @@ public class TransferRouteRequest {
   }
 
 
+ /**
+  * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id). Required if &#x60;counterparty&#x60; is **transferInstrumentId**.
+  *
+  * @param balanceAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
@@ -187,6 +192,11 @@ public class TransferRouteRequest {
   }
 
 
+ /**
+  * The unique identifier assigned to the balance platform associated with the account holder.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -212,6 +222,11 @@ public class TransferRouteRequest {
   }
 
 
+ /**
+  *  The type of transfer. Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
+  *
+  * @param category
+  */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
@@ -237,6 +252,11 @@ public class TransferRouteRequest {
   }
 
 
+ /**
+  * counterparty
+  *
+  * @param counterparty
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
@@ -262,6 +282,11 @@ public class TransferRouteRequest {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.  &gt; Either &#x60;counterparty&#x60; or &#x60;country&#x60; field must be provided in a transfer route request.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -287,6 +312,11 @@ public class TransferRouteRequest {
   }
 
 
+ /**
+  * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -320,6 +350,11 @@ public class TransferRouteRequest {
   }
 
 
+ /**
+  * The list of priorities for the bank transfer. Priorities set the speed at which the transfer is sent and the fees that you have to pay. Multiple values can be provided. Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).
+  *
+  * @param priorities
+  */ 
   @JsonProperty(JSON_PROPERTY_PRIORITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriorities(List<PrioritiesEnum> priorities) {

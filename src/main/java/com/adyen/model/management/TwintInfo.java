@@ -59,6 +59,11 @@ public class TwintInfo {
   }
 
 
+ /**
+  * Twint logo. Format: Base64-encoded string.
+  *
+  * @param logo
+  */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {

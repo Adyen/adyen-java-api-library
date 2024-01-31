@@ -67,6 +67,11 @@ public class ExternalPlatform {
   }
 
 
+ /**
+  * External platform integrator.
+  *
+  * @param integrator
+  */ 
   @JsonProperty(JSON_PROPERTY_INTEGRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIntegrator(String integrator) {
@@ -92,6 +97,11 @@ public class ExternalPlatform {
   }
 
 
+ /**
+  * Name of the field. For example, Name of External Platform.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -117,6 +127,11 @@ public class ExternalPlatform {
   }
 
 
+ /**
+  * Version of the field. For example, Version of External Platform.
+  *
+  * @param version
+  */ 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {

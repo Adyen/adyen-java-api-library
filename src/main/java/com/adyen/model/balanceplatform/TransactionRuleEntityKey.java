@@ -63,6 +63,11 @@ public class TransactionRuleEntityKey {
   }
 
 
+ /**
+  * The unique identifier of the resource.
+  *
+  * @param entityReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityReference(String entityReference) {
@@ -88,6 +93,11 @@ public class TransactionRuleEntityKey {
   }
 
 
+ /**
+  * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
+  *
+  * @param entityType
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(String entityType) {

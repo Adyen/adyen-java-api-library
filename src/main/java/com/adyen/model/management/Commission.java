@@ -63,6 +63,11 @@ public class Commission {
   }
 
 
+ /**
+  * A fixed commission fee, in minor units.
+  *
+  * @param fixedAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_FIXED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFixedAmount(Long fixedAmount) {
@@ -88,6 +93,11 @@ public class Commission {
   }
 
 
+ /**
+  * A variable commission fee, in basis points.
+  *
+  * @param variablePercentage
+  */ 
   @JsonProperty(JSON_PROPERTY_VARIABLE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariablePercentage(Long variablePercentage) {

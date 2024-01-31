@@ -68,6 +68,11 @@ public class CapitalGrantInfo {
   }
 
 
+ /**
+  * counterparty
+  *
+  * @param counterparty
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
@@ -93,6 +98,11 @@ public class CapitalGrantInfo {
   }
 
 
+ /**
+  * The identifier of the grant account used for the grant.
+  *
+  * @param grantAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantAccountId(String grantAccountId) {
@@ -118,6 +128,11 @@ public class CapitalGrantInfo {
   }
 
 
+ /**
+  * The identifier of the grant offer that has been selected and from which the grant details will be used.
+  *
+  * @param grantOfferId
+  */ 
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOfferId(String grantOfferId) {

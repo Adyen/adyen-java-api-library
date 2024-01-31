@@ -76,6 +76,11 @@ public class SubMerchantInfo {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(BillingAddress address) {
@@ -101,6 +106,11 @@ public class SubMerchantInfo {
   }
 
 
+ /**
+  * id
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -126,6 +136,11 @@ public class SubMerchantInfo {
   }
 
 
+ /**
+  * mcc
+  *
+  * @param mcc
+  */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
@@ -151,6 +166,11 @@ public class SubMerchantInfo {
   }
 
 
+ /**
+  * name
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -176,6 +196,11 @@ public class SubMerchantInfo {
   }
 
 
+ /**
+  * taxId
+  *
+  * @param taxId
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {

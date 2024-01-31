@@ -106,6 +106,11 @@ public class PhoneNumber {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
+  *
+  * @param phoneCountryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneCountryCode(String phoneCountryCode) {
@@ -131,6 +136,11 @@ public class PhoneNumber {
   }
 
 
+ /**
+  * The phone number. The inclusion of the phone number country code is not necessary.
+  *
+  * @param phoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -156,6 +166,11 @@ public class PhoneNumber {
   }
 
 
+ /**
+  * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
+  *
+  * @param phoneType
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneType(PhoneTypeEnum phoneType) {

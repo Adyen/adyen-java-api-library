@@ -52,6 +52,47 @@ public class AllowedOriginsCompanyLevelApi extends Service {
     }
 
     /**
+    * Create an allowed origin
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
+    * @param allowedOrigin {@link AllowedOrigin }  (required)
+    * @return {@link AllowedOriginsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AllowedOriginsResponse createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
+        return createAllowedOrigin(companyId, apiCredentialId, allowedOrigin, null);
+    }
+
+    /**
+    * Create an allowed origin
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
+    * @param allowedOrigin {@link AllowedOrigin }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link AllowedOriginsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AllowedOriginsResponse createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (apiCredentialId == null) {
+            throw new IllegalArgumentException("Please provide the apiCredentialId path parameter");
+        }
+        pathParams.put("apiCredentialId", apiCredentialId);
+
+        String requestBody = allowedOrigin.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return AllowedOriginsResponse.fromJson(jsonResult);
+    }
+
+    /**
     * Delete an allowed origin
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -91,45 +132,6 @@ public class AllowedOriginsCompanyLevelApi extends Service {
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}", null);
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
-    }
-
-    /**
-    * Get a list of allowed origins
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @return {@link AllowedOriginsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AllowedOriginsResponse listAllowedOrigins(String companyId, String apiCredentialId) throws ApiException, IOException {
-        return listAllowedOrigins(companyId, apiCredentialId, null);
-    }
-
-    /**
-    * Get a list of allowed origins
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AllowedOriginsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public AllowedOriginsResponse listAllowedOrigins(String companyId, String apiCredentialId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (apiCredentialId == null) {
-            throw new IllegalArgumentException("Please provide the apiCredentialId path parameter");
-        }
-        pathParams.put("apiCredentialId", apiCredentialId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return AllowedOriginsResponse.fromJson(jsonResult);
     }
 
     /**
@@ -178,29 +180,27 @@ public class AllowedOriginsCompanyLevelApi extends Service {
     }
 
     /**
-    * Create an allowed origin
+    * Get a list of allowed origins
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @param allowedOrigin {@link AllowedOrigin }  (required)
     * @return {@link AllowedOriginsResponse }
     * @throws ApiException if fails to make API call
     */
-    public AllowedOriginsResponse createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
-        return createAllowedOrigin(companyId, apiCredentialId, allowedOrigin, null);
+    public AllowedOriginsResponse listAllowedOrigins(String companyId, String apiCredentialId) throws ApiException, IOException {
+        return listAllowedOrigins(companyId, apiCredentialId, null);
     }
 
     /**
-    * Create an allowed origin
+    * Get a list of allowed origins
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-    * @param allowedOrigin {@link AllowedOrigin }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link AllowedOriginsResponse }
     * @throws ApiException if fails to make API call
     */
-    public AllowedOriginsResponse createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin, RequestOptions requestOptions) throws ApiException, IOException {
+    public AllowedOriginsResponse listAllowedOrigins(String companyId, String apiCredentialId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (companyId == null) {
@@ -212,9 +212,9 @@ public class AllowedOriginsCompanyLevelApi extends Service {
         }
         pathParams.put("apiCredentialId", apiCredentialId);
 
-        String requestBody = allowedOrigin.toJson();
+        String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return AllowedOriginsResponse.fromJson(jsonResult);
     }
 }

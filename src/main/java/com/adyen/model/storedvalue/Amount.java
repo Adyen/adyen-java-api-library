@@ -1,6 +1,5 @@
 /*
  * Adyen Stored Value API
- * A set of API endpoints to manage stored value products.
  *
  * The version of the OpenAPI document: 46
  * 
@@ -64,6 +63,11 @@ public class Amount {
   }
 
 
+ /**
+  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -89,6 +93,11 @@ public class Amount {
   }
 
 
+ /**
+  * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {

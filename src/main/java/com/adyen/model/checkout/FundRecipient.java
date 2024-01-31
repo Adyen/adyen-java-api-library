@@ -99,6 +99,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * billingAddress
+  *
+  * @param billingAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -124,6 +129,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * paymentMethod
+  *
+  * @param paymentMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(CardDetails paymentMethod) {
@@ -149,6 +159,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * the email address of the person
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -174,6 +189,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * shopperName
+  *
+  * @param shopperName
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -199,6 +219,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -224,6 +249,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -249,6 +279,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * subMerchant
+  *
+  * @param subMerchant
+  */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchant(SubMerchant subMerchant) {
@@ -274,6 +309,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * the telephone number of the person
+  *
+  * @param telephoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -299,6 +339,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * indicates where the money is going
+  *
+  * @param walletIdentifier
+  */ 
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletIdentifier(String walletIdentifier) {
@@ -324,6 +369,11 @@ public class FundRecipient {
   }
 
 
+ /**
+  * indicates the tax identifier of the fund recepient
+  *
+  * @param walletOwnerTaxId
+  */ 
   @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletOwnerTaxId(String walletOwnerTaxId) {

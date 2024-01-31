@@ -59,7 +59,7 @@ public class MidServiceNotificationData {
   private String reference;
 
   /**
-   * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **dataRequired**: the request is in a draft state because the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_). * **capabilityPending**: the **receivePayments** capability is not allowed. * **updatesExpected**: the **receivePayments** capability is not allowed and the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_).
+   * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
    */
   public enum StatusEnum {
     SUCCESS("success"),
@@ -171,6 +171,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
+  *
+  * @param allowed
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
@@ -196,6 +201,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+  *
+  * @param enabled
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
@@ -221,6 +231,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the resource.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -246,6 +261,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the merchant account.
+  *
+  * @param merchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -271,6 +291,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * Your reference for the payment method.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -284,10 +309,10 @@ public class MidServiceNotificationData {
   }
 
    /**
-   * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **dataRequired**: the request is in a draft state because the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_). * **capabilityPending**: the **receivePayments** capability is not allowed. * **updatesExpected**: the **receivePayments** capability is not allowed and the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_).
+   * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **dataRequired**: the request is in a draft state because the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_). * **capabilityPending**: the **receivePayments** capability is not allowed. * **updatesExpected**: the **receivePayments** capability is not allowed and the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_).")
+  @ApiModelProperty(required = true, value = "The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -296,6 +321,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -321,6 +351,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
+  *
+  * @param storeId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
@@ -346,6 +381,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -371,6 +411,11 @@ public class MidServiceNotificationData {
   }
 
 
+ /**
+  * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
+  *
+  * @param verificationStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(VerificationStatusEnum verificationStatus) {

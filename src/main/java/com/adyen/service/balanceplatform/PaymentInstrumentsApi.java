@@ -57,6 +57,99 @@ public class PaymentInstrumentsApi extends Service {
     }
 
     /**
+    * Create a payment instrument
+    *
+    * @param paymentInstrumentInfo {@link PaymentInstrumentInfo }  (required)
+    * @return {@link PaymentInstrument }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentInstrument createPaymentInstrument(PaymentInstrumentInfo paymentInstrumentInfo) throws ApiException, IOException {
+        return createPaymentInstrument(paymentInstrumentInfo, null);
+    }
+
+    /**
+    * Create a payment instrument
+    *
+    * @param paymentInstrumentInfo {@link PaymentInstrumentInfo }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentInstrument }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentInstrument createPaymentInstrument(PaymentInstrumentInfo paymentInstrumentInfo, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = paymentInstrumentInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return PaymentInstrument.fromJson(jsonResult);
+    }
+
+    /**
+    * Get all transaction rules for a payment instrument
+    *
+    * @param id {@link String } The unique identifier of the payment instrument. (required)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForPaymentInstrument(String id) throws ApiException, IOException {
+        return getAllTransactionRulesForPaymentInstrument(id, null);
+    }
+
+    /**
+    * Get all transaction rules for a payment instrument
+    *
+    * @param id {@link String } The unique identifier of the payment instrument. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForPaymentInstrument(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}/transactionRules", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return TransactionRulesResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get the PAN of a payment instrument
+    *
+    * @param id {@link String } The unique identifier of the payment instrument. (required)
+    * @return {@link PaymentInstrumentRevealInfo }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentInstrumentRevealInfo getPanOfPaymentInstrument(String id) throws ApiException, IOException {
+        return getPanOfPaymentInstrument(id, null);
+    }
+
+    /**
+    * Get the PAN of a payment instrument
+    *
+    * @param id {@link String } The unique identifier of the payment instrument. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentInstrumentRevealInfo }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentInstrumentRevealInfo getPanOfPaymentInstrument(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}/reveal", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return PaymentInstrumentRevealInfo.fromJson(jsonResult);
+    }
+
+    /**
     * Get a payment instrument
     *
     * @param id {@link String } The unique identifier of the payment instrument. (required)
@@ -123,72 +216,6 @@ public class PaymentInstrumentsApi extends Service {
     }
 
     /**
-    * Get the PAN of a payment instrument
-    *
-    * @param id {@link String } The unique identifier of the payment instrument. (required)
-    * @return {@link PaymentInstrumentRevealInfo }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentInstrumentRevealInfo getPanOfPaymentInstrument(String id) throws ApiException, IOException {
-        return getPanOfPaymentInstrument(id, null);
-    }
-
-    /**
-    * Get the PAN of a payment instrument
-    *
-    * @param id {@link String } The unique identifier of the payment instrument. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentInstrumentRevealInfo }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentInstrumentRevealInfo getPanOfPaymentInstrument(String id, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}/reveal", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return PaymentInstrumentRevealInfo.fromJson(jsonResult);
-    }
-
-    /**
-    * Get all transaction rules for a payment instrument
-    *
-    * @param id {@link String } The unique identifier of the payment instrument. (required)
-    * @return {@link TransactionRulesResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public TransactionRulesResponse getAllTransactionRulesForPaymentInstrument(String id) throws ApiException, IOException {
-        return getAllTransactionRulesForPaymentInstrument(id, null);
-    }
-
-    /**
-    * Get all transaction rules for a payment instrument
-    *
-    * @param id {@link String } The unique identifier of the payment instrument. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TransactionRulesResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public TransactionRulesResponse getAllTransactionRulesForPaymentInstrument(String id, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}/transactionRules", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return TransactionRulesResponse.fromJson(jsonResult);
-    }
-
-    /**
     * Update a payment instrument
     *
     * @param id {@link String } The unique identifier of the payment instrument. (required)
@@ -221,32 +248,5 @@ public class PaymentInstrumentsApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return UpdatePaymentInstrument.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a payment instrument
-    *
-    * @param paymentInstrumentInfo {@link PaymentInstrumentInfo }  (required)
-    * @return {@link PaymentInstrument }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentInstrument createPaymentInstrument(PaymentInstrumentInfo paymentInstrumentInfo) throws ApiException, IOException {
-        return createPaymentInstrument(paymentInstrumentInfo, null);
-    }
-
-    /**
-    * Create a payment instrument
-    *
-    * @param paymentInstrumentInfo {@link PaymentInstrumentInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentInstrument }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentInstrument createPaymentInstrument(PaymentInstrumentInfo paymentInstrumentInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = paymentInstrumentInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return PaymentInstrument.fromJson(jsonResult);
     }
 }

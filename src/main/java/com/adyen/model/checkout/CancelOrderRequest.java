@@ -64,6 +64,11 @@ public class CancelOrderRequest {
   }
 
 
+ /**
+  * The merchant account identifier that orderData belongs to.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -89,6 +94,11 @@ public class CancelOrderRequest {
   }
 
 
+ /**
+  * order
+  *
+  * @param order
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(EncryptedOrderData order) {

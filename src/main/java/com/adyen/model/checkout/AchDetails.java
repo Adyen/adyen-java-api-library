@@ -175,6 +175,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * The bank account number (without separators).
+  *
+  * @param bankAccountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
@@ -200,6 +205,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * The bank account type (checking, savings...).
+  *
+  * @param bankAccountType
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountType(BankAccountTypeEnum bankAccountType) {
@@ -225,6 +235,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
+  *
+  * @param bankLocationId
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
@@ -250,6 +265,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -275,6 +295,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * Encrypted bank account number. The bank account number (without separators).
+  *
+  * @param encryptedBankAccountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedBankAccountNumber(String encryptedBankAccountNumber) {
@@ -300,6 +325,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
+  *
+  * @param encryptedBankLocationId
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedBankLocationId(String encryptedBankLocationId) {
@@ -325,6 +355,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
+  *
+  * @param ownerName
+  */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
@@ -352,6 +387,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -378,6 +418,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -403,6 +448,11 @@ public class AchDetails {
   }
 
 
+ /**
+  * **ach**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

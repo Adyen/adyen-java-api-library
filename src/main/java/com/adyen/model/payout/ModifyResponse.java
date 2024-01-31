@@ -78,6 +78,11 @@ public class ModifyResponse {
   }
 
 
+ /**
+  * This field contains additional data, which may be returned in a particular response.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -103,6 +108,11 @@ public class ModifyResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -128,6 +138,11 @@ public class ModifyResponse {
   }
 
 
+ /**
+  * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
+  *
+  * @param response
+  */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(String response) {

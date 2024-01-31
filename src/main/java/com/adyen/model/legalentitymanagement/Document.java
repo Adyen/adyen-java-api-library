@@ -171,6 +171,11 @@ public class Document {
   }
 
 
+ /**
+  * attachment
+  *
+  * @param attachment
+  */ 
   @JsonProperty(JSON_PROPERTY_ATTACHMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachment(Attachment attachment) {
@@ -204,6 +209,11 @@ public class Document {
   }
 
 
+ /**
+  * Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
+  *
+  * @param attachments
+  */ 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachments(List<Attachment> attachments) {
@@ -229,6 +239,11 @@ public class Document {
   }
 
 
+ /**
+  * The creation date of the document.
+  *
+  * @param creationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -254,6 +269,11 @@ public class Document {
   }
 
 
+ /**
+  * Your description for the document.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -281,6 +301,11 @@ public class Document {
   }
 
 
+ /**
+  * The expiry date of the document, in YYYY-MM-DD format.
+  *
+  * @param expiryDate
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,6 +332,11 @@ public class Document {
   }
 
 
+ /**
+  * The filename of the document.
+  *
+  * @param fileName
+  */ 
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
@@ -332,6 +362,11 @@ public class Document {
   }
 
 
+ /**
+  * The unique identifier of the document.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -359,6 +394,11 @@ public class Document {
   }
 
 
+ /**
+  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
+  *
+  * @param issuerCountry
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -387,6 +427,11 @@ public class Document {
   }
 
 
+ /**
+  * The state or province where the document was issued (AU only).
+  *
+  * @param issuerState
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -413,6 +458,11 @@ public class Document {
   }
 
 
+ /**
+  * The modification date of the document.
+  *
+  * @param modificationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationDate(OffsetDateTime modificationDate) {
@@ -438,6 +488,11 @@ public class Document {
   }
 
 
+ /**
+  * The number in the document.
+  *
+  * @param number
+  */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -463,6 +518,11 @@ public class Document {
   }
 
 
+ /**
+  * owner
+  *
+  * @param owner
+  */ 
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwner(OwnerEntity owner) {
@@ -488,6 +548,11 @@ public class Document {
   }
 
 
+ /**
+  * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, or **proofOfFundingOrWealthSource**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

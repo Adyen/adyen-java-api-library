@@ -142,6 +142,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * Brand for the selected gift card. For example: plastix, hmclub.
+  *
+  * @param brand
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -175,6 +180,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * List of possible brands. For example: visa, mc.
+  *
+  * @param brands
+  */ 
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
@@ -208,6 +218,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * The configuration of the payment method.
+  *
+  * @param configuration
+  */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
@@ -233,6 +248,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * The funding source of the payment method.
+  *
+  * @param fundingSource
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
@@ -258,6 +278,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * group
+  *
+  * @param group
+  */ 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(PaymentMethodGroup group) {
@@ -293,6 +318,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * All input details to be provided to complete the payment with this payment method.
+  *
+  * @param inputDetails
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,6 +357,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * A list of issuers for this payment method.
+  *
+  * @param issuers
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuers(List<PaymentMethodIssuer> issuers) {
@@ -352,6 +387,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * The displayable name of this payment method.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -377,6 +417,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * The reference that uniquely identifies the recurring detail.
+  *
+  * @param recurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -402,6 +447,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * storedDetails
+  *
+  * @param storedDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredDetails(StoredDetails storedDetails) {
@@ -427,6 +477,11 @@ public class RecurringDetail {
   }
 
 
+ /**
+  * The unique payment method code.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

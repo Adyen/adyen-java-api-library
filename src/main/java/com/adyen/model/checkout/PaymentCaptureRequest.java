@@ -95,6 +95,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -120,6 +125,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * applicationInfo
+  *
+  * @param applicationInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
@@ -153,6 +163,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+  *
+  * @param lineItems
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
@@ -178,6 +193,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * The merchant account that is used to process the payment.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -203,6 +223,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * platformChargebackLogic
+  *
+  * @param platformChargebackLogic
+  */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -228,6 +253,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * Your reference for the capture request. Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -261,6 +291,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
+  *
+  * @param splits
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
@@ -294,6 +329,11 @@ public class PaymentCaptureRequest {
   }
 
 
+ /**
+  * A List of sub-merchants.
+  *
+  * @param subMerchants
+  */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchants(List<SubMerchantInfo> subMerchants) {

@@ -125,6 +125,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The bank account number (without separators).
+  *
+  * @param bankAccountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
@@ -150,6 +155,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
+  *
+  * @param bankLocationId
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
@@ -175,6 +185,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The brand of the card.
+  *
+  * @param brand
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -200,6 +215,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The month the card expires.
+  *
+  * @param expiryMonth
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
@@ -225,6 +245,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The last two digits of the year the card expires. For example, **22** for the year 2022.
+  *
+  * @param expiryYear
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
@@ -250,6 +275,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The unique payment method code.
+  *
+  * @param holderName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -275,6 +305,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The IBAN of the bank account.
+  *
+  * @param iban
+  */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -300,6 +335,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * A unique identifier of this stored payment method.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -325,6 +365,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The shopper’s issuer account label
+  *
+  * @param label
+  */ 
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabel(String label) {
@@ -350,6 +395,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The last four digits of the PAN.
+  *
+  * @param lastFour
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastFour(String lastFour) {
@@ -375,6 +425,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The display name of the stored payment method.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -400,6 +455,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+  *
+  * @param networkTxReference
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
@@ -425,6 +485,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The name of the bank account holder.
+  *
+  * @param ownerName
+  */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
@@ -450,6 +515,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The shopper’s email address.
+  *
+  * @param shopperEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -483,6 +553,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The supported recurring processing models for this stored payment method.
+  *
+  * @param supportedRecurringProcessingModels
+  */ 
   @JsonProperty(JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedRecurringProcessingModels(List<String> supportedRecurringProcessingModels) {
@@ -516,6 +591,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The supported shopper interactions for this stored payment method.
+  *
+  * @param supportedShopperInteractions
+  */ 
   @JsonProperty(JSON_PROPERTY_SUPPORTED_SHOPPER_INTERACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedShopperInteractions(List<String> supportedShopperInteractions) {
@@ -541,6 +621,11 @@ public class StoredPaymentMethod {
   }
 
 
+ /**
+  * The type of payment method.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

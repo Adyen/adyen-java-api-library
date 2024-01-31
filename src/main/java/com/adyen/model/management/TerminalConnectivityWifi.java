@@ -67,6 +67,11 @@ public class TerminalConnectivityWifi {
   }
 
 
+ /**
+  * The terminal&#39;s IP address in the Wi-Fi network.
+  *
+  * @param ipAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -92,6 +97,11 @@ public class TerminalConnectivityWifi {
   }
 
 
+ /**
+  * The terminal&#39;s MAC address in the Wi-Fi network.
+  *
+  * @param macAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {
@@ -117,6 +127,11 @@ public class TerminalConnectivityWifi {
   }
 
 
+ /**
+  * The SSID of the Wi-Fi network that the terminal is connected to.
+  *
+  * @param ssid
+  */ 
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {

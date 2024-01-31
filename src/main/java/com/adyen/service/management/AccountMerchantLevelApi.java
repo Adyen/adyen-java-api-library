@@ -55,38 +55,30 @@ public class AccountMerchantLevelApi extends Service {
     }
 
     /**
-    * Get a list of merchant accounts
+    * Create a merchant account
     *
-    * @return {@link ListMerchantResponse }
+    * @param createMerchantRequest {@link CreateMerchantRequest }  (required)
+    * @return {@link CreateMerchantResponse }
     * @throws ApiException if fails to make API call
     */
-    public ListMerchantResponse listMerchantAccounts() throws ApiException, IOException {
-        return listMerchantAccounts(null,  null,  null);
+    public CreateMerchantResponse createMerchantAccount(CreateMerchantRequest createMerchantRequest) throws ApiException, IOException {
+        return createMerchantAccount(createMerchantRequest, null);
     }
 
     /**
-    * Get a list of merchant accounts
+    * Create a merchant account
     *
-    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
-    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
+    * @param createMerchantRequest {@link CreateMerchantRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link ListMerchantResponse }
+    * @return {@link CreateMerchantResponse }
     * @throws ApiException if fails to make API call
     */
-    public ListMerchantResponse listMerchantAccounts(Integer pageNumber, Integer pageSize, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add query params
-        Map<String, String> queryParams = new HashMap<>();
-        if (pageNumber != null) {
-        queryParams.put("pageNumber", pageNumber.toString());
-        }
-        if (pageSize != null) {
-        queryParams.put("pageSize", pageSize.toString());
-        }
+    public CreateMerchantResponse createMerchantAccount(CreateMerchantRequest createMerchantRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = null;
+        String requestBody = createMerchantRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/merchants", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null, queryParams);
-        return ListMerchantResponse.fromJson(jsonResult);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return CreateMerchantResponse.fromJson(jsonResult);
     }
 
     /**
@@ -123,30 +115,38 @@ public class AccountMerchantLevelApi extends Service {
     }
 
     /**
-    * Create a merchant account
+    * Get a list of merchant accounts
     *
-    * @param createMerchantRequest {@link CreateMerchantRequest }  (required)
-    * @return {@link CreateMerchantResponse }
+    * @return {@link ListMerchantResponse }
     * @throws ApiException if fails to make API call
     */
-    public CreateMerchantResponse createMerchantAccount(CreateMerchantRequest createMerchantRequest) throws ApiException, IOException {
-        return createMerchantAccount(createMerchantRequest, null);
+    public ListMerchantResponse listMerchantAccounts() throws ApiException, IOException {
+        return listMerchantAccounts(null,  null,  null);
     }
 
     /**
-    * Create a merchant account
+    * Get a list of merchant accounts
     *
-    * @param createMerchantRequest {@link CreateMerchantRequest }  (required)
+    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
+    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CreateMerchantResponse }
+    * @return {@link ListMerchantResponse }
     * @throws ApiException if fails to make API call
     */
-    public CreateMerchantResponse createMerchantAccount(CreateMerchantRequest createMerchantRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public ListMerchantResponse listMerchantAccounts(Integer pageNumber, Integer pageSize, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (pageNumber != null) {
+        queryParams.put("pageNumber", pageNumber.toString());
+        }
+        if (pageSize != null) {
+        queryParams.put("pageSize", pageSize.toString());
+        }
 
-        String requestBody = createMerchantRequest.toJson();
+        String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/merchants", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return CreateMerchantResponse.fromJson(jsonResult);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null, queryParams);
+        return ListMerchantResponse.fromJson(jsonResult);
     }
 
     /**

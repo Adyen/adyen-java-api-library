@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -92,6 +91,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The bank account number (without separators).
+  *
+  * @param bankAccountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
@@ -117,6 +121,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The bank city.
+  *
+  * @param bankCity
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCity(String bankCity) {
@@ -142,6 +151,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
+  *
+  * @param bankLocationId
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
@@ -167,6 +181,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The name of the bank.
+  *
+  * @param bankName
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
@@ -192,6 +211,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
+  *
+  * @param bic
+  */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -217,6 +241,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
+  *
+  * @param countryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -242,6 +271,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
+  *
+  * @param iban
+  */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -267,6 +301,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
+  *
+  * @param ownerName
+  */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
@@ -292,6 +331,11 @@ public class BankAccount {
   }
 
 
+ /**
+  * The bank account holder&#39;s tax ID.
+  *
+  * @param taxId
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {

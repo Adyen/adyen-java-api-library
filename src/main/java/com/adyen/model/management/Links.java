@@ -60,6 +60,11 @@ public class Links {
   }
 
 
+ /**
+  * self
+  *
+  * @param self
+  */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {

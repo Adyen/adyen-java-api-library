@@ -1,6 +1,5 @@
 /*
  * Adyen Recurring API
- * The Recurring APIs allow you to manage and remove your tokens or saved payment details. Tokens should be created with validation during a payment request.  For more information, refer to our [Tokenization documentation](https://docs.adyen.com/online-payments/tokenization). ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Recurring API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Recurring/v68/disable ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Recurring/v68/disable ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -80,6 +79,11 @@ public class Address {
   }
 
 
+ /**
+  * The name of the city. Maximum length: 3000 characters.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -105,6 +109,11 @@ public class Address {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -130,6 +139,11 @@ public class Address {
   }
 
 
+ /**
+  * The number or name of the house. Maximum length: 3000 characters.
+  *
+  * @param houseNumberOrName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
@@ -155,6 +169,11 @@ public class Address {
   }
 
 
+ /**
+  * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -180,6 +199,11 @@ public class Address {
   }
 
 
+ /**
+  * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -205,6 +229,11 @@ public class Address {
   }
 
 
+ /**
+  * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
+  *
+  * @param street
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {

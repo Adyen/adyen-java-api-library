@@ -58,6 +58,154 @@ public class TerminalOrdersCompanyLevelApi extends Service {
     }
 
     /**
+    * Cancel an order
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder cancelOrder(String companyId, String orderId) throws ApiException, IOException {
+        return cancelOrder(companyId, orderId, null);
+    }
+
+    /**
+    * Cancel an order
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder cancelOrder(String companyId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (orderId == null) {
+            throw new IllegalArgumentException("Please provide the orderId path parameter");
+        }
+        pathParams.put("orderId", orderId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders/{orderId}/cancel", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return TerminalOrder.fromJson(jsonResult);
+    }
+
+    /**
+    * Create an order
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder createOrder(String companyId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
+        return createOrder(companyId, terminalOrderRequest, null);
+    }
+
+    /**
+    * Create an order
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder createOrder(String companyId, TerminalOrderRequest terminalOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+
+        String requestBody = terminalOrderRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return TerminalOrder.fromJson(jsonResult);
+    }
+
+    /**
+    * Create a shipping location
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param shippingLocation {@link ShippingLocation }  (required)
+    * @return {@link ShippingLocation }
+    * @throws ApiException if fails to make API call
+    */
+    public ShippingLocation createShippingLocation(String companyId, ShippingLocation shippingLocation) throws ApiException, IOException {
+        return createShippingLocation(companyId, shippingLocation, null);
+    }
+
+    /**
+    * Create a shipping location
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param shippingLocation {@link ShippingLocation }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ShippingLocation }
+    * @throws ApiException if fails to make API call
+    */
+    public ShippingLocation createShippingLocation(String companyId, ShippingLocation shippingLocation, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+
+        String requestBody = shippingLocation.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/shippingLocations", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return ShippingLocation.fromJson(jsonResult);
+    }
+
+    /**
+    * Get an order
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder getOrder(String companyId, String orderId) throws ApiException, IOException {
+        return getOrder(companyId, orderId, null);
+    }
+
+    /**
+    * Get an order
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder getOrder(String companyId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (orderId == null) {
+            throw new IllegalArgumentException("Please provide the orderId path parameter");
+        }
+        pathParams.put("orderId", orderId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders/{orderId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return TerminalOrder.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of billing entities
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -94,6 +242,57 @@ public class TerminalOrdersCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/billingEntities", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return BillingEntitiesResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get a list of orders
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @return {@link TerminalOrdersResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrdersResponse listOrders(String companyId) throws ApiException, IOException {
+        return listOrders(companyId, null,  null,  null,  null,  null);
+    }
+
+    /**
+    * Get a list of orders
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param customerOrderReference {@link String } Query: Your purchase order number. (optional)
+    * @param status {@link String } Query: The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered. (optional)
+    * @param offset {@link Integer } Query: The number of orders to skip. (optional)
+    * @param limit {@link Integer } Query: The number of orders to return. (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrdersResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrdersResponse listOrders(String companyId, String customerOrderReference, String status, Integer offset, Integer limit, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (customerOrderReference != null) {
+        queryParams.put("customerOrderReference", customerOrderReference);
+        }
+        if (status != null) {
+        queryParams.put("status", status);
+        }
+        if (offset != null) {
+        queryParams.put("offset", offset.toString());
+        }
+        if (limit != null) {
+        queryParams.put("limit", limit.toString());
+        }
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return TerminalOrdersResponse.fromJson(jsonResult);
     }
 
     /**
@@ -174,96 +373,6 @@ public class TerminalOrdersCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalModels", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return TerminalModelsResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get a list of orders
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @return {@link TerminalOrdersResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrdersResponse listOrders(String companyId) throws ApiException, IOException {
-        return listOrders(companyId, null,  null,  null,  null,  null);
-    }
-
-    /**
-    * Get a list of orders
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param customerOrderReference {@link String } Query: Your purchase order number. (optional)
-    * @param status {@link String } Query: The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered. (optional)
-    * @param offset {@link Integer } Query: The number of orders to skip. (optional)
-    * @param limit {@link Integer } Query: The number of orders to return. (optional)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrdersResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrdersResponse listOrders(String companyId, String customerOrderReference, String status, Integer offset, Integer limit, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        //Add query params
-        Map<String, String> queryParams = new HashMap<>();
-        if (customerOrderReference != null) {
-        queryParams.put("customerOrderReference", customerOrderReference);
-        }
-        if (status != null) {
-        queryParams.put("status", status);
-        }
-        if (offset != null) {
-        queryParams.put("offset", offset.toString());
-        }
-        if (limit != null) {
-        queryParams.put("limit", limit.toString());
-        }
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
-        return TerminalOrdersResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get an order
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder getOrder(String companyId, String orderId) throws ApiException, IOException {
-        return getOrder(companyId, orderId, null);
-    }
-
-    /**
-    * Get an order
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder getOrder(String companyId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (orderId == null) {
-            throw new IllegalArgumentException("Please provide the orderId path parameter");
-        }
-        pathParams.put("orderId", orderId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders/{orderId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return TerminalOrder.fromJson(jsonResult);
     }
 
     /**
@@ -356,115 +465,6 @@ public class TerminalOrdersCompanyLevelApi extends Service {
         String requestBody = terminalOrderRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders/{orderId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return TerminalOrder.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a shipping location
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param shippingLocation {@link ShippingLocation }  (required)
-    * @return {@link ShippingLocation }
-    * @throws ApiException if fails to make API call
-    */
-    public ShippingLocation createShippingLocation(String companyId, ShippingLocation shippingLocation) throws ApiException, IOException {
-        return createShippingLocation(companyId, shippingLocation, null);
-    }
-
-    /**
-    * Create a shipping location
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param shippingLocation {@link ShippingLocation }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link ShippingLocation }
-    * @throws ApiException if fails to make API call
-    */
-    public ShippingLocation createShippingLocation(String companyId, ShippingLocation shippingLocation, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-
-        String requestBody = shippingLocation.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/shippingLocations", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return ShippingLocation.fromJson(jsonResult);
-    }
-
-    /**
-    * Create an order
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder createOrder(String companyId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
-        return createOrder(companyId, terminalOrderRequest, null);
-    }
-
-    /**
-    * Create an order
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder createOrder(String companyId, TerminalOrderRequest terminalOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-
-        String requestBody = terminalOrderRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return TerminalOrder.fromJson(jsonResult);
-    }
-
-    /**
-    * Cancel an order
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder cancelOrder(String companyId, String orderId) throws ApiException, IOException {
-        return cancelOrder(companyId, orderId, null);
-    }
-
-    /**
-    * Cancel an order
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder cancelOrder(String companyId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (orderId == null) {
-            throw new IllegalArgumentException("Please provide the orderId path parameter");
-        }
-        pathParams.put("orderId", orderId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/terminalOrders/{orderId}/cancel", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return TerminalOrder.fromJson(jsonResult);
     }
 }

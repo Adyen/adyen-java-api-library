@@ -70,6 +70,11 @@ public class AllowedOriginsResponse {
   }
 
 
+ /**
+  * List of allowed origins.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<AllowedOrigin> data) {

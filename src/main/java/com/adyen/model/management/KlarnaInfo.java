@@ -110,6 +110,11 @@ public class KlarnaInfo {
   }
 
 
+ /**
+  * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
+  *
+  * @param autoCapture
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTO_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoCapture(Boolean autoCapture) {
@@ -135,6 +140,11 @@ public class KlarnaInfo {
   }
 
 
+ /**
+  * The email address for disputes.
+  *
+  * @param disputeEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeEmail(String disputeEmail) {
@@ -160,6 +170,11 @@ public class KlarnaInfo {
   }
 
 
+ /**
+  * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
+  *
+  * @param region
+  */ 
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegion(RegionEnum region) {
@@ -185,6 +200,11 @@ public class KlarnaInfo {
   }
 
 
+ /**
+  * The email address of merchant support.
+  *
+  * @param supportEmail
+  */ 
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {

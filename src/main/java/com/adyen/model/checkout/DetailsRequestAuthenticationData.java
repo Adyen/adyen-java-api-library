@@ -59,6 +59,11 @@ public class DetailsRequestAuthenticationData {
   }
 
 
+ /**
+  * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.
+  *
+  * @param authenticationOnly
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {

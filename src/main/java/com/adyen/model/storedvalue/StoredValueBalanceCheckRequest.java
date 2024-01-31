@@ -1,6 +1,5 @@
 /*
  * Adyen Stored Value API
- * A set of API endpoints to manage stored value products.
  *
  * The version of the OpenAPI document: 46
  * 
@@ -131,6 +130,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -156,6 +160,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -186,6 +195,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * The collection that contains the type of the payment method and its specific information if available
+  *
+  * @param paymentMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(Map<String, String> paymentMethod) {
@@ -211,6 +225,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * recurringDetailReference
+  *
+  * @param recurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -236,6 +255,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -261,6 +285,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+  *
+  * @param shopperInteraction
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -286,6 +315,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * shopperReference
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -311,6 +345,11 @@ public class StoredValueBalanceCheckRequest {
   }
 
 
+ /**
+  * The physical store, for which this payment is processed.
+  *
+  * @param store
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {

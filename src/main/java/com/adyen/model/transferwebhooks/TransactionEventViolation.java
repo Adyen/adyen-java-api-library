@@ -69,6 +69,11 @@ public class TransactionEventViolation {
   }
 
 
+ /**
+  * An explanation about why the transaction rule failed.
+  *
+  * @param reason
+  */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
@@ -94,6 +99,11 @@ public class TransactionEventViolation {
   }
 
 
+ /**
+  * transactionRule
+  *
+  * @param transactionRule
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRule(TransactionRuleReference transactionRule) {
@@ -119,6 +129,11 @@ public class TransactionEventViolation {
   }
 
 
+ /**
+  * transactionRuleSource
+  *
+  * @param transactionRuleSource
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRuleSource(TransactionRuleSource transactionRuleSource) {

@@ -124,6 +124,11 @@ public class AcceptTermsOfServiceResponse {
   }
 
 
+ /**
+  * The unique identifier of the user that accepted the Terms of Service.
+  *
+  * @param acceptedBy
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
@@ -149,6 +154,11 @@ public class AcceptTermsOfServiceResponse {
   }
 
 
+ /**
+  * The unique identifier of the Terms of Service acceptance.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -174,6 +184,11 @@ public class AcceptTermsOfServiceResponse {
   }
 
 
+ /**
+  * The IP address of the user that accepted the Terms of Service.
+  *
+  * @param ipAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -199,6 +214,11 @@ public class AcceptTermsOfServiceResponse {
   }
 
 
+ /**
+  * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
+  *
+  * @param language
+  */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -224,6 +244,11 @@ public class AcceptTermsOfServiceResponse {
   }
 
 
+ /**
+  * The unique identifier of the Terms of Service document.
+  *
+  * @param termsOfServiceDocumentId
+  */ 
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentId(String termsOfServiceDocumentId) {
@@ -249,6 +274,11 @@ public class AcceptTermsOfServiceResponse {
   }
 
 
+ /**
+  * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee**  
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
