@@ -20,11 +20,11 @@
  */
 package com.adyen;
 
-import com.adyen.model.terminal.MessageHeader;
-import com.adyen.terminal.TerminalAPIRequest;
+import com.adyen.model.nexo.MessageHeader;
+import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
+import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.terminal.security.NexoCrypto;
-import com.adyen.terminal.security.SaleToPOISecuredMessage;
-import com.adyen.terminal.security.SecurityKey;
 import com.adyen.terminal.security.exception.NexoCryptoException;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -54,7 +54,7 @@ public class NexoCryptoTest extends BaseTest {
     public void testEncryption() throws Exception {
         TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
         MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
-        String requestJson = terminalAPIRequest.toJson();
+        String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
 
         NexoCrypto nexoCrypto = new NexoCrypto(testSecurityKey);
 
@@ -69,7 +69,7 @@ public class NexoCryptoTest extends BaseTest {
     public void testDecryption() throws Exception {
         TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
         MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
-        String requestJson = terminalAPIRequest.toJson();
+        String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
 
         NexoCrypto nexoCrypto = new NexoCrypto(testSecurityKey);
 
@@ -88,7 +88,7 @@ public class NexoCryptoTest extends BaseTest {
     public void testDecryptionWithInvalidHmac() throws Exception {
         TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
         MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
-        String requestJson = terminalAPIRequest.toJson();
+        String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
 
         NexoCrypto nexoCrypto = new NexoCrypto(testSecurityKey);
 

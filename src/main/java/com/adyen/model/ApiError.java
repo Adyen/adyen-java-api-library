@@ -278,15 +278,17 @@ public class ApiError {
 
     @Override
     public String toString() {
-         return "class ServiceError {\n" +
-                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
-                "    additionalData: " + toIndentedString(additionalData) + "\n" +
-                "    errorCode: " + toIndentedString(errorCode) + "\n" +
-                "    errorType: " + toIndentedString(errorType) + "\n" +
-                "    message: " + toIndentedString(message) + "\n" +
-                "    pspReference: " + toIndentedString(pspReference) + "\n" +
-                "    status: " + toIndentedString(status) + "\n" +
-                "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ServiceError {\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**
