@@ -150,11 +150,13 @@ public class InvalidField {
 
     @Override
     public String toString() {
-        return "class InvalidField {\n" +
-                "    message: " + toIndentedString(message) + "\n" +
-                "    name: " + toIndentedString(name) + "\n" +
-                "    value: " + toIndentedString(value) + "\n" +
-                "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append("class InvalidField {\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**
