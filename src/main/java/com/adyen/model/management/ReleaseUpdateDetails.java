@@ -96,6 +96,11 @@ public class ReleaseUpdateDetails {
   }
 
 
+ /**
+  * Type of terminal action: Update Release.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -121,6 +126,11 @@ public class ReleaseUpdateDetails {
   }
 
 
+ /**
+  * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
+  *
+  * @param updateAtFirstMaintenanceCall
+  */ 
   @JsonProperty(JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateAtFirstMaintenanceCall(Boolean updateAtFirstMaintenanceCall) {

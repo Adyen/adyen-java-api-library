@@ -79,6 +79,11 @@ public class Company {
   }
 
 
+ /**
+  * The company website&#39;s home page.
+  *
+  * @param homepage
+  */ 
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomepage(String homepage) {
@@ -104,6 +109,11 @@ public class Company {
   }
 
 
+ /**
+  * The company name.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -129,6 +139,11 @@ public class Company {
   }
 
 
+ /**
+  * Registration number of the company.
+  *
+  * @param registrationNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
@@ -154,6 +169,11 @@ public class Company {
   }
 
 
+ /**
+  * Registry location of the company.
+  *
+  * @param registryLocation
+  */ 
   @JsonProperty(JSON_PROPERTY_REGISTRY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistryLocation(String registryLocation) {
@@ -179,6 +199,11 @@ public class Company {
   }
 
 
+ /**
+  * Tax ID of the company.
+  *
+  * @param taxId
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
@@ -204,6 +229,11 @@ public class Company {
   }
 
 
+ /**
+  * The company type.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

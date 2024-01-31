@@ -79,6 +79,11 @@ public class Address {
   }
 
 
+ /**
+  * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -104,6 +109,11 @@ public class Address {
   }
 
 
+ /**
+  * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -129,6 +139,11 @@ public class Address {
   }
 
 
+ /**
+  * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -154,6 +169,11 @@ public class Address {
   }
 
 
+ /**
+  * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -179,6 +199,11 @@ public class Address {
   }
 
 
+ /**
+  * The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+  *
+  * @param street
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {
@@ -204,6 +229,11 @@ public class Address {
   }
 
 
+ /**
+  * The apartment, unit, or suite number.
+  *
+  * @param street2
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet2(String street2) {

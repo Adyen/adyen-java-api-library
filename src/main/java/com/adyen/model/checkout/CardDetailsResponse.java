@@ -70,6 +70,11 @@ public class CardDetailsResponse {
   }
 
 
+ /**
+  * The list of brands identified for the card.
+  *
+  * @param brands
+  */ 
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<CardBrandDetails> brands) {

@@ -63,6 +63,11 @@ public class Standalone {
   }
 
 
+ /**
+  * The default currency of the standalone payment terminal as an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+  *
+  * @param currencyCode
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
@@ -88,6 +93,11 @@ public class Standalone {
   }
 
 
+ /**
+  * Enable standalone mode.
+  *
+  * @param enableStandalone
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableStandalone(Boolean enableStandalone) {

@@ -1,6 +1,5 @@
 /*
  * Adyen Recurring API
- * The Recurring APIs allow you to manage and remove your tokens or saved payment details. Tokens should be created with validation during a payment request.  For more information, refer to our [Tokenization documentation](https://docs.adyen.com/online-payments/tokenization). ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Recurring API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Recurring/v68/disable ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Recurring/v68/disable ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -93,6 +92,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -118,6 +122,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
+  *
+  * @param billingDate
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDate(String billingDate) {
@@ -143,6 +152,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
+  *
+  * @param billingSequenceNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingSequenceNumber(String billingSequenceNumber) {
@@ -168,6 +182,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
+  *
+  * @param displayedReference
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
@@ -193,6 +212,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * The merchant account identifier with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -218,6 +242,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -243,6 +272,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * Pre-debit notification reference sent by the merchant. This is a mandatory field
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -268,6 +302,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -293,6 +332,11 @@ public class NotifyShopperRequest {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {

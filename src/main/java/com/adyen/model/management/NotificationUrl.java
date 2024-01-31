@@ -74,6 +74,11 @@ public class NotificationUrl {
   }
 
 
+ /**
+  * One or more local URLs to send notifications to when using Terminal API.
+  *
+  * @param localUrls
+  */ 
   @JsonProperty(JSON_PROPERTY_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalUrls(List<Url> localUrls) {
@@ -107,6 +112,11 @@ public class NotificationUrl {
   }
 
 
+ /**
+  * One or more public URLs to send notifications to when using Terminal API.
+  *
+  * @param publicUrls
+  */ 
   @JsonProperty(JSON_PROPERTY_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicUrls(List<Url> publicUrls) {

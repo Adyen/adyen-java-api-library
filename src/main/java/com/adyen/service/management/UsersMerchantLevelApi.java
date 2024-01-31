@@ -55,6 +55,80 @@ public class UsersMerchantLevelApi extends Service {
     }
 
     /**
+    * Create a new user
+    *
+    * @param merchantId {@link String } Unique identifier of the merchant. (required)
+    * @param createMerchantUserRequest {@link CreateMerchantUserRequest }  (required)
+    * @return {@link CreateUserResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateUserResponse createNewUser(String merchantId, CreateMerchantUserRequest createMerchantUserRequest) throws ApiException, IOException {
+        return createNewUser(merchantId, createMerchantUserRequest, null);
+    }
+
+    /**
+    * Create a new user
+    *
+    * @param merchantId {@link String } Unique identifier of the merchant. (required)
+    * @param createMerchantUserRequest {@link CreateMerchantUserRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CreateUserResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CreateUserResponse createNewUser(String merchantId, CreateMerchantUserRequest createMerchantUserRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+
+        String requestBody = createMerchantUserRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/users", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return CreateUserResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get user details
+    *
+    * @param merchantId {@link String } Unique identifier of the merchant. (required)
+    * @param userId {@link String } Unique identifier of the user. (required)
+    * @return {@link User }
+    * @throws ApiException if fails to make API call
+    */
+    public User getUserDetails(String merchantId, String userId) throws ApiException, IOException {
+        return getUserDetails(merchantId, userId, null);
+    }
+
+    /**
+    * Get user details
+    *
+    * @param merchantId {@link String } Unique identifier of the merchant. (required)
+    * @param userId {@link String } Unique identifier of the user. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link User }
+    * @throws ApiException if fails to make API call
+    */
+    public User getUserDetails(String merchantId, String userId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (userId == null) {
+            throw new IllegalArgumentException("Please provide the userId path parameter");
+        }
+        pathParams.put("userId", userId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/users/{userId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return User.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of users
     *
     * @param merchantId {@link String } Unique identifier of the merchant. (required)
@@ -102,45 +176,6 @@ public class UsersMerchantLevelApi extends Service {
     }
 
     /**
-    * Get user details
-    *
-    * @param merchantId {@link String } Unique identifier of the merchant. (required)
-    * @param userId {@link String } Unique identifier of the user. (required)
-    * @return {@link User }
-    * @throws ApiException if fails to make API call
-    */
-    public User getUserDetails(String merchantId, String userId) throws ApiException, IOException {
-        return getUserDetails(merchantId, userId, null);
-    }
-
-    /**
-    * Get user details
-    *
-    * @param merchantId {@link String } Unique identifier of the merchant. (required)
-    * @param userId {@link String } Unique identifier of the user. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link User }
-    * @throws ApiException if fails to make API call
-    */
-    public User getUserDetails(String merchantId, String userId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (userId == null) {
-            throw new IllegalArgumentException("Please provide the userId path parameter");
-        }
-        pathParams.put("userId", userId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/users/{userId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return User.fromJson(jsonResult);
-    }
-
-    /**
     * Update a user
     *
     * @param merchantId {@link String } Unique identifier of the merchant. (required)
@@ -179,40 +214,5 @@ public class UsersMerchantLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/users/{userId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return User.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a new user
-    *
-    * @param merchantId {@link String } Unique identifier of the merchant. (required)
-    * @param createMerchantUserRequest {@link CreateMerchantUserRequest }  (required)
-    * @return {@link CreateUserResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateUserResponse createNewUser(String merchantId, CreateMerchantUserRequest createMerchantUserRequest) throws ApiException, IOException {
-        return createNewUser(merchantId, createMerchantUserRequest, null);
-    }
-
-    /**
-    * Create a new user
-    *
-    * @param merchantId {@link String } Unique identifier of the merchant. (required)
-    * @param createMerchantUserRequest {@link CreateMerchantUserRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CreateUserResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CreateUserResponse createNewUser(String merchantId, CreateMerchantUserRequest createMerchantUserRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = createMerchantUserRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/users", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return CreateUserResponse.fromJson(jsonResult);
     }
 }

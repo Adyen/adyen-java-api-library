@@ -79,6 +79,11 @@ public class OnboardingTheme {
   }
 
 
+ /**
+  * The creation date of the theme.
+  *
+  * @param createdAt
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -104,6 +109,11 @@ public class OnboardingTheme {
   }
 
 
+ /**
+  * The description of the theme.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -129,6 +139,11 @@ public class OnboardingTheme {
   }
 
 
+ /**
+  * The unique identifier of the theme.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -159,6 +174,11 @@ public class OnboardingTheme {
   }
 
 
+ /**
+  * The properties of the theme.
+  *
+  * @param properties
+  */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, String> properties) {
@@ -184,6 +204,11 @@ public class OnboardingTheme {
   }
 
 
+ /**
+  * The date when the theme was last updated.
+  *
+  * @param updatedAt
+  */ 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatedAt(OffsetDateTime updatedAt) {

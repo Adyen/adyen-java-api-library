@@ -98,45 +98,6 @@ public class TerminalSettingsStoreLevelApi extends Service {
     }
 
     /**
-    * Get terminal settings
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param reference {@link String } The reference that identifies the store. (required)
-    * @return {@link TerminalSettings }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalSettings getTerminalSettings(String merchantId, String reference) throws ApiException, IOException {
-        return getTerminalSettings(merchantId, reference, null);
-    }
-
-    /**
-    * Get terminal settings
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param reference {@link String } The reference that identifies the store. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalSettings }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalSettings getTerminalSettings(String merchantId, String reference, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (reference == null) {
-            throw new IllegalArgumentException("Please provide the reference path parameter");
-        }
-        pathParams.put("reference", reference);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores/{reference}/terminalSettings", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return TerminalSettings.fromJson(jsonResult);
-    }
-
-    /**
     * Get the terminal logo
     *
     * @param storeId {@link String } The unique identifier of the store. (required)
@@ -174,6 +135,45 @@ public class TerminalSettingsStoreLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/stores/{storeId}/terminalLogos", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return Logo.fromJson(jsonResult);
+    }
+
+    /**
+    * Get terminal settings
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param reference {@link String } The reference that identifies the store. (required)
+    * @return {@link TerminalSettings }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalSettings getTerminalSettings(String merchantId, String reference) throws ApiException, IOException {
+        return getTerminalSettings(merchantId, reference, null);
+    }
+
+    /**
+    * Get terminal settings
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param reference {@link String } The reference that identifies the store. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalSettings }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalSettings getTerminalSettings(String merchantId, String reference, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (reference == null) {
+            throw new IllegalArgumentException("Please provide the reference path parameter");
+        }
+        pathParams.put("reference", reference);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores/{reference}/terminalSettings", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return TerminalSettings.fromJson(jsonResult);
     }
 
     /**
@@ -258,47 +258,6 @@ public class TerminalSettingsStoreLevelApi extends Service {
     }
 
     /**
-    * Update terminal settings
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param reference {@link String } The reference that identifies the store. (required)
-    * @param terminalSettings {@link TerminalSettings }  (required)
-    * @return {@link TerminalSettings }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalSettings updateTerminalSettings(String merchantId, String reference, TerminalSettings terminalSettings) throws ApiException, IOException {
-        return updateTerminalSettings(merchantId, reference, terminalSettings, null);
-    }
-
-    /**
-    * Update terminal settings
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param reference {@link String } The reference that identifies the store. (required)
-    * @param terminalSettings {@link TerminalSettings }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalSettings }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalSettings updateTerminalSettings(String merchantId, String reference, TerminalSettings terminalSettings, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (reference == null) {
-            throw new IllegalArgumentException("Please provide the reference path parameter");
-        }
-        pathParams.put("reference", reference);
-
-        String requestBody = terminalSettings.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores/{reference}/terminalSettings", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return TerminalSettings.fromJson(jsonResult);
-    }
-
-    /**
     * Update the terminal logo
     *
     * @param storeId {@link String } The unique identifier of the store. (required)
@@ -338,6 +297,47 @@ public class TerminalSettingsStoreLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/stores/{storeId}/terminalLogos", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams, queryParams);
         return Logo.fromJson(jsonResult);
+    }
+
+    /**
+    * Update terminal settings
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param reference {@link String } The reference that identifies the store. (required)
+    * @param terminalSettings {@link TerminalSettings }  (required)
+    * @return {@link TerminalSettings }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalSettings updateTerminalSettings(String merchantId, String reference, TerminalSettings terminalSettings) throws ApiException, IOException {
+        return updateTerminalSettings(merchantId, reference, terminalSettings, null);
+    }
+
+    /**
+    * Update terminal settings
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param reference {@link String } The reference that identifies the store. (required)
+    * @param terminalSettings {@link TerminalSettings }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalSettings }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalSettings updateTerminalSettings(String merchantId, String reference, TerminalSettings terminalSettings, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (reference == null) {
+            throw new IllegalArgumentException("Please provide the reference path parameter");
+        }
+        pathParams.put("reference", reference);
+
+        String requestBody = terminalSettings.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores/{reference}/terminalSettings", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
+        return TerminalSettings.fromJson(jsonResult);
     }
 
     /**

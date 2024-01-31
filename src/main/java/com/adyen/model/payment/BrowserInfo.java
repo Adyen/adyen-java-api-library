@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -92,6 +91,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * The accept header value of the shopper&#39;s browser.
+  *
+  * @param acceptHeader
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPT_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptHeader(String acceptHeader) {
@@ -117,6 +121,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * The color depth of the shopper&#39;s browser in bits per pixel. This should be obtained by using the browser&#39;s &#x60;screen.colorDepth&#x60; property. Accepted values: 1, 4, 8, 15, 16, 24, 30, 32 or 48 bit color depth.
+  *
+  * @param colorDepth
+  */ 
   @JsonProperty(JSON_PROPERTY_COLOR_DEPTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setColorDepth(Integer colorDepth) {
@@ -142,6 +151,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * Boolean value indicating if the shopper&#39;s browser is able to execute Java.
+  *
+  * @param javaEnabled
+  */ 
   @JsonProperty(JSON_PROPERTY_JAVA_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJavaEnabled(Boolean javaEnabled) {
@@ -167,6 +181,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * Boolean value indicating if the shopper&#39;s browser is able to execute JavaScript. A default &#39;true&#39; value is assumed if the field is not present.
+  *
+  * @param javaScriptEnabled
+  */ 
   @JsonProperty(JSON_PROPERTY_JAVA_SCRIPT_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJavaScriptEnabled(Boolean javaScriptEnabled) {
@@ -192,6 +211,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * The &#x60;navigator.language&#x60; value of the shopper&#39;s browser (as defined in IETF BCP 47).
+  *
+  * @param language
+  */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -217,6 +241,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * The total height of the shopper&#39;s device screen in pixels.
+  *
+  * @param screenHeight
+  */ 
   @JsonProperty(JSON_PROPERTY_SCREEN_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenHeight(Integer screenHeight) {
@@ -242,6 +271,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * The total width of the shopper&#39;s device screen in pixels.
+  *
+  * @param screenWidth
+  */ 
   @JsonProperty(JSON_PROPERTY_SCREEN_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenWidth(Integer screenWidth) {
@@ -267,6 +301,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * Time difference between UTC time and the shopper&#39;s browser local time, in minutes.
+  *
+  * @param timeZoneOffset
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneOffset(Integer timeZoneOffset) {
@@ -292,6 +331,11 @@ public class BrowserInfo {
   }
 
 
+ /**
+  * The user agent value of the shopper&#39;s browser.
+  *
+  * @param userAgent
+  */ 
   @JsonProperty(JSON_PROPERTY_USER_AGENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserAgent(String userAgent) {

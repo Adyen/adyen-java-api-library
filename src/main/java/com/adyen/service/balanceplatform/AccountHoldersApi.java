@@ -55,6 +55,33 @@ public class AccountHoldersApi extends Service {
     }
 
     /**
+    * Create an account holder
+    *
+    * @param accountHolderInfo {@link AccountHolderInfo }  (required)
+    * @return {@link AccountHolder }
+    * @throws ApiException if fails to make API call
+    */
+    public AccountHolder createAccountHolder(AccountHolderInfo accountHolderInfo) throws ApiException, IOException {
+        return createAccountHolder(accountHolderInfo, null);
+    }
+
+    /**
+    * Create an account holder
+    *
+    * @param accountHolderInfo {@link AccountHolderInfo }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link AccountHolder }
+    * @throws ApiException if fails to make API call
+    */
+    public AccountHolder createAccountHolder(AccountHolderInfo accountHolderInfo, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = accountHolderInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/accountHolders", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return AccountHolder.fromJson(jsonResult);
+    }
+
+    /**
     * Get an account holder
     *
     * @param id {@link String } The unique identifier of the account holder. (required)
@@ -207,33 +234,6 @@ public class AccountHoldersApi extends Service {
         String requestBody = accountHolderUpdateRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/accountHolders/{id}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return AccountHolder.fromJson(jsonResult);
-    }
-
-    /**
-    * Create an account holder
-    *
-    * @param accountHolderInfo {@link AccountHolderInfo }  (required)
-    * @return {@link AccountHolder }
-    * @throws ApiException if fails to make API call
-    */
-    public AccountHolder createAccountHolder(AccountHolderInfo accountHolderInfo) throws ApiException, IOException {
-        return createAccountHolder(accountHolderInfo, null);
-    }
-
-    /**
-    * Create an account holder
-    *
-    * @param accountHolderInfo {@link AccountHolderInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AccountHolder }
-    * @throws ApiException if fails to make API call
-    */
-    public AccountHolder createAccountHolder(AccountHolderInfo accountHolderInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = accountHolderInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/accountHolders", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return AccountHolder.fromJson(jsonResult);
     }
 }

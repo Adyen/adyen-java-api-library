@@ -128,6 +128,11 @@ public class Profile {
   }
 
 
+ /**
+  * The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.
+  *
+  * @param authType
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthType(String authType) {
@@ -153,6 +158,11 @@ public class Profile {
   }
 
 
+ /**
+  * Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.
+  *
+  * @param autoWifi
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTO_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoWifi(Boolean autoWifi) {
@@ -178,6 +188,11 @@ public class Profile {
   }
 
 
+ /**
+  * Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.
+  *
+  * @param bssType
+  */ 
   @JsonProperty(JSON_PROPERTY_BSS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBssType(String bssType) {
@@ -203,6 +218,11 @@ public class Profile {
   }
 
 
+ /**
+  * The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.
+  *
+  * @param channel
+  */ 
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChannel(Integer channel) {
@@ -228,6 +248,11 @@ public class Profile {
   }
 
 
+ /**
+  * Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.
+  *
+  * @param defaultProfile
+  */ 
   @JsonProperty(JSON_PROPERTY_DEFAULT_PROFILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultProfile(Boolean defaultProfile) {
@@ -253,6 +278,11 @@ public class Profile {
   }
 
 
+ /**
+  * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**
+  *
+  * @param eap
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEap(String eap) {
@@ -278,6 +308,11 @@ public class Profile {
   }
 
 
+ /**
+  * eapCaCert
+  *
+  * @param eapCaCert
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP_CA_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapCaCert(ModelFile eapCaCert) {
@@ -303,6 +338,11 @@ public class Profile {
   }
 
 
+ /**
+  * eapClientCert
+  *
+  * @param eapClientCert
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientCert(ModelFile eapClientCert) {
@@ -328,6 +368,11 @@ public class Profile {
   }
 
 
+ /**
+  * eapClientKey
+  *
+  * @param eapClientKey
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientKey(ModelFile eapClientKey) {
@@ -353,6 +398,11 @@ public class Profile {
   }
 
 
+ /**
+  * For &#x60;eap&#x60; **tls**. The password of the RSA key file, if that file is password-protected.
+  *
+  * @param eapClientPwd
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_PWD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientPwd(String eapClientPwd) {
@@ -378,6 +428,11 @@ public class Profile {
   }
 
 
+ /**
+  * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.
+  *
+  * @param eapIdentity
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP_IDENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIdentity(String eapIdentity) {
@@ -403,6 +458,11 @@ public class Profile {
   }
 
 
+ /**
+  * eapIntermediateCert
+  *
+  * @param eapIntermediateCert
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP_INTERMEDIATE_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIntermediateCert(ModelFile eapIntermediateCert) {
@@ -428,6 +488,11 @@ public class Profile {
   }
 
 
+ /**
+  * For &#x60;eap&#x60; **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.
+  *
+  * @param eapPwd
+  */ 
   @JsonProperty(JSON_PROPERTY_EAP_PWD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapPwd(String eapPwd) {
@@ -453,6 +518,11 @@ public class Profile {
   }
 
 
+ /**
+  * Indicates if the network doesn&#39;t broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.
+  *
+  * @param hiddenSsid
+  */ 
   @JsonProperty(JSON_PROPERTY_HIDDEN_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHiddenSsid(Boolean hiddenSsid) {
@@ -478,6 +548,11 @@ public class Profile {
   }
 
 
+ /**
+  * Your name for the Wi-Fi profile.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -503,6 +578,11 @@ public class Profile {
   }
 
 
+ /**
+  * For &#x60;authType&#x60; **wpa-psk or **wpa2-psk**. The password to the wireless network.
+  *
+  * @param psk
+  */ 
   @JsonProperty(JSON_PROPERTY_PSK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPsk(String psk) {
@@ -528,6 +608,11 @@ public class Profile {
   }
 
 
+ /**
+  * The name of the wireless network.
+  *
+  * @param ssid
+  */ 
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {
@@ -553,6 +638,11 @@ public class Profile {
   }
 
 
+ /**
+  * The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**
+  *
+  * @param wsec
+  */ 
   @JsonProperty(JSON_PROPERTY_WSEC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWsec(String wsec) {

@@ -1,6 +1,5 @@
 /*
  * POS Terminal Management API
- * This API provides endpoints for managing your point-of-sale (POS) payment terminals. You can use the API to obtain information about a specific terminal, retrieve overviews of your terminals and stores, and assign terminals to a merchant account or store.  For more information, refer to [Assign terminals](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api).  ## Authentication Each request to the Terminal Management API must be signed with an API key. For this, obtain an API Key from your Customer Area, as described in [How to get the API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key). Then set this key to the `X-API-Key` header value, for example:  ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: Your_API_key\" \\ ... ``` Note that when going live, you need to generate new web service user credentials to access the [live endpoints](https://docs.adyen.com/development-resources/live-endpoints).  ## Versioning Terminal Management API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://postfmapi-test.adyen.com/postfmapi/terminal/v1/getTerminalsUnderAccount ``` When using versioned endpoints, Boolean response values are returned in string format: `\"true\"` or `\"false\"`. If you omit the version from the endpoint URL, Boolean response values are returned like this: `true` or `false`.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -213,6 +212,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The Bluetooth IP address of the terminal.
+  *
+  * @param bluetoothIp
+  */ 
   @JsonProperty(JSON_PROPERTY_BLUETOOTH_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothIp(String bluetoothIp) {
@@ -238,6 +242,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The Bluetooth MAC address of the terminal.
+  *
+  * @param bluetoothMac
+  */ 
   @JsonProperty(JSON_PROPERTY_BLUETOOTH_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothMac(String bluetoothMac) {
@@ -263,6 +272,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
+  *
+  * @param companyAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
@@ -288,6 +302,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The country where the terminal is used.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -313,6 +332,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The model name of the terminal.
+  *
+  * @param deviceModel
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceModel(String deviceModel) {
@@ -338,6 +362,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * Indicates whether assigning IP addresses through a DHCP server is enabled on the terminal.
+  *
+  * @param dhcpEnabled
+  */ 
   @JsonProperty(JSON_PROPERTY_DHCP_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDhcpEnabled(Boolean dhcpEnabled) {
@@ -363,6 +392,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The label shown on the status bar of the display. This label (if any) is specified in your Customer Area.
+  *
+  * @param displayLabel
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPLAY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayLabel(String displayLabel) {
@@ -388,6 +422,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The terminal&#39;s IP address in your Ethernet network.
+  *
+  * @param ethernetIp
+  */ 
   @JsonProperty(JSON_PROPERTY_ETHERNET_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetIp(String ethernetIp) {
@@ -413,6 +452,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The terminal&#39;s MAC address in your Ethernet network.
+  *
+  * @param ethernetMac
+  */ 
   @JsonProperty(JSON_PROPERTY_ETHERNET_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetMac(String ethernetMac) {
@@ -438,6 +482,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The software release currently in use on the terminal.
+  *
+  * @param firmwareVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
@@ -463,6 +512,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+  *
+  * @param iccid
+  */ 
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
@@ -488,6 +542,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
+  *
+  * @param lastActivityDateTime
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityDateTime(OffsetDateTime lastActivityDateTime) {
@@ -513,6 +572,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
+  *
+  * @param lastTransactionDateTime
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
@@ -538,6 +602,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The Ethernet link negotiation that the terminal uses:   - &#x60;auto&#x60;: Auto-negotiation  - &#x60;100full&#x60;: 100 Mbps full duplex
+  *
+  * @param linkNegotiation
+  */ 
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkNegotiation(String linkNegotiation) {
@@ -563,6 +632,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The merchant account that the terminal is associated with. If the response doesn&#39;t contain a &#x60;store&#x60; the terminal is assigned to this merchant account.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -588,6 +662,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
+  *
+  * @param merchantInventory
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
@@ -613,6 +692,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The permanent terminal ID.
+  *
+  * @param permanentTerminalId
+  */ 
   @JsonProperty(JSON_PROPERTY_PERMANENT_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermanentTerminalId(String permanentTerminalId) {
@@ -638,6 +722,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The serial number of the terminal.
+  *
+  * @param serialNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
@@ -663,6 +752,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.
+  *
+  * @param simStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_SIM_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSimStatus(String simStatus) {
@@ -688,6 +782,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The store code of the store that the terminal is assigned to.
+  *
+  * @param store
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
@@ -713,6 +812,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * storeDetails
+  *
+  * @param storeDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreDetails(Store storeDetails) {
@@ -738,6 +842,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The unique terminal ID.
+  *
+  * @param terminal
+  */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
@@ -763,6 +872,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The status of the terminal:   - &#x60;OnlineToday&#x60;, &#x60;OnlineLast1Day&#x60;, &#x60;OnlineLast2Days&#x60; etcetera to &#x60;OnlineLast7Days&#x60;: Indicates when in the past week the terminal was last online.   - &#x60;SwitchedOff&#x60;: Indicates it was more than a week ago that the terminal was last online.   - &#x60;ReAssignToInventoryPending&#x60;, &#x60;ReAssignToStorePending&#x60;, &#x60;ReAssignToMerchantInventoryPending&#x60;: Indicates the terminal is scheduled to be reassigned.
+  *
+  * @param terminalStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalStatus(TerminalStatusEnum terminalStatus) {
@@ -788,6 +902,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The terminal&#39;s IP address in your Wi-Fi network.
+  *
+  * @param wifiIp
+  */ 
   @JsonProperty(JSON_PROPERTY_WIFI_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiIp(String wifiIp) {
@@ -813,6 +932,11 @@ public class GetTerminalDetailsResponse {
   }
 
 
+ /**
+  * The terminal&#39;s MAC address in your Wi-Fi network.
+  *
+  * @param wifiMac
+  */ 
   @JsonProperty(JSON_PROPERTY_WIFI_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiMac(String wifiMac) {

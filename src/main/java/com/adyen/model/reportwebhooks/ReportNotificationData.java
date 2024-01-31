@@ -85,6 +85,11 @@ public class ReportNotificationData {
   }
 
 
+ /**
+  * accountHolder
+  *
+  * @param accountHolder
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
@@ -110,6 +115,11 @@ public class ReportNotificationData {
   }
 
 
+ /**
+  * balanceAccount
+  *
+  * @param balanceAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
@@ -135,6 +145,11 @@ public class ReportNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -160,6 +175,11 @@ public class ReportNotificationData {
   }
 
 
+ /**
+  * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+  *
+  * @param creationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -185,6 +205,11 @@ public class ReportNotificationData {
   }
 
 
+ /**
+  * The URL at which you can download the report. To download, you must authenticate your GET request with your [API credentials](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/overview).
+  *
+  * @param downloadUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
@@ -210,6 +235,11 @@ public class ReportNotificationData {
   }
 
 
+ /**
+  * The filename of the report.
+  *
+  * @param fileName
+  */ 
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
@@ -235,6 +265,11 @@ public class ReportNotificationData {
   }
 
 
+ /**
+  * Type of report.
+  *
+  * @param reportType
+  */ 
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReportType(String reportType) {

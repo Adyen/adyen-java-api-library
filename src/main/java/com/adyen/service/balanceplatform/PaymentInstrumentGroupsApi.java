@@ -53,35 +53,29 @@ public class PaymentInstrumentGroupsApi extends Service {
     }
 
     /**
-    * Get a payment instrument group
+    * Create a payment instrument group
     *
-    * @param id {@link String } The unique identifier of the payment instrument group. (required)
+    * @param paymentInstrumentGroupInfo {@link PaymentInstrumentGroupInfo }  (required)
     * @return {@link PaymentInstrumentGroup }
     * @throws ApiException if fails to make API call
     */
-    public PaymentInstrumentGroup getPaymentInstrumentGroup(String id) throws ApiException, IOException {
-        return getPaymentInstrumentGroup(id, null);
+    public PaymentInstrumentGroup createPaymentInstrumentGroup(PaymentInstrumentGroupInfo paymentInstrumentGroupInfo) throws ApiException, IOException {
+        return createPaymentInstrumentGroup(paymentInstrumentGroupInfo, null);
     }
 
     /**
-    * Get a payment instrument group
+    * Create a payment instrument group
     *
-    * @param id {@link String } The unique identifier of the payment instrument group. (required)
+    * @param paymentInstrumentGroupInfo {@link PaymentInstrumentGroupInfo }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaymentInstrumentGroup }
     * @throws ApiException if fails to make API call
     */
-    public PaymentInstrumentGroup getPaymentInstrumentGroup(String id, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
+    public PaymentInstrumentGroup createPaymentInstrumentGroup(PaymentInstrumentGroupInfo paymentInstrumentGroupInfo, RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/paymentInstrumentGroups/{id}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        String requestBody = paymentInstrumentGroupInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/paymentInstrumentGroups", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentInstrumentGroup.fromJson(jsonResult);
     }
 
@@ -119,29 +113,35 @@ public class PaymentInstrumentGroupsApi extends Service {
     }
 
     /**
-    * Create a payment instrument group
+    * Get a payment instrument group
     *
-    * @param paymentInstrumentGroupInfo {@link PaymentInstrumentGroupInfo }  (required)
+    * @param id {@link String } The unique identifier of the payment instrument group. (required)
     * @return {@link PaymentInstrumentGroup }
     * @throws ApiException if fails to make API call
     */
-    public PaymentInstrumentGroup createPaymentInstrumentGroup(PaymentInstrumentGroupInfo paymentInstrumentGroupInfo) throws ApiException, IOException {
-        return createPaymentInstrumentGroup(paymentInstrumentGroupInfo, null);
+    public PaymentInstrumentGroup getPaymentInstrumentGroup(String id) throws ApiException, IOException {
+        return getPaymentInstrumentGroup(id, null);
     }
 
     /**
-    * Create a payment instrument group
+    * Get a payment instrument group
     *
-    * @param paymentInstrumentGroupInfo {@link PaymentInstrumentGroupInfo }  (required)
+    * @param id {@link String } The unique identifier of the payment instrument group. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaymentInstrumentGroup }
     * @throws ApiException if fails to make API call
     */
-    public PaymentInstrumentGroup createPaymentInstrumentGroup(PaymentInstrumentGroupInfo paymentInstrumentGroupInfo, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentInstrumentGroup getPaymentInstrumentGroup(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
 
-        String requestBody = paymentInstrumentGroupInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/paymentInstrumentGroups", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/paymentInstrumentGroups/{id}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return PaymentInstrumentGroup.fromJson(jsonResult);
     }
 }

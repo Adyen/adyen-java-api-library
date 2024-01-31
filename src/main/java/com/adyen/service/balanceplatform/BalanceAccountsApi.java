@@ -58,6 +58,68 @@ public class BalanceAccountsApi extends Service {
     }
 
     /**
+    * Create a balance account
+    *
+    * @param balanceAccountInfo {@link BalanceAccountInfo }  (required)
+    * @return {@link BalanceAccount }
+    * @throws ApiException if fails to make API call
+    */
+    public BalanceAccount createBalanceAccount(BalanceAccountInfo balanceAccountInfo) throws ApiException, IOException {
+        return createBalanceAccount(balanceAccountInfo, null);
+    }
+
+    /**
+    * Create a balance account
+    *
+    * @param balanceAccountInfo {@link BalanceAccountInfo }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link BalanceAccount }
+    * @throws ApiException if fails to make API call
+    */
+    public BalanceAccount createBalanceAccount(BalanceAccountInfo balanceAccountInfo, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = balanceAccountInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return BalanceAccount.fromJson(jsonResult);
+    }
+
+    /**
+    * Create a sweep
+    *
+    * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
+    * @param createSweepConfigurationV2 {@link CreateSweepConfigurationV2 }  (required)
+    * @return {@link SweepConfigurationV2 }
+    * @throws ApiException if fails to make API call
+    */
+    public SweepConfigurationV2 createSweep(String balanceAccountId, CreateSweepConfigurationV2 createSweepConfigurationV2) throws ApiException, IOException {
+        return createSweep(balanceAccountId, createSweepConfigurationV2, null);
+    }
+
+    /**
+    * Create a sweep
+    *
+    * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
+    * @param createSweepConfigurationV2 {@link CreateSweepConfigurationV2 }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link SweepConfigurationV2 }
+    * @throws ApiException if fails to make API call
+    */
+    public SweepConfigurationV2 createSweep(String balanceAccountId, CreateSweepConfigurationV2 createSweepConfigurationV2, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (balanceAccountId == null) {
+            throw new IllegalArgumentException("Please provide the balanceAccountId path parameter");
+        }
+        pathParams.put("balanceAccountId", balanceAccountId);
+
+        String requestBody = createSweepConfigurationV2.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{balanceAccountId}/sweeps", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return SweepConfigurationV2.fromJson(jsonResult);
+    }
+
+    /**
     * Delete a sweep
     *
     * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
@@ -137,6 +199,86 @@ public class BalanceAccountsApi extends Service {
     }
 
     /**
+    * Get a balance account
+    *
+    * @param id {@link String } The unique identifier of the balance account. (required)
+    * @return {@link BalanceAccount }
+    * @throws ApiException if fails to make API call
+    */
+    public BalanceAccount getBalanceAccount(String id) throws ApiException, IOException {
+        return getBalanceAccount(id, null);
+    }
+
+    /**
+    * Get a balance account
+    *
+    * @param id {@link String } The unique identifier of the balance account. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link BalanceAccount }
+    * @throws ApiException if fails to make API call
+    */
+    public BalanceAccount getBalanceAccount(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{id}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return BalanceAccount.fromJson(jsonResult);
+    }
+
+    /**
+    * Get payment instruments linked to a balance account
+    *
+    * @param id {@link String } The unique identifier of the balance account. (required)
+    * @return {@link PaginatedPaymentInstrumentsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id) throws ApiException, IOException {
+        return getPaymentInstrumentsLinkedToBalanceAccount(id, null,  null,  null,  null);
+    }
+
+    /**
+    * Get payment instruments linked to a balance account
+    *
+    * @param id {@link String } The unique identifier of the balance account. (required)
+    * @param offset {@link Integer } Query: The number of items that you want to skip. (optional)
+    * @param limit {@link Integer } Query: The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page. (optional)
+    * @param status {@link String } Query: The status of the payment instruments that you want to get. By default, the response includes payment instruments with any status. (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaginatedPaymentInstrumentsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id, Integer offset, Integer limit, String status, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (offset != null) {
+        queryParams.put("offset", offset.toString());
+        }
+        if (limit != null) {
+        queryParams.put("limit", limit.toString());
+        }
+        if (status != null) {
+        queryParams.put("status", status);
+        }
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{id}/paymentInstruments", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return PaginatedPaymentInstrumentsResponse.fromJson(jsonResult);
+    }
+
+    /**
     * Get a sweep
     *
     * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
@@ -176,25 +318,27 @@ public class BalanceAccountsApi extends Service {
     }
 
     /**
-    * Get a balance account
+    * Update a balance account
     *
     * @param id {@link String } The unique identifier of the balance account. (required)
+    * @param balanceAccountUpdateRequest {@link BalanceAccountUpdateRequest }  (required)
     * @return {@link BalanceAccount }
     * @throws ApiException if fails to make API call
     */
-    public BalanceAccount getBalanceAccount(String id) throws ApiException, IOException {
-        return getBalanceAccount(id, null);
+    public BalanceAccount updateBalanceAccount(String id, BalanceAccountUpdateRequest balanceAccountUpdateRequest) throws ApiException, IOException {
+        return updateBalanceAccount(id, balanceAccountUpdateRequest, null);
     }
 
     /**
-    * Get a balance account
+    * Update a balance account
     *
     * @param id {@link String } The unique identifier of the balance account. (required)
+    * @param balanceAccountUpdateRequest {@link BalanceAccountUpdateRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link BalanceAccount }
     * @throws ApiException if fails to make API call
     */
-    public BalanceAccount getBalanceAccount(String id, RequestOptions requestOptions) throws ApiException, IOException {
+    public BalanceAccount updateBalanceAccount(String id, BalanceAccountUpdateRequest balanceAccountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (id == null) {
@@ -202,53 +346,10 @@ public class BalanceAccountsApi extends Service {
         }
         pathParams.put("id", id);
 
-        String requestBody = null;
+        String requestBody = balanceAccountUpdateRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{id}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return BalanceAccount.fromJson(jsonResult);
-    }
-
-    /**
-    * Get all payment instruments for a balance account
-    *
-    * @param id {@link String } The unique identifier of the balance account. (required)
-    * @return {@link PaginatedPaymentInstrumentsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PaginatedPaymentInstrumentsResponse getAllPaymentInstrumentsForBalanceAccount(String id) throws ApiException, IOException {
-        return getAllPaymentInstrumentsForBalanceAccount(id, null,  null,  null);
-    }
-
-    /**
-    * Get all payment instruments for a balance account
-    *
-    * @param id {@link String } The unique identifier of the balance account. (required)
-    * @param offset {@link Integer } Query: The number of items that you want to skip. (optional)
-    * @param limit {@link Integer } Query: The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page. (optional)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaginatedPaymentInstrumentsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PaginatedPaymentInstrumentsResponse getAllPaymentInstrumentsForBalanceAccount(String id, Integer offset, Integer limit, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-        //Add query params
-        Map<String, String> queryParams = new HashMap<>();
-        if (offset != null) {
-        queryParams.put("offset", offset.toString());
-        }
-        if (limit != null) {
-        queryParams.put("limit", limit.toString());
-        }
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{id}/paymentInstruments", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
-        return PaginatedPaymentInstrumentsResponse.fromJson(jsonResult);
     }
 
     /**
@@ -289,103 +390,6 @@ public class BalanceAccountsApi extends Service {
         String requestBody = updateSweepConfigurationV2.toJson();
         Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return SweepConfigurationV2.fromJson(jsonResult);
-    }
-
-    /**
-    * Update a balance account
-    *
-    * @param id {@link String } The unique identifier of the balance account. (required)
-    * @param balanceAccountUpdateRequest {@link BalanceAccountUpdateRequest }  (required)
-    * @return {@link BalanceAccount }
-    * @throws ApiException if fails to make API call
-    */
-    public BalanceAccount updateBalanceAccount(String id, BalanceAccountUpdateRequest balanceAccountUpdateRequest) throws ApiException, IOException {
-        return updateBalanceAccount(id, balanceAccountUpdateRequest, null);
-    }
-
-    /**
-    * Update a balance account
-    *
-    * @param id {@link String } The unique identifier of the balance account. (required)
-    * @param balanceAccountUpdateRequest {@link BalanceAccountUpdateRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link BalanceAccount }
-    * @throws ApiException if fails to make API call
-    */
-    public BalanceAccount updateBalanceAccount(String id, BalanceAccountUpdateRequest balanceAccountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-
-        String requestBody = balanceAccountUpdateRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{id}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return BalanceAccount.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a balance account
-    *
-    * @param balanceAccountInfo {@link BalanceAccountInfo }  (required)
-    * @return {@link BalanceAccount }
-    * @throws ApiException if fails to make API call
-    */
-    public BalanceAccount createBalanceAccount(BalanceAccountInfo balanceAccountInfo) throws ApiException, IOException {
-        return createBalanceAccount(balanceAccountInfo, null);
-    }
-
-    /**
-    * Create a balance account
-    *
-    * @param balanceAccountInfo {@link BalanceAccountInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link BalanceAccount }
-    * @throws ApiException if fails to make API call
-    */
-    public BalanceAccount createBalanceAccount(BalanceAccountInfo balanceAccountInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = balanceAccountInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
-        return BalanceAccount.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a sweep
-    *
-    * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
-    * @param createSweepConfigurationV2 {@link CreateSweepConfigurationV2 }  (required)
-    * @return {@link SweepConfigurationV2 }
-    * @throws ApiException if fails to make API call
-    */
-    public SweepConfigurationV2 createSweep(String balanceAccountId, CreateSweepConfigurationV2 createSweepConfigurationV2) throws ApiException, IOException {
-        return createSweep(balanceAccountId, createSweepConfigurationV2, null);
-    }
-
-    /**
-    * Create a sweep
-    *
-    * @param balanceAccountId {@link String } The unique identifier of the balance account. (required)
-    * @param createSweepConfigurationV2 {@link CreateSweepConfigurationV2 }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link SweepConfigurationV2 }
-    * @throws ApiException if fails to make API call
-    */
-    public SweepConfigurationV2 createSweep(String balanceAccountId, CreateSweepConfigurationV2 createSweepConfigurationV2, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (balanceAccountId == null) {
-            throw new IllegalArgumentException("Please provide the balanceAccountId path parameter");
-        }
-        pathParams.put("balanceAccountId", balanceAccountId);
-
-        String requestBody = createSweepConfigurationV2.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{balanceAccountId}/sweeps", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return SweepConfigurationV2.fromJson(jsonResult);
     }
 }

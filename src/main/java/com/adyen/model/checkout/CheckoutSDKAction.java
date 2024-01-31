@@ -113,6 +113,11 @@ public class CheckoutSDKAction {
   }
 
 
+ /**
+  * Encoded payment data.
+  *
+  * @param paymentData
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -138,6 +143,11 @@ public class CheckoutSDKAction {
   }
 
 
+ /**
+  * Specifies the payment method.
+  *
+  * @param paymentMethodType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -171,6 +181,11 @@ public class CheckoutSDKAction {
   }
 
 
+ /**
+  * The data to pass to the SDK.
+  *
+  * @param sdkData
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(Map<String, String> sdkData) {
@@ -196,6 +211,11 @@ public class CheckoutSDKAction {
   }
 
 
+ /**
+  * The type of the action.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -221,6 +241,11 @@ public class CheckoutSDKAction {
   }
 
 
+ /**
+  * Specifies the URL to redirect to.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

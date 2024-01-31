@@ -79,6 +79,11 @@ public class ListWebhooksResponse {
   }
 
 
+ /**
+  * links
+  *
+  * @param links
+  */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
@@ -104,6 +109,11 @@ public class ListWebhooksResponse {
   }
 
 
+ /**
+  * Reference to the account.
+  *
+  * @param accountReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountReference(String accountReference) {
@@ -137,6 +147,11 @@ public class ListWebhooksResponse {
   }
 
 
+ /**
+  * The list of webhooks configured for this account.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Webhook> data) {
@@ -162,6 +177,11 @@ public class ListWebhooksResponse {
   }
 
 
+ /**
+  * Total number of items.
+  *
+  * @param itemsTotal
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
@@ -187,6 +207,11 @@ public class ListWebhooksResponse {
   }
 
 
+ /**
+  * Total number of pages.
+  *
+  * @param pagesTotal
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {

@@ -100,6 +100,11 @@ public class DKLocalAccountIdentification {
   }
 
 
+ /**
+  * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -125,6 +130,11 @@ public class DKLocalAccountIdentification {
   }
 
 
+ /**
+  * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
+  *
+  * @param bankCode
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
@@ -150,6 +160,11 @@ public class DKLocalAccountIdentification {
   }
 
 
+ /**
+  * **dkLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

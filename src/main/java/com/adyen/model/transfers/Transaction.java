@@ -134,6 +134,11 @@ public class Transaction {
   }
 
 
+ /**
+  * accountHolder
+  *
+  * @param accountHolder
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
@@ -159,6 +164,11 @@ public class Transaction {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -184,6 +194,11 @@ public class Transaction {
   }
 
 
+ /**
+  * balanceAccount
+  *
+  * @param balanceAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
@@ -209,6 +224,11 @@ public class Transaction {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -234,6 +254,11 @@ public class Transaction {
   }
 
 
+ /**
+  * The date the transaction was booked into the balance account.
+  *
+  * @param bookingDate
+  */ 
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
@@ -259,6 +284,11 @@ public class Transaction {
   }
 
 
+ /**
+  * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+  *
+  * @param creationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -284,6 +314,11 @@ public class Transaction {
   }
 
 
+ /**
+  * The unique identifier of the transaction.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -309,6 +344,11 @@ public class Transaction {
   }
 
 
+ /**
+  * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -334,6 +374,11 @@ public class Transaction {
   }
 
 
+ /**
+  * transfer
+  *
+  * @param transfer
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransfer(TransferData transfer) {
@@ -359,6 +404,11 @@ public class Transaction {
   }
 
 
+ /**
+  * The date the transfer amount becomes available in the balance account.
+  *
+  * @param valueDate
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {

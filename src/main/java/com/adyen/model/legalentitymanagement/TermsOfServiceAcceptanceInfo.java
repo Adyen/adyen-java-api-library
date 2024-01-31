@@ -121,6 +121,11 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
 
+ /**
+  * The unique identifier of the user that accepted the Terms of Service.
+  *
+  * @param acceptedBy
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
@@ -146,6 +151,11 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
 
+ /**
+  * The unique identifier of the legal entity for which the Terms of Service are accepted.
+  *
+  * @param acceptedFor
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedFor(String acceptedFor) {
@@ -171,6 +181,11 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
 
+ /**
+  * The date when the Terms of Service were accepted.
+  *
+  * @param createdAt
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -196,6 +211,11 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
 
+ /**
+  * An Adyen-generated reference for the accepted Terms of Service.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -221,6 +241,11 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
 
+ /**
+  * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee**  
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

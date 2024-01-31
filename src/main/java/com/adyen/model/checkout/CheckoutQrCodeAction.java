@@ -112,6 +112,11 @@ public class CheckoutQrCodeAction {
   }
 
 
+ /**
+  * Expiry time of the QR code.
+  *
+  * @param expiresAt
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
@@ -137,6 +142,11 @@ public class CheckoutQrCodeAction {
   }
 
 
+ /**
+  * Encoded payment data.
+  *
+  * @param paymentData
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -162,6 +172,11 @@ public class CheckoutQrCodeAction {
   }
 
 
+ /**
+  * Specifies the payment method.
+  *
+  * @param paymentMethodType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -187,6 +202,11 @@ public class CheckoutQrCodeAction {
   }
 
 
+ /**
+  * The contents of the QR code as a UTF8 string.
+  *
+  * @param qrCodeData
+  */ 
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQrCodeData(String qrCodeData) {
@@ -212,6 +232,11 @@ public class CheckoutQrCodeAction {
   }
 
 
+ /**
+  * **qrCode**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -237,6 +262,11 @@ public class CheckoutQrCodeAction {
   }
 
 
+ /**
+  * Specifies the URL to redirect to.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

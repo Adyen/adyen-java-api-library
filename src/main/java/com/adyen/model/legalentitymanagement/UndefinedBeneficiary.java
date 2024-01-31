@@ -63,6 +63,11 @@ public class UndefinedBeneficiary {
   }
 
 
+ /**
+  * The details of the undefined beneficiary.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -88,6 +93,11 @@ public class UndefinedBeneficiary {
   }
 
 
+ /**
+  * The reference of the undefined beneficiary.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

@@ -91,6 +91,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The name of the city.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -116,6 +121,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The name of the company.
+  *
+  * @param company
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(String company) {
@@ -141,6 +151,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -166,6 +181,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The email address.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -191,6 +211,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The house number or name.
+  *
+  * @param houseNumberOrName
+  */ 
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
@@ -216,6 +241,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The full telephone number.
+  *
+  * @param mobile
+  */ 
   @JsonProperty(JSON_PROPERTY_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobile(String mobile) {
@@ -241,6 +271,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -266,6 +301,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -291,6 +331,11 @@ public class BulkAddress {
   }
 
 
+ /**
+  * The streetname of the house.
+  *
+  * @param street
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {

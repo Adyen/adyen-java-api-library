@@ -57,25 +57,66 @@ public class WebhooksCompanyLevelApi extends Service {
     }
 
     /**
-    * Remove a webhook
+    * Generate an HMAC key
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @return {@link GenerateHmacKeyResponse }
     * @throws ApiException if fails to make API call
     */
-    public void removeWebhook(String companyId, String webhookId) throws ApiException, IOException {
-        removeWebhook(companyId, webhookId, null);
+    public GenerateHmacKeyResponse generateHmacKey(String companyId, String webhookId) throws ApiException, IOException {
+        return generateHmacKey(companyId, webhookId, null);
     }
 
     /**
-    * Remove a webhook
+    * Generate an HMAC key
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link GenerateHmacKeyResponse }
     * @throws ApiException if fails to make API call
     */
-    public void removeWebhook(String companyId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
+    public GenerateHmacKeyResponse generateHmacKey(String companyId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (webhookId == null) {
+            throw new IllegalArgumentException("Please provide the webhookId path parameter");
+        }
+        pathParams.put("webhookId", webhookId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks/{webhookId}/generateHmac", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return GenerateHmacKeyResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get a webhook
+    *
+    * @param companyId {@link String } Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). (required)
+    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @return {@link Webhook }
+    * @throws ApiException if fails to make API call
+    */
+    public Webhook getWebhook(String companyId, String webhookId) throws ApiException, IOException {
+        return getWebhook(companyId, webhookId, null);
+    }
+
+    /**
+    * Get a webhook
+    *
+    * @param companyId {@link String } Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). (required)
+    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link Webhook }
+    * @throws ApiException if fails to make API call
+    */
+    public Webhook getWebhook(String companyId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (companyId == null) {
@@ -89,7 +130,8 @@ public class WebhooksCompanyLevelApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks/{webhookId}", null);
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return Webhook.fromJson(jsonResult);
     }
 
     /**
@@ -136,27 +178,25 @@ public class WebhooksCompanyLevelApi extends Service {
     }
 
     /**
-    * Get a webhook
+    * Remove a webhook
     *
-    * @param companyId {@link String } Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). (required)
+    * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @return {@link Webhook }
     * @throws ApiException if fails to make API call
     */
-    public Webhook getWebhook(String companyId, String webhookId) throws ApiException, IOException {
-        return getWebhook(companyId, webhookId, null);
+    public void removeWebhook(String companyId, String webhookId) throws ApiException, IOException {
+        removeWebhook(companyId, webhookId, null);
     }
 
     /**
-    * Get a webhook
+    * Remove a webhook
     *
-    * @param companyId {@link String } Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). (required)
+    * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Webhook }
     * @throws ApiException if fails to make API call
     */
-    public Webhook getWebhook(String companyId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
+    public void removeWebhook(String companyId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (companyId == null) {
@@ -170,49 +210,7 @@ public class WebhooksCompanyLevelApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks/{webhookId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return Webhook.fromJson(jsonResult);
-    }
-
-    /**
-    * Update a webhook
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @param updateCompanyWebhookRequest {@link UpdateCompanyWebhookRequest }  (required)
-    * @return {@link Webhook }
-    * @throws ApiException if fails to make API call
-    */
-    public Webhook updateWebhook(String companyId, String webhookId, UpdateCompanyWebhookRequest updateCompanyWebhookRequest) throws ApiException, IOException {
-        return updateWebhook(companyId, webhookId, updateCompanyWebhookRequest, null);
-    }
-
-    /**
-    * Update a webhook
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @param updateCompanyWebhookRequest {@link UpdateCompanyWebhookRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Webhook }
-    * @throws ApiException if fails to make API call
-    */
-    public Webhook updateWebhook(String companyId, String webhookId, UpdateCompanyWebhookRequest updateCompanyWebhookRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (webhookId == null) {
-            throw new IllegalArgumentException("Please provide the webhookId path parameter");
-        }
-        pathParams.put("webhookId", webhookId);
-
-        String requestBody = updateCompanyWebhookRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks/{webhookId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return Webhook.fromJson(jsonResult);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
     }
 
     /**
@@ -248,45 +246,6 @@ public class WebhooksCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return Webhook.fromJson(jsonResult);
-    }
-
-    /**
-    * Generate an HMAC key
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @return {@link GenerateHmacKeyResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public GenerateHmacKeyResponse generateHmacKey(String companyId, String webhookId) throws ApiException, IOException {
-        return generateHmacKey(companyId, webhookId, null);
-    }
-
-    /**
-    * Generate an HMAC key
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link GenerateHmacKeyResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public GenerateHmacKeyResponse generateHmacKey(String companyId, String webhookId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (webhookId == null) {
-            throw new IllegalArgumentException("Please provide the webhookId path parameter");
-        }
-        pathParams.put("webhookId", webhookId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks/{webhookId}/generateHmac", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return GenerateHmacKeyResponse.fromJson(jsonResult);
     }
 
     /**
@@ -328,5 +287,46 @@ public class WebhooksCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks/{webhookId}/test", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return TestWebhookResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Update a webhook
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @param updateCompanyWebhookRequest {@link UpdateCompanyWebhookRequest }  (required)
+    * @return {@link Webhook }
+    * @throws ApiException if fails to make API call
+    */
+    public Webhook updateWebhook(String companyId, String webhookId, UpdateCompanyWebhookRequest updateCompanyWebhookRequest) throws ApiException, IOException {
+        return updateWebhook(companyId, webhookId, updateCompanyWebhookRequest, null);
+    }
+
+    /**
+    * Update a webhook
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
+    * @param updateCompanyWebhookRequest {@link UpdateCompanyWebhookRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link Webhook }
+    * @throws ApiException if fails to make API call
+    */
+    public Webhook updateWebhook(String companyId, String webhookId, UpdateCompanyWebhookRequest updateCompanyWebhookRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (webhookId == null) {
+            throw new IllegalArgumentException("Please provide the webhookId path parameter");
+        }
+        pathParams.put("webhookId", webhookId);
+
+        String requestBody = updateCompanyWebhookRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/webhooks/{webhookId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
+        return Webhook.fromJson(jsonResult);
     }
 }

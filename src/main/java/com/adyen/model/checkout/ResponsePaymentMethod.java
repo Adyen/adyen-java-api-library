@@ -63,6 +63,11 @@ public class ResponsePaymentMethod {
   }
 
 
+ /**
+  * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
+  *
+  * @param brand
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -88,6 +93,11 @@ public class ResponsePaymentMethod {
   }
 
 
+ /**
+  * The &#x60;paymentMethod.type&#x60; value used in the request.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

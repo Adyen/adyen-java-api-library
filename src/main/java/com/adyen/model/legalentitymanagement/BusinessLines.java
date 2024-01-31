@@ -67,6 +67,11 @@ public class BusinessLines {
   }
 
 
+ /**
+  * List of business lines.
+  *
+  * @param businessLines
+  */ 
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLines(List<BusinessLine> businessLines) {

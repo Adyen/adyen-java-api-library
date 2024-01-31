@@ -18,12 +18,12 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Amount;
 import com.adyen.model.transferwebhooks.BalanceMutation;
-import com.adyen.model.transferwebhooks.CounterpartyV3;
 import com.adyen.model.transferwebhooks.PaymentInstrument;
 import com.adyen.model.transferwebhooks.ResourceReference;
 import com.adyen.model.transferwebhooks.TransactionRulesResult;
 import com.adyen.model.transferwebhooks.TransferDataCategoryData;
 import com.adyen.model.transferwebhooks.TransferEvent;
+import com.adyen.model.transferwebhooks.TransferNotificationCounterParty;
 import com.adyen.model.transferwebhooks.TransferNotificationTransferTracking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -129,7 +129,7 @@ public class TransferData {
   private TransferDataCategoryData categoryData;
 
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
-  private CounterpartyV3 counterparty;
+  private TransferNotificationCounterParty counterparty;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
@@ -550,6 +550,11 @@ public class TransferData {
   }
 
 
+ /**
+  * accountHolder
+  *
+  * @param accountHolder
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
@@ -575,6 +580,11 @@ public class TransferData {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -600,6 +610,11 @@ public class TransferData {
   }
 
 
+ /**
+  * balanceAccount
+  *
+  * @param balanceAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
@@ -625,6 +640,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -658,6 +678,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The list of the latest balance statuses in the transfer.
+  *
+  * @param balances
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(List<BalanceMutation> balances) {
@@ -683,6 +708,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The category of transfer.  Possible values:   - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: Transfer initiated by a Adyen-issued card.  - **platformPayment**: Fund movements related to payments that are acquired for your users.
+  *
+  * @param category
+  */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
@@ -708,6 +738,11 @@ public class TransferData {
   }
 
 
+ /**
+  * categoryData
+  *
+  * @param categoryData
+  */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategoryData(TransferDataCategoryData categoryData) {
@@ -715,7 +750,7 @@ public class TransferData {
   }
 
 
-  public TransferData counterparty(CounterpartyV3 counterparty) {
+  public TransferData counterparty(TransferNotificationCounterParty counterparty) {
     this.counterparty = counterparty;
     return this;
   }
@@ -728,14 +763,19 @@ public class TransferData {
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CounterpartyV3 getCounterparty() {
+  public TransferNotificationCounterParty getCounterparty() {
     return counterparty;
   }
 
 
+ /**
+  * counterparty
+  *
+  * @param counterparty
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCounterparty(CounterpartyV3 counterparty) {
+  public void setCounterparty(TransferNotificationCounterParty counterparty) {
     this.counterparty = counterparty;
   }
 
@@ -758,6 +798,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+  *
+  * @param creationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -783,6 +828,11 @@ public class TransferData {
   }
 
 
+ /**
+  * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -808,6 +858,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
+  *
+  * @param direction
+  */ 
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirection(DirectionEnum direction) {
@@ -841,6 +896,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The list of events leading up to the current status of the transfer.
+  *
+  * @param events
+  */ 
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEvents(List<TransferEvent> events) {
@@ -866,6 +926,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The ID of the resource.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -891,6 +956,11 @@ public class TransferData {
   }
 
 
+ /**
+  * paymentInstrument
+  *
+  * @param paymentInstrument
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrument paymentInstrument) {
@@ -916,6 +986,11 @@ public class TransferData {
   }
 
 
+ /**
+  * Additional information about the status of the transfer.
+  *
+  * @param reason
+  */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
@@ -941,6 +1016,11 @@ public class TransferData {
   }
 
 
+ /**
+  * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -966,6 +1046,11 @@ public class TransferData {
   }
 
 
+ /**
+  *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**. The maximum length depends on the &#x60;category&#x60;.  - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
+  *
+  * @param referenceForBeneficiary
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
@@ -991,6 +1076,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The sequence number of the transfer notification. The numbers start from 1 and increase with each new notification for a specific transfer.  It can help you restore the correct sequence of events even if they arrive out of order.
+  *
+  * @param sequenceNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSequenceNumber(Integer sequenceNumber) {
@@ -1016,6 +1106,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The result of the transfer.   For example, **authorised**, **refused**, or **error**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -1041,6 +1136,11 @@ public class TransferData {
   }
 
 
+ /**
+  * tracking
+  *
+  * @param tracking
+  */ 
   @JsonProperty(JSON_PROPERTY_TRACKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTracking(TransferNotificationTransferTracking tracking) {
@@ -1066,6 +1166,11 @@ public class TransferData {
   }
 
 
+ /**
+  * transactionRulesResult
+  *
+  * @param transactionRulesResult
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRulesResult(TransactionRulesResult transactionRulesResult) {
@@ -1091,6 +1196,11 @@ public class TransferData {
   }
 
 
+ /**
+  * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

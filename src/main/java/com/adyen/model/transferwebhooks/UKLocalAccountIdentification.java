@@ -100,6 +100,11 @@ public class UKLocalAccountIdentification {
   }
 
 
+ /**
+  * The 8-digit bank account number, without separators or whitespace.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -125,6 +130,11 @@ public class UKLocalAccountIdentification {
   }
 
 
+ /**
+  * The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
+  *
+  * @param sortCode
+  */ 
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSortCode(String sortCode) {
@@ -150,6 +160,11 @@ public class UKLocalAccountIdentification {
   }
 
 
+ /**
+  * **ukLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

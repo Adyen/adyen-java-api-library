@@ -104,6 +104,11 @@ public class WeChatPayMiniProgramDetails {
   }
 
 
+ /**
+  * appId
+  *
+  * @param appId
+  */ 
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
@@ -129,6 +134,11 @@ public class WeChatPayMiniProgramDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -154,6 +164,11 @@ public class WeChatPayMiniProgramDetails {
   }
 
 
+ /**
+  * openid
+  *
+  * @param openid
+  */ 
   @JsonProperty(JSON_PROPERTY_OPENID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpenid(String openid) {
@@ -179,6 +194,11 @@ public class WeChatPayMiniProgramDetails {
   }
 
 
+ /**
+  * **wechatpayMiniProgram**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

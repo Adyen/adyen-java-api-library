@@ -238,6 +238,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;authenticationValue&#x60; value as defined in the 3D Secure 2 specification.
+  *
+  * @param authenticationValue
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationValue(String authenticationValue) {
@@ -263,6 +268,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.
+  *
+  * @param cavvAlgorithm
+  */ 
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
@@ -288,6 +298,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+  *
+  * @param challengeCancel
+  */ 
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
@@ -313,6 +328,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;dsTransID&#x60; value as defined in the 3D Secure 2 specification.
+  *
+  * @param dsTransID
+  */ 
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
@@ -338,6 +358,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;eci&#x60; value as defined in the 3D Secure 2 specification.
+  *
+  * @param eci
+  */ 
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
@@ -363,6 +388,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * &#x60;lowValue&#x60; * &#x60;secureCorporate&#x60; * &#x60;trustedBeneficiary&#x60; * &#x60;transactionRiskAnalysis&#x60; 
+  *
+  * @param exemptionIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
@@ -388,6 +418,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
+  *
+  * @param messageVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
@@ -413,6 +448,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * Risk score calculated by Cartes Bancaires Directory Server (DS).
+  *
+  * @param riskScore
+  */ 
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
@@ -438,6 +478,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+  *
+  * @param threeDSRequestorChallengeInd
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
@@ -463,6 +508,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
+  *
+  * @param threeDSServerTransID
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSServerTransID(String threeDSServerTransID) {
@@ -488,6 +538,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;timestamp&#x60; value of the 3D Secure 2 authentication.
+  *
+  * @param timestamp
+  */ 
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(String timestamp) {
@@ -513,6 +568,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification.
+  *
+  * @param transStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatus(String transStatus) {
@@ -538,6 +598,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
+  *
+  * @param transStatusReason
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
@@ -563,6 +628,11 @@ public class ThreeDS2Result {
   }
 
 
+ /**
+  * The &#x60;whiteListStatus&#x60; value as defined in the 3D Secure 2 specification.
+  *
+  * @param whiteListStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteListStatus(String whiteListStatus) {

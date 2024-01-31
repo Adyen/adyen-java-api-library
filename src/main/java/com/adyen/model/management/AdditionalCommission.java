@@ -67,6 +67,11 @@ public class AdditionalCommission {
   }
 
 
+ /**
+  * Unique identifier of the balance account to which the additional commission is booked.
+  *
+  * @param balanceAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
@@ -92,6 +97,11 @@ public class AdditionalCommission {
   }
 
 
+ /**
+  * A fixed commission fee, in minor units.
+  *
+  * @param fixedAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_FIXED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFixedAmount(Long fixedAmount) {
@@ -117,6 +127,11 @@ public class AdditionalCommission {
   }
 
 
+ /**
+  * A variable commission fee, in basis points.
+  *
+  * @param variablePercentage
+  */ 
   @JsonProperty(JSON_PROPERTY_VARIABLE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariablePercentage(Long variablePercentage) {

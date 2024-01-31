@@ -63,6 +63,11 @@ public class Phone {
   }
 
 
+ /**
+  * Country code. Length: 1–3 characters.
+  *
+  * @param cc
+  */ 
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCc(String cc) {
@@ -88,6 +93,11 @@ public class Phone {
   }
 
 
+ /**
+  * Subscriber number. Maximum length: 15 characters.
+  *
+  * @param subscriber
+  */ 
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriber(String subscriber) {

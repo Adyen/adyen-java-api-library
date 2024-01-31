@@ -96,6 +96,11 @@ public class UninstallAndroidAppDetails {
   }
 
 
+ /**
+  * The unique identifier of the app to be uninstalled.
+  *
+  * @param appId
+  */ 
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
@@ -121,6 +126,11 @@ public class UninstallAndroidAppDetails {
   }
 
 
+ /**
+  * Type of terminal action: Uninstall an Android app.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

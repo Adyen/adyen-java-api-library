@@ -1,6 +1,5 @@
 /*
  * Adyen Recurring API
- * The Recurring APIs allow you to manage and remove your tokens or saved payment details. Tokens should be created with validation during a payment request.  For more information, refer to our [Tokenization documentation](https://docs.adyen.com/online-payments/tokenization). ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Recurring API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Recurring/v68/disable ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Recurring/v68/disable ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -84,6 +83,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * Reference of Pre-debit notification that is displayed to the shopper
+  *
+  * @param displayedReference
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
@@ -109,6 +113,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * A simple description of the &#x60;resultCode&#x60;.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -134,6 +143,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * The unique reference that is associated with the request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -159,6 +173,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * Reference of Pre-debit notification sent in my the merchant
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -184,6 +203,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * The code indicating the status of notification.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
@@ -209,6 +233,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * The unique reference for the request sent downstream.
+  *
+  * @param shopperNotificationReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
@@ -234,6 +263,11 @@ public class NotifyShopperResult {
   }
 
 
+ /**
+  * This is the recurringDetailReference returned in the response when token was created
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {

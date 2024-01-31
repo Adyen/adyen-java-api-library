@@ -63,6 +63,11 @@ public class AcceptTermsOfServiceRequest {
   }
 
 
+ /**
+  * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.
+  *
+  * @param acceptedBy
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
@@ -88,6 +93,11 @@ public class AcceptTermsOfServiceRequest {
   }
 
 
+ /**
+  * The IP address of the user accepting the Terms of Service.
+  *
+  * @param ipAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {

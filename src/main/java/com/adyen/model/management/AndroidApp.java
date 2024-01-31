@@ -87,6 +87,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The description that was provided when uploading the app. The description is not shown on the terminal.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -112,6 +117,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The error code of the app. It exists if the status is error or invalid.
+  *
+  * @param errorCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -137,6 +147,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The unique identifier of the app.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -162,6 +177,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The app name that is shown on the terminal.
+  *
+  * @param label
+  */ 
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabel(String label) {
@@ -187,6 +207,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The package name that uniquely identifies the Android app.
+  *
+  * @param packageName
+  */ 
   @JsonProperty(JSON_PROPERTY_PACKAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPackageName(String packageName) {
@@ -212,6 +237,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
@@ -237,6 +267,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The version number of the app.
+  *
+  * @param versionCode
+  */ 
   @JsonProperty(JSON_PROPERTY_VERSION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionCode(Integer versionCode) {
@@ -262,6 +297,11 @@ public class AndroidApp {
   }
 
 
+ /**
+  * The app version number that is shown on the terminal.
+  *
+  * @param versionName
+  */ 
   @JsonProperty(JSON_PROPERTY_VERSION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionName(String versionName) {

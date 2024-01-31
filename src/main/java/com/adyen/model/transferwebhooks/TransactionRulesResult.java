@@ -74,6 +74,11 @@ public class TransactionRulesResult {
   }
 
 
+ /**
+  * The advice given by the Risk analysis.
+  *
+  * @param advice
+  */ 
   @JsonProperty(JSON_PROPERTY_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdvice(String advice) {
@@ -99,6 +104,11 @@ public class TransactionRulesResult {
   }
 
 
+ /**
+  * Indicates whether the transaction passed the evaluation for all hardblock rules
+  *
+  * @param allHardBlockRulesPassed
+  */ 
   @JsonProperty(JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllHardBlockRulesPassed(Boolean allHardBlockRulesPassed) {
@@ -124,6 +134,11 @@ public class TransactionRulesResult {
   }
 
 
+ /**
+  * The score of the Risk analysis.
+  *
+  * @param score
+  */ 
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
@@ -157,6 +172,11 @@ public class TransactionRulesResult {
   }
 
 
+ /**
+  * Array containing all the transaction rules that the transaction triggered.
+  *
+  * @param triggeredTransactionRules
+  */ 
   @JsonProperty(JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggeredTransactionRules(List<TransactionEventViolation> triggeredTransactionRules) {

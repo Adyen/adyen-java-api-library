@@ -63,6 +63,11 @@ public class MerchantAcquirerPair {
   }
 
 
+ /**
+  * The acquirer ID.
+  *
+  * @param acquirerId
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
@@ -88,6 +93,11 @@ public class MerchantAcquirerPair {
   }
 
 
+ /**
+  * The merchant identification number (MID).
+  *
+  * @param merchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {

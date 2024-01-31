@@ -56,6 +56,82 @@ public class SplitConfigurationMerchantLevelApi extends Service {
     }
 
     /**
+    * Create a rule
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
+    * @param splitConfigurationRule {@link SplitConfigurationRule }  (required)
+    * @return {@link SplitConfiguration }
+    * @throws ApiException if fails to make API call
+    */
+    public SplitConfiguration createRule(String merchantId, String splitConfigurationId, SplitConfigurationRule splitConfigurationRule) throws ApiException, IOException {
+        return createRule(merchantId, splitConfigurationId, splitConfigurationRule, null);
+    }
+
+    /**
+    * Create a rule
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
+    * @param splitConfigurationRule {@link SplitConfigurationRule }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link SplitConfiguration }
+    * @throws ApiException if fails to make API call
+    */
+    public SplitConfiguration createRule(String merchantId, String splitConfigurationId, SplitConfigurationRule splitConfigurationRule, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (splitConfigurationId == null) {
+            throw new IllegalArgumentException("Please provide the splitConfigurationId path parameter");
+        }
+        pathParams.put("splitConfigurationId", splitConfigurationId);
+
+        String requestBody = splitConfigurationRule.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return SplitConfiguration.fromJson(jsonResult);
+    }
+
+    /**
+    * Create a split configuration
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param splitConfiguration {@link SplitConfiguration }  (required)
+    * @return {@link SplitConfiguration }
+    * @throws ApiException if fails to make API call
+    */
+    public SplitConfiguration createSplitConfiguration(String merchantId, SplitConfiguration splitConfiguration) throws ApiException, IOException {
+        return createSplitConfiguration(merchantId, splitConfiguration, null);
+    }
+
+    /**
+    * Create a split configuration
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param splitConfiguration {@link SplitConfiguration }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link SplitConfiguration }
+    * @throws ApiException if fails to make API call
+    */
+    public SplitConfiguration createSplitConfiguration(String merchantId, SplitConfiguration splitConfiguration, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+
+        String requestBody = splitConfiguration.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return SplitConfiguration.fromJson(jsonResult);
+    }
+
+    /**
     * Delete a split configuration
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -140,39 +216,6 @@ public class SplitConfigurationMerchantLevelApi extends Service {
     }
 
     /**
-    * Get a list of split configurations
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @return {@link SplitConfigurationList }
-    * @throws ApiException if fails to make API call
-    */
-    public SplitConfigurationList listSplitConfigurations(String merchantId) throws ApiException, IOException {
-        return listSplitConfigurations(merchantId, null);
-    }
-
-    /**
-    * Get a list of split configurations
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link SplitConfigurationList }
-    * @throws ApiException if fails to make API call
-    */
-    public SplitConfigurationList listSplitConfigurations(String merchantId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return SplitConfigurationList.fromJson(jsonResult);
-    }
-
-    /**
     * Get a split configuration
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -212,44 +255,36 @@ public class SplitConfigurationMerchantLevelApi extends Service {
     }
 
     /**
-    * Update split configuration description
+    * Get a list of split configurations
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
-    * @param updateSplitConfigurationRequest {@link UpdateSplitConfigurationRequest }  (required)
-    * @return {@link SplitConfiguration }
+    * @return {@link SplitConfigurationList }
     * @throws ApiException if fails to make API call
     */
-    public SplitConfiguration updateSplitConfigurationDescription(String merchantId, String splitConfigurationId, UpdateSplitConfigurationRequest updateSplitConfigurationRequest) throws ApiException, IOException {
-        return updateSplitConfigurationDescription(merchantId, splitConfigurationId, updateSplitConfigurationRequest, null);
+    public SplitConfigurationList listSplitConfigurations(String merchantId) throws ApiException, IOException {
+        return listSplitConfigurations(merchantId, null);
     }
 
     /**
-    * Update split configuration description
+    * Get a list of split configurations
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
-    * @param updateSplitConfigurationRequest {@link UpdateSplitConfigurationRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link SplitConfiguration }
+    * @return {@link SplitConfigurationList }
     * @throws ApiException if fails to make API call
     */
-    public SplitConfiguration updateSplitConfigurationDescription(String merchantId, String splitConfigurationId, UpdateSplitConfigurationRequest updateSplitConfigurationRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public SplitConfigurationList listSplitConfigurations(String merchantId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (merchantId == null) {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
-        if (splitConfigurationId == null) {
-            throw new IllegalArgumentException("Please provide the splitConfigurationId path parameter");
-        }
-        pathParams.put("splitConfigurationId", splitConfigurationId);
 
-        String requestBody = updateSplitConfigurationRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return SplitConfiguration.fromJson(jsonResult);
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return SplitConfigurationList.fromJson(jsonResult);
     }
 
     /**
@@ -295,6 +330,47 @@ public class SplitConfigurationMerchantLevelApi extends Service {
 
         String requestBody = updateSplitConfigurationRuleRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
+        return SplitConfiguration.fromJson(jsonResult);
+    }
+
+    /**
+    * Update split configuration description
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
+    * @param updateSplitConfigurationRequest {@link UpdateSplitConfigurationRequest }  (required)
+    * @return {@link SplitConfiguration }
+    * @throws ApiException if fails to make API call
+    */
+    public SplitConfiguration updateSplitConfigurationDescription(String merchantId, String splitConfigurationId, UpdateSplitConfigurationRequest updateSplitConfigurationRequest) throws ApiException, IOException {
+        return updateSplitConfigurationDescription(merchantId, splitConfigurationId, updateSplitConfigurationRequest, null);
+    }
+
+    /**
+    * Update split configuration description
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
+    * @param updateSplitConfigurationRequest {@link UpdateSplitConfigurationRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link SplitConfiguration }
+    * @throws ApiException if fails to make API call
+    */
+    public SplitConfiguration updateSplitConfigurationDescription(String merchantId, String splitConfigurationId, UpdateSplitConfigurationRequest updateSplitConfigurationRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (splitConfigurationId == null) {
+            throw new IllegalArgumentException("Please provide the splitConfigurationId path parameter");
+        }
+        pathParams.put("splitConfigurationId", splitConfigurationId);
+
+        String requestBody = updateSplitConfigurationRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return SplitConfiguration.fromJson(jsonResult);
     }
@@ -349,82 +425,6 @@ public class SplitConfigurationMerchantLevelApi extends Service {
         String requestBody = updateSplitConfigurationLogicRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}/splitLogic/{splitLogicId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return SplitConfiguration.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a split configuration
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param splitConfiguration {@link SplitConfiguration }  (required)
-    * @return {@link SplitConfiguration }
-    * @throws ApiException if fails to make API call
-    */
-    public SplitConfiguration createSplitConfiguration(String merchantId, SplitConfiguration splitConfiguration) throws ApiException, IOException {
-        return createSplitConfiguration(merchantId, splitConfiguration, null);
-    }
-
-    /**
-    * Create a split configuration
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param splitConfiguration {@link SplitConfiguration }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link SplitConfiguration }
-    * @throws ApiException if fails to make API call
-    */
-    public SplitConfiguration createSplitConfiguration(String merchantId, SplitConfiguration splitConfiguration, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = splitConfiguration.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return SplitConfiguration.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a rule
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
-    * @param splitConfigurationRule {@link SplitConfigurationRule }  (required)
-    * @return {@link SplitConfiguration }
-    * @throws ApiException if fails to make API call
-    */
-    public SplitConfiguration createRule(String merchantId, String splitConfigurationId, SplitConfigurationRule splitConfigurationRule) throws ApiException, IOException {
-        return createRule(merchantId, splitConfigurationId, splitConfigurationRule, null);
-    }
-
-    /**
-    * Create a rule
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param splitConfigurationId {@link String } The unique identifier of the split configuration. (required)
-    * @param splitConfigurationRule {@link SplitConfigurationRule }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link SplitConfiguration }
-    * @throws ApiException if fails to make API call
-    */
-    public SplitConfiguration createRule(String merchantId, String splitConfigurationId, SplitConfigurationRule splitConfigurationRule, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (splitConfigurationId == null) {
-            throw new IllegalArgumentException("Please provide the splitConfigurationId path parameter");
-        }
-        pathParams.put("splitConfigurationId", splitConfigurationId);
-
-        String requestBody = splitConfigurationRule.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return SplitConfiguration.fromJson(jsonResult);
     }
 }

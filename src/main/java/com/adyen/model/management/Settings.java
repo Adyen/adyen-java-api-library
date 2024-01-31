@@ -67,6 +67,11 @@ public class Settings {
   }
 
 
+ /**
+  * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
+  *
+  * @param band
+  */ 
   @JsonProperty(JSON_PROPERTY_BAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBand(String band) {
@@ -92,6 +97,11 @@ public class Settings {
   }
 
 
+ /**
+  * Indicates whether roaming is enabled on the terminals.
+  *
+  * @param roaming
+  */ 
   @JsonProperty(JSON_PROPERTY_ROAMING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoaming(Boolean roaming) {
@@ -117,6 +127,11 @@ public class Settings {
   }
 
 
+ /**
+  * The connection time-out in seconds. Minimum value: 0.
+  *
+  * @param timeout
+  */ 
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeout(Integer timeout) {

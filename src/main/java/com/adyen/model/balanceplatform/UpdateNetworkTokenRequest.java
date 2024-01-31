@@ -96,6 +96,11 @@ public class UpdateNetworkTokenRequest {
   }
 
 
+ /**
+  * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

@@ -69,6 +69,11 @@ public class StoredDetails {
   }
 
 
+ /**
+  * bank
+  *
+  * @param bank
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
@@ -94,6 +99,11 @@ public class StoredDetails {
   }
 
 
+ /**
+  * card
+  *
+  * @param card
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -119,6 +129,11 @@ public class StoredDetails {
   }
 
 
+ /**
+  * The email associated with stored payment details.
+  *
+  * @param emailAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(String emailAddress) {

@@ -1,6 +1,5 @@
 /*
  * POS Terminal Management API
- * This API provides endpoints for managing your point-of-sale (POS) payment terminals. You can use the API to obtain information about a specific terminal, retrieve overviews of your terminals and stores, and assign terminals to a merchant account or store.  For more information, refer to [Assign terminals](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api).  ## Authentication Each request to the Terminal Management API must be signed with an API key. For this, obtain an API Key from your Customer Area, as described in [How to get the API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key). Then set this key to the `X-API-Key` header value, for example:  ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: Your_API_key\" \\ ... ``` Note that when going live, you need to generate new web service user credentials to access the [live endpoints](https://docs.adyen.com/development-resources/live-endpoints).  ## Versioning Terminal Management API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://postfmapi-test.adyen.com/postfmapi/terminal/v1/getTerminalsUnderAccount ``` When using versioned endpoints, Boolean response values are returned in string format: `\"true\"` or `\"false\"`. If you omit the version from the endpoint URL, Boolean response values are returned like this: `true` or `false`.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -80,6 +79,11 @@ public class Address {
   }
 
 
+ /**
+  * city
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -105,6 +109,11 @@ public class Address {
   }
 
 
+ /**
+  * countryCode
+  *
+  * @param countryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -130,6 +139,11 @@ public class Address {
   }
 
 
+ /**
+  * postalCode
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -155,6 +169,11 @@ public class Address {
   }
 
 
+ /**
+  * stateOrProvince
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -180,6 +199,11 @@ public class Address {
   }
 
 
+ /**
+  * streetAddress
+  *
+  * @param streetAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress(String streetAddress) {
@@ -205,6 +229,11 @@ public class Address {
   }
 
 
+ /**
+  * streetAddress2
+  *
+  * @param streetAddress2
+  */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress2(String streetAddress2) {

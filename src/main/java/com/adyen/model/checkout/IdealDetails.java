@@ -108,6 +108,11 @@ public class IdealDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -133,6 +138,11 @@ public class IdealDetails {
   }
 
 
+ /**
+  * The iDEAL issuer value of the shopper&#39;s selected bank. Set this to an **id** of an iDEAL issuer to preselect it.
+  *
+  * @param issuer
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -160,6 +170,11 @@ public class IdealDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,6 +201,11 @@ public class IdealDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -211,6 +231,11 @@ public class IdealDetails {
   }
 
 
+ /**
+  * **ideal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

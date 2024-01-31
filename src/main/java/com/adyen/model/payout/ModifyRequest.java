@@ -78,6 +78,11 @@ public class ModifyRequest {
   }
 
 
+ /**
+  * This field contains additional data, which may be required for a particular payout request.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -103,6 +108,11 @@ public class ModifyRequest {
   }
 
 
+ /**
+  * The merchant account identifier, with which you want to process the transaction.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -128,6 +138,11 @@ public class ModifyRequest {
   }
 
 
+ /**
+  * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
+  *
+  * @param originalReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {

@@ -75,6 +75,11 @@ public class ListMerchantUsersResponse {
   }
 
 
+ /**
+  * links
+  *
+  * @param links
+  */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
@@ -108,6 +113,11 @@ public class ListMerchantUsersResponse {
   }
 
 
+ /**
+  * The list of users.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<User> data) {
@@ -133,6 +143,11 @@ public class ListMerchantUsersResponse {
   }
 
 
+ /**
+  * Total number of items.
+  *
+  * @param itemsTotal
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
@@ -158,6 +173,11 @@ public class ListMerchantUsersResponse {
   }
 
 
+ /**
+  * Total number of pages.
+  *
+  * @param pagesTotal
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {

@@ -70,6 +70,11 @@ public class TerminalModelsResponse {
   }
 
 
+ /**
+  * The terminal models that the API credential has access to.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<IdName> data) {

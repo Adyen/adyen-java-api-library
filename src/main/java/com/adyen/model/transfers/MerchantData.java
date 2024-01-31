@@ -76,6 +76,11 @@ public class MerchantData {
   }
 
 
+ /**
+  * The unique identifier of the merchant&#39;s acquirer.
+  *
+  * @param acquirerId
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
@@ -101,6 +106,11 @@ public class MerchantData {
   }
 
 
+ /**
+  * The merchant category code.
+  *
+  * @param mcc
+  */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
@@ -126,6 +136,11 @@ public class MerchantData {
   }
 
 
+ /**
+  * The merchant identifier.
+  *
+  * @param merchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -151,6 +166,11 @@ public class MerchantData {
   }
 
 
+ /**
+  * nameLocation
+  *
+  * @param nameLocation
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNameLocation(NameLocation nameLocation) {
@@ -176,6 +196,11 @@ public class MerchantData {
   }
 
 
+ /**
+  * The merchant postal code.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {

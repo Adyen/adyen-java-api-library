@@ -55,6 +55,44 @@ public class PaymentMethodsMerchantLevelApi extends Service {
     }
 
     /**
+    * Add an Apple Pay domain
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
+    * @param applePayInfo {@link ApplePayInfo }  (required)
+    * @throws ApiException if fails to make API call
+    */
+    public void addApplePayDomain(String merchantId, String paymentMethodId, ApplePayInfo applePayInfo) throws ApiException, IOException {
+        addApplePayDomain(merchantId, paymentMethodId, applePayInfo, null);
+    }
+
+    /**
+    * Add an Apple Pay domain
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
+    * @param applePayInfo {@link ApplePayInfo }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @throws ApiException if fails to make API call
+    */
+    public void addApplePayDomain(String merchantId, String paymentMethodId, ApplePayInfo applePayInfo, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (paymentMethodId == null) {
+            throw new IllegalArgumentException("Please provide the paymentMethodId path parameter");
+        }
+        pathParams.put("paymentMethodId", paymentMethodId);
+
+        String requestBody = applePayInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/addApplePayDomains", null);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+    }
+
+    /**
     * Get all payment methods
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -106,6 +144,45 @@ public class PaymentMethodsMerchantLevelApi extends Service {
     }
 
     /**
+    * Get Apple Pay domains
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
+    * @return {@link ApplePayInfo }
+    * @throws ApiException if fails to make API call
+    */
+    public ApplePayInfo getApplePayDomains(String merchantId, String paymentMethodId) throws ApiException, IOException {
+        return getApplePayDomains(merchantId, paymentMethodId, null);
+    }
+
+    /**
+    * Get Apple Pay domains
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ApplePayInfo }
+    * @throws ApiException if fails to make API call
+    */
+    public ApplePayInfo getApplePayDomains(String merchantId, String paymentMethodId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (paymentMethodId == null) {
+            throw new IllegalArgumentException("Please provide the paymentMethodId path parameter");
+        }
+        pathParams.put("paymentMethodId", paymentMethodId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/getApplePayDomains", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return ApplePayInfo.fromJson(jsonResult);
+    }
+
+    /**
     * Get payment method details
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -145,42 +222,38 @@ public class PaymentMethodsMerchantLevelApi extends Service {
     }
 
     /**
-    * Get Apple Pay domains
+    * Request a payment method
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
-    * @return {@link ApplePayInfo }
+    * @param paymentMethodSetupInfo {@link PaymentMethodSetupInfo }  (required)
+    * @return {@link PaymentMethod }
     * @throws ApiException if fails to make API call
     */
-    public ApplePayInfo getApplePayDomains(String merchantId, String paymentMethodId) throws ApiException, IOException {
-        return getApplePayDomains(merchantId, paymentMethodId, null);
+    public PaymentMethod requestPaymentMethod(String merchantId, PaymentMethodSetupInfo paymentMethodSetupInfo) throws ApiException, IOException {
+        return requestPaymentMethod(merchantId, paymentMethodSetupInfo, null);
     }
 
     /**
-    * Get Apple Pay domains
+    * Request a payment method
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
+    * @param paymentMethodSetupInfo {@link PaymentMethodSetupInfo }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link ApplePayInfo }
+    * @return {@link PaymentMethod }
     * @throws ApiException if fails to make API call
     */
-    public ApplePayInfo getApplePayDomains(String merchantId, String paymentMethodId, RequestOptions requestOptions) throws ApiException, IOException {
+    public PaymentMethod requestPaymentMethod(String merchantId, PaymentMethodSetupInfo paymentMethodSetupInfo, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (merchantId == null) {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
-        if (paymentMethodId == null) {
-            throw new IllegalArgumentException("Please provide the paymentMethodId path parameter");
-        }
-        pathParams.put("paymentMethodId", paymentMethodId);
 
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/getApplePayDomains", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return ApplePayInfo.fromJson(jsonResult);
+        String requestBody = paymentMethodSetupInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/paymentMethodSettings", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return PaymentMethod.fromJson(jsonResult);
     }
 
     /**
@@ -222,78 +295,5 @@ public class PaymentMethodsMerchantLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return PaymentMethod.fromJson(jsonResult);
-    }
-
-    /**
-    * Request a payment method
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param paymentMethodSetupInfo {@link PaymentMethodSetupInfo }  (required)
-    * @return {@link PaymentMethod }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentMethod requestPaymentMethod(String merchantId, PaymentMethodSetupInfo paymentMethodSetupInfo) throws ApiException, IOException {
-        return requestPaymentMethod(merchantId, paymentMethodSetupInfo, null);
-    }
-
-    /**
-    * Request a payment method
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param paymentMethodSetupInfo {@link PaymentMethodSetupInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentMethod }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentMethod requestPaymentMethod(String merchantId, PaymentMethodSetupInfo paymentMethodSetupInfo, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = paymentMethodSetupInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/paymentMethodSettings", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return PaymentMethod.fromJson(jsonResult);
-    }
-
-    /**
-    * Add an Apple Pay domain
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
-    * @param applePayInfo {@link ApplePayInfo }  (required)
-    * @throws ApiException if fails to make API call
-    */
-    public void addApplePayDomain(String merchantId, String paymentMethodId, ApplePayInfo applePayInfo) throws ApiException, IOException {
-        addApplePayDomain(merchantId, paymentMethodId, applePayInfo, null);
-    }
-
-    /**
-    * Add an Apple Pay domain
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
-    * @param applePayInfo {@link ApplePayInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @throws ApiException if fails to make API call
-    */
-    public void addApplePayDomain(String merchantId, String paymentMethodId, ApplePayInfo applePayInfo, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (paymentMethodId == null) {
-            throw new IllegalArgumentException("Please provide the paymentMethodId path parameter");
-        }
-        pathParams.put("paymentMethodId", paymentMethodId);
-
-        String requestBody = applePayInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/addApplePayDomains", null);
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
     }
 }

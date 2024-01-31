@@ -108,6 +108,11 @@ public class PaymentReversalResponse {
   }
 
 
+ /**
+  * The merchant account that is used to process the payment.
+  *
+  * @param merchantAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -133,6 +138,11 @@ public class PaymentReversalResponse {
   }
 
 
+ /**
+  * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
+  *
+  * @param paymentPspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
@@ -158,6 +168,11 @@ public class PaymentReversalResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character reference associated with the reversal request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -183,6 +198,11 @@ public class PaymentReversalResponse {
   }
 
 
+ /**
+  * Your reference for the reversal request.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -208,6 +228,11 @@ public class PaymentReversalResponse {
   }
 
 
+ /**
+  * The status of your request. This will always have the value **received**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

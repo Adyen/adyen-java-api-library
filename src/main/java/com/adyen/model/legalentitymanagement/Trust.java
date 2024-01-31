@@ -208,6 +208,11 @@ public class Trust {
   }
 
 
+ /**
+  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
+  *
+  * @param countryOfGoverningLaw
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -233,6 +238,11 @@ public class Trust {
   }
 
 
+ /**
+  * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
+  *
+  * @param dateOfIncorporation
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
@@ -258,6 +268,11 @@ public class Trust {
   }
 
 
+ /**
+  * Short description about the trust.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -283,6 +298,11 @@ public class Trust {
   }
 
 
+ /**
+  * The registered name, if different from the &#x60;name&#x60;.
+  *
+  * @param doingBusinessAs
+  */ 
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
@@ -308,6 +328,11 @@ public class Trust {
   }
 
 
+ /**
+  * The legal name.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -333,6 +358,11 @@ public class Trust {
   }
 
 
+ /**
+  * principalPlaceOfBusiness
+  *
+  * @param principalPlaceOfBusiness
+  */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -358,6 +388,11 @@ public class Trust {
   }
 
 
+ /**
+  * registeredAddress
+  *
+  * @param registeredAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
@@ -383,6 +418,11 @@ public class Trust {
   }
 
 
+ /**
+  * The registration number.
+  *
+  * @param registrationNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
@@ -416,6 +456,11 @@ public class Trust {
   }
 
 
+ /**
+  * The tax information of the entity.
+  *
+  * @param taxInformation
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
@@ -441,6 +486,11 @@ public class Trust {
   }
 
 
+ /**
+  * Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -474,6 +524,11 @@ public class Trust {
   }
 
 
+ /**
+  * The undefined beneficiary information of the entity.
+  *
+  * @param undefinedBeneficiaryInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUndefinedBeneficiaryInfo(List<UndefinedBeneficiary> undefinedBeneficiaryInfo) {
@@ -499,6 +554,11 @@ public class Trust {
   }
 
 
+ /**
+  * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
+  *
+  * @param vatAbsenceReason
+  */ 
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -524,6 +584,11 @@ public class Trust {
   }
 
 
+ /**
+  * The VAT number.
+  *
+  * @param vatNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {

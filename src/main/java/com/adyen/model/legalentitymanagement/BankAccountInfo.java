@@ -76,6 +76,11 @@ public class BankAccountInfo {
   }
 
 
+ /**
+  * accountIdentification
+  *
+  * @param accountIdentification
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountInfoAccountIdentification accountIdentification) {
@@ -103,6 +108,11 @@ public class BankAccountInfo {
   }
 
 
+ /**
+  * The type of bank account.
+  *
+  * @param accountType
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,6 +139,11 @@ public class BankAccountInfo {
   }
 
 
+ /**
+  * The name of the banking institution where the bank account is held.
+  *
+  * @param bankName
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
@@ -154,6 +169,11 @@ public class BankAccountInfo {
   }
 
 
+ /**
+  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
+  *
+  * @param countryCode
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -179,6 +199,11 @@ public class BankAccountInfo {
   }
 
 
+ /**
+  * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
+  *
+  * @param trustedSource
+  */ 
   @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedSource(Boolean trustedSource) {

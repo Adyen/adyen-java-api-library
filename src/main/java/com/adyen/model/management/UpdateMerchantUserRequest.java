@@ -90,6 +90,11 @@ public class UpdateMerchantUserRequest {
   }
 
 
+ /**
+  * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
+  *
+  * @param accountGroups
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
@@ -115,6 +120,11 @@ public class UpdateMerchantUserRequest {
   }
 
 
+ /**
+  * Sets the status of the user to active (**true**) or inactive (**false**).
+  *
+  * @param active
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -140,6 +150,11 @@ public class UpdateMerchantUserRequest {
   }
 
 
+ /**
+  * The email address of the user.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -165,6 +180,11 @@ public class UpdateMerchantUserRequest {
   }
 
 
+ /**
+  * name
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name2 name) {
@@ -198,6 +218,11 @@ public class UpdateMerchantUserRequest {
   }
 
 
+ /**
+  * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
+  *
+  * @param roles
+  */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -223,6 +248,11 @@ public class UpdateMerchantUserRequest {
   }
 
 
+ /**
+  * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
+  *
+  * @param timeZoneCode
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {

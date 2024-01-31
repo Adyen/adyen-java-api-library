@@ -75,6 +75,11 @@ public class Attachment {
   }
 
 
+ /**
+  * The document in Base64-encoded string format.
+  *
+  * @param content
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -102,6 +107,11 @@ public class Attachment {
   }
 
 
+ /**
+  * The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
+  *
+  * @param contentType
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,6 +140,11 @@ public class Attachment {
   }
 
 
+ /**
+  * The name of the file including the file extension.
+  *
+  * @param filename
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,6 +171,11 @@ public class Attachment {
   }
 
 
+ /**
+  * The name of the file including the file extension.
+  *
+  * @param pageName
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageName(String pageName) {
@@ -181,6 +201,11 @@ public class Attachment {
   }
 
 
+ /**
+  * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
+  *
+  * @param pageType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageType(String pageType) {

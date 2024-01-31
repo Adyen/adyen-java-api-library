@@ -104,6 +104,11 @@ public class Duration {
   }
 
 
+ /**
+  * The unit of time. You can only use **minutes** and **hours** if the &#x60;interval.type&#x60; is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
+  *
+  * @param unit
+  */ 
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUnit(UnitEnum unit) {
@@ -129,6 +134,11 @@ public class Duration {
   }
 
 
+ /**
+  * The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {

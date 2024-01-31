@@ -71,6 +71,11 @@ public class BalanceMutation {
   }
 
 
+ /**
+  * The amount in the payment&#39;s currency that is debited or credited on the balance accounting register.
+  *
+  * @param balance
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
@@ -96,6 +101,11 @@ public class BalanceMutation {
   }
 
 
+ /**
+  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -121,6 +131,11 @@ public class BalanceMutation {
   }
 
 
+ /**
+  * The amount in the payment&#39;s currency that is debited or credited on the received accounting register.
+  *
+  * @param received
+  */ 
   @JsonProperty(JSON_PROPERTY_RECEIVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceived(Long received) {
@@ -146,6 +161,11 @@ public class BalanceMutation {
   }
 
 
+ /**
+  * The amount in the payment&#39;s currency that is debited or credited on the reserved accounting register.
+  *
+  * @param reserved
+  */ 
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {

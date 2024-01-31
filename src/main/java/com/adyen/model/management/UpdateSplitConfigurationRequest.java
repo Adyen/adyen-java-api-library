@@ -59,6 +59,11 @@ public class UpdateSplitConfigurationRequest {
   }
 
 
+ /**
+  * Your description for the split configuration.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {

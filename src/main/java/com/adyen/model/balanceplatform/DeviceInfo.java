@@ -101,6 +101,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The technology used to capture the card details.
+  *
+  * @param cardCaptureTechnology
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardCaptureTechnology(String cardCaptureTechnology) {
@@ -126,6 +131,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The name of the device.
+  *
+  * @param deviceName
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceName(String deviceName) {
@@ -151,6 +161,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The form factor of the device to be provisioned.
+  *
+  * @param formFactor
+  */ 
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(String formFactor) {
@@ -176,6 +191,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The IMEI number of the device being provisioned.
+  *
+  * @param imei
+  */ 
   @JsonProperty(JSON_PROPERTY_IMEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImei(String imei) {
@@ -201,6 +221,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
+  *
+  * @param isoDeviceType
+  */ 
   @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsoDeviceType(String isoDeviceType) {
@@ -226,6 +251,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The MSISDN of the device being provisioned.
+  *
+  * @param msisdn
+  */ 
   @JsonProperty(JSON_PROPERTY_MSISDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMsisdn(String msisdn) {
@@ -251,6 +281,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The name of the device operating system.
+  *
+  * @param osName
+  */ 
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsName(String osName) {
@@ -276,6 +311,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The version of the device operating system.
+  *
+  * @param osVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
@@ -309,6 +349,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * Different types of payments supported for the network token.
+  *
+  * @param paymentTypes
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentTypes(List<String> paymentTypes) {
@@ -334,6 +379,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The serial number of the device.
+  *
+  * @param serialNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
@@ -359,6 +409,11 @@ public class DeviceInfo {
   }
 
 
+ /**
+  * The architecture or technology used for network token storage.
+  *
+  * @param storageTechnology
+  */ 
   @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorageTechnology(String storageTechnology) {

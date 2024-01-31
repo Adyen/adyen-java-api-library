@@ -72,6 +72,11 @@ public class GetPciQuestionnaireResponse {
   }
 
 
+ /**
+  * The generated questionnaire in a base64 encoded format.
+  *
+  * @param content
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -97,6 +102,11 @@ public class GetPciQuestionnaireResponse {
   }
 
 
+ /**
+  * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
+  *
+  * @param createdAt
+  */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -122,6 +132,11 @@ public class GetPciQuestionnaireResponse {
   }
 
 
+ /**
+  * The unique identifier of the signed questionnaire.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -147,6 +162,11 @@ public class GetPciQuestionnaireResponse {
   }
 
 
+ /**
+  * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
+  *
+  * @param validUntil
+  */ 
   @JsonProperty(JSON_PROPERTY_VALID_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidUntil(OffsetDateTime validUntil) {

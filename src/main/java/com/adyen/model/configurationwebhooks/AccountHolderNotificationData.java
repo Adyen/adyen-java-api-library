@@ -64,6 +64,11 @@ public class AccountHolderNotificationData {
   }
 
 
+ /**
+  * accountHolder
+  *
+  * @param accountHolder
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(AccountHolder accountHolder) {
@@ -89,6 +94,11 @@ public class AccountHolderNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {

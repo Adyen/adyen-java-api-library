@@ -71,6 +71,11 @@ public class TransferInstrumentReference {
   }
 
 
+ /**
+  * The masked IBAN or bank account number.
+  *
+  * @param accountIdentifier
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentifier(String accountIdentifier) {
@@ -96,6 +101,11 @@ public class TransferInstrumentReference {
   }
 
 
+ /**
+  * The unique identifier of the resource.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -121,6 +131,11 @@ public class TransferInstrumentReference {
   }
 
 
+ /**
+  * Four last digits of the bank account number. If the transfer instrument is created using [instant bank account verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding), and it is a virtual bank account, these digits may be different from the last four digits of the masked account number.
+  *
+  * @param realLastFour
+  */ 
   @JsonProperty(JSON_PROPERTY_REAL_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRealLastFour(String realLastFour) {
@@ -146,6 +161,11 @@ public class TransferInstrumentReference {
   }
 
 
+ /**
+  * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
+  *
+  * @param trustedSource
+  */ 
   @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedSource(Boolean trustedSource) {

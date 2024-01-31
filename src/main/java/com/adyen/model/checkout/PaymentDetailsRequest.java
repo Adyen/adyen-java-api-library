@@ -73,6 +73,11 @@ public class PaymentDetailsRequest {
   }
 
 
+ /**
+  * authenticationData
+  *
+  * @param authenticationData
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationData(DetailsRequestAuthenticationData authenticationData) {
@@ -98,6 +103,11 @@ public class PaymentDetailsRequest {
   }
 
 
+ /**
+  * details
+  *
+  * @param details
+  */ 
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(PaymentCompletionDetails details) {
@@ -123,6 +133,11 @@ public class PaymentDetailsRequest {
   }
 
 
+ /**
+  * Encoded payment data. For [authorizing a payment after using 3D Secure 2 Authentication-only](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only/#authorise-the-payment-with-adyen):  If you received &#x60;resultCode&#x60;: **AuthenticationNotRequired** in the &#x60;/payments&#x60; response, use the &#x60;threeDSPaymentData&#x60; from the same response.  If you received &#x60;resultCode&#x60;: **AuthenticationFinished** in the &#x60;/payments&#x60; response, use the &#x60;action.paymentData&#x60; from the same response.
+  *
+  * @param paymentData
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -150,6 +165,11 @@ public class PaymentDetailsRequest {
   }
 
 
+ /**
+  * Change the &#x60;authenticationOnly&#x60; indicator originally set in the &#x60;/payments&#x60; request. Only needs to be set if you want to modify the value set previously.
+  *
+  * @param threeDSAuthenticationOnly
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

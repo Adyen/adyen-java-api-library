@@ -45,7 +45,7 @@ public class ReturnTransferResponse {
   private String reference;
 
   /**
-   * The resulting status of the return.  For example: **authorised**, **booked**, **error**.
+   * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    */
   public enum StatusEnum {
     AUTHORISED("Authorised"),
@@ -106,6 +106,11 @@ public class ReturnTransferResponse {
   }
 
 
+ /**
+  * The unique identifier of the return.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -131,6 +136,11 @@ public class ReturnTransferResponse {
   }
 
 
+ /**
+  * Your internal reference for the return.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -144,10 +154,10 @@ public class ReturnTransferResponse {
   }
 
    /**
-   * The resulting status of the return.  For example: **authorised**, **booked**, **error**.
+   * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    * @return status
   **/
-  @ApiModelProperty(value = "The resulting status of the return.  For example: **authorised**, **booked**, **error**.")
+  @ApiModelProperty(value = "The resulting status of the return.  Possible values: **Authorised**, **Declined**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -156,6 +166,11 @@ public class ReturnTransferResponse {
   }
 
 
+ /**
+  * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -181,6 +196,11 @@ public class ReturnTransferResponse {
   }
 
 
+ /**
+  * The unique identifier of the original transfer.
+  *
+  * @param transferId
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferId(String transferId) {

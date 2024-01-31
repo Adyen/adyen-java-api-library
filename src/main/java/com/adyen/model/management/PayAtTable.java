@@ -32,7 +32,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   PayAtTable.JSON_PROPERTY_AUTHENTICATION_METHOD,
-  PayAtTable.JSON_PROPERTY_ENABLE_PAY_AT_TABLE
+  PayAtTable.JSON_PROPERTY_ENABLE_PAY_AT_TABLE,
+  PayAtTable.JSON_PROPERTY_PAYMENT_INSTRUMENT
 })
 
 public class PayAtTable {
@@ -77,6 +78,44 @@ public class PayAtTable {
   public static final String JSON_PROPERTY_ENABLE_PAY_AT_TABLE = "enablePayAtTable";
   private Boolean enablePayAtTable;
 
+  /**
+   * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
+   */
+  public enum PaymentInstrumentEnum {
+    CASH("Cash"),
+    
+    CARD("Card");
+
+    private String value;
+
+    PaymentInstrumentEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PaymentInstrumentEnum fromValue(String value) {
+      for (PaymentInstrumentEnum b : PaymentInstrumentEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT = "paymentInstrument";
+  private PaymentInstrumentEnum paymentInstrument;
+
   public PayAtTable() { 
   }
 
@@ -98,6 +137,11 @@ public class PayAtTable {
   }
 
 
+ /**
+  * Allowed authentication methods: Magswipe, Manual Entry.
+  *
+  * @param authenticationMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationMethod(AuthenticationMethodEnum authenticationMethod) {
@@ -123,10 +167,45 @@ public class PayAtTable {
   }
 
 
+ /**
+  * Enable Pay at table.
+  *
+  * @param enablePayAtTable
+  */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayAtTable(Boolean enablePayAtTable) {
     this.enablePayAtTable = enablePayAtTable;
+  }
+
+
+  public PayAtTable paymentInstrument(PaymentInstrumentEnum paymentInstrument) {
+    this.paymentInstrument = paymentInstrument;
+    return this;
+  }
+
+   /**
+   * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
+   * @return paymentInstrument
+  **/
+  @ApiModelProperty(value = "Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.")
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PaymentInstrumentEnum getPaymentInstrument() {
+    return paymentInstrument;
+  }
+
+
+ /**
+  * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
+  *
+  * @param paymentInstrument
+  */ 
+  @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaymentInstrument(PaymentInstrumentEnum paymentInstrument) {
+    this.paymentInstrument = paymentInstrument;
   }
 
 
@@ -143,12 +222,13 @@ public class PayAtTable {
     }
     PayAtTable payAtTable = (PayAtTable) o;
     return Objects.equals(this.authenticationMethod, payAtTable.authenticationMethod) &&
-        Objects.equals(this.enablePayAtTable, payAtTable.enablePayAtTable);
+        Objects.equals(this.enablePayAtTable, payAtTable.enablePayAtTable) &&
+        Objects.equals(this.paymentInstrument, payAtTable.paymentInstrument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationMethod, enablePayAtTable);
+    return Objects.hash(authenticationMethod, enablePayAtTable, paymentInstrument);
   }
 
   @Override
@@ -157,6 +237,7 @@ public class PayAtTable {
     sb.append("class PayAtTable {\n");
     sb.append("    authenticationMethod: ").append(toIndentedString(authenticationMethod)).append("\n");
     sb.append("    enablePayAtTable: ").append(toIndentedString(enablePayAtTable)).append("\n");
+    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("}");
     return sb.toString();
   }

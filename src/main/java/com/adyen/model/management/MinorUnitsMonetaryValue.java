@@ -63,6 +63,11 @@ public class MinorUnitsMonetaryValue {
   }
 
 
+ /**
+  * The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Integer amount) {
@@ -88,6 +93,11 @@ public class MinorUnitsMonetaryValue {
   }
 
 
+ /**
+  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param currencyCode
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {

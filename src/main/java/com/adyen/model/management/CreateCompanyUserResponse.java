@@ -103,6 +103,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * links
+  *
+  * @param links
+  */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
@@ -136,6 +141,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
+  *
+  * @param accountGroups
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
@@ -161,6 +171,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * Indicates whether this user is active.
+  *
+  * @param active
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -194,6 +209,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * Set of apps available to this user
+  *
+  * @param apps
+  */ 
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApps(List<String> apps) {
@@ -227,6 +247,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
+  *
+  * @param associatedMerchantAccounts
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -252,6 +277,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * The email address of the user.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -277,6 +307,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * The unique identifier of the user.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -302,6 +337,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * name
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
@@ -332,6 +372,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
+  *
+  * @param roles
+  */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -357,6 +402,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
+  *
+  * @param timeZoneCode
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {
@@ -382,6 +432,11 @@ public class CreateCompanyUserResponse {
   }
 
 
+ /**
+  * The username for this user.
+  *
+  * @param username
+  */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {

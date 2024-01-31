@@ -18,6 +18,7 @@ import com.adyen.model.management.AndroidApp;
 import com.adyen.model.management.AndroidAppsResponse;
 import com.adyen.model.management.AndroidCertificatesResponse;
 import com.adyen.model.management.RestServiceError;
+import com.adyen.model.management.UploadAndroidAppResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -50,6 +51,45 @@ public class AndroidFilesCompanyLevelApi extends Service {
     public AndroidFilesCompanyLevelApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
+    }
+
+    /**
+    * Get Android app
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param id {@link String } The unique identifier of the app. (required)
+    * @return {@link AndroidApp }
+    * @throws ApiException if fails to make API call
+    */
+    public AndroidApp getAndroidApp(String companyId, String id) throws ApiException, IOException {
+        return getAndroidApp(companyId, id, null);
+    }
+
+    /**
+    * Get Android app
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param id {@link String } The unique identifier of the app. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link AndroidApp }
+    * @throws ApiException if fails to make API call
+    */
+    public AndroidApp getAndroidApp(String companyId, String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidApps/{id}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return AndroidApp.fromJson(jsonResult);
     }
 
     /**
@@ -104,45 +144,6 @@ public class AndroidFilesCompanyLevelApi extends Service {
     }
 
     /**
-    * Get Android app
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param id {@link String } The unique identifier of the app. (required)
-    * @return {@link AndroidApp }
-    * @throws ApiException if fails to make API call
-    */
-    public AndroidApp getAndroidApp(String companyId, String id) throws ApiException, IOException {
-        return getAndroidApp(companyId, id, null);
-    }
-
-    /**
-    * Get Android app
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param id {@link String } The unique identifier of the app. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AndroidApp }
-    * @throws ApiException if fails to make API call
-    */
-    public AndroidApp getAndroidApp(String companyId, String id, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidApps/{id}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return AndroidApp.fromJson(jsonResult);
-    }
-
-    /**
     * Get a list of Android certificates
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
@@ -193,10 +194,11 @@ public class AndroidFilesCompanyLevelApi extends Service {
     * Upload Android App
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @return {@link UploadAndroidAppResponse }
     * @throws ApiException if fails to make API call
     */
-    public void uploadAndroidApp(String companyId) throws ApiException, IOException {
-        uploadAndroidApp(companyId, null);
+    public UploadAndroidAppResponse uploadAndroidApp(String companyId) throws ApiException, IOException {
+        return uploadAndroidApp(companyId, null);
     }
 
     /**
@@ -204,9 +206,10 @@ public class AndroidFilesCompanyLevelApi extends Service {
     *
     * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link UploadAndroidAppResponse }
     * @throws ApiException if fails to make API call
     */
-    public void uploadAndroidApp(String companyId, RequestOptions requestOptions) throws ApiException, IOException {
+    public UploadAndroidAppResponse uploadAndroidApp(String companyId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (companyId == null) {
@@ -216,6 +219,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidApps", null);
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return UploadAndroidAppResponse.fromJson(jsonResult);
     }
 }

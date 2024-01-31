@@ -55,50 +55,65 @@ public class AccountStoreLevelApi extends Service {
     }
 
     /**
-    * Get a list of stores
+    * Create a store
     *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @return {@link ListStoresResponse }
+    * @param storeCreationWithMerchantCodeRequest {@link StoreCreationWithMerchantCodeRequest }  (required)
+    * @return {@link Store }
     * @throws ApiException if fails to make API call
     */
-    public ListStoresResponse listStoresByMerchantId(String merchantId) throws ApiException, IOException {
-        return listStoresByMerchantId(merchantId, null,  null,  null,  null);
+    public Store createStore(StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest) throws ApiException, IOException {
+        return createStore(storeCreationWithMerchantCodeRequest, null);
     }
 
     /**
-    * Get a list of stores
+    * Create a store
     *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
-    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
-    * @param reference {@link String } Query: The reference of the store. (optional)
+    * @param storeCreationWithMerchantCodeRequest {@link StoreCreationWithMerchantCodeRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link ListStoresResponse }
+    * @return {@link Store }
     * @throws ApiException if fails to make API call
     */
-    public ListStoresResponse listStoresByMerchantId(String merchantId, Integer pageNumber, Integer pageSize, String reference, RequestOptions requestOptions) throws ApiException, IOException {
+    public Store createStore(StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = storeCreationWithMerchantCodeRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/stores", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return Store.fromJson(jsonResult);
+    }
+
+    /**
+    * Create a store
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param storeCreationRequest {@link StoreCreationRequest }  (required)
+    * @return {@link Store }
+    * @throws ApiException if fails to make API call
+    */
+    public Store createStoreByMerchantId(String merchantId, StoreCreationRequest storeCreationRequest) throws ApiException, IOException {
+        return createStoreByMerchantId(merchantId, storeCreationRequest, null);
+    }
+
+    /**
+    * Create a store
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param storeCreationRequest {@link StoreCreationRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link Store }
+    * @throws ApiException if fails to make API call
+    */
+    public Store createStoreByMerchantId(String merchantId, StoreCreationRequest storeCreationRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (merchantId == null) {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
-        //Add query params
-        Map<String, String> queryParams = new HashMap<>();
-        if (pageNumber != null) {
-        queryParams.put("pageNumber", pageNumber.toString());
-        }
-        if (pageSize != null) {
-        queryParams.put("pageSize", pageSize.toString());
-        }
-        if (reference != null) {
-        queryParams.put("reference", reference);
-        }
 
-        String requestBody = null;
+        String requestBody = storeCreationRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
-        return ListStoresResponse.fromJson(jsonResult);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return Store.fromJson(jsonResult);
     }
 
     /**
@@ -136,6 +151,39 @@ public class AccountStoreLevelApi extends Service {
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores/{storeId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return Store.fromJson(jsonResult);
+    }
+
+    /**
+    * Get a store
+    *
+    * @param storeId {@link String } The unique identifier of the store. (required)
+    * @return {@link Store }
+    * @throws ApiException if fails to make API call
+    */
+    public Store getStoreById(String storeId) throws ApiException, IOException {
+        return getStoreById(storeId, null);
+    }
+
+    /**
+    * Get a store
+    *
+    * @param storeId {@link String } The unique identifier of the store. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link Store }
+    * @throws ApiException if fails to make API call
+    */
+    public Store getStoreById(String storeId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (storeId == null) {
+            throw new IllegalArgumentException("Please provide the storeId path parameter");
+        }
+        pathParams.put("storeId", storeId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/stores/{storeId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return Store.fromJson(jsonResult);
     }
@@ -184,36 +232,50 @@ public class AccountStoreLevelApi extends Service {
     }
 
     /**
-    * Get a store
+    * Get a list of stores
     *
-    * @param storeId {@link String } The unique identifier of the store. (required)
-    * @return {@link Store }
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @return {@link ListStoresResponse }
     * @throws ApiException if fails to make API call
     */
-    public Store getStoreById(String storeId) throws ApiException, IOException {
-        return getStoreById(storeId, null);
+    public ListStoresResponse listStoresByMerchantId(String merchantId) throws ApiException, IOException {
+        return listStoresByMerchantId(merchantId, null,  null,  null,  null);
     }
 
     /**
-    * Get a store
+    * Get a list of stores
     *
-    * @param storeId {@link String } The unique identifier of the store. (required)
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
+    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
+    * @param reference {@link String } Query: The reference of the store. (optional)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Store }
+    * @return {@link ListStoresResponse }
     * @throws ApiException if fails to make API call
     */
-    public Store getStoreById(String storeId, RequestOptions requestOptions) throws ApiException, IOException {
+    public ListStoresResponse listStoresByMerchantId(String merchantId, Integer pageNumber, Integer pageSize, String reference, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if (storeId == null) {
-            throw new IllegalArgumentException("Please provide the storeId path parameter");
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
-        pathParams.put("storeId", storeId);
+        pathParams.put("merchantId", merchantId);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (pageNumber != null) {
+        queryParams.put("pageNumber", pageNumber.toString());
+        }
+        if (pageSize != null) {
+        queryParams.put("pageSize", pageSize.toString());
+        }
+        if (reference != null) {
+        queryParams.put("reference", reference);
+        }
 
         String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/stores/{storeId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return Store.fromJson(jsonResult);
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return ListStoresResponse.fromJson(jsonResult);
     }
 
     /**
@@ -289,68 +351,6 @@ public class AccountStoreLevelApi extends Service {
         String requestBody = updateStoreRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/stores/{storeId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return Store.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a store
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param storeCreationRequest {@link StoreCreationRequest }  (required)
-    * @return {@link Store }
-    * @throws ApiException if fails to make API call
-    */
-    public Store createStoreByMerchantId(String merchantId, StoreCreationRequest storeCreationRequest) throws ApiException, IOException {
-        return createStoreByMerchantId(merchantId, storeCreationRequest, null);
-    }
-
-    /**
-    * Create a store
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param storeCreationRequest {@link StoreCreationRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Store }
-    * @throws ApiException if fails to make API call
-    */
-    public Store createStoreByMerchantId(String merchantId, StoreCreationRequest storeCreationRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = storeCreationRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/stores", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return Store.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a store
-    *
-    * @param storeCreationWithMerchantCodeRequest {@link StoreCreationWithMerchantCodeRequest }  (required)
-    * @return {@link Store }
-    * @throws ApiException if fails to make API call
-    */
-    public Store createStore(StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest) throws ApiException, IOException {
-        return createStore(storeCreationWithMerchantCodeRequest, null);
-    }
-
-    /**
-    * Create a store
-    *
-    * @param storeCreationWithMerchantCodeRequest {@link StoreCreationWithMerchantCodeRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Store }
-    * @throws ApiException if fails to make API call
-    */
-    public Store createStore(StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = storeCreationWithMerchantCodeRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/stores", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return Store.fromJson(jsonResult);
     }
 }

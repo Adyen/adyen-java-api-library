@@ -67,6 +67,11 @@ public class PaymentMethodGroup {
   }
 
 
+ /**
+  * The name of the group.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -92,6 +97,11 @@ public class PaymentMethodGroup {
   }
 
 
+ /**
+  * Echo data to be used if the payment method is displayed as part of this group.
+  *
+  * @param paymentMethodData
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodData(String paymentMethodData) {
@@ -117,6 +127,11 @@ public class PaymentMethodGroup {
   }
 
 
+ /**
+  * The unique code of the group.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

@@ -119,6 +119,11 @@ public class CheckoutRedirectAction {
   }
 
 
+ /**
+  * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Map<String, String> data) {
@@ -144,6 +149,11 @@ public class CheckoutRedirectAction {
   }
 
 
+ /**
+  * Specifies the HTTP method, for example GET or POST.
+  *
+  * @param method
+  */ 
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMethod(String method) {
@@ -169,6 +179,11 @@ public class CheckoutRedirectAction {
   }
 
 
+ /**
+  * Specifies the payment method.
+  *
+  * @param paymentMethodType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -194,6 +209,11 @@ public class CheckoutRedirectAction {
   }
 
 
+ /**
+  * **redirect**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -219,6 +239,11 @@ public class CheckoutRedirectAction {
   }
 
 
+ /**
+  * Specifies the URL to redirect to.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

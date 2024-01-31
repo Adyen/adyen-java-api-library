@@ -139,6 +139,11 @@ public class VisaCheckoutDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -164,6 +169,11 @@ public class VisaCheckoutDetails {
   }
 
 
+ /**
+  * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+  *
+  * @param fundingSource
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
@@ -189,6 +199,11 @@ public class VisaCheckoutDetails {
   }
 
 
+ /**
+  * **visacheckout**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -214,6 +229,11 @@ public class VisaCheckoutDetails {
   }
 
 
+ /**
+  * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
+  *
+  * @param visaCheckoutCallId
+  */ 
   @JsonProperty(JSON_PROPERTY_VISA_CHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisaCheckoutCallId(String visaCheckoutCallId) {

@@ -102,6 +102,11 @@ public class BankIdentification {
   }
 
 
+ /**
+  * country
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -127,6 +132,11 @@ public class BankIdentification {
   }
 
 
+ /**
+  * identification
+  *
+  * @param identification
+  */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentification(String identification) {
@@ -152,6 +162,11 @@ public class BankIdentification {
   }
 
 
+ /**
+  * identificationType
+  *
+  * @param identificationType
+  */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationType(IdentificationTypeEnum identificationType) {
