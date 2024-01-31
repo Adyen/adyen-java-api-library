@@ -308,7 +308,7 @@ public class BalancePlatformTest extends BaseTest {
     public void BalanceAccountsListPaymentInstrumentsTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/PaginatedPaymentInstrumentsResponse.json");
         BalanceAccountsApi service = new BalanceAccountsApi(client);
-        PaginatedPaymentInstrumentsResponse response = service.getAllPaymentInstrumentsForBalanceAccount("AH32272223222B59K6ZKBBFNQ");
+        PaginatedPaymentInstrumentsResponse response = service.getPaymentInstrumentsLinkedToBalanceAccount("AH32272223222B59K6ZKBBFNQ");
         assertEquals("PI32272223222B59M5TM658DT", response.getPaymentInstruments().get(0).getId());
         assertEquals("BA32272223222B59CZ3T52DKZ", response.getPaymentInstruments().get(0).getBalanceAccountId());
     }
