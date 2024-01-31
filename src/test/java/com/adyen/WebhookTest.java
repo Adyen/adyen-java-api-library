@@ -26,15 +26,19 @@ import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
 import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;
 import com.adyen.model.marketpaywebhooks.AccountHolderCreateNotification;
+import com.adyen.model.nexo.DeviceType;
+import com.adyen.model.nexo.DisplayOutput;
+import com.adyen.model.nexo.EventNotification;
+import com.adyen.model.nexo.EventToNotifyType;
+import com.adyen.model.nexo.InfoQualifyType;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
-import com.adyen.model.terminal.*;
+import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.notification.BankingWebhookHandler;
 import com.adyen.notification.ClassicPlatformWebhookHandler;
 import com.adyen.notification.ManagementWebhookHandler;
 import com.adyen.notification.WebhookHandler;
-import com.adyen.terminal.TerminalAPIRequest;
 import com.adyen.util.HMACValidator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.JsonParser;
@@ -205,9 +209,9 @@ public class WebhookTest extends BaseTest {
                 .handleTerminalNotificationJson(json);
         DisplayOutput displayOutput = notification.getSaleToPOIRequest().getDisplayRequest().getDisplayOutput().get(0);
 
-        assertEquals(InfoQualify.STATUS, displayOutput.getInfoQualify());
-        assertEquals(Device.CASHIERDISPLAY, displayOutput.getDevice());
-        assertEquals(false, displayOutput.getResponseRequiredFlag());
+        assertEquals(InfoQualifyType.STATUS, displayOutput.getInfoQualify());
+        assertEquals(DeviceType.CASHIER_DISPLAY, displayOutput.getDevice());
+        assertEquals(false, displayOutput.isResponseRequiredFlag());
     }
 
     @Test
@@ -217,7 +221,7 @@ public class WebhookTest extends BaseTest {
         EventNotification eventNotification = notification.getSaleToPOIRequest().getEventNotification();
 
         assertEquals("newstate=IDLE&oldstate=START", eventNotification.getEventDetails());
-        assertEquals(EventToNotify.SHUTDOWN, eventNotification.getEventToNotify());
+        assertEquals(EventToNotifyType.SHUTDOWN, eventNotification.getEventToNotify());
     }
 
     @Test
@@ -232,6 +236,11 @@ public class WebhookTest extends BaseTest {
 
         assertEquals(1, notificationRequest.getNotificationItems().size());
         assertEquals("987654321", notificationRequest.getNotificationItems().get(0).getPspReference());
+    }
+
+    private void assertJsonStringEquals(String firstInput, String secondInput) {
+        JsonParser parser = new JsonParser();
+        assertEquals(parser.parse(firstInput), parser.parse(secondInput));
     }
 
     private NotificationRequest readNotificationRequestFromFile(String resourcePath) throws IOException {

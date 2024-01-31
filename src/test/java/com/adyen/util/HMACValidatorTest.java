@@ -143,7 +143,7 @@ public class HMACValidatorTest extends BaseTest {
     @Test
     public void testValidateHMACEmptyNotificationRequest() {
         try {
-            new HMACValidator().getDataToSign(null);
+            new HMACValidator().getDataToSign((NotificationRequestItem) null);
         } catch (IllegalArgumentException e) {
             assertEquals("Missing NotificationRequestItem.", e.getMessage());
         }

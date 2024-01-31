@@ -1,7 +1,31 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2019 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
+
 package com.adyen.terminal.security;
 
-import com.adyen.model.terminal.MessageHeader;
-import com.adyen.model.terminal.SecurityTrailer;
+import com.adyen.model.nexo.MessageHeader;
+import com.adyen.model.terminal.security.NexoDerivedKey;
+import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
+import com.adyen.model.terminal.security.SecurityKey;
+import com.adyen.model.terminal.security.SecurityTrailer;
 import com.adyen.terminal.security.exception.NexoCryptoException;
 import java.util.Base64;
 import javax.crypto.BadPaddingException;
@@ -20,7 +44,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.SecureRandom;
 
-import static com.adyen.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
+import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
 
 public class NexoCrypto {
 
@@ -144,7 +168,7 @@ public class NexoCrypto {
         byte[] ivNonce = new byte[NEXO_IV_LENGTH];
         try {
             secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking", PROVIDER);
-        } catch (NoSuchAlgorithmException ex) {
+        } catch (Exception NoSuchAlgorithmException) {
             secureRandom = new SecureRandom();
         }
         secureRandom.nextBytes(ivNonce);
