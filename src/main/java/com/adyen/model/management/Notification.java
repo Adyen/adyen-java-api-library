@@ -31,15 +31,156 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * Notification
  */
 @JsonPropertyOrder({
-  Notification.JSON_PROPERTY_SHOW_BUTTON
+  Notification.JSON_PROPERTY_CATEGORY,
+  Notification.JSON_PROPERTY_DETAILS,
+  Notification.JSON_PROPERTY_ENABLED,
+  Notification.JSON_PROPERTY_SHOW_BUTTON,
+  Notification.JSON_PROPERTY_TITLE
 })
 
 public class Notification {
+  /**
+   * The type of event notification sent when you select the notification button.
+   */
+  public enum CategoryEnum {
+    SALEWAKEUP("SaleWakeUp"),
+    
+    KEYPRESSED("KeyPressed");
+
+    private String value;
+
+    CategoryEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static CategoryEnum fromValue(String value) {
+      for (CategoryEnum b : CategoryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_CATEGORY = "category";
+  private CategoryEnum category;
+
+  public static final String JSON_PROPERTY_DETAILS = "details";
+  private String details;
+
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_SHOW_BUTTON = "showButton";
   private Boolean showButton;
 
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
+
   public Notification() { 
   }
+
+  public Notification category(CategoryEnum category) {
+    this.category = category;
+    return this;
+  }
+
+   /**
+   * The type of event notification sent when you select the notification button.
+   * @return category
+  **/
+  @ApiModelProperty(value = "The type of event notification sent when you select the notification button.")
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CategoryEnum getCategory() {
+    return category;
+  }
+
+
+ /**
+  * The type of event notification sent when you select the notification button.
+  *
+  * @param category
+  */ 
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCategory(CategoryEnum category) {
+    this.category = category;
+  }
+
+
+  public Notification details(String details) {
+    this.details = details;
+    return this;
+  }
+
+   /**
+   * The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.
+   * @return details
+  **/
+  @ApiModelProperty(value = "The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.")
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDetails() {
+    return details;
+  }
+
+
+ /**
+  * The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.
+  *
+  * @param details
+  */ 
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDetails(String details) {
+    this.details = details;
+  }
+
+
+  public Notification enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.
+   * @return enabled
+  **/
+  @ApiModelProperty(value = "Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.")
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+
+ /**
+  * Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.
+  *
+  * @param enabled
+  */ 
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
 
   public Notification showButton(Boolean showButton) {
     this.showButton = showButton;
@@ -47,10 +188,10 @@ public class Notification {
   }
 
    /**
-   * Shows or hides the event notification button on the terminal screen.
+   * Shows or hides the event notification button on the screen of terminal models that have a keypad.
    * @return showButton
   **/
-  @ApiModelProperty(value = "Shows or hides the event notification button on the terminal screen.")
+  @ApiModelProperty(value = "Shows or hides the event notification button on the screen of terminal models that have a keypad.")
   @JsonProperty(JSON_PROPERTY_SHOW_BUTTON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -60,7 +201,7 @@ public class Notification {
 
 
  /**
-  * Shows or hides the event notification button on the terminal screen.
+  * Shows or hides the event notification button on the screen of terminal models that have a keypad.
   *
   * @param showButton
   */ 
@@ -68,6 +209,36 @@ public class Notification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowButton(Boolean showButton) {
     this.showButton = showButton;
+  }
+
+
+  public Notification title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * The name of the notification button on the terminal screen.
+   * @return title
+  **/
+  @ApiModelProperty(value = "The name of the notification button on the terminal screen.")
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+ /**
+  * The name of the notification button on the terminal screen.
+  *
+  * @param title
+  */ 
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -83,19 +254,27 @@ public class Notification {
       return false;
     }
     Notification notification = (Notification) o;
-    return Objects.equals(this.showButton, notification.showButton);
+    return Objects.equals(this.category, notification.category) &&
+        Objects.equals(this.details, notification.details) &&
+        Objects.equals(this.enabled, notification.enabled) &&
+        Objects.equals(this.showButton, notification.showButton) &&
+        Objects.equals(this.title, notification.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(showButton);
+    return Objects.hash(category, details, enabled, showButton, title);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Notification {\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    showButton: ").append(toIndentedString(showButton)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }
