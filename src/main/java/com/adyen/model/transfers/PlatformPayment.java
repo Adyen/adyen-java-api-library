@@ -169,6 +169,11 @@ public class PlatformPayment {
   }
 
 
+ /**
+  * The capture&#39;s merchant reference included in the transfer.
+  *
+  * @param modificationMerchantReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationMerchantReference(String modificationMerchantReference) {
@@ -194,6 +199,11 @@ public class PlatformPayment {
   }
 
 
+ /**
+  * The capture reference included in the transfer.
+  *
+  * @param modificationPspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationPspReference(String modificationPspReference) {
@@ -219,6 +229,11 @@ public class PlatformPayment {
   }
 
 
+ /**
+  * The payment&#39;s merchant reference included in the transfer.
+  *
+  * @param paymentMerchantReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMerchantReference(String paymentMerchantReference) {
@@ -244,6 +259,11 @@ public class PlatformPayment {
   }
 
 
+ /**
+  * The type of the related split.
+  *
+  * @param platformPaymentType
+  */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformPaymentType(PlatformPaymentTypeEnum platformPaymentType) {
@@ -269,6 +289,11 @@ public class PlatformPayment {
   }
 
 
+ /**
+  * The payment reference included in the transfer.
+  *
+  * @param pspPaymentReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspPaymentReference(String pspPaymentReference) {
@@ -294,6 +319,11 @@ public class PlatformPayment {
   }
 
 
+ /**
+  * **platformPayment**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

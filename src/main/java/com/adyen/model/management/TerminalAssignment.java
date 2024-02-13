@@ -115,6 +115,11 @@ public class TerminalAssignment {
   }
 
 
+ /**
+  * The unique identifier of the company account to which terminal is assigned.
+  *
+  * @param companyId
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -140,6 +145,11 @@ public class TerminalAssignment {
   }
 
 
+ /**
+  * The unique identifier of the merchant account to which terminal is assigned.
+  *
+  * @param merchantId
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -165,6 +175,11 @@ public class TerminalAssignment {
   }
 
 
+ /**
+  * reassignmentTarget
+  *
+  * @param reassignmentTarget
+  */ 
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReassignmentTarget(TerminalReassignmentTarget reassignmentTarget) {
@@ -190,6 +205,11 @@ public class TerminalAssignment {
   }
 
 
+ /**
+  * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.   * &#x60;boarded&#x60;: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -215,6 +235,11 @@ public class TerminalAssignment {
   }
 
 
+ /**
+  * The unique identifier of the store to which terminal is assigned.
+  *
+  * @param storeId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {

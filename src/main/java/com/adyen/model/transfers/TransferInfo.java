@@ -182,6 +182,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -207,6 +212,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
+  *
+  * @param balanceAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
@@ -232,6 +242,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * The type of transfer.  Possible values:   - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: Transfer initiated by a Adyen-issued card.  - **platformPayment**: Fund movements related to payments that are acquired for your users.
+  *
+  * @param category
+  */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
@@ -257,6 +272,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * counterparty
+  *
+  * @param counterparty
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(CounterpartyInfoV3 counterparty) {
@@ -282,6 +302,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -307,6 +332,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).
+  *
+  * @param paymentInstrumentId
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -332,6 +362,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).
+  *
+  * @param priority
+  */ 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
@@ -357,6 +392,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -382,6 +422,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**. The maximum length depends on the &#x60;category&#x60;.  - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
+  *
+  * @param referenceForBeneficiary
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
@@ -407,6 +452,11 @@ public class TransferInfo {
   }
 
 
+ /**
+  * ultimateParty
+  *
+  * @param ultimateParty
+  */ 
   @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUltimateParty(UltimatePartyIdentification ultimateParty) {

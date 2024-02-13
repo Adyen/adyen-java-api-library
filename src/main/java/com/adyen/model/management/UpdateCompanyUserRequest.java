@@ -94,6 +94,11 @@ public class UpdateCompanyUserRequest {
   }
 
 
+ /**
+  * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
+  *
+  * @param accountGroups
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
@@ -119,6 +124,11 @@ public class UpdateCompanyUserRequest {
   }
 
 
+ /**
+  * Indicates whether this user is active.
+  *
+  * @param active
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -152,6 +162,11 @@ public class UpdateCompanyUserRequest {
   }
 
 
+ /**
+  * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) to associate the user with.
+  *
+  * @param associatedMerchantAccounts
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -177,6 +192,11 @@ public class UpdateCompanyUserRequest {
   }
 
 
+ /**
+  * The email address of the user.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -202,6 +222,11 @@ public class UpdateCompanyUserRequest {
   }
 
 
+ /**
+  * name
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name2 name) {
@@ -235,6 +260,11 @@ public class UpdateCompanyUserRequest {
   }
 
 
+ /**
+  * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
+  *
+  * @param roles
+  */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -260,6 +290,11 @@ public class UpdateCompanyUserRequest {
   }
 
 
+ /**
+  * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
+  *
+  * @param timeZoneCode
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {

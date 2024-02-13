@@ -63,6 +63,11 @@ public class InternationalTransactionRestriction {
   }
 
 
+ /**
+  * Defines how the condition must be evaluated.
+  *
+  * @param operation
+  */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
@@ -88,6 +93,11 @@ public class InternationalTransactionRestriction {
   }
 
 
+ /**
+  * Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Boolean value) {

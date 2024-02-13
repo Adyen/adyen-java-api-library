@@ -28,6 +28,7 @@ import java.util.Collections;
 public class ConnectedTerminals extends Resource {
     public ConnectedTerminals(Service service) {
         super(service,
-              service.getClient().getConfig().getTerminalApiCloudEndpoint() + "/connectedTerminals", null);
+              service.getClient().getConfig().getTerminalApiCloudEndpoint() + "/connectedTerminals",
+                Collections.singletonList("merchantAccount"));
     }
 }

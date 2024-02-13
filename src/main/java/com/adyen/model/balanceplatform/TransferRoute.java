@@ -168,6 +168,11 @@ public class TransferRoute {
   }
 
 
+ /**
+  *  The type of transfer.   Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
+  *
+  * @param category
+  */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
@@ -193,6 +198,11 @@ public class TransferRoute {
   }
 
 
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -218,6 +228,11 @@ public class TransferRoute {
   }
 
 
+ /**
+  * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -243,6 +258,11 @@ public class TransferRoute {
   }
 
 
+ /**
+  * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).
+  *
+  * @param priority
+  */ 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
@@ -268,6 +288,11 @@ public class TransferRoute {
   }
 
 
+ /**
+  * requirements
+  *
+  * @param requirements
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUIREMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirements(TransferRouteRequirements requirements) {

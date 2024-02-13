@@ -59,6 +59,11 @@ public class CardholderReceipt {
   }
 
 
+ /**
+  * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
+  *
+  * @param headerForAuthorizedReceipt
+  */ 
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeaderForAuthorizedReceipt(String headerForAuthorizedReceipt) {

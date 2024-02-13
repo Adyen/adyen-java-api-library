@@ -80,6 +80,11 @@ public class ApiCredentialLinks {
   }
 
 
+ /**
+  * allowedOrigins
+  *
+  * @param allowedOrigins
+  */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(LinksElement allowedOrigins) {
@@ -105,6 +110,11 @@ public class ApiCredentialLinks {
   }
 
 
+ /**
+  * company
+  *
+  * @param company
+  */ 
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
@@ -130,6 +140,11 @@ public class ApiCredentialLinks {
   }
 
 
+ /**
+  * generateApiKey
+  *
+  * @param generateApiKey
+  */ 
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateApiKey(LinksElement generateApiKey) {
@@ -155,6 +170,11 @@ public class ApiCredentialLinks {
   }
 
 
+ /**
+  * generateClientKey
+  *
+  * @param generateClientKey
+  */ 
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateClientKey(LinksElement generateClientKey) {
@@ -180,6 +200,11 @@ public class ApiCredentialLinks {
   }
 
 
+ /**
+  * merchant
+  *
+  * @param merchant
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
@@ -205,6 +230,11 @@ public class ApiCredentialLinks {
   }
 
 
+ /**
+  * self
+  *
+  * @param self
+  */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {

@@ -29,9 +29,11 @@ import com.adyen.model.management.PayAtTable;
 import com.adyen.model.management.Payment;
 import com.adyen.model.management.ReceiptOptions;
 import com.adyen.model.management.ReceiptPrinting;
+import com.adyen.model.management.Refunds;
 import com.adyen.model.management.Signature;
 import com.adyen.model.management.Standalone;
 import com.adyen.model.management.Surcharge;
+import com.adyen.model.management.TapToPay;
 import com.adyen.model.management.Timeouts;
 import com.adyen.model.management.WifiProfiles;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -64,9 +66,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TerminalSettings.JSON_PROPERTY_PAYMENT,
   TerminalSettings.JSON_PROPERTY_RECEIPT_OPTIONS,
   TerminalSettings.JSON_PROPERTY_RECEIPT_PRINTING,
+  TerminalSettings.JSON_PROPERTY_REFUNDS,
   TerminalSettings.JSON_PROPERTY_SIGNATURE,
   TerminalSettings.JSON_PROPERTY_STANDALONE,
   TerminalSettings.JSON_PROPERTY_SURCHARGE,
+  TerminalSettings.JSON_PROPERTY_TAP_TO_PAY,
   TerminalSettings.JSON_PROPERTY_TIMEOUTS,
   TerminalSettings.JSON_PROPERTY_WIFI_PROFILES
 })
@@ -111,6 +115,9 @@ public class TerminalSettings {
   public static final String JSON_PROPERTY_RECEIPT_PRINTING = "receiptPrinting";
   private ReceiptPrinting receiptPrinting;
 
+  public static final String JSON_PROPERTY_REFUNDS = "refunds";
+  private Refunds refunds;
+
   public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private Signature signature;
 
@@ -119,6 +126,9 @@ public class TerminalSettings {
 
   public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private Surcharge surcharge;
+
+  public static final String JSON_PROPERTY_TAP_TO_PAY = "tapToPay";
+  private TapToPay tapToPay;
 
   public static final String JSON_PROPERTY_TIMEOUTS = "timeouts";
   private Timeouts timeouts;
@@ -147,6 +157,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * cardholderReceipt
+  *
+  * @param cardholderReceipt
+  */ 
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderReceipt(CardholderReceipt cardholderReceipt) {
@@ -172,6 +187,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * connectivity
+  *
+  * @param connectivity
+  */ 
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(Connectivity connectivity) {
@@ -205,6 +225,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
+  *
+  * @param gratuities
+  */ 
   @JsonProperty(JSON_PROPERTY_GRATUITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGratuities(List<Gratuity> gratuities) {
@@ -230,6 +255,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * hardware
+  *
+  * @param hardware
+  */ 
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHardware(Hardware hardware) {
@@ -255,6 +285,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * localization
+  *
+  * @param localization
+  */ 
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalization(Localization localization) {
@@ -280,6 +315,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * nexo
+  *
+  * @param nexo
+  */ 
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexo(Nexo nexo) {
@@ -305,6 +345,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * offlineProcessing
+  *
+  * @param offlineProcessing
+  */ 
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineProcessing(OfflineProcessing offlineProcessing) {
@@ -330,6 +375,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * opi
+  *
+  * @param opi
+  */ 
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpi(Opi opi) {
@@ -355,6 +405,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * passcodes
+  *
+  * @param passcodes
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasscodes(Passcodes passcodes) {
@@ -380,6 +435,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * payAtTable
+  *
+  * @param payAtTable
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTable(PayAtTable payAtTable) {
@@ -405,6 +465,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * payment
+  *
+  * @param payment
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayment(Payment payment) {
@@ -430,6 +495,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * receiptOptions
+  *
+  * @param receiptOptions
+  */ 
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptOptions(ReceiptOptions receiptOptions) {
@@ -455,10 +525,45 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * receiptPrinting
+  *
+  * @param receiptPrinting
+  */ 
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptPrinting(ReceiptPrinting receiptPrinting) {
     this.receiptPrinting = receiptPrinting;
+  }
+
+
+  public TerminalSettings refunds(Refunds refunds) {
+    this.refunds = refunds;
+    return this;
+  }
+
+   /**
+   * Get refunds
+   * @return refunds
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REFUNDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Refunds getRefunds() {
+    return refunds;
+  }
+
+
+ /**
+  * refunds
+  *
+  * @param refunds
+  */ 
+  @JsonProperty(JSON_PROPERTY_REFUNDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRefunds(Refunds refunds) {
+    this.refunds = refunds;
   }
 
 
@@ -480,6 +585,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * signature
+  *
+  * @param signature
+  */ 
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(Signature signature) {
@@ -505,6 +615,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * standalone
+  *
+  * @param standalone
+  */ 
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStandalone(Standalone standalone) {
@@ -530,10 +645,45 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * surcharge
+  *
+  * @param surcharge
+  */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
+  }
+
+
+  public TerminalSettings tapToPay(TapToPay tapToPay) {
+    this.tapToPay = tapToPay;
+    return this;
+  }
+
+   /**
+   * Get tapToPay
+   * @return tapToPay
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TapToPay getTapToPay() {
+    return tapToPay;
+  }
+
+
+ /**
+  * tapToPay
+  *
+  * @param tapToPay
+  */ 
+  @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTapToPay(TapToPay tapToPay) {
+    this.tapToPay = tapToPay;
   }
 
 
@@ -555,6 +705,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * timeouts
+  *
+  * @param timeouts
+  */ 
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeouts(Timeouts timeouts) {
@@ -580,6 +735,11 @@ public class TerminalSettings {
   }
 
 
+ /**
+  * wifiProfiles
+  *
+  * @param wifiProfiles
+  */ 
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiProfiles(WifiProfiles wifiProfiles) {
@@ -612,16 +772,18 @@ public class TerminalSettings {
         Objects.equals(this.payment, terminalSettings.payment) &&
         Objects.equals(this.receiptOptions, terminalSettings.receiptOptions) &&
         Objects.equals(this.receiptPrinting, terminalSettings.receiptPrinting) &&
+        Objects.equals(this.refunds, terminalSettings.refunds) &&
         Objects.equals(this.signature, terminalSettings.signature) &&
         Objects.equals(this.standalone, terminalSettings.standalone) &&
         Objects.equals(this.surcharge, terminalSettings.surcharge) &&
+        Objects.equals(this.tapToPay, terminalSettings.tapToPay) &&
         Objects.equals(this.timeouts, terminalSettings.timeouts) &&
         Objects.equals(this.wifiProfiles, terminalSettings.wifiProfiles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, localization, nexo, offlineProcessing, opi, passcodes, payAtTable, payment, receiptOptions, receiptPrinting, signature, standalone, surcharge, timeouts, wifiProfiles);
+    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, localization, nexo, offlineProcessing, opi, passcodes, payAtTable, payment, receiptOptions, receiptPrinting, refunds, signature, standalone, surcharge, tapToPay, timeouts, wifiProfiles);
   }
 
   @Override
@@ -641,9 +803,11 @@ public class TerminalSettings {
     sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
     sb.append("    receiptOptions: ").append(toIndentedString(receiptOptions)).append("\n");
     sb.append("    receiptPrinting: ").append(toIndentedString(receiptPrinting)).append("\n");
+    sb.append("    refunds: ").append(toIndentedString(refunds)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    standalone: ").append(toIndentedString(standalone)).append("\n");
     sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
+    sb.append("    tapToPay: ").append(toIndentedString(tapToPay)).append("\n");
     sb.append("    timeouts: ").append(toIndentedString(timeouts)).append("\n");
     sb.append("    wifiProfiles: ").append(toIndentedString(wifiProfiles)).append("\n");
     sb.append("}");

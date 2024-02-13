@@ -72,6 +72,11 @@ public class MerchantLinks {
   }
 
 
+ /**
+  * apiCredentials
+  *
+  * @param apiCredentials
+  */ 
   @JsonProperty(JSON_PROPERTY_API_CREDENTIALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiCredentials(LinksElement apiCredentials) {
@@ -97,6 +102,11 @@ public class MerchantLinks {
   }
 
 
+ /**
+  * self
+  *
+  * @param self
+  */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
@@ -122,6 +132,11 @@ public class MerchantLinks {
   }
 
 
+ /**
+  * users
+  *
+  * @param users
+  */ 
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsers(LinksElement users) {
@@ -147,6 +162,11 @@ public class MerchantLinks {
   }
 
 
+ /**
+  * webhooks
+  *
+  * @param webhooks
+  */ 
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebhooks(LinksElement webhooks) {

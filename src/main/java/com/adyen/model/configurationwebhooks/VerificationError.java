@@ -259,6 +259,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * Contains the capabilities that the verification error applies to.
+  *
+  * @param capabilities
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
@@ -284,6 +289,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * The verification error code.
+  *
+  * @param code
+  */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
@@ -309,6 +319,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * A description of the error.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -342,6 +357,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * Contains the actions that you can take to resolve the verification error.
+  *
+  * @param remediatingActions
+  */ 
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
@@ -375,6 +395,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * Contains more granular information about the verification error.
+  *
+  * @param subErrors
+  */ 
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubErrors(List<VerificationErrorRecursive> subErrors) {
@@ -400,6 +425,11 @@ public class VerificationError {
   }
 
 
+ /**
+  * The type of error.   Possible values: **invalidInput**, **dataMissing**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

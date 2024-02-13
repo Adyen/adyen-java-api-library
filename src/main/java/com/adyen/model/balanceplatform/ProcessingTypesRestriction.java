@@ -112,6 +112,11 @@ public class ProcessingTypesRestriction {
   }
 
 
+ /**
+  * Defines how the condition must be evaluated.
+  *
+  * @param operation
+  */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
@@ -145,6 +150,11 @@ public class ProcessingTypesRestriction {
   }
 
 
+ /**
+  * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {

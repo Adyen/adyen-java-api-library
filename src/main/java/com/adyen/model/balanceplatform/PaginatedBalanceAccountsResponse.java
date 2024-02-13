@@ -75,6 +75,11 @@ public class PaginatedBalanceAccountsResponse {
   }
 
 
+ /**
+  * List of balance accounts.
+  *
+  * @param balanceAccounts
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccounts(List<BalanceAccountBase> balanceAccounts) {
@@ -100,6 +105,11 @@ public class PaginatedBalanceAccountsResponse {
   }
 
 
+ /**
+  * Indicates whether there are more items on the next page.
+  *
+  * @param hasNext
+  */ 
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
@@ -125,6 +135,11 @@ public class PaginatedBalanceAccountsResponse {
   }
 
 
+ /**
+  * Indicates whether there are more items on the previous page.
+  *
+  * @param hasPrevious
+  */ 
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {

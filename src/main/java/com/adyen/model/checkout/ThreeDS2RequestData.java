@@ -54,6 +54,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   ThreeDS2RequestData.JSON_PROPERTY_NOTIFICATION_U_R_L,
   ThreeDS2RequestData.JSON_PROPERTY_PAY_TOKEN_IND,
   ThreeDS2RequestData.JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE,
+  ThreeDS2RequestData.JSON_PROPERTY_PLATFORM,
   ThreeDS2RequestData.JSON_PROPERTY_PURCHASE_INSTAL_DATA,
   ThreeDS2RequestData.JSON_PROPERTY_RECURRING_EXPIRY,
   ThreeDS2RequestData.JSON_PROPERTY_RECURRING_FREQUENCY,
@@ -240,6 +241,46 @@ public class ThreeDS2RequestData {
 
   public static final String JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE = "paymentAuthenticationUseCase";
   private String paymentAuthenticationUseCase;
+
+  /**
+   * The platform of the shopper. Allowed values: * &#x60;iOS&#x60; * &#x60;android&#x60; * &#x60;browser&#x60;
+   */
+  public enum PlatformEnum {
+    IOS("iOS"),
+    
+    ANDROID("android"),
+    
+    BROWSER("browser");
+
+    private String value;
+
+    PlatformEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PlatformEnum fromValue(String value) {
+      for (PlatformEnum b : PlatformEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_PLATFORM = "platform";
+  private PlatformEnum platform;
 
   public static final String JSON_PROPERTY_PURCHASE_INSTAL_DATA = "purchaseInstalData";
   private String purchaseInstalData;
@@ -453,6 +494,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * acctInfo
+  *
+  * @param acctInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcctInfo(AcctInfo acctInfo) {
@@ -478,6 +524,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
+  *
+  * @param acctType
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcctType(AcctTypeEnum acctType) {
@@ -503,6 +554,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
+  *
+  * @param acquirerBIN
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_B_I_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerBIN(String acquirerBIN) {
@@ -528,6 +584,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
+  *
+  * @param acquirerMerchantID
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_MERCHANT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerMerchantID(String acquirerMerchantID) {
@@ -553,6 +614,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
+  *
+  * @param addrMatch
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddrMatch(AddrMatchEnum addrMatch) {
@@ -580,6 +646,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
+  *
+  * @param authenticationOnly
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -608,6 +679,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
+  *
+  * @param challengeIndicator
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -634,6 +710,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The environment of the shopper. Allowed values: * &#x60;app&#x60; * &#x60;browser&#x60;
+  *
+  * @param deviceChannel
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceChannel(String deviceChannel) {
@@ -659,6 +740,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * deviceRenderOptions
+  *
+  * @param deviceRenderOptions
+  */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_RENDER_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
@@ -684,6 +770,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * homePhone
+  *
+  * @param homePhone
+  */ 
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(Phone homePhone) {
@@ -709,6 +800,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
+  *
+  * @param mcc
+  */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
@@ -734,6 +830,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
+  *
+  * @param merchantName
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
@@ -759,6 +860,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
+  *
+  * @param messageVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
@@ -784,6 +890,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * mobilePhone
+  *
+  * @param mobilePhone
+  */ 
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(Phone mobilePhone) {
@@ -809,6 +920,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
+  *
+  * @param notificationURL
+  */ 
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotificationURL(String notificationURL) {
@@ -834,6 +950,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
+  *
+  * @param payTokenInd
+  */ 
   @JsonProperty(JSON_PROPERTY_PAY_TOKEN_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayTokenInd(Boolean payTokenInd) {
@@ -859,10 +980,45 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Indicates the type of payment for which an authentication is requested (message extension)
+  *
+  * @param paymentAuthenticationUseCase
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
     this.paymentAuthenticationUseCase = paymentAuthenticationUseCase;
+  }
+
+
+  public ThreeDS2RequestData platform(PlatformEnum platform) {
+    this.platform = platform;
+    return this;
+  }
+
+   /**
+   * The platform of the shopper. Allowed values: * &#x60;iOS&#x60; * &#x60;android&#x60; * &#x60;browser&#x60;
+   * @return platform
+  **/
+  @ApiModelProperty(value = "The platform of the shopper. Allowed values: * `iOS` * `android` * `browser`")
+  @JsonProperty(JSON_PROPERTY_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PlatformEnum getPlatform() {
+    return platform;
+  }
+
+
+ /**
+  * The platform of the shopper. Allowed values: * &#x60;iOS&#x60; * &#x60;android&#x60; * &#x60;browser&#x60;
+  *
+  * @param platform
+  */ 
+  @JsonProperty(JSON_PROPERTY_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatform(PlatformEnum platform) {
+    this.platform = platform;
   }
 
 
@@ -884,6 +1040,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
+  *
+  * @param purchaseInstalData
+  */ 
   @JsonProperty(JSON_PROPERTY_PURCHASE_INSTAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchaseInstalData(String purchaseInstalData) {
@@ -909,6 +1070,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Date after which no further authorisations shall be performed. Format: YYYYMMDD
+  *
+  * @param recurringExpiry
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringExpiry(String recurringExpiry) {
@@ -934,6 +1100,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
+  *
+  * @param recurringFrequency
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFrequency(String recurringFrequency) {
@@ -959,6 +1130,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK. Required for &#x60;deviceChannel&#x60; set to **app**.
+  *
+  * @param sdkAppID
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_APP_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkAppID(String sdkAppID) {
@@ -984,6 +1160,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The &#x60;sdkEncData&#x60; value as received from the 3D Secure 2 SDK. Required for &#x60;deviceChannel&#x60; set to **app**.
+  *
+  * @param sdkEncData
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_ENC_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkEncData(String sdkEncData) {
@@ -1009,6 +1190,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * sdkEphemPubKey
+  *
+  * @param sdkEphemPubKey
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
@@ -1034,6 +1220,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
+  *
+  * @param sdkMaxTimeout
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_MAX_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkMaxTimeout(Integer sdkMaxTimeout) {
@@ -1059,6 +1250,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK. Only for &#x60;deviceChannel&#x60; set to **app**.
+  *
+  * @param sdkReferenceNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkReferenceNumber(String sdkReferenceNumber) {
@@ -1084,6 +1280,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK. Only for &#x60;deviceChannel&#x60; set to **app**.
+  *
+  * @param sdkTransID
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkTransID(String sdkTransID) {
@@ -1109,6 +1310,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Version of the 3D Secure 2 mobile SDK.  Only for &#x60;deviceChannel&#x60; set to **app**.
+  *
+  * @param sdkVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkVersion(String sdkVersion) {
@@ -1134,6 +1340,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Completion indicator for the device fingerprinting.
+  *
+  * @param threeDSCompInd
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_COMP_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSCompInd(String threeDSCompInd) {
@@ -1159,6 +1370,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Indicates the type of Authentication request.
+  *
+  * @param threeDSRequestorAuthenticationInd
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorAuthenticationInd(String threeDSRequestorAuthenticationInd) {
@@ -1184,6 +1400,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * threeDSRequestorAuthenticationInfo
+  *
+  * @param threeDSRequestorAuthenticationInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorAuthenticationInfo(ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
@@ -1209,6 +1430,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+  *
+  * @param threeDSRequestorChallengeInd
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
@@ -1234,6 +1460,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
+  *
+  * @param threeDSRequestorID
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorID(String threeDSRequestorID) {
@@ -1259,6 +1490,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
+  *
+  * @param threeDSRequestorName
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorName(String threeDSRequestorName) {
@@ -1284,6 +1520,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * threeDSRequestorPriorAuthenticationInfo
+  *
+  * @param threeDSRequestorPriorAuthenticationInfo
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorPriorAuthenticationInfo(ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
@@ -1309,6 +1550,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
+  *
+  * @param threeDSRequestorURL
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorURL(String threeDSRequestorURL) {
@@ -1334,6 +1580,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
+  *
+  * @param transType
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransType(TransTypeEnum transType) {
@@ -1359,6 +1610,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * Identify the type of the transaction being authenticated.
+  *
+  * @param transactionType
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionType(TransactionTypeEnum transactionType) {
@@ -1384,6 +1640,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
+  *
+  * @param whiteListStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteListStatus(String whiteListStatus) {
@@ -1409,6 +1670,11 @@ public class ThreeDS2RequestData {
   }
 
 
+ /**
+  * workPhone
+  *
+  * @param workPhone
+  */ 
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(Phone workPhone) {
@@ -1445,6 +1711,7 @@ public class ThreeDS2RequestData {
         Objects.equals(this.notificationURL, threeDS2RequestData.notificationURL) &&
         Objects.equals(this.payTokenInd, threeDS2RequestData.payTokenInd) &&
         Objects.equals(this.paymentAuthenticationUseCase, threeDS2RequestData.paymentAuthenticationUseCase) &&
+        Objects.equals(this.platform, threeDS2RequestData.platform) &&
         Objects.equals(this.purchaseInstalData, threeDS2RequestData.purchaseInstalData) &&
         Objects.equals(this.recurringExpiry, threeDS2RequestData.recurringExpiry) &&
         Objects.equals(this.recurringFrequency, threeDS2RequestData.recurringFrequency) &&
@@ -1471,7 +1738,7 @@ public class ThreeDS2RequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acctInfo, acctType, acquirerBIN, acquirerMerchantID, addrMatch, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, homePhone, mcc, merchantName, messageVersion, mobilePhone, notificationURL, payTokenInd, paymentAuthenticationUseCase, purchaseInstalData, recurringExpiry, recurringFrequency, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, sdkVersion, threeDSCompInd, threeDSRequestorAuthenticationInd, threeDSRequestorAuthenticationInfo, threeDSRequestorChallengeInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorPriorAuthenticationInfo, threeDSRequestorURL, transType, transactionType, whiteListStatus, workPhone);
+    return Objects.hash(acctInfo, acctType, acquirerBIN, acquirerMerchantID, addrMatch, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, homePhone, mcc, merchantName, messageVersion, mobilePhone, notificationURL, payTokenInd, paymentAuthenticationUseCase, platform, purchaseInstalData, recurringExpiry, recurringFrequency, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, sdkVersion, threeDSCompInd, threeDSRequestorAuthenticationInd, threeDSRequestorAuthenticationInfo, threeDSRequestorChallengeInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorPriorAuthenticationInfo, threeDSRequestorURL, transType, transactionType, whiteListStatus, workPhone);
   }
 
   @Override
@@ -1495,6 +1762,7 @@ public class ThreeDS2RequestData {
     sb.append("    notificationURL: ").append(toIndentedString(notificationURL)).append("\n");
     sb.append("    payTokenInd: ").append(toIndentedString(payTokenInd)).append("\n");
     sb.append("    paymentAuthenticationUseCase: ").append(toIndentedString(paymentAuthenticationUseCase)).append("\n");
+    sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    purchaseInstalData: ").append(toIndentedString(purchaseInstalData)).append("\n");
     sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
     sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");

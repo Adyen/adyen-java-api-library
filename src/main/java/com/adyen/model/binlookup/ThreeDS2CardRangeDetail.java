@@ -1,6 +1,5 @@
 /*
  * Adyen BinLookup API
- * The BIN Lookup API provides endpoints for retrieving information, such as cost estimates, and 3D Secure supported version based on a given BIN.  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning The BinLookup API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/BinLookup/v54/get3dsAvailability ```## Going live  To authneticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/BinLookup/v54/get3dsAvailability ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 54
  * 
@@ -90,6 +89,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)
+  *
+  * @param acsInfoInd
+  */ 
   @JsonProperty(JSON_PROPERTY_ACS_INFO_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsInfoInd(List<String> acsInfoInd) {
@@ -115,6 +119,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * Card brand.
+  *
+  * @param brandCode
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandCode(String brandCode) {
@@ -140,6 +149,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * BIN end range.
+  *
+  * @param endRange
+  */ 
   @JsonProperty(JSON_PROPERTY_END_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndRange(String endRange) {
@@ -165,6 +179,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * BIN start range.
+  *
+  * @param startRange
+  */ 
   @JsonProperty(JSON_PROPERTY_START_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartRange(String startRange) {
@@ -198,6 +217,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * Supported 3D Secure protocol versions
+  *
+  * @param threeDS2Versions
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_VERSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Versions(List<String> threeDS2Versions) {
@@ -223,6 +247,11 @@ public class ThreeDS2CardRangeDetail {
   }
 
 
+ /**
+  * In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.
+  *
+  * @param threeDSMethodURL
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_METHOD_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSMethodURL(String threeDSMethodURL) {

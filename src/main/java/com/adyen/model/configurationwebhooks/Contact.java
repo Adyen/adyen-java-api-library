@@ -87,6 +87,11 @@ public class Contact {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -112,6 +117,11 @@ public class Contact {
   }
 
 
+ /**
+  * The e-mail address of the contact.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -137,6 +147,11 @@ public class Contact {
   }
 
 
+ /**
+  * The phone number of the contact provided as a single string.  It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
+  *
+  * @param fullPhoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_FULL_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullPhoneNumber(String fullPhoneNumber) {
@@ -162,6 +177,11 @@ public class Contact {
   }
 
 
+ /**
+  * name
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
@@ -187,6 +207,11 @@ public class Contact {
   }
 
 
+ /**
+  * personalData
+  *
+  * @param personalData
+  */ 
   @JsonProperty(JSON_PROPERTY_PERSONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPersonalData(PersonalData personalData) {
@@ -212,6 +237,11 @@ public class Contact {
   }
 
 
+ /**
+  * phoneNumber
+  *
+  * @param phoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(PhoneNumber phoneNumber) {
@@ -237,6 +267,11 @@ public class Contact {
   }
 
 
+ /**
+  * The URL of the website of the contact.
+  *
+  * @param webAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {

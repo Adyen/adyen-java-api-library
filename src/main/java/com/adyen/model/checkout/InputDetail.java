@@ -105,6 +105,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * Configuration parameters for the required input.
+  *
+  * @param configuration
+  */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
@@ -138,6 +143,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * Input details can also be provided recursively.
+  *
+  * @param details
+  */ 
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(List<SubInputDetail> details) {
@@ -173,6 +183,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * Input details can also be provided recursively (deprecated).
+  *
+  * @param inputDetails
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,6 +214,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * In case of a select, the URL from which to query the items.
+  *
+  * @param itemSearchUrl
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEM_SEARCH_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemSearchUrl(String itemSearchUrl) {
@@ -232,6 +252,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * In case of a select, the items to choose from.
+  *
+  * @param items
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<Item> items) {
@@ -257,6 +282,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * The value to provide in the result.
+  *
+  * @param key
+  */ 
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKey(String key) {
@@ -282,6 +312,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * True if this input value is optional.
+  *
+  * @param optional
+  */ 
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptional(Boolean optional) {
@@ -307,6 +342,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * The type of the required input.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -332,6 +372,11 @@ public class InputDetail {
   }
 
 
+ /**
+  * The value can be pre-filled, if available.
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {

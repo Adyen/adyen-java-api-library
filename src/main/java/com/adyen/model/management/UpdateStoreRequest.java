@@ -124,6 +124,11 @@ public class UpdateStoreRequest {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(UpdatableAddress address) {
@@ -157,6 +162,11 @@ public class UpdateStoreRequest {
   }
 
 
+ /**
+  * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.
+  *
+  * @param businessLineIds
+  */ 
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineIds(List<String> businessLineIds) {
@@ -182,6 +192,11 @@ public class UpdateStoreRequest {
   }
 
 
+ /**
+  * The description of the store.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -195,10 +210,10 @@ public class UpdateStoreRequest {
   }
 
    /**
-   * When using the Zip payment method: The location ID that Zip has assigned to your store.
+   * The unique identifier of the store, used by certain payment methods and tax authorities. Accepts up to 14 digits.  Required for CNPJ in Brazil, in the format 00.000.000/00git00-00 separated by dots, slashes, hyphens, or without separators.  Optional for Zip in Australia and SIRET in France, required except for nonprofit organizations and incorporated associations.  
    * @return externalReferenceId
   **/
-  @ApiModelProperty(value = "When using the Zip payment method: The location ID that Zip has assigned to your store.")
+  @ApiModelProperty(value = "The unique identifier of the store, used by certain payment methods and tax authorities. Accepts up to 14 digits.  Required for CNPJ in Brazil, in the format 00.000.000/00git00-00 separated by dots, slashes, hyphens, or without separators.  Optional for Zip in Australia and SIRET in France, required except for nonprofit organizations and incorporated associations.  ")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -207,6 +222,11 @@ public class UpdateStoreRequest {
   }
 
 
+ /**
+  * The unique identifier of the store, used by certain payment methods and tax authorities. Accepts up to 14 digits.  Required for CNPJ in Brazil, in the format 00.000.000/00git00-00 separated by dots, slashes, hyphens, or without separators.  Optional for Zip in Australia and SIRET in France, required except for nonprofit organizations and incorporated associations.  
+  *
+  * @param externalReferenceId
+  */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReferenceId(String externalReferenceId) {
@@ -232,6 +252,11 @@ public class UpdateStoreRequest {
   }
 
 
+ /**
+  * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
+  *
+  * @param phoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -257,6 +282,11 @@ public class UpdateStoreRequest {
   }
 
 
+ /**
+  * splitConfiguration
+  *
+  * @param splitConfiguration
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfiguration(StoreSplitConfiguration splitConfiguration) {
@@ -282,6 +312,11 @@ public class UpdateStoreRequest {
   }
 
 
+ /**
+  * The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

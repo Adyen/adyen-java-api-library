@@ -74,6 +74,11 @@ public class RiskData {
   }
 
 
+ /**
+  * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
+  *
+  * @param clientData
+  */ 
   @JsonProperty(JSON_PROPERTY_CLIENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientData(String clientData) {
@@ -107,6 +112,11 @@ public class RiskData {
   }
 
 
+ /**
+  * Any custom fields used as part of the input to configured risk rules.
+  *
+  * @param customFields
+  */ 
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(Map<String, String> customFields) {
@@ -132,6 +142,11 @@ public class RiskData {
   }
 
 
+ /**
+  * An integer value that is added to the normal fraud score. The value can be either positive or negative.
+  *
+  * @param fraudOffset
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
@@ -157,6 +172,11 @@ public class RiskData {
   }
 
 
+ /**
+  * The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
+  *
+  * @param profileReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {

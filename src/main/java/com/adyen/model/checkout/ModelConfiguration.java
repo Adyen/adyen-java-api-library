@@ -112,6 +112,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * avs
+  *
+  * @param avs
+  */ 
   @JsonProperty(JSON_PROPERTY_AVS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvs(Avs avs) {
@@ -137,6 +142,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED
+  *
+  * @param cardHolderName
+  */ 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderName(CardHolderNameEnum cardHolderName) {
@@ -162,6 +172,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * installments
+  *
+  * @param installments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(InstallmentsNumber installments) {
@@ -187,6 +202,11 @@ public class ModelConfiguration {
   }
 
 
+ /**
+  * shopperInput
+  *
+  * @param shopperInput
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInput(ShopperInput shopperInput) {

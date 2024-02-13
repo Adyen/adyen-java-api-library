@@ -71,6 +71,11 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
 
+ /**
+  * The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -96,6 +101,11 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
 
+ /**
+  * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
+  *
+  * @param fundingSource
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
@@ -121,6 +131,11 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
 
+ /**
+  * The payment method condition that defines whether the split logic applies.  Possible values: * [Payment method variant](https://docs.adyen.com/development-resources/paymentmethodvariant): Apply the split logic for a specific payment method. * **ANY**: Apply the split logic for all available payment methods.
+  *
+  * @param paymentMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
@@ -146,6 +161,11 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
 
+ /**
+  * The sales channel condition that defines whether the split logic applies.  Possible values: * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
+  *
+  * @param shopperInteraction
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {

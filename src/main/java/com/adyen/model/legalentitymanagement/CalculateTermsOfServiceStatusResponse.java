@@ -114,6 +114,11 @@ public class CalculateTermsOfServiceStatusResponse {
   }
 
 
+ /**
+  * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
+  *
+  * @param termsOfServiceTypes
+  */ 
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceTypes(List<TermsOfServiceTypesEnum> termsOfServiceTypes) {

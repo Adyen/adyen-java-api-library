@@ -85,6 +85,11 @@ public class CustomNotification {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -110,6 +115,11 @@ public class CustomNotification {
   }
 
 
+ /**
+  * The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**
+  *
+  * @param eventCode
+  */ 
   @JsonProperty(JSON_PROPERTY_EVENT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventCode(String eventCode) {
@@ -135,6 +145,11 @@ public class CustomNotification {
   }
 
 
+ /**
+  * The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.
+  *
+  * @param eventDate
+  */ 
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventDate(OffsetDateTime eventDate) {
@@ -160,6 +175,11 @@ public class CustomNotification {
   }
 
 
+ /**
+  * Your reference for the custom test notification.
+  *
+  * @param merchantReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
@@ -185,6 +205,11 @@ public class CustomNotification {
   }
 
 
+ /**
+  * The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** 
+  *
+  * @param paymentMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
@@ -210,6 +235,11 @@ public class CustomNotification {
   }
 
 
+ /**
+  * A descripton of what caused the notification.
+  *
+  * @param reason
+  */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
@@ -235,6 +265,11 @@ public class CustomNotification {
   }
 
 
+ /**
+  * The outcome of the event which the notification is about. Set to either **true** or **false**. 
+  *
+  * @param success
+  */ 
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {

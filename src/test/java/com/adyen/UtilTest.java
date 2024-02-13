@@ -55,7 +55,7 @@ public class UtilTest {
         notificationRequestItem.setOriginalReference("originalReference");
         notificationRequestItem.setMerchantAccountCode("merchantAccount");
         notificationRequestItem.setMerchantReference("reference");
-        notificationRequestItem.setAmount(new Amount().currency("EUR").value(1000L));
+        notificationRequestItem.setAmount(new Amount().currency("EUR").value(1000l));
         notificationRequestItem.setEventCode("EVENT");
         notificationRequestItem.setSuccess(true);
 

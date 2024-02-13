@@ -60,6 +60,11 @@ public class ThresholdRepayment {
   }
 
 
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {

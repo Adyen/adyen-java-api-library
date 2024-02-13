@@ -75,6 +75,11 @@ public class WifiProfiles {
   }
 
 
+ /**
+  * List of remote Wi-Fi profiles.
+  *
+  * @param profiles
+  */ 
   @JsonProperty(JSON_PROPERTY_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfiles(List<Profile> profiles) {
@@ -100,6 +105,11 @@ public class WifiProfiles {
   }
 
 
+ /**
+  * settings
+  *
+  * @param settings
+  */ 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(Settings settings) {

@@ -162,6 +162,11 @@ public class CapabilitySettings {
   }
 
 
+ /**
+  * 
+  *
+  * @param amountPerIndustry
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountPerIndustry(Map<String, Amount> amountPerIndustry) {
@@ -187,6 +192,11 @@ public class CapabilitySettings {
   }
 
 
+ /**
+  * 
+  *
+  * @param authorizedCardUsers
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorizedCardUsers(Boolean authorizedCardUsers) {
@@ -220,6 +230,11 @@ public class CapabilitySettings {
   }
 
 
+ /**
+  * 
+  *
+  * @param fundingSource
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(List<FundingSourceEnum> fundingSource) {
@@ -245,6 +260,11 @@ public class CapabilitySettings {
   }
 
 
+ /**
+  * 
+  *
+  * @param interval
+  */ 
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(IntervalEnum interval) {
@@ -270,6 +290,11 @@ public class CapabilitySettings {
   }
 
 
+ /**
+  * maxAmount
+  *
+  * @param maxAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Amount maxAmount) {

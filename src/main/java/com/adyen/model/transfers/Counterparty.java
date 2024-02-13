@@ -67,6 +67,11 @@ public class Counterparty {
   }
 
 
+ /**
+  * The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
+  *
+  * @param accountHolderId
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
@@ -92,6 +97,11 @@ public class Counterparty {
   }
 
 
+ /**
+  * The identifier of the balance account that belongs to the receiving account holder.
+  *
+  * @param balanceAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
@@ -117,6 +127,11 @@ public class Counterparty {
   }
 
 
+ /**
+  * The identifier of the transfer instrument that belongs to the legal entity of the account holder.
+  *
+  * @param transferInstrumentId
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {

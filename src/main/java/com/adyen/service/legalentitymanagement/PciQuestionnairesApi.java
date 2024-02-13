@@ -56,25 +56,27 @@ public class PciQuestionnairesApi extends Service {
     }
 
     /**
-    * Get PCI questionnaire details
+    * Generate PCI questionnaire
     *
     * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
-    * @return {@link GetPciQuestionnaireInfosResponse }
+    * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
+    * @return {@link GeneratePciDescriptionResponse }
     * @throws ApiException if fails to make API call
     */
-    public GetPciQuestionnaireInfosResponse getPciQuestionnaireDetails(String id) throws ApiException, IOException {
-        return getPciQuestionnaireDetails(id, null);
+    public GeneratePciDescriptionResponse generatePciQuestionnaire(String id, GeneratePciDescriptionRequest generatePciDescriptionRequest) throws ApiException, IOException {
+        return generatePciQuestionnaire(id, generatePciDescriptionRequest, null);
     }
 
     /**
-    * Get PCI questionnaire details
+    * Generate PCI questionnaire
     *
     * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
+    * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link GetPciQuestionnaireInfosResponse }
+    * @return {@link GeneratePciDescriptionResponse }
     * @throws ApiException if fails to make API call
     */
-    public GetPciQuestionnaireInfosResponse getPciQuestionnaireDetails(String id, RequestOptions requestOptions) throws ApiException, IOException {
+    public GeneratePciDescriptionResponse generatePciQuestionnaire(String id, GeneratePciDescriptionRequest generatePciDescriptionRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (id == null) {
@@ -82,10 +84,10 @@ public class PciQuestionnairesApi extends Service {
         }
         pathParams.put("id", id);
 
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/pciQuestionnaires", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return GetPciQuestionnaireInfosResponse.fromJson(jsonResult);
+        String requestBody = generatePciDescriptionRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/pciQuestionnaires/generatePciTemplates", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return GeneratePciDescriptionResponse.fromJson(jsonResult);
     }
 
     /**
@@ -128,27 +130,25 @@ public class PciQuestionnairesApi extends Service {
     }
 
     /**
-    * Generate PCI questionnaire
+    * Get PCI questionnaire details
     *
     * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
-    * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
-    * @return {@link GeneratePciDescriptionResponse }
+    * @return {@link GetPciQuestionnaireInfosResponse }
     * @throws ApiException if fails to make API call
     */
-    public GeneratePciDescriptionResponse generatePciQuestionnaire(String id, GeneratePciDescriptionRequest generatePciDescriptionRequest) throws ApiException, IOException {
-        return generatePciQuestionnaire(id, generatePciDescriptionRequest, null);
+    public GetPciQuestionnaireInfosResponse getPciQuestionnaireDetails(String id) throws ApiException, IOException {
+        return getPciQuestionnaireDetails(id, null);
     }
 
     /**
-    * Generate PCI questionnaire
+    * Get PCI questionnaire details
     *
     * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire information. (required)
-    * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link GeneratePciDescriptionResponse }
+    * @return {@link GetPciQuestionnaireInfosResponse }
     * @throws ApiException if fails to make API call
     */
-    public GeneratePciDescriptionResponse generatePciQuestionnaire(String id, GeneratePciDescriptionRequest generatePciDescriptionRequest, RequestOptions requestOptions) throws ApiException, IOException {
+    public GetPciQuestionnaireInfosResponse getPciQuestionnaireDetails(String id, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (id == null) {
@@ -156,16 +156,16 @@ public class PciQuestionnairesApi extends Service {
         }
         pathParams.put("id", id);
 
-        String requestBody = generatePciDescriptionRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/pciQuestionnaires/generatePciTemplates", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return GeneratePciDescriptionResponse.fromJson(jsonResult);
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/pciQuestionnaires", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return GetPciQuestionnaireInfosResponse.fromJson(jsonResult);
     }
 
     /**
     * Sign PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who signed the PCI questionnaire. (required)
+    * @param id {@link String } The legal entity ID of the user that has a contractual relationship with your platform. (required)
     * @param pciSigningRequest {@link PciSigningRequest }  (required)
     * @return {@link PciSigningResponse }
     * @throws ApiException if fails to make API call
@@ -177,7 +177,7 @@ public class PciQuestionnairesApi extends Service {
     /**
     * Sign PCI questionnaire
     *
-    * @param id {@link String } The legal entity ID of the individual who signed the PCI questionnaire. (required)
+    * @param id {@link String } The legal entity ID of the user that has a contractual relationship with your platform. (required)
     * @param pciSigningRequest {@link PciSigningRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PciSigningResponse }

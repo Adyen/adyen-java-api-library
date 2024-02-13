@@ -74,6 +74,11 @@ public class SplitConfiguration {
   }
 
 
+ /**
+  * Your description for the split configuration.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -104,6 +109,11 @@ public class SplitConfiguration {
   }
 
 
+ /**
+  * Array of rules that define the split configuration behavior.
+  *
+  * @param rules
+  */ 
   @JsonProperty(JSON_PROPERTY_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRules(List<SplitConfigurationRule> rules) {
@@ -129,6 +139,11 @@ public class SplitConfiguration {
   }
 
 
+ /**
+  * Unique identifier of the split configuration.
+  *
+  * @param splitConfigurationId
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfigurationId(String splitConfigurationId) {
@@ -162,6 +177,11 @@ public class SplitConfiguration {
   }
 
 
+ /**
+  * List of stores to which the split configuration applies.
+  *
+  * @param stores
+  */ 
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<String> stores) {

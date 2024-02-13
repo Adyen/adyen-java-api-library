@@ -70,6 +70,11 @@ public class PciSigningRequest {
   }
 
 
+ /**
+  * The array of Adyen-generated unique identifiers for the questionnaires.
+  *
+  * @param pciTemplateReferences
+  */ 
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciTemplateReferences(List<String> pciTemplateReferences) {
@@ -95,6 +100,11 @@ public class PciSigningRequest {
   }
 
 
+ /**
+  * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signs the PCI questionnaire.
+  *
+  * @param signedBy
+  */ 
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignedBy(String signedBy) {

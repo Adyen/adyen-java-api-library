@@ -67,6 +67,11 @@ public class TerminalConnectivityEthernet {
   }
 
 
+ /**
+  * The terminal&#39;s ethernet IP address.
+  *
+  * @param ipAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -92,6 +97,11 @@ public class TerminalConnectivityEthernet {
   }
 
 
+ /**
+  * The ethernet link negotiation that the terminal uses.
+  *
+  * @param linkNegotiation
+  */ 
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkNegotiation(String linkNegotiation) {
@@ -117,6 +127,11 @@ public class TerminalConnectivityEthernet {
   }
 
 
+ /**
+  * The terminal&#39;s ethernet MAC address.
+  *
+  * @param macAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {

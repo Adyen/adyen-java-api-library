@@ -63,6 +63,11 @@ public class Expiry {
   }
 
 
+ /**
+  * The month in which the card will expire.
+  *
+  * @param month
+  */ 
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMonth(String month) {
@@ -88,6 +93,11 @@ public class Expiry {
   }
 
 
+ /**
+  * The year in which the card will expire.
+  *
+  * @param year
+  */ 
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setYear(String year) {

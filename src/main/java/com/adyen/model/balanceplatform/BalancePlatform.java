@@ -67,6 +67,11 @@ public class BalancePlatform {
   }
 
 
+ /**
+  * Your description of the balance platform, maximum 300 characters.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -92,6 +97,11 @@ public class BalancePlatform {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -117,6 +127,11 @@ public class BalancePlatform {
   }
 
 
+ /**
+  * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

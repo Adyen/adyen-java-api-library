@@ -68,6 +68,11 @@ public class PurchaseInfo {
   }
 
 
+ /**
+  * Date of the purchase.
+  *
+  * @param date
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(String date) {
@@ -93,6 +98,11 @@ public class PurchaseInfo {
   }
 
 
+ /**
+  * Name of the merchant.
+  *
+  * @param merchantName
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
@@ -118,6 +128,11 @@ public class PurchaseInfo {
   }
 
 
+ /**
+  * originalAmount
+  *
+  * @param originalAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {

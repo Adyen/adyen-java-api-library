@@ -160,6 +160,11 @@ public class ChallengeInfo {
   }
 
 
+ /**
+  * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+  *
+  * @param challengeCancel
+  */ 
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
@@ -185,6 +190,11 @@ public class ChallengeInfo {
   }
 
 
+ /**
+  * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+  *
+  * @param flow
+  */ 
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFlow(FlowEnum flow) {
@@ -210,6 +220,11 @@ public class ChallengeInfo {
   }
 
 
+ /**
+  * The last time of interaction with the challenge.
+  *
+  * @param lastInteraction
+  */ 
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastInteraction(OffsetDateTime lastInteraction) {
@@ -235,6 +250,11 @@ public class ChallengeInfo {
   }
 
 
+ /**
+  * The last four digits of the phone number used in the challenge.
+  *
+  * @param phoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -260,6 +280,11 @@ public class ChallengeInfo {
   }
 
 
+ /**
+  * The number of times the one-time password (OTP) was resent during the challenge.
+  *
+  * @param resends
+  */ 
   @JsonProperty(JSON_PROPERTY_RESENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResends(Integer resends) {
@@ -285,6 +310,11 @@ public class ChallengeInfo {
   }
 
 
+ /**
+  * The number of retries used in the challenge.
+  *
+  * @param retries
+  */ 
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetries(Integer retries) {

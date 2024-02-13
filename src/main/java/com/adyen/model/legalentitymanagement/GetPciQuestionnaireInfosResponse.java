@@ -70,6 +70,11 @@ public class GetPciQuestionnaireInfosResponse {
   }
 
 
+ /**
+  * Information about the signed PCI questionnaires.
+  *
+  * @param data
+  */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PciDocumentInfo> data) {

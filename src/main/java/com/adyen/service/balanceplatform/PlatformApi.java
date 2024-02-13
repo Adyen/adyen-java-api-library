@@ -52,39 +52,6 @@ public class PlatformApi extends Service {
     }
 
     /**
-    * Get a balance platform
-    *
-    * @param id {@link String } The unique identifier of the balance platform. (required)
-    * @return {@link BalancePlatform }
-    * @throws ApiException if fails to make API call
-    */
-    public BalancePlatform getBalancePlatform(String id) throws ApiException, IOException {
-        return getBalancePlatform(id, null);
-    }
-
-    /**
-    * Get a balance platform
-    *
-    * @param id {@link String } The unique identifier of the balance platform. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link BalancePlatform }
-    * @throws ApiException if fails to make API call
-    */
-    public BalancePlatform getBalancePlatform(String id, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/balancePlatforms/{id}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return BalancePlatform.fromJson(jsonResult);
-    }
-
-    /**
     * Get all account holders under a balance platform
     *
     * @param id {@link String } The unique identifier of the balance platform. (required)
@@ -125,5 +92,38 @@ public class PlatformApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/balancePlatforms/{id}/accountHolders", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return PaginatedAccountHoldersResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get a balance platform
+    *
+    * @param id {@link String } The unique identifier of the balance platform. (required)
+    * @return {@link BalancePlatform }
+    * @throws ApiException if fails to make API call
+    */
+    public BalancePlatform getBalancePlatform(String id) throws ApiException, IOException {
+        return getBalancePlatform(id, null);
+    }
+
+    /**
+    * Get a balance platform
+    *
+    * @param id {@link String } The unique identifier of the balance platform. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link BalancePlatform }
+    * @throws ApiException if fails to make API call
+    */
+    public BalancePlatform getBalancePlatform(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/balancePlatforms/{id}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return BalancePlatform.fromJson(jsonResult);
     }
 }

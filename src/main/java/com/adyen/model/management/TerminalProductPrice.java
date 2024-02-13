@@ -63,6 +63,11 @@ public class TerminalProductPrice {
   }
 
 
+ /**
+  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param currency
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -88,6 +93,11 @@ public class TerminalProductPrice {
   }
 
 
+ /**
+  * The price of the item.
+  *
+  * @param value
+  */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Double value) {

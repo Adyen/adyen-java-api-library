@@ -86,6 +86,33 @@ public class PaymentLinksApi extends Service {
     }
 
     /**
+    * Create a payment link
+    *
+    * @param paymentLinkRequest {@link PaymentLinkRequest }  (required)
+    * @return {@link PaymentLinkResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentLinkResponse paymentLinks(PaymentLinkRequest paymentLinkRequest) throws ApiException, IOException {
+        return paymentLinks(paymentLinkRequest, null);
+    }
+
+    /**
+    * Create a payment link
+    *
+    * @param paymentLinkRequest {@link PaymentLinkRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentLinkResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentLinkResponse paymentLinks(PaymentLinkRequest paymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = paymentLinkRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/paymentLinks", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return PaymentLinkResponse.fromJson(jsonResult);
+    }
+
+    /**
     * Update the status of a payment link
     *
     * @param linkId {@link String } Unique identifier of the payment link. (required)
@@ -117,33 +144,6 @@ public class PaymentLinksApi extends Service {
         String requestBody = updatePaymentLinkRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentLinks/{linkId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return PaymentLinkResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a payment link
-    *
-    * @param paymentLinkRequest {@link PaymentLinkRequest }  (required)
-    * @return {@link PaymentLinkResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentLinkResponse paymentLinks(PaymentLinkRequest paymentLinkRequest) throws ApiException, IOException {
-        return paymentLinks(paymentLinkRequest, null);
-    }
-
-    /**
-    * Create a payment link
-    *
-    * @param paymentLinkRequest {@link PaymentLinkRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaymentLinkResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PaymentLinkResponse paymentLinks(PaymentLinkRequest paymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = paymentLinkRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/paymentLinks", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentLinkResponse.fromJson(jsonResult);
     }
 }

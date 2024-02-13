@@ -116,6 +116,11 @@ public class CheckoutThreeDS2Action {
   }
 
 
+ /**
+  * A token needed to authorise a payment.
+  *
+  * @param authorisationToken
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationToken(String authorisationToken) {
@@ -141,6 +146,11 @@ public class CheckoutThreeDS2Action {
   }
 
 
+ /**
+  * Encoded payment data.
+  *
+  * @param paymentData
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -166,6 +176,11 @@ public class CheckoutThreeDS2Action {
   }
 
 
+ /**
+  * Specifies the payment method.
+  *
+  * @param paymentMethodType
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -191,6 +206,11 @@ public class CheckoutThreeDS2Action {
   }
 
 
+ /**
+  * A subtype of the token.
+  *
+  * @param subtype
+  */ 
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
@@ -216,6 +236,11 @@ public class CheckoutThreeDS2Action {
   }
 
 
+ /**
+  * A token to pass to the 3DS2 Component to get the fingerprint.
+  *
+  * @param token
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
@@ -241,6 +266,11 @@ public class CheckoutThreeDS2Action {
   }
 
 
+ /**
+  * **threeDS2**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -266,6 +296,11 @@ public class CheckoutThreeDS2Action {
   }
 
 
+ /**
+  * Specifies the URL to redirect to.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

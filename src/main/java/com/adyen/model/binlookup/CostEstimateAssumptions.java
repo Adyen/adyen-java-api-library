@@ -1,6 +1,5 @@
 /*
  * Adyen BinLookup API
- * The BIN Lookup API provides endpoints for retrieving information, such as cost estimates, and 3D Secure supported version based on a given BIN.  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning The BinLookup API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/BinLookup/v54/get3dsAvailability ```## Going live  To authneticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/BinLookup/v54/get3dsAvailability ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 54
  * 
@@ -68,6 +67,11 @@ public class CostEstimateAssumptions {
   }
 
 
+ /**
+  * If true, the cardholder is expected to successfully authorise via 3D Secure.
+  *
+  * @param assume3DSecureAuthenticated
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
@@ -93,6 +97,11 @@ public class CostEstimateAssumptions {
   }
 
 
+ /**
+  * If true, the transaction is expected to have valid Level 3 data.
+  *
+  * @param assumeLevel3Data
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssumeLevel3Data(Boolean assumeLevel3Data) {
@@ -118,6 +127,11 @@ public class CostEstimateAssumptions {
   }
 
 
+ /**
+  * If not zero, the number of installments.
+  *
+  * @param installments
+  */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Integer installments) {

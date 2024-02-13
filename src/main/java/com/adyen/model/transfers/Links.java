@@ -64,6 +64,11 @@ public class Links {
   }
 
 
+ /**
+  * next
+  *
+  * @param next
+  */ 
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(Link next) {
@@ -89,6 +94,11 @@ public class Links {
   }
 
 
+ /**
+  * prev
+  *
+  * @param prev
+  */ 
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrev(Link prev) {

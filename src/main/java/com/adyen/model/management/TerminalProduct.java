@@ -78,6 +78,11 @@ public class TerminalProduct {
   }
 
 
+ /**
+  * Information about items included and integration options.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -103,6 +108,11 @@ public class TerminalProduct {
   }
 
 
+ /**
+  * The unique identifier of the product.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -136,6 +146,11 @@ public class TerminalProduct {
   }
 
 
+ /**
+  * A list of parts included in the terminal package.
+  *
+  * @param itemsIncluded
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsIncluded(List<String> itemsIncluded) {
@@ -161,6 +176,11 @@ public class TerminalProduct {
   }
 
 
+ /**
+  * The descriptive name of the product.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -186,6 +206,11 @@ public class TerminalProduct {
   }
 
 
+ /**
+  * price
+  *
+  * @param price
+  */ 
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrice(TerminalProductPrice price) {

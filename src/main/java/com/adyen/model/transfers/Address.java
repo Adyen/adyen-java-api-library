@@ -79,6 +79,11 @@ public class Address {
   }
 
 
+ /**
+  * The name of the city.
+  *
+  * @param city
+  */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -104,6 +109,11 @@ public class Address {
   }
 
 
+ /**
+  * The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
+  *
+  * @param country
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -129,6 +139,11 @@ public class Address {
   }
 
 
+ /**
+  * First line of the street address.
+  *
+  * @param line1
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
@@ -154,6 +169,11 @@ public class Address {
   }
 
 
+ /**
+  * Second line of the street address.
+  *
+  * @param line2
+  */ 
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
@@ -179,6 +199,11 @@ public class Address {
   }
 
 
+ /**
+  * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.
+  *
+  * @param postalCode
+  */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -204,6 +229,11 @@ public class Address {
   }
 
 
+ /**
+  * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+  *
+  * @param stateOrProvince
+  */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {

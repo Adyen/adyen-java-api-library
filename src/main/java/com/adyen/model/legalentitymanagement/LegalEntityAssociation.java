@@ -144,6 +144,11 @@ public class LegalEntityAssociation {
   }
 
 
+ /**
+  * The unique identifier of another legal entity with which the &#x60;legalEntityId&#x60; is associated. When the &#x60;legalEntityId&#x60; is associated to legal entities other than the current one, the response returns all the associations.
+  *
+  * @param associatorId
+  */ 
   @JsonProperty(JSON_PROPERTY_ASSOCIATOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatorId(String associatorId) {
@@ -169,6 +174,11 @@ public class LegalEntityAssociation {
   }
 
 
+ /**
+  * The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.
+  *
+  * @param entityType
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(String entityType) {
@@ -194,6 +204,11 @@ public class LegalEntityAssociation {
   }
 
 
+ /**
+  * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
+  *
+  * @param jobTitle
+  */ 
   @JsonProperty(JSON_PROPERTY_JOB_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJobTitle(String jobTitle) {
@@ -219,6 +234,11 @@ public class LegalEntityAssociation {
   }
 
 
+ /**
+  * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
+  *
+  * @param legalEntityId
+  */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -244,6 +264,11 @@ public class LegalEntityAssociation {
   }
 
 
+ /**
+  * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -277,6 +302,11 @@ public class LegalEntityAssociation {
   }
 
 
+ /**
+  * Defines the Kyc Exemption Reason for a Settlor associated with a trust.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
+  *
+  * @param settlorExemptionReason
+  */ 
   @JsonProperty(JSON_PROPERTY_SETTLOR_EXEMPTION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettlorExemptionReason(List<String> settlorExemptionReason) {
@@ -302,6 +332,11 @@ public class LegalEntityAssociation {
   }
 
 
+ /**
+  * Defines the relationship of the legal entity to the current legal entity.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

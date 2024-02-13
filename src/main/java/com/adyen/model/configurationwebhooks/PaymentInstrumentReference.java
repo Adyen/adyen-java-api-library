@@ -59,6 +59,11 @@ public class PaymentInstrumentReference {
   }
 
 
+ /**
+  * The unique identifier of the payment instrument.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {

@@ -35,14 +35,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * IssuedCard
  */
 @JsonPropertyOrder({
+  IssuedCard.JSON_PROPERTY_AUTHORISATION_TYPE,
   IssuedCard.JSON_PROPERTY_PAN_ENTRY_MODE,
   IssuedCard.JSON_PROPERTY_PROCESSING_TYPE,
   IssuedCard.JSON_PROPERTY_RELAYED_AUTHORISATION_DATA,
+  IssuedCard.JSON_PROPERTY_SCHEME_TRACE_ID,
+  IssuedCard.JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID,
   IssuedCard.JSON_PROPERTY_TYPE,
   IssuedCard.JSON_PROPERTY_VALIDATION_FACTS
 })
 
 public class IssuedCard {
+  public static final String JSON_PROPERTY_AUTHORISATION_TYPE = "authorisationType";
+  private String authorisationType;
+
   /**
    * Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
    */
@@ -144,6 +150,12 @@ public class IssuedCard {
   public static final String JSON_PROPERTY_RELAYED_AUTHORISATION_DATA = "relayedAuthorisationData";
   private RelayedAuthorisationData relayedAuthorisationData;
 
+  public static final String JSON_PROPERTY_SCHEME_TRACE_ID = "schemeTraceId";
+  private String schemeTraceId;
+
+  public static final String JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID = "schemeUniqueTransactionId";
+  private String schemeUniqueTransactionId;
+
   /**
    * **issuedCard**
    */
@@ -186,6 +198,36 @@ public class IssuedCard {
   public IssuedCard() { 
   }
 
+  public IssuedCard authorisationType(String authorisationType) {
+    this.authorisationType = authorisationType;
+    return this;
+  }
+
+   /**
+   * The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
+   * @return authorisationType
+  **/
+  @ApiModelProperty(value = "The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**")
+  @JsonProperty(JSON_PROPERTY_AUTHORISATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAuthorisationType() {
+    return authorisationType;
+  }
+
+
+ /**
+  * The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
+  *
+  * @param authorisationType
+  */ 
+  @JsonProperty(JSON_PROPERTY_AUTHORISATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAuthorisationType(String authorisationType) {
+    this.authorisationType = authorisationType;
+  }
+
+
   public IssuedCard panEntryMode(PanEntryModeEnum panEntryMode) {
     this.panEntryMode = panEntryMode;
     return this;
@@ -204,6 +246,11 @@ public class IssuedCard {
   }
 
 
+ /**
+  * Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
+  *
+  * @param panEntryMode
+  */ 
   @JsonProperty(JSON_PROPERTY_PAN_ENTRY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPanEntryMode(PanEntryModeEnum panEntryMode) {
@@ -229,6 +276,11 @@ public class IssuedCard {
   }
 
 
+ /**
+  * Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  *
+  * @param processingType
+  */ 
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingType(ProcessingTypeEnum processingType) {
@@ -254,10 +306,75 @@ public class IssuedCard {
   }
 
 
+ /**
+  * relayedAuthorisationData
+  *
+  * @param relayedAuthorisationData
+  */ 
   @JsonProperty(JSON_PROPERTY_RELAYED_AUTHORISATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelayedAuthorisationData(RelayedAuthorisationData relayedAuthorisationData) {
     this.relayedAuthorisationData = relayedAuthorisationData;
+  }
+
+
+  public IssuedCard schemeTraceId(String schemeTraceId) {
+    this.schemeTraceId = schemeTraceId;
+    return this;
+  }
+
+   /**
+   * The identifier of the original payment provided by the scheme. The Id could be alphanumeric or numeric depending on the scheme. The schemeTraceID should be referring to an original schemeUniqueTransactionID provided in an earlier payment (not necessarily processed by Adyen). Instances of available schemeTraceId is authAdjustment or recurring payments.
+   * @return schemeTraceId
+  **/
+  @ApiModelProperty(value = "The identifier of the original payment provided by the scheme. The Id could be alphanumeric or numeric depending on the scheme. The schemeTraceID should be referring to an original schemeUniqueTransactionID provided in an earlier payment (not necessarily processed by Adyen). Instances of available schemeTraceId is authAdjustment or recurring payments.")
+  @JsonProperty(JSON_PROPERTY_SCHEME_TRACE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSchemeTraceId() {
+    return schemeTraceId;
+  }
+
+
+ /**
+  * The identifier of the original payment provided by the scheme. The Id could be alphanumeric or numeric depending on the scheme. The schemeTraceID should be referring to an original schemeUniqueTransactionID provided in an earlier payment (not necessarily processed by Adyen). Instances of available schemeTraceId is authAdjustment or recurring payments.
+  *
+  * @param schemeTraceId
+  */ 
+  @JsonProperty(JSON_PROPERTY_SCHEME_TRACE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSchemeTraceId(String schemeTraceId) {
+    this.schemeTraceId = schemeTraceId;
+  }
+
+
+  public IssuedCard schemeUniqueTransactionId(String schemeUniqueTransactionId) {
+    this.schemeUniqueTransactionId = schemeUniqueTransactionId;
+    return this;
+  }
+
+   /**
+   * The unique identifier created by the scheme. The ID could be alphanumeric or numeric depending on the scheme.
+   * @return schemeUniqueTransactionId
+  **/
+  @ApiModelProperty(value = "The unique identifier created by the scheme. The ID could be alphanumeric or numeric depending on the scheme.")
+  @JsonProperty(JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSchemeUniqueTransactionId() {
+    return schemeUniqueTransactionId;
+  }
+
+
+ /**
+  * The unique identifier created by the scheme. The ID could be alphanumeric or numeric depending on the scheme.
+  *
+  * @param schemeUniqueTransactionId
+  */ 
+  @JsonProperty(JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSchemeUniqueTransactionId(String schemeUniqueTransactionId) {
+    this.schemeUniqueTransactionId = schemeUniqueTransactionId;
   }
 
 
@@ -279,6 +396,11 @@ public class IssuedCard {
   }
 
 
+ /**
+  * **issuedCard**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -312,6 +434,11 @@ public class IssuedCard {
   }
 
 
+ /**
+  * The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.
+  *
+  * @param validationFacts
+  */ 
   @JsonProperty(JSON_PROPERTY_VALIDATION_FACTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationFacts(List<TransferNotificationValidationFact> validationFacts) {
@@ -331,25 +458,31 @@ public class IssuedCard {
       return false;
     }
     IssuedCard issuedCard = (IssuedCard) o;
-    return Objects.equals(this.panEntryMode, issuedCard.panEntryMode) &&
+    return Objects.equals(this.authorisationType, issuedCard.authorisationType) &&
+        Objects.equals(this.panEntryMode, issuedCard.panEntryMode) &&
         Objects.equals(this.processingType, issuedCard.processingType) &&
         Objects.equals(this.relayedAuthorisationData, issuedCard.relayedAuthorisationData) &&
+        Objects.equals(this.schemeTraceId, issuedCard.schemeTraceId) &&
+        Objects.equals(this.schemeUniqueTransactionId, issuedCard.schemeUniqueTransactionId) &&
         Objects.equals(this.type, issuedCard.type) &&
         Objects.equals(this.validationFacts, issuedCard.validationFacts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(panEntryMode, processingType, relayedAuthorisationData, type, validationFacts);
+    return Objects.hash(authorisationType, panEntryMode, processingType, relayedAuthorisationData, schemeTraceId, schemeUniqueTransactionId, type, validationFacts);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssuedCard {\n");
+    sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
     sb.append("    panEntryMode: ").append(toIndentedString(panEntryMode)).append("\n");
     sb.append("    processingType: ").append(toIndentedString(processingType)).append("\n");
     sb.append("    relayedAuthorisationData: ").append(toIndentedString(relayedAuthorisationData)).append("\n");
+    sb.append("    schemeTraceId: ").append(toIndentedString(schemeTraceId)).append("\n");
+    sb.append("    schemeUniqueTransactionId: ").append(toIndentedString(schemeUniqueTransactionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validationFacts: ").append(toIndentedString(validationFacts)).append("\n");
     sb.append("}");

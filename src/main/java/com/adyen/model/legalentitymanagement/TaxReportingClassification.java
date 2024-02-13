@@ -194,6 +194,11 @@ public class TaxReportingClassification {
   }
 
 
+ /**
+  * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
+  *
+  * @param businessType
+  */ 
   @JsonProperty(JSON_PROPERTY_BUSINESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessType(BusinessTypeEnum businessType) {
@@ -219,6 +224,11 @@ public class TaxReportingClassification {
   }
 
 
+ /**
+  * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
+  *
+  * @param financialInstitutionNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinancialInstitutionNumber(String financialInstitutionNumber) {
@@ -244,6 +254,11 @@ public class TaxReportingClassification {
   }
 
 
+ /**
+  * The organization&#39;s main source of income.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
+  *
+  * @param mainSourceOfIncome
+  */ 
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMainSourceOfIncome(MainSourceOfIncomeEnum mainSourceOfIncome) {
@@ -269,6 +284,11 @@ public class TaxReportingClassification {
   }
 
 
+ /**
+  * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

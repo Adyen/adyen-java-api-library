@@ -67,6 +67,11 @@ public class PersonalData {
   }
 
 
+ /**
+  * The date of birth of the person. The date should be in ISO-8601 format yyyy-mm-dd (e.g. 2000-01-31).
+  *
+  * @param dateOfBirth
+  */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(String dateOfBirth) {
@@ -92,6 +97,11 @@ public class PersonalData {
   }
 
 
+ /**
+  * An ID number of the person.
+  *
+  * @param idNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdNumber(String idNumber) {
@@ -117,6 +127,11 @@ public class PersonalData {
   }
 
 
+ /**
+  * The nationality of the person represented by a two-character country code. &gt;The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. &#39;NL&#39;).
+  *
+  * @param nationality
+  */ 
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
