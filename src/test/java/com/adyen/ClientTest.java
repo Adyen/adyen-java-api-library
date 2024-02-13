@@ -2,11 +2,13 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
+import com.adyen.model.RequestOptions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
 
 import javax.net.ssl.SSLContext;
+import java.util.HashMap;
 
 public class ClientTest {
 
@@ -40,6 +42,17 @@ public class ClientTest {
     public void testClientCertificateAuth() {
         Client client = new Client(clientCertificateAuthSSLContext, apiKey);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+    }
+
+    @Test
+    public void testRequestOptionsBuilderPattern() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("thing", "thing");
+        RequestOptions requestOptions = new RequestOptions()
+                .idempotencyKey("idempotency")
+                .requestedVerificationCodeHeader("headers")
+                .additionalServiceHeaders(map);
+        Assert.assertEquals(requestOptions.getAdditionalServiceHeaders(), map);
     }
 
     private void assertCommonEndpoints(Config config) {
