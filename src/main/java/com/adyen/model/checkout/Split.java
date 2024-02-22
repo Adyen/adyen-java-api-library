@@ -56,17 +56,29 @@ public class Split {
    * The type of the split item.  Possible values:  * [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic): **Commission**, **Default**, **Marketplace**, **PaymentFee**, **VAT**. * [Balance Platform](https://docs.adyen.com/marketplaces-and-platforms): **BalanceAccount**, **Commission**, **Default**, **PaymentFee**, **Remainder**, **Surcharge**, **Tip**, **VAT**.
    */
   public enum TypeEnum {
+    ACQUIRINGFEES("AcquiringFees"),
+    
+    ADYENCOMMISSION("AdyenCommission"),
+    
+    ADYENFEES("AdyenFees"),
+    
+    ADYENMARKUP("AdyenMarkup"),
+    
     BALANCEACCOUNT("BalanceAccount"),
     
     COMMISSION("Commission"),
     
     DEFAULT("Default"),
     
+    INTERCHANGE("Interchange"),
+    
     MARKETPLACE("MarketPlace"),
     
     PAYMENTFEE("PaymentFee"),
     
     REMAINDER("Remainder"),
+    
+    SCHEMEFEE("SchemeFee"),
     
     SURCHARGE("Surcharge"),
     
