@@ -53,6 +53,39 @@ public class AccountCompanyLevelApi extends Service {
     }
 
     /**
+    * Get a company account
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @return {@link Company }
+    * @throws ApiException if fails to make API call
+    */
+    public Company getCompanyAccount(String companyId) throws ApiException, IOException {
+        return getCompanyAccount(companyId, null);
+    }
+
+    /**
+    * Get a company account
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link Company }
+    * @throws ApiException if fails to make API call
+    */
+    public Company getCompanyAccount(String companyId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return Company.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of company accounts
     *
     * @return {@link ListCompanyResponse }
@@ -85,39 +118,6 @@ public class AccountCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null, queryParams);
         return ListCompanyResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get a company account
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @return {@link Company }
-    * @throws ApiException if fails to make API call
-    */
-    public Company getCompanyAccount(String companyId) throws ApiException, IOException {
-        return getCompanyAccount(companyId, null);
-    }
-
-    /**
-    * Get a company account
-    *
-    * @param companyId {@link String } The unique identifier of the company account. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link Company }
-    * @throws ApiException if fails to make API call
-    */
-    public Company getCompanyAccount(String companyId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (companyId == null) {
-            throw new IllegalArgumentException("Please provide the companyId path parameter");
-        }
-        pathParams.put("companyId", companyId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return Company.fromJson(jsonResult);
     }
 
     /**

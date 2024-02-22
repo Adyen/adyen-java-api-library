@@ -118,6 +118,11 @@ public class AuthenticationNotificationData {
   }
 
 
+ /**
+  * authentication
+  *
+  * @param authentication
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(AuthenticationInfo authentication) {
@@ -143,6 +148,11 @@ public class AuthenticationNotificationData {
   }
 
 
+ /**
+  * The unique identifier of the balance platform.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -168,6 +178,11 @@ public class AuthenticationNotificationData {
   }
 
 
+ /**
+  * Unique identifier of the authentication.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -193,6 +208,11 @@ public class AuthenticationNotificationData {
   }
 
 
+ /**
+  * Unique identifier of the payment instrument that was used for the authentication.
+  *
+  * @param paymentInstrumentId
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -218,6 +238,11 @@ public class AuthenticationNotificationData {
   }
 
 
+ /**
+  * purchase
+  *
+  * @param purchase
+  */ 
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchase(PurchaseInfo purchase) {
@@ -243,6 +268,11 @@ public class AuthenticationNotificationData {
   }
 
 
+ /**
+  * Outcome of the authentication. Allowed values: * authenticated * rejected * error
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

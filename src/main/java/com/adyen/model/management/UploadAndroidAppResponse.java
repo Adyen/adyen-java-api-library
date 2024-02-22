@@ -59,6 +59,11 @@ public class UploadAndroidAppResponse {
   }
 
 
+ /**
+  * The unique identifier of the uploaded Android app.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {

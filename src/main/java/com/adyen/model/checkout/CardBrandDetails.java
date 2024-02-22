@@ -63,6 +63,11 @@ public class CardBrandDetails {
   }
 
 
+ /**
+  * Indicates if you support the card brand.
+  *
+  * @param supported
+  */ 
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupported(Boolean supported) {
@@ -88,6 +93,11 @@ public class CardBrandDetails {
   }
 
 
+ /**
+  * The name of the card brand.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

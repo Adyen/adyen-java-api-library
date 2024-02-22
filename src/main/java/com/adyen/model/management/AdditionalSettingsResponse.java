@@ -79,6 +79,11 @@ public class AdditionalSettingsResponse {
   }
 
 
+ /**
+  * Object containing list of event codes for which the notifcation will not be sent. 
+  *
+  * @param excludeEventCodes
+  */ 
   @JsonProperty(JSON_PROPERTY_EXCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExcludeEventCodes(List<String> excludeEventCodes) {
@@ -112,6 +117,11 @@ public class AdditionalSettingsResponse {
   }
 
 
+ /**
+  * Object containing list of event codes for which the notifcation will be sent. 
+  *
+  * @param includeEventCodes
+  */ 
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIncludeEventCodes(List<String> includeEventCodes) {
@@ -145,6 +155,11 @@ public class AdditionalSettingsResponse {
   }
 
 
+ /**
+  * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
+  *
+  * @param properties
+  */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, Boolean> properties) {

@@ -67,6 +67,11 @@ public class CapitalGrants {
   }
 
 
+ /**
+  * The unique identifier of the grant.
+  *
+  * @param grants
+  */ 
   @JsonProperty(JSON_PROPERTY_GRANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrants(List<CapitalGrant> grants) {

@@ -112,6 +112,11 @@ public class GeneratePciDescriptionRequest {
   }
 
 
+ /**
+  * An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/marketplaces-and-platforms/additional-for-platform-setup/create-stores/) and [add payment methods](https://docs.adyen.com/marketplaces-and-platforms/payment-methods/) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
+  *
+  * @param additionalSalesChannels
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSalesChannels(List<AdditionalSalesChannelsEnum> additionalSalesChannels) {
@@ -137,6 +142,11 @@ public class GeneratePciDescriptionRequest {
   }
 
 
+ /**
+  * Sets the language of the PCI questionnaire. Its value is a two-character [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code, for example, **en**.
+  *
+  * @param language
+  */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {

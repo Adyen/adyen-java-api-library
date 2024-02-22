@@ -96,6 +96,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -129,6 +134,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
+  *
+  * @param capabilities
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountHolderCapability> capabilities) {
@@ -154,6 +164,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * contactDetails
+  *
+  * @param contactDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {
@@ -179,6 +194,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * Your description for the account holder, maximum 300 characters.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -204,6 +224,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
+  *
+  * @param legalEntityId
+  */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -237,6 +262,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+  *
+  * @param metadata
+  */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -262,6 +292,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * The unique identifier of the migrated account holder in the classic integration.
+  *
+  * @param migratedAccountHolderCode
+  */ 
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMigratedAccountHolderCode(String migratedAccountHolderCode) {
@@ -287,6 +322,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * Your reference for the account holder, maximum 150 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -312,6 +352,11 @@ public class AccountHolderInfo {
   }
 
 
+ /**
+  * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  *
+  * @param timeZone
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {

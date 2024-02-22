@@ -74,6 +74,11 @@ public class EventUrl {
   }
 
 
+ /**
+  * One or more local URLs to send event notifications to when using Terminal API.
+  *
+  * @param eventLocalUrls
+  */ 
   @JsonProperty(JSON_PROPERTY_EVENT_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventLocalUrls(List<Url> eventLocalUrls) {
@@ -107,6 +112,11 @@ public class EventUrl {
   }
 
 
+ /**
+  * One or more public URLs to send event notifications to when using Terminal API.
+  *
+  * @param eventPublicUrls
+  */ 
   @JsonProperty(JSON_PROPERTY_EVENT_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventPublicUrls(List<Url> eventPublicUrls) {

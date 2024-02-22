@@ -1,6 +1,5 @@
 /*
  * Adyen Stored Value API
- * A set of API endpoints to manage stored value products.
  *
  * The version of the OpenAPI document: 46
  * 
@@ -35,7 +34,6 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 public class StoredValueApi extends Service {
 
     public static final String API_VERSION = "46";
@@ -43,7 +41,7 @@ public class StoredValueApi extends Service {
     protected String baseURL;
 
     /**
-    * General constructor in {@link com.adyen.service package}.
+    * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
     public StoredValueApi(Client client) {
@@ -52,7 +50,7 @@ public class StoredValueApi extends Service {
     }
 
     /**
-    * General constructor in {@link com.adyen.service package}.
+    * Alternative constructor in {@link com.adyen.service package}.
     * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)

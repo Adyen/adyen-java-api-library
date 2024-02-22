@@ -83,6 +83,11 @@ public class CapitalGrantAccount {
   }
 
 
+ /**
+  * The balances of the grant account.
+  *
+  * @param balances
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(List<CapitalBalance> balances) {
@@ -108,6 +113,11 @@ public class CapitalGrantAccount {
   }
 
 
+ /**
+  * The unique identifier of the balance account used to fund the grant.
+  *
+  * @param fundingBalanceAccountId
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingBalanceAccountId(String fundingBalanceAccountId) {
@@ -133,6 +143,11 @@ public class CapitalGrantAccount {
   }
 
 
+ /**
+  * The identifier of the grant account.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -166,6 +181,11 @@ public class CapitalGrantAccount {
   }
 
 
+ /**
+  * The limits of the grant account.
+  *
+  * @param limits
+  */ 
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimits(List<GrantLimit> limits) {

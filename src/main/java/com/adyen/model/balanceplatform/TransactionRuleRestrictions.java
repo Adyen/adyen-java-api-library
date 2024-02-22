@@ -140,6 +140,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * activeNetworkTokens
+  *
+  * @param activeNetworkTokens
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActiveNetworkTokens(ActiveNetworkTokensRestriction activeNetworkTokens) {
@@ -165,6 +170,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * brandVariants
+  *
+  * @param brandVariants
+  */ 
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariants(BrandVariantsRestriction brandVariants) {
@@ -190,6 +200,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * counterpartyBank
+  *
+  * @param counterpartyBank
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterpartyBank(CounterpartyBankRestriction counterpartyBank) {
@@ -215,6 +230,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * countries
+  *
+  * @param countries
+  */ 
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(CountriesRestriction countries) {
@@ -240,6 +260,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * dayOfWeek
+  *
+  * @param dayOfWeek
+  */ 
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDayOfWeek(DayOfWeekRestriction dayOfWeek) {
@@ -265,6 +290,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * differentCurrencies
+  *
+  * @param differentCurrencies
+  */ 
   @JsonProperty(JSON_PROPERTY_DIFFERENT_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDifferentCurrencies(DifferentCurrenciesRestriction differentCurrencies) {
@@ -290,6 +320,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * entryModes
+  *
+  * @param entryModes
+  */ 
   @JsonProperty(JSON_PROPERTY_ENTRY_MODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntryModes(EntryModesRestriction entryModes) {
@@ -315,6 +350,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * internationalTransaction
+  *
+  * @param internationalTransaction
+  */ 
   @JsonProperty(JSON_PROPERTY_INTERNATIONAL_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInternationalTransaction(InternationalTransactionRestriction internationalTransaction) {
@@ -340,6 +380,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * matchingTransactions
+  *
+  * @param matchingTransactions
+  */ 
   @JsonProperty(JSON_PROPERTY_MATCHING_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchingTransactions(MatchingTransactionsRestriction matchingTransactions) {
@@ -365,6 +410,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * mccs
+  *
+  * @param mccs
+  */ 
   @JsonProperty(JSON_PROPERTY_MCCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMccs(MccsRestriction mccs) {
@@ -390,6 +440,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * merchantNames
+  *
+  * @param merchantNames
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantNames(MerchantNamesRestriction merchantNames) {
@@ -415,6 +470,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * merchants
+  *
+  * @param merchants
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchants(MerchantsRestriction merchants) {
@@ -440,6 +500,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * processingTypes
+  *
+  * @param processingTypes
+  */ 
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingTypes(ProcessingTypesRestriction processingTypes) {
@@ -465,6 +530,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * sameAmountRestriction
+  *
+  * @param sameAmountRestriction
+  */ 
   @JsonProperty(JSON_PROPERTY_SAME_AMOUNT_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
@@ -490,6 +560,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * sameCounterpartyRestriction
+  *
+  * @param sameCounterpartyRestriction
+  */ 
   @JsonProperty(JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSameCounterpartyRestriction(SameCounterpartyRestriction sameCounterpartyRestriction) {
@@ -515,6 +590,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * timeOfDay
+  *
+  * @param timeOfDay
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeOfDay(TimeOfDayRestriction timeOfDay) {
@@ -540,6 +620,11 @@ public class TransactionRuleRestrictions {
   }
 
 
+ /**
+  * totalAmount
+  *
+  * @param totalAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(TotalAmountRestriction totalAmount) {

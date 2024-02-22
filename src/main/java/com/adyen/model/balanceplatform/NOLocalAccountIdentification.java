@@ -96,6 +96,11 @@ public class NOLocalAccountIdentification {
   }
 
 
+ /**
+  * The 11-digit bank account number, without separators or whitespace.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -121,6 +126,11 @@ public class NOLocalAccountIdentification {
   }
 
 
+ /**
+  * **noLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

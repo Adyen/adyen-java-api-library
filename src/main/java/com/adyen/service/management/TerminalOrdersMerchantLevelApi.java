@@ -58,6 +58,154 @@ public class TerminalOrdersMerchantLevelApi extends Service {
     }
 
     /**
+    * Cancel an order
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder cancelOrder(String merchantId, String orderId) throws ApiException, IOException {
+        return cancelOrder(merchantId, orderId, null);
+    }
+
+    /**
+    * Cancel an order
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder cancelOrder(String merchantId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (orderId == null) {
+            throw new IllegalArgumentException("Please provide the orderId path parameter");
+        }
+        pathParams.put("orderId", orderId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders/{orderId}/cancel", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return TerminalOrder.fromJson(jsonResult);
+    }
+
+    /**
+    * Create an order
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder createOrder(String merchantId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
+        return createOrder(merchantId, terminalOrderRequest, null);
+    }
+
+    /**
+    * Create an order
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder createOrder(String merchantId, TerminalOrderRequest terminalOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+
+        String requestBody = terminalOrderRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return TerminalOrder.fromJson(jsonResult);
+    }
+
+    /**
+    * Create a shipping location
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param shippingLocation {@link ShippingLocation }  (required)
+    * @return {@link ShippingLocation }
+    * @throws ApiException if fails to make API call
+    */
+    public ShippingLocation createShippingLocation(String merchantId, ShippingLocation shippingLocation) throws ApiException, IOException {
+        return createShippingLocation(merchantId, shippingLocation, null);
+    }
+
+    /**
+    * Create a shipping location
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param shippingLocation {@link ShippingLocation }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ShippingLocation }
+    * @throws ApiException if fails to make API call
+    */
+    public ShippingLocation createShippingLocation(String merchantId, ShippingLocation shippingLocation, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+
+        String requestBody = shippingLocation.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/shippingLocations", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return ShippingLocation.fromJson(jsonResult);
+    }
+
+    /**
+    * Get an order
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder getOrder(String merchantId, String orderId) throws ApiException, IOException {
+        return getOrder(merchantId, orderId, null);
+    }
+
+    /**
+    * Get an order
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param orderId {@link String } The unique identifier of the order. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrder }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrder getOrder(String merchantId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        if (orderId == null) {
+            throw new IllegalArgumentException("Please provide the orderId path parameter");
+        }
+        pathParams.put("orderId", orderId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders/{orderId}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return TerminalOrder.fromJson(jsonResult);
+    }
+
+    /**
     * Get a list of billing entities
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -94,6 +242,57 @@ public class TerminalOrdersMerchantLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/billingEntities", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return BillingEntitiesResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get a list of orders
+    *
+    * @param merchantId {@link String }  (required)
+    * @return {@link TerminalOrdersResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrdersResponse listOrders(String merchantId) throws ApiException, IOException {
+        return listOrders(merchantId, null,  null,  null,  null,  null);
+    }
+
+    /**
+    * Get a list of orders
+    *
+    * @param merchantId {@link String }  (required)
+    * @param customerOrderReference {@link String } Query: Your purchase order number. (optional)
+    * @param status {@link String } Query: The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered. (optional)
+    * @param offset {@link Integer } Query: The number of orders to skip. (optional)
+    * @param limit {@link Integer } Query: The number of orders to return. (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TerminalOrdersResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TerminalOrdersResponse listOrders(String merchantId, String customerOrderReference, String status, Integer offset, Integer limit, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (customerOrderReference != null) {
+        queryParams.put("customerOrderReference", customerOrderReference);
+        }
+        if (status != null) {
+        queryParams.put("status", status);
+        }
+        if (offset != null) {
+        queryParams.put("offset", offset.toString());
+        }
+        if (limit != null) {
+        queryParams.put("limit", limit.toString());
+        }
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return TerminalOrdersResponse.fromJson(jsonResult);
     }
 
     /**
@@ -174,96 +373,6 @@ public class TerminalOrdersMerchantLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalModels", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return TerminalModelsResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get a list of orders
-    *
-    * @param merchantId {@link String }  (required)
-    * @return {@link TerminalOrdersResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrdersResponse listOrders(String merchantId) throws ApiException, IOException {
-        return listOrders(merchantId, null,  null,  null,  null,  null);
-    }
-
-    /**
-    * Get a list of orders
-    *
-    * @param merchantId {@link String }  (required)
-    * @param customerOrderReference {@link String } Query: Your purchase order number. (optional)
-    * @param status {@link String } Query: The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered. (optional)
-    * @param offset {@link Integer } Query: The number of orders to skip. (optional)
-    * @param limit {@link Integer } Query: The number of orders to return. (optional)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrdersResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrdersResponse listOrders(String merchantId, String customerOrderReference, String status, Integer offset, Integer limit, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        //Add query params
-        Map<String, String> queryParams = new HashMap<>();
-        if (customerOrderReference != null) {
-        queryParams.put("customerOrderReference", customerOrderReference);
-        }
-        if (status != null) {
-        queryParams.put("status", status);
-        }
-        if (offset != null) {
-        queryParams.put("offset", offset.toString());
-        }
-        if (limit != null) {
-        queryParams.put("limit", limit.toString());
-        }
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
-        return TerminalOrdersResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get an order
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder getOrder(String merchantId, String orderId) throws ApiException, IOException {
-        return getOrder(merchantId, orderId, null);
-    }
-
-    /**
-    * Get an order
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder getOrder(String merchantId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (orderId == null) {
-            throw new IllegalArgumentException("Please provide the orderId path parameter");
-        }
-        pathParams.put("orderId", orderId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders/{orderId}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return TerminalOrder.fromJson(jsonResult);
     }
 
     /**
@@ -356,115 +465,6 @@ public class TerminalOrdersMerchantLevelApi extends Service {
         String requestBody = terminalOrderRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders/{orderId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return TerminalOrder.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a shipping location
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param shippingLocation {@link ShippingLocation }  (required)
-    * @return {@link ShippingLocation }
-    * @throws ApiException if fails to make API call
-    */
-    public ShippingLocation createShippingLocation(String merchantId, ShippingLocation shippingLocation) throws ApiException, IOException {
-        return createShippingLocation(merchantId, shippingLocation, null);
-    }
-
-    /**
-    * Create a shipping location
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param shippingLocation {@link ShippingLocation }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link ShippingLocation }
-    * @throws ApiException if fails to make API call
-    */
-    public ShippingLocation createShippingLocation(String merchantId, ShippingLocation shippingLocation, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = shippingLocation.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/shippingLocations", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return ShippingLocation.fromJson(jsonResult);
-    }
-
-    /**
-    * Create an order
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder createOrder(String merchantId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
-        return createOrder(merchantId, terminalOrderRequest, null);
-    }
-
-    /**
-    * Create an order
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param terminalOrderRequest {@link TerminalOrderRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder createOrder(String merchantId, TerminalOrderRequest terminalOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = terminalOrderRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return TerminalOrder.fromJson(jsonResult);
-    }
-
-    /**
-    * Cancel an order
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder cancelOrder(String merchantId, String orderId) throws ApiException, IOException {
-        return cancelOrder(merchantId, orderId, null);
-    }
-
-    /**
-    * Cancel an order
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param orderId {@link String } The unique identifier of the order. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TerminalOrder }
-    * @throws ApiException if fails to make API call
-    */
-    public TerminalOrder cancelOrder(String merchantId, String orderId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-        if (orderId == null) {
-            throw new IllegalArgumentException("Please provide the orderId path parameter");
-        }
-        pathParams.put("orderId", orderId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/terminalOrders/{orderId}/cancel", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return TerminalOrder.fromJson(jsonResult);
     }
 }

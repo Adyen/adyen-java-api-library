@@ -96,6 +96,11 @@ public class InstallAndroidAppDetails {
   }
 
 
+ /**
+  * The unique identifier of the app to be installed.
+  *
+  * @param appId
+  */ 
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
@@ -121,6 +126,11 @@ public class InstallAndroidAppDetails {
   }
 
 
+ /**
+  * Type of terminal action: Install an Android app.
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

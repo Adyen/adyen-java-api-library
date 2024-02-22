@@ -1,6 +1,5 @@
 /*
  * Disputes API
- * You can use the [Disputes API](https://docs.adyen.com/risk-management/disputes-api) to automate the dispute handling process so that you can respond to disputes and chargebacks as soon as they are initiated. The Disputes API lets you retrieve defense reasons, supply and delete defense documents, and accept or defend disputes.  ## Authentication Each request to the Disputes API must be signed with an API key. For this, obtain an API Key from your Customer Area, as described in [How to get the API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key). Then set this key to the `X-API-Key` header value, for example:  ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: Your_API_key\" \\ ... ``` Note that when going live, you need to generate new web service user credentials to access the [live endpoints](https://docs.adyen.com/development-resources/live-endpoints).  ## Versioning Disputes API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://ca-test.adyen.com/ca/services/DisputeService/v30/defendDispute ```
  *
  * The version of the OpenAPI document: 30
  * 
@@ -76,6 +75,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The error code mapped to the error message.
+  *
+  * @param errorCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -101,6 +105,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The category of the error.
+  *
+  * @param errorType
+  */ 
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
@@ -126,6 +135,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * A short explanation of the issue.
+  *
+  * @param message
+  */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -151,6 +165,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The PSP reference of the payment.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -176,6 +195,11 @@ public class ServiceError {
   }
 
 
+ /**
+  * The HTTP response status.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {

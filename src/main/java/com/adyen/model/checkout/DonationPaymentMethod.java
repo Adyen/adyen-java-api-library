@@ -16,11 +16,11 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.checkout.ApplePayDetails;
-import com.adyen.model.checkout.CardDetails;
-import com.adyen.model.checkout.GooglePayDetails;
-import com.adyen.model.checkout.IdealDetails;
-import com.adyen.model.checkout.PayWithGoogleDetails;
+import com.adyen.model.checkout.ApplePayDonations;
+import com.adyen.model.checkout.CardDonations;
+import com.adyen.model.checkout.GooglePayDonations;
+import com.adyen.model.checkout.IdealDonations;
+import com.adyen.model.checkout.PayWithGoogleDonations;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -97,143 +97,143 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
 
-            // deserialize ApplePayDetails
+            // deserialize ApplePayDonations
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ApplePayDetails.class.equals(Integer.class) || ApplePayDetails.class.equals(Long.class) || ApplePayDetails.class.equals(Float.class) || ApplePayDetails.class.equals(Double.class) || ApplePayDetails.class.equals(Boolean.class) || ApplePayDetails.class.equals(String.class)) {
+                if (ApplePayDonations.class.equals(Integer.class) || ApplePayDonations.class.equals(Long.class) || ApplePayDonations.class.equals(Float.class) || ApplePayDonations.class.equals(Double.class) || ApplePayDonations.class.equals(Boolean.class) || ApplePayDonations.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((ApplePayDetails.class.equals(Integer.class) || ApplePayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ApplePayDetails.class.equals(Float.class) || ApplePayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (ApplePayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ApplePayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((ApplePayDonations.class.equals(Integer.class) || ApplePayDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ApplePayDonations.class.equals(Float.class) || ApplePayDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ApplePayDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ApplePayDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(ApplePayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                boolean typeMatch = Arrays.stream(ApplePayDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), ApplePayDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), ApplePayDonations.class);
                     // typeMatch should enforce proper deserialization
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'ApplePayDetails'");
+                    log.log(Level.FINER, "Input data matches schema 'ApplePayDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'ApplePayDetails'", e);
+                log.log(Level.FINER, "Input data does not match schema 'ApplePayDonations'", e);
             }
 
 
-            // deserialize CardDetails
+            // deserialize CardDonations
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (CardDetails.class.equals(Integer.class) || CardDetails.class.equals(Long.class) || CardDetails.class.equals(Float.class) || CardDetails.class.equals(Double.class) || CardDetails.class.equals(Boolean.class) || CardDetails.class.equals(String.class)) {
+                if (CardDonations.class.equals(Integer.class) || CardDonations.class.equals(Long.class) || CardDonations.class.equals(Float.class) || CardDonations.class.equals(Double.class) || CardDonations.class.equals(Boolean.class) || CardDonations.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((CardDetails.class.equals(Integer.class) || CardDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((CardDetails.class.equals(Float.class) || CardDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (CardDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (CardDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((CardDonations.class.equals(Integer.class) || CardDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CardDonations.class.equals(Float.class) || CardDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CardDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CardDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(CardDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                boolean typeMatch = Arrays.stream(CardDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), CardDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), CardDonations.class);
                     // typeMatch should enforce proper deserialization
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'CardDetails'");
+                    log.log(Level.FINER, "Input data matches schema 'CardDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'CardDetails'", e);
+                log.log(Level.FINER, "Input data does not match schema 'CardDonations'", e);
             }
 
 
-            // deserialize GooglePayDetails
+            // deserialize GooglePayDonations
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (GooglePayDetails.class.equals(Integer.class) || GooglePayDetails.class.equals(Long.class) || GooglePayDetails.class.equals(Float.class) || GooglePayDetails.class.equals(Double.class) || GooglePayDetails.class.equals(Boolean.class) || GooglePayDetails.class.equals(String.class)) {
+                if (GooglePayDonations.class.equals(Integer.class) || GooglePayDonations.class.equals(Long.class) || GooglePayDonations.class.equals(Float.class) || GooglePayDonations.class.equals(Double.class) || GooglePayDonations.class.equals(Boolean.class) || GooglePayDonations.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((GooglePayDetails.class.equals(Integer.class) || GooglePayDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((GooglePayDetails.class.equals(Float.class) || GooglePayDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (GooglePayDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (GooglePayDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((GooglePayDonations.class.equals(Integer.class) || GooglePayDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((GooglePayDonations.class.equals(Float.class) || GooglePayDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (GooglePayDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (GooglePayDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(GooglePayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                boolean typeMatch = Arrays.stream(GooglePayDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), GooglePayDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), GooglePayDonations.class);
                     // typeMatch should enforce proper deserialization
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'GooglePayDetails'");
+                    log.log(Level.FINER, "Input data matches schema 'GooglePayDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'GooglePayDetails'", e);
+                log.log(Level.FINER, "Input data does not match schema 'GooglePayDonations'", e);
             }
 
 
-            // deserialize IdealDetails
+            // deserialize IdealDonations
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (IdealDetails.class.equals(Integer.class) || IdealDetails.class.equals(Long.class) || IdealDetails.class.equals(Float.class) || IdealDetails.class.equals(Double.class) || IdealDetails.class.equals(Boolean.class) || IdealDetails.class.equals(String.class)) {
+                if (IdealDonations.class.equals(Integer.class) || IdealDonations.class.equals(Long.class) || IdealDonations.class.equals(Float.class) || IdealDonations.class.equals(Double.class) || IdealDonations.class.equals(Boolean.class) || IdealDonations.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((IdealDetails.class.equals(Integer.class) || IdealDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((IdealDetails.class.equals(Float.class) || IdealDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (IdealDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (IdealDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((IdealDonations.class.equals(Integer.class) || IdealDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((IdealDonations.class.equals(Float.class) || IdealDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (IdealDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (IdealDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(IdealDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                boolean typeMatch = Arrays.stream(IdealDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), IdealDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), IdealDonations.class);
                     // typeMatch should enforce proper deserialization
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'IdealDetails'");
+                    log.log(Level.FINER, "Input data matches schema 'IdealDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'IdealDetails'", e);
+                log.log(Level.FINER, "Input data does not match schema 'IdealDonations'", e);
             }
 
 
-            // deserialize PayWithGoogleDetails
+            // deserialize PayWithGoogleDonations
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (PayWithGoogleDetails.class.equals(Integer.class) || PayWithGoogleDetails.class.equals(Long.class) || PayWithGoogleDetails.class.equals(Float.class) || PayWithGoogleDetails.class.equals(Double.class) || PayWithGoogleDetails.class.equals(Boolean.class) || PayWithGoogleDetails.class.equals(String.class)) {
+                if (PayWithGoogleDonations.class.equals(Integer.class) || PayWithGoogleDonations.class.equals(Long.class) || PayWithGoogleDonations.class.equals(Float.class) || PayWithGoogleDonations.class.equals(Double.class) || PayWithGoogleDonations.class.equals(Boolean.class) || PayWithGoogleDonations.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((PayWithGoogleDetails.class.equals(Integer.class) || PayWithGoogleDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((PayWithGoogleDetails.class.equals(Float.class) || PayWithGoogleDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (PayWithGoogleDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (PayWithGoogleDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((PayWithGoogleDonations.class.equals(Integer.class) || PayWithGoogleDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((PayWithGoogleDonations.class.equals(Float.class) || PayWithGoogleDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (PayWithGoogleDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (PayWithGoogleDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(PayWithGoogleDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                boolean typeMatch = Arrays.stream(PayWithGoogleDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
                 if (attemptParsing || typeMatch) {
                     // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), PayWithGoogleDetails.class);
+                    deserialized = JSON.getMapper().readValue(tree.toString(), PayWithGoogleDonations.class);
                     // typeMatch should enforce proper deserialization
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'PayWithGoogleDetails'");
+                    log.log(Level.FINER, "Input data matches schema 'PayWithGoogleDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'PayWithGoogleDetails'", e);
+                log.log(Level.FINER, "Input data does not match schema 'PayWithGoogleDonations'", e);
             }
 
             // Throw error if there is no match
@@ -266,41 +266,41 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
-    public DonationPaymentMethod(ApplePayDetails o) {
+    public DonationPaymentMethod(ApplePayDonations o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public DonationPaymentMethod(CardDetails o) {
+    public DonationPaymentMethod(CardDonations o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public DonationPaymentMethod(GooglePayDetails o) {
+    public DonationPaymentMethod(GooglePayDonations o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public DonationPaymentMethod(IdealDetails o) {
+    public DonationPaymentMethod(IdealDonations o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public DonationPaymentMethod(PayWithGoogleDetails o) {
+    public DonationPaymentMethod(PayWithGoogleDonations o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("ApplePayDetails", new GenericType<ApplePayDetails>() {
+        schemas.put("ApplePayDonations", new GenericType<ApplePayDonations>() {
         });
-        schemas.put("CardDetails", new GenericType<CardDetails>() {
+        schemas.put("CardDonations", new GenericType<CardDonations>() {
         });
-        schemas.put("GooglePayDetails", new GenericType<GooglePayDetails>() {
+        schemas.put("GooglePayDonations", new GenericType<GooglePayDonations>() {
         });
-        schemas.put("IdealDetails", new GenericType<IdealDetails>() {
+        schemas.put("IdealDonations", new GenericType<IdealDonations>() {
         });
-        schemas.put("PayWithGoogleDetails", new GenericType<PayWithGoogleDetails>() {
+        schemas.put("PayWithGoogleDonations", new GenericType<PayWithGoogleDonations>() {
         });
         JSON.registerDescendants(DonationPaymentMethod.class, Collections.unmodifiableMap(schemas));
     }
@@ -313,46 +313,46 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * ApplePayDetails, CardDetails, GooglePayDetails, IdealDetails, PayWithGoogleDetails
+     * ApplePayDonations, CardDonations, GooglePayDonations, IdealDonations, PayWithGoogleDonations
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(ApplePayDetails.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(ApplePayDonations.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(CardDetails.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(CardDonations.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(GooglePayDetails.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(GooglePayDonations.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(IdealDetails.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(IdealDonations.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(PayWithGoogleDetails.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(PayWithGoogleDonations.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be ApplePayDetails, CardDetails, GooglePayDetails, IdealDetails, PayWithGoogleDetails");
+        throw new RuntimeException("Invalid instance type. Must be ApplePayDonations, CardDonations, GooglePayDonations, IdealDonations, PayWithGoogleDonations");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * ApplePayDetails, CardDetails, GooglePayDetails, IdealDetails, PayWithGoogleDetails
+     * ApplePayDonations, CardDonations, GooglePayDonations, IdealDonations, PayWithGoogleDonations
      *
-     * @return The actual instance (ApplePayDetails, CardDetails, GooglePayDetails, IdealDetails, PayWithGoogleDetails)
+     * @return The actual instance (ApplePayDonations, CardDonations, GooglePayDonations, IdealDonations, PayWithGoogleDonations)
      */
     @Override
     public Object getActualInstance() {
@@ -360,58 +360,58 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ApplePayDetails`. If the actual instance is not `ApplePayDetails`,
+     * Get the actual instance of `ApplePayDonations`. If the actual instance is not `ApplePayDonations`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ApplePayDetails`
-     * @throws ClassCastException if the instance is not `ApplePayDetails`
+     * @return The actual instance of `ApplePayDonations`
+     * @throws ClassCastException if the instance is not `ApplePayDonations`
      */
-    public ApplePayDetails getApplePayDetails() throws ClassCastException {
-        return (ApplePayDetails)super.getActualInstance();
+    public ApplePayDonations getApplePayDonations() throws ClassCastException {
+        return (ApplePayDonations)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CardDetails`. If the actual instance is not `CardDetails`,
+     * Get the actual instance of `CardDonations`. If the actual instance is not `CardDonations`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CardDetails`
-     * @throws ClassCastException if the instance is not `CardDetails`
+     * @return The actual instance of `CardDonations`
+     * @throws ClassCastException if the instance is not `CardDonations`
      */
-    public CardDetails getCardDetails() throws ClassCastException {
-        return (CardDetails)super.getActualInstance();
+    public CardDonations getCardDonations() throws ClassCastException {
+        return (CardDonations)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `GooglePayDetails`. If the actual instance is not `GooglePayDetails`,
+     * Get the actual instance of `GooglePayDonations`. If the actual instance is not `GooglePayDonations`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `GooglePayDetails`
-     * @throws ClassCastException if the instance is not `GooglePayDetails`
+     * @return The actual instance of `GooglePayDonations`
+     * @throws ClassCastException if the instance is not `GooglePayDonations`
      */
-    public GooglePayDetails getGooglePayDetails() throws ClassCastException {
-        return (GooglePayDetails)super.getActualInstance();
+    public GooglePayDonations getGooglePayDonations() throws ClassCastException {
+        return (GooglePayDonations)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `IdealDetails`. If the actual instance is not `IdealDetails`,
+     * Get the actual instance of `IdealDonations`. If the actual instance is not `IdealDonations`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `IdealDetails`
-     * @throws ClassCastException if the instance is not `IdealDetails`
+     * @return The actual instance of `IdealDonations`
+     * @throws ClassCastException if the instance is not `IdealDonations`
      */
-    public IdealDetails getIdealDetails() throws ClassCastException {
-        return (IdealDetails)super.getActualInstance();
+    public IdealDonations getIdealDonations() throws ClassCastException {
+        return (IdealDonations)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `PayWithGoogleDetails`. If the actual instance is not `PayWithGoogleDetails`,
+     * Get the actual instance of `PayWithGoogleDonations`. If the actual instance is not `PayWithGoogleDonations`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `PayWithGoogleDetails`
-     * @throws ClassCastException if the instance is not `PayWithGoogleDetails`
+     * @return The actual instance of `PayWithGoogleDonations`
+     * @throws ClassCastException if the instance is not `PayWithGoogleDonations`
      */
-    public PayWithGoogleDetails getPayWithGoogleDetails() throws ClassCastException {
-        return (PayWithGoogleDetails)super.getActualInstance();
+    public PayWithGoogleDonations getPayWithGoogleDonations() throws ClassCastException {
+        return (PayWithGoogleDonations)super.getActualInstance();
     }
 
     /**

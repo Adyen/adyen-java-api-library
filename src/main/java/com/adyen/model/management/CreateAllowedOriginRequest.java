@@ -68,6 +68,11 @@ public class CreateAllowedOriginRequest {
   }
 
 
+ /**
+  * links
+  *
+  * @param links
+  */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
@@ -93,6 +98,11 @@ public class CreateAllowedOriginRequest {
   }
 
 
+ /**
+  * Domain of the allowed origin.
+  *
+  * @param domain
+  */ 
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomain(String domain) {
@@ -118,6 +128,11 @@ public class CreateAllowedOriginRequest {
   }
 
 
+ /**
+  * Unique identifier of the allowed origin.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {

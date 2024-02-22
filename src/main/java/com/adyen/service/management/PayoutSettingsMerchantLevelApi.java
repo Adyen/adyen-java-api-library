@@ -54,6 +54,41 @@ public class PayoutSettingsMerchantLevelApi extends Service {
     }
 
     /**
+    * Add a payout setting
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param payoutSettingsRequest {@link PayoutSettingsRequest }  (required)
+    * @return {@link PayoutSettings }
+    * @throws ApiException if fails to make API call
+    */
+    public PayoutSettings addPayoutSetting(String merchantId, PayoutSettingsRequest payoutSettingsRequest) throws ApiException, IOException {
+        return addPayoutSetting(merchantId, payoutSettingsRequest, null);
+    }
+
+    /**
+    * Add a payout setting
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param payoutSettingsRequest {@link PayoutSettingsRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PayoutSettings }
+    * @throws ApiException if fails to make API call
+    */
+    public PayoutSettings addPayoutSetting(String merchantId, PayoutSettingsRequest payoutSettingsRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+
+        String requestBody = payoutSettingsRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/payoutSettings", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return PayoutSettings.fromJson(jsonResult);
+    }
+
+    /**
     * Delete a payout setting
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -87,39 +122,6 @@ public class PayoutSettingsMerchantLevelApi extends Service {
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/payoutSettings/{payoutSettingsId}", null);
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
-    }
-
-    /**
-    * Get a list of payout settings
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @return {@link PayoutSettingsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PayoutSettingsResponse listPayoutSettings(String merchantId) throws ApiException, IOException {
-        return listPayoutSettings(merchantId, null);
-    }
-
-    /**
-    * Get a list of payout settings
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PayoutSettingsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PayoutSettingsResponse listPayoutSettings(String merchantId, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/payoutSettings", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return PayoutSettingsResponse.fromJson(jsonResult);
     }
 
     /**
@@ -162,6 +164,39 @@ public class PayoutSettingsMerchantLevelApi extends Service {
     }
 
     /**
+    * Get a list of payout settings
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @return {@link PayoutSettingsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PayoutSettingsResponse listPayoutSettings(String merchantId) throws ApiException, IOException {
+        return listPayoutSettings(merchantId, null);
+    }
+
+    /**
+    * Get a list of payout settings
+    *
+    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PayoutSettingsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PayoutSettingsResponse listPayoutSettings(String merchantId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (merchantId == null) {
+            throw new IllegalArgumentException("Please provide the merchantId path parameter");
+        }
+        pathParams.put("merchantId", merchantId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/payoutSettings", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return PayoutSettingsResponse.fromJson(jsonResult);
+    }
+
+    /**
     * Update a payout setting
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
@@ -199,41 +234,6 @@ public class PayoutSettingsMerchantLevelApi extends Service {
         String requestBody = updatePayoutSettingsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/payoutSettings/{payoutSettingsId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return PayoutSettings.fromJson(jsonResult);
-    }
-
-    /**
-    * Add a payout setting
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param payoutSettingsRequest {@link PayoutSettingsRequest }  (required)
-    * @return {@link PayoutSettings }
-    * @throws ApiException if fails to make API call
-    */
-    public PayoutSettings addPayoutSetting(String merchantId, PayoutSettingsRequest payoutSettingsRequest) throws ApiException, IOException {
-        return addPayoutSetting(merchantId, payoutSettingsRequest, null);
-    }
-
-    /**
-    * Add a payout setting
-    *
-    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param payoutSettingsRequest {@link PayoutSettingsRequest }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PayoutSettings }
-    * @throws ApiException if fails to make API call
-    */
-    public PayoutSettings addPayoutSetting(String merchantId, PayoutSettingsRequest payoutSettingsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (merchantId == null) {
-            throw new IllegalArgumentException("Please provide the merchantId path parameter");
-        }
-        pathParams.put("merchantId", merchantId);
-
-        String requestBody = payoutSettingsRequest.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/merchants/{merchantId}/payoutSettings", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return PayoutSettings.fromJson(jsonResult);
     }
 }

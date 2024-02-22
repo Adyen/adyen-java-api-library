@@ -59,6 +59,11 @@ public class GenerateClientKeyResponse {
   }
 
 
+ /**
+  * Generated client key
+  *
+  * @param clientKey
+  */ 
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {

@@ -82,6 +82,11 @@ public class TerminalOrderRequest {
   }
 
 
+ /**
+  * The identification of the billing entity to use for the order.
+  *
+  * @param billingEntityId
+  */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntityId(String billingEntityId) {
@@ -107,6 +112,11 @@ public class TerminalOrderRequest {
   }
 
 
+ /**
+  * The merchant-defined purchase order reference.
+  *
+  * @param customerOrderReference
+  */ 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
@@ -140,6 +150,11 @@ public class TerminalOrderRequest {
   }
 
 
+ /**
+  * The products included in the order.
+  *
+  * @param items
+  */ 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
@@ -165,6 +180,11 @@ public class TerminalOrderRequest {
   }
 
 
+ /**
+  * Type of order
+  *
+  * @param orderType
+  */ 
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderType(String orderType) {
@@ -190,6 +210,11 @@ public class TerminalOrderRequest {
   }
 
 
+ /**
+  * The identification of the shipping location to use for the order.
+  *
+  * @param shippingLocationId
+  */ 
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocationId(String shippingLocationId) {
@@ -215,6 +240,11 @@ public class TerminalOrderRequest {
   }
 
 
+ /**
+  * The tax number of the billing entity.
+  *
+  * @param taxId
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {

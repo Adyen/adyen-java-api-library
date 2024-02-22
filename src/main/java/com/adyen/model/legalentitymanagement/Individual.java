@@ -100,6 +100,11 @@ public class Individual {
   }
 
 
+ /**
+  * birthData
+  *
+  * @param birthData
+  */ 
   @JsonProperty(JSON_PROPERTY_BIRTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBirthData(BirthData birthData) {
@@ -125,6 +130,11 @@ public class Individual {
   }
 
 
+ /**
+  * The email address of the legal entity.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -150,6 +160,11 @@ public class Individual {
   }
 
 
+ /**
+  * identificationData
+  *
+  * @param identificationData
+  */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationData(IdentificationData identificationData) {
@@ -175,6 +190,11 @@ public class Individual {
   }
 
 
+ /**
+  * name
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
@@ -200,6 +220,11 @@ public class Individual {
   }
 
 
+ /**
+  * The individual&#39;s nationality.
+  *
+  * @param nationality
+  */ 
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
@@ -225,6 +250,11 @@ public class Individual {
   }
 
 
+ /**
+  * phone
+  *
+  * @param phone
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
@@ -250,6 +280,11 @@ public class Individual {
   }
 
 
+ /**
+  * residentialAddress
+  *
+  * @param residentialAddress
+  */ 
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResidentialAddress(Address residentialAddress) {
@@ -283,6 +318,11 @@ public class Individual {
   }
 
 
+ /**
+  * The tax information of the individual.
+  *
+  * @param taxInformation
+  */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
@@ -308,6 +348,11 @@ public class Individual {
   }
 
 
+ /**
+  * webData
+  *
+  * @param webData
+  */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {

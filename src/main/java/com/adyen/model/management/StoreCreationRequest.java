@@ -91,6 +91,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(StoreLocation address) {
@@ -124,6 +129,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
+  *
+  * @param businessLineIds
+  */ 
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineIds(List<String> businessLineIds) {
@@ -149,6 +159,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * Your description of the store.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -174,6 +189,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * The unique identifier of the store, used by certain payment methods and tax authorities. Accepts up to 14 digits.  Required for CNPJ in Brazil, in the format 00.000.000/00git00-00 separated by dots, slashes, hyphens, or without separators.  Optional for Zip in Australia and SIRET in France, required except for nonprofit organizations and incorporated associations.  
+  *
+  * @param externalReferenceId
+  */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReferenceId(String externalReferenceId) {
@@ -199,6 +219,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
+  *
+  * @param phoneNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -224,6 +249,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -249,6 +279,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
+  *
+  * @param shopperStatement
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
@@ -274,6 +309,11 @@ public class StoreCreationRequest {
   }
 
 
+ /**
+  * splitConfiguration
+  *
+  * @param splitConfiguration
+  */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfiguration(StoreSplitConfiguration splitConfiguration) {

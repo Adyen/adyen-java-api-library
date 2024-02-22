@@ -363,6 +363,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The name of the Adyen acquirer account.  Example: PayPalSandbox_TestAcquirer  &gt; Only relevant for PayPal transactions.
+  *
+  * @param acquirerAccountCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerAccountCode(String acquirerAccountCode) {
@@ -388,6 +393,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The name of the acquirer processing the payment request.  Example: TestPmmAcquirer
+  *
+  * @param acquirerCode
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerCode(String acquirerCode) {
@@ -413,6 +423,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.  Example: 7C9N3FNBKT9
+  *
+  * @param acquirerReference
+  */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerReference(String acquirerReference) {
@@ -438,6 +453,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The Adyen alias of the card.  Example: H167852639363479
+  *
+  * @param alias
+  */ 
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlias(String alias) {
@@ -463,6 +483,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The type of the card alias.  Example: Default
+  *
+  * @param aliasType
+  */ 
   @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAliasType(String aliasType) {
@@ -488,6 +513,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.  Example: 58747
+  *
+  * @param authCode
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
@@ -513,6 +543,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Merchant ID known by the acquirer.
+  *
+  * @param authorisationMid
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationMid(String authorisationMid) {
@@ -538,6 +573,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The currency of the authorised amount, as a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param authorisedAmountCurrency
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountCurrency(String authorisedAmountCurrency) {
@@ -563,6 +603,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Value of the amount authorised.  This amount is represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param authorisedAmountValue
+  */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountValue(String authorisedAmountValue) {
@@ -588,6 +633,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The AVS result code of the payment, which provides information about the outcome of the AVS check.  For possible values, see [AVS](https://docs.adyen.com/risk-management/configure-standard-risk-rules/consistency-rules#billing-address-does-not-match-cardholder-address-avs).
+  *
+  * @param avsResult
+  */ 
   @JsonProperty(JSON_PROPERTY_AVS_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResult(String avsResult) {
@@ -613,6 +663,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Raw AVS result received from the acquirer, where available.  Example: D
+  *
+  * @param avsResultRaw
+  */ 
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResultRaw(String avsResultRaw) {
@@ -638,6 +693,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * BIC of a bank account.  Example: TESTNL01  &gt; Only relevant for SEPA Direct Debit transactions.
+  *
+  * @param bic
+  */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -663,6 +723,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Includes the co-branded card information.
+  *
+  * @param coBrandedWith
+  */ 
   @JsonProperty(JSON_PROPERTY_CO_BRANDED_WITH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCoBrandedWith(String coBrandedWith) {
@@ -688,6 +753,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The result of CVC verification.
+  *
+  * @param cvcResult
+  */ 
   @JsonProperty(JSON_PROPERTY_CVC_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResult(String cvcResult) {
@@ -713,6 +783,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The raw result of CVC verification.
+  *
+  * @param cvcResultRaw
+  */ 
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResultRaw(String cvcResultRaw) {
@@ -738,6 +813,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.
+  *
+  * @param dsTransID
+  */ 
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
@@ -763,6 +843,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.  Example: 02
+  *
+  * @param eci
+  */ 
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
@@ -788,6 +873,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The expiry date on the card.  Example: 6/2016  &gt; Returned only in case of a card payment.
+  *
+  * @param expiryDate
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
@@ -813,6 +903,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.  Example: EUR
+  *
+  * @param extraCostsCurrency
+  */ 
   @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsCurrency(String extraCostsCurrency) {
@@ -838,6 +933,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.
+  *
+  * @param extraCostsValue
+  */ 
   @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsValue(String extraCostsValue) {
@@ -863,6 +963,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.
+  *
+  * @param fraudCheckItemNrFraudCheckname
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudCheckItemNrFraudCheckname(String fraudCheckItemNrFraudCheckname) {
@@ -888,6 +993,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Indicates if the payment is sent to manual review.
+  *
+  * @param fraudManualReview
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_MANUAL_REVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudManualReview(String fraudManualReview) {
@@ -913,6 +1023,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The fraud result properties of the payment.
+  *
+  * @param fraudResultType
+  */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResultType(FraudResultTypeEnum fraudResultType) {
@@ -938,6 +1053,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  &gt; This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** &gt; **Additional settings**.
+  *
+  * @param fundingSource
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
@@ -963,6 +1083,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise)  &gt; Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \&quot;Y\&quot; or \&quot;D\&quot;.
+  *
+  * @param fundsAvailability
+  */ 
   @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundsAvailability(String fundsAvailability) {
@@ -988,6 +1113,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Provides the more granular indication of why a transaction was refused. When a transaction fails with either \&quot;Refused\&quot;, \&quot;Restricted Card\&quot;, \&quot;Transaction Not Permitted\&quot;, \&quot;Not supported\&quot; or \&quot;DeclinedNon Generic\&quot; refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the &#x60;inferredRefusalReason&#x60;, field is populated and the &#x60;refusalReason&#x60;, is set to \&quot;Not Supported\&quot;.  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card
+  *
+  * @param inferredRefusalReason
+  */ 
   @JsonProperty(JSON_PROPERTY_INFERRED_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInferredRefusalReason(String inferredRefusalReason) {
@@ -1013,6 +1143,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Indicates if the card is used for business purposes only.
+  *
+  * @param isCardCommercial
+  */ 
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCardCommercial(String isCardCommercial) {
@@ -1038,6 +1173,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The issuing country of the card based on the BIN list that Adyen maintains.  Example: JP
+  *
+  * @param issuerCountry
+  */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
@@ -1063,6 +1203,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * A Boolean value indicating whether a liability shift was offered for this payment.
+  *
+  * @param liabilityShift
+  */ 
   @JsonProperty(JSON_PROPERTY_LIABILITY_SHIFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLiabilityShift(String liabilityShift) {
@@ -1088,6 +1233,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The &#x60;mcBankNetReferenceNumber&#x60;, is a minimum of six characters and a maximum of nine characters long.  &gt; Contact Support Team to enable this field.
+  *
+  * @param mcBankNetReferenceNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcBankNetReferenceNumber(String mcBankNetReferenceNumber) {
@@ -1113,6 +1263,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).
+  *
+  * @param merchantAdviceCode
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ADVICE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAdviceCode(String merchantAdviceCode) {
@@ -1138,6 +1293,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The reference provided for the transaction.
+  *
+  * @param merchantReference
+  */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
@@ -1163,6 +1323,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+  *
+  * @param networkTxReference
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
@@ -1188,6 +1353,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.
+  *
+  * @param ownerName
+  */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
@@ -1213,6 +1383,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.
+  *
+  * @param paymentAccountReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountReference(String paymentAccountReference) {
@@ -1238,6 +1413,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The payment method used in the transaction.
+  *
+  * @param paymentMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
@@ -1263,6 +1443,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The Adyen sub-variant of the payment method used for the payment request.  For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).  Example: mcpro
+  *
+  * @param paymentMethodVariant
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodVariant(String paymentMethodVariant) {
@@ -1288,6 +1473,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border)  * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown)
+  *
+  * @param payoutEligible
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayoutEligible(String payoutEligible) {
@@ -1313,6 +1503,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The response code from the Real Time Account Updater service.  Possible return values are: * CardChanged * CardExpiryChanged * CloseAccount  * ContactCardAccountHolder
+  *
+  * @param realtimeAccountUpdaterStatus
+  */ 
   @JsonProperty(JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRealtimeAccountUpdaterStatus(String realtimeAccountUpdaterStatus) {
@@ -1338,6 +1533,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Message to be displayed on the terminal.
+  *
+  * @param receiptFreeText
+  */ 
   @JsonProperty(JSON_PROPERTY_RECEIPT_FREE_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptFreeText(String receiptFreeText) {
@@ -1363,6 +1563,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The recurring contract types applicable to the transaction.
+  *
+  * @param recurringContractTypes
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_CONTRACT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringContractTypes(String recurringContractTypes) {
@@ -1388,6 +1593,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The &#x60;pspReference&#x60;, of the first recurring payment that created the recurring detail.  This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.
+  *
+  * @param recurringFirstPspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFirstPspReference(String recurringFirstPspReference) {
@@ -1413,6 +1623,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The reference that uniquely identifies the recurring transaction.
+  *
+  * @param recurringRecurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringRecurringDetailReference(String recurringRecurringDetailReference) {
@@ -1438,6 +1653,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The provided reference of the shopper for a recurring transaction.
+  *
+  * @param recurringShopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringShopperReference(String recurringShopperReference) {
@@ -1463,6 +1683,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The processing model used for the recurring transaction.
+  *
+  * @param recurringProcessingModel
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
@@ -1488,6 +1713,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * If the payment is referred, this field is set to true.  This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.  Example: true
+  *
+  * @param referred
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferred(String referred) {
@@ -1513,6 +1743,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * Raw refusal reason received from the acquirer, where available.  Example: AUTHORISED
+  *
+  * @param refusalReasonRaw
+  */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReasonRaw(String refusalReasonRaw) {
@@ -1538,6 +1773,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The amount of the payment request.
+  *
+  * @param requestAmount
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestAmount(String requestAmount) {
@@ -1563,6 +1803,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The currency of the payment request.
+  *
+  * @param requestCurrencyCode
+  */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestCurrencyCode(String requestCurrencyCode) {
@@ -1588,6 +1833,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The shopper interaction type of the payment request.  Example: Ecommerce
+  *
+  * @param shopperInteraction
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
@@ -1613,6 +1863,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The shopperReference passed in the payment request.  Example: AdyenTestShopperXX
+  *
+  * @param shopperReference
+  */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -1638,6 +1893,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The terminal ID used in a point-of-sale payment.  Example: 06022622
+  *
+  * @param terminalId
+  */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
@@ -1663,6 +1923,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * A Boolean value indicating whether 3DS authentication was completed on this payment.  Example: true
+  *
+  * @param threeDAuthenticated
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticated(String threeDAuthenticated) {
@@ -1688,6 +1953,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The raw 3DS authentication result from the card issuer.  Example: N
+  *
+  * @param threeDAuthenticatedResponse
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
@@ -1713,6 +1983,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * A Boolean value indicating whether 3DS was offered for this payment.  Example: true
+  *
+  * @param threeDOffered
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOffered(String threeDOffered) {
@@ -1738,6 +2013,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The raw enrollment result from the 3DS directory services of the card schemes.  Example: Y
+  *
+  * @param threeDOfferedResponse
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOfferedResponse(String threeDOfferedResponse) {
@@ -1763,6 +2043,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The 3D Secure 2 version.
+  *
+  * @param threeDSVersion
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
@@ -1788,6 +2073,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The &#x60;visaTransactionId&#x60;, has a fixed length of 15 numeric characters.  &gt; Contact Support Team to enable this field.
+  *
+  * @param visaTransactionId
+  */ 
   @JsonProperty(JSON_PROPERTY_VISA_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisaTransactionId(String visaTransactionId) {
@@ -1813,6 +2103,11 @@ public class ResponseAdditionalDataCommon {
   }
 
 
+ /**
+  * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
+  *
+  * @param xid
+  */ 
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(String xid) {

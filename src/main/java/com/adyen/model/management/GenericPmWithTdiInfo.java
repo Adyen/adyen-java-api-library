@@ -60,6 +60,11 @@ public class GenericPmWithTdiInfo {
   }
 
 
+ /**
+  * transactionDescription
+  *
+  * @param transactionDescription
+  */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {

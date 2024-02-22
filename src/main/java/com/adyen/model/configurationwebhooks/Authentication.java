@@ -68,6 +68,11 @@ public class Authentication {
   }
 
 
+ /**
+  * The email address where the one-time password (OTP) is sent.
+  *
+  * @param email
+  */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -93,6 +98,11 @@ public class Authentication {
   }
 
 
+ /**
+  * The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()&#x3D;?!~#&#39;\&quot;,;:$&amp;àùòâôûáúó**
+  *
+  * @param password
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
@@ -118,6 +128,11 @@ public class Authentication {
   }
 
 
+ /**
+  * phone
+  *
+  * @param phone
+  */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(Phone phone) {

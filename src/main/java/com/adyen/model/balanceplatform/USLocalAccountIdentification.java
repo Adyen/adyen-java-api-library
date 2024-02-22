@@ -139,6 +139,11 @@ public class USLocalAccountIdentification {
   }
 
 
+ /**
+  * The bank account number, without separators or whitespace.
+  *
+  * @param accountNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -164,6 +169,11 @@ public class USLocalAccountIdentification {
   }
 
 
+ /**
+  * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+  *
+  * @param accountType
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
@@ -189,6 +199,11 @@ public class USLocalAccountIdentification {
   }
 
 
+ /**
+  * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
+  *
+  * @param routingNumber
+  */ 
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
@@ -214,6 +229,11 @@ public class USLocalAccountIdentification {
   }
 
 
+ /**
+  * **usLocal**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -1,6 +1,5 @@
 /*
  * Adyen Stored Value API
- * A set of API endpoints to manage stored value products.
  *
  * The version of the OpenAPI document: 46
  * 
@@ -116,6 +115,11 @@ public class StoredValueBalanceCheckResponse {
   }
 
 
+ /**
+  * currentBalance
+  *
+  * @param currentBalance
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENT_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrentBalance(Amount currentBalance) {
@@ -141,6 +145,11 @@ public class StoredValueBalanceCheckResponse {
   }
 
 
+ /**
+  * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -166,6 +175,11 @@ public class StoredValueBalanceCheckResponse {
   }
 
 
+ /**
+  * If the transaction is refused or an error occurs, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
+  *
+  * @param refusalReason
+  */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
@@ -191,6 +205,11 @@ public class StoredValueBalanceCheckResponse {
   }
 
 
+ /**
+  * The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
@@ -216,6 +235,11 @@ public class StoredValueBalanceCheckResponse {
   }
 
 
+ /**
+  * Raw refusal reason received from the third party, where available
+  *
+  * @param thirdPartyRefusalReason
+  */ 
   @JsonProperty(JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThirdPartyRefusalReason(String thirdPartyRefusalReason) {

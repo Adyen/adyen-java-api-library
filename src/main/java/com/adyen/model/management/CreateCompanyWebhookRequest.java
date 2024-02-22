@@ -268,6 +268,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Indicates if expired SSL certificates are accepted. Default value: **false**.
+  *
+  * @param acceptsExpiredCertificate
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
@@ -293,6 +298,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
+  *
+  * @param acceptsSelfSignedCertificate
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
@@ -318,6 +328,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
+  *
+  * @param acceptsUntrustedRootCertificate
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
@@ -343,6 +358,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
+  *
+  * @param active
+  */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -368,6 +388,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * additionalSettings
+  *
+  * @param additionalSettings
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSettings(AdditionalSettings additionalSettings) {
@@ -393,6 +418,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
+  *
+  * @param communicationFormat
+  */ 
   @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
@@ -418,6 +448,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Your description for this webhook configuration.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -443,6 +478,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
+  *
+  * @param encryptionProtocol
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
@@ -468,6 +508,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Shows how merchant accounts are filtered when configuring the webhook.   Possible values: *  **allAccounts** : Includes all merchant accounts, and does not require specifying &#x60;filterMerchantAccounts&#x60;. *  **includeAccounts** : The webhook is configured for the merchant accounts listed in &#x60;filterMerchantAccounts&#x60;. *  **excludeAccounts** : The webhook is not configured for the merchant accounts listed in &#x60;filterMerchantAccounts&#x60;.  
+  *
+  * @param filterMerchantAccountType
+  */ 
   @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccountType(FilterMerchantAccountTypeEnum filterMerchantAccountType) {
@@ -498,6 +543,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for &#x60;filterMerchantAccountType&#x60;.  Required if &#x60;filterMerchantAccountType&#x60; is either: * **includeAccounts** * **excludeAccounts**  Not needed for &#x60;filterMerchantAccountType&#x60;: **allAccounts**.
+  *
+  * @param filterMerchantAccounts
+  */ 
   @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccounts(List<String> filterMerchantAccounts) {
@@ -523,6 +573,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
+  *
+  * @param networkType
+  */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkType(NetworkTypeEnum networkType) {
@@ -548,6 +603,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Password to access the webhook URL.
+  *
+  * @param password
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
@@ -573,6 +633,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
+  *
+  * @param populateSoapActionHeader
+  */ 
   @JsonProperty(JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateSoapActionHeader(Boolean populateSoapActionHeader) {
@@ -598,6 +663,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * The type of webhook that is being created. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **ach-notification-of-change-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **rreq-notification**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -623,6 +693,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
+  *
+  * @param url
+  */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
@@ -648,6 +723,11 @@ public class CreateCompanyWebhookRequest {
   }
 
 
+ /**
+  * Username to access the webhook URL.
+  *
+  * @param username
+  */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {

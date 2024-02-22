@@ -73,6 +73,11 @@ public class ShippingLocation {
   }
 
 
+ /**
+  * address
+  *
+  * @param address
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -98,6 +103,11 @@ public class ShippingLocation {
   }
 
 
+ /**
+  * contact
+  *
+  * @param contact
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContact(Contact contact) {
@@ -123,6 +133,11 @@ public class ShippingLocation {
   }
 
 
+ /**
+  * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -148,6 +163,11 @@ public class ShippingLocation {
   }
 
 
+ /**
+  * The unique name of the shipping location.
+  *
+  * @param name
+  */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {

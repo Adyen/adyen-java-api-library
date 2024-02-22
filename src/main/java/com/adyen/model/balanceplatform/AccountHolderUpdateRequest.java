@@ -145,6 +145,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
+  *
+  * @param balancePlatform
+  */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -178,6 +183,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
+  *
+  * @param capabilities
+  */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountHolderCapability> capabilities) {
@@ -203,6 +213,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * contactDetails
+  *
+  * @param contactDetails
+  */ 
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {
@@ -228,6 +243,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * Your description for the account holder, maximum 300 characters.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -261,6 +281,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+  *
+  * @param metadata
+  */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -286,6 +311,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * The unique identifier of the migrated account holder in the classic integration.
+  *
+  * @param migratedAccountHolderCode
+  */ 
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMigratedAccountHolderCode(String migratedAccountHolderCode) {
@@ -311,6 +341,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
+  *
+  * @param primaryBalanceAccount
+  */ 
   @JsonProperty(JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryBalanceAccount(String primaryBalanceAccount) {
@@ -336,6 +371,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * Your reference for the account holder, maximum 150 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -361,6 +401,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -386,6 +431,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  *
+  * @param timeZone
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {
@@ -419,6 +469,11 @@ public class AccountHolderUpdateRequest {
   }
 
 
+ /**
+  * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
+  *
+  * @param verificationDeadlines
+  */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationDeadlines(List<VerificationDeadline> verificationDeadlines) {

@@ -59,6 +59,11 @@ public class PaymentVerificationRequest {
   }
 
 
+ /**
+  * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
+  *
+  * @param payload
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayload(String payload) {

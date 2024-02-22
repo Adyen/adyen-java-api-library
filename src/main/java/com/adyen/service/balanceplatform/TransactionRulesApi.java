@@ -53,6 +53,33 @@ public class TransactionRulesApi extends Service {
     }
 
     /**
+    * Create a transaction rule
+    *
+    * @param transactionRuleInfo {@link TransactionRuleInfo }  (required)
+    * @return {@link TransactionRule }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRule createTransactionRule(TransactionRuleInfo transactionRuleInfo) throws ApiException, IOException {
+        return createTransactionRule(transactionRuleInfo, null);
+    }
+
+    /**
+    * Create a transaction rule
+    *
+    * @param transactionRuleInfo {@link TransactionRuleInfo }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TransactionRule }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRule createTransactionRule(TransactionRuleInfo transactionRuleInfo, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = transactionRuleInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/transactionRules", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return TransactionRule.fromJson(jsonResult);
+    }
+
+    /**
     * Delete a transaction rule
     *
     * @param transactionRuleId {@link String } The unique identifier of the transaction rule. (required)
@@ -150,33 +177,6 @@ public class TransactionRulesApi extends Service {
         String requestBody = transactionRuleInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transactionRules/{transactionRuleId}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
-        return TransactionRule.fromJson(jsonResult);
-    }
-
-    /**
-    * Create a transaction rule
-    *
-    * @param transactionRuleInfo {@link TransactionRuleInfo }  (required)
-    * @return {@link TransactionRule }
-    * @throws ApiException if fails to make API call
-    */
-    public TransactionRule createTransactionRule(TransactionRuleInfo transactionRuleInfo) throws ApiException, IOException {
-        return createTransactionRule(transactionRuleInfo, null);
-    }
-
-    /**
-    * Create a transaction rule
-    *
-    * @param transactionRuleInfo {@link TransactionRuleInfo }  (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link TransactionRule }
-    * @throws ApiException if fails to make API call
-    */
-    public TransactionRule createTransactionRule(TransactionRuleInfo transactionRuleInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
-        String requestBody = transactionRuleInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/transactionRules", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return TransactionRule.fromJson(jsonResult);
     }
 }

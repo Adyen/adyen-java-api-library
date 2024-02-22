@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -371,6 +370,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+  *
+  * @param accountAgeIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_AGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountAgeIndicator(AccountAgeIndicatorEnum accountAgeIndicator) {
@@ -396,6 +400,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Date when the shopper&#39;s account was last changed.
+  *
+  * @param accountChangeDate
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CHANGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountChangeDate(OffsetDateTime accountChangeDate) {
@@ -421,6 +430,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+  *
+  * @param accountChangeIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CHANGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountChangeIndicator(AccountChangeIndicatorEnum accountChangeIndicator) {
@@ -446,6 +460,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Date when the shopper&#39;s account was created.
+  *
+  * @param accountCreationDate
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountCreationDate(OffsetDateTime accountCreationDate) {
@@ -471,6 +490,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
+  *
+  * @param accountType
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
@@ -496,6 +520,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Number of attempts the shopper tried to add a card to their account in the last day.
+  *
+  * @param addCardAttemptsDay
+  */ 
   @JsonProperty(JSON_PROPERTY_ADD_CARD_ATTEMPTS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddCardAttemptsDay(Integer addCardAttemptsDay) {
@@ -521,6 +550,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Date the selected delivery address was first used.
+  *
+  * @param deliveryAddressUsageDate
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
@@ -546,6 +580,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+  *
+  * @param deliveryAddressUsageIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddressUsageIndicator(DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator) {
@@ -573,6 +612,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Shopper&#39;s home phone number (including the country code).
+  *
+  * @param homePhone
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -601,6 +645,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Shopper&#39;s mobile phone number (including the country code).
+  *
+  * @param mobilePhone
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -627,6 +676,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Date when the shopper last changed their password.
+  *
+  * @param passwordChangeDate
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD_CHANGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasswordChangeDate(OffsetDateTime passwordChangeDate) {
@@ -652,6 +706,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+  *
+  * @param passwordChangeIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD_CHANGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasswordChangeIndicator(PasswordChangeIndicatorEnum passwordChangeIndicator) {
@@ -677,6 +736,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
+  *
+  * @param pastTransactionsDay
+  */ 
   @JsonProperty(JSON_PROPERTY_PAST_TRANSACTIONS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPastTransactionsDay(Integer pastTransactionsDay) {
@@ -702,6 +766,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Number of all transactions (successful and abandoned) from this shopper in the past year.
+  *
+  * @param pastTransactionsYear
+  */ 
   @JsonProperty(JSON_PROPERTY_PAST_TRANSACTIONS_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPastTransactionsYear(Integer pastTransactionsYear) {
@@ -727,6 +796,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Date this payment method was added to the shopper&#39;s account.
+  *
+  * @param paymentAccountAge
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountAge(OffsetDateTime paymentAccountAge) {
@@ -752,6 +826,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+  *
+  * @param paymentAccountIndicator
+  */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountIndicator(PaymentAccountIndicatorEnum paymentAccountIndicator) {
@@ -777,6 +856,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Number of successful purchases in the last six months.
+  *
+  * @param purchasesLast6Months
+  */ 
   @JsonProperty(JSON_PROPERTY_PURCHASES_LAST6_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchasesLast6Months(Integer purchasesLast6Months) {
@@ -802,6 +886,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Whether suspicious activity was recorded on this account.
+  *
+  * @param suspiciousActivity
+  */ 
   @JsonProperty(JSON_PROPERTY_SUSPICIOUS_ACTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuspiciousActivity(Boolean suspiciousActivity) {
@@ -829,6 +918,11 @@ public class AccountInfo {
   }
 
 
+ /**
+  * Shopper&#39;s work phone number (including the country code).
+  *
+  * @param workPhone
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

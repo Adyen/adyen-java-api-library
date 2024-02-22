@@ -82,6 +82,11 @@ public class StoreDetailResponse {
   }
 
 
+ /**
+  * This field contains additional data, which may be returned in a particular response.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -107,6 +112,11 @@ public class StoreDetailResponse {
   }
 
 
+ /**
+  * A new reference to uniquely identify this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -132,6 +142,11 @@ public class StoreDetailResponse {
   }
 
 
+ /**
+  * The token which you can use later on for submitting the payout.
+  *
+  * @param recurringDetailReference
+  */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -157,6 +172,11 @@ public class StoreDetailResponse {
   }
 
 
+ /**
+  * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {

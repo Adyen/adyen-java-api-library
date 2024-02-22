@@ -71,6 +71,11 @@ public class PaymentInstrument {
   }
 
 
+ /**
+  * The description of the resource.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -96,6 +101,11 @@ public class PaymentInstrument {
   }
 
 
+ /**
+  * The unique identifier of the resource.
+  *
+  * @param id
+  */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -121,6 +131,11 @@ public class PaymentInstrument {
   }
 
 
+ /**
+  * The reference for the resource.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -146,6 +161,11 @@ public class PaymentInstrument {
   }
 
 
+ /**
+  * The type of wallet the network token is associated with.
+  *
+  * @param tokenType
+  */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenType(String tokenType) {

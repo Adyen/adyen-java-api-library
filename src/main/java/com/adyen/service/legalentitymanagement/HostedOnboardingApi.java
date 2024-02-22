@@ -54,28 +54,38 @@ public class HostedOnboardingApi extends Service {
     }
 
     /**
-    * Get a list of hosted onboarding page themes
+    * Get a link to an Adyen-hosted onboarding page
     *
-    * @return {@link OnboardingThemes }
+    * @param id {@link String } The unique identifier of the legal entity (required)
+    * @param onboardingLinkInfo {@link OnboardingLinkInfo }  (required)
+    * @return {@link OnboardingLink }
     * @throws ApiException if fails to make API call
     */
-    public OnboardingThemes listHostedOnboardingPageThemes() throws ApiException, IOException {
-        return listHostedOnboardingPageThemes(null);
+    public OnboardingLink getLinkToAdyenhostedOnboardingPage(String id, OnboardingLinkInfo onboardingLinkInfo) throws ApiException, IOException {
+        return getLinkToAdyenhostedOnboardingPage(id, onboardingLinkInfo, null);
     }
 
     /**
-    * Get a list of hosted onboarding page themes
+    * Get a link to an Adyen-hosted onboarding page
     *
+    * @param id {@link String } The unique identifier of the legal entity (required)
+    * @param onboardingLinkInfo {@link OnboardingLinkInfo }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link OnboardingThemes }
+    * @return {@link OnboardingLink }
     * @throws ApiException if fails to make API call
     */
-    public OnboardingThemes listHostedOnboardingPageThemes(RequestOptions requestOptions) throws ApiException, IOException {
+    public OnboardingLink getLinkToAdyenhostedOnboardingPage(String id, OnboardingLinkInfo onboardingLinkInfo, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
 
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/themes", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);
-        return OnboardingThemes.fromJson(jsonResult);
+        String requestBody = onboardingLinkInfo.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/onboardingLinks", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return OnboardingLink.fromJson(jsonResult);
     }
 
     /**
@@ -112,37 +122,27 @@ public class HostedOnboardingApi extends Service {
     }
 
     /**
-    * Get a link to an Adyen-hosted onboarding page
+    * Get a list of hosted onboarding page themes
     *
-    * @param id {@link String } The unique identifier of the legal entity (required)
-    * @param onboardingLinkInfo {@link OnboardingLinkInfo }  (required)
-    * @return {@link OnboardingLink }
+    * @return {@link OnboardingThemes }
     * @throws ApiException if fails to make API call
     */
-    public OnboardingLink getLinkToAdyenhostedOnboardingPage(String id, OnboardingLinkInfo onboardingLinkInfo) throws ApiException, IOException {
-        return getLinkToAdyenhostedOnboardingPage(id, onboardingLinkInfo, null);
+    public OnboardingThemes listHostedOnboardingPageThemes() throws ApiException, IOException {
+        return listHostedOnboardingPageThemes(null);
     }
 
     /**
-    * Get a link to an Adyen-hosted onboarding page
+    * Get a list of hosted onboarding page themes
     *
-    * @param id {@link String } The unique identifier of the legal entity (required)
-    * @param onboardingLinkInfo {@link OnboardingLinkInfo }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link OnboardingLink }
+    * @return {@link OnboardingThemes }
     * @throws ApiException if fails to make API call
     */
-    public OnboardingLink getLinkToAdyenhostedOnboardingPage(String id, OnboardingLinkInfo onboardingLinkInfo, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
+    public OnboardingThemes listHostedOnboardingPageThemes(RequestOptions requestOptions) throws ApiException, IOException {
 
-        String requestBody = onboardingLinkInfo.toJson();
-        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/onboardingLinks", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return OnboardingLink.fromJson(jsonResult);
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/themes", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);
+        return OnboardingThemes.fromJson(jsonResult);
     }
 }

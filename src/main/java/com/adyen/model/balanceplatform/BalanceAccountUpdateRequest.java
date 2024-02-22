@@ -126,6 +126,11 @@ public class BalanceAccountUpdateRequest {
   }
 
 
+ /**
+  * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
+  *
+  * @param accountHolderId
+  */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
@@ -151,6 +156,11 @@ public class BalanceAccountUpdateRequest {
   }
 
 
+ /**
+  * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -184,6 +194,11 @@ public class BalanceAccountUpdateRequest {
   }
 
 
+ /**
+  * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+  *
+  * @param metadata
+  */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -209,6 +224,11 @@ public class BalanceAccountUpdateRequest {
   }
 
 
+ /**
+  * platformPaymentConfiguration
+  *
+  * @param platformPaymentConfiguration
+  */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
@@ -234,6 +254,11 @@ public class BalanceAccountUpdateRequest {
   }
 
 
+ /**
+  * Your reference to the balance account, maximum 150 characters.
+  *
+  * @param reference
+  */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -259,6 +284,11 @@ public class BalanceAccountUpdateRequest {
   }
 
 
+ /**
+  * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **inactive**, **closed**, **suspended**.
+  *
+  * @param status
+  */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -284,6 +314,11 @@ public class BalanceAccountUpdateRequest {
   }
 
 
+ /**
+  * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  *
+  * @param timeZone
+  */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {

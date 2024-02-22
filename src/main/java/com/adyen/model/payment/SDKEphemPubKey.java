@@ -1,6 +1,5 @@
 /*
  * Adyen Payment API
- * A set of API endpoints that allow you to initiate, settle, and modify payments on the Adyen payments platform. You can use the API to accept card payments (including One-Click and 3D Secure), bank transfers, ewallets, and many other payment methods.  To learn more about the API, visit [Classic integration](https://docs.adyen.com/classic-integration).  ## Authentication You need an [API credential](https://docs.adyen.com/development-resources/api-credentials) to authenticate to the API.  If using an API key, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  Alternatively, you can use the username and password to connect to the API using basic authentication, for example:  ``` curl -U \"ws@Company.YOUR_COMPANY_ACCOUNT\":\"YOUR_BASIC_AUTHENTICATION_PASSWORD\" \\ -H \"Content-Type: application/json\" \\ ... ```  ## Versioning Payments API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://pal-test.adyen.com/pal/servlet/Payment/v68/authorise ```  ## Going live  To authenticate to the live endpoints, you need an [API credential](https://docs.adyen.com/development-resources/api-credentials) from your live Customer Area.  The live endpoint URLs contain a prefix which is unique to your company account: ```  https://{PREFIX}-pal-live.adyenpayments.com/pal/servlet/Payment/v68/authorise ```  Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
  *
  * The version of the OpenAPI document: 68
  * 
@@ -72,6 +71,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param crv
+  */ 
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCrv(String crv) {
@@ -97,6 +101,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param kty
+  */ 
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKty(String kty) {
@@ -122,6 +131,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param x
+  */ 
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(String x) {
@@ -147,6 +161,11 @@ public class SDKEphemPubKey {
   }
 
 
+ /**
+  * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
+  *
+  * @param y
+  */ 
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(String y) {

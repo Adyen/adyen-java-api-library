@@ -110,6 +110,11 @@ public class ThreeDSRequestorAuthenticationInfo {
   }
 
 
+ /**
+  * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
+  *
+  * @param threeDSReqAuthData
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthData(String threeDSReqAuthData) {
@@ -135,6 +140,11 @@ public class ThreeDSRequestorAuthenticationInfo {
   }
 
 
+ /**
+  * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
+  *
+  * @param threeDSReqAuthMethod
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthMethod(ThreeDSReqAuthMethodEnum threeDSReqAuthMethod) {
@@ -160,6 +170,11 @@ public class ThreeDSRequestorAuthenticationInfo {
   }
 
 
+ /**
+  * Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
+  *
+  * @param threeDSReqAuthTimestamp
+  */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthTimestamp(String threeDSReqAuthTimestamp) {

@@ -304,12 +304,12 @@ public class CheckoutTest extends BaseTest {
         paymentDonationRequest.setAmount(amount);
         paymentDonationRequest.setDonationAccount("YOUR_DONATION_ACCOUNT");
         paymentDonationRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
-        CardDetails cardDetails = new CardDetails().type(CardDetails.TypeEnum.SCHEME);
+        CardDonations cardDetails = new CardDonations().type(CardDonations.TypeEnum.SCHEME);
         paymentDonationRequest.paymentMethod(new DonationPaymentMethod(cardDetails));
         paymentDonationRequest.setReference("YOUR_MERCHANT_REFERENCE");
         paymentDonationRequest.setReturnUrl("https://your-company.com/...");
-        PaymentsApi checkout = new PaymentsApi(client);
-        DonationPaymentResponse donationResponse = checkout.donations(paymentDonationRequest);
+        DonationsApi donationsApi = new DonationsApi(client);
+        DonationPaymentResponse donationResponse = donationsApi.donations(paymentDonationRequest);
         assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED ,donationResponse.getPayment().getResultCode());
         assertEquals("UNIQUE_RESOURCE_ID", donationResponse.getId());
         assertEquals(DonationPaymentResponse.StatusEnum.COMPLETED, donationResponse.getStatus());

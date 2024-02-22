@@ -81,6 +81,11 @@ public class Nexo {
   }
 
 
+ /**
+  * displayUrls
+  *
+  * @param displayUrls
+  */ 
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayUrls(NotificationUrl displayUrls) {
@@ -106,6 +111,11 @@ public class Nexo {
   }
 
 
+ /**
+  * encryptionKey
+  *
+  * @param encryptionKey
+  */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionKey(Key encryptionKey) {
@@ -131,6 +141,11 @@ public class Nexo {
   }
 
 
+ /**
+  * eventUrls
+  *
+  * @param eventUrls
+  */ 
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventUrls(EventUrl eventUrls) {
@@ -166,6 +181,11 @@ public class Nexo {
   }
 
 
+ /**
+  * One or more URLs to send event messages to when using Terminal API.
+  *
+  * @param nexoEventUrls
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,6 +212,11 @@ public class Nexo {
   }
 
 
+ /**
+  * notification
+  *
+  * @param notification
+  */ 
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotification(Notification notification) {

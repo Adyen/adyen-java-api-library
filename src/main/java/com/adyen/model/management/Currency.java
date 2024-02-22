@@ -67,6 +67,11 @@ public class Currency {
   }
 
 
+ /**
+  * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+  *
+  * @param amount
+  */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Integer amount) {
@@ -92,6 +97,11 @@ public class Currency {
   }
 
 
+ /**
+  * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
+  *
+  * @param currencyCode
+  */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
@@ -117,6 +127,11 @@ public class Currency {
   }
 
 
+ /**
+  * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
+  *
+  * @param percentage
+  */ 
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPercentage(Double percentage) {

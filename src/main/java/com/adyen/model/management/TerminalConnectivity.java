@@ -75,6 +75,11 @@ public class TerminalConnectivity {
   }
 
 
+ /**
+  * bluetooth
+  *
+  * @param bluetooth
+  */ 
   @JsonProperty(JSON_PROPERTY_BLUETOOTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetooth(TerminalConnectivityBluetooth bluetooth) {
@@ -100,6 +105,11 @@ public class TerminalConnectivity {
   }
 
 
+ /**
+  * cellular
+  *
+  * @param cellular
+  */ 
   @JsonProperty(JSON_PROPERTY_CELLULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCellular(TerminalConnectivityCellular cellular) {
@@ -125,6 +135,11 @@ public class TerminalConnectivity {
   }
 
 
+ /**
+  * ethernet
+  *
+  * @param ethernet
+  */ 
   @JsonProperty(JSON_PROPERTY_ETHERNET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernet(TerminalConnectivityEthernet ethernet) {
@@ -150,6 +165,11 @@ public class TerminalConnectivity {
   }
 
 
+ /**
+  * wifi
+  *
+  * @param wifi
+  */ 
   @JsonProperty(JSON_PROPERTY_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifi(TerminalConnectivityWifi wifi) {

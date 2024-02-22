@@ -56,72 +56,6 @@ public class TermsOfServiceApi extends Service {
     }
 
     /**
-    * Get Terms of Service information for a legal entity
-    *
-    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
-    * @return {@link GetTermsOfServiceAcceptanceInfosResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public GetTermsOfServiceAcceptanceInfosResponse getTermsOfServiceInformationForLegalEntity(String id) throws ApiException, IOException {
-        return getTermsOfServiceInformationForLegalEntity(id, null);
-    }
-
-    /**
-    * Get Terms of Service information for a legal entity
-    *
-    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link GetTermsOfServiceAcceptanceInfosResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public GetTermsOfServiceAcceptanceInfosResponse getTermsOfServiceInformationForLegalEntity(String id, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/termsOfServiceAcceptanceInfos", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return GetTermsOfServiceAcceptanceInfosResponse.fromJson(jsonResult);
-    }
-
-    /**
-    * Get Terms of Service status
-    *
-    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
-    * @return {@link CalculateTermsOfServiceStatusResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CalculateTermsOfServiceStatusResponse getTermsOfServiceStatus(String id) throws ApiException, IOException {
-        return getTermsOfServiceStatus(id, null);
-    }
-
-    /**
-    * Get Terms of Service status
-    *
-    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link CalculateTermsOfServiceStatusResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public CalculateTermsOfServiceStatusResponse getTermsOfServiceStatus(String id, RequestOptions requestOptions) throws ApiException, IOException {
-        //Add path params
-        Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
-            throw new IllegalArgumentException("Please provide the id path parameter");
-        }
-        pathParams.put("id", id);
-
-        String requestBody = null;
-        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/termsOfServiceStatus", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-        return CalculateTermsOfServiceStatusResponse.fromJson(jsonResult);
-    }
-
-    /**
     * Accept Terms of Service
     *
     * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
@@ -195,5 +129,71 @@ public class TermsOfServiceApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/termsOfService", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return GetTermsOfServiceDocumentResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get Terms of Service information for a legal entity
+    *
+    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
+    * @return {@link GetTermsOfServiceAcceptanceInfosResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public GetTermsOfServiceAcceptanceInfosResponse getTermsOfServiceInformationForLegalEntity(String id) throws ApiException, IOException {
+        return getTermsOfServiceInformationForLegalEntity(id, null);
+    }
+
+    /**
+    * Get Terms of Service information for a legal entity
+    *
+    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link GetTermsOfServiceAcceptanceInfosResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public GetTermsOfServiceAcceptanceInfosResponse getTermsOfServiceInformationForLegalEntity(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/termsOfServiceAcceptanceInfos", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return GetTermsOfServiceAcceptanceInfosResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get Terms of Service status
+    *
+    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
+    * @return {@link CalculateTermsOfServiceStatusResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CalculateTermsOfServiceStatusResponse getTermsOfServiceStatus(String id) throws ApiException, IOException {
+        return getTermsOfServiceStatus(id, null);
+    }
+
+    /**
+    * Get Terms of Service status
+    *
+    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CalculateTermsOfServiceStatusResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CalculateTermsOfServiceStatusResponse getTermsOfServiceStatus(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/termsOfServiceStatus", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return CalculateTermsOfServiceStatusResponse.fromJson(jsonResult);
     }
 }

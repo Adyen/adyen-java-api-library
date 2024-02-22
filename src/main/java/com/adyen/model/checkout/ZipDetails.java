@@ -110,6 +110,11 @@ public class ZipDetails {
   }
 
 
+ /**
+  * The checkout attempt identifier.
+  *
+  * @param checkoutAttemptId
+  */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -135,6 +140,11 @@ public class ZipDetails {
   }
 
 
+ /**
+  * Set this to **true** if the shopper would like to pick up and collect their order, instead of having the goods delivered to them.
+  *
+  * @param clickAndCollect
+  */ 
   @JsonProperty(JSON_PROPERTY_CLICK_AND_COLLECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClickAndCollect(String clickAndCollect) {
@@ -162,6 +172,11 @@ public class ZipDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,6 +203,11 @@ public class ZipDetails {
   }
 
 
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -213,6 +233,11 @@ public class ZipDetails {
   }
 
 
+ /**
+  * **zip**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

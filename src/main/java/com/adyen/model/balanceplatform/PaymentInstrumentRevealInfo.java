@@ -68,6 +68,11 @@ public class PaymentInstrumentRevealInfo {
   }
 
 
+ /**
+  * The CVC2 value of the card.
+  *
+  * @param cvc
+  */ 
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
@@ -93,6 +98,11 @@ public class PaymentInstrumentRevealInfo {
   }
 
 
+ /**
+  * expiration
+  *
+  * @param expiration
+  */ 
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiration(Expiry expiration) {
@@ -118,6 +128,11 @@ public class PaymentInstrumentRevealInfo {
   }
 
 
+ /**
+  * The primary account number (PAN) of the card.
+  *
+  * @param pan
+  */ 
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPan(String pan) {

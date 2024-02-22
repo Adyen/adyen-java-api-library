@@ -82,6 +82,11 @@ public class StoreDetailAndSubmitResponse {
   }
 
 
+ /**
+  * This field contains additional data, which may be returned in a particular response.
+  *
+  * @param additionalData
+  */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -107,6 +112,11 @@ public class StoreDetailAndSubmitResponse {
   }
 
 
+ /**
+  * A new reference to uniquely identify this request.
+  *
+  * @param pspReference
+  */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -132,6 +142,11 @@ public class StoreDetailAndSubmitResponse {
   }
 
 
+ /**
+  * In case of refusal, an informational message for the reason.
+  *
+  * @param refusalReason
+  */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
@@ -157,6 +172,11 @@ public class StoreDetailAndSubmitResponse {
   }
 
 
+ /**
+  * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
+  *
+  * @param resultCode
+  */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {

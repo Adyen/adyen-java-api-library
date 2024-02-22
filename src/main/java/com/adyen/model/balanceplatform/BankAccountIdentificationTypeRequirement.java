@@ -175,6 +175,11 @@ public class BankAccountIdentificationTypeRequirement {
   }
 
 
+ /**
+  * List of bank account identification types: eg.; [iban , numberAndBic]
+  *
+  * @param bankAccountIdentificationTypes
+  */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountIdentificationTypes(List<BankAccountIdentificationTypesEnum> bankAccountIdentificationTypes) {
@@ -200,6 +205,11 @@ public class BankAccountIdentificationTypeRequirement {
   }
 
 
+ /**
+  * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
+  *
+  * @param description
+  */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -225,6 +235,11 @@ public class BankAccountIdentificationTypeRequirement {
   }
 
 
+ /**
+  * **bankAccountIdentificationTypeRequirement**
+  *
+  * @param type
+  */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
