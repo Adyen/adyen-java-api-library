@@ -127,6 +127,16 @@ public class MenuEntry {
     }
 
     /**
+     * Sets the value of the outputText property.
+     *
+     * @param outputText the new list of OutputText objects
+     */
+
+    public void setOutputText(List<OutputText> outputText) {
+        this.outputText = outputText;
+    }
+
+    /**
      * Gets the value of the outputXHTML property.
      *
      * @return possible      object is     byte[]
