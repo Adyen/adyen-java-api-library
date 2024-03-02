@@ -124,6 +124,15 @@ public class BalancePlatformTest extends BaseTest {
                 queryMap
         );
     }
+
+    @Test
+    public void getTaxFormTest() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/PaginatedBalanceAccountsResponse.json");
+        AccountHoldersApi service = new AccountHoldersApi(client);
+        GetTaxFormResponse response = service.getTaxForm("AH3227C223222B5CMD2SXFKGT", "Test", 2020);
+        assertNull(response.getContent());
+    }
+
     @Test
     public void BalanceAccountsCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/BalanceAccount.json");
@@ -356,6 +365,14 @@ public class BalancePlatformTest extends BaseTest {
         TransactionRulesResponse response = service.getAllTransactionRulesForPaymentInstrument("TR3227C223222B5FCB756DV9H");
         assertEquals("TR3227C223222B5FCB756DV9H", response.getTransactionRules().get(0).getId());
         assertEquals("PI3227C223222B5BPCMFXD2XG", response.getTransactionRules().get(0).getEntityKey().getEntityReference());
+    }
+
+    @Test
+    public void getPanOfPaymentInstrumentTest() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/TransactionRulesResponse.json");
+        PaymentInstrumentsApi service = new PaymentInstrumentsApi(client);
+        PaymentInstrumentRevealInfo response = service.getPanOfPaymentInstrument("TR3227C223222B5FCB756DV9H");
+        assertNull(response.getPan());
     }
 
     @Test
