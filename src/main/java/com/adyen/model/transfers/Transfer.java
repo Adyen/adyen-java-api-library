@@ -51,7 +51,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Transfer.JSON_PROPERTY_REASON,
   Transfer.JSON_PROPERTY_REFERENCE,
   Transfer.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
-  Transfer.JSON_PROPERTY_STATUS
+  Transfer.JSON_PROPERTY_STATUS,
+  Transfer.JSON_PROPERTY_TYPE
 })
 
 public class Transfer {
@@ -354,6 +355,8 @@ public class Transfer {
     
     REFUSED("refused"),
     
+    REJECTED("rejected"),
+    
     RESERVEADJUSTMENT("reserveAdjustment"),
     
     RESERVEADJUSTMENTPENDING("reserveAdjustmentPending"),
@@ -395,6 +398,112 @@ public class Transfer {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  /**
+   * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
+   */
+  public enum TypeEnum {
+    ATMWITHDRAWAL("atmWithdrawal"),
+    
+    ATMWITHDRAWALREVERSAL("atmWithdrawalReversal"),
+    
+    BALANCEADJUSTMENT("balanceAdjustment"),
+    
+    BALANCEMIGRATION("balanceMigration"),
+    
+    BALANCEROLLOVER("balanceRollover"),
+    
+    BANKDIRECTDEBIT("bankDirectDebit"),
+    
+    BANKTRANSFER("bankTransfer"),
+    
+    CAPTURE("capture"),
+    
+    CAPTUREREVERSAL("captureReversal"),
+    
+    CARDTRANSFER("cardTransfer"),
+    
+    CASHOUTFEE("cashOutFee"),
+    
+    CASHOUTFUNDING("cashOutFunding"),
+    
+    CASHOUTINSTRUCTION("cashOutInstruction"),
+    
+    CHARGEBACK("chargeback"),
+    
+    CHARGEBACKCORRECTION("chargebackCorrection"),
+    
+    CHARGEBACKREVERSAL("chargebackReversal"),
+    
+    CHARGEBACKREVERSALCORRECTION("chargebackReversalCorrection"),
+    
+    DEPOSITCORRECTION("depositCorrection"),
+    
+    FEE("fee"),
+    
+    GRANT("grant"),
+    
+    INSTALLMENT("installment"),
+    
+    INSTALLMENTREVERSAL("installmentReversal"),
+    
+    INTERNALDIRECTDEBIT("internalDirectDebit"),
+    
+    INTERNALTRANSFER("internalTransfer"),
+    
+    INVOICEDEDUCTION("invoiceDeduction"),
+    
+    LEFTOVER("leftover"),
+    
+    MANUALCORRECTION("manualCorrection"),
+    
+    MISCCOST("miscCost"),
+    
+    PAYMENT("payment"),
+    
+    PAYMENTCOST("paymentCost"),
+    
+    REFUND("refund"),
+    
+    REFUNDREVERSAL("refundReversal"),
+    
+    REPAYMENT("repayment"),
+    
+    RESERVEADJUSTMENT("reserveAdjustment"),
+    
+    SECONDCHARGEBACK("secondChargeback"),
+    
+    SECONDCHARGEBACKCORRECTION("secondChargebackCorrection");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TypeEnum type;
 
   public Transfer() { 
   }
@@ -849,6 +958,36 @@ public class Transfer {
   }
 
 
+  public Transfer type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
+   * @return type
+  **/
+  @ApiModelProperty(value = "The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+ /**
+  * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
+  *
+  * @param type
+  */ 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+
   /**
    * Return true if this Transfer object is equal to o.
    */
@@ -875,12 +1014,13 @@ public class Transfer {
         Objects.equals(this.reason, transfer.reason) &&
         Objects.equals(this.reference, transfer.reference) &&
         Objects.equals(this.referenceForBeneficiary, transfer.referenceForBeneficiary) &&
-        Objects.equals(this.status, transfer.status);
+        Objects.equals(this.status, transfer.status) &&
+        Objects.equals(this.type, transfer.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, category, categoryData, counterparty, creationDate, description, direction, id, paymentInstrument, reason, reference, referenceForBeneficiary, status);
+    return Objects.hash(accountHolder, amount, balanceAccount, category, categoryData, counterparty, creationDate, description, direction, id, paymentInstrument, reason, reference, referenceForBeneficiary, status, type);
   }
 
   @Override
@@ -902,6 +1042,7 @@ public class Transfer {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    referenceForBeneficiary: ").append(toIndentedString(referenceForBeneficiary)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

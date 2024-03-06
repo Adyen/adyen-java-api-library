@@ -82,6 +82,7 @@ public class SamsungPayDetails {
   private FundingSourceEnum fundingSource;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_SAMSUNG_PAY_TOKEN = "samsungPayToken";
@@ -189,6 +190,7 @@ public class SamsungPayDetails {
   }
 
 
+  @Deprecated
   public SamsungPayDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

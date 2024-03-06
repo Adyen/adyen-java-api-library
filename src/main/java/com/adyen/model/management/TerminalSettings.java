@@ -32,8 +32,10 @@ import com.adyen.model.management.ReceiptPrinting;
 import com.adyen.model.management.Refunds;
 import com.adyen.model.management.Signature;
 import com.adyen.model.management.Standalone;
+import com.adyen.model.management.StoreAndForward;
 import com.adyen.model.management.Surcharge;
 import com.adyen.model.management.TapToPay;
+import com.adyen.model.management.TerminalInstructions;
 import com.adyen.model.management.Timeouts;
 import com.adyen.model.management.WifiProfiles;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -69,8 +71,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TerminalSettings.JSON_PROPERTY_REFUNDS,
   TerminalSettings.JSON_PROPERTY_SIGNATURE,
   TerminalSettings.JSON_PROPERTY_STANDALONE,
+  TerminalSettings.JSON_PROPERTY_STORE_AND_FORWARD,
   TerminalSettings.JSON_PROPERTY_SURCHARGE,
   TerminalSettings.JSON_PROPERTY_TAP_TO_PAY,
+  TerminalSettings.JSON_PROPERTY_TERMINAL_INSTRUCTIONS,
   TerminalSettings.JSON_PROPERTY_TIMEOUTS,
   TerminalSettings.JSON_PROPERTY_WIFI_PROFILES
 })
@@ -124,11 +128,17 @@ public class TerminalSettings {
   public static final String JSON_PROPERTY_STANDALONE = "standalone";
   private Standalone standalone;
 
+  public static final String JSON_PROPERTY_STORE_AND_FORWARD = "storeAndForward";
+  private StoreAndForward storeAndForward;
+
   public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private Surcharge surcharge;
 
   public static final String JSON_PROPERTY_TAP_TO_PAY = "tapToPay";
   private TapToPay tapToPay;
+
+  public static final String JSON_PROPERTY_TERMINAL_INSTRUCTIONS = "terminalInstructions";
+  private TerminalInstructions terminalInstructions;
 
   public static final String JSON_PROPERTY_TIMEOUTS = "timeouts";
   private Timeouts timeouts;
@@ -627,6 +637,36 @@ public class TerminalSettings {
   }
 
 
+  public TerminalSettings storeAndForward(StoreAndForward storeAndForward) {
+    this.storeAndForward = storeAndForward;
+    return this;
+  }
+
+   /**
+   * Get storeAndForward
+   * @return storeAndForward
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StoreAndForward getStoreAndForward() {
+    return storeAndForward;
+  }
+
+
+ /**
+  * storeAndForward
+  *
+  * @param storeAndForward
+  */ 
+  @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoreAndForward(StoreAndForward storeAndForward) {
+    this.storeAndForward = storeAndForward;
+  }
+
+
   public TerminalSettings surcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
     return this;
@@ -684,6 +724,36 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTapToPay(TapToPay tapToPay) {
     this.tapToPay = tapToPay;
+  }
+
+
+  public TerminalSettings terminalInstructions(TerminalInstructions terminalInstructions) {
+    this.terminalInstructions = terminalInstructions;
+    return this;
+  }
+
+   /**
+   * Get terminalInstructions
+   * @return terminalInstructions
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TerminalInstructions getTerminalInstructions() {
+    return terminalInstructions;
+  }
+
+
+ /**
+  * terminalInstructions
+  *
+  * @param terminalInstructions
+  */ 
+  @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTerminalInstructions(TerminalInstructions terminalInstructions) {
+    this.terminalInstructions = terminalInstructions;
   }
 
 
@@ -775,15 +845,17 @@ public class TerminalSettings {
         Objects.equals(this.refunds, terminalSettings.refunds) &&
         Objects.equals(this.signature, terminalSettings.signature) &&
         Objects.equals(this.standalone, terminalSettings.standalone) &&
+        Objects.equals(this.storeAndForward, terminalSettings.storeAndForward) &&
         Objects.equals(this.surcharge, terminalSettings.surcharge) &&
         Objects.equals(this.tapToPay, terminalSettings.tapToPay) &&
+        Objects.equals(this.terminalInstructions, terminalSettings.terminalInstructions) &&
         Objects.equals(this.timeouts, terminalSettings.timeouts) &&
         Objects.equals(this.wifiProfiles, terminalSettings.wifiProfiles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, localization, nexo, offlineProcessing, opi, passcodes, payAtTable, payment, receiptOptions, receiptPrinting, refunds, signature, standalone, surcharge, tapToPay, timeouts, wifiProfiles);
+    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, localization, nexo, offlineProcessing, opi, passcodes, payAtTable, payment, receiptOptions, receiptPrinting, refunds, signature, standalone, storeAndForward, surcharge, tapToPay, terminalInstructions, timeouts, wifiProfiles);
   }
 
   @Override
@@ -806,8 +878,10 @@ public class TerminalSettings {
     sb.append("    refunds: ").append(toIndentedString(refunds)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    standalone: ").append(toIndentedString(standalone)).append("\n");
+    sb.append("    storeAndForward: ").append(toIndentedString(storeAndForward)).append("\n");
     sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
     sb.append("    tapToPay: ").append(toIndentedString(tapToPay)).append("\n");
+    sb.append("    terminalInstructions: ").append(toIndentedString(terminalInstructions)).append("\n");
     sb.append("    timeouts: ").append(toIndentedString(timeouts)).append("\n");
     sb.append("    wifiProfiles: ").append(toIndentedString(wifiProfiles)).append("\n");
     sb.append("}");

@@ -183,6 +183,7 @@ public class PaymentSetupRequest {
   private ModelConfiguration configuration;
 
   public static final String JSON_PROPERTY_CONVERSION_ID = "conversionId";
+  @Deprecated
   private String conversionId;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
@@ -380,6 +381,7 @@ public class PaymentSetupRequest {
   private String telephoneNumber;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   private Boolean threeDSAuthenticationOnly = false;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
@@ -775,6 +777,7 @@ public class PaymentSetupRequest {
   }
 
 
+  @Deprecated
   public PaymentSetupRequest conversionId(String conversionId) {
     this.conversionId = conversionId;
     return this;
@@ -2040,6 +2043,7 @@ public class PaymentSetupRequest {
   }
 
 
+  @Deprecated
   public PaymentSetupRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;

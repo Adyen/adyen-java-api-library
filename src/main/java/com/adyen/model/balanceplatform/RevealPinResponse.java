@@ -51,10 +51,10 @@ public class RevealPinResponse {
   }
 
    /**
-   * The encrypted PIN block.
+   * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    * @return encryptedPinBlock
   **/
-  @ApiModelProperty(required = true, value = "The encrypted PIN block.")
+  @ApiModelProperty(required = true, value = "The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -64,7 +64,7 @@ public class RevealPinResponse {
 
 
  /**
-  * The encrypted PIN block.
+  * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
   *
   * @param encryptedPinBlock
   */ 
@@ -81,10 +81,10 @@ public class RevealPinResponse {
   }
 
    /**
-   * The encrypted PIN block extraction token.
+   * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    * @return token
   **/
-  @ApiModelProperty(required = true, value = "The encrypted PIN block extraction token.")
+  @ApiModelProperty(required = true, value = "The 16-digit token that you need to extract the `encryptedPinBlock`.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -94,7 +94,7 @@ public class RevealPinResponse {
 
 
  /**
-  * The encrypted PIN block extraction token.
+  * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
   *
   * @param token
   */ 

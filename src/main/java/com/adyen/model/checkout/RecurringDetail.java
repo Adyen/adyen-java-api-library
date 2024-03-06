@@ -104,6 +104,7 @@ public class RecurringDetail {
   private PaymentMethodGroup group;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   private List<InputDetail> inputDetails = null;
 
   public static final String JSON_PROPERTY_ISSUERS = "issuers";
@@ -290,6 +291,7 @@ public class RecurringDetail {
   }
 
 
+  @Deprecated
   public RecurringDetail inputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
     return this;

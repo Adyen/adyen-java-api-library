@@ -203,6 +203,7 @@ public class PaymentRequest {
   private Company company;
 
   public static final String JSON_PROPERTY_CONVERSION_ID = "conversionId";
+  @Deprecated
   private String conversionId;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
@@ -221,6 +222,7 @@ public class PaymentRequest {
   private DeliveryAddress deliveryAddress;
 
   public static final String JSON_PROPERTY_DELIVERY_DATE = "deliveryDate";
+  @Deprecated
   private OffsetDateTime deliveryDate;
 
   public static final String JSON_PROPERTY_DEVICE_FINGERPRINT = "deviceFingerprint";
@@ -510,6 +512,7 @@ public class PaymentRequest {
   private ThreeDS2RequestFields threeDS2RequestData;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   private Boolean threeDSAuthenticationOnly = false;
 
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
@@ -886,6 +889,7 @@ public class PaymentRequest {
   }
 
 
+  @Deprecated
   public PaymentRequest conversionId(String conversionId) {
     this.conversionId = conversionId;
     return this;
@@ -1069,6 +1073,7 @@ public class PaymentRequest {
   }
 
 
+  @Deprecated
   public PaymentRequest deliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
     return this;
@@ -2514,6 +2519,7 @@ public class PaymentRequest {
   }
 
 
+  @Deprecated
   public PaymentRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;

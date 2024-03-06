@@ -265,6 +265,8 @@ public class TransferEvent {
     
     REFUSED("refused"),
     
+    REJECTED("rejected"),
+    
     RESERVEADJUSTMENT("reserveAdjustment"),
     
     RESERVEADJUSTMENTPENDING("reserveAdjustmentPending"),

@@ -473,6 +473,7 @@ public class CreateCheckoutSessionRequest {
   private String themeId;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   private Boolean threeDSAuthenticationOnly = false;
 
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
@@ -2247,6 +2248,7 @@ public class CreateCheckoutSessionRequest {
   }
 
 
+  @Deprecated
   public CreateCheckoutSessionRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;

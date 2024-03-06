@@ -55,6 +55,7 @@ public class Nexo {
   private EventUrl eventUrls;
 
   public static final String JSON_PROPERTY_NEXO_EVENT_URLS = "nexoEventUrls";
+  @Deprecated
   private List<String> nexoEventUrls = null;
 
   public static final String JSON_PROPERTY_NOTIFICATION = "notification";
@@ -153,6 +154,7 @@ public class Nexo {
   }
 
 
+  @Deprecated
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
     return this;

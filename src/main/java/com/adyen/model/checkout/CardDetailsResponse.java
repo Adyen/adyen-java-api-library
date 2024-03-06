@@ -34,12 +34,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * CardDetailsResponse
  */
 @JsonPropertyOrder({
-  CardDetailsResponse.JSON_PROPERTY_BRANDS
+  CardDetailsResponse.JSON_PROPERTY_BRANDS,
+  CardDetailsResponse.JSON_PROPERTY_ISSUING_COUNTRY_CODE
 })
 
 public class CardDetailsResponse {
   public static final String JSON_PROPERTY_BRANDS = "brands";
   private List<CardBrandDetails> brands = null;
+
+  public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODE = "issuingCountryCode";
+  private String issuingCountryCode;
 
   public CardDetailsResponse() { 
   }
@@ -82,6 +86,36 @@ public class CardDetailsResponse {
   }
 
 
+  public CardDetailsResponse issuingCountryCode(String issuingCountryCode) {
+    this.issuingCountryCode = issuingCountryCode;
+    return this;
+  }
+
+   /**
+   * The two-letter country code  of the country where the card was issued.
+   * @return issuingCountryCode
+  **/
+  @ApiModelProperty(value = "The two-letter country code  of the country where the card was issued.")
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getIssuingCountryCode() {
+    return issuingCountryCode;
+  }
+
+
+ /**
+  * The two-letter country code  of the country where the card was issued.
+  *
+  * @param issuingCountryCode
+  */ 
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIssuingCountryCode(String issuingCountryCode) {
+    this.issuingCountryCode = issuingCountryCode;
+  }
+
+
   /**
    * Return true if this CardDetailsResponse object is equal to o.
    */
@@ -94,12 +128,13 @@ public class CardDetailsResponse {
       return false;
     }
     CardDetailsResponse cardDetailsResponse = (CardDetailsResponse) o;
-    return Objects.equals(this.brands, cardDetailsResponse.brands);
+    return Objects.equals(this.brands, cardDetailsResponse.brands) &&
+        Objects.equals(this.issuingCountryCode, cardDetailsResponse.issuingCountryCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brands);
+    return Objects.hash(brands, issuingCountryCode);
   }
 
   @Override
@@ -107,6 +142,7 @@ public class CardDetailsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardDetailsResponse {\n");
     sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
+    sb.append("    issuingCountryCode: ").append(toIndentedString(issuingCountryCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -59,10 +59,10 @@ public class PinChangeRequest {
   }
 
    /**
-   * Symmetric session key encrypted under the public key.
+   * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    * @return encryptedKey
   **/
-  @ApiModelProperty(required = true, value = "Symmetric session key encrypted under the public key.")
+  @ApiModelProperty(required = true, value = "The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -72,7 +72,7 @@ public class PinChangeRequest {
 
 
  /**
-  * Symmetric session key encrypted under the public key.
+  * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
   *
   * @param encryptedKey
   */ 
@@ -89,10 +89,10 @@ public class PinChangeRequest {
   }
 
    /**
-   * The encrypted PIN block
+   * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    * @return encryptedPinBlock
   **/
-  @ApiModelProperty(required = true, value = "The encrypted PIN block")
+  @ApiModelProperty(required = true, value = "The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -102,7 +102,7 @@ public class PinChangeRequest {
 
 
  /**
-  * The encrypted PIN block
+  * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
   *
   * @param encryptedPinBlock
   */ 
@@ -119,10 +119,10 @@ public class PinChangeRequest {
   }
 
    /**
-   * The unique identifier of the payment instrument.
+   * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    * @return paymentInstrumentId
   **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the payment instrument.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the payment instrument, which is the card for which you are managing the PIN.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -132,7 +132,7 @@ public class PinChangeRequest {
 
 
  /**
-  * The unique identifier of the payment instrument.
+  * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
   *
   * @param paymentInstrumentId
   */ 
@@ -149,10 +149,10 @@ public class PinChangeRequest {
   }
 
    /**
-   * The token which is used to construct the pinblock.
+   * The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
    * @return token
   **/
-  @ApiModelProperty(required = true, value = "The token which is used to construct the pinblock.")
+  @ApiModelProperty(required = true, value = "The 16-digit token that you used to generate the `encryptedPinBlock`.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -162,7 +162,7 @@ public class PinChangeRequest {
 
 
  /**
-  * The token which is used to construct the pinblock.
+  * The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
   *
   * @param token
   */ 

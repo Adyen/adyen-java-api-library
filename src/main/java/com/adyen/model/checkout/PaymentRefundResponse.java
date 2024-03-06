@@ -95,7 +95,7 @@ public class PaymentRefundResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
