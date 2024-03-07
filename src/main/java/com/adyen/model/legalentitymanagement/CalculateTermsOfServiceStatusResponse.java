@@ -53,7 +53,9 @@ public class CalculateTermsOfServiceStatusResponse {
     
     ADYENFRANCHISEE("adyenFranchisee"),
     
-    ADYENISSUING("adyenIssuing");
+    ADYENISSUING("adyenIssuing"),
+    
+    ADYENPCCR("adyenPccr");
 
     private String value;
 

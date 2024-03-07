@@ -18,6 +18,8 @@ import com.adyen.model.balanceplatform.ListNetworkTokensResponse;
 import com.adyen.model.balanceplatform.PaymentInstrument;
 import com.adyen.model.balanceplatform.PaymentInstrumentInfo;
 import com.adyen.model.balanceplatform.PaymentInstrumentRevealInfo;
+import com.adyen.model.balanceplatform.PaymentInstrumentRevealRequest;
+import com.adyen.model.balanceplatform.PaymentInstrumentRevealResponse;
 import com.adyen.model.balanceplatform.PaymentInstrumentUpdateRequest;
 import com.adyen.model.balanceplatform.RestServiceError;
 import com.adyen.model.balanceplatform.TransactionRulesResponse;
@@ -213,6 +215,33 @@ public class PaymentInstrumentsApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/{id}/networkTokens", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return ListNetworkTokensResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Reveal the data of a payment instrument
+    *
+    * @param paymentInstrumentRevealRequest {@link PaymentInstrumentRevealRequest }  (required)
+    * @return {@link PaymentInstrumentRevealResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentInstrumentRevealResponse revealDataOfPaymentInstrument(PaymentInstrumentRevealRequest paymentInstrumentRevealRequest) throws ApiException, IOException {
+        return revealDataOfPaymentInstrument(paymentInstrumentRevealRequest, null);
+    }
+
+    /**
+    * Reveal the data of a payment instrument
+    *
+    * @param paymentInstrumentRevealRequest {@link PaymentInstrumentRevealRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentInstrumentRevealResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentInstrumentRevealResponse revealDataOfPaymentInstrument(PaymentInstrumentRevealRequest paymentInstrumentRevealRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = paymentInstrumentRevealRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/reveal", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return PaymentInstrumentRevealResponse.fromJson(jsonResult);
     }
 
     /**

@@ -73,6 +73,7 @@ public class LegalEntity {
   private List<DocumentReference> documentDetails = null;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
+  @Deprecated
   private List<EntityReference> documents = null;
 
   public static final String JSON_PROPERTY_ENTITY_ASSOCIATIONS = "entityAssociations";
@@ -234,6 +235,7 @@ public class LegalEntity {
   }
 
 
+  @Deprecated
   public LegalEntity documents(List<EntityReference> documents) {
     this.documents = documents;
     return this;

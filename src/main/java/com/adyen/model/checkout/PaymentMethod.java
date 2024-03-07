@@ -101,6 +101,7 @@ public class PaymentMethod {
   private PaymentMethodGroup group;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   private List<InputDetail> inputDetails = null;
 
   public static final String JSON_PROPERTY_ISSUERS = "issuers";
@@ -281,6 +282,7 @@ public class PaymentMethod {
   }
 
 
+  @Deprecated
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
     return this;

@@ -165,6 +165,7 @@ public class ThreeDS2RequestFields {
   private AddrMatchEnum addrMatch;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
+  @Deprecated
   private Boolean authenticationOnly = false;
 
   /**
@@ -207,6 +208,7 @@ public class ThreeDS2RequestFields {
   }
 
   public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
+  @Deprecated
   private ChallengeIndicatorEnum challengeIndicator;
 
   public static final String JSON_PROPERTY_DEVICE_RENDER_OPTIONS = "deviceRenderOptions";
@@ -614,6 +616,7 @@ public class ThreeDS2RequestFields {
   }
 
 
+  @Deprecated
   public ThreeDS2RequestFields authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
     return this;
@@ -647,6 +650,7 @@ public class ThreeDS2RequestFields {
   }
 
 
+  @Deprecated
   public ThreeDS2RequestFields challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
     return this;

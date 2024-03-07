@@ -56,6 +56,7 @@ public class InputDetail {
   private List<SubInputDetail> details = null;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
+  @Deprecated
   private List<SubInputDetail> inputDetails = null;
 
   public static final String JSON_PROPERTY_ITEM_SEARCH_URL = "itemSearchUrl";
@@ -155,6 +156,7 @@ public class InputDetail {
   }
 
 
+  @Deprecated
   public InputDetail inputDetails(List<SubInputDetail> inputDetails) {
     this.inputDetails = inputDetails;
     return this;

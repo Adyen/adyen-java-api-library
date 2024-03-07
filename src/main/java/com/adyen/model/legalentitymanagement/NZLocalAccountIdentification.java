@@ -32,12 +32,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   NZLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  NZLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   NZLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
 public class NZLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
+
+  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
+  private String formFactor = "physical";
 
   /**
    * **nzLocal**
@@ -108,6 +112,36 @@ public class NZLocalAccountIdentification {
   }
 
 
+  public NZLocalAccountIdentification formFactor(String formFactor) {
+    this.formFactor = formFactor;
+    return this;
+  }
+
+   /**
+   * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60;å value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+   * @return formFactor
+  **/
+  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor`å value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFormFactor() {
+    return formFactor;
+  }
+
+
+ /**
+  * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60;å value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+  *
+  * @param formFactor
+  */ 
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFactor(String formFactor) {
+    this.formFactor = formFactor;
+  }
+
+
   public NZLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -151,12 +185,13 @@ public class NZLocalAccountIdentification {
     }
     NZLocalAccountIdentification nzLocalAccountIdentification = (NZLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, nzLocalAccountIdentification.accountNumber) &&
+        Objects.equals(this.formFactor, nzLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, nzLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, type);
+    return Objects.hash(accountNumber, formFactor, type);
   }
 
   @Override
@@ -164,6 +199,7 @@ public class NZLocalAccountIdentification {
     StringBuilder sb = new StringBuilder();
     sb.append("class NZLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

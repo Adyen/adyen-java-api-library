@@ -39,6 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SourceOfFunds {
   public static final String JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID = "acquiringBusinessLineId";
+  @Deprecated
   private String acquiringBusinessLineId;
 
   public static final String JSON_PROPERTY_ADYEN_PROCESSED_FUNDS = "adyenProcessedFunds";
@@ -86,6 +87,7 @@ public class SourceOfFunds {
   public SourceOfFunds() { 
   }
 
+  @Deprecated
   public SourceOfFunds acquiringBusinessLineId(String acquiringBusinessLineId) {
     this.acquiringBusinessLineId = acquiringBusinessLineId;
     return this;

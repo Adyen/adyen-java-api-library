@@ -158,6 +158,7 @@ public class DonationPaymentRequest {
   private String checkoutAttemptId;
 
   public static final String JSON_PROPERTY_CONVERSION_ID = "conversionId";
+  @Deprecated
   private String conversionId;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
@@ -327,6 +328,7 @@ public class DonationPaymentRequest {
   private ThreeDS2RequestFields threeDS2RequestData;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   private Boolean threeDSAuthenticationOnly = false;
 
   public DonationPaymentRequest() { 
@@ -610,6 +612,7 @@ public class DonationPaymentRequest {
   }
 
 
+  @Deprecated
   public DonationPaymentRequest conversionId(String conversionId) {
     this.conversionId = conversionId;
     return this;
@@ -1559,6 +1562,7 @@ public class DonationPaymentRequest {
   }
 
 
+  @Deprecated
   public DonationPaymentRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;

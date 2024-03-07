@@ -44,7 +44,7 @@ public class BankIdentification {
   private String identification;
 
   /**
-   * Gets or Sets identificationType
+   * The type of the identification.  Possible values: **iban**, **routingNumber**.
    */
   public enum IdentificationTypeEnum {
     IBAN("iban"),
@@ -90,10 +90,10 @@ public class BankIdentification {
   }
 
    /**
-   * Get country
+   * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return country
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,7 +103,7 @@ public class BankIdentification {
 
 
  /**
-  * country
+  * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
   *
   * @param country
   */ 
@@ -120,10 +120,10 @@ public class BankIdentification {
   }
 
    /**
-   * Get identification
+   * The bank identification code.
    * @return identification
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The bank identification code.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -133,7 +133,7 @@ public class BankIdentification {
 
 
  /**
-  * identification
+  * The bank identification code.
   *
   * @param identification
   */ 
@@ -150,10 +150,10 @@ public class BankIdentification {
   }
 
    /**
-   * Get identificationType
+   * The type of the identification.  Possible values: **iban**, **routingNumber**.
    * @return identificationType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the identification.  Possible values: **iban**, **routingNumber**.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -163,7 +163,7 @@ public class BankIdentification {
 
 
  /**
-  * identificationType
+  * The type of the identification.  Possible values: **iban**, **routingNumber**.
   *
   * @param identificationType
   */ 

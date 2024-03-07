@@ -296,6 +296,7 @@ public class BalanceCheckRequest {
   private ThreeDS2RequestData threeDS2RequestData;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   private Boolean threeDSAuthenticationOnly = false;
 
   public static final String JSON_PROPERTY_TOTALS_GROUP = "totalsGroup";
@@ -1574,6 +1575,7 @@ public class BalanceCheckRequest {
   }
 
 
+  @Deprecated
   public BalanceCheckRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;

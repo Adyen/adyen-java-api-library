@@ -88,28 +88,34 @@ public class DocumentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public Document getDocument(String id) throws ApiException, IOException {
-        return getDocument(id, null);
+        return getDocument(id, null,  null);
     }
 
     /**
     * Get a document
     *
     * @param id {@link String } The unique identifier of the document. (required)
+    * @param skipContent {@link Boolean } Query: Do not load document content while fetching the document. (optional)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link Document }
     * @throws ApiException if fails to make API call
     */
-    public Document getDocument(String id, RequestOptions requestOptions) throws ApiException, IOException {
+    public Document getDocument(String id, Boolean skipContent, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (id == null) {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
         pathParams.put("id", id);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (skipContent != null) {
+        queryParams.put("skipContent", skipContent.toString());
+        }
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/documents/{id}", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return Document.fromJson(jsonResult);
     }
 

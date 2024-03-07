@@ -168,6 +168,7 @@ public class ThreeDS2RequestData {
   private AddrMatchEnum addrMatch;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
+  @Deprecated
   private Boolean authenticationOnly = false;
 
   /**
@@ -210,6 +211,7 @@ public class ThreeDS2RequestData {
   }
 
   public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
+  @Deprecated
   private ChallengeIndicatorEnum challengeIndicator;
 
   public static final String JSON_PROPERTY_DEVICE_CHANNEL = "deviceChannel";
@@ -626,6 +628,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
     return this;
@@ -659,6 +662,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
     return this;

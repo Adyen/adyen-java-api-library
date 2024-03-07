@@ -45,7 +45,9 @@ public class Notification {
   public enum CategoryEnum {
     SALEWAKEUP("SaleWakeUp"),
     
-    KEYPRESSED("KeyPressed");
+    KEYPRESSED("KeyPressed"),
+    
+    EMPTY("");
 
     private String value;
 

@@ -260,7 +260,9 @@ public class PaymentApi extends Service {
     * @param donationRequest {@link DonationRequest }  (required)
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
+    * @deprecated
     */
+    @Deprecated
     public ModificationResult donate(DonationRequest donationRequest) throws ApiException, IOException {
         return donate(donationRequest, null);
     }
@@ -272,7 +274,9 @@ public class PaymentApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
+    * @deprecated
     */
+   @Deprecated
     public ModificationResult donate(DonationRequest donationRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = donationRequest.toJson();

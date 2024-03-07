@@ -43,6 +43,7 @@ public class PaymentSetupResponse {
   private String paymentSession;
 
   public static final String JSON_PROPERTY_RECURRING_DETAILS = "recurringDetails";
+  @Deprecated
   private List<RecurringDetail> recurringDetails = null;
 
   public PaymentSetupResponse() { 
@@ -78,6 +79,7 @@ public class PaymentSetupResponse {
   }
 
 
+  @Deprecated
   public PaymentSetupResponse recurringDetails(List<RecurringDetail> recurringDetails) {
     this.recurringDetails = recurringDetails;
     return this;
