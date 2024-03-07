@@ -46,6 +46,7 @@ public class IdealDetails {
   private String issuer;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -150,6 +151,7 @@ public class IdealDetails {
   }
 
 
+  @Deprecated
   public IdealDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

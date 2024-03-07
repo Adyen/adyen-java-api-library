@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Card;
+import com.adyen.model.balanceplatform.PaymentInstrumentAdditionalBankAccountIdentificationsInner;
 import com.adyen.model.balanceplatform.PaymentInstrumentBankAccount;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -33,6 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * UpdatePaymentInstrument
  */
 @JsonPropertyOrder({
+  UpdatePaymentInstrument.JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS,
   UpdatePaymentInstrument.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
   UpdatePaymentInstrument.JSON_PROPERTY_BANK_ACCOUNT,
   UpdatePaymentInstrument.JSON_PROPERTY_CARD,
@@ -48,6 +52,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class UpdatePaymentInstrument {
+  public static final String JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS = "additionalBankAccountIdentifications";
+  private List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> additionalBankAccountIdentifications = null;
+
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
@@ -209,6 +216,44 @@ public class UpdatePaymentInstrument {
 
   public UpdatePaymentInstrument() { 
   }
+
+  public UpdatePaymentInstrument additionalBankAccountIdentifications(List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> additionalBankAccountIdentifications) {
+    this.additionalBankAccountIdentifications = additionalBankAccountIdentifications;
+    return this;
+  }
+
+  public UpdatePaymentInstrument addAdditionalBankAccountIdentificationsItem(PaymentInstrumentAdditionalBankAccountIdentificationsInner additionalBankAccountIdentificationsItem) {
+    if (this.additionalBankAccountIdentifications == null) {
+      this.additionalBankAccountIdentifications = new ArrayList<>();
+    }
+    this.additionalBankAccountIdentifications.add(additionalBankAccountIdentificationsItem);
+    return this;
+  }
+
+   /**
+   * Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
+   * @return additionalBankAccountIdentifications
+  **/
+  @ApiModelProperty(value = "Contains optional, additional business account details. Returned when you create a payment instrument with `type` **bankAccount**.")
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> getAdditionalBankAccountIdentifications() {
+    return additionalBankAccountIdentifications;
+  }
+
+
+ /**
+  * Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
+  *
+  * @param additionalBankAccountIdentifications
+  */ 
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdditionalBankAccountIdentifications(List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> additionalBankAccountIdentifications) {
+    this.additionalBankAccountIdentifications = additionalBankAccountIdentifications;
+  }
+
 
   public UpdatePaymentInstrument balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
@@ -582,7 +627,8 @@ public class UpdatePaymentInstrument {
       return false;
     }
     UpdatePaymentInstrument updatePaymentInstrument = (UpdatePaymentInstrument) o;
-    return Objects.equals(this.balanceAccountId, updatePaymentInstrument.balanceAccountId) &&
+    return Objects.equals(this.additionalBankAccountIdentifications, updatePaymentInstrument.additionalBankAccountIdentifications) &&
+        Objects.equals(this.balanceAccountId, updatePaymentInstrument.balanceAccountId) &&
         Objects.equals(this.bankAccount, updatePaymentInstrument.bankAccount) &&
         Objects.equals(this.card, updatePaymentInstrument.card) &&
         Objects.equals(this.description, updatePaymentInstrument.description) &&
@@ -598,13 +644,14 @@ public class UpdatePaymentInstrument {
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, bankAccount, card, description, id, issuingCountryCode, paymentInstrumentGroupId, reference, status, statusComment, statusReason, type);
+    return Objects.hash(additionalBankAccountIdentifications, balanceAccountId, bankAccount, card, description, id, issuingCountryCode, paymentInstrumentGroupId, reference, status, statusComment, statusReason, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePaymentInstrument {\n");
+    sb.append("    additionalBankAccountIdentifications: ").append(toIndentedString(additionalBankAccountIdentifications)).append("\n");
     sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    card: ").append(toIndentedString(card)).append("\n");

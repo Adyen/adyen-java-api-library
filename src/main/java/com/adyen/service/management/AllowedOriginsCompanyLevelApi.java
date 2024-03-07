@@ -57,10 +57,10 @@ public class AllowedOriginsCompanyLevelApi extends Service {
     * @param companyId {@link String } The unique identifier of the company account. (required)
     * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
     * @param allowedOrigin {@link AllowedOrigin }  (required)
-    * @return {@link AllowedOriginsResponse }
+    * @return {@link AllowedOrigin }
     * @throws ApiException if fails to make API call
     */
-    public AllowedOriginsResponse createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
+    public AllowedOrigin createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
         return createAllowedOrigin(companyId, apiCredentialId, allowedOrigin, null);
     }
 
@@ -71,10 +71,10 @@ public class AllowedOriginsCompanyLevelApi extends Service {
     * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
     * @param allowedOrigin {@link AllowedOrigin }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link AllowedOriginsResponse }
+    * @return {@link AllowedOrigin }
     * @throws ApiException if fails to make API call
     */
-    public AllowedOriginsResponse createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin, RequestOptions requestOptions) throws ApiException, IOException {
+    public AllowedOrigin createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
         if (companyId == null) {
@@ -89,7 +89,7 @@ public class AllowedOriginsCompanyLevelApi extends Service {
         String requestBody = allowedOrigin.toJson();
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
-        return AllowedOriginsResponse.fromJson(jsonResult);
+        return AllowedOrigin.fromJson(jsonResult);
     }
 
     /**

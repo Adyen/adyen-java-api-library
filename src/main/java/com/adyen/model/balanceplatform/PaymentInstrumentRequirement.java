@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -33,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   PaymentInstrumentRequirement.JSON_PROPERTY_DESCRIPTION,
   PaymentInstrumentRequirement.JSON_PROPERTY_ISSUING_COUNTRY_CODE,
+  PaymentInstrumentRequirement.JSON_PROPERTY_ISSUING_COUNTRY_CODES,
   PaymentInstrumentRequirement.JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM,
   PaymentInstrumentRequirement.JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE,
   PaymentInstrumentRequirement.JSON_PROPERTY_TYPE
@@ -44,6 +47,9 @@ public class PaymentInstrumentRequirement {
 
   public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODE = "issuingCountryCode";
   private String issuingCountryCode;
+
+  public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODES = "issuingCountryCodes";
+  private List<String> issuingCountryCodes = null;
 
   public static final String JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM = "onlyForCrossBalancePlatform";
   private Boolean onlyForCrossBalancePlatform;
@@ -185,6 +191,44 @@ public class PaymentInstrumentRequirement {
   }
 
 
+  public PaymentInstrumentRequirement issuingCountryCodes(List<String> issuingCountryCodes) {
+    this.issuingCountryCodes = issuingCountryCodes;
+    return this;
+  }
+
+  public PaymentInstrumentRequirement addIssuingCountryCodesItem(String issuingCountryCodesItem) {
+    if (this.issuingCountryCodes == null) {
+      this.issuingCountryCodes = new ArrayList<>();
+    }
+    this.issuingCountryCodes.add(issuingCountryCodesItem);
+    return this;
+  }
+
+   /**
+   * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
+   * @return issuingCountryCodes
+  **/
+  @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code list for payment instruments.")
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getIssuingCountryCodes() {
+    return issuingCountryCodes;
+  }
+
+
+ /**
+  * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
+  *
+  * @param issuingCountryCodes
+  */ 
+  @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIssuingCountryCodes(List<String> issuingCountryCodes) {
+    this.issuingCountryCodes = issuingCountryCodes;
+  }
+
+
   public PaymentInstrumentRequirement onlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
     this.onlyForCrossBalancePlatform = onlyForCrossBalancePlatform;
     return this;
@@ -289,6 +333,7 @@ public class PaymentInstrumentRequirement {
     PaymentInstrumentRequirement paymentInstrumentRequirement = (PaymentInstrumentRequirement) o;
     return Objects.equals(this.description, paymentInstrumentRequirement.description) &&
         Objects.equals(this.issuingCountryCode, paymentInstrumentRequirement.issuingCountryCode) &&
+        Objects.equals(this.issuingCountryCodes, paymentInstrumentRequirement.issuingCountryCodes) &&
         Objects.equals(this.onlyForCrossBalancePlatform, paymentInstrumentRequirement.onlyForCrossBalancePlatform) &&
         Objects.equals(this.paymentInstrumentType, paymentInstrumentRequirement.paymentInstrumentType) &&
         Objects.equals(this.type, paymentInstrumentRequirement.type);
@@ -296,7 +341,7 @@ public class PaymentInstrumentRequirement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, issuingCountryCode, onlyForCrossBalancePlatform, paymentInstrumentType, type);
+    return Objects.hash(description, issuingCountryCode, issuingCountryCodes, onlyForCrossBalancePlatform, paymentInstrumentType, type);
   }
 
   @Override
@@ -305,6 +350,7 @@ public class PaymentInstrumentRequirement {
     sb.append("class PaymentInstrumentRequirement {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    issuingCountryCode: ").append(toIndentedString(issuingCountryCode)).append("\n");
+    sb.append("    issuingCountryCodes: ").append(toIndentedString(issuingCountryCodes)).append("\n");
     sb.append("    onlyForCrossBalancePlatform: ").append(toIndentedString(onlyForCrossBalancePlatform)).append("\n");
     sb.append("    paymentInstrumentType: ").append(toIndentedString(paymentInstrumentType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

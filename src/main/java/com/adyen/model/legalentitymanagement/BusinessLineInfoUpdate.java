@@ -85,6 +85,7 @@ public class BusinessLineInfoUpdate {
   }
 
   public static final String JSON_PROPERTY_CAPABILITY = "capability";
+  @Deprecated
   private CapabilityEnum capability;
 
   public static final String JSON_PROPERTY_INDUSTRY_CODE = "industryCode";
@@ -146,6 +147,7 @@ public class BusinessLineInfoUpdate {
   public BusinessLineInfoUpdate() { 
   }
 
+  @Deprecated
   public BusinessLineInfoUpdate capability(CapabilityEnum capability) {
     this.capability = capability;
     return this;

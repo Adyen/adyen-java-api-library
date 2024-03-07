@@ -379,6 +379,8 @@ public class TransferData {
     
     REFUSED("refused"),
     
+    REJECTED("rejected"),
+    
     RESERVEADJUSTMENT("reserveAdjustment"),
     
     RESERVEADJUSTMENTPENDING("reserveAdjustmentPending"),
@@ -441,6 +443,8 @@ public class TransferData {
     
     BALANCEROLLOVER("balanceRollover"),
     
+    BANKDIRECTDEBIT("bankDirectDebit"),
+    
     BANKTRANSFER("bankTransfer"),
     
     CAPTURE("capture"),
@@ -472,6 +476,8 @@ public class TransferData {
     INSTALLMENT("installment"),
     
     INSTALLMENTREVERSAL("installmentReversal"),
+    
+    INTERNALDIRECTDEBIT("internalDirectDebit"),
     
     INTERNALTRANSFER("internalTransfer"),
     

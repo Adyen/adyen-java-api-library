@@ -43,9 +43,11 @@ public class Attachment {
   private byte[] content;
 
   public static final String JSON_PROPERTY_CONTENT_TYPE = "contentType";
+  @Deprecated
   private String contentType;
 
   public static final String JSON_PROPERTY_FILENAME = "filename";
+  @Deprecated
   private String filename;
 
   public static final String JSON_PROPERTY_PAGE_NAME = "pageName";
@@ -87,6 +89,7 @@ public class Attachment {
   }
 
 
+  @Deprecated
   public Attachment contentType(String contentType) {
     this.contentType = contentType;
     return this;
@@ -120,6 +123,7 @@ public class Attachment {
   }
 
 
+  @Deprecated
   public Attachment filename(String filename) {
     this.filename = filename;
     return this;

@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.ResourceReference;
-import com.adyen.model.transfers.TransferData;
+import com.adyen.model.transfers.TransferView;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -108,7 +108,7 @@ public class Transaction {
   private StatusEnum status;
 
   public static final String JSON_PROPERTY_TRANSFER = "transfer";
-  private TransferData transfer;
+  private TransferView transfer;
 
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
@@ -356,7 +356,7 @@ public class Transaction {
   }
 
 
-  public Transaction transfer(TransferData transfer) {
+  public Transaction transfer(TransferView transfer) {
     this.transfer = transfer;
     return this;
   }
@@ -369,7 +369,7 @@ public class Transaction {
   @JsonProperty(JSON_PROPERTY_TRANSFER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TransferData getTransfer() {
+  public TransferView getTransfer() {
     return transfer;
   }
 
@@ -381,7 +381,7 @@ public class Transaction {
   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransfer(TransferData transfer) {
+  public void setTransfer(TransferView transfer) {
     this.transfer = transfer;
   }
 

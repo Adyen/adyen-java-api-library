@@ -48,6 +48,7 @@ public class IdentificationData {
   private String expiryDate;
 
   public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
+  @Deprecated
   private String issuerCountry;
 
   public static final String JSON_PROPERTY_ISSUER_STATE = "issuerState";
@@ -158,6 +159,7 @@ public class IdentificationData {
   }
 
 
+  @Deprecated
   public IdentificationData issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
     return this;

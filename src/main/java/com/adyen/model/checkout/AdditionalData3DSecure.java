@@ -41,6 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class AdditionalData3DSecure {
   public static final String JSON_PROPERTY_ALLOW3_D_S2 = "allow3DS2";
+  @Deprecated
   private String allow3DS2;
 
   /**
@@ -88,6 +89,7 @@ public class AdditionalData3DSecure {
   private ChallengeWindowSizeEnum challengeWindowSize;
 
   public static final String JSON_PROPERTY_EXECUTE_THREE_D = "executeThreeD";
+  @Deprecated
   private String executeThreeD;
 
   public static final String JSON_PROPERTY_MPI_IMPLEMENTATION_TYPE = "mpiImplementationType";
@@ -102,6 +104,7 @@ public class AdditionalData3DSecure {
   public AdditionalData3DSecure() { 
   }
 
+  @Deprecated
   public AdditionalData3DSecure allow3DS2(String allow3DS2) {
     this.allow3DS2 = allow3DS2;
     return this;
@@ -165,6 +168,7 @@ public class AdditionalData3DSecure {
   }
 
 
+  @Deprecated
   public AdditionalData3DSecure executeThreeD(String executeThreeD) {
     this.executeThreeD = executeThreeD;
     return this;

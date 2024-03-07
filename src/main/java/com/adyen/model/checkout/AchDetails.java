@@ -111,6 +111,7 @@ public class AchDetails {
   private String ownerName;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -166,7 +167,7 @@ public class AchDetails {
    * The bank account number (without separators).
    * @return bankAccountNumber
   **/
-  @ApiModelProperty(required = true, value = "The bank account number (without separators).")
+  @ApiModelProperty(value = "The bank account number (without separators).")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -367,6 +368,7 @@ public class AchDetails {
   }
 
 
+  @Deprecated
   public AchDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

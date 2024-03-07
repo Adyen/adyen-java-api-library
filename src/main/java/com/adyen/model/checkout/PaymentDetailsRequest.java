@@ -50,6 +50,7 @@ public class PaymentDetailsRequest {
   private String paymentData;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
+  @Deprecated
   private Boolean threeDSAuthenticationOnly;
 
   public PaymentDetailsRequest() { 
@@ -145,6 +146,7 @@ public class PaymentDetailsRequest {
   }
 
 
+  @Deprecated
   public PaymentDetailsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     return this;

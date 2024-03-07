@@ -168,6 +168,8 @@ public class Modification {
     
     REFUSED("refused"),
     
+    REJECTED("rejected"),
+    
     RESERVEADJUSTMENT("reserveAdjustment"),
     
     RESERVEADJUSTMENTPENDING("reserveAdjustmentPending"),
