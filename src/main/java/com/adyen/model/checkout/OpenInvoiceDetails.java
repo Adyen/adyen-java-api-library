@@ -98,7 +98,7 @@ public class OpenInvoiceDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.OPENINVOICE;
+  private TypeEnum type;
 
   public OpenInvoiceDetails() { 
   }

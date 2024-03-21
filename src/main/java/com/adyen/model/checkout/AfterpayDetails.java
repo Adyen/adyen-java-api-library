@@ -100,7 +100,7 @@ public class AfterpayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AFTERPAY_DEFAULT;
+  private TypeEnum type;
 
   public AfterpayDetails() { 
   }

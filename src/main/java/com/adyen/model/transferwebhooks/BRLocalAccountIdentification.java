@@ -49,7 +49,7 @@ public class BRLocalAccountIdentification {
   private String branchNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **brLocal**
@@ -85,7 +85,7 @@ public class BRLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BRLOCAL;
+  private TypeEnum type;
 
   public BRLocalAccountIdentification() { 
   }

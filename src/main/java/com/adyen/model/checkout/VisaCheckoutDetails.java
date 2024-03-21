@@ -113,7 +113,7 @@ public class VisaCheckoutDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.VISACHECKOUT;
+  private TypeEnum type;
 
   public static final String JSON_PROPERTY_VISA_CHECKOUT_CALL_ID = "visaCheckoutCallId";
   private String visaCheckoutCallId;

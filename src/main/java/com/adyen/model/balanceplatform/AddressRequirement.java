@@ -120,7 +120,7 @@ public class AddressRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ADDRESSREQUIREMENT;
+  private TypeEnum type;
 
   public AddressRequirement() { 
   }

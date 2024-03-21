@@ -262,13 +262,13 @@ public class PaymentLinkResponse {
   private String shopperStatement;
 
   public static final String JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON = "showRemovePaymentMethodButton";
-  private Boolean showRemovePaymentMethodButton = true;
+  private Boolean showRemovePaymentMethodButton;
 
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
   public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
-  private Boolean splitCardFundingSources = false;
+  private Boolean splitCardFundingSources;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits = null;
@@ -1457,10 +1457,10 @@ public class PaymentLinkResponse {
   }
 
    /**
-   * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
+   * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    * @return splits
   **/
-  @ApiModelProperty(value = "An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
+  @ApiModelProperty(value = "An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1470,7 +1470,7 @@ public class PaymentLinkResponse {
 
 
  /**
-  * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/marketplaces-and-platforms/classic/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
+  * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
   *
   * @param splits
   */ 

@@ -409,7 +409,7 @@ public class PaymentRequest {
   private ThreeDS2RequestData threeDS2RequestData;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public static final String JSON_PROPERTY_TOTALS_GROUP = "totalsGroup";
   private String totalsGroup;

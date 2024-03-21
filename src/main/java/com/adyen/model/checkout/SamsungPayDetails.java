@@ -125,7 +125,7 @@ public class SamsungPayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SAMSUNGPAY;
+  private TypeEnum type;
 
   public SamsungPayDetails() { 
   }

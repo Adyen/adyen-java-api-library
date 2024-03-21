@@ -137,7 +137,7 @@ public class PayPalDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYPAL;
+  private TypeEnum type;
 
   public PayPalDetails() { 
   }

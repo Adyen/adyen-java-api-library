@@ -125,7 +125,7 @@ public class PayWithGoogleDonations {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYWITHGOOGLE;
+  private TypeEnum type;
 
   public PayWithGoogleDonations() { 
   }

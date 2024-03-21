@@ -38,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class IbanAccountIdentification {
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
@@ -77,7 +77,7 @@ public class IbanAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.IBAN;
+  private TypeEnum type;
 
   public IbanAccountIdentification() { 
   }

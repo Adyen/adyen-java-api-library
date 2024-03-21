@@ -298,7 +298,7 @@ public class CreateSweepConfigurationV2 {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PUSH;
+  private TypeEnum type;
 
   public CreateSweepConfigurationV2() { 
   }

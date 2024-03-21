@@ -86,7 +86,7 @@ public class VippsDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.VIPPS;
+  private TypeEnum type;
 
   public VippsDetails() { 
   }

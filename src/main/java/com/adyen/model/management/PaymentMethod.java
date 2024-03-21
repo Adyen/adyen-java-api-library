@@ -367,10 +367,10 @@ public class PaymentMethod {
   }
 
    /**
-   * The unique identifier of the business line. Required if you have a [platform setup](https://docs.adyen.com/marketplaces-and-platforms/platform-structure-resources/platform-setup/).
+   * The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).
    * @return businessLineId
   **/
-  @ApiModelProperty(value = "The unique identifier of the business line. Required if you have a [platform setup](https://docs.adyen.com/marketplaces-and-platforms/platform-structure-resources/platform-setup/).")
+  @ApiModelProperty(value = "The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -380,7 +380,7 @@ public class PaymentMethod {
 
 
  /**
-  * The unique identifier of the business line. Required if you have a [platform setup](https://docs.adyen.com/marketplaces-and-platforms/platform-structure-resources/platform-setup/).
+  * The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).
   *
   * @param businessLineId
   */ 

@@ -41,7 +41,7 @@ public class NOLocalAccountIdentification {
   private String accountNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **noLocal**
@@ -77,7 +77,7 @@ public class NOLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NOLOCAL;
+  private TypeEnum type;
 
   public NOLocalAccountIdentification() { 
   }

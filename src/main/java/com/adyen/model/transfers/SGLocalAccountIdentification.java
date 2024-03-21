@@ -45,7 +45,7 @@ public class SGLocalAccountIdentification {
   private String bic;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **sgLocal**
@@ -81,7 +81,7 @@ public class SGLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SGLOCAL;
+  private TypeEnum type;
 
   public SGLocalAccountIdentification() { 
   }

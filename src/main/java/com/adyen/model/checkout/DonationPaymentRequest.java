@@ -329,7 +329,7 @@ public class DonationPaymentRequest {
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   @Deprecated
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public DonationPaymentRequest() { 
   }

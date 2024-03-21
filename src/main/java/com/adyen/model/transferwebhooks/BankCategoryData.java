@@ -116,7 +116,7 @@ public class BankCategoryData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BANK;
+  private TypeEnum type;
 
   public BankCategoryData() { 
   }

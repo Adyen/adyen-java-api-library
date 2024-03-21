@@ -48,7 +48,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentCompletionDetails.JSON_PROPERTY_RESULT_CODE,
   PaymentCompletionDetails.JSON_PROPERTY_THREE_D_S_RESULT,
   PaymentCompletionDetails.JSON_PROPERTY_THREEDS2_CHALLENGE_RESULT,
-  PaymentCompletionDetails.JSON_PROPERTY_THREEDS2_FINGERPRINT
+  PaymentCompletionDetails.JSON_PROPERTY_THREEDS2_FINGERPRINT,
+  PaymentCompletionDetails.JSON_PROPERTY_VAULT_TOKEN
 })
 
 public class PaymentCompletionDetails {
@@ -105,6 +106,9 @@ public class PaymentCompletionDetails {
 
   public static final String JSON_PROPERTY_THREEDS2_FINGERPRINT = "threeds2.fingerprint";
   private String threeds2Fingerprint;
+
+  public static final String JSON_PROPERTY_VAULT_TOKEN = "vaultToken";
+  private String vaultToken;
 
   public PaymentCompletionDetails() { 
   }
@@ -649,6 +653,36 @@ public class PaymentCompletionDetails {
   }
 
 
+  public PaymentCompletionDetails vaultToken(String vaultToken) {
+    this.vaultToken = vaultToken;
+    return this;
+  }
+
+   /**
+   * PayPalv2-generated token for recurring payments.
+   * @return vaultToken
+  **/
+  @ApiModelProperty(value = "PayPalv2-generated token for recurring payments.")
+  @JsonProperty(JSON_PROPERTY_VAULT_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVaultToken() {
+    return vaultToken;
+  }
+
+
+ /**
+  * PayPalv2-generated token for recurring payments.
+  *
+  * @param vaultToken
+  */ 
+  @JsonProperty(JSON_PROPERTY_VAULT_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVaultToken(String vaultToken) {
+    this.vaultToken = vaultToken;
+  }
+
+
   /**
    * Return true if this PaymentCompletionDetails object is equal to o.
    */
@@ -678,12 +712,13 @@ public class PaymentCompletionDetails {
         Objects.equals(this.resultCode, paymentCompletionDetails.resultCode) &&
         Objects.equals(this.threeDSResult, paymentCompletionDetails.threeDSResult) &&
         Objects.equals(this.threeds2ChallengeResult, paymentCompletionDetails.threeds2ChallengeResult) &&
-        Objects.equals(this.threeds2Fingerprint, paymentCompletionDetails.threeds2Fingerprint);
+        Objects.equals(this.threeds2Fingerprint, paymentCompletionDetails.threeds2Fingerprint) &&
+        Objects.equals(this.vaultToken, paymentCompletionDetails.vaultToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(MD, paReq, paRes, authorizationToken, billingToken, cupsecureplusSmscode, facilitatorAccessToken, oneTimePasscode, orderID, payerID, payload, paymentID, paymentStatus, redirectResult, resultCode, threeDSResult, threeds2ChallengeResult, threeds2Fingerprint);
+    return Objects.hash(MD, paReq, paRes, authorizationToken, billingToken, cupsecureplusSmscode, facilitatorAccessToken, oneTimePasscode, orderID, payerID, payload, paymentID, paymentStatus, redirectResult, resultCode, threeDSResult, threeds2ChallengeResult, threeds2Fingerprint, vaultToken);
   }
 
   @Override
@@ -708,6 +743,7 @@ public class PaymentCompletionDetails {
     sb.append("    threeDSResult: ").append(toIndentedString(threeDSResult)).append("\n");
     sb.append("    threeds2ChallengeResult: ").append(toIndentedString(threeds2ChallengeResult)).append("\n");
     sb.append("    threeds2Fingerprint: ").append(toIndentedString(threeds2Fingerprint)).append("\n");
+    sb.append("    vaultToken: ").append(toIndentedString(vaultToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
