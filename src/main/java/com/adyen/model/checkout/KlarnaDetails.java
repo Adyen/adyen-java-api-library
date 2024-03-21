@@ -110,7 +110,7 @@ public class KlarnaDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.KLARNA;
+  private TypeEnum type;
 
   public KlarnaDetails() { 
   }

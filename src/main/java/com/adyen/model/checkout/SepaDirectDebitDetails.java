@@ -92,7 +92,7 @@ public class SepaDirectDebitDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SEPADIRECTDEBIT;
+  private TypeEnum type;
 
   public SepaDirectDebitDetails() { 
   }

@@ -77,7 +77,7 @@ public class CellulantDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CELLULANT;
+  private TypeEnum type;
 
   public CellulantDetails() { 
   }

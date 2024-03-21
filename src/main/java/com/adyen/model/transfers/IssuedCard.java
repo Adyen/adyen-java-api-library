@@ -190,7 +190,7 @@ public class IssuedCard {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ISSUEDCARD;
+  private TypeEnum type;
 
   public static final String JSON_PROPERTY_VALIDATION_FACTS = "validationFacts";
   private List<TransferNotificationValidationFact> validationFacts = null;

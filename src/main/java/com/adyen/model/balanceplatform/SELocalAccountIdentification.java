@@ -45,7 +45,7 @@ public class SELocalAccountIdentification {
   private String clearingNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **seLocal**
@@ -81,7 +81,7 @@ public class SELocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SELOCAL;
+  private TypeEnum type;
 
   public SELocalAccountIdentification() { 
   }

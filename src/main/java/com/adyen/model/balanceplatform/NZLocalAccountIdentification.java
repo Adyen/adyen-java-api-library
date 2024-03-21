@@ -41,7 +41,7 @@ public class NZLocalAccountIdentification {
   private String accountNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **nzLocal**
@@ -77,7 +77,7 @@ public class NZLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NZLOCAL;
+  private TypeEnum type;
 
   public NZLocalAccountIdentification() { 
   }

@@ -50,7 +50,7 @@ public class NumberAndBicAccountIdentification {
   private String bic;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **numberAndBic**
@@ -86,7 +86,7 @@ public class NumberAndBicAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NUMBERANDBIC;
+  private TypeEnum type;
 
   public NumberAndBicAccountIdentification() { 
   }

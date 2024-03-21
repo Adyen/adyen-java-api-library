@@ -45,7 +45,7 @@ public class AULocalAccountIdentification {
   private String bsbCode;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **auLocal**
@@ -81,7 +81,7 @@ public class AULocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AULOCAL;
+  private TypeEnum type;
 
   public AULocalAccountIdentification() { 
   }

@@ -99,7 +99,7 @@ public class PartyIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.UNKNOWN;
+  private TypeEnum type;
 
   public PartyIdentification() { 
   }

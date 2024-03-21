@@ -45,7 +45,7 @@ public class HKLocalAccountIdentification {
   private String clearingCode;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **hkLocal**
@@ -81,7 +81,7 @@ public class HKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HKLOCAL;
+  private TypeEnum type;
 
   public HKLocalAccountIdentification() { 
   }

@@ -79,10 +79,10 @@ public class CALocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  private AccountTypeEnum accountType = AccountTypeEnum.CHECKING;
+  private AccountTypeEnum accountType;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   public static final String JSON_PROPERTY_INSTITUTION_NUMBER = "institutionNumber";
   private String institutionNumber;
@@ -124,7 +124,7 @@ public class CALocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CALOCAL;
+  private TypeEnum type;
 
   public CALocalAccountIdentification() { 
   }

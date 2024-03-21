@@ -81,7 +81,7 @@ public class WeChatPayMiniProgramDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.WECHATPAYMINIPROGRAM;
+  private TypeEnum type;
 
   public WeChatPayMiniProgramDetails() { 
   }

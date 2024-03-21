@@ -45,7 +45,7 @@ public class DKLocalAccountIdentification {
   private String bankCode;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **dkLocal**
@@ -81,7 +81,7 @@ public class DKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.DKLOCAL;
+  private TypeEnum type;
 
   public DKLocalAccountIdentification() { 
   }

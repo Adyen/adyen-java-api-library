@@ -38,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentMethodIssuer {
   public static final String JSON_PROPERTY_DISABLED = "disabled";
-  private Boolean disabled = false;
+  private Boolean disabled;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;

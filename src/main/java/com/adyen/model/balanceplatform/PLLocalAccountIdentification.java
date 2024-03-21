@@ -41,7 +41,7 @@ public class PLLocalAccountIdentification {
   private String accountNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **plLocal**
@@ -77,7 +77,7 @@ public class PLLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PLLOCAL;
+  private TypeEnum type;
 
   public PLLocalAccountIdentification() { 
   }

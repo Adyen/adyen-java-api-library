@@ -94,7 +94,7 @@ public class BacsDirectDebitDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.DIRECTDEBIT_GB;
+  private TypeEnum type;
 
   public BacsDirectDebitDetails() { 
   }

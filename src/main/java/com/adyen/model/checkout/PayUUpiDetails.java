@@ -87,7 +87,7 @@ public class PayUUpiDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYU_IN_UPI;
+  private TypeEnum type;
 
   public static final String JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS = "virtualPaymentAddress";
   private String virtualPaymentAddress;

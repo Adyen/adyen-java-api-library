@@ -82,7 +82,7 @@ public class GiropayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.GIROPAY;
+  private TypeEnum type;
 
   public GiropayDetails() { 
   }

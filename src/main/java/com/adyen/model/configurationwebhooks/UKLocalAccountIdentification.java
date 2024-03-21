@@ -42,7 +42,7 @@ public class UKLocalAccountIdentification {
   private String accountNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   public static final String JSON_PROPERTY_SORT_CODE = "sortCode";
   private String sortCode;
@@ -81,7 +81,7 @@ public class UKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.UKLOCAL;
+  private TypeEnum type;
 
   public UKLocalAccountIdentification() { 
   }

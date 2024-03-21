@@ -41,7 +41,7 @@ public class HULocalAccountIdentification {
   private String accountNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   /**
    * **huLocal**
@@ -77,7 +77,7 @@ public class HULocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HULOCAL;
+  private TypeEnum type;
 
   public HULocalAccountIdentification() { 
   }
