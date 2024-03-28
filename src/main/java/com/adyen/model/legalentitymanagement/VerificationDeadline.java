@@ -232,10 +232,10 @@ public class VerificationDeadline {
   }
 
    /**
-   * The unique identifiers of the bank account(s) that the deadline applies to
+   * The unique identifiers of the legal entity or supporting entities that the deadline applies to
    * @return entityIds
   **/
-  @ApiModelProperty(value = "The unique identifiers of the bank account(s) that the deadline applies to")
+  @ApiModelProperty(value = "The unique identifiers of the legal entity or supporting entities that the deadline applies to")
   @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -245,7 +245,7 @@ public class VerificationDeadline {
 
 
  /**
-  * The unique identifiers of the bank account(s) that the deadline applies to
+  * The unique identifiers of the legal entity or supporting entities that the deadline applies to
   *
   * @param entityIds
   */ 
