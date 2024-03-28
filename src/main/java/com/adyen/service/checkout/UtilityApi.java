@@ -16,6 +16,8 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.checkout.ApplePaySessionRequest;
 import com.adyen.model.checkout.ApplePaySessionResponse;
+import com.adyen.model.checkout.PaypalUpdateOrderRequest;
+import com.adyen.model.checkout.PaypalUpdateOrderResponse;
 import com.adyen.model.checkout.ServiceError;
 import com.adyen.model.checkout.UtilityRequest;
 import com.adyen.model.checkout.UtilityResponse;
@@ -109,5 +111,32 @@ public class UtilityApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/originKeys", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return UtilityResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Updates the order for PayPal Express Checkout
+    *
+    * @param paypalUpdateOrderRequest {@link PaypalUpdateOrderRequest }  (required)
+    * @return {@link PaypalUpdateOrderResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaypalUpdateOrderResponse updatesOrderForPaypalExpressCheckout(PaypalUpdateOrderRequest paypalUpdateOrderRequest) throws ApiException, IOException {
+        return updatesOrderForPaypalExpressCheckout(paypalUpdateOrderRequest, null);
+    }
+
+    /**
+    * Updates the order for PayPal Express Checkout
+    *
+    * @param paypalUpdateOrderRequest {@link PaypalUpdateOrderRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaypalUpdateOrderResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public PaypalUpdateOrderResponse updatesOrderForPaypalExpressCheckout(PaypalUpdateOrderRequest paypalUpdateOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = paypalUpdateOrderRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/paypal/updateOrder", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return PaypalUpdateOrderResponse.fromJson(jsonResult);
     }
 }

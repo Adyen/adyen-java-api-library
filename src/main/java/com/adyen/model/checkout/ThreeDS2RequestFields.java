@@ -53,7 +53,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   ThreeDS2RequestFields.JSON_PROPERTY_NOTIFICATION_U_R_L,
   ThreeDS2RequestFields.JSON_PROPERTY_PAY_TOKEN_IND,
   ThreeDS2RequestFields.JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE,
-  ThreeDS2RequestFields.JSON_PROPERTY_PLATFORM,
   ThreeDS2RequestFields.JSON_PROPERTY_PURCHASE_INSTAL_DATA,
   ThreeDS2RequestFields.JSON_PROPERTY_RECURRING_EXPIRY,
   ThreeDS2RequestFields.JSON_PROPERTY_RECURRING_FREQUENCY,
@@ -237,46 +236,6 @@ public class ThreeDS2RequestFields {
 
   public static final String JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE = "paymentAuthenticationUseCase";
   private String paymentAuthenticationUseCase;
-
-  /**
-   * The platform of the shopper. Allowed values: * &#x60;iOS&#x60; * &#x60;android&#x60; * &#x60;browser&#x60;
-   */
-  public enum PlatformEnum {
-    IOS("iOS"),
-    
-    ANDROID("android"),
-    
-    BROWSER("browser");
-
-    private String value;
-
-    PlatformEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static PlatformEnum fromValue(String value) {
-      for (PlatformEnum b : PlatformEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_PLATFORM = "platform";
-  private PlatformEnum platform;
 
   public static final String JSON_PROPERTY_PURCHASE_INSTAL_DATA = "purchaseInstalData";
   private String purchaseInstalData;
@@ -954,36 +913,6 @@ public class ThreeDS2RequestFields {
   }
 
 
-  public ThreeDS2RequestFields platform(PlatformEnum platform) {
-    this.platform = platform;
-    return this;
-  }
-
-   /**
-   * The platform of the shopper. Allowed values: * &#x60;iOS&#x60; * &#x60;android&#x60; * &#x60;browser&#x60;
-   * @return platform
-  **/
-  @ApiModelProperty(value = "The platform of the shopper. Allowed values: * `iOS` * `android` * `browser`")
-  @JsonProperty(JSON_PROPERTY_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public PlatformEnum getPlatform() {
-    return platform;
-  }
-
-
- /**
-  * The platform of the shopper. Allowed values: * &#x60;iOS&#x60; * &#x60;android&#x60; * &#x60;browser&#x60;
-  *
-  * @param platform
-  */ 
-  @JsonProperty(JSON_PROPERTY_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlatform(PlatformEnum platform) {
-    this.platform = platform;
-  }
-
-
   public ThreeDS2RequestFields purchaseInstalData(String purchaseInstalData) {
     this.purchaseInstalData = purchaseInstalData;
     return this;
@@ -1612,7 +1541,6 @@ public class ThreeDS2RequestFields {
         Objects.equals(this.notificationURL, threeDS2RequestFields.notificationURL) &&
         Objects.equals(this.payTokenInd, threeDS2RequestFields.payTokenInd) &&
         Objects.equals(this.paymentAuthenticationUseCase, threeDS2RequestFields.paymentAuthenticationUseCase) &&
-        Objects.equals(this.platform, threeDS2RequestFields.platform) &&
         Objects.equals(this.purchaseInstalData, threeDS2RequestFields.purchaseInstalData) &&
         Objects.equals(this.recurringExpiry, threeDS2RequestFields.recurringExpiry) &&
         Objects.equals(this.recurringFrequency, threeDS2RequestFields.recurringFrequency) &&
@@ -1637,7 +1565,7 @@ public class ThreeDS2RequestFields {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acctInfo, acctType, acquirerBIN, acquirerMerchantID, addrMatch, authenticationOnly, challengeIndicator, deviceRenderOptions, homePhone, mcc, merchantName, messageVersion, mobilePhone, notificationURL, payTokenInd, paymentAuthenticationUseCase, platform, purchaseInstalData, recurringExpiry, recurringFrequency, sdkAppID, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, threeDSCompInd, threeDSRequestorAuthenticationInd, threeDSRequestorAuthenticationInfo, threeDSRequestorChallengeInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorPriorAuthenticationInfo, threeDSRequestorURL, transType, transactionType, whiteListStatus, workPhone);
+    return Objects.hash(acctInfo, acctType, acquirerBIN, acquirerMerchantID, addrMatch, authenticationOnly, challengeIndicator, deviceRenderOptions, homePhone, mcc, merchantName, messageVersion, mobilePhone, notificationURL, payTokenInd, paymentAuthenticationUseCase, purchaseInstalData, recurringExpiry, recurringFrequency, sdkAppID, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, threeDSCompInd, threeDSRequestorAuthenticationInd, threeDSRequestorAuthenticationInfo, threeDSRequestorChallengeInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorPriorAuthenticationInfo, threeDSRequestorURL, transType, transactionType, whiteListStatus, workPhone);
   }
 
   @Override
@@ -1660,7 +1588,6 @@ public class ThreeDS2RequestFields {
     sb.append("    notificationURL: ").append(toIndentedString(notificationURL)).append("\n");
     sb.append("    payTokenInd: ").append(toIndentedString(payTokenInd)).append("\n");
     sb.append("    paymentAuthenticationUseCase: ").append(toIndentedString(paymentAuthenticationUseCase)).append("\n");
-    sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    purchaseInstalData: ").append(toIndentedString(purchaseInstalData)).append("\n");
     sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
     sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");

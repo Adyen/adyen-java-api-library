@@ -48,7 +48,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_LOCALE,
   PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
   PaymentMethodsRequest.JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES,
-  PaymentMethodsRequest.JSON_PROPERTY_STORE
+  PaymentMethodsRequest.JSON_PROPERTY_STORE,
+  PaymentMethodsRequest.JSON_PROPERTY_STORE_FILTRATION_MODE
 })
 
 public class PaymentMethodsRequest {
@@ -124,6 +125,46 @@ public class PaymentMethodsRequest {
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /**
+   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.   - &#39;skipFilter&#39;: All payment methods are returned, regardless of store association.
+   */
+  public enum StoreFiltrationModeEnum {
+    EXCLUSIVE("exclusive"),
+    
+    INCLUSIVE("inclusive"),
+    
+    SKIPFILTER("skipFilter");
+
+    private String value;
+
+    StoreFiltrationModeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StoreFiltrationModeEnum fromValue(String value) {
+      for (StoreFiltrationModeEnum b : StoreFiltrationModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_STORE_FILTRATION_MODE = "storeFiltrationMode";
+  private StoreFiltrationModeEnum storeFiltrationMode;
 
   public PaymentMethodsRequest() { 
   }
@@ -512,6 +553,36 @@ public class PaymentMethodsRequest {
   }
 
 
+  public PaymentMethodsRequest storeFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
+    this.storeFiltrationMode = storeFiltrationMode;
+    return this;
+  }
+
+   /**
+   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.   - &#39;skipFilter&#39;: All payment methods are returned, regardless of store association.
+   * @return storeFiltrationMode
+  **/
+  @ApiModelProperty(value = "Specifies how payment methods should be filtered based on the 'store' parameter:   - 'exclusive': Only payment methods belonging to the specified 'store' are returned.   - 'inclusive': Payment methods from the 'store' and those not associated with any other store are returned.   - 'skipFilter': All payment methods are returned, regardless of store association.")
+  @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StoreFiltrationModeEnum getStoreFiltrationMode() {
+    return storeFiltrationMode;
+  }
+
+
+ /**
+  * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.   - &#39;skipFilter&#39;: All payment methods are returned, regardless of store association.
+  *
+  * @param storeFiltrationMode
+  */ 
+  @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoreFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
+    this.storeFiltrationMode = storeFiltrationMode;
+  }
+
+
   /**
    * Return true if this PaymentMethodsRequest object is equal to o.
    */
@@ -535,12 +606,13 @@ public class PaymentMethodsRequest {
         Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
         Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference) &&
         Objects.equals(this.splitCardFundingSources, paymentMethodsRequest.splitCardFundingSources) &&
-        Objects.equals(this.store, paymentMethodsRequest.store);
+        Objects.equals(this.store, paymentMethodsRequest.store) &&
+        Objects.equals(this.storeFiltrationMode, paymentMethodsRequest.storeFiltrationMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, merchantAccount, order, shopperLocale, shopperReference, splitCardFundingSources, store);
+    return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, merchantAccount, order, shopperLocale, shopperReference, splitCardFundingSources, store, storeFiltrationMode);
   }
 
   @Override
@@ -559,6 +631,7 @@ public class PaymentMethodsRequest {
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    splitCardFundingSources: ").append(toIndentedString(splitCardFundingSources)).append("\n");
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
+    sb.append("    storeFiltrationMode: ").append(toIndentedString(storeFiltrationMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

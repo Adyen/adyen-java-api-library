@@ -33,7 +33,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   USLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   USLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_TYPE,
-  USLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   USLocalAccountIdentification.JSON_PROPERTY_ROUTING_NUMBER,
   USLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
@@ -79,9 +78,6 @@ public class USLocalAccountIdentification {
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private AccountTypeEnum accountType;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
@@ -185,36 +181,6 @@ public class USLocalAccountIdentification {
   }
 
 
-  public USLocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
-  }
-
-
   public USLocalAccountIdentification routingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
     return this;
@@ -289,14 +255,13 @@ public class USLocalAccountIdentification {
     USLocalAccountIdentification usLocalAccountIdentification = (USLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, usLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.accountType, usLocalAccountIdentification.accountType) &&
-        Objects.equals(this.formFactor, usLocalAccountIdentification.formFactor) &&
         Objects.equals(this.routingNumber, usLocalAccountIdentification.routingNumber) &&
         Objects.equals(this.type, usLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountType, formFactor, routingNumber, type);
+    return Objects.hash(accountNumber, accountType, routingNumber, type);
   }
 
   @Override
@@ -305,7 +270,6 @@ public class USLocalAccountIdentification {
     sb.append("class USLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
