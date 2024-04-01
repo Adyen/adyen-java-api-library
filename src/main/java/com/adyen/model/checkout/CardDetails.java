@@ -60,6 +60,7 @@ public class CardDetails {
   private String checkoutAttemptId;
 
   public static final String JSON_PROPERTY_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
+  @Deprecated
   private String cupsecureplusSmscode;
 
   public static final String JSON_PROPERTY_CVC = "cvc";
@@ -131,6 +132,7 @@ public class CardDetails {
   private String number;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
@@ -184,7 +186,7 @@ public class CardDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SCHEME;
+  private TypeEnum type;
 
   public CardDetails() { 
   }
@@ -249,6 +251,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public CardDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
     return this;
@@ -612,6 +615,7 @@ public class CardDetails {
   }
 
 
+  @Deprecated
   public CardDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

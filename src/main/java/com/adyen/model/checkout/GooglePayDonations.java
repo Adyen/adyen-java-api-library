@@ -89,6 +89,7 @@ public class GooglePayDonations {
   private String googlePayToken;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -128,7 +129,7 @@ public class GooglePayDonations {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.GOOGLEPAY;
+  private TypeEnum type;
 
   public GooglePayDonations() { 
   }
@@ -253,6 +254,7 @@ public class GooglePayDonations {
   }
 
 
+  @Deprecated
   public GooglePayDonations recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

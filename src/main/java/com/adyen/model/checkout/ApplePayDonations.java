@@ -85,6 +85,7 @@ public class ApplePayDonations {
   private FundingSourceEnum fundingSource;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -124,7 +125,7 @@ public class ApplePayDonations {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.APPLEPAY;
+  private TypeEnum type;
 
   public ApplePayDonations() { 
   }
@@ -219,6 +220,7 @@ public class ApplePayDonations {
   }
 
 
+  @Deprecated
   public ApplePayDonations recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

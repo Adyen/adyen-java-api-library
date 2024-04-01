@@ -54,6 +54,7 @@ public class RatepayDetails {
   private String personalDetails;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -95,7 +96,7 @@ public class RatepayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.RATEPAY;
+  private TypeEnum type;
 
   public RatepayDetails() { 
   }
@@ -220,6 +221,7 @@ public class RatepayDetails {
   }
 
 
+  @Deprecated
   public RatepayDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

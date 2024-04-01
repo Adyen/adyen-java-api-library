@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   NumberAndBicAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   NumberAndBicAccountIdentification.JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION,
   NumberAndBicAccountIdentification.JSON_PROPERTY_BIC,
+  NumberAndBicAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   NumberAndBicAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -47,6 +48,9 @@ public class NumberAndBicAccountIdentification {
 
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
+
+  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
+  private String formFactor;
 
   /**
    * **numberAndBic**
@@ -82,7 +86,7 @@ public class NumberAndBicAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NUMBERANDBIC;
+  private TypeEnum type;
 
   public NumberAndBicAccountIdentification() { 
   }
@@ -177,6 +181,36 @@ public class NumberAndBicAccountIdentification {
   }
 
 
+  public NumberAndBicAccountIdentification formFactor(String formFactor) {
+    this.formFactor = formFactor;
+    return this;
+  }
+
+   /**
+   * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+   * @return formFactor
+  **/
+  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFormFactor() {
+    return formFactor;
+  }
+
+
+ /**
+  * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+  *
+  * @param formFactor
+  */ 
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFactor(String formFactor) {
+    this.formFactor = formFactor;
+  }
+
+
   public NumberAndBicAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -222,12 +256,13 @@ public class NumberAndBicAccountIdentification {
     return Objects.equals(this.accountNumber, numberAndBicAccountIdentification.accountNumber) &&
         Objects.equals(this.additionalBankIdentification, numberAndBicAccountIdentification.additionalBankIdentification) &&
         Objects.equals(this.bic, numberAndBicAccountIdentification.bic) &&
+        Objects.equals(this.formFactor, numberAndBicAccountIdentification.formFactor) &&
         Objects.equals(this.type, numberAndBicAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, additionalBankIdentification, bic, type);
+    return Objects.hash(accountNumber, additionalBankIdentification, bic, formFactor, type);
   }
 
   @Override
@@ -237,6 +272,7 @@ public class NumberAndBicAccountIdentification {
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    additionalBankIdentification: ").append(toIndentedString(additionalBankIdentification)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
+    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

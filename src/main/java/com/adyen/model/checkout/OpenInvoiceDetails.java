@@ -54,6 +54,7 @@ public class OpenInvoiceDetails {
   private String personalDetails;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -97,7 +98,7 @@ public class OpenInvoiceDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.OPENINVOICE;
+  private TypeEnum type;
 
   public OpenInvoiceDetails() { 
   }
@@ -222,6 +223,7 @@ public class OpenInvoiceDetails {
   }
 
 
+  @Deprecated
   public OpenInvoiceDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

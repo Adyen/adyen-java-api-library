@@ -168,7 +168,8 @@ public class ThreeDS2RequestData {
   private AddrMatchEnum addrMatch;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
-  private Boolean authenticationOnly = false;
+  @Deprecated
+  private Boolean authenticationOnly;
 
   /**
    * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
@@ -210,6 +211,7 @@ public class ThreeDS2RequestData {
   }
 
   public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
+  @Deprecated
   private ChallengeIndicatorEnum challengeIndicator;
 
   public static final String JSON_PROPERTY_DEVICE_CHANNEL = "deviceChannel";
@@ -301,7 +303,7 @@ public class ThreeDS2RequestData {
   private SDKEphemPubKey sdkEphemPubKey;
 
   public static final String JSON_PROPERTY_SDK_MAX_TIMEOUT = "sdkMaxTimeout";
-  private Integer sdkMaxTimeout = 60;
+  private Integer sdkMaxTimeout;
 
   public static final String JSON_PROPERTY_SDK_REFERENCE_NUMBER = "sdkReferenceNumber";
   private String sdkReferenceNumber;
@@ -626,6 +628,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
     return this;
@@ -659,6 +662,7 @@ public class ThreeDS2RequestData {
   }
 
 
+  @Deprecated
   public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
     return this;

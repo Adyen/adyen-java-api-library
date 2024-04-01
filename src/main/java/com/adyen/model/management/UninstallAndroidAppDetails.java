@@ -73,7 +73,7 @@ public class UninstallAndroidAppDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.UNINSTALLANDROIDAPP;
+  private TypeEnum type;
 
   public UninstallAndroidAppDetails() { 
   }

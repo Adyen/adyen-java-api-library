@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   USLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   USLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_TYPE,
+  USLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   USLocalAccountIdentification.JSON_PROPERTY_ROUTING_NUMBER,
   USLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
@@ -77,7 +78,10 @@ public class USLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  private AccountTypeEnum accountType = AccountTypeEnum.CHECKING;
+  private AccountTypeEnum accountType;
+
+  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
+  private String formFactor;
 
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
@@ -116,7 +120,7 @@ public class USLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.USLOCAL;
+  private TypeEnum type;
 
   public USLocalAccountIdentification() { 
   }
@@ -178,6 +182,36 @@ public class USLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+  }
+
+
+  public USLocalAccountIdentification formFactor(String formFactor) {
+    this.formFactor = formFactor;
+    return this;
+  }
+
+   /**
+   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
+   * @return formFactor
+  **/
+  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFormFactor() {
+    return formFactor;
+  }
+
+
+ /**
+  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
+  *
+  * @param formFactor
+  */ 
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFactor(String formFactor) {
+    this.formFactor = formFactor;
   }
 
 
@@ -255,13 +289,14 @@ public class USLocalAccountIdentification {
     USLocalAccountIdentification usLocalAccountIdentification = (USLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, usLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.accountType, usLocalAccountIdentification.accountType) &&
+        Objects.equals(this.formFactor, usLocalAccountIdentification.formFactor) &&
         Objects.equals(this.routingNumber, usLocalAccountIdentification.routingNumber) &&
         Objects.equals(this.type, usLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountType, routingNumber, type);
+    return Objects.hash(accountNumber, accountType, formFactor, routingNumber, type);
   }
 
   @Override
@@ -270,6 +305,7 @@ public class USLocalAccountIdentification {
     sb.append("class USLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

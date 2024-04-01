@@ -102,6 +102,7 @@ public class MerchantRiskIndicator {
   private DeliveryAddressIndicatorEnum deliveryAddressIndicator;
 
   public static final String JSON_PROPERTY_DELIVERY_EMAIL = "deliveryEmail";
+  @Deprecated
   private String deliveryEmail;
 
   public static final String JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS = "deliveryEmailAddress";
@@ -239,6 +240,7 @@ public class MerchantRiskIndicator {
   }
 
 
+  @Deprecated
   public MerchantRiskIndicator deliveryEmail(String deliveryEmail) {
     this.deliveryEmail = deliveryEmail;
     return this;

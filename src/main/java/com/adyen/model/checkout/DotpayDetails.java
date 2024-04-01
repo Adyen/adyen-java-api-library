@@ -77,7 +77,7 @@ public class DotpayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.DOTPAY;
+  private TypeEnum type;
 
   public DotpayDetails() { 
   }

@@ -36,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class DetailsRequestAuthenticationData {
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
-  private Boolean authenticationOnly = false;
+  private Boolean authenticationOnly;
 
   public DetailsRequestAuthenticationData() { 
   }

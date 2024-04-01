@@ -41,6 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Terminal.JSON_PROPERTY_LAST_ACTIVITY_AT,
   Terminal.JSON_PROPERTY_LAST_TRANSACTION_AT,
   Terminal.JSON_PROPERTY_MODEL,
+  Terminal.JSON_PROPERTY_RESTART_LOCAL_TIME,
   Terminal.JSON_PROPERTY_SERIAL_NUMBER
 })
 
@@ -65,6 +66,9 @@ public class Terminal {
 
   public static final String JSON_PROPERTY_MODEL = "model";
   private String model;
+
+  public static final String JSON_PROPERTY_RESTART_LOCAL_TIME = "restartLocalTime";
+  private String restartLocalTime;
 
   public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private String serialNumber;
@@ -282,6 +286,36 @@ public class Terminal {
   }
 
 
+  public Terminal restartLocalTime(String restartLocalTime) {
+    this.restartLocalTime = restartLocalTime;
+    return this;
+  }
+
+   /**
+   * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
+   * @return restartLocalTime
+  **/
+  @ApiModelProperty(value = "The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.")
+  @JsonProperty(JSON_PROPERTY_RESTART_LOCAL_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRestartLocalTime() {
+    return restartLocalTime;
+  }
+
+
+ /**
+  * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
+  *
+  * @param restartLocalTime
+  */ 
+  @JsonProperty(JSON_PROPERTY_RESTART_LOCAL_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRestartLocalTime(String restartLocalTime) {
+    this.restartLocalTime = restartLocalTime;
+  }
+
+
   public Terminal serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
     return this;
@@ -331,12 +365,13 @@ public class Terminal {
         Objects.equals(this.lastActivityAt, terminal.lastActivityAt) &&
         Objects.equals(this.lastTransactionAt, terminal.lastTransactionAt) &&
         Objects.equals(this.model, terminal.model) &&
+        Objects.equals(this.restartLocalTime, terminal.restartLocalTime) &&
         Objects.equals(this.serialNumber, terminal.serialNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignment, connectivity, firmwareVersion, id, lastActivityAt, lastTransactionAt, model, serialNumber);
+    return Objects.hash(assignment, connectivity, firmwareVersion, id, lastActivityAt, lastTransactionAt, model, restartLocalTime, serialNumber);
   }
 
   @Override
@@ -350,6 +385,7 @@ public class Terminal {
     sb.append("    lastActivityAt: ").append(toIndentedString(lastActivityAt)).append("\n");
     sb.append("    lastTransactionAt: ").append(toIndentedString(lastTransactionAt)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    restartLocalTime: ").append(toIndentedString(restartLocalTime)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -54,6 +54,7 @@ public class AfterpayDetails {
   private String personalDetails;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -99,7 +100,7 @@ public class AfterpayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AFTERPAY_DEFAULT;
+  private TypeEnum type;
 
   public AfterpayDetails() { 
   }
@@ -224,6 +225,7 @@ public class AfterpayDetails {
   }
 
 
+  @Deprecated
   public AfterpayDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

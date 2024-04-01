@@ -146,7 +146,7 @@ public class PlatformPayment {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PLATFORMPAYMENT;
+  private TypeEnum type;
 
   public PlatformPayment() { 
   }

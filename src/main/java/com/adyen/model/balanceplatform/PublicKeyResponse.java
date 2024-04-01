@@ -51,10 +51,10 @@ public class PublicKeyResponse {
   }
 
    /**
-   * The public key to be used for encrypting the symmetric session key.
+   * The public key you need for encrypting a symmetric session key.
    * @return publicKey
   **/
-  @ApiModelProperty(required = true, value = "The public key to be used for encrypting the symmetric session key.")
+  @ApiModelProperty(required = true, value = "The public key you need for encrypting a symmetric session key.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -64,7 +64,7 @@ public class PublicKeyResponse {
 
 
  /**
-  * The public key to be used for encrypting the symmetric session key.
+  * The public key you need for encrypting a symmetric session key.
   *
   * @param publicKey
   */ 

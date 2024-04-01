@@ -81,7 +81,7 @@ public class MbwayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.MBWAY;
+  private TypeEnum type;
 
   public MbwayDetails() { 
   }

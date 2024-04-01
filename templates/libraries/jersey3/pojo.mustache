@@ -94,7 +94,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#deprecated}}
   @Deprecated
   {{/deprecated}}
-  private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
+  private {{{datatypeWithEnum}}} {{name}};
   {{/isContainer}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 

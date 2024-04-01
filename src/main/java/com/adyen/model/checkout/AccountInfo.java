@@ -235,9 +235,11 @@ public class AccountInfo {
   private DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator;
 
   public static final String JSON_PROPERTY_HOME_PHONE = "homePhone";
+  @Deprecated
   private String homePhone;
 
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
+  @Deprecated
   private String mobilePhone;
 
   public static final String JSON_PROPERTY_PASSWORD_CHANGE_DATE = "passwordChangeDate";
@@ -347,6 +349,7 @@ public class AccountInfo {
   private Boolean suspiciousActivity;
 
   public static final String JSON_PROPERTY_WORK_PHONE = "workPhone";
+  @Deprecated
   private String workPhone;
 
   public AccountInfo() { 
@@ -592,6 +595,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public AccountInfo homePhone(String homePhone) {
     this.homePhone = homePhone;
     return this;
@@ -625,6 +629,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public AccountInfo mobilePhone(String mobilePhone) {
     this.mobilePhone = mobilePhone;
     return this;
@@ -898,6 +903,7 @@ public class AccountInfo {
   }
 
 
+  @Deprecated
   public AccountInfo workPhone(String workPhone) {
     this.workPhone = workPhone;
     return this;

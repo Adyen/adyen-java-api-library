@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.balanceplatform.TransferRouteRequirements;
+import com.adyen.model.balanceplatform.TransferRouteRequirementsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -145,7 +147,7 @@ public class TransferRoute {
   private PriorityEnum priority;
 
   public static final String JSON_PROPERTY_REQUIREMENTS = "requirements";
-  private TransferRouteRequirements requirements;
+  private List<TransferRouteRequirementsInner> requirements = null;
 
   public TransferRoute() { 
   }
@@ -270,32 +272,40 @@ public class TransferRoute {
   }
 
 
-  public TransferRoute requirements(TransferRouteRequirements requirements) {
+  public TransferRoute requirements(List<TransferRouteRequirementsInner> requirements) {
     this.requirements = requirements;
     return this;
   }
 
+  public TransferRoute addRequirementsItem(TransferRouteRequirementsInner requirementsItem) {
+    if (this.requirements == null) {
+      this.requirements = new ArrayList<>();
+    }
+    this.requirements.add(requirementsItem);
+    return this;
+  }
+
    /**
-   * Get requirements
+   * A set of rules defined by clearing houses and banking partners. Your transfer request must adhere to these rules to ensure successful initiation of transfer. Based on the priority, one or more requirements may be returned. Each requirement is defined with a &#x60;type&#x60; and &#x60;description&#x60;.
    * @return requirements
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of rules defined by clearing houses and banking partners. Your transfer request must adhere to these rules to ensure successful initiation of transfer. Based on the priority, one or more requirements may be returned. Each requirement is defined with a `type` and `description`.")
   @JsonProperty(JSON_PROPERTY_REQUIREMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TransferRouteRequirements getRequirements() {
+  public List<TransferRouteRequirementsInner> getRequirements() {
     return requirements;
   }
 
 
  /**
-  * requirements
+  * A set of rules defined by clearing houses and banking partners. Your transfer request must adhere to these rules to ensure successful initiation of transfer. Based on the priority, one or more requirements may be returned. Each requirement is defined with a &#x60;type&#x60; and &#x60;description&#x60;.
   *
   * @param requirements
   */ 
   @JsonProperty(JSON_PROPERTY_REQUIREMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequirements(TransferRouteRequirements requirements) {
+  public void setRequirements(List<TransferRouteRequirementsInner> requirements) {
     this.requirements = requirements;
   }
 

@@ -47,10 +47,10 @@ public class Link {
   }
 
    /**
-   * Get href
+   * The link to the resource.
    * @return href
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The link to the resource.")
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -60,7 +60,7 @@ public class Link {
 
 
  /**
-  * href
+  * The link to the resource.
   *
   * @param href
   */ 

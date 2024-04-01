@@ -55,10 +55,10 @@ public class Name {
   }
 
    /**
-   * The individual&#39;s first name.
+   * The individual&#39;s first name. Must not be blank.
    * @return firstName
   **/
-  @ApiModelProperty(required = true, value = "The individual's first name.")
+  @ApiModelProperty(required = true, value = "The individual's first name. Must not be blank.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -68,7 +68,7 @@ public class Name {
 
 
  /**
-  * The individual&#39;s first name.
+  * The individual&#39;s first name. Must not be blank.
   *
   * @param firstName
   */ 
@@ -115,10 +115,10 @@ public class Name {
   }
 
    /**
-   * The individual&#39;s last name.
+   * The individual&#39;s last name. Must not be blank.
    * @return lastName
   **/
-  @ApiModelProperty(required = true, value = "The individual's last name.")
+  @ApiModelProperty(required = true, value = "The individual's last name. Must not be blank.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,7 +128,7 @@ public class Name {
 
 
  /**
-  * The individual&#39;s last name.
+  * The individual&#39;s last name. Must not be blank.
   *
   * @param lastName
   */ 

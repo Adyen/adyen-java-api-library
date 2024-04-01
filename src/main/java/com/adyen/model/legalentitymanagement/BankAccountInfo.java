@@ -44,6 +44,7 @@ public class BankAccountInfo {
   private BankAccountInfoAccountIdentification accountIdentification;
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
+  @Deprecated
   private String accountType;
 
   public static final String JSON_PROPERTY_BANK_NAME = "bankName";
@@ -88,6 +89,7 @@ public class BankAccountInfo {
   }
 
 
+  @Deprecated
   public BankAccountInfo accountType(String accountType) {
     this.accountType = accountType;
     return this;

@@ -54,6 +54,7 @@ public class BacsDirectDebitDetails {
   private String holderName;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -93,7 +94,7 @@ public class BacsDirectDebitDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.DIRECTDEBIT_GB;
+  private TypeEnum type;
 
   public BacsDirectDebitDetails() { 
   }
@@ -218,6 +219,7 @@ public class BacsDirectDebitDetails {
   }
 
 
+  @Deprecated
   public BacsDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

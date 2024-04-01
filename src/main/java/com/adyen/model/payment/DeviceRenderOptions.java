@@ -76,7 +76,7 @@ public class DeviceRenderOptions {
   }
 
   public static final String JSON_PROPERTY_SDK_INTERFACE = "sdkInterface";
-  private SdkInterfaceEnum sdkInterface = SdkInterfaceEnum.BOTH;
+  private SdkInterfaceEnum sdkInterface;
 
   /**
    * Gets or Sets sdkUiType

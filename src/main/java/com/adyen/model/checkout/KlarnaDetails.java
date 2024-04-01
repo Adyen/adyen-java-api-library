@@ -55,6 +55,7 @@ public class KlarnaDetails {
   private String personalDetails;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -109,7 +110,7 @@ public class KlarnaDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.KLARNA;
+  private TypeEnum type;
 
   public KlarnaDetails() { 
   }
@@ -234,6 +235,7 @@ public class KlarnaDetails {
   }
 
 
+  @Deprecated
   public KlarnaDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

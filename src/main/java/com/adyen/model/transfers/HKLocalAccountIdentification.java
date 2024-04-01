@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   HKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   HKLocalAccountIdentification.JSON_PROPERTY_CLEARING_CODE,
+  HKLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   HKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -42,6 +43,9 @@ public class HKLocalAccountIdentification {
 
   public static final String JSON_PROPERTY_CLEARING_CODE = "clearingCode";
   private String clearingCode;
+
+  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
+  private String formFactor;
 
   /**
    * **hkLocal**
@@ -77,7 +81,7 @@ public class HKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HKLOCAL;
+  private TypeEnum type;
 
   public HKLocalAccountIdentification() { 
   }
@@ -142,6 +146,36 @@ public class HKLocalAccountIdentification {
   }
 
 
+  public HKLocalAccountIdentification formFactor(String formFactor) {
+    this.formFactor = formFactor;
+    return this;
+  }
+
+   /**
+   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
+   * @return formFactor
+  **/
+  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFormFactor() {
+    return formFactor;
+  }
+
+
+ /**
+  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
+  *
+  * @param formFactor
+  */ 
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFactor(String formFactor) {
+    this.formFactor = formFactor;
+  }
+
+
   public HKLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -186,12 +220,13 @@ public class HKLocalAccountIdentification {
     HKLocalAccountIdentification hkLocalAccountIdentification = (HKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, hkLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.clearingCode, hkLocalAccountIdentification.clearingCode) &&
+        Objects.equals(this.formFactor, hkLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, hkLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, clearingCode, type);
+    return Objects.hash(accountNumber, clearingCode, formFactor, type);
   }
 
   @Override
@@ -200,6 +235,7 @@ public class HKLocalAccountIdentification {
     sb.append("class HKLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    clearingCode: ").append(toIndentedString(clearingCode)).append("\n");
+    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

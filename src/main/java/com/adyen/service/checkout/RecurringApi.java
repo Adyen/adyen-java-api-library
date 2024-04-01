@@ -15,6 +15,8 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.checkout.ListStoredPaymentMethodsResponse;
+import com.adyen.model.checkout.StoredPaymentMethodRequest;
+import com.adyen.model.checkout.StoredPaymentMethodResource;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -124,5 +126,32 @@ public class RecurringApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/storedPaymentMethods", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null, queryParams);
         return ListStoredPaymentMethodsResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Create a token to store payment details
+    *
+    * @param storedPaymentMethodRequest {@link StoredPaymentMethodRequest }  (required)
+    * @return {@link StoredPaymentMethodResource }
+    * @throws ApiException if fails to make API call
+    */
+    public StoredPaymentMethodResource storedPaymentMethods(StoredPaymentMethodRequest storedPaymentMethodRequest) throws ApiException, IOException {
+        return storedPaymentMethods(storedPaymentMethodRequest, null);
+    }
+
+    /**
+    * Create a token to store payment details
+    *
+    * @param storedPaymentMethodRequest {@link StoredPaymentMethodRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link StoredPaymentMethodResource }
+    * @throws ApiException if fails to make API call
+    */
+    public StoredPaymentMethodResource storedPaymentMethods(StoredPaymentMethodRequest storedPaymentMethodRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = storedPaymentMethodRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/storedPaymentMethods", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return StoredPaymentMethodResource.fromJson(jsonResult);
     }
 }

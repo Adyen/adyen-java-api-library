@@ -85,6 +85,7 @@ public class BusinessLineInfo {
   }
 
   public static final String JSON_PROPERTY_CAPABILITY = "capability";
+  @Deprecated
   private CapabilityEnum capability;
 
   public static final String JSON_PROPERTY_INDUSTRY_CODE = "industryCode";
@@ -146,6 +147,7 @@ public class BusinessLineInfo {
   public BusinessLineInfo() { 
   }
 
+  @Deprecated
   public BusinessLineInfo capability(CapabilityEnum capability) {
     this.capability = capability;
     return this;
@@ -185,10 +187,10 @@ public class BusinessLineInfo {
   }
 
    /**
-   * A code that represents the [industry of the legal entity](https://docs.adyen.com/marketplaces-and-platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
+   * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    * @return industryCode
   **/
-  @ApiModelProperty(required = true, value = "A code that represents the [industry of the legal entity](https://docs.adyen.com/marketplaces-and-platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.")
+  @ApiModelProperty(required = true, value = "A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -198,7 +200,7 @@ public class BusinessLineInfo {
 
 
  /**
-  * A code that represents the [industry of the legal entity](https://docs.adyen.com/marketplaces-and-platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
+  * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
   *
   * @param industryCode
   */ 

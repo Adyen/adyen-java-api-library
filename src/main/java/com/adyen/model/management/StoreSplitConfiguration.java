@@ -81,10 +81,10 @@ public class StoreSplitConfiguration {
   }
 
    /**
-   * The unique identifier of the [split configuration profile](https://docs.adyen.com/marketplaces-and-platforms/automatic-split-configuration/create-split-configuration/).
+   * The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).
    * @return splitConfigurationId
   **/
-  @ApiModelProperty(value = "The unique identifier of the [split configuration profile](https://docs.adyen.com/marketplaces-and-platforms/automatic-split-configuration/create-split-configuration/).")
+  @ApiModelProperty(value = "The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).")
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -94,7 +94,7 @@ public class StoreSplitConfiguration {
 
 
  /**
-  * The unique identifier of the [split configuration profile](https://docs.adyen.com/marketplaces-and-platforms/automatic-split-configuration/create-split-configuration/).
+  * The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).
   *
   * @param splitConfigurationId
   */ 

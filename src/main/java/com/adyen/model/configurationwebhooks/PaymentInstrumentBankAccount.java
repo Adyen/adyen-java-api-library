@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.IbanAccountIdentification;
+import com.adyen.model.configurationwebhooks.UKLocalAccountIdentification;
 import com.adyen.model.configurationwebhooks.USLocalAccountIdentification;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -122,6 +123,34 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
             }
 
 
+            // deserialize UKLocalAccountIdentification
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (UKLocalAccountIdentification.class.equals(Integer.class) || UKLocalAccountIdentification.class.equals(Long.class) || UKLocalAccountIdentification.class.equals(Float.class) || UKLocalAccountIdentification.class.equals(Double.class) || UKLocalAccountIdentification.class.equals(Boolean.class) || UKLocalAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((UKLocalAccountIdentification.class.equals(Integer.class) || UKLocalAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((UKLocalAccountIdentification.class.equals(Float.class) || UKLocalAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (UKLocalAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (UKLocalAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(UKLocalAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), UKLocalAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'UKLocalAccountIdentification'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'UKLocalAccountIdentification'", e);
+            }
+
+
             // deserialize USLocalAccountIdentification
             try {
                 boolean attemptParsing = true;
@@ -184,6 +213,11 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public PaymentInstrumentBankAccount(UKLocalAccountIdentification o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public PaymentInstrumentBankAccount(USLocalAccountIdentification o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -191,6 +225,8 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
 
     static {
         schemas.put("IbanAccountIdentification", new GenericType<IbanAccountIdentification>() {
+        });
+        schemas.put("UKLocalAccountIdentification", new GenericType<UKLocalAccountIdentification>() {
         });
         schemas.put("USLocalAccountIdentification", new GenericType<USLocalAccountIdentification>() {
         });
@@ -205,7 +241,7 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * IbanAccountIdentification, USLocalAccountIdentification
+     * IbanAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -217,19 +253,24 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
             return;
         }
 
+        if (JSON.isInstanceOf(UKLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (JSON.isInstanceOf(USLocalAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be IbanAccountIdentification, USLocalAccountIdentification");
+        throw new RuntimeException("Invalid instance type. Must be IbanAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * IbanAccountIdentification, USLocalAccountIdentification
+     * IbanAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification
      *
-     * @return The actual instance (IbanAccountIdentification, USLocalAccountIdentification)
+     * @return The actual instance (IbanAccountIdentification, UKLocalAccountIdentification, USLocalAccountIdentification)
      */
     @Override
     public Object getActualInstance() {
@@ -245,6 +286,17 @@ public class PaymentInstrumentBankAccount extends AbstractOpenApiSchema {
      */
     public IbanAccountIdentification getIbanAccountIdentification() throws ClassCastException {
         return (IbanAccountIdentification)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `UKLocalAccountIdentification`. If the actual instance is not `UKLocalAccountIdentification`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `UKLocalAccountIdentification`
+     * @throws ClassCastException if the instance is not `UKLocalAccountIdentification`
+     */
+    public UKLocalAccountIdentification getUKLocalAccountIdentification() throws ClassCastException {
+        return (UKLocalAccountIdentification)super.getActualInstance();
     }
 
     /**

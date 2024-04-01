@@ -59,6 +59,7 @@ public class PayPalDetails {
   private String payerSelected;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -136,7 +137,7 @@ public class PayPalDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYPAL;
+  private TypeEnum type;
 
   public PayPalDetails() { 
   }
@@ -291,6 +292,7 @@ public class PayPalDetails {
   }
 
 
+  @Deprecated
   public PayPalDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;

@@ -26,7 +26,6 @@ import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
 import com.adyen.model.legalentitymanagement.TransferInstrumentReference;
 import com.adyen.model.legalentitymanagement.Trust;
-import com.adyen.model.legalentitymanagement.UnincorporatedPartnership;
 import com.adyen.model.legalentitymanagement.VerificationDeadline;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -60,7 +59,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntity.JSON_PROPERTY_TRANSFER_INSTRUMENTS,
   LegalEntity.JSON_PROPERTY_TRUST,
   LegalEntity.JSON_PROPERTY_TYPE,
-  LegalEntity.JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP,
   LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES,
   LegalEntity.JSON_PROPERTY_VERIFICATION_PLAN
 })
@@ -73,6 +71,7 @@ public class LegalEntity {
   private List<DocumentReference> documentDetails = null;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
+  @Deprecated
   private List<EntityReference> documents = null;
 
   public static final String JSON_PROPERTY_ENTITY_ASSOCIATIONS = "entityAssociations";
@@ -145,9 +144,6 @@ public class LegalEntity {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
-
-  public static final String JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP = "unincorporatedPartnership";
-  private UnincorporatedPartnership unincorporatedPartnership;
 
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
   private List<VerificationDeadline> verificationDeadlines = null;
@@ -234,6 +230,7 @@ public class LegalEntity {
   }
 
 
+  @Deprecated
   public LegalEntity documents(List<EntityReference> documents) {
     this.documents = documents;
     return this;
@@ -599,36 +596,6 @@ public class LegalEntity {
   }
 
 
-  public LegalEntity unincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
-    this.unincorporatedPartnership = unincorporatedPartnership;
-    return this;
-  }
-
-   /**
-   * Get unincorporatedPartnership
-   * @return unincorporatedPartnership
-  **/
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UnincorporatedPartnership getUnincorporatedPartnership() {
-    return unincorporatedPartnership;
-  }
-
-
- /**
-  * unincorporatedPartnership
-  *
-  * @param unincorporatedPartnership
-  */ 
-  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
-    this.unincorporatedPartnership = unincorporatedPartnership;
-  }
-
-
   public LegalEntity verificationDeadlines(List<VerificationDeadline> verificationDeadlines) {
     this.verificationDeadlines = verificationDeadlines;
     return this;
@@ -673,10 +640,10 @@ public class LegalEntity {
   }
 
    /**
-   * A key-value pair that specifies the [verification process](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details/) for a legal entity. Set to **upfront** for [upfront verification](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details#upfront).
+   * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/onboard-users#upfront).
    * @return verificationPlan
   **/
-  @ApiModelProperty(value = "A key-value pair that specifies the [verification process](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details/) for a legal entity. Set to **upfront** for [upfront verification](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details#upfront).")
+  @ApiModelProperty(value = "A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/onboard-users#upfront).")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -686,7 +653,7 @@ public class LegalEntity {
 
 
  /**
-  * A key-value pair that specifies the [verification process](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details/) for a legal entity. Set to **upfront** for [upfront verification](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details#upfront).
+  * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/onboard-users#upfront).
   *
   * @param verificationPlan
   */ 
@@ -722,14 +689,13 @@ public class LegalEntity {
         Objects.equals(this.transferInstruments, legalEntity.transferInstruments) &&
         Objects.equals(this.trust, legalEntity.trust) &&
         Objects.equals(this.type, legalEntity.type) &&
-        Objects.equals(this.unincorporatedPartnership, legalEntity.unincorporatedPartnership) &&
         Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines) &&
         Objects.equals(this.verificationPlan, legalEntity.verificationPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, trust, type, unincorporatedPartnership, verificationDeadlines, verificationPlan);
+    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, trust, type, verificationDeadlines, verificationPlan);
   }
 
   @Override
@@ -749,7 +715,6 @@ public class LegalEntity {
     sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
     sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    unincorporatedPartnership: ").append(toIndentedString(unincorporatedPartnership)).append("\n");
     sb.append("    verificationDeadlines: ").append(toIndentedString(verificationDeadlines)).append("\n");
     sb.append("    verificationPlan: ").append(toIndentedString(verificationPlan)).append("\n");
     sb.append("}");

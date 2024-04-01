@@ -36,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PinChangeResponse {
   /**
-   * The pin change status.
+   * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    */
   public enum StatusEnum {
     COMPLETED("completed"),
@@ -84,10 +84,10 @@ public class PinChangeResponse {
   }
 
    /**
-   * The pin change status.
+   * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "The pin change status.")
+  @ApiModelProperty(required = true, value = "The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -97,7 +97,7 @@ public class PinChangeResponse {
 
 
  /**
-  * The pin change status.
+  * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
   *
   * @param status
   */ 

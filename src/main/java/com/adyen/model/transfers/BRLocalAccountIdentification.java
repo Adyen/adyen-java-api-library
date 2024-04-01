@@ -34,6 +34,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   BRLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   BRLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
   BRLocalAccountIdentification.JSON_PROPERTY_BRANCH_NUMBER,
+  BRLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   BRLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -46,6 +47,9 @@ public class BRLocalAccountIdentification {
 
   public static final String JSON_PROPERTY_BRANCH_NUMBER = "branchNumber";
   private String branchNumber;
+
+  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
+  private String formFactor;
 
   /**
    * **brLocal**
@@ -81,7 +85,7 @@ public class BRLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BRLOCAL;
+  private TypeEnum type;
 
   public BRLocalAccountIdentification() { 
   }
@@ -176,6 +180,36 @@ public class BRLocalAccountIdentification {
   }
 
 
+  public BRLocalAccountIdentification formFactor(String formFactor) {
+    this.formFactor = formFactor;
+    return this;
+  }
+
+   /**
+   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
+   * @return formFactor
+  **/
+  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFormFactor() {
+    return formFactor;
+  }
+
+
+ /**
+  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
+  *
+  * @param formFactor
+  */ 
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFactor(String formFactor) {
+    this.formFactor = formFactor;
+  }
+
+
   public BRLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -221,12 +255,13 @@ public class BRLocalAccountIdentification {
     return Objects.equals(this.accountNumber, brLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.bankCode, brLocalAccountIdentification.bankCode) &&
         Objects.equals(this.branchNumber, brLocalAccountIdentification.branchNumber) &&
+        Objects.equals(this.formFactor, brLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, brLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, branchNumber, type);
+    return Objects.hash(accountNumber, bankCode, branchNumber, formFactor, type);
   }
 
   @Override
@@ -236,6 +271,7 @@ public class BRLocalAccountIdentification {
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    branchNumber: ").append(toIndentedString(branchNumber)).append("\n");
+    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

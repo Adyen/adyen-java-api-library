@@ -32,7 +32,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   HKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
+  HKLocalAccountIdentification.JSON_PROPERTY_BANK_NAME,
+  HKLocalAccountIdentification.JSON_PROPERTY_BIC,
   HKLocalAccountIdentification.JSON_PROPERTY_CLEARING_CODE,
+  HKLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   HKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -40,8 +43,17 @@ public class HKLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
+  public static final String JSON_PROPERTY_BANK_NAME = "bankName";
+  private String bankName;
+
+  public static final String JSON_PROPERTY_BIC = "bic";
+  private String bic;
+
   public static final String JSON_PROPERTY_CLEARING_CODE = "clearingCode";
   private String clearingCode;
+
+  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
+  private String formFactor;
 
   /**
    * **hkLocal**
@@ -77,7 +89,7 @@ public class HKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HKLOCAL;
+  private TypeEnum type;
 
   public HKLocalAccountIdentification() { 
   }
@@ -112,6 +124,66 @@ public class HKLocalAccountIdentification {
   }
 
 
+  public HKLocalAccountIdentification bankName(String bankName) {
+    this.bankName = bankName;
+    return this;
+  }
+
+   /**
+   * The bank&#39;s name.
+   * @return bankName
+  **/
+  @ApiModelProperty(value = "The bank's name.")
+  @JsonProperty(JSON_PROPERTY_BANK_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBankName() {
+    return bankName;
+  }
+
+
+ /**
+  * The bank&#39;s name.
+  *
+  * @param bankName
+  */ 
+  @JsonProperty(JSON_PROPERTY_BANK_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankName(String bankName) {
+    this.bankName = bankName;
+  }
+
+
+  public HKLocalAccountIdentification bic(String bic) {
+    this.bic = bic;
+    return this;
+  }
+
+   /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   * @return bic
+  **/
+  @ApiModelProperty(value = "The bank's 8- or 11-character BIC or SWIFT code.")
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBic() {
+    return bic;
+  }
+
+
+ /**
+  * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+  *
+  * @param bic
+  */ 
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBic(String bic) {
+    this.bic = bic;
+  }
+
+
   public HKLocalAccountIdentification clearingCode(String clearingCode) {
     this.clearingCode = clearingCode;
     return this;
@@ -139,6 +211,36 @@ public class HKLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingCode(String clearingCode) {
     this.clearingCode = clearingCode;
+  }
+
+
+  public HKLocalAccountIdentification formFactor(String formFactor) {
+    this.formFactor = formFactor;
+    return this;
+  }
+
+   /**
+   * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+   * @return formFactor
+  **/
+  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFormFactor() {
+    return formFactor;
+  }
+
+
+ /**
+  * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+  *
+  * @param formFactor
+  */ 
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFactor(String formFactor) {
+    this.formFactor = formFactor;
   }
 
 
@@ -185,13 +287,16 @@ public class HKLocalAccountIdentification {
     }
     HKLocalAccountIdentification hkLocalAccountIdentification = (HKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, hkLocalAccountIdentification.accountNumber) &&
+        Objects.equals(this.bankName, hkLocalAccountIdentification.bankName) &&
+        Objects.equals(this.bic, hkLocalAccountIdentification.bic) &&
         Objects.equals(this.clearingCode, hkLocalAccountIdentification.clearingCode) &&
+        Objects.equals(this.formFactor, hkLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, hkLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, clearingCode, type);
+    return Objects.hash(accountNumber, bankName, bic, clearingCode, formFactor, type);
   }
 
   @Override
@@ -199,7 +304,10 @@ public class HKLocalAccountIdentification {
     StringBuilder sb = new StringBuilder();
     sb.append("class HKLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+    sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    clearingCode: ").append(toIndentedString(clearingCode)).append("\n");
+    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

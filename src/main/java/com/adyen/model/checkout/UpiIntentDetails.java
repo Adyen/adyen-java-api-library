@@ -31,6 +31,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * UpiIntentDetails
  */
 @JsonPropertyOrder({
+  UpiIntentDetails.JSON_PROPERTY_APP_ID,
   UpiIntentDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   UpiIntentDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   UpiIntentDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
@@ -39,10 +40,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class UpiIntentDetails {
+  public static final String JSON_PROPERTY_APP_ID = "appId";
+  private String appId;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
@@ -85,10 +90,40 @@ public class UpiIntentDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.UPI_INTENT;
+  private TypeEnum type;
 
   public UpiIntentDetails() { 
   }
+
+  public UpiIntentDetails appId(String appId) {
+    this.appId = appId;
+    return this;
+  }
+
+   /**
+   * TPAP (Third Party Application) Id that is being used to make the UPI payment
+   * @return appId
+  **/
+  @ApiModelProperty(value = "TPAP (Third Party Application) Id that is being used to make the UPI payment")
+  @JsonProperty(JSON_PROPERTY_APP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAppId() {
+    return appId;
+  }
+
+
+ /**
+  * TPAP (Third Party Application) Id that is being used to make the UPI payment
+  *
+  * @param appId
+  */ 
+  @JsonProperty(JSON_PROPERTY_APP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
 
   public UpiIntentDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
@@ -120,6 +155,7 @@ public class UpiIntentDetails {
   }
 
 
+  @Deprecated
   public UpiIntentDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -255,7 +291,8 @@ public class UpiIntentDetails {
       return false;
     }
     UpiIntentDetails upiIntentDetails = (UpiIntentDetails) o;
-    return Objects.equals(this.checkoutAttemptId, upiIntentDetails.checkoutAttemptId) &&
+    return Objects.equals(this.appId, upiIntentDetails.appId) &&
+        Objects.equals(this.checkoutAttemptId, upiIntentDetails.checkoutAttemptId) &&
         Objects.equals(this.recurringDetailReference, upiIntentDetails.recurringDetailReference) &&
         Objects.equals(this.shopperNotificationReference, upiIntentDetails.shopperNotificationReference) &&
         Objects.equals(this.storedPaymentMethodId, upiIntentDetails.storedPaymentMethodId) &&
@@ -264,13 +301,14 @@ public class UpiIntentDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, recurringDetailReference, shopperNotificationReference, storedPaymentMethodId, type);
+    return Objects.hash(appId, checkoutAttemptId, recurringDetailReference, shopperNotificationReference, storedPaymentMethodId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpiIntentDetails {\n");
+    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");

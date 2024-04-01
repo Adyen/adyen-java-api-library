@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   CZLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   CZLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
+  CZLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   CZLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -42,6 +43,9 @@ public class CZLocalAccountIdentification {
 
   public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
   private String bankCode;
+
+  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
+  private String formFactor;
 
   /**
    * **czLocal**
@@ -77,7 +81,7 @@ public class CZLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CZLOCAL;
+  private TypeEnum type;
 
   public CZLocalAccountIdentification() { 
   }
@@ -142,6 +146,36 @@ public class CZLocalAccountIdentification {
   }
 
 
+  public CZLocalAccountIdentification formFactor(String formFactor) {
+    this.formFactor = formFactor;
+    return this;
+  }
+
+   /**
+   * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+   * @return formFactor
+  **/
+  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFormFactor() {
+    return formFactor;
+  }
+
+
+ /**
+  * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
+  *
+  * @param formFactor
+  */ 
+  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFactor(String formFactor) {
+    this.formFactor = formFactor;
+  }
+
+
   public CZLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -186,12 +220,13 @@ public class CZLocalAccountIdentification {
     CZLocalAccountIdentification czLocalAccountIdentification = (CZLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, czLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.bankCode, czLocalAccountIdentification.bankCode) &&
+        Objects.equals(this.formFactor, czLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, czLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, type);
+    return Objects.hash(accountNumber, bankCode, formFactor, type);
   }
 
   @Override
@@ -200,6 +235,7 @@ public class CZLocalAccountIdentification {
     sb.append("class CZLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
