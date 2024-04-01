@@ -37,6 +37,7 @@ import com.google.gson.reflect.TypeToken;
 
 public class TerminalLocalAPI extends Service {
 
+    // broken hierarchy
     private final LocalRequest localRequest;
 
     private final NexoCrypto nexoCrypto;

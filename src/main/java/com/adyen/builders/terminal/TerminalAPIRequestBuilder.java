@@ -40,363 +40,168 @@ import com.adyen.model.nexo.InputUpdate;
 import com.adyen.model.nexo.LoginRequest;
 import com.adyen.model.nexo.LogoutRequest;
 import com.adyen.model.nexo.LoyaltyRequest;
-import com.adyen.model.nexo.MessageCategoryType;
-import com.adyen.model.nexo.MessageClassType;
-import com.adyen.model.nexo.MessageHeader;
-import com.adyen.model.nexo.MessageType;
 import com.adyen.model.nexo.PINRequest;
 import com.adyen.model.nexo.PaymentRequest;
 import com.adyen.model.nexo.PrintRequest;
 import com.adyen.model.nexo.ReconciliationRequest;
 import com.adyen.model.nexo.ReversalRequest;
-import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.SoundRequest;
 import com.adyen.model.nexo.StoredValueRequest;
 import com.adyen.model.nexo.TransactionStatusRequest;
 import com.adyen.model.nexo.TransmitRequest;
 import com.adyen.model.terminal.TerminalAPIRequest;
 
-import static com.adyen.constants.ApiConstants.TerminalAPI.PROTOCOL_VERSION;
-
 public final class TerminalAPIRequestBuilder {
 
-    // MessageHeader
-    private final MessageHeader messageHeader;
-    private MessageClassType messageClass;
-    private MessageCategoryType messageCategory;
 
-    // SaleToPOIRequest
-    private AbortRequest abortRequest;
-    private BalanceInquiryRequest balanceInquiryRequest;
-    private BatchRequest batchRequest;
-    private CardAcquisitionRequest cardAcquisitionRequest;
-    private AdminRequest adminRequest;
-    private DiagnosisRequest diagnosisRequest;
-    private DisplayRequest displayRequest;
-    private EnableServiceRequest enableServiceRequest;
-    private EventNotification eventNotification;
-    private GetTotalsRequest getTotalsRequest;
-    private InputRequest inputRequest;
-    private InputUpdate inputUpdate;
-    private LoginRequest loginRequest;
-    private LogoutRequest logoutRequest;
-    private LoyaltyRequest loyaltyRequest;
-    private PaymentRequest paymentRequest;
-    private PINRequest pinRequest;
-    private PrintRequest printRequest;
-    private CardReaderInitRequest cardReaderInitRequest;
-    private CardReaderAPDURequest cardReaderAPDURequest;
-    private CardReaderPowerOffRequest cardReaderPowerOffRequest;
-    private ReconciliationRequest reconciliationRequest;
-    private ReversalRequest reversalRequest;
-    private SoundRequest soundRequest;
-    private StoredValueRequest storedValueRequest;
-    private TransactionStatusRequest transactionStatusRequest;
-    private TransmitRequest transmitRequest;
-    private ContentInformation securityTrailer;
+    private final MessageBuilder messageBuilder;
 
     public TerminalAPIRequestBuilder(String saleId, String serviceId, String poiId) {
-        messageHeader = new MessageHeader();
-        messageHeader.setProtocolVersion(PROTOCOL_VERSION);
-        messageHeader.setMessageType(MessageType.REQUEST);
-        messageHeader.setSaleID(saleId);
-        messageHeader.setServiceID(serviceId);
-        messageHeader.setPOIID(poiId);
+        messageBuilder = new MessageBuilder(saleId, serviceId, poiId);
     }
 
     public TerminalAPIRequestBuilder withAbortRequest(AbortRequest abortRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.ABORT;
-        this.abortRequest = abortRequest;
+        messageBuilder.withAbortRequest(abortRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withBalanceInquiryRequest(BalanceInquiryRequest balanceInquiryRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.BALANCE_INQUIRY;
-        this.balanceInquiryRequest = balanceInquiryRequest;
+        messageBuilder.withBalanceInquiryRequest(balanceInquiryRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withBatchRequest(BatchRequest batchRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.BATCH;
-        this.batchRequest = batchRequest;
+        messageBuilder.withBatchRequest(batchRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardAcquisitionRequest(CardAcquisitionRequest cardAcquisitionRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.CARD_ACQUISITION;
-        this.cardAcquisitionRequest = cardAcquisitionRequest;
+        messageBuilder.withCardAcquisitionRequest(cardAcquisitionRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withAdminRequest(AdminRequest adminRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.ADMIN;
-        this.adminRequest = adminRequest;
+        messageBuilder.withAdminRequest(adminRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withDiagnosisRequest(DiagnosisRequest diagnosisRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.DIAGNOSIS;
-        this.diagnosisRequest = diagnosisRequest;
+        messageBuilder.withDiagnosisRequest(diagnosisRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withDisplayRequest(DisplayRequest displayRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.DISPLAY;
-        this.displayRequest = displayRequest;
+        messageBuilder.withDisplayRequest(displayRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withEnableServiceRequest(EnableServiceRequest enableServiceRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.ENABLE_SERVICE;
-        this.enableServiceRequest = enableServiceRequest;
+        messageBuilder.withEnableServiceRequest(enableServiceRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withEventNotification(EventNotification eventNotification) {
-        this.messageClass = MessageClassType.EVENT;
-        this.messageCategory = MessageCategoryType.EVENT;
-        this.eventNotification = eventNotification;
+        messageBuilder.withEventNotification(eventNotification);
         return this;
     }
 
     public TerminalAPIRequestBuilder withGetTotalsRequest(GetTotalsRequest getTotalsRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.GET_TOTALS;
-        this.getTotalsRequest = getTotalsRequest;
+        messageBuilder.withGetTotalsRequest(getTotalsRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withInputRequest(InputRequest inputRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.INPUT;
-        this.inputRequest = inputRequest;
+        messageBuilder.withInputRequest(inputRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withInputUpdate(InputUpdate inputUpdate) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.INPUT_UPDATE;
-        this.inputUpdate = inputUpdate;
+        messageBuilder.withInputUpdate(inputUpdate);
         return this;
     }
 
     public TerminalAPIRequestBuilder withLoginRequest(LoginRequest loginRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.LOGIN;
-        this.loginRequest = loginRequest;
+        messageBuilder.withLoginRequest(loginRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withLogoutRequest(LogoutRequest logoutRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.LOGOUT;
-        this.logoutRequest = logoutRequest;
+        messageBuilder.withLogoutRequest(logoutRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withLoyaltyRequest(LoyaltyRequest loyaltyRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.LOYALTY;
-        this.loyaltyRequest = loyaltyRequest;
+        messageBuilder.withLoyaltyRequest(loyaltyRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withPaymentRequest(PaymentRequest paymentRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.PAYMENT;
-        this.paymentRequest = paymentRequest;
+        messageBuilder.withPaymentRequest(paymentRequest);
         return this;
     }
 
-    public TerminalAPIRequestBuilder withPinRequest(PINRequest pinRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.PIN;
-        this.pinRequest = pinRequest;
+    public TerminalAPIRequestBuilder withPINRequest(PINRequest pinRequest) {
+        messageBuilder.withPINRequest(pinRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withPrintRequest(PrintRequest printRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.PRINT;
-        this.printRequest = printRequest;
+        messageBuilder.withPrintRequest(printRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardReaderInitRequest(CardReaderInitRequest cardReaderInitRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.CARD_READER_INIT;
-        this.cardReaderInitRequest = cardReaderInitRequest;
+        messageBuilder.withCardReaderInitRequest(cardReaderInitRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardReaderAPDURequest(CardReaderAPDURequest cardReaderAPDURequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.CARD_READER_APDU;
-        this.cardReaderAPDURequest = cardReaderAPDURequest;
+        messageBuilder.withCardReaderAPDURequest(cardReaderAPDURequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardReaderPowerOffRequest(CardReaderPowerOffRequest cardReaderPowerOffRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.CARD_READER_POWER_OFF;
-        this.cardReaderPowerOffRequest = cardReaderPowerOffRequest;
+        messageBuilder.withCardReaderPowerOffRequest(cardReaderPowerOffRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withReconciliationRequest(ReconciliationRequest reconciliationRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.RECONCILIATION;
-        this.reconciliationRequest = reconciliationRequest;
+        messageBuilder.withReconciliationRequest(reconciliationRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withReversalRequest(ReversalRequest reversalRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.REVERSAL;
-        this.reversalRequest = reversalRequest;
+        messageBuilder.withReversalRequest(reversalRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withSoundRequest(SoundRequest soundRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.SOUND;
-        this.soundRequest = soundRequest;
+        messageBuilder.withSoundRequest(soundRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withStoredValueRequest(StoredValueRequest storedValueRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.STORED_VALUE;
-        this.storedValueRequest = storedValueRequest;
+        messageBuilder.withStoredValueRequest(storedValueRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withTransactionStatusRequest(TransactionStatusRequest transactionStatusRequest) {
-        this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory = MessageCategoryType.TRANSACTION_STATUS;
-        this.transactionStatusRequest = transactionStatusRequest;
+        messageBuilder.withTransactionStatusRequest(transactionStatusRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withTransmitRequest(TransmitRequest transmitRequest) {
-        this.messageClass = MessageClassType.DEVICE;
-        this.messageCategory = MessageCategoryType.TRANSMIT;
-        this.transmitRequest = transmitRequest;
+        messageBuilder.withTransmitRequest(transmitRequest);
         return this;
     }
 
     public TerminalAPIRequestBuilder withSecurityTrailer(ContentInformation securityTrailer) {
-        this.securityTrailer = securityTrailer;
+        messageBuilder.withSecurityTrailer(securityTrailer);
         return this;
     }
 
     public TerminalAPIRequest build() {
-        messageHeader.setMessageClass(messageClass);
-        messageHeader.setMessageCategory(messageCategory);
-
-        SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
-        saleToPOIRequest.setMessageHeader(messageHeader);
-        saleToPOIRequest.setSecurityTrailer(securityTrailer);
-
-        if (messageCategory != null) {
-            switch (messageCategory) {
-                case PAYMENT:
-                    saleToPOIRequest.setPaymentRequest(paymentRequest);
-                    break;
-                case TRANSACTION_STATUS:
-                    saleToPOIRequest.setTransactionStatusRequest(transactionStatusRequest);
-                    break;
-                case ABORT:
-                    saleToPOIRequest.setAbortRequest(abortRequest);
-                    break;
-                case REVERSAL:
-                    saleToPOIRequest.setReversalRequest(reversalRequest);
-                    break;
-                case CARD_ACQUISITION:
-                    saleToPOIRequest.setCardAcquisitionRequest(cardAcquisitionRequest);
-                    break;
-                case BALANCE_INQUIRY:
-                    saleToPOIRequest.setBalanceInquiryRequest(balanceInquiryRequest);
-                    break;
-                case BATCH:
-                    saleToPOIRequest.setBatchRequest(batchRequest);
-                    break;
-                case ADMIN:
-                    saleToPOIRequest.setAdminRequest(adminRequest);
-                    break;
-                case DIAGNOSIS:
-                    saleToPOIRequest.setDiagnosisRequest(diagnosisRequest);
-                    break;
-                case DISPLAY:
-                    saleToPOIRequest.setDisplayRequest(displayRequest);
-                    break;
-                case EVENT:
-                    saleToPOIRequest.setEventNotification(eventNotification);
-                    break;
-                case ENABLE_SERVICE:
-                    saleToPOIRequest.setEnableServiceRequest(enableServiceRequest);
-                    break;
-                case GET_TOTALS:
-                    saleToPOIRequest.setGetTotalsRequest(getTotalsRequest);
-                    break;
-                case INPUT:
-                    saleToPOIRequest.setInputRequest(inputRequest);
-                    break;
-                case INPUT_UPDATE:
-                    saleToPOIRequest.setInputUpdate(inputUpdate);
-                    break;
-                case LOGIN:
-                    saleToPOIRequest.setLoginRequest(loginRequest);
-                    break;
-                case LOGOUT:
-                    saleToPOIRequest.setLogoutRequest(logoutRequest);
-                    break;
-                case LOYALTY:
-                    saleToPOIRequest.setLoyaltyRequest(loyaltyRequest);
-                    break;
-                case PIN:
-                    saleToPOIRequest.setPINRequest(pinRequest);
-                    break;
-                case PRINT:
-                    saleToPOIRequest.setPrintRequest(printRequest);
-                    break;
-                case CARD_READER_INIT:
-                    saleToPOIRequest.setCardReaderInitRequest(cardReaderInitRequest);
-                    break;
-                case CARD_READER_APDU:
-                    saleToPOIRequest.setCardReaderAPDURequest(cardReaderAPDURequest);
-                    break;
-                case CARD_READER_POWER_OFF:
-                    saleToPOIRequest.setCardReaderPowerOffRequest(cardReaderPowerOffRequest);
-                    break;
-                case RECONCILIATION:
-                    saleToPOIRequest.setReconciliationRequest(reconciliationRequest);
-                    break;
-                case SOUND:
-                    saleToPOIRequest.setSoundRequest(soundRequest);
-                    break;
-                case STORED_VALUE:
-                    saleToPOIRequest.setStoredValueRequest(storedValueRequest);
-                    break;
-                case TRANSMIT:
-                    saleToPOIRequest.setTransmitRequest(transmitRequest);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
-        terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
-
-        return terminalAPIRequest;
+        return messageBuilder.build();
     }
+
 }

@@ -32,6 +32,7 @@ import java.security.MessageDigest;
 import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
@@ -87,13 +88,15 @@ public class HMACValidator {
             throw new IllegalArgumentException("Missing NotificationRequestItem.");
         }
 
-        if (notificationRequestItem.getAdditionalData() == null
-                || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE) == null
-                || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE).isEmpty()) {
+        Map<String, String> additionalData = notificationRequestItem.getAdditionalData();
+        String hmacSignature = additionalData != null ? additionalData.get(HMAC_SIGNATURE) : null;
+
+        if (hmacSignature == null || hmacSignature.isEmpty()) {
             throw new IllegalArgumentException("Missing " + HMAC_SIGNATURE);
         }
-        final byte[] merchantSign = (notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE)).getBytes(StandardCharsets.UTF_8);
-        final byte[] expectedSign = (calculateHMAC(notificationRequestItem, key)).getBytes(StandardCharsets.UTF_8);
+
+        final byte[] merchantSign = hmacSignature.getBytes(StandardCharsets.UTF_8);
+        final byte[] expectedSign = calculateHMAC(notificationRequestItem, key).getBytes(StandardCharsets.UTF_8);
 
         return MessageDigest.isEqual(merchantSign, expectedSign);
     }

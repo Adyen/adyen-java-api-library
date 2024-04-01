@@ -16,6 +16,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+
+import com.adyen.model.payment.BankAccountIdentification;
 import com.adyen.model.transferwebhooks.AULocalAccountIdentification;
 import com.adyen.model.transferwebhooks.AdditionalBankIdentification;
 import com.adyen.model.transferwebhooks.BRLocalAccountIdentification;
@@ -74,7 +76,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 @JsonDeserialize(using = BankAccountV3AccountIdentification.BankAccountV3AccountIdentificationDeserializer.class)
 @JsonSerialize(using = BankAccountV3AccountIdentification.BankAccountV3AccountIdentificationSerializer.class)
-public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
+public class BankAccountV3AccountIdentification extends BankAccountIdentification {
     private static final Logger log = Logger.getLogger(BankAccountV3AccountIdentification.class.getName());
 
     public static class BankAccountV3AccountIdentificationSerializer extends StdSerializer<BankAccountV3AccountIdentification> {
@@ -583,86 +585,86 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
     public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public BankAccountV3AccountIdentification() {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
     }
 
     public BankAccountV3AccountIdentification(AULocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(BRLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(CALocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(CZLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(DKLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(HKLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(HULocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(IbanAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(NOLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(NZLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(NumberAndBicAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(PLLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(SELocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(SGLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(UKLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
     public BankAccountV3AccountIdentification(USLocalAccountIdentification o) {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.FALSE, schemas);
         setActualInstance(o);
     }
 
@@ -702,10 +704,10 @@ public class BankAccountV3AccountIdentification extends AbstractOpenApiSchema {
         JSON.registerDescendants(BankAccountV3AccountIdentification.class, Collections.unmodifiableMap(schemas));
     }
 
-    @Override
-    public Map<String, GenericType> getSchemas() {
-        return BankAccountV3AccountIdentification.schemas;
-    }
+//    @Override
+//    public Map<String, GenericType> getSchemas() {
+//        return BankAccountV3AccountIdentification.schemas;
+//    }
 
     /**
      * Set the instance that matches the oneOf child schema, check

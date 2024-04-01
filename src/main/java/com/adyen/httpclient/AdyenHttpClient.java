@@ -97,18 +97,22 @@ public class AdyenHttpClient implements ClientInterface {
     }
 
     @Override
-    public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws IOException, HTTPClientException {
+    public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params)
+    throws IOException, HTTPClientException {
         try (CloseableHttpClient httpclient = createCloseableHttpClient(config)) {
             HttpUriRequestBase httpRequest = createRequest(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
 
-            // Execute request with a custom response handler
-            AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
-
-            if (response.getStatus() < 200 || response.getStatus() >= 300) {
-                throw new HTTPClientException(response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
-            }
-            return response.getBody();
+            return executeRequest(httpclient, httpRequest);
         }
+    }
+
+    private String executeRequest(CloseableHttpClient httpclient, HttpUriRequestBase httpRequest) throws IOException, HTTPClientException {
+        AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
+
+        if (response.getStatus() < 200 || response.getStatus() >= 300) {
+            throw new HTTPClientException(response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
+        }
+        return response.getBody();
     }
 
     private HttpUriRequestBase createRequest(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws HTTPClientException {
@@ -214,12 +218,16 @@ public class AdyenHttpClient implements ClientInterface {
      */
     private void setAuthentication(HttpUriRequest httpUriRequest, boolean isApiKeyRequired, Config config) {
         String apiKey = config.getApiKey();
-        // Use Api key if required or if provided
-        if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
+
+        if (shouldUseApiKey(isApiKeyRequired, apiKey)) {
             setApiKey(httpUriRequest, apiKey);
         } else {
             setBasicAuthentication(httpUriRequest, config.getUsername(), config.getPassword());
         }
+    }
+
+    private boolean shouldUseApiKey(boolean isApiKeyRequired, String apiKey) {
+        return isApiKeyRequired || (apiKey != null && !apiKey.isEmpty());
     }
 
     /**
