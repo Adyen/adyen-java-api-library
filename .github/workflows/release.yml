@@ -34,7 +34,7 @@ jobs:
           token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
           develop-branch: main
           version-files: pom.xml src/main/java/com/adyen/Client.java README.md
-          release-title: Adyen Ruby API Library
+          release-title: Adyen Java API Library
           pre-release: ${{ inputs.pre-release || false }}
           github-release: ${{ inputs.github-release || false }}
           separator: .pre.beta
