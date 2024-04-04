@@ -19,6 +19,7 @@ import com.adyen.model.management.AndroidAppsResponse;
 import com.adyen.model.management.AndroidCertificatesResponse;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.model.management.UploadAndroidAppResponse;
+import com.adyen.model.management.UploadAndroidCertificateResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -221,5 +222,38 @@ public class AndroidFilesCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidApps", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return UploadAndroidAppResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Upload Android Certificate
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @return {@link UploadAndroidCertificateResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public UploadAndroidCertificateResponse uploadAndroidCertificate(String companyId) throws ApiException, IOException {
+        return uploadAndroidCertificate(companyId, null);
+    }
+
+    /**
+    * Upload Android Certificate
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link UploadAndroidCertificateResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public UploadAndroidCertificateResponse uploadAndroidCertificate(String companyId, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidCertificates", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return UploadAndroidCertificateResponse.fromJson(jsonResult);
     }
 }
