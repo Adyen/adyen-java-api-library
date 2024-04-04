@@ -52,7 +52,7 @@ public class TaxReportingClassification {
     
     INTERNATIONALORGANIZATION("internationalOrganization"),
     
-    FINANCIALINSTITUTION_("financialInstitution.");
+    FINANCIALINSTITUTION("financialInstitution");
 
     private String value;
 

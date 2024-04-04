@@ -35,7 +35,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   HKLocalAccountIdentification.JSON_PROPERTY_BANK_NAME,
   HKLocalAccountIdentification.JSON_PROPERTY_BIC,
   HKLocalAccountIdentification.JSON_PROPERTY_CLEARING_CODE,
-  HKLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   HKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -51,9 +50,6 @@ public class HKLocalAccountIdentification {
 
   public static final String JSON_PROPERTY_CLEARING_CODE = "clearingCode";
   private String clearingCode;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   /**
    * **hkLocal**
@@ -214,36 +210,6 @@ public class HKLocalAccountIdentification {
   }
 
 
-  public HKLocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
-  }
-
-
   public HKLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -290,13 +256,12 @@ public class HKLocalAccountIdentification {
         Objects.equals(this.bankName, hkLocalAccountIdentification.bankName) &&
         Objects.equals(this.bic, hkLocalAccountIdentification.bic) &&
         Objects.equals(this.clearingCode, hkLocalAccountIdentification.clearingCode) &&
-        Objects.equals(this.formFactor, hkLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, hkLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankName, bic, clearingCode, formFactor, type);
+    return Objects.hash(accountNumber, bankName, bic, clearingCode, type);
   }
 
   @Override
@@ -307,7 +272,6 @@ public class HKLocalAccountIdentification {
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    clearingCode: ").append(toIndentedString(clearingCode)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

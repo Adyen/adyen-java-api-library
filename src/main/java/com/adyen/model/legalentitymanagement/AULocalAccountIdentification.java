@@ -33,7 +33,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   AULocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   AULocalAccountIdentification.JSON_PROPERTY_BSB_CODE,
-  AULocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   AULocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -43,9 +42,6 @@ public class AULocalAccountIdentification {
 
   public static final String JSON_PROPERTY_BSB_CODE = "bsbCode";
   private String bsbCode;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   /**
    * **auLocal**
@@ -146,36 +142,6 @@ public class AULocalAccountIdentification {
   }
 
 
-  public AULocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
-  }
-
-
   public AULocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -220,13 +186,12 @@ public class AULocalAccountIdentification {
     AULocalAccountIdentification auLocalAccountIdentification = (AULocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, auLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.bsbCode, auLocalAccountIdentification.bsbCode) &&
-        Objects.equals(this.formFactor, auLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, auLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bsbCode, formFactor, type);
+    return Objects.hash(accountNumber, bsbCode, type);
   }
 
   @Override
@@ -235,7 +200,6 @@ public class AULocalAccountIdentification {
     sb.append("class AULocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    bsbCode: ").append(toIndentedString(bsbCode)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
