@@ -32,8 +32,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   HKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
-  HKLocalAccountIdentification.JSON_PROPERTY_BANK_NAME,
-  HKLocalAccountIdentification.JSON_PROPERTY_BIC,
   HKLocalAccountIdentification.JSON_PROPERTY_CLEARING_CODE,
   HKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
@@ -41,12 +39,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class HKLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
-
-  public static final String JSON_PROPERTY_BANK_NAME = "bankName";
-  private String bankName;
-
-  public static final String JSON_PROPERTY_BIC = "bic";
-  private String bic;
 
   public static final String JSON_PROPERTY_CLEARING_CODE = "clearingCode";
   private String clearingCode;
@@ -117,66 +109,6 @@ public class HKLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
-  }
-
-
-  public HKLocalAccountIdentification bankName(String bankName) {
-    this.bankName = bankName;
-    return this;
-  }
-
-   /**
-   * The bank&#39;s name.
-   * @return bankName
-  **/
-  @ApiModelProperty(value = "The bank's name.")
-  @JsonProperty(JSON_PROPERTY_BANK_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBankName() {
-    return bankName;
-  }
-
-
- /**
-  * The bank&#39;s name.
-  *
-  * @param bankName
-  */ 
-  @JsonProperty(JSON_PROPERTY_BANK_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankName(String bankName) {
-    this.bankName = bankName;
-  }
-
-
-  public HKLocalAccountIdentification bic(String bic) {
-    this.bic = bic;
-    return this;
-  }
-
-   /**
-   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-   * @return bic
-  **/
-  @ApiModelProperty(value = "The bank's 8- or 11-character BIC or SWIFT code.")
-  @JsonProperty(JSON_PROPERTY_BIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBic() {
-    return bic;
-  }
-
-
- /**
-  * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-  *
-  * @param bic
-  */ 
-  @JsonProperty(JSON_PROPERTY_BIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBic(String bic) {
-    this.bic = bic;
   }
 
 
@@ -253,15 +185,13 @@ public class HKLocalAccountIdentification {
     }
     HKLocalAccountIdentification hkLocalAccountIdentification = (HKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, hkLocalAccountIdentification.accountNumber) &&
-        Objects.equals(this.bankName, hkLocalAccountIdentification.bankName) &&
-        Objects.equals(this.bic, hkLocalAccountIdentification.bic) &&
         Objects.equals(this.clearingCode, hkLocalAccountIdentification.clearingCode) &&
         Objects.equals(this.type, hkLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankName, bic, clearingCode, type);
+    return Objects.hash(accountNumber, clearingCode, type);
   }
 
   @Override
@@ -269,8 +199,6 @@ public class HKLocalAccountIdentification {
     StringBuilder sb = new StringBuilder();
     sb.append("class HKLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
-    sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    clearingCode: ").append(toIndentedString(clearingCode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

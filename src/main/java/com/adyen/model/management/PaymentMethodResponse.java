@@ -77,6 +77,8 @@ public class PaymentMethodResponse {
     
     CLEARPAY("clearpay"),
     
+    CLICKTOPAY("clicktopay"),
+    
     CUP("cup"),
     
     DINERS("diners"),
