@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.AfterpayTouchInfo;
+import com.adyen.model.management.AmexInfo;
 import com.adyen.model.management.ApplePayInfo;
 import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
@@ -50,6 +51,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   PaymentMethod.JSON_PROPERTY_AFTERPAY_TOUCH,
   PaymentMethod.JSON_PROPERTY_ALLOWED,
+  PaymentMethod.JSON_PROPERTY_AMEX,
   PaymentMethod.JSON_PROPERTY_APPLE_PAY,
   PaymentMethod.JSON_PROPERTY_BCMC,
   PaymentMethod.JSON_PROPERTY_BUSINESS_LINE_ID,
@@ -93,6 +95,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
+
+  public static final String JSON_PROPERTY_AMEX = "amex";
+  private AmexInfo amex;
 
   public static final String JSON_PROPERTY_APPLE_PAY = "applePay";
   private ApplePayInfo applePay;
@@ -298,6 +303,36 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
+  }
+
+
+  public PaymentMethod amex(AmexInfo amex) {
+    this.amex = amex;
+    return this;
+  }
+
+   /**
+   * Get amex
+   * @return amex
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AMEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AmexInfo getAmex() {
+    return amex;
+  }
+
+
+ /**
+  * amex
+  *
+  * @param amex
+  */ 
+  @JsonProperty(JSON_PROPERTY_AMEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAmex(AmexInfo amex) {
+    this.amex = amex;
   }
 
 
@@ -1397,6 +1432,7 @@ public class PaymentMethod {
     PaymentMethod paymentMethod = (PaymentMethod) o;
     return Objects.equals(this.afterpayTouch, paymentMethod.afterpayTouch) &&
         Objects.equals(this.allowed, paymentMethod.allowed) &&
+        Objects.equals(this.amex, paymentMethod.amex) &&
         Objects.equals(this.applePay, paymentMethod.applePay) &&
         Objects.equals(this.bcmc, paymentMethod.bcmc) &&
         Objects.equals(this.businessLineId, paymentMethod.businessLineId) &&
@@ -1436,7 +1472,7 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterpayTouch, allowed, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, giroPay, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, twint, type, verificationStatus, vipps, visa);
+    return Objects.hash(afterpayTouch, allowed, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, giroPay, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, twint, type, verificationStatus, vipps, visa);
   }
 
   @Override
@@ -1445,6 +1481,7 @@ public class PaymentMethod {
     sb.append("class PaymentMethod {\n");
     sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
+    sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    businessLineId: ").append(toIndentedString(businessLineId)).append("\n");

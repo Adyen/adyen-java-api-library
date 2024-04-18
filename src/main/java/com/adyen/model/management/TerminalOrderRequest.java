@@ -70,10 +70,10 @@ public class TerminalOrderRequest {
   }
 
    /**
-   * The identification of the billing entity to use for the order.
+   * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
    * @return billingEntityId
   **/
-  @ApiModelProperty(value = "The identification of the billing entity to use for the order.")
+  @ApiModelProperty(value = "The identification of the billing entity to use for the order.    > When ordering products in Brazil, you do not need to include the `billingEntityId` in the request.")
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -83,7 +83,7 @@ public class TerminalOrderRequest {
 
 
  /**
-  * The identification of the billing entity to use for the order.
+  * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
   *
   * @param billingEntityId
   */ 

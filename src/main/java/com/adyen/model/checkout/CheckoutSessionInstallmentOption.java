@@ -43,9 +43,23 @@ public class CheckoutSessionInstallmentOption {
    * Gets or Sets plans
    */
   public enum PlansEnum {
+    BUYNOW_PAYLATER("buynow_paylater"),
+    
+    INTERES_REFUND_PRCTG("interes_refund_prctg"),
+    
+    INTEREST_BONUS("interest_bonus"),
+    
+    NOINTERES_REFUND_PRCTG("nointeres_refund_prctg"),
+    
+    NOINTEREST_BONUS("nointerest_bonus"),
+    
+    REFUND_PRCTG("refund_prctg"),
+    
     REGULAR("regular"),
     
-    REVOLVING("revolving");
+    REVOLVING("revolving"),
+    
+    WITH_INTEREST("with_interest");
 
     private String value;
 
