@@ -477,8 +477,7 @@ TerminalAPIResponse terminalAPIResponse = terminalLocalAPI.request(terminalAPIRe
 ~~~~
 
 ## Using Attachments in Document API
-When using Attachments, ensure content is provided as a byte array. It's important to convert it to a base64 encoded string before initiating the request.
-[API Explorer](https://docs.adyen.com/api-explorer/legalentity/3/post/documents)
+When using Attachments, ensure content is provided as a byte array. It's important to convert it to a [Base64-encoded string](https://docs.adyen.com/api-explorer/legalentity/3/post/documents#request-attachments) before initiating the request.
 
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
 If you wish to develop the Local Terminal API integration parallel to your encryption implementation, you can opt for the unencrypted version. Be sure to remove any encryption details from the CA terminal config page.
