@@ -52,6 +52,7 @@ public class NotificationRequestItem {
     public static final String EVENT_CODE_PROCESS_RETRY = "PROCESS_RETRY";
     public static final String EVENT_CODE_REPORT_AVAILABLE = "REPORT_AVAILABLE";
     public static final String EVENT_CODE_VOID_PENDING_REFUND = "VOID_PENDING_REFUND";
+    public static final String EVENT_CODE_EXPIRE = "EXPIRE";
 
     //Dispute Event Codes
     public static final String EVENT_CODE_CHARGEBACK = "CHARGEBACK";
