@@ -37,12 +37,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   SoleProprietorship.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
   SoleProprietorship.JSON_PROPERTY_DATE_OF_INCORPORATION,
-  SoleProprietorship.JSON_PROPERTY_DESCRIPTION,
   SoleProprietorship.JSON_PROPERTY_DOING_BUSINESS_AS,
   SoleProprietorship.JSON_PROPERTY_NAME,
   SoleProprietorship.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
   SoleProprietorship.JSON_PROPERTY_REGISTERED_ADDRESS,
   SoleProprietorship.JSON_PROPERTY_REGISTRATION_NUMBER,
+  SoleProprietorship.JSON_PROPERTY_TAX_ABSENT,
   SoleProprietorship.JSON_PROPERTY_TAX_INFORMATION,
   SoleProprietorship.JSON_PROPERTY_VAT_ABSENCE_REASON,
   SoleProprietorship.JSON_PROPERTY_VAT_NUMBER
@@ -54,9 +54,6 @@ public class SoleProprietorship {
 
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
@@ -72,6 +69,9 @@ public class SoleProprietorship {
 
   public static final String JSON_PROPERTY_REGISTRATION_NUMBER = "registrationNumber";
   private String registrationNumber;
+
+  public static final String JSON_PROPERTY_TAX_ABSENT = "taxAbsent";
+  private Boolean taxAbsent;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
   private List<TaxInformation> taxInformation = null;
@@ -177,36 +177,6 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
-  }
-
-
-  public SoleProprietorship description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Short description about the Legal Arrangement.
-   * @return description
-  **/
-  @ApiModelProperty(value = "Short description about the Legal Arrangement.")
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
- /**
-  * Short description about the Legal Arrangement.
-  *
-  * @param description
-  */ 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
   }
 
 
@@ -360,6 +330,36 @@ public class SoleProprietorship {
   }
 
 
+  public SoleProprietorship taxAbsent(Boolean taxAbsent) {
+    this.taxAbsent = taxAbsent;
+    return this;
+  }
+
+   /**
+   * The tax information is absent.
+   * @return taxAbsent
+  **/
+  @ApiModelProperty(value = "The tax information is absent.")
+  @JsonProperty(JSON_PROPERTY_TAX_ABSENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getTaxAbsent() {
+    return taxAbsent;
+  }
+
+
+ /**
+  * The tax information is absent.
+  *
+  * @param taxAbsent
+  */ 
+  @JsonProperty(JSON_PROPERTY_TAX_ABSENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTaxAbsent(Boolean taxAbsent) {
+    this.taxAbsent = taxAbsent;
+  }
+
+
   public SoleProprietorship taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
     return this;
@@ -472,12 +472,12 @@ public class SoleProprietorship {
     SoleProprietorship soleProprietorship = (SoleProprietorship) o;
     return Objects.equals(this.countryOfGoverningLaw, soleProprietorship.countryOfGoverningLaw) &&
         Objects.equals(this.dateOfIncorporation, soleProprietorship.dateOfIncorporation) &&
-        Objects.equals(this.description, soleProprietorship.description) &&
         Objects.equals(this.doingBusinessAs, soleProprietorship.doingBusinessAs) &&
         Objects.equals(this.name, soleProprietorship.name) &&
         Objects.equals(this.principalPlaceOfBusiness, soleProprietorship.principalPlaceOfBusiness) &&
         Objects.equals(this.registeredAddress, soleProprietorship.registeredAddress) &&
         Objects.equals(this.registrationNumber, soleProprietorship.registrationNumber) &&
+        Objects.equals(this.taxAbsent, soleProprietorship.taxAbsent) &&
         Objects.equals(this.taxInformation, soleProprietorship.taxInformation) &&
         Objects.equals(this.vatAbsenceReason, soleProprietorship.vatAbsenceReason) &&
         Objects.equals(this.vatNumber, soleProprietorship.vatNumber);
@@ -485,7 +485,7 @@ public class SoleProprietorship {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxInformation, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxAbsent, taxInformation, vatAbsenceReason, vatNumber);
   }
 
   @Override
@@ -494,12 +494,12 @@ public class SoleProprietorship {
     sb.append("class SoleProprietorship {\n");
     sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
     sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");
     sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    taxAbsent: ").append(toIndentedString(taxAbsent)).append("\n");
     sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
     sb.append("    vatAbsenceReason: ").append(toIndentedString(vatAbsenceReason)).append("\n");
     sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");

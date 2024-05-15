@@ -34,7 +34,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   BRLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   BRLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
   BRLocalAccountIdentification.JSON_PROPERTY_BRANCH_NUMBER,
-  BRLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
+  BRLocalAccountIdentification.JSON_PROPERTY_ISPB,
   BRLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -48,8 +48,8 @@ public class BRLocalAccountIdentification {
   public static final String JSON_PROPERTY_BRANCH_NUMBER = "branchNumber";
   private String branchNumber;
 
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
+  public static final String JSON_PROPERTY_ISPB = "ispb";
+  private String ispb;
 
   /**
    * **brLocal**
@@ -180,33 +180,33 @@ public class BRLocalAccountIdentification {
   }
 
 
-  public BRLocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
+  public BRLocalAccountIdentification ispb(String ispb) {
+    this.ispb = ispb;
     return this;
   }
 
    /**
-   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-   * @return formFactor
+   * The 8-digit ISPB, with leading zeros.
+   * @return ispb
   **/
-  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @ApiModelProperty(value = "The 8-digit ISPB, with leading zeros.")
+  @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getFormFactor() {
-    return formFactor;
+  public String getIspb() {
+    return ispb;
   }
 
 
  /**
-  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
+  * The 8-digit ISPB, with leading zeros.
   *
-  * @param formFactor
+  * @param ispb
   */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
+  @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
+  public void setIspb(String ispb) {
+    this.ispb = ispb;
   }
 
 
@@ -255,13 +255,13 @@ public class BRLocalAccountIdentification {
     return Objects.equals(this.accountNumber, brLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.bankCode, brLocalAccountIdentification.bankCode) &&
         Objects.equals(this.branchNumber, brLocalAccountIdentification.branchNumber) &&
-        Objects.equals(this.formFactor, brLocalAccountIdentification.formFactor) &&
+        Objects.equals(this.ispb, brLocalAccountIdentification.ispb) &&
         Objects.equals(this.type, brLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, branchNumber, formFactor, type);
+    return Objects.hash(accountNumber, bankCode, branchNumber, ispb, type);
   }
 
   @Override
@@ -271,7 +271,7 @@ public class BRLocalAccountIdentification {
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    branchNumber: ").append(toIndentedString(branchNumber)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
+    sb.append("    ispb: ").append(toIndentedString(ispb)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

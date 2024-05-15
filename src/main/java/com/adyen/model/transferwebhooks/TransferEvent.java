@@ -19,7 +19,9 @@ import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Amount;
 import com.adyen.model.transferwebhooks.AmountAdjustment;
 import com.adyen.model.transferwebhooks.BalanceMutation;
+import com.adyen.model.transferwebhooks.ExternalReason;
 import com.adyen.model.transferwebhooks.Modification;
+import com.adyen.model.transferwebhooks.TransferEventTrackingData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,12 +44,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferEvent.JSON_PROPERTY_AMOUNT_ADJUSTMENTS,
   TransferEvent.JSON_PROPERTY_BOOKING_DATE,
   TransferEvent.JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME,
+  TransferEvent.JSON_PROPERTY_EXTERNAL_REASON,
   TransferEvent.JSON_PROPERTY_ID,
   TransferEvent.JSON_PROPERTY_MODIFICATION,
   TransferEvent.JSON_PROPERTY_MUTATIONS,
   TransferEvent.JSON_PROPERTY_ORIGINAL_AMOUNT,
   TransferEvent.JSON_PROPERTY_REASON,
   TransferEvent.JSON_PROPERTY_STATUS,
+  TransferEvent.JSON_PROPERTY_TRACKING_DATA,
   TransferEvent.JSON_PROPERTY_TRANSACTION_ID,
   TransferEvent.JSON_PROPERTY_TYPE,
   TransferEvent.JSON_PROPERTY_UPDATE_DATE,
@@ -65,7 +69,11 @@ public class TransferEvent {
   private OffsetDateTime bookingDate;
 
   public static final String JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME = "estimatedArrivalTime";
+  @Deprecated
   private OffsetDateTime estimatedArrivalTime;
+
+  public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
+  private ExternalReason externalReason;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -106,6 +114,8 @@ public class TransferEvent {
     ERROR("error"),
     
     NOTENOUGHBALANCE("notEnoughBalance"),
+    
+    PENDINGAPPROVAL("pendingApproval"),
     
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
@@ -309,6 +319,9 @@ public class TransferEvent {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  public static final String JSON_PROPERTY_TRACKING_DATA = "trackingData";
+  private TransferEventTrackingData trackingData;
+
   public static final String JSON_PROPERTY_TRANSACTION_ID = "transactionId";
   private String transactionId;
 
@@ -457,6 +470,7 @@ public class TransferEvent {
   }
 
 
+  @Deprecated
   public TransferEvent estimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
     return this;
@@ -465,7 +479,9 @@ public class TransferEvent {
    /**
    * The estimated time the beneficiary should have access to the funds.
    * @return estimatedArrivalTime
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "The estimated time the beneficiary should have access to the funds.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -480,10 +496,41 @@ public class TransferEvent {
   *
   * @param estimatedArrivalTime
   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
+  }
+
+
+  public TransferEvent externalReason(ExternalReason externalReason) {
+    this.externalReason = externalReason;
+    return this;
+  }
+
+   /**
+   * Get externalReason
+   * @return externalReason
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ExternalReason getExternalReason() {
+    return externalReason;
+  }
+
+
+ /**
+  * externalReason
+  *
+  * @param externalReason
+  */ 
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalReason(ExternalReason externalReason) {
+    this.externalReason = externalReason;
   }
 
 
@@ -675,6 +722,36 @@ public class TransferEvent {
   }
 
 
+  public TransferEvent trackingData(TransferEventTrackingData trackingData) {
+    this.trackingData = trackingData;
+    return this;
+  }
+
+   /**
+   * Get trackingData
+   * @return trackingData
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TransferEventTrackingData getTrackingData() {
+    return trackingData;
+  }
+
+
+ /**
+  * trackingData
+  *
+  * @param trackingData
+  */ 
+  @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTrackingData(TransferEventTrackingData trackingData) {
+    this.trackingData = trackingData;
+  }
+
+
   public TransferEvent transactionId(String transactionId) {
     this.transactionId = transactionId;
     return this;
@@ -811,12 +888,14 @@ public class TransferEvent {
         Objects.equals(this.amountAdjustments, transferEvent.amountAdjustments) &&
         Objects.equals(this.bookingDate, transferEvent.bookingDate) &&
         Objects.equals(this.estimatedArrivalTime, transferEvent.estimatedArrivalTime) &&
+        Objects.equals(this.externalReason, transferEvent.externalReason) &&
         Objects.equals(this.id, transferEvent.id) &&
         Objects.equals(this.modification, transferEvent.modification) &&
         Objects.equals(this.mutations, transferEvent.mutations) &&
         Objects.equals(this.originalAmount, transferEvent.originalAmount) &&
         Objects.equals(this.reason, transferEvent.reason) &&
         Objects.equals(this.status, transferEvent.status) &&
+        Objects.equals(this.trackingData, transferEvent.trackingData) &&
         Objects.equals(this.transactionId, transferEvent.transactionId) &&
         Objects.equals(this.type, transferEvent.type) &&
         Objects.equals(this.updateDate, transferEvent.updateDate) &&
@@ -825,7 +904,7 @@ public class TransferEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountAdjustments, bookingDate, estimatedArrivalTime, id, modification, mutations, originalAmount, reason, status, transactionId, type, updateDate, valueDate);
+    return Objects.hash(amount, amountAdjustments, bookingDate, estimatedArrivalTime, externalReason, id, modification, mutations, originalAmount, reason, status, trackingData, transactionId, type, updateDate, valueDate);
   }
 
   @Override
@@ -836,12 +915,14 @@ public class TransferEvent {
     sb.append("    amountAdjustments: ").append(toIndentedString(amountAdjustments)).append("\n");
     sb.append("    bookingDate: ").append(toIndentedString(bookingDate)).append("\n");
     sb.append("    estimatedArrivalTime: ").append(toIndentedString(estimatedArrivalTime)).append("\n");
+    sb.append("    externalReason: ").append(toIndentedString(externalReason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modification: ").append(toIndentedString(modification)).append("\n");
     sb.append("    mutations: ").append(toIndentedString(mutations)).append("\n");
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    trackingData: ").append(toIndentedString(trackingData)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");

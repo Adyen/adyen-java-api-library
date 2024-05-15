@@ -33,7 +33,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   CALocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   CALocalAccountIdentification.JSON_PROPERTY_ACCOUNT_TYPE,
-  CALocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   CALocalAccountIdentification.JSON_PROPERTY_INSTITUTION_NUMBER,
   CALocalAccountIdentification.JSON_PROPERTY_TRANSIT_NUMBER,
   CALocalAccountIdentification.JSON_PROPERTY_TYPE
@@ -80,9 +79,6 @@ public class CALocalAccountIdentification {
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private AccountTypeEnum accountType;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   public static final String JSON_PROPERTY_INSTITUTION_NUMBER = "institutionNumber";
   private String institutionNumber;
@@ -186,36 +182,6 @@ public class CALocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
-  }
-
-
-  public CALocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
   }
 
 
@@ -323,7 +289,6 @@ public class CALocalAccountIdentification {
     CALocalAccountIdentification caLocalAccountIdentification = (CALocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, caLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.accountType, caLocalAccountIdentification.accountType) &&
-        Objects.equals(this.formFactor, caLocalAccountIdentification.formFactor) &&
         Objects.equals(this.institutionNumber, caLocalAccountIdentification.institutionNumber) &&
         Objects.equals(this.transitNumber, caLocalAccountIdentification.transitNumber) &&
         Objects.equals(this.type, caLocalAccountIdentification.type);
@@ -331,7 +296,7 @@ public class CALocalAccountIdentification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountType, formFactor, institutionNumber, transitNumber, type);
+    return Objects.hash(accountNumber, accountType, institutionNumber, transitNumber, type);
   }
 
   @Override
@@ -340,7 +305,6 @@ public class CALocalAccountIdentification {
     sb.append("class CALocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    institutionNumber: ").append(toIndentedString(institutionNumber)).append("\n");
     sb.append("    transitNumber: ").append(toIndentedString(transitNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

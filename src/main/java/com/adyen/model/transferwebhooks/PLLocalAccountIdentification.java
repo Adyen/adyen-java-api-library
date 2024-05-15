@@ -32,16 +32,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   PLLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
-  PLLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   PLLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
 public class PLLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   /**
    * **plLocal**
@@ -112,36 +108,6 @@ public class PLLocalAccountIdentification {
   }
 
 
-  public PLLocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
-  }
-
-
   public PLLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -185,13 +151,12 @@ public class PLLocalAccountIdentification {
     }
     PLLocalAccountIdentification plLocalAccountIdentification = (PLLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, plLocalAccountIdentification.accountNumber) &&
-        Objects.equals(this.formFactor, plLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, plLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, formFactor, type);
+    return Objects.hash(accountNumber, type);
   }
 
   @Override
@@ -199,7 +164,6 @@ public class PLLocalAccountIdentification {
     StringBuilder sb = new StringBuilder();
     sb.append("class PLLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

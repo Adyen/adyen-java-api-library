@@ -16,9 +16,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.balanceplatform.BankAccountDetails;
 import com.adyen.model.balanceplatform.Card;
 import com.adyen.model.balanceplatform.PaymentInstrumentAdditionalBankAccountIdentificationsInner;
-import com.adyen.model.balanceplatform.PaymentInstrumentBankAccount;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -53,13 +53,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class UpdatePaymentInstrument {
   public static final String JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS = "additionalBankAccountIdentifications";
+  @Deprecated
   private List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> additionalBankAccountIdentifications = null;
 
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
   public static final String JSON_PROPERTY_BANK_ACCOUNT = "bankAccount";
-  private PaymentInstrumentBankAccount bankAccount;
+  private BankAccountDetails bankAccount;
 
   public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
@@ -217,6 +218,7 @@ public class UpdatePaymentInstrument {
   public UpdatePaymentInstrument() { 
   }
 
+  @Deprecated
   public UpdatePaymentInstrument additionalBankAccountIdentifications(List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> additionalBankAccountIdentifications) {
     this.additionalBankAccountIdentifications = additionalBankAccountIdentifications;
     return this;
@@ -233,7 +235,9 @@ public class UpdatePaymentInstrument {
    /**
    * Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
    * @return additionalBankAccountIdentifications
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "Contains optional, additional business account details. Returned when you create a payment instrument with `type` **bankAccount**.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,6 +252,7 @@ public class UpdatePaymentInstrument {
   *
   * @param additionalBankAccountIdentifications
   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalBankAccountIdentifications(List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> additionalBankAccountIdentifications) {
@@ -285,7 +290,7 @@ public class UpdatePaymentInstrument {
   }
 
 
-  public UpdatePaymentInstrument bankAccount(PaymentInstrumentBankAccount bankAccount) {
+  public UpdatePaymentInstrument bankAccount(BankAccountDetails bankAccount) {
     this.bankAccount = bankAccount;
     return this;
   }
@@ -298,7 +303,7 @@ public class UpdatePaymentInstrument {
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PaymentInstrumentBankAccount getBankAccount() {
+  public BankAccountDetails getBankAccount() {
     return bankAccount;
   }
 
@@ -310,7 +315,7 @@ public class UpdatePaymentInstrument {
   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankAccount(PaymentInstrumentBankAccount bankAccount) {
+  public void setBankAccount(BankAccountDetails bankAccount) {
     this.bankAccount = bankAccount;
   }
 

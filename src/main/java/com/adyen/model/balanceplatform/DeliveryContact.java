@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   DeliveryContact.JSON_PROPERTY_ADDRESS,
+  DeliveryContact.JSON_PROPERTY_COMPANY,
   DeliveryContact.JSON_PROPERTY_EMAIL,
   DeliveryContact.JSON_PROPERTY_FULL_PHONE_NUMBER,
   DeliveryContact.JSON_PROPERTY_NAME,
@@ -45,6 +46,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class DeliveryContact {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private DeliveryAddress address;
+
+  public static final String JSON_PROPERTY_COMPANY = "company";
+  private String company;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -91,6 +95,36 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(DeliveryAddress address) {
     this.address = address;
+  }
+
+
+  public DeliveryContact company(String company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * The company name of the contact.
+   * @return company
+  **/
+  @ApiModelProperty(value = "The company name of the contact.")
+  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCompany() {
+    return company;
+  }
+
+
+ /**
+  * The company name of the contact.
+  *
+  * @param company
+  */ 
+  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCompany(String company) {
+    this.company = company;
   }
 
 
@@ -257,6 +291,7 @@ public class DeliveryContact {
     }
     DeliveryContact deliveryContact = (DeliveryContact) o;
     return Objects.equals(this.address, deliveryContact.address) &&
+        Objects.equals(this.company, deliveryContact.company) &&
         Objects.equals(this.email, deliveryContact.email) &&
         Objects.equals(this.fullPhoneNumber, deliveryContact.fullPhoneNumber) &&
         Objects.equals(this.name, deliveryContact.name) &&
@@ -266,7 +301,7 @@ public class DeliveryContact {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, email, fullPhoneNumber, name, phoneNumber, webAddress);
+    return Objects.hash(address, company, email, fullPhoneNumber, name, phoneNumber, webAddress);
   }
 
   @Override
@@ -274,6 +309,7 @@ public class DeliveryContact {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeliveryContact {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

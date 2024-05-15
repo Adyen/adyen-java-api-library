@@ -22,9 +22,9 @@ import com.adyen.model.transfers.PaymentInstrument;
 import com.adyen.model.transfers.ResourceReference;
 import com.adyen.model.transfers.TransactionRulesResult;
 import com.adyen.model.transfers.TransferCategoryData;
+import com.adyen.model.transfers.TransferDataTracking;
 import com.adyen.model.transfers.TransferEvent;
 import com.adyen.model.transfers.TransferNotificationCounterParty;
-import com.adyen.model.transfers.TransferNotificationTransferTracking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -211,6 +211,8 @@ public class TransferData {
     ERROR("error"),
     
     NOTENOUGHBALANCE("notEnoughBalance"),
+    
+    PENDINGAPPROVAL("pendingApproval"),
     
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
@@ -424,7 +426,7 @@ public class TransferData {
   private StatusEnum status;
 
   public static final String JSON_PROPERTY_TRACKING = "tracking";
-  private TransferNotificationTransferTracking tracking;
+  private TransferDataTracking tracking;
 
   public static final String JSON_PROPERTY_TRANSACTION_RULES_RESULT = "transactionRulesResult";
   private TransactionRulesResult transactionRulesResult;
@@ -446,6 +448,8 @@ public class TransferData {
     BANKDIRECTDEBIT("bankDirectDebit"),
     
     BANKTRANSFER("bankTransfer"),
+    
+    CAPITALFUNDSCOLLECTION("capitalFundsCollection"),
     
     CAPTURE("capture"),
     
@@ -1124,7 +1128,7 @@ public class TransferData {
   }
 
 
-  public TransferData tracking(TransferNotificationTransferTracking tracking) {
+  public TransferData tracking(TransferDataTracking tracking) {
     this.tracking = tracking;
     return this;
   }
@@ -1137,7 +1141,7 @@ public class TransferData {
   @JsonProperty(JSON_PROPERTY_TRACKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TransferNotificationTransferTracking getTracking() {
+  public TransferDataTracking getTracking() {
     return tracking;
   }
 
@@ -1149,7 +1153,7 @@ public class TransferData {
   */ 
   @JsonProperty(JSON_PROPERTY_TRACKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTracking(TransferNotificationTransferTracking tracking) {
+  public void setTracking(TransferDataTracking tracking) {
     this.tracking = tracking;
   }
 

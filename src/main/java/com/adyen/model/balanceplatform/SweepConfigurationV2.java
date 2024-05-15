@@ -43,6 +43,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   SweepConfigurationV2.JSON_PROPERTY_ID,
   SweepConfigurationV2.JSON_PROPERTY_PRIORITIES,
   SweepConfigurationV2.JSON_PROPERTY_REASON,
+  SweepConfigurationV2.JSON_PROPERTY_REFERENCE,
+  SweepConfigurationV2.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
   SweepConfigurationV2.JSON_PROPERTY_SCHEDULE,
   SweepConfigurationV2.JSON_PROPERTY_STATUS,
   SweepConfigurationV2.JSON_PROPERTY_SWEEP_AMOUNT,
@@ -178,6 +180,8 @@ public class SweepConfigurationV2 {
     
     NOTENOUGHBALANCE("notEnoughBalance"),
     
+    PENDINGAPPROVAL("pendingApproval"),
+    
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
     ROUTENOTFOUND("routeNotFound"),
@@ -215,6 +219,12 @@ public class SweepConfigurationV2 {
 
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
+
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
+  private String reference;
+
+  public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
+  private String referenceForBeneficiary;
 
   public static final String JSON_PROPERTY_SCHEDULE = "schedule";
   private SweepSchedule schedule;
@@ -471,10 +481,10 @@ public class SweepConfigurationV2 {
   }
 
    /**
-   * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority listed first, and if that&#39;s not possible, it moves on to the next option in the order of provided priorities.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see [optional priorities setup](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
+   * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
    * @return priorities
   **/
-  @ApiModelProperty(value = "The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority listed first, and if that's not possible, it moves on to the next option in the order of provided priorities.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).  Set `category` to **bank**. For more details, see [optional priorities setup](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).")
+  @ApiModelProperty(value = "The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that's not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).  Set `category` to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).")
   @JsonProperty(JSON_PROPERTY_PRIORITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -484,7 +494,7 @@ public class SweepConfigurationV2 {
 
 
  /**
-  * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority listed first, and if that&#39;s not possible, it moves on to the next option in the order of provided priorities.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see [optional priorities setup](https://docs.adyen.com/marketplaces-and-platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
+  * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: High-value transfer to a recipient in a different country.  * **internal**: Transfer to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
   *
   * @param priorities
   */ 
@@ -522,6 +532,66 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
+  }
+
+
+  public SweepConfigurationV2 reference(String reference) {
+    this.reference = reference;
+    return this;
+  }
+
+   /**
+   * Your reference for the sweep configuration.
+   * @return reference
+  **/
+  @ApiModelProperty(value = "Your reference for the sweep configuration.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReference() {
+    return reference;
+  }
+
+
+ /**
+  * Your reference for the sweep configuration.
+  *
+  * @param reference
+  */ 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
+
+
+  public SweepConfigurationV2 referenceForBeneficiary(String referenceForBeneficiary) {
+    this.referenceForBeneficiary = referenceForBeneficiary;
+    return this;
+  }
+
+   /**
+   * The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.
+   * @return referenceForBeneficiary
+  **/
+  @ApiModelProperty(value = "The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.")
+  @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReferenceForBeneficiary() {
+    return referenceForBeneficiary;
+  }
+
+
+ /**
+  * The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.
+  *
+  * @param referenceForBeneficiary
+  */ 
+  @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReferenceForBeneficiary(String referenceForBeneficiary) {
+    this.referenceForBeneficiary = referenceForBeneficiary;
   }
 
 
@@ -724,6 +794,8 @@ public class SweepConfigurationV2 {
         Objects.equals(this.id, sweepConfigurationV2.id) &&
         Objects.equals(this.priorities, sweepConfigurationV2.priorities) &&
         Objects.equals(this.reason, sweepConfigurationV2.reason) &&
+        Objects.equals(this.reference, sweepConfigurationV2.reference) &&
+        Objects.equals(this.referenceForBeneficiary, sweepConfigurationV2.referenceForBeneficiary) &&
         Objects.equals(this.schedule, sweepConfigurationV2.schedule) &&
         Objects.equals(this.status, sweepConfigurationV2.status) &&
         Objects.equals(this.sweepAmount, sweepConfigurationV2.sweepAmount) &&
@@ -734,7 +806,7 @@ public class SweepConfigurationV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, counterparty, currency, description, id, priorities, reason, schedule, status, sweepAmount, targetAmount, triggerAmount, type);
+    return Objects.hash(category, counterparty, currency, description, id, priorities, reason, reference, referenceForBeneficiary, schedule, status, sweepAmount, targetAmount, triggerAmount, type);
   }
 
   @Override
@@ -748,6 +820,8 @@ public class SweepConfigurationV2 {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    referenceForBeneficiary: ").append(toIndentedString(referenceForBeneficiary)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    sweepAmount: ").append(toIndentedString(sweepAmount)).append("\n");

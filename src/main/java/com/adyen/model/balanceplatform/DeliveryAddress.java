@@ -131,10 +131,10 @@ public class DeliveryAddress {
   }
 
    /**
-   * The street name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;Rokin\&quot;.
+   * The name of the street. Do not include the number of the building.  For example, if the address is Simon Carmiggeltstraat 6-50, provide **Simon Carmiggeltstraat**.
    * @return line1
   **/
-  @ApiModelProperty(value = "The street name. For example, if the address is \"Rokin 49\", provide \"Rokin\".")
+  @ApiModelProperty(value = "The name of the street. Do not include the number of the building.  For example, if the address is Simon Carmiggeltstraat 6-50, provide **Simon Carmiggeltstraat**.")
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -144,7 +144,7 @@ public class DeliveryAddress {
 
 
  /**
-  * The street name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;Rokin\&quot;.
+  * The name of the street. Do not include the number of the building.  For example, if the address is Simon Carmiggeltstraat 6-50, provide **Simon Carmiggeltstraat**.
   *
   * @param line1
   */ 
@@ -161,10 +161,10 @@ public class DeliveryAddress {
   }
 
    /**
-   * The house number or name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;49\&quot;.
+   * The number of the building.  For example, if the address is Simon Carmiggeltstraat 6-50, provide **6-50**.
    * @return line2
   **/
-  @ApiModelProperty(value = "The house number or name. For example, if the address is \"Rokin 49\", provide \"49\".")
+  @ApiModelProperty(value = "The number of the building.  For example, if the address is Simon Carmiggeltstraat 6-50, provide **6-50**.")
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -174,7 +174,7 @@ public class DeliveryAddress {
 
 
  /**
-  * The house number or name. For example, if the address is \&quot;Rokin 49\&quot;, provide \&quot;49\&quot;.
+  * The number of the building.  For example, if the address is Simon Carmiggeltstraat 6-50, provide **6-50**.
   *
   * @param line2
   */ 
@@ -191,10 +191,10 @@ public class DeliveryAddress {
   }
 
    /**
-   * Optional information about the address.
+   * Additional information about the delivery address.
    * @return line3
   **/
-  @ApiModelProperty(value = "Optional information about the address.")
+  @ApiModelProperty(value = "Additional information about the delivery address.")
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -204,7 +204,7 @@ public class DeliveryAddress {
 
 
  /**
-  * Optional information about the address.
+  * Additional information about the delivery address.
   *
   * @param line3
   */ 
@@ -251,10 +251,10 @@ public class DeliveryAddress {
   }
 
    /**
-   * The two-letterISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
    * @return stateOrProvince
   **/
-  @ApiModelProperty(value = "The two-letterISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. > Required for the US and Canada.")
+  @ApiModelProperty(value = "The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. > Required for the US and Canada.")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -264,7 +264,7 @@ public class DeliveryAddress {
 
 
  /**
-  * The two-letterISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+  * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
   *
   * @param stateOrProvince
   */ 

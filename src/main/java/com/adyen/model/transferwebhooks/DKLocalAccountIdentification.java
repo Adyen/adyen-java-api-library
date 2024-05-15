@@ -33,7 +33,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   DKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   DKLocalAccountIdentification.JSON_PROPERTY_BANK_CODE,
-  DKLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   DKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -43,9 +42,6 @@ public class DKLocalAccountIdentification {
 
   public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
   private String bankCode;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   /**
    * **dkLocal**
@@ -146,36 +142,6 @@ public class DKLocalAccountIdentification {
   }
 
 
-  public DKLocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
-  }
-
-
   public DKLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -220,13 +186,12 @@ public class DKLocalAccountIdentification {
     DKLocalAccountIdentification dkLocalAccountIdentification = (DKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, dkLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.bankCode, dkLocalAccountIdentification.bankCode) &&
-        Objects.equals(this.formFactor, dkLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, dkLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, formFactor, type);
+    return Objects.hash(accountNumber, bankCode, type);
   }
 
   @Override
@@ -235,7 +200,6 @@ public class DKLocalAccountIdentification {
     sb.append("class DKLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

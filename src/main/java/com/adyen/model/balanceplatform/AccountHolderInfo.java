@@ -182,10 +182,10 @@ public class AccountHolderInfo {
   }
 
    /**
-   * Your description for the account holder, maximum 300 characters.
+   * Your description for the account holder.
    * @return description
   **/
-  @ApiModelProperty(value = "Your description for the account holder, maximum 300 characters.")
+  @ApiModelProperty(value = "Your description for the account holder.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -195,7 +195,7 @@ public class AccountHolderInfo {
 
 
  /**
-  * Your description for the account holder, maximum 300 characters.
+  * Your description for the account holder.
   *
   * @param description
   */ 
@@ -310,10 +310,10 @@ public class AccountHolderInfo {
   }
 
    /**
-   * Your reference for the account holder, maximum 150 characters.
+   * Your reference for the account holder.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference for the account holder, maximum 150 characters.")
+  @ApiModelProperty(value = "Your reference for the account holder.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -323,7 +323,7 @@ public class AccountHolderInfo {
 
 
  /**
-  * Your reference for the account holder, maximum 150 characters.
+  * Your reference for the account holder.
   *
   * @param reference
   */ 

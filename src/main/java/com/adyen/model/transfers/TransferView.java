@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.transfers.TransferCategoryData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,11 +32,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * TransferView
  */
 @JsonPropertyOrder({
+  TransferView.JSON_PROPERTY_CATEGORY_DATA,
   TransferView.JSON_PROPERTY_ID,
   TransferView.JSON_PROPERTY_REFERENCE
 })
 
 public class TransferView {
+  public static final String JSON_PROPERTY_CATEGORY_DATA = "categoryData";
+  private TransferCategoryData categoryData;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -44,6 +49,36 @@ public class TransferView {
 
   public TransferView() { 
   }
+
+  public TransferView categoryData(TransferCategoryData categoryData) {
+    this.categoryData = categoryData;
+    return this;
+  }
+
+   /**
+   * Get categoryData
+   * @return categoryData
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TransferCategoryData getCategoryData() {
+    return categoryData;
+  }
+
+
+ /**
+  * categoryData
+  *
+  * @param categoryData
+  */ 
+  @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCategoryData(TransferCategoryData categoryData) {
+    this.categoryData = categoryData;
+  }
+
 
   public TransferView id(String id) {
     this.id = id;
@@ -117,19 +152,21 @@ public class TransferView {
       return false;
     }
     TransferView transferView = (TransferView) o;
-    return Objects.equals(this.id, transferView.id) &&
+    return Objects.equals(this.categoryData, transferView.categoryData) &&
+        Objects.equals(this.id, transferView.id) &&
         Objects.equals(this.reference, transferView.reference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, reference);
+    return Objects.hash(categoryData, id, reference);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransferView {\n");
+    sb.append("    categoryData: ").append(toIndentedString(categoryData)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");

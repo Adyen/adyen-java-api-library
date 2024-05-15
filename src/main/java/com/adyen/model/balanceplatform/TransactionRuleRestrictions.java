@@ -29,6 +29,7 @@ import com.adyen.model.balanceplatform.MccsRestriction;
 import com.adyen.model.balanceplatform.MerchantNamesRestriction;
 import com.adyen.model.balanceplatform.MerchantsRestriction;
 import com.adyen.model.balanceplatform.ProcessingTypesRestriction;
+import com.adyen.model.balanceplatform.RiskScoresRestriction;
 import com.adyen.model.balanceplatform.SameAmountRestriction;
 import com.adyen.model.balanceplatform.SameCounterpartyRestriction;
 import com.adyen.model.balanceplatform.TimeOfDayRestriction;
@@ -61,6 +62,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANT_NAMES,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANTS,
   TransactionRuleRestrictions.JSON_PROPERTY_PROCESSING_TYPES,
+  TransactionRuleRestrictions.JSON_PROPERTY_RISK_SCORES,
   TransactionRuleRestrictions.JSON_PROPERTY_SAME_AMOUNT_RESTRICTION,
   TransactionRuleRestrictions.JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION,
   TransactionRuleRestrictions.JSON_PROPERTY_TIME_OF_DAY,
@@ -106,6 +108,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_PROCESSING_TYPES = "processingTypes";
   private ProcessingTypesRestriction processingTypes;
+
+  public static final String JSON_PROPERTY_RISK_SCORES = "riskScores";
+  private RiskScoresRestriction riskScores;
 
   public static final String JSON_PROPERTY_SAME_AMOUNT_RESTRICTION = "sameAmountRestriction";
   private SameAmountRestriction sameAmountRestriction;
@@ -512,6 +517,36 @@ public class TransactionRuleRestrictions {
   }
 
 
+  public TransactionRuleRestrictions riskScores(RiskScoresRestriction riskScores) {
+    this.riskScores = riskScores;
+    return this;
+  }
+
+   /**
+   * Get riskScores
+   * @return riskScores
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RISK_SCORES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public RiskScoresRestriction getRiskScores() {
+    return riskScores;
+  }
+
+
+ /**
+  * riskScores
+  *
+  * @param riskScores
+  */ 
+  @JsonProperty(JSON_PROPERTY_RISK_SCORES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRiskScores(RiskScoresRestriction riskScores) {
+    this.riskScores = riskScores;
+  }
+
+
   public TransactionRuleRestrictions sameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
     this.sameAmountRestriction = sameAmountRestriction;
     return this;
@@ -657,6 +692,7 @@ public class TransactionRuleRestrictions {
         Objects.equals(this.merchantNames, transactionRuleRestrictions.merchantNames) &&
         Objects.equals(this.merchants, transactionRuleRestrictions.merchants) &&
         Objects.equals(this.processingTypes, transactionRuleRestrictions.processingTypes) &&
+        Objects.equals(this.riskScores, transactionRuleRestrictions.riskScores) &&
         Objects.equals(this.sameAmountRestriction, transactionRuleRestrictions.sameAmountRestriction) &&
         Objects.equals(this.sameCounterpartyRestriction, transactionRuleRestrictions.sameCounterpartyRestriction) &&
         Objects.equals(this.timeOfDay, transactionRuleRestrictions.timeOfDay) &&
@@ -665,7 +701,7 @@ public class TransactionRuleRestrictions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, sameAmountRestriction, sameCounterpartyRestriction, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, timeOfDay, totalAmount);
   }
 
   @Override
@@ -685,6 +721,7 @@ public class TransactionRuleRestrictions {
     sb.append("    merchantNames: ").append(toIndentedString(merchantNames)).append("\n");
     sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");
     sb.append("    processingTypes: ").append(toIndentedString(processingTypes)).append("\n");
+    sb.append("    riskScores: ").append(toIndentedString(riskScores)).append("\n");
     sb.append("    sameAmountRestriction: ").append(toIndentedString(sameAmountRestriction)).append("\n");
     sb.append("    sameCounterpartyRestriction: ").append(toIndentedString(sameCounterpartyRestriction)).append("\n");
     sb.append("    timeOfDay: ").append(toIndentedString(timeOfDay)).append("\n");
