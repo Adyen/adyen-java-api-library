@@ -191,6 +191,8 @@ public class Transfer {
     
     NOTENOUGHBALANCE("notEnoughBalance"),
     
+    PENDINGAPPROVAL("pendingApproval"),
+    
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
     ROUTENOTFOUND("routeNotFound"),
@@ -416,6 +418,8 @@ public class Transfer {
     BANKDIRECTDEBIT("bankDirectDebit"),
     
     BANKTRANSFER("bankTransfer"),
+    
+    CAPITALFUNDSCOLLECTION("capitalFundsCollection"),
     
     CAPTURE("capture"),
     

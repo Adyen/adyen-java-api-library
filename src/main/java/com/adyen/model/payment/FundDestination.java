@@ -46,7 +46,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   FundDestination.JSON_PROPERTY_SHOPPER_NAME,
   FundDestination.JSON_PROPERTY_SHOPPER_REFERENCE,
   FundDestination.JSON_PROPERTY_SUB_MERCHANT,
-  FundDestination.JSON_PROPERTY_TELEPHONE_NUMBER
+  FundDestination.JSON_PROPERTY_TELEPHONE_NUMBER,
+  FundDestination.JSON_PROPERTY_WALLET_PURPOSE
 })
 
 public class FundDestination {
@@ -76,6 +77,9 @@ public class FundDestination {
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  public static final String JSON_PROPERTY_WALLET_PURPOSE = "walletPurpose";
+  private String walletPurpose;
 
   public FundDestination() { 
   }
@@ -358,6 +362,36 @@ public class FundDestination {
   }
 
 
+  public FundDestination walletPurpose(String walletPurpose) {
+    this.walletPurpose = walletPurpose;
+    return this;
+  }
+
+   /**
+   * The purpose of a digital wallet transaction.
+   * @return walletPurpose
+  **/
+  @ApiModelProperty(value = "The purpose of a digital wallet transaction.")
+  @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getWalletPurpose() {
+    return walletPurpose;
+  }
+
+
+ /**
+  * The purpose of a digital wallet transaction.
+  *
+  * @param walletPurpose
+  */ 
+  @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWalletPurpose(String walletPurpose) {
+    this.walletPurpose = walletPurpose;
+  }
+
+
   /**
    * Return true if this FundDestination object is equal to o.
    */
@@ -378,12 +412,13 @@ public class FundDestination {
         Objects.equals(this.shopperName, fundDestination.shopperName) &&
         Objects.equals(this.shopperReference, fundDestination.shopperReference) &&
         Objects.equals(this.subMerchant, fundDestination.subMerchant) &&
-        Objects.equals(this.telephoneNumber, fundDestination.telephoneNumber);
+        Objects.equals(this.telephoneNumber, fundDestination.telephoneNumber) &&
+        Objects.equals(this.walletPurpose, fundDestination.walletPurpose);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, billingAddress, card, selectedRecurringDetailReference, shopperEmail, shopperName, shopperReference, subMerchant, telephoneNumber);
+    return Objects.hash(additionalData, billingAddress, card, selectedRecurringDetailReference, shopperEmail, shopperName, shopperReference, subMerchant, telephoneNumber, walletPurpose);
   }
 
   @Override
@@ -399,6 +434,7 @@ public class FundDestination {
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    subMerchant: ").append(toIndentedString(subMerchant)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+    sb.append("    walletPurpose: ").append(toIndentedString(walletPurpose)).append("\n");
     sb.append("}");
     return sb.toString();
   }

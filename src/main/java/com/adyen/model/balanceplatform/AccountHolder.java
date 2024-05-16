@@ -85,14 +85,12 @@ public class AccountHolder {
   private String reference;
 
   /**
-   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    */
   public enum StatusEnum {
     ACTIVE("active"),
     
     CLOSED("closed"),
-    
-    INACTIVE("inactive"),
     
     SUSPENDED("suspended");
 
@@ -239,10 +237,10 @@ public class AccountHolder {
   }
 
    /**
-   * Your description for the account holder, maximum 300 characters.
+   * Your description for the account holder.
    * @return description
   **/
-  @ApiModelProperty(value = "Your description for the account holder, maximum 300 characters.")
+  @ApiModelProperty(value = "Your description for the account holder.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -252,7 +250,7 @@ public class AccountHolder {
 
 
  /**
-  * Your description for the account holder, maximum 300 characters.
+  * Your description for the account holder.
   *
   * @param description
   */ 
@@ -427,10 +425,10 @@ public class AccountHolder {
   }
 
    /**
-   * Your reference for the account holder, maximum 150 characters.
+   * Your reference for the account holder.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference for the account holder, maximum 150 characters.")
+  @ApiModelProperty(value = "Your reference for the account holder.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -440,7 +438,7 @@ public class AccountHolder {
 
 
  /**
-  * Your reference for the account holder, maximum 150 characters.
+  * Your reference for the account holder.
   *
   * @param reference
   */ 
@@ -457,10 +455,10 @@ public class AccountHolder {
   }
 
    /**
-   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    * @return status
   **/
-  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.")
+  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -470,7 +468,7 @@ public class AccountHolder {
 
 
  /**
-  * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
+  * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
   *
   * @param status
   */ 

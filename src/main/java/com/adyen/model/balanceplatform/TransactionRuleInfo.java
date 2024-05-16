@@ -73,7 +73,9 @@ public class TransactionRuleInfo {
     
     HARDBLOCK("hardBlock"),
     
-    SCOREBASED("scoreBased");
+    SCOREBASED("scoreBased"),
+    
+    TIMEDBLOCK("timedBlock");
 
     private String value;
 
@@ -278,10 +280,10 @@ public class TransactionRuleInfo {
   }
 
    /**
-   * Your description for the transaction rule, maximum 300 characters.
+   * Your description for the transaction rule.
    * @return description
   **/
-  @ApiModelProperty(required = true, value = "Your description for the transaction rule, maximum 300 characters.")
+  @ApiModelProperty(required = true, value = "Your description for the transaction rule.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -291,7 +293,7 @@ public class TransactionRuleInfo {
 
 
  /**
-  * Your description for the transaction rule, maximum 300 characters.
+  * Your description for the transaction rule.
   *
   * @param description
   */ 
@@ -428,10 +430,10 @@ public class TransactionRuleInfo {
   }
 
    /**
-   * Your reference for the transaction rule, maximum 150 characters.
+   * Your reference for the transaction rule.
    * @return reference
   **/
-  @ApiModelProperty(required = true, value = "Your reference for the transaction rule, maximum 150 characters.")
+  @ApiModelProperty(required = true, value = "Your reference for the transaction rule.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -441,7 +443,7 @@ public class TransactionRuleInfo {
 
 
  /**
-  * Your reference for the transaction rule, maximum 150 characters.
+  * Your reference for the transaction rule.
   *
   * @param reference
   */ 

@@ -55,10 +55,10 @@ public class BalancePlatform {
   }
 
    /**
-   * Your description of the balance platform, maximum 300 characters.
+   * Your description of the balance platform.
    * @return description
   **/
-  @ApiModelProperty(value = "Your description of the balance platform, maximum 300 characters.")
+  @ApiModelProperty(value = "Your description of the balance platform.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -68,7 +68,7 @@ public class BalancePlatform {
 
 
  /**
-  * Your description of the balance platform, maximum 300 characters.
+  * Your description of the balance platform.
   *
   * @param description
   */ 

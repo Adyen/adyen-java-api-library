@@ -32,7 +32,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   UKLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
-  UKLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   UKLocalAccountIdentification.JSON_PROPERTY_SORT_CODE,
   UKLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
@@ -40,9 +39,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class UKLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   public static final String JSON_PROPERTY_SORT_CODE = "sortCode";
   private String sortCode;
@@ -113,36 +109,6 @@ public class UKLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
-  }
-
-
-  public UKLocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
   }
 
 
@@ -219,14 +185,13 @@ public class UKLocalAccountIdentification {
     }
     UKLocalAccountIdentification ukLocalAccountIdentification = (UKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, ukLocalAccountIdentification.accountNumber) &&
-        Objects.equals(this.formFactor, ukLocalAccountIdentification.formFactor) &&
         Objects.equals(this.sortCode, ukLocalAccountIdentification.sortCode) &&
         Objects.equals(this.type, ukLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, formFactor, sortCode, type);
+    return Objects.hash(accountNumber, sortCode, type);
   }
 
   @Override
@@ -234,7 +199,6 @@ public class UKLocalAccountIdentification {
     StringBuilder sb = new StringBuilder();
     sb.append("class UKLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
