@@ -35,7 +35,7 @@ public class PosMobileApi extends Service {
     */
     public PosMobileApi(Client client) {
         super(client);
-        this.baseURL = createBaseURL("https://checkout-test.adyen.com/possdk/v68");
+        this.baseURL = createBaseURL("https://checkout-test.adyen.com/checkout/possdk/v68");
     }
 
     /**

@@ -85,10 +85,10 @@ public class CreateSessionRequest {
   }
 
    /**
-   * The unique identifier of the store that you want to process transactions for.
+   * The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
    * @return setupToken
   **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the store that you want to process transactions for.")
+  @ApiModelProperty(required = true, value = "The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the `AuthenticationService.authenticate(setupToken)` callback of `AuthenticationService`.  - When using the iOS POS Mobile SDK, obtain the token through the `PaymentServiceDelegate.register(with:)` callback of `PaymentServiceDelegate`.")
   @JsonProperty(JSON_PROPERTY_SETUP_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,7 +98,7 @@ public class CreateSessionRequest {
 
 
  /**
-  * The unique identifier of the store that you want to process transactions for.
+  * The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
   *
   * @param setupToken
   */ 
