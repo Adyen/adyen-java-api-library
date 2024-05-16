@@ -170,10 +170,10 @@ public class PartyIdentification {
   }
 
    /**
-   * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
+   * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
    * @return firstName
   **/
-  @ApiModelProperty(value = "First name of the individual.  Allowed only when `type` is **individual**.")
+  @ApiModelProperty(value = "First name of the individual.  Allowed only when `type` is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. ")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,7 +183,7 @@ public class PartyIdentification {
 
 
  /**
-  * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
+  * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
   *
   * @param firstName
   */ 
@@ -200,10 +200,10 @@ public class PartyIdentification {
   }
 
    /**
-   * The name of the entity.
+   * The name of the entity.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and Space. 
    * @return fullName
   **/
-  @ApiModelProperty(required = true, value = "The name of the entity.")
+  @ApiModelProperty(required = true, value = "The name of the entity.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + & ! ? @ ( ) \" ' and Space. ")
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -213,7 +213,7 @@ public class PartyIdentification {
 
 
  /**
-  * The name of the entity.
+  * The name of the entity.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and Space. 
   *
   * @param fullName
   */ 
@@ -230,10 +230,10 @@ public class PartyIdentification {
   }
 
    /**
-   * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
+   * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
    * @return lastName
   **/
-  @ApiModelProperty(value = "Last name of the individual.  Allowed only when `type` is **individual**.")
+  @ApiModelProperty(value = "Last name of the individual.  Allowed only when `type` is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. ")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -243,7 +243,7 @@ public class PartyIdentification {
 
 
  /**
-  * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.
+  * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
   *
   * @param lastName
   */ 

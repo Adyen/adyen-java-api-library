@@ -96,10 +96,10 @@ public class PaymentInstrumentGroupInfo {
   }
 
    /**
-   * Your description for the payment instrument group, maximum 300 characters.
+   * Your description for the payment instrument group.
    * @return description
   **/
-  @ApiModelProperty(value = "Your description for the payment instrument group, maximum 300 characters.")
+  @ApiModelProperty(value = "Your description for the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -109,7 +109,7 @@ public class PaymentInstrumentGroupInfo {
 
 
  /**
-  * Your description for the payment instrument group, maximum 300 characters.
+  * Your description for the payment instrument group.
   *
   * @param description
   */ 
@@ -164,10 +164,10 @@ public class PaymentInstrumentGroupInfo {
   }
 
    /**
-   * Your reference for the payment instrument group, maximum 150 characters.
+   * Your reference for the payment instrument group.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference for the payment instrument group, maximum 150 characters.")
+  @ApiModelProperty(value = "Your reference for the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -177,7 +177,7 @@ public class PaymentInstrumentGroupInfo {
 
 
  /**
-  * Your reference for the payment instrument group, maximum 150 characters.
+  * Your reference for the payment instrument group.
   *
   * @param reference
   */ 

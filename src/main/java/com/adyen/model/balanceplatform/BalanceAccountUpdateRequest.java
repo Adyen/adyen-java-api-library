@@ -61,7 +61,7 @@ public class BalanceAccountUpdateRequest {
   private String reference;
 
   /**
-   * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **inactive**, **closed**, **suspended**.
+   * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    */
   public enum StatusEnum {
     ACTIVE("active"),
@@ -144,10 +144,10 @@ public class BalanceAccountUpdateRequest {
   }
 
    /**
-   * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
+   * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    * @return description
   **/
-  @ApiModelProperty(value = "A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.")
+  @ApiModelProperty(value = "A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,7 +157,7 @@ public class BalanceAccountUpdateRequest {
 
 
  /**
-  * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
+  * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
   *
   * @param description
   */ 
@@ -242,10 +242,10 @@ public class BalanceAccountUpdateRequest {
   }
 
    /**
-   * Your reference to the balance account, maximum 150 characters.
+   * Your reference to the balance account.
    * @return reference
   **/
-  @ApiModelProperty(value = "Your reference to the balance account, maximum 150 characters.")
+  @ApiModelProperty(value = "Your reference to the balance account.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -255,7 +255,7 @@ public class BalanceAccountUpdateRequest {
 
 
  /**
-  * Your reference to the balance account, maximum 150 characters.
+  * Your reference to the balance account.
   *
   * @param reference
   */ 
@@ -272,10 +272,10 @@ public class BalanceAccountUpdateRequest {
   }
 
    /**
-   * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **inactive**, **closed**, **suspended**.
+   * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    * @return status
   **/
-  @ApiModelProperty(value = "The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **inactive**, **closed**, **suspended**.")
+  @ApiModelProperty(value = "The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -285,7 +285,7 @@ public class BalanceAccountUpdateRequest {
 
 
  /**
-  * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **inactive**, **closed**, **suspended**.
+  * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
   *
   * @param status
   */ 

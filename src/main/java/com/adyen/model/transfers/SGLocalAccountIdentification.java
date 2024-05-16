@@ -33,7 +33,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   SGLocalAccountIdentification.JSON_PROPERTY_ACCOUNT_NUMBER,
   SGLocalAccountIdentification.JSON_PROPERTY_BIC,
-  SGLocalAccountIdentification.JSON_PROPERTY_FORM_FACTOR,
   SGLocalAccountIdentification.JSON_PROPERTY_TYPE
 })
 
@@ -43,9 +42,6 @@ public class SGLocalAccountIdentification {
 
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
-
-  public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
 
   /**
    * **sgLocal**
@@ -146,36 +142,6 @@ public class SGLocalAccountIdentification {
   }
 
 
-  public SGLocalAccountIdentification formFactor(String formFactor) {
-    this.formFactor = formFactor;
-    return this;
-  }
-
-   /**
-   * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-   * @return formFactor
-  **/
-  @ApiModelProperty(value = "The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.")
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFormFactor() {
-    return formFactor;
-  }
-
-
- /**
-  * The form factor of the account.  Possible values: **physical**, **virtual**. Default value: **physical**.
-  *
-  * @param formFactor
-  */ 
-  @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFactor(String formFactor) {
-    this.formFactor = formFactor;
-  }
-
-
   public SGLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
@@ -220,13 +186,12 @@ public class SGLocalAccountIdentification {
     SGLocalAccountIdentification sgLocalAccountIdentification = (SGLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, sgLocalAccountIdentification.accountNumber) &&
         Objects.equals(this.bic, sgLocalAccountIdentification.bic) &&
-        Objects.equals(this.formFactor, sgLocalAccountIdentification.formFactor) &&
         Objects.equals(this.type, sgLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bic, formFactor, type);
+    return Objects.hash(accountNumber, bic, type);
   }
 
   @Override
@@ -235,7 +200,6 @@ public class SGLocalAccountIdentification {
     sb.append("class SGLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
-    sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -61,10 +61,16 @@ public class IdentificationData {
   private String number;
 
   /**
-   * Type of identity data. For **individual**, the &#x60;type&#x60; value is **nationalIdNumber**.
+   * Type of identity data. For individuals, the &#x60;type&#x60; value is **nationalIdNumber**. For individuals in these countries, the following types are supported.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   
    */
   public enum TypeEnum {
-    NATIONALIDNUMBER("nationalIdNumber");
+    NATIONALIDNUMBER("nationalIdNumber"),
+    
+    PASSPORT("passport"),
+    
+    DRIVERSLICENSE("driversLicense"),
+    
+    IDENTITYCARD("identityCard");
 
     private String value;
 
@@ -289,10 +295,10 @@ public class IdentificationData {
   }
 
    /**
-   * Type of identity data. For **individual**, the &#x60;type&#x60; value is **nationalIdNumber**.
+   * Type of identity data. For individuals, the &#x60;type&#x60; value is **nationalIdNumber**. For individuals in these countries, the following types are supported.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of identity data. For **individual**, the `type` value is **nationalIdNumber**.")
+  @ApiModelProperty(required = true, value = "Type of identity data. For individuals, the `type` value is **nationalIdNumber**. For individuals in these countries, the following types are supported.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -302,7 +308,7 @@ public class IdentificationData {
 
 
  /**
-  * Type of identity data. For **individual**, the &#x60;type&#x60; value is **nationalIdNumber**.
+  * Type of identity data. For individuals, the &#x60;type&#x60; value is **nationalIdNumber**. For individuals in these countries, the following types are supported.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   
   *
   * @param type
   */ 
