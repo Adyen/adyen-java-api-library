@@ -120,6 +120,10 @@ public class OutputContent {
         return this.outputText;
     }
 
+    public void setOutputText(List<OutputText> outputText) {
+        this.outputText = outputText;
+    }
+
     /**
      * Gets the value of the outputXHTML property.
      *
