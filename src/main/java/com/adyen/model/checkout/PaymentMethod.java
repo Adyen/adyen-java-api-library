@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.adyen.model.checkout.InputDetail;
 import com.adyen.model.checkout.PaymentMethodGroup;
 import com.adyen.model.checkout.PaymentMethodIssuer;
+import com.adyen.model.checkout.PaymentMethodUPIApps;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,6 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * PaymentMethod
  */
 @JsonPropertyOrder({
+  PaymentMethod.JSON_PROPERTY_APPS,
   PaymentMethod.JSON_PROPERTY_BRAND,
   PaymentMethod.JSON_PROPERTY_BRANDS,
   PaymentMethod.JSON_PROPERTY_CONFIGURATION,
@@ -50,6 +52,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class PaymentMethod {
+  public static final String JSON_PROPERTY_APPS = "apps";
+  private List<PaymentMethodUPIApps> apps = null;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
@@ -115,6 +120,44 @@ public class PaymentMethod {
 
   public PaymentMethod() { 
   }
+
+  public PaymentMethod apps(List<PaymentMethodUPIApps> apps) {
+    this.apps = apps;
+    return this;
+  }
+
+  public PaymentMethod addAppsItem(PaymentMethodUPIApps appsItem) {
+    if (this.apps == null) {
+      this.apps = new ArrayList<>();
+    }
+    this.apps.add(appsItem);
+    return this;
+  }
+
+   /**
+   * A list of apps for this payment method.
+   * @return apps
+  **/
+  @ApiModelProperty(value = "A list of apps for this payment method.")
+  @JsonProperty(JSON_PROPERTY_APPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<PaymentMethodUPIApps> getApps() {
+    return apps;
+  }
+
+
+ /**
+  * A list of apps for this payment method.
+  *
+  * @param apps
+  */ 
+  @JsonProperty(JSON_PROPERTY_APPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApps(List<PaymentMethodUPIApps> apps) {
+    this.apps = apps;
+  }
+
 
   public PaymentMethod brand(String brand) {
     this.brand = brand;
@@ -434,7 +477,8 @@ public class PaymentMethod {
       return false;
     }
     PaymentMethod paymentMethod = (PaymentMethod) o;
-    return Objects.equals(this.brand, paymentMethod.brand) &&
+    return Objects.equals(this.apps, paymentMethod.apps) &&
+        Objects.equals(this.brand, paymentMethod.brand) &&
         Objects.equals(this.brands, paymentMethod.brands) &&
         Objects.equals(this.configuration, paymentMethod.configuration) &&
         Objects.equals(this.fundingSource, paymentMethod.fundingSource) &&
@@ -447,13 +491,14 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, type);
+    return Objects.hash(apps, brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentMethod {\n");
+    sb.append("    apps: ").append(toIndentedString(apps)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
     sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");

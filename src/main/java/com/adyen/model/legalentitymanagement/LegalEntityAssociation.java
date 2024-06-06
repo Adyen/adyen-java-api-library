@@ -69,6 +69,8 @@ public class LegalEntityAssociation {
     
     DIRECTOR("director"),
     
+    IMMEDIATEPARENTCOMPANY("immediateParentCompany"),
+    
     PCISIGNATORY("pciSignatory"),
     
     PROTECTOR("protector"),

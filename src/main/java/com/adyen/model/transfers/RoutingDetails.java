@@ -1,5 +1,5 @@
 /*
- * Transfer webhooks
+ * Transfers API
  *
  * The version of the OpenAPI document: 4
  * 
@@ -10,7 +10,7 @@
  */
 
 
-package com.adyen.model.transferwebhooks;
+package com.adyen.model.transfers;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -28,14 +28,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * BankCategoryData
+ * RoutingDetails
  */
 @JsonPropertyOrder({
-  BankCategoryData.JSON_PROPERTY_PRIORITY,
-  BankCategoryData.JSON_PROPERTY_TYPE
+  RoutingDetails.JSON_PROPERTY_DETAIL,
+  RoutingDetails.JSON_PROPERTY_ERROR_CODE,
+  RoutingDetails.JSON_PROPERTY_PRIORITY,
+  RoutingDetails.JSON_PROPERTY_TITLE
 })
 
-public class BankCategoryData {
+public class RoutingDetails {
+  public static final String JSON_PROPERTY_DETAIL = "detail";
+  private String detail;
+
+  public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
+  private String errorCode;
+
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    */
@@ -82,46 +90,73 @@ public class BankCategoryData {
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private PriorityEnum priority;
 
-  /**
-   * **bank**
-   */
-  public enum TypeEnum {
-    BANK("bank");
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
 
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+  public RoutingDetails() { 
   }
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
-
-  public BankCategoryData() { 
+  public RoutingDetails detail(String detail) {
+    this.detail = detail;
+    return this;
   }
 
-  public BankCategoryData priority(PriorityEnum priority) {
+   /**
+   * A human-readable explanation specific to this occurrence of the problem.
+   * @return detail
+  **/
+  @ApiModelProperty(value = "A human-readable explanation specific to this occurrence of the problem.")
+  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDetail() {
+    return detail;
+  }
+
+
+ /**
+  * A human-readable explanation specific to this occurrence of the problem.
+  *
+  * @param detail
+  */ 
+  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
+
+  public RoutingDetails errorCode(String errorCode) {
+    this.errorCode = errorCode;
+    return this;
+  }
+
+   /**
+   * A code that identifies the problem type.
+   * @return errorCode
+  **/
+  @ApiModelProperty(value = "A code that identifies the problem type.")
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getErrorCode() {
+    return errorCode;
+  }
+
+
+ /**
+  * A code that identifies the problem type.
+  *
+  * @param errorCode
+  */ 
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorCode(String errorCode) {
+    this.errorCode = errorCode;
+  }
+
+
+  public RoutingDetails priority(PriorityEnum priority) {
     this.priority = priority;
     return this;
   }
@@ -151,38 +186,38 @@ public class BankCategoryData {
   }
 
 
-  public BankCategoryData type(TypeEnum type) {
-    this.type = type;
+  public RoutingDetails title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * **bank**
-   * @return type
+   * A short, human-readable summary of the problem type.
+   * @return title
   **/
-  @ApiModelProperty(value = "**bank**")
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @ApiModelProperty(value = "A short, human-readable summary of the problem type.")
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TypeEnum getType() {
-    return type;
+  public String getTitle() {
+    return title;
   }
 
 
  /**
-  * **bank**
+  * A short, human-readable summary of the problem type.
   *
-  * @param type
+  * @param title
   */ 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(TypeEnum type) {
-    this.type = type;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
   /**
-   * Return true if this BankCategoryData object is equal to o.
+   * Return true if this RoutingDetails object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -192,22 +227,26 @@ public class BankCategoryData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BankCategoryData bankCategoryData = (BankCategoryData) o;
-    return Objects.equals(this.priority, bankCategoryData.priority) &&
-        Objects.equals(this.type, bankCategoryData.type);
+    RoutingDetails routingDetails = (RoutingDetails) o;
+    return Objects.equals(this.detail, routingDetails.detail) &&
+        Objects.equals(this.errorCode, routingDetails.errorCode) &&
+        Objects.equals(this.priority, routingDetails.priority) &&
+        Objects.equals(this.title, routingDetails.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(priority, type);
+    return Objects.hash(detail, errorCode, priority, title);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BankCategoryData {\n");
+    sb.append("class RoutingDetails {\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -224,17 +263,17 @@ public class BankCategoryData {
   }
 
 /**
-   * Create an instance of BankCategoryData given an JSON string
+   * Create an instance of RoutingDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BankCategoryData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to BankCategoryData
+   * @return An instance of RoutingDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to RoutingDetails
    */
-  public static BankCategoryData fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, BankCategoryData.class);
+  public static RoutingDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, RoutingDetails.class);
   }
 /**
-  * Convert an instance of BankCategoryData to an JSON string
+  * Convert an instance of RoutingDetails to an JSON string
   *
   * @return JSON string
   */

@@ -22,6 +22,7 @@ import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
 import com.adyen.model.checkout.BillingAddress;
 import com.adyen.model.checkout.CheckoutSessionInstallmentOption;
+import com.adyen.model.checkout.CheckoutSessionThreeDS2RequestData;
 import com.adyen.model.checkout.Company;
 import com.adyen.model.checkout.DeliveryAddress;
 import com.adyen.model.checkout.FundOrigin;
@@ -111,6 +112,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CreateCheckoutSessionRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   CreateCheckoutSessionRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
   CreateCheckoutSessionRequest.JSON_PROPERTY_THEME_ID,
+  CreateCheckoutSessionRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   CreateCheckoutSessionRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
   CreateCheckoutSessionRequest.JSON_PROPERTY_TRUSTED_SHOPPER
 })
@@ -471,6 +473,9 @@ public class CreateCheckoutSessionRequest {
 
   public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
+
+  public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
+  private CheckoutSessionThreeDS2RequestData threeDS2RequestData;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   @Deprecated
@@ -992,10 +997,10 @@ public class CreateCheckoutSessionRequest {
   }
 
    /**
-   * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
+   * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
    * @return enableOneClick
   **/
-  @ApiModelProperty(value = "When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future one-click payments.")
+  @ApiModelProperty(value = "When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).")
   @JsonProperty(JSON_PROPERTY_ENABLE_ONE_CLICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1005,7 +1010,7 @@ public class CreateCheckoutSessionRequest {
 
 
  /**
-  * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
+  * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
   *
   * @param enableOneClick
   */ 
@@ -1052,10 +1057,10 @@ public class CreateCheckoutSessionRequest {
   }
 
    /**
-   * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for recurring payments.
+   * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
    * @return enableRecurring
   **/
-  @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be tokenized for recurring payments.")
+  @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.")
   @JsonProperty(JSON_PROPERTY_ENABLE_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1065,7 +1070,7 @@ public class CreateCheckoutSessionRequest {
 
 
  /**
-  * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for recurring payments.
+  * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
   *
   * @param enableRecurring
   */ 
@@ -2134,10 +2139,10 @@ public class CreateCheckoutSessionRequest {
   }
 
    /**
-   * When this is set to **true** and the &#x60;shopperReference&#x60; is provided, the payment details will be stored.
+   * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
    * @return storePaymentMethod
   **/
-  @ApiModelProperty(value = "When this is set to **true** and the `shopperReference` is provided, the payment details will be stored.")
+  @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).")
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -2147,7 +2152,7 @@ public class CreateCheckoutSessionRequest {
 
 
  /**
-  * When this is set to **true** and the &#x60;shopperReference&#x60; is provided, the payment details will be stored.
+  * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
   *
   * @param storePaymentMethod
   */ 
@@ -2245,6 +2250,36 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {
     this.themeId = themeId;
+  }
+
+
+  public CreateCheckoutSessionRequest threeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
+    this.threeDS2RequestData = threeDS2RequestData;
+    return this;
+  }
+
+   /**
+   * Get threeDS2RequestData
+   * @return threeDS2RequestData
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CheckoutSessionThreeDS2RequestData getThreeDS2RequestData() {
+    return threeDS2RequestData;
+  }
+
+
+ /**
+  * threeDS2RequestData
+  *
+  * @param threeDS2RequestData
+  */ 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
+    this.threeDS2RequestData = threeDS2RequestData;
   }
 
 
@@ -2381,13 +2416,14 @@ public class CreateCheckoutSessionRequest {
         Objects.equals(this.storePaymentMethodMode, createCheckoutSessionRequest.storePaymentMethodMode) &&
         Objects.equals(this.telephoneNumber, createCheckoutSessionRequest.telephoneNumber) &&
         Objects.equals(this.themeId, createCheckoutSessionRequest.themeId) &&
+        Objects.equals(this.threeDS2RequestData, createCheckoutSessionRequest.threeDS2RequestData) &&
         Objects.equals(this.threeDSAuthenticationOnly, createCheckoutSessionRequest.threeDSAuthenticationOnly) &&
         Objects.equals(this.trustedShopper, createCheckoutSessionRequest.trustedShopper);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethod, storePaymentMethodMode, telephoneNumber, themeId, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethod, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2451,6 +2487,7 @@ public class CreateCheckoutSessionRequest {
     sb.append("    storePaymentMethodMode: ").append(toIndentedString(storePaymentMethodMode)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
+    sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
     sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
     sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
     sb.append("}");

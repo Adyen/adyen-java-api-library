@@ -32,6 +32,8 @@ import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
 import com.adyen.model.management.TwintInfo;
 import com.adyen.model.management.VippsInfo;
+import com.adyen.model.management.WeChatPayInfo;
+import com.adyen.model.management.WeChatPayPosInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -86,7 +88,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethod.JSON_PROPERTY_TYPE,
   PaymentMethod.JSON_PROPERTY_VERIFICATION_STATUS,
   PaymentMethod.JSON_PROPERTY_VIPPS,
-  PaymentMethod.JSON_PROPERTY_VISA
+  PaymentMethod.JSON_PROPERTY_VISA,
+  PaymentMethod.JSON_PROPERTY_WECHATPAY,
+  PaymentMethod.JSON_PROPERTY_WECHATPAY_POS
 })
 
 public class PaymentMethod {
@@ -242,6 +246,12 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_VISA = "visa";
   private GenericPmWithTdiInfo visa;
+
+  public static final String JSON_PROPERTY_WECHATPAY = "wechatpay";
+  private WeChatPayInfo wechatpay;
+
+  public static final String JSON_PROPERTY_WECHATPAY_POS = "wechatpay_pos";
+  private WeChatPayPosInfo wechatpayPos;
 
   public PaymentMethod() { 
   }
@@ -1418,6 +1428,66 @@ public class PaymentMethod {
   }
 
 
+  public PaymentMethod wechatpay(WeChatPayInfo wechatpay) {
+    this.wechatpay = wechatpay;
+    return this;
+  }
+
+   /**
+   * Get wechatpay
+   * @return wechatpay
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WECHATPAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WeChatPayInfo getWechatpay() {
+    return wechatpay;
+  }
+
+
+ /**
+  * wechatpay
+  *
+  * @param wechatpay
+  */ 
+  @JsonProperty(JSON_PROPERTY_WECHATPAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWechatpay(WeChatPayInfo wechatpay) {
+    this.wechatpay = wechatpay;
+  }
+
+
+  public PaymentMethod wechatpayPos(WeChatPayPosInfo wechatpayPos) {
+    this.wechatpayPos = wechatpayPos;
+    return this;
+  }
+
+   /**
+   * Get wechatpayPos
+   * @return wechatpayPos
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WECHATPAY_POS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WeChatPayPosInfo getWechatpayPos() {
+    return wechatpayPos;
+  }
+
+
+ /**
+  * wechatpayPos
+  *
+  * @param wechatpayPos
+  */ 
+  @JsonProperty(JSON_PROPERTY_WECHATPAY_POS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWechatpayPos(WeChatPayPosInfo wechatpayPos) {
+    this.wechatpayPos = wechatpayPos;
+  }
+
+
   /**
    * Return true if this PaymentMethod object is equal to o.
    */
@@ -1467,12 +1537,14 @@ public class PaymentMethod {
         Objects.equals(this.type, paymentMethod.type) &&
         Objects.equals(this.verificationStatus, paymentMethod.verificationStatus) &&
         Objects.equals(this.vipps, paymentMethod.vipps) &&
-        Objects.equals(this.visa, paymentMethod.visa);
+        Objects.equals(this.visa, paymentMethod.visa) &&
+        Objects.equals(this.wechatpay, paymentMethod.wechatpay) &&
+        Objects.equals(this.wechatpayPos, paymentMethod.wechatpayPos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterpayTouch, allowed, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, giroPay, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, twint, type, verificationStatus, vipps, visa);
+    return Objects.hash(afterpayTouch, allowed, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, giroPay, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, twint, type, verificationStatus, vipps, visa, wechatpay, wechatpayPos);
   }
 
   @Override
@@ -1517,6 +1589,8 @@ public class PaymentMethod {
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
     sb.append("    visa: ").append(toIndentedString(visa)).append("\n");
+    sb.append("    wechatpay: ").append(toIndentedString(wechatpay)).append("\n");
+    sb.append("    wechatpayPos: ").append(toIndentedString(wechatpayPos)).append("\n");
     sb.append("}");
     return sb.toString();
   }

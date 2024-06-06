@@ -28,6 +28,7 @@ import com.adyen.model.checkout.ModelConfiguration;
 import com.adyen.model.checkout.Name;
 import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.RiskData;
+import com.adyen.model.checkout.SecureRemoteCommerceCheckoutData;
 import com.adyen.model.checkout.Split;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -90,6 +91,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentSetupRequest.JSON_PROPERTY_RETURN_URL,
   PaymentSetupRequest.JSON_PROPERTY_RISK_DATA,
   PaymentSetupRequest.JSON_PROPERTY_SDK_VERSION,
+  PaymentSetupRequest.JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA,
   PaymentSetupRequest.JSON_PROPERTY_SESSION_VALIDITY,
   PaymentSetupRequest.JSON_PROPERTY_SHOPPER_EMAIL,
   PaymentSetupRequest.JSON_PROPERTY_SHOPPER_I_P,
@@ -301,6 +303,9 @@ public class PaymentSetupRequest {
 
   public static final String JSON_PROPERTY_SDK_VERSION = "sdkVersion";
   private String sdkVersion;
+
+  public static final String JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA = "secureRemoteCommerceCheckoutData";
+  private SecureRemoteCommerceCheckoutData secureRemoteCommerceCheckoutData;
 
   public static final String JSON_PROPERTY_SESSION_VALIDITY = "sessionValidity";
   private String sessionValidity;
@@ -1645,6 +1650,36 @@ public class PaymentSetupRequest {
   }
 
 
+  public PaymentSetupRequest secureRemoteCommerceCheckoutData(SecureRemoteCommerceCheckoutData secureRemoteCommerceCheckoutData) {
+    this.secureRemoteCommerceCheckoutData = secureRemoteCommerceCheckoutData;
+    return this;
+  }
+
+   /**
+   * Get secureRemoteCommerceCheckoutData
+   * @return secureRemoteCommerceCheckoutData
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SecureRemoteCommerceCheckoutData getSecureRemoteCommerceCheckoutData() {
+    return secureRemoteCommerceCheckoutData;
+  }
+
+
+ /**
+  * secureRemoteCommerceCheckoutData
+  *
+  * @param secureRemoteCommerceCheckoutData
+  */ 
+  @JsonProperty(JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSecureRemoteCommerceCheckoutData(SecureRemoteCommerceCheckoutData secureRemoteCommerceCheckoutData) {
+    this.secureRemoteCommerceCheckoutData = secureRemoteCommerceCheckoutData;
+  }
+
+
   public PaymentSetupRequest sessionValidity(String sessionValidity) {
     this.sessionValidity = sessionValidity;
     return this;
@@ -2189,6 +2224,7 @@ public class PaymentSetupRequest {
         Objects.equals(this.returnUrl, paymentSetupRequest.returnUrl) &&
         Objects.equals(this.riskData, paymentSetupRequest.riskData) &&
         Objects.equals(this.sdkVersion, paymentSetupRequest.sdkVersion) &&
+        Objects.equals(this.secureRemoteCommerceCheckoutData, paymentSetupRequest.secureRemoteCommerceCheckoutData) &&
         Objects.equals(this.sessionValidity, paymentSetupRequest.sessionValidity) &&
         Objects.equals(this.shopperEmail, paymentSetupRequest.shopperEmail) &&
         Objects.equals(this.shopperIP, paymentSetupRequest.shopperIP) &&
@@ -2209,7 +2245,7 @@ public class PaymentSetupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, checkoutAttemptId, company, configuration, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, platformChargebackLogic, recurringExpiry, recurringFrequency, reference, returnUrl, riskData, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, token, trustedShopper);
+    return Objects.hash(additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, checkoutAttemptId, company, configuration, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, platformChargebackLogic, recurringExpiry, recurringFrequency, reference, returnUrl, riskData, sdkVersion, secureRemoteCommerceCheckoutData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, token, trustedShopper);
   }
 
   @Override
@@ -2256,6 +2292,7 @@ public class PaymentSetupRequest {
     sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
     sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
     sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append("\n");
+    sb.append("    secureRemoteCommerceCheckoutData: ").append(toIndentedString(secureRemoteCommerceCheckoutData)).append("\n");
     sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");

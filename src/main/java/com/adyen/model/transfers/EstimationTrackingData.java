@@ -41,7 +41,7 @@ public class EstimationTrackingData {
   private OffsetDateTime estimatedArrivalTime;
 
   /**
-   * **estimation**
+   * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    */
   public enum TypeEnum {
     ESTIMATION("estimation");
@@ -115,10 +115,10 @@ public class EstimationTrackingData {
   }
 
    /**
-   * **estimation**
+   * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "**estimation**")
+  @ApiModelProperty(required = true, value = "The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,7 +128,7 @@ public class EstimationTrackingData {
 
 
  /**
-  * **estimation**
+  * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
   *
   * @param type
   */ 

@@ -28,51 +28,51 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * BcmcInfo
+ * ReprocessAndroidAppResponse
  */
 @JsonPropertyOrder({
-  BcmcInfo.JSON_PROPERTY_ENABLE_BCMC_MOBILE
+  ReprocessAndroidAppResponse.JSON_PROPERTY_MESSAGE
 })
 
-public class BcmcInfo {
-  public static final String JSON_PROPERTY_ENABLE_BCMC_MOBILE = "enableBcmcMobile";
-  private Boolean enableBcmcMobile;
+public class ReprocessAndroidAppResponse {
+  public static final String JSON_PROPERTY_MESSAGE = "Message";
+  private String message;
 
-  public BcmcInfo() { 
+  public ReprocessAndroidAppResponse() { 
   }
 
-  public BcmcInfo enableBcmcMobile(Boolean enableBcmcMobile) {
-    this.enableBcmcMobile = enableBcmcMobile;
+  public ReprocessAndroidAppResponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
-   * @return enableBcmcMobile
+   * The result of the reprocess.
+   * @return message
   **/
-  @ApiModelProperty(value = "Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.")
-  @JsonProperty(JSON_PROPERTY_ENABLE_BCMC_MOBILE)
+  @ApiModelProperty(value = "The result of the reprocess.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getEnableBcmcMobile() {
-    return enableBcmcMobile;
+  public String getMessage() {
+    return message;
   }
 
 
  /**
-  * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
+  * The result of the reprocess.
   *
-  * @param enableBcmcMobile
+  * @param message
   */ 
-  @JsonProperty(JSON_PROPERTY_ENABLE_BCMC_MOBILE)
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnableBcmcMobile(Boolean enableBcmcMobile) {
-    this.enableBcmcMobile = enableBcmcMobile;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
   /**
-   * Return true if this BcmcInfo object is equal to o.
+   * Return true if this ReprocessAndroidAppResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -82,20 +82,20 @@ public class BcmcInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BcmcInfo bcmcInfo = (BcmcInfo) o;
-    return Objects.equals(this.enableBcmcMobile, bcmcInfo.enableBcmcMobile);
+    ReprocessAndroidAppResponse reprocessAndroidAppResponse = (ReprocessAndroidAppResponse) o;
+    return Objects.equals(this.message, reprocessAndroidAppResponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableBcmcMobile);
+    return Objects.hash(message);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BcmcInfo {\n");
-    sb.append("    enableBcmcMobile: ").append(toIndentedString(enableBcmcMobile)).append("\n");
+    sb.append("class ReprocessAndroidAppResponse {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -112,17 +112,17 @@ public class BcmcInfo {
   }
 
 /**
-   * Create an instance of BcmcInfo given an JSON string
+   * Create an instance of ReprocessAndroidAppResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BcmcInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to BcmcInfo
+   * @return An instance of ReprocessAndroidAppResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ReprocessAndroidAppResponse
    */
-  public static BcmcInfo fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, BcmcInfo.class);
+  public static ReprocessAndroidAppResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ReprocessAndroidAppResponse.class);
   }
 /**
-  * Convert an instance of BcmcInfo to an JSON string
+  * Convert an instance of ReprocessAndroidAppResponse to an JSON string
   *
   * @return JSON string
   */

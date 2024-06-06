@@ -1143,10 +1143,10 @@ public class PaymentRequest {
   }
 
    /**
-   * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
+   * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
    * @return enableOneClick
   **/
-  @ApiModelProperty(value = "When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future one-click payments.")
+  @ApiModelProperty(value = "When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).")
   @JsonProperty(JSON_PROPERTY_ENABLE_ONE_CLICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1156,7 +1156,7 @@ public class PaymentRequest {
 
 
  /**
-  * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
+  * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
   *
   * @param enableOneClick
   */ 
@@ -1203,10 +1203,10 @@ public class PaymentRequest {
   }
 
    /**
-   * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for recurring payments.
+   * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
    * @return enableRecurring
   **/
-  @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be tokenized for recurring payments.")
+  @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.")
   @JsonProperty(JSON_PROPERTY_ENABLE_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1216,7 +1216,7 @@ public class PaymentRequest {
 
 
  /**
-  * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for recurring payments.
+  * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
   *
   * @param enableRecurring
   */ 
@@ -2435,10 +2435,10 @@ public class PaymentRequest {
   }
 
    /**
-   * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored.
+   * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
    * @return storePaymentMethod
   **/
-  @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be stored.")
+  @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).")
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -2448,7 +2448,7 @@ public class PaymentRequest {
 
 
  /**
-  * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored.
+  * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
   *
   * @param storePaymentMethod
   */ 

@@ -69,7 +69,6 @@ public class TransferEvent {
   private OffsetDateTime bookingDate;
 
   public static final String JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME = "estimatedArrivalTime";
-  @Deprecated
   private OffsetDateTime estimatedArrivalTime;
 
   public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
@@ -470,19 +469,16 @@ public class TransferEvent {
   }
 
 
-  @Deprecated
   public TransferEvent estimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
     return this;
   }
 
    /**
-   * The estimated time the beneficiary should have access to the funds.
+   * The estimated time when the beneficiary should have access to the funds.
    * @return estimatedArrivalTime
-   * @deprecated
   **/
-  @Deprecated
-  @ApiModelProperty(value = "The estimated time the beneficiary should have access to the funds.")
+  @ApiModelProperty(value = "The estimated time when the beneficiary should have access to the funds.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -492,11 +488,10 @@ public class TransferEvent {
 
 
  /**
-  * The estimated time the beneficiary should have access to the funds.
+  * The estimated time when the beneficiary should have access to the funds.
   *
   * @param estimatedArrivalTime
   */ 
-  @Deprecated
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
@@ -608,10 +603,10 @@ public class TransferEvent {
   }
 
    /**
-   * The list of the balance mutation per event.
+   * The list of balance mutations per event.
    * @return mutations
   **/
-  @ApiModelProperty(value = "The list of the balance mutation per event.")
+  @ApiModelProperty(value = "The list of balance mutations per event.")
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -621,7 +616,7 @@ public class TransferEvent {
 
 
  /**
-  * The list of the balance mutation per event.
+  * The list of balance mutations per event.
   *
   * @param mutations
   */ 

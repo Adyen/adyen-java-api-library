@@ -36,6 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   SubMerchantInfo.JSON_PROPERTY_ID,
   SubMerchantInfo.JSON_PROPERTY_MCC,
   SubMerchantInfo.JSON_PROPERTY_NAME,
+  SubMerchantInfo.JSON_PROPERTY_REGISTERED_SINCE,
   SubMerchantInfo.JSON_PROPERTY_TAX_ID
 })
 
@@ -51,6 +52,9 @@ public class SubMerchantInfo {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_REGISTERED_SINCE = "registeredSince";
+  private String registeredSince;
 
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
@@ -178,6 +182,36 @@ public class SubMerchantInfo {
   }
 
 
+  public SubMerchantInfo registeredSince(String registeredSince) {
+    this.registeredSince = registeredSince;
+    return this;
+  }
+
+   /**
+   * Get registeredSince
+   * @return registeredSince
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REGISTERED_SINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRegisteredSince() {
+    return registeredSince;
+  }
+
+
+ /**
+  * registeredSince
+  *
+  * @param registeredSince
+  */ 
+  @JsonProperty(JSON_PROPERTY_REGISTERED_SINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRegisteredSince(String registeredSince) {
+    this.registeredSince = registeredSince;
+  }
+
+
   public SubMerchantInfo taxId(String taxId) {
     this.taxId = taxId;
     return this;
@@ -224,12 +258,13 @@ public class SubMerchantInfo {
         Objects.equals(this.id, subMerchantInfo.id) &&
         Objects.equals(this.mcc, subMerchantInfo.mcc) &&
         Objects.equals(this.name, subMerchantInfo.name) &&
+        Objects.equals(this.registeredSince, subMerchantInfo.registeredSince) &&
         Objects.equals(this.taxId, subMerchantInfo.taxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, id, mcc, name, taxId);
+    return Objects.hash(address, id, mcc, name, registeredSince, taxId);
   }
 
   @Override
@@ -240,6 +275,7 @@ public class SubMerchantInfo {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    registeredSince: ").append(toIndentedString(registeredSince)).append("\n");
     sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
     sb.append("}");
     return sb.toString();

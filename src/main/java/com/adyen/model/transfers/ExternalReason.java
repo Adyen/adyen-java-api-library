@@ -55,10 +55,10 @@ public class ExternalReason {
   }
 
    /**
-   * The code for this reason code.
+   * The reason code.
    * @return code
   **/
-  @ApiModelProperty(value = "The code for this reason code.")
+  @ApiModelProperty(value = "The reason code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -68,7 +68,7 @@ public class ExternalReason {
 
 
  /**
-  * The code for this reason code.
+  * The reason code.
   *
   * @param code
   */ 
@@ -85,10 +85,10 @@ public class ExternalReason {
   }
 
    /**
-   * The description for this reason code.
+   * The description of the reason code.
    * @return description
   **/
-  @ApiModelProperty(value = "The description for this reason code.")
+  @ApiModelProperty(value = "The description of the reason code.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,7 +98,7 @@ public class ExternalReason {
 
 
  /**
-  * The description for this reason code.
+  * The description of the reason code.
   *
   * @param description
   */ 
@@ -115,10 +115,10 @@ public class ExternalReason {
   }
 
    /**
-   * The namespace for this reason code.
+   * The namespace for the reason code.
    * @return namespace
   **/
-  @ApiModelProperty(value = "The namespace for this reason code.")
+  @ApiModelProperty(value = "The namespace for the reason code.")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,7 +128,7 @@ public class ExternalReason {
 
 
  /**
-  * The namespace for this reason code.
+  * The namespace for the reason code.
   *
   * @param namespace
   */ 

@@ -123,6 +123,12 @@ public class PaymentDetails {
     
     PAYPO("paypo"),
     
+    SCALAPAY("scalapay"),
+    
+    SCALAPAY_3X("scalapay_3x"),
+    
+    SCALAPAY_4X("scalapay_4x"),
+    
     MOLPAY_FPX("molpay_fpx"),
     
     KONBINI("konbini"),
