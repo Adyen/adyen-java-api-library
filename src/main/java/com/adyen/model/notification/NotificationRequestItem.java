@@ -100,6 +100,9 @@ public class NotificationRequestItem {
     @SerializedName("originalReference")
     private String originalReference = null;
 
+    @SerializedName("originalPsp")
+    private String originalPsp = null;
+
     @SerializedName("pspReference")
     private String pspReference = null;
 
@@ -218,6 +221,14 @@ public class NotificationRequestItem {
         return this;
     }
 
+    public String getOriginalPsp() {
+        return originalPsp;
+    }
+
+    public void setOriginalPsp(final String originalPsp) {
+        this.originalPsp = originalPsp;
+    }
+
     public Map<String, String> getAdditionalData() {
         return additionalData;
     }
@@ -239,6 +250,7 @@ public class NotificationRequestItem {
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    originalPsp: ").append(toIndentedString(originalPsp)).append("\n");
         sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
         sb.append("    success: ").append(toIndentedString(success)).append("\n");
         sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
