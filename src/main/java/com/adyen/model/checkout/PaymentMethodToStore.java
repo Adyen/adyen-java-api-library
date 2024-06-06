@@ -40,7 +40,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodToStore.JSON_PROPERTY_EXPIRY_MONTH,
   PaymentMethodToStore.JSON_PROPERTY_EXPIRY_YEAR,
   PaymentMethodToStore.JSON_PROPERTY_HOLDER_NAME,
-  PaymentMethodToStore.JSON_PROPERTY_NUMBER
+  PaymentMethodToStore.JSON_PROPERTY_NUMBER,
+  PaymentMethodToStore.JSON_PROPERTY_TYPE
 })
 
 public class PaymentMethodToStore {
@@ -73,6 +74,9 @@ public class PaymentMethodToStore {
 
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
 
   public PaymentMethodToStore() { 
   }
@@ -377,6 +381,36 @@ public class PaymentMethodToStore {
   }
 
 
+  public PaymentMethodToStore type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Set to **scheme**.
+   * @return type
+  **/
+  @ApiModelProperty(value = "Set to **scheme**.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getType() {
+    return type;
+  }
+
+
+ /**
+  * Set to **scheme**.
+  *
+  * @param type
+  */ 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
   /**
    * Return true if this PaymentMethodToStore object is equal to o.
    */
@@ -398,12 +432,13 @@ public class PaymentMethodToStore {
         Objects.equals(this.expiryMonth, paymentMethodToStore.expiryMonth) &&
         Objects.equals(this.expiryYear, paymentMethodToStore.expiryYear) &&
         Objects.equals(this.holderName, paymentMethodToStore.holderName) &&
-        Objects.equals(this.number, paymentMethodToStore.number);
+        Objects.equals(this.number, paymentMethodToStore.number) &&
+        Objects.equals(this.type, paymentMethodToStore.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, holderName, number);
+    return Objects.hash(brand, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, holderName, number, type);
   }
 
   @Override
@@ -420,6 +455,7 @@ public class PaymentMethodToStore {
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

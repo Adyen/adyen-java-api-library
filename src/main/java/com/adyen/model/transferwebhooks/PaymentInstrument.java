@@ -149,10 +149,10 @@ public class PaymentInstrument {
   }
 
    /**
-   * The type of wallet the network token is associated with.
+   * The type of wallet that the network token is associated with.
    * @return tokenType
   **/
-  @ApiModelProperty(value = "The type of wallet the network token is associated with.")
+  @ApiModelProperty(value = "The type of wallet that the network token is associated with.")
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -162,7 +162,7 @@ public class PaymentInstrument {
 
 
  /**
-  * The type of wallet the network token is associated with.
+  * The type of wallet that the network token is associated with.
   *
   * @param tokenType
   */ 

@@ -47,10 +47,10 @@ public class PaymentMethodNotificationResponse {
   }
 
    /**
-   * Respond with **HTTP 200 OK** and &#x60;[accepted]&#x60; in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    * @return notificationResponse
   **/
-  @ApiModelProperty(value = "Respond with **HTTP 200 OK** and `[accepted]` in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).")
+  @ApiModelProperty(value = "Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -60,7 +60,7 @@ public class PaymentMethodNotificationResponse {
 
 
  /**
-  * Respond with **HTTP 200 OK** and &#x60;[accepted]&#x60; in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+  * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
   *
   * @param notificationResponse
   */ 

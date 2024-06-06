@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ConfirmationTrackingData {
   /**
-   * Possible values:   - **credited**: Transfer is credited to beneficiary.
+   * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    */
   public enum StatusEnum {
     CREDITED("credited");
@@ -73,7 +73,7 @@ public class ConfirmationTrackingData {
   private StatusEnum status;
 
   /**
-   * **confirmation**
+   * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    */
   public enum TypeEnum {
     CONFIRMATION("confirmation");
@@ -117,10 +117,10 @@ public class ConfirmationTrackingData {
   }
 
    /**
-   * Possible values:   - **credited**: Transfer is credited to beneficiary.
+   * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "Possible values:   - **credited**: Transfer is credited to beneficiary.")
+  @ApiModelProperty(required = true, value = "The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user's transfer instrument or bank account.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -130,7 +130,7 @@ public class ConfirmationTrackingData {
 
 
  /**
-  * Possible values:   - **credited**: Transfer is credited to beneficiary.
+  * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
   *
   * @param status
   */ 
@@ -147,10 +147,10 @@ public class ConfirmationTrackingData {
   }
 
    /**
-   * **confirmation**
+   * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "**confirmation**")
+  @ApiModelProperty(required = true, value = "The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen's internal review.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,7 +160,7 @@ public class ConfirmationTrackingData {
 
 
  /**
-  * **confirmation**
+  * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
   *
   * @param type
   */ 

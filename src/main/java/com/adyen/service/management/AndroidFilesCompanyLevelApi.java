@@ -17,6 +17,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.management.AndroidApp;
 import com.adyen.model.management.AndroidAppsResponse;
 import com.adyen.model.management.AndroidCertificatesResponse;
+import com.adyen.model.management.ReprocessAndroidAppResponse;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.model.management.UploadAndroidAppResponse;
 import com.adyen.model.management.UploadAndroidCertificateResponse;
@@ -189,6 +190,45 @@ public class AndroidFilesCompanyLevelApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidCertificates", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return AndroidCertificatesResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Reprocess Android App
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param id {@link String } The unique identifier of the app. (required)
+    * @return {@link ReprocessAndroidAppResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public ReprocessAndroidAppResponse reprocessAndroidApp(String companyId, String id) throws ApiException, IOException {
+        return reprocessAndroidApp(companyId, id, null);
+    }
+
+    /**
+    * Reprocess Android App
+    *
+    * @param companyId {@link String } The unique identifier of the company account. (required)
+    * @param id {@link String } The unique identifier of the app. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ReprocessAndroidAppResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public ReprocessAndroidAppResponse reprocessAndroidApp(String companyId, String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (companyId == null) {
+            throw new IllegalArgumentException("Please provide the companyId path parameter");
+        }
+        pathParams.put("companyId", companyId);
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/companies/{companyId}/androidApps/{id}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
+        return ReprocessAndroidAppResponse.fromJson(jsonResult);
     }
 
     /**

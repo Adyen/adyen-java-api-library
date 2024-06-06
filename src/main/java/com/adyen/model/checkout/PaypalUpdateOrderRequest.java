@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.DeliveryMethod;
+import com.adyen.model.checkout.TaxTotal;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,7 +40,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaypalUpdateOrderRequest.JSON_PROPERTY_DELIVERY_METHODS,
   PaypalUpdateOrderRequest.JSON_PROPERTY_PAYMENT_DATA,
   PaypalUpdateOrderRequest.JSON_PROPERTY_PSP_REFERENCE,
-  PaypalUpdateOrderRequest.JSON_PROPERTY_SESSION_ID
+  PaypalUpdateOrderRequest.JSON_PROPERTY_SESSION_ID,
+  PaypalUpdateOrderRequest.JSON_PROPERTY_TAX_TOTAL
 })
 
 public class PaypalUpdateOrderRequest {
@@ -57,6 +59,9 @@ public class PaypalUpdateOrderRequest {
 
   public static final String JSON_PROPERTY_SESSION_ID = "sessionId";
   private String sessionId;
+
+  public static final String JSON_PROPERTY_TAX_TOTAL = "taxTotal";
+  private TaxTotal taxTotal;
 
   public PaypalUpdateOrderRequest() { 
   }
@@ -219,6 +224,36 @@ public class PaypalUpdateOrderRequest {
   }
 
 
+  public PaypalUpdateOrderRequest taxTotal(TaxTotal taxTotal) {
+    this.taxTotal = taxTotal;
+    return this;
+  }
+
+   /**
+   * Get taxTotal
+   * @return taxTotal
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TaxTotal getTaxTotal() {
+    return taxTotal;
+  }
+
+
+ /**
+  * taxTotal
+  *
+  * @param taxTotal
+  */ 
+  @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTaxTotal(TaxTotal taxTotal) {
+    this.taxTotal = taxTotal;
+  }
+
+
   /**
    * Return true if this PaypalUpdateOrderRequest object is equal to o.
    */
@@ -235,12 +270,13 @@ public class PaypalUpdateOrderRequest {
         Objects.equals(this.deliveryMethods, paypalUpdateOrderRequest.deliveryMethods) &&
         Objects.equals(this.paymentData, paypalUpdateOrderRequest.paymentData) &&
         Objects.equals(this.pspReference, paypalUpdateOrderRequest.pspReference) &&
-        Objects.equals(this.sessionId, paypalUpdateOrderRequest.sessionId);
+        Objects.equals(this.sessionId, paypalUpdateOrderRequest.sessionId) &&
+        Objects.equals(this.taxTotal, paypalUpdateOrderRequest.taxTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, deliveryMethods, paymentData, pspReference, sessionId);
+    return Objects.hash(amount, deliveryMethods, paymentData, pspReference, sessionId, taxTotal);
   }
 
   @Override
@@ -252,6 +288,7 @@ public class PaypalUpdateOrderRequest {
     sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
+    sb.append("    taxTotal: ").append(toIndentedString(taxTotal)).append("\n");
     sb.append("}");
     return sb.toString();
   }

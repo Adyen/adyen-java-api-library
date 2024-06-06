@@ -46,6 +46,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentCompletionDetails.JSON_PROPERTY_PAYMENT_STATUS,
   PaymentCompletionDetails.JSON_PROPERTY_REDIRECT_RESULT,
   PaymentCompletionDetails.JSON_PROPERTY_RESULT_CODE,
+  PaymentCompletionDetails.JSON_PROPERTY_RETURN_URL_QUERY_STRING,
   PaymentCompletionDetails.JSON_PROPERTY_THREE_D_S_RESULT,
   PaymentCompletionDetails.JSON_PROPERTY_THREEDS2_CHALLENGE_RESULT,
   PaymentCompletionDetails.JSON_PROPERTY_THREEDS2_FINGERPRINT,
@@ -97,6 +98,9 @@ public class PaymentCompletionDetails {
 
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
+
+  public static final String JSON_PROPERTY_RETURN_URL_QUERY_STRING = "returnUrlQueryString";
+  private String returnUrlQueryString;
 
   public static final String JSON_PROPERTY_THREE_D_S_RESULT = "threeDSResult";
   private String threeDSResult;
@@ -563,6 +567,36 @@ public class PaymentCompletionDetails {
   }
 
 
+  public PaymentCompletionDetails returnUrlQueryString(String returnUrlQueryString) {
+    this.returnUrlQueryString = returnUrlQueryString;
+    return this;
+  }
+
+   /**
+   * The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
+   * @return returnUrlQueryString
+  **/
+  @ApiModelProperty(value = "The query string as appended to the `returnURL` when using direct issuer links .")
+  @JsonProperty(JSON_PROPERTY_RETURN_URL_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReturnUrlQueryString() {
+    return returnUrlQueryString;
+  }
+
+
+ /**
+  * The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
+  *
+  * @param returnUrlQueryString
+  */ 
+  @JsonProperty(JSON_PROPERTY_RETURN_URL_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReturnUrlQueryString(String returnUrlQueryString) {
+    this.returnUrlQueryString = returnUrlQueryString;
+  }
+
+
   public PaymentCompletionDetails threeDSResult(String threeDSResult) {
     this.threeDSResult = threeDSResult;
     return this;
@@ -710,6 +744,7 @@ public class PaymentCompletionDetails {
         Objects.equals(this.paymentStatus, paymentCompletionDetails.paymentStatus) &&
         Objects.equals(this.redirectResult, paymentCompletionDetails.redirectResult) &&
         Objects.equals(this.resultCode, paymentCompletionDetails.resultCode) &&
+        Objects.equals(this.returnUrlQueryString, paymentCompletionDetails.returnUrlQueryString) &&
         Objects.equals(this.threeDSResult, paymentCompletionDetails.threeDSResult) &&
         Objects.equals(this.threeds2ChallengeResult, paymentCompletionDetails.threeds2ChallengeResult) &&
         Objects.equals(this.threeds2Fingerprint, paymentCompletionDetails.threeds2Fingerprint) &&
@@ -718,7 +753,7 @@ public class PaymentCompletionDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(MD, paReq, paRes, authorizationToken, billingToken, cupsecureplusSmscode, facilitatorAccessToken, oneTimePasscode, orderID, payerID, payload, paymentID, paymentStatus, redirectResult, resultCode, threeDSResult, threeds2ChallengeResult, threeds2Fingerprint, vaultToken);
+    return Objects.hash(MD, paReq, paRes, authorizationToken, billingToken, cupsecureplusSmscode, facilitatorAccessToken, oneTimePasscode, orderID, payerID, payload, paymentID, paymentStatus, redirectResult, resultCode, returnUrlQueryString, threeDSResult, threeds2ChallengeResult, threeds2Fingerprint, vaultToken);
   }
 
   @Override
@@ -740,6 +775,7 @@ public class PaymentCompletionDetails {
     sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
     sb.append("    redirectResult: ").append(toIndentedString(redirectResult)).append("\n");
     sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+    sb.append("    returnUrlQueryString: ").append(toIndentedString(returnUrlQueryString)).append("\n");
     sb.append("    threeDSResult: ").append(toIndentedString(threeDSResult)).append("\n");
     sb.append("    threeds2ChallengeResult: ").append(toIndentedString(threeds2ChallengeResult)).append("\n");
     sb.append("    threeds2Fingerprint: ").append(toIndentedString(threeds2Fingerprint)).append("\n");

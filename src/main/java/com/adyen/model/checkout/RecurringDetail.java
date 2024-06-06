@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.adyen.model.checkout.InputDetail;
 import com.adyen.model.checkout.PaymentMethodGroup;
 import com.adyen.model.checkout.PaymentMethodIssuer;
+import com.adyen.model.checkout.PaymentMethodUPIApps;
 import com.adyen.model.checkout.StoredDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,6 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * RecurringDetail
  */
 @JsonPropertyOrder({
+  RecurringDetail.JSON_PROPERTY_APPS,
   RecurringDetail.JSON_PROPERTY_BRAND,
   RecurringDetail.JSON_PROPERTY_BRANDS,
   RecurringDetail.JSON_PROPERTY_CONFIGURATION,
@@ -53,6 +55,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class RecurringDetail {
+  public static final String JSON_PROPERTY_APPS = "apps";
+  private List<PaymentMethodUPIApps> apps = null;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
@@ -124,6 +129,44 @@ public class RecurringDetail {
 
   public RecurringDetail() { 
   }
+
+  public RecurringDetail apps(List<PaymentMethodUPIApps> apps) {
+    this.apps = apps;
+    return this;
+  }
+
+  public RecurringDetail addAppsItem(PaymentMethodUPIApps appsItem) {
+    if (this.apps == null) {
+      this.apps = new ArrayList<>();
+    }
+    this.apps.add(appsItem);
+    return this;
+  }
+
+   /**
+   * A list of apps for this payment method.
+   * @return apps
+  **/
+  @ApiModelProperty(value = "A list of apps for this payment method.")
+  @JsonProperty(JSON_PROPERTY_APPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<PaymentMethodUPIApps> getApps() {
+    return apps;
+  }
+
+
+ /**
+  * A list of apps for this payment method.
+  *
+  * @param apps
+  */ 
+  @JsonProperty(JSON_PROPERTY_APPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApps(List<PaymentMethodUPIApps> apps) {
+    this.apps = apps;
+  }
+
 
   public RecurringDetail brand(String brand) {
     this.brand = brand;
@@ -503,7 +546,8 @@ public class RecurringDetail {
       return false;
     }
     RecurringDetail recurringDetail = (RecurringDetail) o;
-    return Objects.equals(this.brand, recurringDetail.brand) &&
+    return Objects.equals(this.apps, recurringDetail.apps) &&
+        Objects.equals(this.brand, recurringDetail.brand) &&
         Objects.equals(this.brands, recurringDetail.brands) &&
         Objects.equals(this.configuration, recurringDetail.configuration) &&
         Objects.equals(this.fundingSource, recurringDetail.fundingSource) &&
@@ -518,13 +562,14 @@ public class RecurringDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, recurringDetailReference, storedDetails, type);
+    return Objects.hash(apps, brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, recurringDetailReference, storedDetails, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecurringDetail {\n");
+    sb.append("    apps: ").append(toIndentedString(apps)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
     sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");

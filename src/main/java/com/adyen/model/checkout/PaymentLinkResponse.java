@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
+import com.adyen.model.checkout.CheckoutSessionThreeDS2RequestData;
 import com.adyen.model.checkout.InstallmentOption;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Name;
@@ -85,6 +86,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentLinkResponse.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   PaymentLinkResponse.JSON_PROPERTY_TELEPHONE_NUMBER,
   PaymentLinkResponse.JSON_PROPERTY_THEME_ID,
+  PaymentLinkResponse.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   PaymentLinkResponse.JSON_PROPERTY_UPDATED_AT,
   PaymentLinkResponse.JSON_PROPERTY_URL
 })
@@ -365,6 +367,9 @@ public class PaymentLinkResponse {
 
   public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
+
+  public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
+  private CheckoutSessionThreeDS2RequestData threeDS2RequestData;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private OffsetDateTime updatedAt;
@@ -1631,6 +1636,36 @@ public class PaymentLinkResponse {
   }
 
 
+  public PaymentLinkResponse threeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
+    this.threeDS2RequestData = threeDS2RequestData;
+    return this;
+  }
+
+   /**
+   * Get threeDS2RequestData
+   * @return threeDS2RequestData
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CheckoutSessionThreeDS2RequestData getThreeDS2RequestData() {
+    return threeDS2RequestData;
+  }
+
+
+ /**
+  * threeDS2RequestData
+  *
+  * @param threeDS2RequestData
+  */ 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
+    this.threeDS2RequestData = threeDS2RequestData;
+  }
+
+
   public PaymentLinkResponse updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -1743,13 +1778,14 @@ public class PaymentLinkResponse {
         Objects.equals(this.storePaymentMethodMode, paymentLinkResponse.storePaymentMethodMode) &&
         Objects.equals(this.telephoneNumber, paymentLinkResponse.telephoneNumber) &&
         Objects.equals(this.themeId, paymentLinkResponse.themeId) &&
+        Objects.equals(this.threeDS2RequestData, paymentLinkResponse.threeDS2RequestData) &&
         Objects.equals(this.updatedAt, paymentLinkResponse.updatedAt) &&
         Objects.equals(this.url, paymentLinkResponse.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, id, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, status, store, storePaymentMethodMode, telephoneNumber, themeId, updatedAt, url);
+    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, id, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, status, store, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData, updatedAt, url);
   }
 
   @Override
@@ -1796,6 +1832,7 @@ public class PaymentLinkResponse {
     sb.append("    storePaymentMethodMode: ").append(toIndentedString(storePaymentMethodMode)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
+    sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

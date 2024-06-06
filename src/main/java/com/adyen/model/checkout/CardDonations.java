@@ -47,6 +47,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CardDonations.JSON_PROPERTY_NUMBER,
   CardDonations.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   CardDonations.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
+  CardDonations.JSON_PROPERTY_SRC_CORRELATION_ID,
+  CardDonations.JSON_PROPERTY_SRC_SCHEME,
+  CardDonations.JSON_PROPERTY_SRC_TOKEN_REFERENCE,
   CardDonations.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   CardDonations.JSON_PROPERTY_THREE_D_S2_SDK_VERSION,
   CardDonations.JSON_PROPERTY_TYPE
@@ -137,6 +140,15 @@ public class CardDonations {
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
   private String shopperNotificationReference;
+
+  public static final String JSON_PROPERTY_SRC_CORRELATION_ID = "srcCorrelationId";
+  private String srcCorrelationId;
+
+  public static final String JSON_PROPERTY_SRC_SCHEME = "srcScheme";
+  private String srcScheme;
+
+  public static final String JSON_PROPERTY_SRC_TOKEN_REFERENCE = "srcTokenReference";
+  private String srcTokenReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -679,6 +691,96 @@ public class CardDonations {
   }
 
 
+  public CardDonations srcCorrelationId(String srcCorrelationId) {
+    this.srcCorrelationId = srcCorrelationId;
+    return this;
+  }
+
+   /**
+   * An identifier used for the Click to Pay transaction.
+   * @return srcCorrelationId
+  **/
+  @ApiModelProperty(value = "An identifier used for the Click to Pay transaction.")
+  @JsonProperty(JSON_PROPERTY_SRC_CORRELATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSrcCorrelationId() {
+    return srcCorrelationId;
+  }
+
+
+ /**
+  * An identifier used for the Click to Pay transaction.
+  *
+  * @param srcCorrelationId
+  */ 
+  @JsonProperty(JSON_PROPERTY_SRC_CORRELATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSrcCorrelationId(String srcCorrelationId) {
+    this.srcCorrelationId = srcCorrelationId;
+  }
+
+
+  public CardDonations srcScheme(String srcScheme) {
+    this.srcScheme = srcScheme;
+    return this;
+  }
+
+   /**
+   * The scheme that is being used for Click to Pay.
+   * @return srcScheme
+  **/
+  @ApiModelProperty(value = "The scheme that is being used for Click to Pay.")
+  @JsonProperty(JSON_PROPERTY_SRC_SCHEME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSrcScheme() {
+    return srcScheme;
+  }
+
+
+ /**
+  * The scheme that is being used for Click to Pay.
+  *
+  * @param srcScheme
+  */ 
+  @JsonProperty(JSON_PROPERTY_SRC_SCHEME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSrcScheme(String srcScheme) {
+    this.srcScheme = srcScheme;
+  }
+
+
+  public CardDonations srcTokenReference(String srcTokenReference) {
+    this.srcTokenReference = srcTokenReference;
+    return this;
+  }
+
+   /**
+   * The reference for the Click to Pay token.
+   * @return srcTokenReference
+  **/
+  @ApiModelProperty(value = "The reference for the Click to Pay token.")
+  @JsonProperty(JSON_PROPERTY_SRC_TOKEN_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSrcTokenReference() {
+    return srcTokenReference;
+  }
+
+
+ /**
+  * The reference for the Click to Pay token.
+  *
+  * @param srcTokenReference
+  */ 
+  @JsonProperty(JSON_PROPERTY_SRC_TOKEN_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSrcTokenReference(String srcTokenReference) {
+    this.srcTokenReference = srcTokenReference;
+  }
+
+
   public CardDonations storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
@@ -797,6 +899,9 @@ public class CardDonations {
         Objects.equals(this.number, cardDonations.number) &&
         Objects.equals(this.recurringDetailReference, cardDonations.recurringDetailReference) &&
         Objects.equals(this.shopperNotificationReference, cardDonations.shopperNotificationReference) &&
+        Objects.equals(this.srcCorrelationId, cardDonations.srcCorrelationId) &&
+        Objects.equals(this.srcScheme, cardDonations.srcScheme) &&
+        Objects.equals(this.srcTokenReference, cardDonations.srcTokenReference) &&
         Objects.equals(this.storedPaymentMethodId, cardDonations.storedPaymentMethodId) &&
         Objects.equals(this.threeDS2SdkVersion, cardDonations.threeDS2SdkVersion) &&
         Objects.equals(this.type, cardDonations.type);
@@ -804,7 +909,7 @@ public class CardDonations {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, storedPaymentMethodId, threeDS2SdkVersion, type);
+    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, srcCorrelationId, srcScheme, srcTokenReference, storedPaymentMethodId, threeDS2SdkVersion, type);
   }
 
   @Override
@@ -827,6 +932,9 @@ public class CardDonations {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");
+    sb.append("    srcCorrelationId: ").append(toIndentedString(srcCorrelationId)).append("\n");
+    sb.append("    srcScheme: ").append(toIndentedString(srcScheme)).append("\n");
+    sb.append("    srcTokenReference: ").append(toIndentedString(srcTokenReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
     sb.append("    threeDS2SdkVersion: ").append(toIndentedString(threeDS2SdkVersion)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

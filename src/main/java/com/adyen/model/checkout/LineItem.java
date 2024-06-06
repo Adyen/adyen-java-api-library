@@ -40,6 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LineItem.JSON_PROPERTY_IMAGE_URL,
   LineItem.JSON_PROPERTY_ITEM_CATEGORY,
   LineItem.JSON_PROPERTY_MANUFACTURER,
+  LineItem.JSON_PROPERTY_MARKETPLACE_SELLER_ID,
   LineItem.JSON_PROPERTY_PRODUCT_URL,
   LineItem.JSON_PROPERTY_QUANTITY,
   LineItem.JSON_PROPERTY_RECEIVER_EMAIL,
@@ -77,6 +78,9 @@ public class LineItem {
 
   public static final String JSON_PROPERTY_MANUFACTURER = "manufacturer";
   private String manufacturer;
+
+  public static final String JSON_PROPERTY_MARKETPLACE_SELLER_ID = "marketplaceSellerId";
+  private String marketplaceSellerId;
 
   public static final String JSON_PROPERTY_PRODUCT_URL = "productUrl";
   private String productUrl;
@@ -375,6 +379,36 @@ public class LineItem {
   }
 
 
+  public LineItem marketplaceSellerId(String marketplaceSellerId) {
+    this.marketplaceSellerId = marketplaceSellerId;
+    return this;
+  }
+
+   /**
+   * Marketplace seller id.
+   * @return marketplaceSellerId
+  **/
+  @ApiModelProperty(value = "Marketplace seller id.")
+  @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMarketplaceSellerId() {
+    return marketplaceSellerId;
+  }
+
+
+ /**
+  * Marketplace seller id.
+  *
+  * @param marketplaceSellerId
+  */ 
+  @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMarketplaceSellerId(String marketplaceSellerId) {
+    this.marketplaceSellerId = marketplaceSellerId;
+  }
+
+
   public LineItem productUrl(String productUrl) {
     this.productUrl = productUrl;
     return this;
@@ -636,6 +670,7 @@ public class LineItem {
         Objects.equals(this.imageUrl, lineItem.imageUrl) &&
         Objects.equals(this.itemCategory, lineItem.itemCategory) &&
         Objects.equals(this.manufacturer, lineItem.manufacturer) &&
+        Objects.equals(this.marketplaceSellerId, lineItem.marketplaceSellerId) &&
         Objects.equals(this.productUrl, lineItem.productUrl) &&
         Objects.equals(this.quantity, lineItem.quantity) &&
         Objects.equals(this.receiverEmail, lineItem.receiverEmail) &&
@@ -648,7 +683,7 @@ public class LineItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amountExcludingTax, amountIncludingTax, brand, color, description, id, imageUrl, itemCategory, manufacturer, productUrl, quantity, receiverEmail, size, sku, taxAmount, taxPercentage, upc);
+    return Objects.hash(amountExcludingTax, amountIncludingTax, brand, color, description, id, imageUrl, itemCategory, manufacturer, marketplaceSellerId, productUrl, quantity, receiverEmail, size, sku, taxAmount, taxPercentage, upc);
   }
 
   @Override
@@ -664,6 +699,7 @@ public class LineItem {
     sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
     sb.append("    itemCategory: ").append(toIndentedString(itemCategory)).append("\n");
     sb.append("    manufacturer: ").append(toIndentedString(manufacturer)).append("\n");
+    sb.append("    marketplaceSellerId: ").append(toIndentedString(marketplaceSellerId)).append("\n");
     sb.append("    productUrl: ").append(toIndentedString(productUrl)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    receiverEmail: ").append(toIndentedString(receiverEmail)).append("\n");

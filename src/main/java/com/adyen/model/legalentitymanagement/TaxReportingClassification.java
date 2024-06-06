@@ -88,7 +88,7 @@ public class TaxReportingClassification {
   private String financialInstitutionNumber;
 
   /**
-   * The organization&#39;s main source of income.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
+   * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    */
   public enum MainSourceOfIncomeEnum {
     BUSINESSOPERATION("businessOperation"),
@@ -242,10 +242,10 @@ public class TaxReportingClassification {
   }
 
    /**
-   * The organization&#39;s main source of income.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
+   * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    * @return mainSourceOfIncome
   **/
-  @ApiModelProperty(value = "The organization's main source of income.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.")
+  @ApiModelProperty(value = "The organization's main source of income. Only required if `businessType` is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.")
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -255,7 +255,7 @@ public class TaxReportingClassification {
 
 
  /**
-  * The organization&#39;s main source of income.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
+  * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
   *
   * @param mainSourceOfIncome
   */ 

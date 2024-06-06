@@ -75,6 +75,10 @@ public class PlatformPayment {
     
     SCHEMEFEE("SchemeFee"),
     
+    SURCHARGE("Surcharge"),
+    
+    TIP("Tip"),
+    
     TOPUP("TopUp"),
     
     VAT("VAT");

@@ -59,9 +59,15 @@ public class EcontextVoucherDetails {
    * **econtextvoucher**
    */
   public enum TypeEnum {
-    SEVENELEVEN("econtext_seveneleven"),
+    ECONTEXT_SEVEN_ELEVEN("econtext_seven_eleven"),
     
-    STORES("econtext_stores");
+    ECONTEXT_ONLINE("econtext_online"),
+    
+    ECONTEXT("econtext"),
+    
+    ECONTEXT_STORES("econtext_stores"),
+    
+    ECONTEXT_ATM("econtext_atm");
 
     private String value;
 

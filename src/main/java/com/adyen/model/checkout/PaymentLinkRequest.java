@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
+import com.adyen.model.checkout.CheckoutSessionThreeDS2RequestData;
 import com.adyen.model.checkout.InstallmentOption;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Name;
@@ -82,7 +83,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentLinkRequest.JSON_PROPERTY_STORE,
   PaymentLinkRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   PaymentLinkRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
-  PaymentLinkRequest.JSON_PROPERTY_THEME_ID
+  PaymentLinkRequest.JSON_PROPERTY_THEME_ID,
+  PaymentLinkRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA
 })
 
 public class PaymentLinkRequest {
@@ -314,6 +316,9 @@ public class PaymentLinkRequest {
 
   public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
+
+  public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
+  private CheckoutSessionThreeDS2RequestData threeDS2RequestData;
 
   public PaymentLinkRequest() { 
   }
@@ -1514,6 +1519,36 @@ public class PaymentLinkRequest {
   }
 
 
+  public PaymentLinkRequest threeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
+    this.threeDS2RequestData = threeDS2RequestData;
+    return this;
+  }
+
+   /**
+   * Get threeDS2RequestData
+   * @return threeDS2RequestData
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CheckoutSessionThreeDS2RequestData getThreeDS2RequestData() {
+    return threeDS2RequestData;
+  }
+
+
+ /**
+  * threeDS2RequestData
+  *
+  * @param threeDS2RequestData
+  */ 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
+    this.threeDS2RequestData = threeDS2RequestData;
+  }
+
+
   /**
    * Return true if this PaymentLinkRequest object is equal to o.
    */
@@ -1563,12 +1598,13 @@ public class PaymentLinkRequest {
         Objects.equals(this.store, paymentLinkRequest.store) &&
         Objects.equals(this.storePaymentMethodMode, paymentLinkRequest.storePaymentMethodMode) &&
         Objects.equals(this.telephoneNumber, paymentLinkRequest.telephoneNumber) &&
-        Objects.equals(this.themeId, paymentLinkRequest.themeId);
+        Objects.equals(this.themeId, paymentLinkRequest.themeId) &&
+        Objects.equals(this.threeDS2RequestData, paymentLinkRequest.threeDS2RequestData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethodMode, telephoneNumber, themeId);
+    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData);
   }
 
   @Override
@@ -1613,6 +1649,7 @@ public class PaymentLinkRequest {
     sb.append("    storePaymentMethodMode: ").append(toIndentedString(storePaymentMethodMode)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
+    sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

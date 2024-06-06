@@ -324,10 +324,10 @@ public class IssuedCard {
   }
 
    /**
-   * The identifier of the original payment provided by the scheme. The Id could be alphanumeric or numeric depending on the scheme. The schemeTraceID should be referring to an original schemeUniqueTransactionID provided in an earlier payment (not necessarily processed by Adyen). Instances of available schemeTraceId is authAdjustment or recurring payments.
+   * The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
    * @return schemeTraceId
   **/
-  @ApiModelProperty(value = "The identifier of the original payment provided by the scheme. The Id could be alphanumeric or numeric depending on the scheme. The schemeTraceID should be referring to an original schemeUniqueTransactionID provided in an earlier payment (not necessarily processed by Adyen). Instances of available schemeTraceId is authAdjustment or recurring payments.")
+  @ApiModelProperty(value = "The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The `schemeTraceID` should refer to an original `schemeUniqueTransactionID` provided in an earlier payment (not necessarily processed by Adyen). A `schemeTraceId` is typically available for authorization adjustments or recurring payments.")
   @JsonProperty(JSON_PROPERTY_SCHEME_TRACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -337,7 +337,7 @@ public class IssuedCard {
 
 
  /**
-  * The identifier of the original payment provided by the scheme. The Id could be alphanumeric or numeric depending on the scheme. The schemeTraceID should be referring to an original schemeUniqueTransactionID provided in an earlier payment (not necessarily processed by Adyen). Instances of available schemeTraceId is authAdjustment or recurring payments.
+  * The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
   *
   * @param schemeTraceId
   */ 
@@ -354,10 +354,10 @@ public class IssuedCard {
   }
 
    /**
-   * The unique identifier created by the scheme. The ID could be alphanumeric or numeric depending on the scheme.
+   * The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
    * @return schemeUniqueTransactionId
   **/
-  @ApiModelProperty(value = "The unique identifier created by the scheme. The ID could be alphanumeric or numeric depending on the scheme.")
+  @ApiModelProperty(value = "The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.")
   @JsonProperty(JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -367,7 +367,7 @@ public class IssuedCard {
 
 
  /**
-  * The unique identifier created by the scheme. The ID could be alphanumeric or numeric depending on the scheme.
+  * The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
   *
   * @param schemeUniqueTransactionId
   */ 
