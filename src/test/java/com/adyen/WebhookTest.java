@@ -77,6 +77,15 @@ public class WebhookTest extends BaseTest {
     }
 
     @Test
+    public void testMerchantWebhook() throws Exception {
+        String pathToMerchantWebhook = "mocks/notification/merchant-webhook.json";
+        NotificationRequest notificationRequest = readNotificationRequestFromFile(pathToMerchantWebhook);
+        String json1 = notificationRequest.toJson();
+        String json2 = getFileContents(pathToMerchantWebhook);
+        assertJsonStringEquals(json1, json2);
+    }
+
+    @Test
     public void testCaptureSuccess() throws Exception {
         NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/capture-true.json");
 

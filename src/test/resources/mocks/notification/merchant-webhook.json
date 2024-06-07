@@ -1,0 +1,33 @@
+{
+  "live" : "false",
+  "notificationItems" : [
+    {
+      "NotificationRequestItem" : {
+        "additionalData" : {
+          "expiryDate" : "",
+          "authCode" : "",
+          "cardSummary" : "0008",
+          "recurringProcessingModel" : "",
+          "checkout.cardAddedBrand" : "*******",
+          "hmacSignature" : "pyUnnXjepXkHBEgmWFFmZceAVK0d9b98Mt6UOAIDX8s="
+        },
+        "amount" : {
+          "currency" : "EUR",
+          "value" : 0
+        },
+        "eventCode" : "AUTHORISATION",
+        "merchantAccountCode" : "IKEAMXMX",
+        "merchantReference" : "5908da9e-3be7-4be7-be7f-d645a357dffd",
+        "operations" : [
+          "CANCEL",
+          "CAPTURE",
+          "REFUND"
+        ],
+        "paymentMethod" : "mc",
+        "pspReference" : "VZ6GZ9MGQFJSKK65",
+        "reason" : "033608:0008:03/2030",
+        "success" : true
+      }
+    }
+  ]
+}
