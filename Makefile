@@ -1,4 +1,4 @@
-openapi-generator-version:=6.0.1
+openapi-generator-version:=6.6.0
 openapi-generator-url:=https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/$(openapi-generator-version)/openapi-generator-cli-$(openapi-generator-version).jar
 openapi-generator-jar:=target/openapi-generator-cli.jar
 openapi-generator-cli:=java -jar $(openapi-generator-jar)
@@ -61,6 +61,7 @@ $(modelGen): target/spec $(openapi-generator-jar)
 		-g $(generator) \
 		-t templates \
 		-o $(output) \
+		-p useEnumCaseInsensitive=true \
 		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
 		--skip-validate-spec \
@@ -90,6 +91,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 		-g $(generator) \
 		-t templates \
 		-o $(output) \
+		-p useEnumCaseInsensitive=true \
 		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
 		--skip-validate-spec \
@@ -109,7 +111,7 @@ $(bigServices): target/spec $(openapi-generator-jar)
 
 $(singleFileServices): target/spec $(openapi-generator-jar)
 	jq -e 'del(.paths[][].tags)' target/spec/json/$(spec).json > target/spec/json/$(spec).tmp
-	mv target/spec/json/$(spec).tmp target/spec/json/$(spec).json 
+	mv target/spec/json/$(spec).tmp target/spec/json/$(spec).json
 	rm -rf $(models)/$@ $(output)
 	rm -rf src/main/java/com/adyen/service/$@ $(output)
 	$(openapi-generator-cli) generate \
@@ -117,6 +119,7 @@ $(singleFileServices): target/spec $(openapi-generator-jar)
 		-g $(generator) \
 		-c templates/libraries/jersey3/config.yaml \
 		-o $(output) \
+		-p useEnumCaseInsensitive=true \
 		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
 		--skip-validate-spec \
