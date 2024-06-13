@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.management.AndroidAppError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -33,6 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   AndroidApp.JSON_PROPERTY_DESCRIPTION,
   AndroidApp.JSON_PROPERTY_ERROR_CODE,
+  AndroidApp.JSON_PROPERTY_ERRORS,
   AndroidApp.JSON_PROPERTY_ID,
   AndroidApp.JSON_PROPERTY_LABEL,
   AndroidApp.JSON_PROPERTY_PACKAGE_NAME,
@@ -46,7 +50,11 @@ public class AndroidApp {
   private String description;
 
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
+  @Deprecated
   private String errorCode;
+
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<AndroidAppError> errors = null;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -99,16 +107,19 @@ public class AndroidApp {
   }
 
 
+  @Deprecated
   public AndroidApp errorCode(String errorCode) {
     this.errorCode = errorCode;
     return this;
   }
 
    /**
-   * The error code of the app. It exists if the status is error or invalid.
+   * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
    * @return errorCode
+   * @deprecated
   **/
-  @ApiModelProperty(value = "The error code of the app. It exists if the status is error or invalid.")
+  @Deprecated
+  @ApiModelProperty(value = "The error code of the Android app with the `status` of either **error** or **invalid**.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -118,14 +129,53 @@ public class AndroidApp {
 
 
  /**
-  * The error code of the app. It exists if the status is error or invalid.
+  * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
   *
   * @param errorCode
   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
+  }
+
+
+  public AndroidApp errors(List<AndroidAppError> errors) {
+    this.errors = errors;
+    return this;
+  }
+
+  public AndroidApp addErrorsItem(AndroidAppError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * The list of errors of the Android app.
+   * @return errors
+  **/
+  @ApiModelProperty(value = "The list of errors of the Android app.")
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<AndroidAppError> getErrors() {
+    return errors;
+  }
+
+
+ /**
+  * The list of errors of the Android app.
+  *
+  * @param errors
+  */ 
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrors(List<AndroidAppError> errors) {
+    this.errors = errors;
   }
 
 
@@ -323,6 +373,7 @@ public class AndroidApp {
     AndroidApp androidApp = (AndroidApp) o;
     return Objects.equals(this.description, androidApp.description) &&
         Objects.equals(this.errorCode, androidApp.errorCode) &&
+        Objects.equals(this.errors, androidApp.errors) &&
         Objects.equals(this.id, androidApp.id) &&
         Objects.equals(this.label, androidApp.label) &&
         Objects.equals(this.packageName, androidApp.packageName) &&
@@ -333,7 +384,7 @@ public class AndroidApp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, errorCode, id, label, packageName, status, versionCode, versionName);
+    return Objects.hash(description, errorCode, errors, id, label, packageName, status, versionCode, versionName);
   }
 
   @Override
@@ -342,6 +393,7 @@ public class AndroidApp {
     sb.append("class AndroidApp {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    packageName: ").append(toIndentedString(packageName)).append("\n");
