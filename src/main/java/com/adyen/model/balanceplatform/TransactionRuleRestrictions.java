@@ -25,6 +25,7 @@ import com.adyen.model.balanceplatform.DifferentCurrenciesRestriction;
 import com.adyen.model.balanceplatform.EntryModesRestriction;
 import com.adyen.model.balanceplatform.InternationalTransactionRestriction;
 import com.adyen.model.balanceplatform.MatchingTransactionsRestriction;
+import com.adyen.model.balanceplatform.MatchingValuesRestriction;
 import com.adyen.model.balanceplatform.MccsRestriction;
 import com.adyen.model.balanceplatform.MerchantNamesRestriction;
 import com.adyen.model.balanceplatform.MerchantsRestriction;
@@ -58,6 +59,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_ENTRY_MODES,
   TransactionRuleRestrictions.JSON_PROPERTY_INTERNATIONAL_TRANSACTION,
   TransactionRuleRestrictions.JSON_PROPERTY_MATCHING_TRANSACTIONS,
+  TransactionRuleRestrictions.JSON_PROPERTY_MATCHING_VALUES,
   TransactionRuleRestrictions.JSON_PROPERTY_MCCS,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANT_NAMES,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANTS,
@@ -96,6 +98,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_MATCHING_TRANSACTIONS = "matchingTransactions";
   private MatchingTransactionsRestriction matchingTransactions;
+
+  public static final String JSON_PROPERTY_MATCHING_VALUES = "matchingValues";
+  private MatchingValuesRestriction matchingValues;
 
   public static final String JSON_PROPERTY_MCCS = "mccs";
   private MccsRestriction mccs;
@@ -397,6 +402,36 @@ public class TransactionRuleRestrictions {
   }
 
 
+  public TransactionRuleRestrictions matchingValues(MatchingValuesRestriction matchingValues) {
+    this.matchingValues = matchingValues;
+    return this;
+  }
+
+   /**
+   * Get matchingValues
+   * @return matchingValues
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MATCHING_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public MatchingValuesRestriction getMatchingValues() {
+    return matchingValues;
+  }
+
+
+ /**
+  * matchingValues
+  *
+  * @param matchingValues
+  */ 
+  @JsonProperty(JSON_PROPERTY_MATCHING_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMatchingValues(MatchingValuesRestriction matchingValues) {
+    this.matchingValues = matchingValues;
+  }
+
+
   public TransactionRuleRestrictions mccs(MccsRestriction mccs) {
     this.mccs = mccs;
     return this;
@@ -688,6 +723,7 @@ public class TransactionRuleRestrictions {
         Objects.equals(this.entryModes, transactionRuleRestrictions.entryModes) &&
         Objects.equals(this.internationalTransaction, transactionRuleRestrictions.internationalTransaction) &&
         Objects.equals(this.matchingTransactions, transactionRuleRestrictions.matchingTransactions) &&
+        Objects.equals(this.matchingValues, transactionRuleRestrictions.matchingValues) &&
         Objects.equals(this.mccs, transactionRuleRestrictions.mccs) &&
         Objects.equals(this.merchantNames, transactionRuleRestrictions.merchantNames) &&
         Objects.equals(this.merchants, transactionRuleRestrictions.merchants) &&
@@ -701,7 +737,7 @@ public class TransactionRuleRestrictions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, timeOfDay, totalAmount);
   }
 
   @Override
@@ -717,6 +753,7 @@ public class TransactionRuleRestrictions {
     sb.append("    entryModes: ").append(toIndentedString(entryModes)).append("\n");
     sb.append("    internationalTransaction: ").append(toIndentedString(internationalTransaction)).append("\n");
     sb.append("    matchingTransactions: ").append(toIndentedString(matchingTransactions)).append("\n");
+    sb.append("    matchingValues: ").append(toIndentedString(matchingValues)).append("\n");
     sb.append("    mccs: ").append(toIndentedString(mccs)).append("\n");
     sb.append("    merchantNames: ").append(toIndentedString(merchantNames)).append("\n");
     sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");

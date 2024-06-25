@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.BillingAddress;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,16 +34,26 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   SubMerchantInfo.JSON_PROPERTY_ADDRESS,
+  SubMerchantInfo.JSON_PROPERTY_AMOUNT,
+  SubMerchantInfo.JSON_PROPERTY_EMAIL,
   SubMerchantInfo.JSON_PROPERTY_ID,
   SubMerchantInfo.JSON_PROPERTY_MCC,
   SubMerchantInfo.JSON_PROPERTY_NAME,
+  SubMerchantInfo.JSON_PROPERTY_PHONE_NUMBER,
   SubMerchantInfo.JSON_PROPERTY_REGISTERED_SINCE,
-  SubMerchantInfo.JSON_PROPERTY_TAX_ID
+  SubMerchantInfo.JSON_PROPERTY_TAX_ID,
+  SubMerchantInfo.JSON_PROPERTY_URL
 })
 
 public class SubMerchantInfo {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private BillingAddress address;
+
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
+  private Amount amount;
+
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  private String email;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -53,11 +64,17 @@ public class SubMerchantInfo {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
+  private String phoneNumber;
+
   public static final String JSON_PROPERTY_REGISTERED_SINCE = "registeredSince";
   private String registeredSince;
 
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
+
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
 
   public SubMerchantInfo() { 
   }
@@ -89,6 +106,66 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(BillingAddress address) {
     this.address = address;
+  }
+
+
+  public SubMerchantInfo amount(Amount amount) {
+    this.amount = amount;
+    return this;
+  }
+
+   /**
+   * Get amount
+   * @return amount
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Amount getAmount() {
+    return amount;
+  }
+
+
+ /**
+  * amount
+  *
+  * @param amount
+  */ 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAmount(Amount amount) {
+    this.amount = amount;
+  }
+
+
+  public SubMerchantInfo email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEmail() {
+    return email;
+  }
+
+
+ /**
+  * email
+  *
+  * @param email
+  */ 
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -182,6 +259,36 @@ public class SubMerchantInfo {
   }
 
 
+  public SubMerchantInfo phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * Get phoneNumber
+   * @return phoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+
+ /**
+  * phoneNumber
+  *
+  * @param phoneNumber
+  */ 
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+
   public SubMerchantInfo registeredSince(String registeredSince) {
     this.registeredSince = registeredSince;
     return this;
@@ -242,6 +349,36 @@ public class SubMerchantInfo {
   }
 
 
+  public SubMerchantInfo url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUrl() {
+    return url;
+  }
+
+
+ /**
+  * url
+  *
+  * @param url
+  */ 
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+
   /**
    * Return true if this SubMerchantInfo object is equal to o.
    */
@@ -255,16 +392,20 @@ public class SubMerchantInfo {
     }
     SubMerchantInfo subMerchantInfo = (SubMerchantInfo) o;
     return Objects.equals(this.address, subMerchantInfo.address) &&
+        Objects.equals(this.amount, subMerchantInfo.amount) &&
+        Objects.equals(this.email, subMerchantInfo.email) &&
         Objects.equals(this.id, subMerchantInfo.id) &&
         Objects.equals(this.mcc, subMerchantInfo.mcc) &&
         Objects.equals(this.name, subMerchantInfo.name) &&
+        Objects.equals(this.phoneNumber, subMerchantInfo.phoneNumber) &&
         Objects.equals(this.registeredSince, subMerchantInfo.registeredSince) &&
-        Objects.equals(this.taxId, subMerchantInfo.taxId);
+        Objects.equals(this.taxId, subMerchantInfo.taxId) &&
+        Objects.equals(this.url, subMerchantInfo.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, id, mcc, name, registeredSince, taxId);
+    return Objects.hash(address, amount, email, id, mcc, name, phoneNumber, registeredSince, taxId, url);
   }
 
   @Override
@@ -272,11 +413,15 @@ public class SubMerchantInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubMerchantInfo {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    registeredSince: ").append(toIndentedString(registeredSince)).append("\n");
     sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

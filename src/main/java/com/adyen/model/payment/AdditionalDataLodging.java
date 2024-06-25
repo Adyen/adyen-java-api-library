@@ -31,6 +31,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * AdditionalDataLodging
  */
 @JsonPropertyOrder({
+  AdditionalDataLodging.JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE,
   AdditionalDataLodging.JSON_PROPERTY_LODGING_CHECK_IN_DATE,
   AdditionalDataLodging.JSON_PROPERTY_LODGING_CHECK_OUT_DATE,
   AdditionalDataLodging.JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER,
@@ -50,6 +51,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class AdditionalDataLodging {
+  public static final String JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE = "lodging.SpecialProgramCode";
+  private String lodgingSpecialProgramCode;
+
   public static final String JSON_PROPERTY_LODGING_CHECK_IN_DATE = "lodging.checkInDate";
   private String lodgingCheckInDate;
 
@@ -100,6 +104,36 @@ public class AdditionalDataLodging {
 
   public AdditionalDataLodging() { 
   }
+
+  public AdditionalDataLodging lodgingSpecialProgramCode(String lodgingSpecialProgramCode) {
+    this.lodgingSpecialProgramCode = lodgingSpecialProgramCode;
+    return this;
+  }
+
+   /**
+   * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
+   * @return lodgingSpecialProgramCode
+  **/
+  @ApiModelProperty(value = "A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit")
+  @JsonProperty(JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLodgingSpecialProgramCode() {
+    return lodgingSpecialProgramCode;
+  }
+
+
+ /**
+  * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
+  *
+  * @param lodgingSpecialProgramCode
+  */ 
+  @JsonProperty(JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLodgingSpecialProgramCode(String lodgingSpecialProgramCode) {
+    this.lodgingSpecialProgramCode = lodgingSpecialProgramCode;
+  }
+
 
   public AdditionalDataLodging lodgingCheckInDate(String lodgingCheckInDate) {
     this.lodgingCheckInDate = lodgingCheckInDate;
@@ -593,7 +627,8 @@ public class AdditionalDataLodging {
       return false;
     }
     AdditionalDataLodging additionalDataLodging = (AdditionalDataLodging) o;
-    return Objects.equals(this.lodgingCheckInDate, additionalDataLodging.lodgingCheckInDate) &&
+    return Objects.equals(this.lodgingSpecialProgramCode, additionalDataLodging.lodgingSpecialProgramCode) &&
+        Objects.equals(this.lodgingCheckInDate, additionalDataLodging.lodgingCheckInDate) &&
         Objects.equals(this.lodgingCheckOutDate, additionalDataLodging.lodgingCheckOutDate) &&
         Objects.equals(this.lodgingCustomerServiceTollFreeNumber, additionalDataLodging.lodgingCustomerServiceTollFreeNumber) &&
         Objects.equals(this.lodgingFireSafetyActIndicator, additionalDataLodging.lodgingFireSafetyActIndicator) &&
@@ -613,13 +648,14 @@ public class AdditionalDataLodging {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lodgingCheckInDate, lodgingCheckOutDate, lodgingCustomerServiceTollFreeNumber, lodgingFireSafetyActIndicator, lodgingFolioCashAdvances, lodgingFolioNumber, lodgingFoodBeverageCharges, lodgingNoShowIndicator, lodgingPrepaidExpenses, lodgingPropertyPhoneNumber, lodgingRoom1NumberOfNights, lodgingRoom1Rate, lodgingTotalRoomTax, lodgingTotalTax, travelEntertainmentAuthDataDuration, travelEntertainmentAuthDataMarket);
+    return Objects.hash(lodgingSpecialProgramCode, lodgingCheckInDate, lodgingCheckOutDate, lodgingCustomerServiceTollFreeNumber, lodgingFireSafetyActIndicator, lodgingFolioCashAdvances, lodgingFolioNumber, lodgingFoodBeverageCharges, lodgingNoShowIndicator, lodgingPrepaidExpenses, lodgingPropertyPhoneNumber, lodgingRoom1NumberOfNights, lodgingRoom1Rate, lodgingTotalRoomTax, lodgingTotalTax, travelEntertainmentAuthDataDuration, travelEntertainmentAuthDataMarket);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdditionalDataLodging {\n");
+    sb.append("    lodgingSpecialProgramCode: ").append(toIndentedString(lodgingSpecialProgramCode)).append("\n");
     sb.append("    lodgingCheckInDate: ").append(toIndentedString(lodgingCheckInDate)).append("\n");
     sb.append("    lodgingCheckOutDate: ").append(toIndentedString(lodgingCheckOutDate)).append("\n");
     sb.append("    lodgingCustomerServiceTollFreeNumber: ").append(toIndentedString(lodgingCustomerServiceTollFreeNumber)).append("\n");

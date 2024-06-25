@@ -32,6 +32,7 @@ import com.adyen.model.payment.MerchantRiskIndicator;
 import com.adyen.model.payment.Name;
 import com.adyen.model.payment.PlatformChargebackLogic;
 import com.adyen.model.payment.Recurring;
+import com.adyen.model.payment.SecureRemoteCommerceCheckoutData;
 import com.adyen.model.payment.Split;
 import com.adyen.model.payment.ThreeDS2RequestData;
 import com.adyen.model.payment.ThreeDSecureData;
@@ -91,6 +92,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRequest.JSON_PROPERTY_RECURRING,
   PaymentRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
   PaymentRequest.JSON_PROPERTY_REFERENCE,
+  PaymentRequest.JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA,
   PaymentRequest.JSON_PROPERTY_SELECTED_BRAND,
   PaymentRequest.JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
   PaymentRequest.JSON_PROPERTY_SESSION_ID,
@@ -323,6 +325,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  public static final String JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA = "secureRemoteCommerceCheckoutData";
+  private SecureRemoteCommerceCheckoutData secureRemoteCommerceCheckoutData;
 
   public static final String JSON_PROPERTY_SELECTED_BRAND = "selectedBrand";
   private String selectedBrand;
@@ -1494,6 +1499,36 @@ public class PaymentRequest {
   }
 
 
+  public PaymentRequest secureRemoteCommerceCheckoutData(SecureRemoteCommerceCheckoutData secureRemoteCommerceCheckoutData) {
+    this.secureRemoteCommerceCheckoutData = secureRemoteCommerceCheckoutData;
+    return this;
+  }
+
+   /**
+   * Get secureRemoteCommerceCheckoutData
+   * @return secureRemoteCommerceCheckoutData
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SecureRemoteCommerceCheckoutData getSecureRemoteCommerceCheckoutData() {
+    return secureRemoteCommerceCheckoutData;
+  }
+
+
+ /**
+  * secureRemoteCommerceCheckoutData
+  *
+  * @param secureRemoteCommerceCheckoutData
+  */ 
+  @JsonProperty(JSON_PROPERTY_SECURE_REMOTE_COMMERCE_CHECKOUT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSecureRemoteCommerceCheckoutData(SecureRemoteCommerceCheckoutData secureRemoteCommerceCheckoutData) {
+    this.secureRemoteCommerceCheckoutData = secureRemoteCommerceCheckoutData;
+  }
+
+
   public PaymentRequest selectedBrand(String selectedBrand) {
     this.selectedBrand = selectedBrand;
     return this;
@@ -2089,6 +2124,7 @@ public class PaymentRequest {
         Objects.equals(this.recurring, paymentRequest.recurring) &&
         Objects.equals(this.recurringProcessingModel, paymentRequest.recurringProcessingModel) &&
         Objects.equals(this.reference, paymentRequest.reference) &&
+        Objects.equals(this.secureRemoteCommerceCheckoutData, paymentRequest.secureRemoteCommerceCheckoutData) &&
         Objects.equals(this.selectedBrand, paymentRequest.selectedBrand) &&
         Objects.equals(this.selectedRecurringDetailReference, paymentRequest.selectedRecurringDetailReference) &&
         Objects.equals(this.sessionId, paymentRequest.sessionId) &&
@@ -2111,7 +2147,7 @@ public class PaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, entityType, fraudOffset, fundDestination, fundSource, fundingSource, installments, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, platformChargebackLogic, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, entityType, fraudOffset, fundDestination, fundSource, fundingSource, installments, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, platformChargebackLogic, recurring, recurringProcessingModel, reference, secureRemoteCommerceCheckoutData, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
   }
 
   @Override
@@ -2153,6 +2189,7 @@ public class PaymentRequest {
     sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
     sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    secureRemoteCommerceCheckoutData: ").append(toIndentedString(secureRemoteCommerceCheckoutData)).append("\n");
     sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append("\n");
     sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");

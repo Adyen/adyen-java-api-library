@@ -103,8 +103,6 @@ public class PaymentDetails {
     
     MOLPAY_EBANKING_VN("molpay_ebanking_VN"),
     
-    PAYBYBANK("paybybank"),
-    
     EBANKING_FI("ebanking_FI"),
     
     MOLPAY_EBANKING_MY("molpay_ebanking_MY"),

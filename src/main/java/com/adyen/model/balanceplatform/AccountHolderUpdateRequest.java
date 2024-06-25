@@ -59,6 +59,7 @@ public class AccountHolderUpdateRequest {
   private Map<String, AccountHolderCapability> capabilities = null;
 
   public static final String JSON_PROPERTY_CONTACT_DETAILS = "contactDetails";
+  @Deprecated
   private ContactDetails contactDetails;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -193,6 +194,7 @@ public class AccountHolderUpdateRequest {
   }
 
 
+  @Deprecated
   public AccountHolderUpdateRequest contactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
     return this;
@@ -201,7 +203,9 @@ public class AccountHolderUpdateRequest {
    /**
    * Get contactDetails
    * @return contactDetails
+   * @deprecated
   **/
+  @Deprecated
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,6 +220,7 @@ public class AccountHolderUpdateRequest {
   *
   * @param contactDetails
   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {
