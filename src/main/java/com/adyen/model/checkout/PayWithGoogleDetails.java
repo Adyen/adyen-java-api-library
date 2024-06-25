@@ -36,6 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PayWithGoogleDetails.JSON_PROPERTY_GOOGLE_PAY_TOKEN,
   PayWithGoogleDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   PayWithGoogleDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  PayWithGoogleDetails.JSON_PROPERTY_THREE_D_S2_SDK_VERSION,
   PayWithGoogleDetails.JSON_PROPERTY_TYPE
 })
 
@@ -90,6 +91,9 @@ public class PayWithGoogleDetails {
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  public static final String JSON_PROPERTY_THREE_D_S2_SDK_VERSION = "threeDS2SdkVersion";
+  private String threeDS2SdkVersion;
 
   /**
    * **paywithgoogle**
@@ -284,6 +288,36 @@ public class PayWithGoogleDetails {
   }
 
 
+  public PayWithGoogleDetails threeDS2SdkVersion(String threeDS2SdkVersion) {
+    this.threeDS2SdkVersion = threeDS2SdkVersion;
+    return this;
+  }
+
+   /**
+   * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
+   * @return threeDS2SdkVersion
+  **/
+  @ApiModelProperty(value = "Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.")
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getThreeDS2SdkVersion() {
+    return threeDS2SdkVersion;
+  }
+
+
+ /**
+  * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
+  *
+  * @param threeDS2SdkVersion
+  */ 
+  @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDS2SdkVersion(String threeDS2SdkVersion) {
+    this.threeDS2SdkVersion = threeDS2SdkVersion;
+  }
+
+
   public PayWithGoogleDetails type(TypeEnum type) {
     this.type = type;
     return this;
@@ -331,12 +365,13 @@ public class PayWithGoogleDetails {
         Objects.equals(this.googlePayToken, payWithGoogleDetails.googlePayToken) &&
         Objects.equals(this.recurringDetailReference, payWithGoogleDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, payWithGoogleDetails.storedPaymentMethodId) &&
+        Objects.equals(this.threeDS2SdkVersion, payWithGoogleDetails.threeDS2SdkVersion) &&
         Objects.equals(this.type, payWithGoogleDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, fundingSource, googlePayToken, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, fundingSource, googlePayToken, recurringDetailReference, storedPaymentMethodId, threeDS2SdkVersion, type);
   }
 
   @Override
@@ -348,6 +383,7 @@ public class PayWithGoogleDetails {
     sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    threeDS2SdkVersion: ").append(toIndentedString(threeDS2SdkVersion)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

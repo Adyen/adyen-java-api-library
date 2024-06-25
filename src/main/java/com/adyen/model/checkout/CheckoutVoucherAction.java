@@ -491,10 +491,10 @@ public class CheckoutVoucherAction {
   }
 
    /**
-   * A base64 encoded signature of all properties
+   * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
    * @return passCreationToken
   **/
-  @ApiModelProperty(value = "A base64 encoded signature of all properties")
+  @ApiModelProperty(value = "A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.")
   @JsonProperty(JSON_PROPERTY_PASS_CREATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -504,7 +504,7 @@ public class CheckoutVoucherAction {
 
 
  /**
-  * A base64 encoded signature of all properties
+  * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
   *
   * @param passCreationToken
   */ 

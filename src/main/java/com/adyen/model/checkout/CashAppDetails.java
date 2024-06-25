@@ -39,6 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CashAppDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   CashAppDetails.JSON_PROPERTY_REQUEST_ID,
   CashAppDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  CashAppDetails.JSON_PROPERTY_SUBTYPE,
   CashAppDetails.JSON_PROPERTY_TYPE
 })
 
@@ -67,6 +68,9 @@ public class CashAppDetails {
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  public static final String JSON_PROPERTY_SUBTYPE = "subtype";
+  private String subtype;
 
   /**
    * cashapp
@@ -351,6 +355,36 @@ public class CashAppDetails {
   }
 
 
+  public CashAppDetails subtype(String subtype) {
+    this.subtype = subtype;
+    return this;
+  }
+
+   /**
+   * The payment method subtype.
+   * @return subtype
+  **/
+  @ApiModelProperty(value = "The payment method subtype.")
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSubtype() {
+    return subtype;
+  }
+
+
+ /**
+  * The payment method subtype.
+  *
+  * @param subtype
+  */ 
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubtype(String subtype) {
+    this.subtype = subtype;
+  }
+
+
   public CashAppDetails type(TypeEnum type) {
     this.type = type;
     return this;
@@ -401,12 +435,13 @@ public class CashAppDetails {
         Objects.equals(this.recurringDetailReference, cashAppDetails.recurringDetailReference) &&
         Objects.equals(this.requestId, cashAppDetails.requestId) &&
         Objects.equals(this.storedPaymentMethodId, cashAppDetails.storedPaymentMethodId) &&
+        Objects.equals(this.subtype, cashAppDetails.subtype) &&
         Objects.equals(this.type, cashAppDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cashtag, checkoutAttemptId, customerId, grantId, onFileGrantId, recurringDetailReference, requestId, storedPaymentMethodId, type);
+    return Objects.hash(cashtag, checkoutAttemptId, customerId, grantId, onFileGrantId, recurringDetailReference, requestId, storedPaymentMethodId, subtype, type);
   }
 
   @Override
@@ -421,6 +456,7 @@ public class CashAppDetails {
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

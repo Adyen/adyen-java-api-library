@@ -46,6 +46,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentInstrument.JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID,
   PaymentInstrument.JSON_PROPERTY_REFERENCE,
   PaymentInstrument.JSON_PROPERTY_STATUS,
+  PaymentInstrument.JSON_PROPERTY_STATUS_COMMENT,
   PaymentInstrument.JSON_PROPERTY_STATUS_REASON,
   PaymentInstrument.JSON_PROPERTY_TYPE
 })
@@ -120,6 +121,9 @@ public class PaymentInstrument {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  public static final String JSON_PROPERTY_STATUS_COMMENT = "statusComment";
+  private String statusComment;
 
   /**
    * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
@@ -526,6 +530,36 @@ public class PaymentInstrument {
   }
 
 
+  public PaymentInstrument statusComment(String statusComment) {
+    this.statusComment = statusComment;
+    return this;
+  }
+
+   /**
+   * The status comment provides additional information for the statusReason of the payment instrument.
+   * @return statusComment
+  **/
+  @ApiModelProperty(value = "The status comment provides additional information for the statusReason of the payment instrument.")
+  @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getStatusComment() {
+    return statusComment;
+  }
+
+
+ /**
+  * The status comment provides additional information for the statusReason of the payment instrument.
+  *
+  * @param statusComment
+  */ 
+  @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatusComment(String statusComment) {
+    this.statusComment = statusComment;
+  }
+
+
   public PaymentInstrument statusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
     return this;
@@ -608,13 +642,14 @@ public class PaymentInstrument {
         Objects.equals(this.paymentInstrumentGroupId, paymentInstrument.paymentInstrumentGroupId) &&
         Objects.equals(this.reference, paymentInstrument.reference) &&
         Objects.equals(this.status, paymentInstrument.status) &&
+        Objects.equals(this.statusComment, paymentInstrument.statusComment) &&
         Objects.equals(this.statusReason, paymentInstrument.statusReason) &&
         Objects.equals(this.type, paymentInstrument.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalBankAccountIdentifications, balanceAccountId, bankAccount, card, description, id, issuingCountryCode, paymentInstrumentGroupId, reference, status, statusReason, type);
+    return Objects.hash(additionalBankAccountIdentifications, balanceAccountId, bankAccount, card, description, id, issuingCountryCode, paymentInstrumentGroupId, reference, status, statusComment, statusReason, type);
   }
 
   @Override
@@ -631,6 +666,7 @@ public class PaymentInstrument {
     sb.append("    paymentInstrumentGroupId: ").append(toIndentedString(paymentInstrumentGroupId)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusComment: ").append(toIndentedString(statusComment)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

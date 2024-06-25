@@ -43,6 +43,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferInfo.JSON_PROPERTY_PRIORITY,
   TransferInfo.JSON_PROPERTY_REFERENCE,
   TransferInfo.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
+  TransferInfo.JSON_PROPERTY_TYPE,
   TransferInfo.JSON_PROPERTY_ULTIMATE_PARTY
 })
 
@@ -158,6 +159,46 @@ public class TransferInfo {
   public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
 
+  /**
+   * The type of transfer.  Possible values:   - **bankTransfer**: for push transfers to a transfer instrument or a bank account. The &#x60;category&#x60; must be **bank**. - **internalTransfer**: for push transfers between balance accounts. The &#x60;category&#x60; must be **internal**. - **internalDirectDebit**: for pull transfers (direct debits) between balance accounts. The &#x60;category&#x60; must be **internal**.   
+   */
+  public enum TypeEnum {
+    BANKTRANSFER("bankTransfer"),
+    
+    INTERNALTRANSFER("internalTransfer"),
+    
+    INTERNALDIRECTDEBIT("internalDirectDebit");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TypeEnum type;
+
   public static final String JSON_PROPERTY_ULTIMATE_PARTY = "ultimateParty";
   private UltimatePartyIdentification ultimateParty;
 
@@ -200,10 +241,10 @@ public class TransferInfo {
   }
 
    /**
-   * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
+   * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount** assigned to the balance account, you must specify the [payment instrument ID](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id) of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.
    * @return balanceAccountId
   **/
-  @ApiModelProperty(value = "The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
+  @ApiModelProperty(value = "The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount** assigned to the balance account, you must specify the [payment instrument ID](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id) of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -213,7 +254,7 @@ public class TransferInfo {
 
 
  /**
-  * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
+  * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount** assigned to the balance account, you must specify the [payment instrument ID](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id) of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.
   *
   * @param balanceAccountId
   */ 
@@ -320,10 +361,10 @@ public class TransferInfo {
   }
 
    /**
-   * The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).
+   * The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount**, you must specify the payment instrument ID of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.
    * @return paymentInstrumentId
   **/
-  @ApiModelProperty(value = "The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).")
+  @ApiModelProperty(value = "The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount**, you must specify the payment instrument ID of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -333,7 +374,7 @@ public class TransferInfo {
 
 
  /**
-  * The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).
+  * The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount**, you must specify the payment instrument ID of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.
   *
   * @param paymentInstrumentId
   */ 
@@ -434,6 +475,36 @@ public class TransferInfo {
   }
 
 
+  public TransferInfo type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of transfer.  Possible values:   - **bankTransfer**: for push transfers to a transfer instrument or a bank account. The &#x60;category&#x60; must be **bank**. - **internalTransfer**: for push transfers between balance accounts. The &#x60;category&#x60; must be **internal**. - **internalDirectDebit**: for pull transfers (direct debits) between balance accounts. The &#x60;category&#x60; must be **internal**.   
+   * @return type
+  **/
+  @ApiModelProperty(value = "The type of transfer.  Possible values:   - **bankTransfer**: for push transfers to a transfer instrument or a bank account. The `category` must be **bank**. - **internalTransfer**: for push transfers between balance accounts. The `category` must be **internal**. - **internalDirectDebit**: for pull transfers (direct debits) between balance accounts. The `category` must be **internal**.   ")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+ /**
+  * The type of transfer.  Possible values:   - **bankTransfer**: for push transfers to a transfer instrument or a bank account. The &#x60;category&#x60; must be **bank**. - **internalTransfer**: for push transfers between balance accounts. The &#x60;category&#x60; must be **internal**. - **internalDirectDebit**: for pull transfers (direct debits) between balance accounts. The &#x60;category&#x60; must be **internal**.   
+  *
+  * @param type
+  */ 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+
   public TransferInfo ultimateParty(UltimatePartyIdentification ultimateParty) {
     this.ultimateParty = ultimateParty;
     return this;
@@ -485,12 +556,13 @@ public class TransferInfo {
         Objects.equals(this.priority, transferInfo.priority) &&
         Objects.equals(this.reference, transferInfo.reference) &&
         Objects.equals(this.referenceForBeneficiary, transferInfo.referenceForBeneficiary) &&
+        Objects.equals(this.type, transferInfo.type) &&
         Objects.equals(this.ultimateParty, transferInfo.ultimateParty);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, balanceAccountId, category, counterparty, description, paymentInstrumentId, priority, reference, referenceForBeneficiary, ultimateParty);
+    return Objects.hash(amount, balanceAccountId, category, counterparty, description, paymentInstrumentId, priority, reference, referenceForBeneficiary, type, ultimateParty);
   }
 
   @Override
@@ -506,6 +578,7 @@ public class TransferInfo {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    referenceForBeneficiary: ").append(toIndentedString(referenceForBeneficiary)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    ultimateParty: ").append(toIndentedString(ultimateParty)).append("\n");
     sb.append("}");
     return sb.toString();

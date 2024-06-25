@@ -40,6 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_FLIGHT_DATE,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_ISSUE_DATE,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL,
@@ -88,6 +89,9 @@ public class AdditionalDataAirline {
 
   public static final String JSON_PROPERTY_AIRLINE_FLIGHT_DATE = "airline.flight_date";
   private String airlineFlightDate;
+
+  public static final String JSON_PROPERTY_AIRLINE_ISSUE_DATE = "airline.issue_date";
+  private String airlineIssueDate;
 
   public static final String JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE = "airline.leg.carrier_code";
   private String airlineLegCarrierCode;
@@ -416,6 +420,36 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineFlightDate(String airlineFlightDate) {
     this.airlineFlightDate = airlineFlightDate;
+  }
+
+
+  public AdditionalDataAirline airlineIssueDate(String airlineIssueDate) {
+    this.airlineIssueDate = airlineIssueDate;
+    return this;
+  }
+
+   /**
+   * The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD
+   * @return airlineIssueDate
+  **/
+  @ApiModelProperty(value = "The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD")
+  @JsonProperty(JSON_PROPERTY_AIRLINE_ISSUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAirlineIssueDate() {
+    return airlineIssueDate;
+  }
+
+
+ /**
+  * The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD
+  *
+  * @param airlineIssueDate
+  */ 
+  @JsonProperty(JSON_PROPERTY_AIRLINE_ISSUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAirlineIssueDate(String airlineIssueDate) {
+    this.airlineIssueDate = airlineIssueDate;
   }
 
 
@@ -1010,6 +1044,7 @@ public class AdditionalDataAirline {
         Objects.equals(this.airlineCustomerReferenceNumber, additionalDataAirline.airlineCustomerReferenceNumber) &&
         Objects.equals(this.airlineDocumentType, additionalDataAirline.airlineDocumentType) &&
         Objects.equals(this.airlineFlightDate, additionalDataAirline.airlineFlightDate) &&
+        Objects.equals(this.airlineIssueDate, additionalDataAirline.airlineIssueDate) &&
         Objects.equals(this.airlineLegCarrierCode, additionalDataAirline.airlineLegCarrierCode) &&
         Objects.equals(this.airlineLegClassOfTravel, additionalDataAirline.airlineLegClassOfTravel) &&
         Objects.equals(this.airlineLegDateOfTravel, additionalDataAirline.airlineLegDateOfTravel) &&
@@ -1033,7 +1068,7 @@ public class AdditionalDataAirline {
 
   @Override
   public int hashCode() {
-    return Objects.hash(airlineAgencyInvoiceNumber, airlineAgencyPlanName, airlineAirlineCode, airlineAirlineDesignatorCode, airlineBoardingFee, airlineComputerizedReservationSystem, airlineCustomerReferenceNumber, airlineDocumentType, airlineFlightDate, airlineLegCarrierCode, airlineLegClassOfTravel, airlineLegDateOfTravel, airlineLegDepartAirport, airlineLegDepartTax, airlineLegDestinationCode, airlineLegFareBaseCode, airlineLegFlightNumber, airlineLegStopOverCode, airlinePassengerDateOfBirth, airlinePassengerFirstName, airlinePassengerLastName, airlinePassengerTelephoneNumber, airlinePassengerTravellerType, airlinePassengerName, airlineTicketIssueAddress, airlineTicketNumber, airlineTravelAgencyCode, airlineTravelAgencyName);
+    return Objects.hash(airlineAgencyInvoiceNumber, airlineAgencyPlanName, airlineAirlineCode, airlineAirlineDesignatorCode, airlineBoardingFee, airlineComputerizedReservationSystem, airlineCustomerReferenceNumber, airlineDocumentType, airlineFlightDate, airlineIssueDate, airlineLegCarrierCode, airlineLegClassOfTravel, airlineLegDateOfTravel, airlineLegDepartAirport, airlineLegDepartTax, airlineLegDestinationCode, airlineLegFareBaseCode, airlineLegFlightNumber, airlineLegStopOverCode, airlinePassengerDateOfBirth, airlinePassengerFirstName, airlinePassengerLastName, airlinePassengerTelephoneNumber, airlinePassengerTravellerType, airlinePassengerName, airlineTicketIssueAddress, airlineTicketNumber, airlineTravelAgencyCode, airlineTravelAgencyName);
   }
 
   @Override
@@ -1049,6 +1084,7 @@ public class AdditionalDataAirline {
     sb.append("    airlineCustomerReferenceNumber: ").append(toIndentedString(airlineCustomerReferenceNumber)).append("\n");
     sb.append("    airlineDocumentType: ").append(toIndentedString(airlineDocumentType)).append("\n");
     sb.append("    airlineFlightDate: ").append(toIndentedString(airlineFlightDate)).append("\n");
+    sb.append("    airlineIssueDate: ").append(toIndentedString(airlineIssueDate)).append("\n");
     sb.append("    airlineLegCarrierCode: ").append(toIndentedString(airlineLegCarrierCode)).append("\n");
     sb.append("    airlineLegClassOfTravel: ").append(toIndentedString(airlineLegClassOfTravel)).append("\n");
     sb.append("    airlineLegDateOfTravel: ").append(toIndentedString(airlineLegDateOfTravel)).append("\n");

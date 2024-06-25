@@ -23,6 +23,7 @@ import com.adyen.model.checkout.CheckoutSessionThreeDS2RequestData;
 import com.adyen.model.checkout.InstallmentOption;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Name;
+import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.Split;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -65,6 +66,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentLinkRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentLinkRequest.JSON_PROPERTY_MERCHANT_ORDER_REFERENCE,
   PaymentLinkRequest.JSON_PROPERTY_METADATA,
+  PaymentLinkRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
   PaymentLinkRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
   PaymentLinkRequest.JSON_PROPERTY_REFERENCE,
   PaymentLinkRequest.JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS,
@@ -144,6 +146,9 @@ public class PaymentLinkRequest {
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
+
+  public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  private PlatformChargebackLogic platformChargebackLogic;
 
   /**
    * Defines a recurring payment type. Required when &#x60;storePaymentMethodMode&#x60; is set to **askForConsent** or **enabled**. Possible values: * **Subscription** – A transaction for a fixed or variable amount, which follows a fixed schedule. * **CardOnFile** – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * **UnscheduledCardOnFile** – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
@@ -933,6 +938,36 @@ public class PaymentLinkRequest {
   }
 
 
+  public PaymentLinkRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+ /**
+  * platformChargebackLogic
+  *
+  * @param platformChargebackLogic
+  */ 
+  @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+  }
+
+
   public PaymentLinkRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
@@ -1375,10 +1410,10 @@ public class PaymentLinkRequest {
   }
 
    /**
-   * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
+   * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    * @return splits
   **/
-  @ApiModelProperty(value = "An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
+  @ApiModelProperty(value = "An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1388,7 +1423,7 @@ public class PaymentLinkRequest {
 
 
  /**
-  * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
+  * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
   *
   * @param splits
   */ 
@@ -1580,6 +1615,7 @@ public class PaymentLinkRequest {
         Objects.equals(this.merchantAccount, paymentLinkRequest.merchantAccount) &&
         Objects.equals(this.merchantOrderReference, paymentLinkRequest.merchantOrderReference) &&
         Objects.equals(this.metadata, paymentLinkRequest.metadata) &&
+        Objects.equals(this.platformChargebackLogic, paymentLinkRequest.platformChargebackLogic) &&
         Objects.equals(this.recurringProcessingModel, paymentLinkRequest.recurringProcessingModel) &&
         Objects.equals(this.reference, paymentLinkRequest.reference) &&
         Objects.equals(this.requiredShopperFields, paymentLinkRequest.requiredShopperFields) &&
@@ -1604,7 +1640,7 @@ public class PaymentLinkRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData);
+    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, platformChargebackLogic, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData);
   }
 
   @Override
@@ -1630,6 +1666,7 @@ public class PaymentLinkRequest {
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    requiredShopperFields: ").append(toIndentedString(requiredShopperFields)).append("\n");

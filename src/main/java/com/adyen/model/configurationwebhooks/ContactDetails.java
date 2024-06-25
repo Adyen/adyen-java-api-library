@@ -31,7 +31,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 /**
  * ContactDetails
+ * @deprecated
  */
+@Deprecated
 @JsonPropertyOrder({
   ContactDetails.JSON_PROPERTY_ADDRESS,
   ContactDetails.JSON_PROPERTY_EMAIL,

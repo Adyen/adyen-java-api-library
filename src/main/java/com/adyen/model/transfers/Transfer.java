@@ -185,6 +185,8 @@ public class Transfer {
     
     COUNTERPARTYBANKUNAVAILABLE("counterpartyBankUnavailable"),
     
+    DECLINED("declined"),
+    
     DECLINEDBYTRANSACTIONRULE("declinedByTransactionRule"),
     
     ERROR("error"),
