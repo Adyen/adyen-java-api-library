@@ -206,6 +206,8 @@ public class TransferData {
     
     COUNTERPARTYBANKUNAVAILABLE("counterpartyBankUnavailable"),
     
+    DECLINED("declined"),
+    
     DECLINEDBYTRANSACTIONRULE("declinedByTransactionRule"),
     
     ERROR("error"),

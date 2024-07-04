@@ -42,6 +42,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   TransferEvent.JSON_PROPERTY_AMOUNT,
   TransferEvent.JSON_PROPERTY_AMOUNT_ADJUSTMENTS,
+  TransferEvent.JSON_PROPERTY_ARN,
   TransferEvent.JSON_PROPERTY_BOOKING_DATE,
   TransferEvent.JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME,
   TransferEvent.JSON_PROPERTY_EXTERNAL_REASON,
@@ -64,6 +65,9 @@ public class TransferEvent {
 
   public static final String JSON_PROPERTY_AMOUNT_ADJUSTMENTS = "amountAdjustments";
   private List<AmountAdjustment> amountAdjustments = null;
+
+  public static final String JSON_PROPERTY_ARN = "arn";
+  private String arn;
 
   public static final String JSON_PROPERTY_BOOKING_DATE = "bookingDate";
   private OffsetDateTime bookingDate;
@@ -107,6 +111,8 @@ public class TransferEvent {
     COUNTERPARTYBANKTIMEDOUT("counterpartyBankTimedOut"),
     
     COUNTERPARTYBANKUNAVAILABLE("counterpartyBankUnavailable"),
+    
+    DECLINED("declined"),
     
     DECLINEDBYTRANSACTIONRULE("declinedByTransactionRule"),
     
@@ -436,6 +442,36 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountAdjustments(List<AmountAdjustment> amountAdjustments) {
     this.amountAdjustments = amountAdjustments;
+  }
+
+
+  public TransferEvent arn(String arn) {
+    this.arn = arn;
+    return this;
+  }
+
+   /**
+   * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
+   * @return arn
+  **/
+  @ApiModelProperty(value = "Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.")
+  @JsonProperty(JSON_PROPERTY_ARN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getArn() {
+    return arn;
+  }
+
+
+ /**
+  * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
+  *
+  * @param arn
+  */ 
+  @JsonProperty(JSON_PROPERTY_ARN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setArn(String arn) {
+    this.arn = arn;
   }
 
 
@@ -881,6 +917,7 @@ public class TransferEvent {
     TransferEvent transferEvent = (TransferEvent) o;
     return Objects.equals(this.amount, transferEvent.amount) &&
         Objects.equals(this.amountAdjustments, transferEvent.amountAdjustments) &&
+        Objects.equals(this.arn, transferEvent.arn) &&
         Objects.equals(this.bookingDate, transferEvent.bookingDate) &&
         Objects.equals(this.estimatedArrivalTime, transferEvent.estimatedArrivalTime) &&
         Objects.equals(this.externalReason, transferEvent.externalReason) &&
@@ -899,7 +936,7 @@ public class TransferEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountAdjustments, bookingDate, estimatedArrivalTime, externalReason, id, modification, mutations, originalAmount, reason, status, trackingData, transactionId, type, updateDate, valueDate);
+    return Objects.hash(amount, amountAdjustments, arn, bookingDate, estimatedArrivalTime, externalReason, id, modification, mutations, originalAmount, reason, status, trackingData, transactionId, type, updateDate, valueDate);
   }
 
   @Override
@@ -908,6 +945,7 @@ public class TransferEvent {
     sb.append("class TransferEvent {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    amountAdjustments: ").append(toIndentedString(amountAdjustments)).append("\n");
+    sb.append("    arn: ").append(toIndentedString(arn)).append("\n");
     sb.append("    bookingDate: ").append(toIndentedString(bookingDate)).append("\n");
     sb.append("    estimatedArrivalTime: ").append(toIndentedString(estimatedArrivalTime)).append("\n");
     sb.append("    externalReason: ").append(toIndentedString(externalReason)).append("\n");
