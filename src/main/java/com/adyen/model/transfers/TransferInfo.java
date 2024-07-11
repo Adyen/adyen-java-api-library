@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -40,6 +42,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferInfo.JSON_PROPERTY_COUNTERPARTY,
   TransferInfo.JSON_PROPERTY_DESCRIPTION,
   TransferInfo.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
+  TransferInfo.JSON_PROPERTY_PRIORITIES,
   TransferInfo.JSON_PROPERTY_PRIORITY,
   TransferInfo.JSON_PROPERTY_REFERENCE,
   TransferInfo.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
@@ -106,6 +109,52 @@ public class TransferInfo {
 
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
+
+  /**
+   * Gets or Sets priorities
+   */
+  public enum PrioritiesEnum {
+    CROSSBORDER("crossBorder"),
+    
+    FAST("fast"),
+    
+    INSTANT("instant"),
+    
+    INTERNAL("internal"),
+    
+    REGULAR("regular"),
+    
+    WIRE("wire");
+
+    private String value;
+
+    PrioritiesEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PrioritiesEnum fromValue(String value) {
+      for (PrioritiesEnum b : PrioritiesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_PRIORITIES = "priorities";
+  private List<PrioritiesEnum> priorities = null;
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
@@ -385,6 +434,44 @@ public class TransferInfo {
   }
 
 
+  public TransferInfo priorities(List<PrioritiesEnum> priorities) {
+    this.priorities = priorities;
+    return this;
+  }
+
+  public TransferInfo addPrioritiesItem(PrioritiesEnum prioritiesItem) {
+    if (this.priorities == null) {
+      this.priorities = new ArrayList<>();
+    }
+    this.priorities.add(prioritiesItem);
+    return this;
+  }
+
+   /**
+   *  The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.   Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Required for transfers with &#x60;category&#x60; **bank**. For more details, see [fallback priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
+   * @return priorities
+  **/
+  @ApiModelProperty(value = " The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that's not possible, it moves on to the next option in the order of your provided priorities.   Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Required for transfers with `category` **bank**. For more details, see [fallback priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).")
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<PrioritiesEnum> getPriorities() {
+    return priorities;
+  }
+
+
+ /**
+  *  The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.   Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Required for transfers with &#x60;category&#x60; **bank**. For more details, see [fallback priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
+  *
+  * @param priorities
+  */ 
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPriorities(List<PrioritiesEnum> priorities) {
+    this.priorities = priorities;
+  }
+
+
   public TransferInfo priority(PriorityEnum priority) {
     this.priority = priority;
     return this;
@@ -553,6 +640,7 @@ public class TransferInfo {
         Objects.equals(this.counterparty, transferInfo.counterparty) &&
         Objects.equals(this.description, transferInfo.description) &&
         Objects.equals(this.paymentInstrumentId, transferInfo.paymentInstrumentId) &&
+        Objects.equals(this.priorities, transferInfo.priorities) &&
         Objects.equals(this.priority, transferInfo.priority) &&
         Objects.equals(this.reference, transferInfo.reference) &&
         Objects.equals(this.referenceForBeneficiary, transferInfo.referenceForBeneficiary) &&
@@ -562,7 +650,7 @@ public class TransferInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, balanceAccountId, category, counterparty, description, paymentInstrumentId, priority, reference, referenceForBeneficiary, type, ultimateParty);
+    return Objects.hash(amount, balanceAccountId, category, counterparty, description, paymentInstrumentId, priorities, priority, reference, referenceForBeneficiary, type, ultimateParty);
   }
 
   @Override
@@ -575,6 +663,7 @@ public class TransferInfo {
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");
+    sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    referenceForBeneficiary: ").append(toIndentedString(referenceForBeneficiary)).append("\n");
