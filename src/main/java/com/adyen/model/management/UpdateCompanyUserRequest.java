@@ -38,6 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdateCompanyUserRequest.JSON_PROPERTY_ACTIVE,
   UpdateCompanyUserRequest.JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS,
   UpdateCompanyUserRequest.JSON_PROPERTY_EMAIL,
+  UpdateCompanyUserRequest.JSON_PROPERTY_LOGIN_METHOD,
   UpdateCompanyUserRequest.JSON_PROPERTY_NAME,
   UpdateCompanyUserRequest.JSON_PROPERTY_ROLES,
   UpdateCompanyUserRequest.JSON_PROPERTY_TIME_ZONE_CODE
@@ -55,6 +56,9 @@ public class UpdateCompanyUserRequest {
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
+
+  public static final String JSON_PROPERTY_LOGIN_METHOD = "loginMethod";
+  private String loginMethod;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private Name2 name;
@@ -204,6 +208,36 @@ public class UpdateCompanyUserRequest {
   }
 
 
+  public UpdateCompanyUserRequest loginMethod(String loginMethod) {
+    this.loginMethod = loginMethod;
+    return this;
+  }
+
+   /**
+   * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
+   * @return loginMethod
+  **/
+  @ApiModelProperty(value = "The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** ")
+  @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLoginMethod() {
+    return loginMethod;
+  }
+
+
+ /**
+  * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
+  *
+  * @param loginMethod
+  */ 
+  @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLoginMethod(String loginMethod) {
+    this.loginMethod = loginMethod;
+  }
+
+
   public UpdateCompanyUserRequest name(Name2 name) {
     this.name = name;
     return this;
@@ -318,6 +352,7 @@ public class UpdateCompanyUserRequest {
         Objects.equals(this.active, updateCompanyUserRequest.active) &&
         Objects.equals(this.associatedMerchantAccounts, updateCompanyUserRequest.associatedMerchantAccounts) &&
         Objects.equals(this.email, updateCompanyUserRequest.email) &&
+        Objects.equals(this.loginMethod, updateCompanyUserRequest.loginMethod) &&
         Objects.equals(this.name, updateCompanyUserRequest.name) &&
         Objects.equals(this.roles, updateCompanyUserRequest.roles) &&
         Objects.equals(this.timeZoneCode, updateCompanyUserRequest.timeZoneCode);
@@ -325,7 +360,7 @@ public class UpdateCompanyUserRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGroups, active, associatedMerchantAccounts, email, name, roles, timeZoneCode);
+    return Objects.hash(accountGroups, active, associatedMerchantAccounts, email, loginMethod, name, roles, timeZoneCode);
   }
 
   @Override
@@ -336,6 +371,7 @@ public class UpdateCompanyUserRequest {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    associatedMerchantAccounts: ").append(toIndentedString(associatedMerchantAccounts)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    loginMethod: ").append(toIndentedString(loginMethod)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    timeZoneCode: ").append(toIndentedString(timeZoneCode)).append("\n");
