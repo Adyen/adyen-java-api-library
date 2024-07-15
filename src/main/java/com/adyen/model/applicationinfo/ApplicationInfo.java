@@ -1,12 +1,11 @@
 package com.adyen.model.applicationinfo;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
 
 public class ApplicationInfo {
     @SerializedName("adyenLibrary")
-    private final CommonField adyenLibrary;
+    private final AdyenLibraryInfo adyenLibrary;
 
     @SerializedName("adyenPaymentSource")
     private CommonField adyenPaymentSource = null;
@@ -27,18 +26,10 @@ public class ApplicationInfo {
     private ShopperInteractionDevice shopperInteractionDevice = null;
 
     public ApplicationInfo() {
-        adyenLibrary = new CommonField().name("LIB_NAME").version("LIB_VERSION");
+        adyenLibrary = new AdyenLibraryInfo();
     }
 
-    public CommonField getPaymentDetailsSource() {
-        return paymentDetailsSource;
-    }
-
-    public void setPaymentDetailsSource(CommonField paymentDetailsSource) {
-        this.paymentDetailsSource = paymentDetailsSource;
-    }
-
-    public CommonField getAdyenLibrary() {
+    public AdyenLibraryInfo getAdyenLibrary() {
         return adyenLibrary;
     }
 
@@ -87,9 +78,9 @@ public class ApplicationInfo {
         return "ApplicationInfo{" +
                 "adyenLibrary=" + adyenLibrary +
                 ", adyenPaymentSource=" + adyenPaymentSource +
+                ", externalPlatform=" + externalPlatform +
                 ", merchantApplication=" + merchantApplication +
                 ", merchantDevice=" + merchantDevice +
-                ", externalPlatform=" + externalPlatform +
                 ", paymentDetailsSource=" + paymentDetailsSource +
                 ", shopperInteractionDevice=" + shopperInteractionDevice +
                 '}';
@@ -97,14 +88,18 @@ public class ApplicationInfo {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         ApplicationInfo that = (ApplicationInfo) o;
         return Objects.equals(adyenLibrary, that.adyenLibrary) &&
                 Objects.equals(adyenPaymentSource, that.adyenPaymentSource) &&
+                Objects.equals(externalPlatform, that.externalPlatform) &&
                 Objects.equals(merchantApplication, that.merchantApplication) &&
                 Objects.equals(merchantDevice, that.merchantDevice) &&
-                Objects.equals(externalPlatform, that.externalPlatform) &&
                 Objects.equals(paymentDetailsSource, that.paymentDetailsSource) &&
                 Objects.equals(shopperInteractionDevice, that.shopperInteractionDevice);
     }
