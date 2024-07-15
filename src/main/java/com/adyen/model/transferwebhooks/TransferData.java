@@ -1169,14 +1169,10 @@ public class TransferData {
    * Get transactionRulesResult
    * @return transactionRulesResult
   **/
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES_RESULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public TransactionRulesResult getTransactionRulesResult() {
+   public static final String JSON_PROPERTY_TRX_RULES_RESULT = "transactionRulesResult";
+  public TransactionRulesResult getTrxRulesResult() {
     return transactionRulesResult;
   }
-
 
  /**
   * transactionRulesResult
