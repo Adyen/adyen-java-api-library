@@ -27,7 +27,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-
+import java.util.HashSet;
+import java.util.Set;
 
 
 
@@ -69,35 +70,43 @@ public final class Util {
         return sb.toString();
     }
 
+    private static final Set<String> ZERO_DECIMAL_CURRENCIES = new HashSet<>();
+    private static final Set<String> THREE_DECIMAL_CURRENCIES = new HashSet<>();
+
+    static {
+        ZERO_DECIMAL_CURRENCIES.add("CVE");
+        ZERO_DECIMAL_CURRENCIES.add("DJF");
+        ZERO_DECIMAL_CURRENCIES.add("GNF");
+        ZERO_DECIMAL_CURRENCIES.add("IDR");
+        ZERO_DECIMAL_CURRENCIES.add("JPY");
+        ZERO_DECIMAL_CURRENCIES.add("KMF");
+        ZERO_DECIMAL_CURRENCIES.add("KRW");
+        ZERO_DECIMAL_CURRENCIES.add("PYG");
+        ZERO_DECIMAL_CURRENCIES.add("RWF");
+        ZERO_DECIMAL_CURRENCIES.add("UGX");
+        ZERO_DECIMAL_CURRENCIES.add("VND");
+        ZERO_DECIMAL_CURRENCIES.add("VUV");
+        ZERO_DECIMAL_CURRENCIES.add("XAF");
+        ZERO_DECIMAL_CURRENCIES.add("XOF");
+        ZERO_DECIMAL_CURRENCIES.add("XPF");
+
+        THREE_DECIMAL_CURRENCIES.add("BHD");
+        THREE_DECIMAL_CURRENCIES.add("IQD");
+        THREE_DECIMAL_CURRENCIES.add("JOD");
+        THREE_DECIMAL_CURRENCIES.add("KWD");
+        THREE_DECIMAL_CURRENCIES.add("LYD");
+        THREE_DECIMAL_CURRENCIES.add("OMR");
+        THREE_DECIMAL_CURRENCIES.add("TND");
+    }
+
     public static int getDecimalPlaces(String currency) {
-        switch (currency) {
-            case "CVE":
-            case "DJF":
-            case "GNF":
-            case "IDR":
-            case "JPY":
-            case "KMF":
-            case "KRW":
-            case "PYG":
-            case "RWF":
-            case "UGX":
-            case "VND":
-            case "VUV":
-            case "XAF":
-            case "XOF":
-            case "XPF":
-                return 0;
-            case "BHD":
-            case "IQD":
-            case "JOD":
-            case "KWD":
-            case "LYD":
-            case "OMR":
-            case "TND":
-                return 3;
-            default:
-                return 2;
+        if (ZERO_DECIMAL_CURRENCIES.contains(currency)) {
+            return 0;
         }
+        if (THREE_DECIMAL_CURRENCIES.contains(currency)) {
+            return 3;
+        }
+        return 2;
     }
 
     /**

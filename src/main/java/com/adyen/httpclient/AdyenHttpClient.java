@@ -50,7 +50,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 import static com.adyen.constants.ApiConstants.HttpMethod.POST;
 import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
