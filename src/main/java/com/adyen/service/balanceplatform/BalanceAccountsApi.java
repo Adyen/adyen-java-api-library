@@ -239,44 +239,45 @@ public class BalanceAccountsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id) throws ApiException, IOException {
-        return getPaymentInstrumentsLinkedToBalanceAccount(id, null,  null,  null,  null);
+        PaymentInstrumentsRequest request = new PaymentInstrumentsRequest();
+        request.setId(id);
+        return getPaymentInstrumentsLinkedToBalanceAccount(request);
     }
 
+
     /**
-    * Get payment instruments linked to a balance account
-    *
-    * @param id {@link String } The unique identifier of the balance account. (required)
-    * @param offset {@link Integer } Query: The number of items that you want to skip. (optional)
-    * @param limit {@link Integer } Query: The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page. (optional)
-    * @param status {@link String } Query: The status of the payment instruments that you want to get. By default, the response includes payment instruments with any status. (optional)
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
-    * @return {@link PaginatedPaymentInstrumentsResponse }
-    * @throws ApiException if fails to make API call
-    */
-    public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id, Integer offset, Integer limit, String status, RequestOptions requestOptions) throws ApiException, IOException {
+     * Get payment instruments linked to a balance account
+     *
+     * @param request {@link PaymentInstrumentsRequest } Object containing the parameters for the request. (required)
+     * @return {@link PaginatedPaymentInstrumentsResponse }
+     * @throws ApiException if fails to make API call
+     */
+    public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(PaymentInstrumentsRequest request) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
-        if (id == null) {
+        if (request.getId() == null) {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
-        pathParams.put("id", id);
+        pathParams.put("id", request.getId());
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
-        if (offset != null) {
-        queryParams.put("offset", offset.toString());
+        if (request.getOffset() != null) {
+            queryParams.put("offset", request.getOffset().toString());
         }
-        if (limit != null) {
-        queryParams.put("limit", limit.toString());
+        if (request.getLimit() != null) {
+            queryParams.put("limit", request.getLimit().toString());
         }
-        if (status != null) {
-        queryParams.put("status", status);
+        if (request.getStatus() != null) {
+            queryParams.put("status", request.getStatus());
         }
 
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{id}/paymentInstruments", null);
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        String jsonResult = resource.request(requestBody, request.getRequestOptions(), ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return PaginatedPaymentInstrumentsResponse.fromJson(jsonResult);
     }
+
 
     /**
     * Get a sweep
