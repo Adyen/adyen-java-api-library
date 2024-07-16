@@ -235,7 +235,6 @@ public class BalanceAccountsApi extends Service {
     * Get payment instruments linked to a balance account
     *
     * @param id {@link String } The unique identifier of the balance account. (required)
-    * @return {@link PaginatedPaymentInstrumentsResponse }
     * @throws ApiException if fails to make API call
     */
     public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id) throws ApiException, IOException {
@@ -243,7 +242,6 @@ public class BalanceAccountsApi extends Service {
         request.setId(id);
         return getPaymentInstrumentsLinkedToBalanceAccount(request);
     }
-
 
     /**
      * Get payment instruments linked to a balance account

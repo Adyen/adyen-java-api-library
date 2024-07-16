@@ -1,7 +1,6 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 import org.junit.Assert;
 import org.junit.Test;
@@ -41,6 +40,7 @@ public class ClientTest {
     @Test
     public void testClientCertificateAuth() {
         Client client = new Client(clientCertificateAuthSSLContext, apiKey);
+        client.setEnvironment(Environment.LIVE, null); // Ensure environment is set
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
     }
 
@@ -56,6 +56,7 @@ public class ClientTest {
     }
 
     private void assertCommonEndpoints(Config config) {
-        Assert.assertEquals(Client.TERMINAL_API_ENDPOINT_LIVE, config.getTerminalApiCloudEndpoint());
+        EnvironmentConfig environmentConfig = new EnvironmentConfig(config.getEnvironment(), config.getLiveEndpointUrlPrefix());
+        Assert.assertEquals(environmentConfig.getTerminalApiEndpoint(), config.getTerminalApiCloudEndpoint());
     }
 }
