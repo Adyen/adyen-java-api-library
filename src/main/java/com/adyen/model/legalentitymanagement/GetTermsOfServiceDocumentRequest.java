@@ -32,12 +32,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   GetTermsOfServiceDocumentRequest.JSON_PROPERTY_LANGUAGE,
+  GetTermsOfServiceDocumentRequest.JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT,
   GetTermsOfServiceDocumentRequest.JSON_PROPERTY_TYPE
 })
 
 public class GetTermsOfServiceDocumentRequest {
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
+
+  public static final String JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT = "termsOfServiceDocumentFormat";
+  private String termsOfServiceDocumentFormat;
 
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
@@ -122,6 +126,36 @@ public class GetTermsOfServiceDocumentRequest {
   }
 
 
+  public GetTermsOfServiceDocumentRequest termsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
+    this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+    return this;
+  }
+
+   /**
+   * The requested format for the Terms of Service document. Default value: JSON.
+   * @return termsOfServiceDocumentFormat
+  **/
+  @ApiModelProperty(value = "The requested format for the Terms of Service document. Default value: JSON.")
+  @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTermsOfServiceDocumentFormat() {
+    return termsOfServiceDocumentFormat;
+  }
+
+
+ /**
+  * The requested format for the Terms of Service document. Default value: JSON.
+  *
+  * @param termsOfServiceDocumentFormat
+  */ 
+  @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTermsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
+    this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+  }
+
+
   public GetTermsOfServiceDocumentRequest type(TypeEnum type) {
     this.type = type;
     return this;
@@ -165,12 +199,13 @@ public class GetTermsOfServiceDocumentRequest {
     }
     GetTermsOfServiceDocumentRequest getTermsOfServiceDocumentRequest = (GetTermsOfServiceDocumentRequest) o;
     return Objects.equals(this.language, getTermsOfServiceDocumentRequest.language) &&
+        Objects.equals(this.termsOfServiceDocumentFormat, getTermsOfServiceDocumentRequest.termsOfServiceDocumentFormat) &&
         Objects.equals(this.type, getTermsOfServiceDocumentRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language, type);
+    return Objects.hash(language, termsOfServiceDocumentFormat, type);
   }
 
   @Override
@@ -178,6 +213,7 @@ public class GetTermsOfServiceDocumentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTermsOfServiceDocumentRequest {\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    termsOfServiceDocumentFormat: ").append(toIndentedString(termsOfServiceDocumentFormat)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -34,6 +34,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   GetTermsOfServiceDocumentResponse.JSON_PROPERTY_DOCUMENT,
   GetTermsOfServiceDocumentResponse.JSON_PROPERTY_ID,
   GetTermsOfServiceDocumentResponse.JSON_PROPERTY_LANGUAGE,
+  GetTermsOfServiceDocumentResponse.JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT,
   GetTermsOfServiceDocumentResponse.JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID,
   GetTermsOfServiceDocumentResponse.JSON_PROPERTY_TYPE
 })
@@ -47,6 +48,9 @@ public class GetTermsOfServiceDocumentResponse {
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
+
+  public static final String JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT = "termsOfServiceDocumentFormat";
+  private String termsOfServiceDocumentFormat;
 
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID = "termsOfServiceDocumentId";
   private String termsOfServiceDocumentId;
@@ -194,6 +198,36 @@ public class GetTermsOfServiceDocumentResponse {
   }
 
 
+  public GetTermsOfServiceDocumentResponse termsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
+    this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+    return this;
+  }
+
+   /**
+   * The format of the Terms of Service document.
+   * @return termsOfServiceDocumentFormat
+  **/
+  @ApiModelProperty(value = "The format of the Terms of Service document.")
+  @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTermsOfServiceDocumentFormat() {
+    return termsOfServiceDocumentFormat;
+  }
+
+
+ /**
+  * The format of the Terms of Service document.
+  *
+  * @param termsOfServiceDocumentFormat
+  */ 
+  @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTermsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
+    this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+  }
+
+
   public GetTermsOfServiceDocumentResponse termsOfServiceDocumentId(String termsOfServiceDocumentId) {
     this.termsOfServiceDocumentId = termsOfServiceDocumentId;
     return this;
@@ -269,13 +303,14 @@ public class GetTermsOfServiceDocumentResponse {
     return Arrays.equals(this.document, getTermsOfServiceDocumentResponse.document) &&
         Objects.equals(this.id, getTermsOfServiceDocumentResponse.id) &&
         Objects.equals(this.language, getTermsOfServiceDocumentResponse.language) &&
+        Objects.equals(this.termsOfServiceDocumentFormat, getTermsOfServiceDocumentResponse.termsOfServiceDocumentFormat) &&
         Objects.equals(this.termsOfServiceDocumentId, getTermsOfServiceDocumentResponse.termsOfServiceDocumentId) &&
         Objects.equals(this.type, getTermsOfServiceDocumentResponse.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(document), id, language, termsOfServiceDocumentId, type);
+    return Objects.hash(Arrays.hashCode(document), id, language, termsOfServiceDocumentFormat, termsOfServiceDocumentId, type);
   }
 
   @Override
@@ -285,6 +320,7 @@ public class GetTermsOfServiceDocumentResponse {
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    termsOfServiceDocumentFormat: ").append(toIndentedString(termsOfServiceDocumentFormat)).append("\n");
     sb.append("    termsOfServiceDocumentId: ").append(toIndentedString(termsOfServiceDocumentId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

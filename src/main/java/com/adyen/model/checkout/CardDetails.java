@@ -48,6 +48,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CardDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   CardDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
   CardDetails.JSON_PROPERTY_SRC_CORRELATION_ID,
+  CardDetails.JSON_PROPERTY_SRC_DIGITAL_CARD_ID,
   CardDetails.JSON_PROPERTY_SRC_SCHEME,
   CardDetails.JSON_PROPERTY_SRC_TOKEN_REFERENCE,
   CardDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
@@ -143,6 +144,9 @@ public class CardDetails {
 
   public static final String JSON_PROPERTY_SRC_CORRELATION_ID = "srcCorrelationId";
   private String srcCorrelationId;
+
+  public static final String JSON_PROPERTY_SRC_DIGITAL_CARD_ID = "srcDigitalCardId";
+  private String srcDigitalCardId;
 
   public static final String JSON_PROPERTY_SRC_SCHEME = "srcScheme";
   private String srcScheme;
@@ -721,6 +725,36 @@ public class CardDetails {
   }
 
 
+  public CardDetails srcDigitalCardId(String srcDigitalCardId) {
+    this.srcDigitalCardId = srcDigitalCardId;
+    return this;
+  }
+
+   /**
+   * The SRC reference for the Click to Pay token.
+   * @return srcDigitalCardId
+  **/
+  @ApiModelProperty(value = "The SRC reference for the Click to Pay token.")
+  @JsonProperty(JSON_PROPERTY_SRC_DIGITAL_CARD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSrcDigitalCardId() {
+    return srcDigitalCardId;
+  }
+
+
+ /**
+  * The SRC reference for the Click to Pay token.
+  *
+  * @param srcDigitalCardId
+  */ 
+  @JsonProperty(JSON_PROPERTY_SRC_DIGITAL_CARD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSrcDigitalCardId(String srcDigitalCardId) {
+    this.srcDigitalCardId = srcDigitalCardId;
+  }
+
+
   public CardDetails srcScheme(String srcScheme) {
     this.srcScheme = srcScheme;
     return this;
@@ -900,6 +934,7 @@ public class CardDetails {
         Objects.equals(this.recurringDetailReference, cardDetails.recurringDetailReference) &&
         Objects.equals(this.shopperNotificationReference, cardDetails.shopperNotificationReference) &&
         Objects.equals(this.srcCorrelationId, cardDetails.srcCorrelationId) &&
+        Objects.equals(this.srcDigitalCardId, cardDetails.srcDigitalCardId) &&
         Objects.equals(this.srcScheme, cardDetails.srcScheme) &&
         Objects.equals(this.srcTokenReference, cardDetails.srcTokenReference) &&
         Objects.equals(this.storedPaymentMethodId, cardDetails.storedPaymentMethodId) &&
@@ -909,7 +944,7 @@ public class CardDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, srcCorrelationId, srcScheme, srcTokenReference, storedPaymentMethodId, threeDS2SdkVersion, type);
+    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, srcCorrelationId, srcDigitalCardId, srcScheme, srcTokenReference, storedPaymentMethodId, threeDS2SdkVersion, type);
   }
 
   @Override
@@ -933,6 +968,7 @@ public class CardDetails {
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");
     sb.append("    srcCorrelationId: ").append(toIndentedString(srcCorrelationId)).append("\n");
+    sb.append("    srcDigitalCardId: ").append(toIndentedString(srcDigitalCardId)).append("\n");
     sb.append("    srcScheme: ").append(toIndentedString(srcScheme)).append("\n");
     sb.append("    srcTokenReference: ").append(toIndentedString(srcTokenReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");

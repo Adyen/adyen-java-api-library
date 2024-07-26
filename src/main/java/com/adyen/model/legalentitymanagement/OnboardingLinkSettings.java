@@ -113,10 +113,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get acceptedCountries
+   * The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
    * @return acceptedCountries
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The list of countries the user can choose from in hosted onboarding when `editPrefilledCountry` is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -126,7 +126,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * acceptedCountries
+  * The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
   *
   * @param acceptedCountries
   */ 
@@ -143,10 +143,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get allowBankAccountFormatSelection
+   * Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
    * @return allowBankAccountFormatSelection
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).")
   @JsonProperty(JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -156,7 +156,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * allowBankAccountFormatSelection
+  * Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
   *
   * @param allowBankAccountFormatSelection
   */ 
@@ -173,10 +173,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get allowIntraRegionCrossBorderPayout
+   * Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
    * @return allowIntraRegionCrossBorderPayout
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.")
   @JsonProperty(JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -186,7 +186,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * allowIntraRegionCrossBorderPayout
+  * Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
   *
   * @param allowIntraRegionCrossBorderPayout
   */ 
@@ -203,10 +203,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get changeLegalEntityType
+   * Default value: **true**  Indicates if the user can change their legal entity type.
    * @return changeLegalEntityType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **true**  Indicates if the user can change their legal entity type.")
   @JsonProperty(JSON_PROPERTY_CHANGE_LEGAL_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -216,7 +216,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * changeLegalEntityType
+  * Default value: **true**  Indicates if the user can change their legal entity type.
   *
   * @param changeLegalEntityType
   */ 
@@ -233,10 +233,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get editPrefilledCountry
+   * Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
    * @return editPrefilledCountry
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **true**  Indicates if the user can change the country of their legal entity's address, for example the registered address of an organization.")
   @JsonProperty(JSON_PROPERTY_EDIT_PREFILLED_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -246,7 +246,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * editPrefilledCountry
+  * Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
   *
   * @param editPrefilledCountry
   */ 
@@ -263,10 +263,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get hideOnboardingIntroductionIndividual
+   * Default value: **false**  Indicates if the user of the individual legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionIndividual
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the individual legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -276,7 +276,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * hideOnboardingIntroductionIndividual
+  * Default value: **false**  Indicates if the user of the individual legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionIndividual
   */ 
@@ -293,10 +293,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get hideOnboardingIntroductionOrganization
+   * Default value: **false**  Indicates if the user of the organization legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionOrganization
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the organization legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -306,7 +306,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * hideOnboardingIntroductionOrganization
+  * Default value: **false**  Indicates if the user of the organization legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionOrganization
   */ 
@@ -323,10 +323,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get hideOnboardingIntroductionSoleProprietor
+   * Default value: **false**  Indicates if the user of the sole proprietorship legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionSoleProprietor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the sole proprietorship legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_SOLE_PROPRIETOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -336,7 +336,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * hideOnboardingIntroductionSoleProprietor
+  * Default value: **false**  Indicates if the user of the sole proprietorship legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionSoleProprietor
   */ 
@@ -353,10 +353,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get hideOnboardingIntroductionTrust
+   * Default value: **false**  Indicates if the user of the trust legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionTrust
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the trust legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -366,7 +366,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * hideOnboardingIntroductionTrust
+  * Default value: **false**  Indicates if the user of the trust legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionTrust
   */ 
@@ -383,10 +383,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get instantBankVerification
+   * Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
    * @return instantBankVerification
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.")
   @JsonProperty(JSON_PROPERTY_INSTANT_BANK_VERIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -396,7 +396,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * instantBankVerification
+  * Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
   *
   * @param instantBankVerification
   */ 
@@ -413,10 +413,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get requirePciSignEcomMoto
+   * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
    * @return requirePciSignEcomMoto
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOM_MOTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -426,7 +426,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * requirePciSignEcomMoto
+  * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
   *
   * @param requirePciSignEcomMoto
   */ 
@@ -443,10 +443,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get requirePciSignEcommerce
+   * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
    * @return requirePciSignEcommerce
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOMMERCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -456,7 +456,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * requirePciSignEcommerce
+  * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
   *
   * @param requirePciSignEcommerce
   */ 
@@ -473,10 +473,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get requirePciSignPos
+   * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
    * @return requirePciSignPos
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -486,7 +486,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * requirePciSignPos
+  * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
   *
   * @param requirePciSignPos
   */ 
@@ -503,10 +503,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get requirePciSignPosMoto
+   * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
    * @return requirePciSignPosMoto
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_POS_MOTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -516,7 +516,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * requirePciSignPosMoto
+  * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
   *
   * @param requirePciSignPosMoto
   */ 
@@ -533,10 +533,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Get transferInstrumentLimit
+   * The maximum number of transfer instruments the user can create.
    * @return transferInstrumentLimit
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The maximum number of transfer instruments the user can create.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -546,7 +546,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * transferInstrumentLimit
+  * The maximum number of transfer instruments the user can create.
   *
   * @param transferInstrumentLimit
   */ 

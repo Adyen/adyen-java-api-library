@@ -266,6 +266,8 @@ public class TransferEvent {
     
     PAYMENTCOSTPENDING("paymentCostPending"),
     
+    PENDINGAPPROVAL("pendingApproval"),
+    
     RECEIVED("received"),
     
     REFUNDPENDING("refundPending"),
