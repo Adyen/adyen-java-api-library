@@ -369,6 +369,8 @@ public class TransferData {
     
     PAYMENTCOSTPENDING("paymentCostPending"),
     
+    PENDINGAPPROVAL("pendingApproval"),
+    
     RECEIVED("received"),
     
     REFUNDPENDING("refundPending"),
@@ -437,33 +439,15 @@ public class TransferData {
    * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    */
   public enum TypeEnum {
-    ATMWITHDRAWAL("atmWithdrawal"),
-    
-    ATMWITHDRAWALREVERSAL("atmWithdrawalReversal"),
-    
-    BALANCEADJUSTMENT("balanceAdjustment"),
-    
-    BALANCEMIGRATION("balanceMigration"),
-    
-    BALANCEROLLOVER("balanceRollover"),
-    
-    BANKDIRECTDEBIT("bankDirectDebit"),
-    
-    BANKTRANSFER("bankTransfer"),
-    
-    CAPITALFUNDSCOLLECTION("capitalFundsCollection"),
+    PAYMENT("payment"),
     
     CAPTURE("capture"),
     
     CAPTUREREVERSAL("captureReversal"),
     
-    CARDTRANSFER("cardTransfer"),
+    REFUND("refund"),
     
-    CASHOUTFEE("cashOutFee"),
-    
-    CASHOUTFUNDING("cashOutFunding"),
-    
-    CASHOUTINSTRUCTION("cashOutInstruction"),
+    REFUNDREVERSAL("refundReversal"),
     
     CHARGEBACK("chargeback"),
     
@@ -473,43 +457,63 @@ public class TransferData {
     
     CHARGEBACKREVERSALCORRECTION("chargebackReversalCorrection"),
     
+    SECONDCHARGEBACK("secondChargeback"),
+    
+    SECONDCHARGEBACKCORRECTION("secondChargebackCorrection"),
+    
+    ATMWITHDRAWAL("atmWithdrawal"),
+    
+    ATMWITHDRAWALREVERSAL("atmWithdrawalReversal"),
+    
+    INTERNALTRANSFER("internalTransfer"),
+    
+    INTERNALDIRECTDEBIT("internalDirectDebit"),
+    
+    MANUALCORRECTION("manualCorrection"),
+    
+    INVOICEDEDUCTION("invoiceDeduction"),
+    
     DEPOSITCORRECTION("depositCorrection"),
+    
+    RESERVEADJUSTMENT("reserveAdjustment"),
+    
+    BANKTRANSFER("bankTransfer"),
+    
+    BANKDIRECTDEBIT("bankDirectDebit"),
+    
+    CARDTRANSFER("cardTransfer"),
+    
+    MISCCOST("miscCost"),
+    
+    PAYMENTCOST("paymentCost"),
     
     FEE("fee"),
     
+    LEFTOVER("leftover"),
+    
     GRANT("grant"),
+    
+    CAPITALFUNDSCOLLECTION("capitalFundsCollection"),
+    
+    CASHOUTINSTRUCTION("cashOutInstruction"),
+    
+    CASHOUTFEE("cashoutFee"),
+    
+    CASHOUTREPAYMENT("cashoutRepayment"),
+    
+    CASHOUTFUNDING("cashoutFunding"),
+    
+    REPAYMENT("repayment"),
     
     INSTALLMENT("installment"),
     
     INSTALLMENTREVERSAL("installmentReversal"),
     
-    INTERNALDIRECTDEBIT("internalDirectDebit"),
+    BALANCEADJUSTMENT("balanceAdjustment"),
     
-    INTERNALTRANSFER("internalTransfer"),
+    BALANCEROLLOVER("balanceRollover"),
     
-    INVOICEDEDUCTION("invoiceDeduction"),
-    
-    LEFTOVER("leftover"),
-    
-    MANUALCORRECTION("manualCorrection"),
-    
-    MISCCOST("miscCost"),
-    
-    PAYMENT("payment"),
-    
-    PAYMENTCOST("paymentCost"),
-    
-    REFUND("refund"),
-    
-    REFUNDREVERSAL("refundReversal"),
-    
-    REPAYMENT("repayment"),
-    
-    RESERVEADJUSTMENT("reserveAdjustment"),
-    
-    SECONDCHARGEBACK("secondChargeback"),
-    
-    SECONDCHARGEBACKCORRECTION("secondChargebackCorrection");
+    BALANCEMIGRATION("balanceMigration");
 
     private String value;
 

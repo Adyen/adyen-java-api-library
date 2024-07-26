@@ -154,6 +154,8 @@ public class Modification {
     
     PAYMENTCOSTPENDING("paymentCostPending"),
     
+    PENDINGAPPROVAL("pendingApproval"),
+    
     RECEIVED("received"),
     
     REFUNDPENDING("refundPending"),

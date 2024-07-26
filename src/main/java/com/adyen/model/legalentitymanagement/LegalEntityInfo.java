@@ -386,10 +386,10 @@ public class LegalEntityInfo {
   }
 
    /**
-   * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/onboard-users#upfront).
+   * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    * @return verificationPlan
   **/
-  @ApiModelProperty(value = "A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/onboard-users#upfront).")
+  @ApiModelProperty(value = "A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -399,7 +399,7 @@ public class LegalEntityInfo {
 
 
  /**
-  * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/onboard-users#upfront).
+  * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
   *
   * @param verificationPlan
   */ 
