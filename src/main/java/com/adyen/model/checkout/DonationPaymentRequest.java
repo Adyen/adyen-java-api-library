@@ -65,6 +65,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   DonationPaymentRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
   DonationPaymentRequest.JSON_PROPERTY_DEVICE_FINGERPRINT,
   DonationPaymentRequest.JSON_PROPERTY_DONATION_ACCOUNT,
+  DonationPaymentRequest.JSON_PROPERTY_DONATION_CAMPAIGN_ID,
   DonationPaymentRequest.JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE,
   DonationPaymentRequest.JSON_PROPERTY_DONATION_TOKEN,
   DonationPaymentRequest.JSON_PROPERTY_LINE_ITEMS,
@@ -178,6 +179,9 @@ public class DonationPaymentRequest {
 
   public static final String JSON_PROPERTY_DONATION_ACCOUNT = "donationAccount";
   private String donationAccount;
+
+  public static final String JSON_PROPERTY_DONATION_CAMPAIGN_ID = "donationCampaignId";
+  private String donationCampaignId;
 
   public static final String JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE = "donationOriginalPspReference";
   private String donationOriginalPspReference;
@@ -823,6 +827,36 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
+  }
+
+
+  public DonationPaymentRequest donationCampaignId(String donationCampaignId) {
+    this.donationCampaignId = donationCampaignId;
+    return this;
+  }
+
+   /**
+   * The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
+   * @return donationCampaignId
+  **/
+  @ApiModelProperty(value = "The donation campaign ID received in the `/donationCampaigns` call.")
+  @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDonationCampaignId() {
+    return donationCampaignId;
+  }
+
+
+ /**
+  * The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
+  *
+  * @param donationCampaignId
+  */ 
+  @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDonationCampaignId(String donationCampaignId) {
+    this.donationCampaignId = donationCampaignId;
   }
 
 
@@ -1624,6 +1658,7 @@ public class DonationPaymentRequest {
         Objects.equals(this.deliveryAddress, donationPaymentRequest.deliveryAddress) &&
         Objects.equals(this.deviceFingerprint, donationPaymentRequest.deviceFingerprint) &&
         Objects.equals(this.donationAccount, donationPaymentRequest.donationAccount) &&
+        Objects.equals(this.donationCampaignId, donationPaymentRequest.donationCampaignId) &&
         Objects.equals(this.donationOriginalPspReference, donationPaymentRequest.donationOriginalPspReference) &&
         Objects.equals(this.donationToken, donationPaymentRequest.donationToken) &&
         Objects.equals(this.lineItems, donationPaymentRequest.lineItems) &&
@@ -1653,7 +1688,7 @@ public class DonationPaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, channel, checkoutAttemptId, conversionId, countryCode, dateOfBirth, deliverAt, deliveryAddress, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, lineItems, merchantAccount, merchantRiskIndicator, metadata, mpiData, origin, paymentMethod, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, socialSecurityNumber, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly);
+    return Objects.hash(accountInfo, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, channel, checkoutAttemptId, conversionId, countryCode, dateOfBirth, deliverAt, deliveryAddress, deviceFingerprint, donationAccount, donationCampaignId, donationOriginalPspReference, donationToken, lineItems, merchantAccount, merchantRiskIndicator, metadata, mpiData, origin, paymentMethod, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, socialSecurityNumber, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly);
   }
 
   @Override
@@ -1676,6 +1711,7 @@ public class DonationPaymentRequest {
     sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
     sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
     sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append("\n");
+    sb.append("    donationCampaignId: ").append(toIndentedString(donationCampaignId)).append("\n");
     sb.append("    donationOriginalPspReference: ").append(toIndentedString(donationOriginalPspReference)).append("\n");
     sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");

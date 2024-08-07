@@ -30,6 +30,7 @@ import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
+import com.adyen.model.management.TicketInfo;
 import com.adyen.model.management.TwintInfo;
 import com.adyen.model.management.VippsInfo;
 import com.adyen.model.management.WeChatPayInfo;
@@ -81,6 +82,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodSetupInfo.JSON_PROPERTY_SOFORT,
   PaymentMethodSetupInfo.JSON_PROPERTY_STORE_IDS,
   PaymentMethodSetupInfo.JSON_PROPERTY_SWISH,
+  PaymentMethodSetupInfo.JSON_PROPERTY_TICKET,
   PaymentMethodSetupInfo.JSON_PROPERTY_TWINT,
   PaymentMethodSetupInfo.JSON_PROPERTY_TYPE,
   PaymentMethodSetupInfo.JSON_PROPERTY_VIPPS,
@@ -219,6 +221,9 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_SWISH = "swish";
   private SwishInfo swish;
 
+  public static final String JSON_PROPERTY_TICKET = "ticket";
+  private TicketInfo ticket;
+
   public static final String JSON_PROPERTY_TWINT = "twint";
   private TwintInfo twint;
 
@@ -302,11 +307,17 @@ public class PaymentMethodSetupInfo {
     
     PAYBYBANK("paybybank"),
     
+    PAYNOW("paynow"),
+    
+    PAYNOW_POS("paynow_pos"),
+    
     PAYPAL("paypal"),
     
     PAYSHOP("payshop"),
     
     SWISH("swish"),
+    
+    TICKET("ticket"),
     
     TRUSTLY("trustly"),
     
@@ -1303,6 +1314,36 @@ public class PaymentMethodSetupInfo {
   }
 
 
+  public PaymentMethodSetupInfo ticket(TicketInfo ticket) {
+    this.ticket = ticket;
+    return this;
+  }
+
+   /**
+   * Get ticket
+   * @return ticket
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TICKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TicketInfo getTicket() {
+    return ticket;
+  }
+
+
+ /**
+  * ticket
+  *
+  * @param ticket
+  */ 
+  @JsonProperty(JSON_PROPERTY_TICKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTicket(TicketInfo ticket) {
+    this.ticket = ticket;
+  }
+
+
   public PaymentMethodSetupInfo twint(TwintInfo twint) {
     this.twint = twint;
     return this;
@@ -1525,6 +1566,7 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.sofort, paymentMethodSetupInfo.sofort) &&
         Objects.equals(this.storeIds, paymentMethodSetupInfo.storeIds) &&
         Objects.equals(this.swish, paymentMethodSetupInfo.swish) &&
+        Objects.equals(this.ticket, paymentMethodSetupInfo.ticket) &&
         Objects.equals(this.twint, paymentMethodSetupInfo.twint) &&
         Objects.equals(this.type, paymentMethodSetupInfo.type) &&
         Objects.equals(this.vipps, paymentMethodSetupInfo.vipps) &&
@@ -1535,7 +1577,7 @@ public class PaymentMethodSetupInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, giroPay, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, twint, type, vipps, visa, wechatpay, wechatpayPos);
+    return Objects.hash(afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, giroPay, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, ticket, twint, type, vipps, visa, wechatpay, wechatpayPos);
   }
 
   @Override
@@ -1572,6 +1614,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
+    sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");
     sb.append("    twint: ").append(toIndentedString(twint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");

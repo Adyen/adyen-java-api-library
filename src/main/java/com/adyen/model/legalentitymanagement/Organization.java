@@ -39,6 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * Organization
  */
 @JsonPropertyOrder({
+  Organization.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
   Organization.JSON_PROPERTY_DATE_OF_INCORPORATION,
   Organization.JSON_PROPERTY_DESCRIPTION,
   Organization.JSON_PROPERTY_DOING_BUSINESS_AS,
@@ -58,6 +59,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class Organization {
+  public static final String JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW = "countryOfGoverningLaw";
+  private String countryOfGoverningLaw;
+
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
 
@@ -186,6 +190,36 @@ public class Organization {
 
   public Organization() { 
   }
+
+  public Organization countryOfGoverningLaw(String countryOfGoverningLaw) {
+    this.countryOfGoverningLaw = countryOfGoverningLaw;
+    return this;
+  }
+
+   /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
+   * @return countryOfGoverningLaw
+  **/
+  @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
+  @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCountryOfGoverningLaw() {
+    return countryOfGoverningLaw;
+  }
+
+
+ /**
+  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
+  *
+  * @param countryOfGoverningLaw
+  */ 
+  @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
+    this.countryOfGoverningLaw = countryOfGoverningLaw;
+  }
+
 
   public Organization dateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
@@ -687,7 +721,8 @@ public class Organization {
       return false;
     }
     Organization organization = (Organization) o;
-    return Objects.equals(this.dateOfIncorporation, organization.dateOfIncorporation) &&
+    return Objects.equals(this.countryOfGoverningLaw, organization.countryOfGoverningLaw) &&
+        Objects.equals(this.dateOfIncorporation, organization.dateOfIncorporation) &&
         Objects.equals(this.description, organization.description) &&
         Objects.equals(this.doingBusinessAs, organization.doingBusinessAs) &&
         Objects.equals(this.email, organization.email) &&
@@ -707,13 +742,14 @@ public class Organization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateOfIncorporation, description, doingBusinessAs, email, legalName, phone, principalPlaceOfBusiness, registeredAddress, registrationNumber, stockData, taxInformation, taxReportingClassification, type, vatAbsenceReason, vatNumber, webData);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, email, legalName, phone, principalPlaceOfBusiness, registeredAddress, registrationNumber, stockData, taxInformation, taxReportingClassification, type, vatAbsenceReason, vatNumber, webData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Organization {\n");
+    sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
     sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");

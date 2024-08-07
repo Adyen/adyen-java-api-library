@@ -58,8 +58,6 @@ public class StoredPaymentMethodDetails {
     
     BCMC_MOBILE_APP("bcmc_mobile_app"),
     
-    BANKTRANSFER_IBAN("bankTransfer_IBAN"),
-    
     MOMO_WALLET("momo_wallet"),
     
     MOMO_WALLET_APP("momo_wallet_app"),

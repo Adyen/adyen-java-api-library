@@ -109,6 +109,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CreateCheckoutSessionResponse.JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES,
   CreateCheckoutSessionResponse.JSON_PROPERTY_SPLITS,
   CreateCheckoutSessionResponse.JSON_PROPERTY_STORE,
+  CreateCheckoutSessionResponse.JSON_PROPERTY_STORE_FILTRATION_MODE,
   CreateCheckoutSessionResponse.JSON_PROPERTY_STORE_PAYMENT_METHOD,
   CreateCheckoutSessionResponse.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   CreateCheckoutSessionResponse.JSON_PROPERTY_TELEPHONE_NUMBER,
@@ -432,6 +433,46 @@ public class CreateCheckoutSessionResponse {
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /**
+   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.   - &#39;skipFilter&#39;: All payment methods are returned, regardless of store association.
+   */
+  public enum StoreFiltrationModeEnum {
+    EXCLUSIVE("exclusive"),
+    
+    INCLUSIVE("inclusive"),
+    
+    SKIPFILTER("skipFilter");
+
+    private String value;
+
+    StoreFiltrationModeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StoreFiltrationModeEnum fromValue(String value) {
+      for (StoreFiltrationModeEnum b : StoreFiltrationModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_STORE_FILTRATION_MODE = "storeFiltrationMode";
+  private StoreFiltrationModeEnum storeFiltrationMode;
 
   public static final String JSON_PROPERTY_STORE_PAYMENT_METHOD = "storePaymentMethod";
   private Boolean storePaymentMethod;
@@ -2204,6 +2245,36 @@ public class CreateCheckoutSessionResponse {
   }
 
 
+  public CreateCheckoutSessionResponse storeFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
+    this.storeFiltrationMode = storeFiltrationMode;
+    return this;
+  }
+
+   /**
+   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.   - &#39;skipFilter&#39;: All payment methods are returned, regardless of store association.
+   * @return storeFiltrationMode
+  **/
+  @ApiModelProperty(value = "Specifies how payment methods should be filtered based on the 'store' parameter:   - 'exclusive': Only payment methods belonging to the specified 'store' are returned.   - 'inclusive': Payment methods from the 'store' and those not associated with any other store are returned.   - 'skipFilter': All payment methods are returned, regardless of store association.")
+  @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StoreFiltrationModeEnum getStoreFiltrationMode() {
+    return storeFiltrationMode;
+  }
+
+
+ /**
+  * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.   - &#39;skipFilter&#39;: All payment methods are returned, regardless of store association.
+  *
+  * @param storeFiltrationMode
+  */ 
+  @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoreFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
+    this.storeFiltrationMode = storeFiltrationMode;
+  }
+
+
   public CreateCheckoutSessionResponse storePaymentMethod(Boolean storePaymentMethod) {
     this.storePaymentMethod = storePaymentMethod;
     return this;
@@ -2515,6 +2586,7 @@ public class CreateCheckoutSessionResponse {
         Objects.equals(this.splitCardFundingSources, createCheckoutSessionResponse.splitCardFundingSources) &&
         Objects.equals(this.splits, createCheckoutSessionResponse.splits) &&
         Objects.equals(this.store, createCheckoutSessionResponse.store) &&
+        Objects.equals(this.storeFiltrationMode, createCheckoutSessionResponse.storeFiltrationMode) &&
         Objects.equals(this.storePaymentMethod, createCheckoutSessionResponse.storePaymentMethod) &&
         Objects.equals(this.storePaymentMethodMode, createCheckoutSessionResponse.storePaymentMethodMode) &&
         Objects.equals(this.telephoneNumber, createCheckoutSessionResponse.telephoneNumber) &&
@@ -2527,7 +2599,7 @@ public class CreateCheckoutSessionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, id, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storePaymentMethod, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper, url);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, fundOrigin, fundRecipient, id, installmentOptions, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mode, mpiData, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, showInstallmentAmount, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, store, storeFiltrationMode, storePaymentMethod, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper, url);
   }
 
   @Override
@@ -2589,6 +2661,7 @@ public class CreateCheckoutSessionResponse {
     sb.append("    splitCardFundingSources: ").append(toIndentedString(splitCardFundingSources)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
+    sb.append("    storeFiltrationMode: ").append(toIndentedString(storeFiltrationMode)).append("\n");
     sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
     sb.append("    storePaymentMethodMode: ").append(toIndentedString(storePaymentMethodMode)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");

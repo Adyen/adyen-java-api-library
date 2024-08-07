@@ -47,6 +47,8 @@ public class PaymentDetails {
     
     MULTIBANCO("multibanco"),
     
+    BANKTRANSFER_IBAN("bankTransfer_IBAN"),
+    
     PAYBRIGHT("paybright"),
     
     PAYNOW("paynow"),

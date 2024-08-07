@@ -144,7 +144,7 @@ public class PaymentsAppApi extends Service {
     * Get a list of Payments Apps - merchant level
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-    * @param statuses {@link String } Query: The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses.   Possible values:  * **BOARDED**   * **REVOKED** (optional)
+    * @param statuses {@link String } Query: The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses.   Possible values:  * **BOARDING**   * **BOARDED**   * **REVOKED** (optional)
     * @param limit {@link Integer } Query: The number of items to return. (optional, default to 10)
     * @param offset {@link Long } Query: The number of items to skip. (optional, default to 0)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
@@ -193,7 +193,7 @@ public class PaymentsAppApi extends Service {
     *
     * @param merchantId {@link String } The unique identifier of the merchant account. (required)
     * @param storeId {@link String } The unique identifier of the store. (required)
-    * @param statuses {@link String } Query: The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses.   Possible values:  * **BOARDED**   * **REVOKED** (optional)
+    * @param statuses {@link String } Query: The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses.   Possible values:  * **BOARDING**   * **BOARDED**   * **REVOKED** (optional)
     * @param limit {@link Integer } Query: The number of items to return. (optional, default to 10)
     * @param offset {@link Long } Query: The number of items to skip. (optional, default to 0)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)

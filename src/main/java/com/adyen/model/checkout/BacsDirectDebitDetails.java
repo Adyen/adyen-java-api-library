@@ -37,6 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   BacsDirectDebitDetails.JSON_PROPERTY_HOLDER_NAME,
   BacsDirectDebitDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   BacsDirectDebitDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  BacsDirectDebitDetails.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
   BacsDirectDebitDetails.JSON_PROPERTY_TYPE
 })
 
@@ -59,6 +60,9 @@ public class BacsDirectDebitDetails {
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
+  private String transferInstrumentId;
 
   /**
    * **directdebit_GB**
@@ -283,6 +287,36 @@ public class BacsDirectDebitDetails {
   }
 
 
+  public BacsDirectDebitDetails transferInstrumentId(String transferInstrumentId) {
+    this.transferInstrumentId = transferInstrumentId;
+    return this;
+  }
+
+   /**
+   * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
+   * @return transferInstrumentId
+  **/
+  @ApiModelProperty(value = "The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTransferInstrumentId() {
+    return transferInstrumentId;
+  }
+
+
+ /**
+  * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
+  *
+  * @param transferInstrumentId
+  */ 
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransferInstrumentId(String transferInstrumentId) {
+    this.transferInstrumentId = transferInstrumentId;
+  }
+
+
   public BacsDirectDebitDetails type(TypeEnum type) {
     this.type = type;
     return this;
@@ -331,12 +365,13 @@ public class BacsDirectDebitDetails {
         Objects.equals(this.holderName, bacsDirectDebitDetails.holderName) &&
         Objects.equals(this.recurringDetailReference, bacsDirectDebitDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, bacsDirectDebitDetails.storedPaymentMethodId) &&
+        Objects.equals(this.transferInstrumentId, bacsDirectDebitDetails.transferInstrumentId) &&
         Objects.equals(this.type, bacsDirectDebitDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccountNumber, bankLocationId, checkoutAttemptId, holderName, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(bankAccountNumber, bankLocationId, checkoutAttemptId, holderName, recurringDetailReference, storedPaymentMethodId, transferInstrumentId, type);
   }
 
   @Override
@@ -349,6 +384,7 @@ public class BacsDirectDebitDetails {
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    transferInstrumentId: ").append(toIndentedString(transferInstrumentId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
