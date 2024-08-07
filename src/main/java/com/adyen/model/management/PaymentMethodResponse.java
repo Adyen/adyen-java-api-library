@@ -135,11 +135,17 @@ public class PaymentMethodResponse {
     
     PAYBYBANK("paybybank"),
     
+    PAYNOW("paynow"),
+    
+    PAYNOW_POS("paynow_pos"),
+    
     PAYPAL("paypal"),
     
     PAYSHOP("payshop"),
     
     SWISH("swish"),
+    
+    TICKET("ticket"),
     
     TRUSTLY("trustly"),
     

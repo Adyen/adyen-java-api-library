@@ -14,6 +14,8 @@ package com.adyen.service.checkout;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.checkout.DonationCampaignsRequest;
+import com.adyen.model.checkout.DonationCampaignsResponse;
 import com.adyen.model.checkout.DonationPaymentRequest;
 import com.adyen.model.checkout.DonationPaymentResponse;
 import com.adyen.model.checkout.ServiceError;
@@ -49,6 +51,33 @@ public class DonationsApi extends Service {
     public DonationsApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
+    }
+
+    /**
+    * Get a list of donation campaigns.
+    *
+    * @param donationCampaignsRequest {@link DonationCampaignsRequest }  (required)
+    * @return {@link DonationCampaignsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public DonationCampaignsResponse donationCampaigns(DonationCampaignsRequest donationCampaignsRequest) throws ApiException, IOException {
+        return donationCampaigns(donationCampaignsRequest, null);
+    }
+
+    /**
+    * Get a list of donation campaigns.
+    *
+    * @param donationCampaignsRequest {@link DonationCampaignsRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link DonationCampaignsResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public DonationCampaignsResponse donationCampaigns(DonationCampaignsRequest donationCampaignsRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = donationCampaignsRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/donationCampaigns", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+        return DonationCampaignsResponse.fromJson(jsonResult);
     }
 
     /**

@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.BankAccountV3;
+import com.adyen.model.transferwebhooks.Card;
 import com.adyen.model.transferwebhooks.TransferNotificationMerchantData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   TransferNotificationCounterParty.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
   TransferNotificationCounterParty.JSON_PROPERTY_BANK_ACCOUNT,
+  TransferNotificationCounterParty.JSON_PROPERTY_CARD,
   TransferNotificationCounterParty.JSON_PROPERTY_MERCHANT,
   TransferNotificationCounterParty.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID
 })
@@ -45,6 +47,9 @@ public class TransferNotificationCounterParty {
 
   public static final String JSON_PROPERTY_BANK_ACCOUNT = "bankAccount";
   private BankAccountV3 bankAccount;
+
+  public static final String JSON_PROPERTY_CARD = "card";
+  private Card card;
 
   public static final String JSON_PROPERTY_MERCHANT = "merchant";
   private TransferNotificationMerchantData merchant;
@@ -61,10 +66,10 @@ public class TransferNotificationCounterParty {
   }
 
    /**
-   * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
+   * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
    * @return balanceAccountId
   **/
-  @ApiModelProperty(value = "The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
+  @ApiModelProperty(value = "The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -74,7 +79,7 @@ public class TransferNotificationCounterParty {
 
 
  /**
-  * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
+  * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
   *
   * @param balanceAccountId
   */ 
@@ -115,6 +120,36 @@ public class TransferNotificationCounterParty {
   }
 
 
+  public TransferNotificationCounterParty card(Card card) {
+    this.card = card;
+    return this;
+  }
+
+   /**
+   * Get card
+   * @return card
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Card getCard() {
+    return card;
+  }
+
+
+ /**
+  * card
+  *
+  * @param card
+  */ 
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCard(Card card) {
+    this.card = card;
+  }
+
+
   public TransferNotificationCounterParty merchant(TransferNotificationMerchantData merchant) {
     this.merchant = merchant;
     return this;
@@ -151,10 +186,10 @@ public class TransferNotificationCounterParty {
   }
 
    /**
-   * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
    * @return transferInstrumentId
   **/
-  @ApiModelProperty(value = "The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
+  @ApiModelProperty(value = "The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -164,7 +199,7 @@ public class TransferNotificationCounterParty {
 
 
  /**
-  * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+  * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
   *
   * @param transferInstrumentId
   */ 
@@ -189,13 +224,14 @@ public class TransferNotificationCounterParty {
     TransferNotificationCounterParty transferNotificationCounterParty = (TransferNotificationCounterParty) o;
     return Objects.equals(this.balanceAccountId, transferNotificationCounterParty.balanceAccountId) &&
         Objects.equals(this.bankAccount, transferNotificationCounterParty.bankAccount) &&
+        Objects.equals(this.card, transferNotificationCounterParty.card) &&
         Objects.equals(this.merchant, transferNotificationCounterParty.merchant) &&
         Objects.equals(this.transferInstrumentId, transferNotificationCounterParty.transferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, bankAccount, merchant, transferInstrumentId);
+    return Objects.hash(balanceAccountId, bankAccount, card, merchant, transferInstrumentId);
   }
 
   @Override
@@ -204,6 +240,7 @@ public class TransferNotificationCounterParty {
     sb.append("class TransferNotificationCounterParty {\n");
     sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+    sb.append("    card: ").append(toIndentedString(card)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    transferInstrumentId: ").append(toIndentedString(transferInstrumentId)).append("\n");
     sb.append("}");
