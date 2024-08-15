@@ -67,6 +67,9 @@ public class Service {
             url = url.replaceFirst("https://checkout-test.adyen.com/",
                     "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/checkout/");
         }
-        return url.replaceFirst("-test", "-live");
+        
+        url = url.replace("-test", "-live");
+    } else {
+        url = url.replace("-live", "-test");
     }
 }
