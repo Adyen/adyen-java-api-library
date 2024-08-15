@@ -49,6 +49,7 @@ public class Service {
     protected String createBaseURL(String url) {
         Config config = this.getClient().getConfig();
         if (config.getEnvironment() != Environment.LIVE) {
+            url = url.replace("-live", "-test");
             return url;
         }
 
@@ -67,9 +68,7 @@ public class Service {
             url = url.replaceFirst("https://checkout-test.adyen.com/",
                     "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/checkout/");
         }
-        
+
         url = url.replace("-test", "-live");
-    } else {
-        url = url.replace("-live", "-test");
-    }
+    } 
 }
