@@ -40,6 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AchDetails.JSON_PROPERTY_OWNER_NAME,
   AchDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   AchDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  AchDetails.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
   AchDetails.JSON_PROPERTY_TYPE
 })
 
@@ -116,6 +117,9 @@ public class AchDetails {
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
+  private String transferInstrumentId;
 
   /**
    * **ach**
@@ -432,6 +436,36 @@ public class AchDetails {
   }
 
 
+  public AchDetails transferInstrumentId(String transferInstrumentId) {
+    this.transferInstrumentId = transferInstrumentId;
+    return this;
+  }
+
+   /**
+   * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
+   * @return transferInstrumentId
+  **/
+  @ApiModelProperty(value = "The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTransferInstrumentId() {
+    return transferInstrumentId;
+  }
+
+
+ /**
+  * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
+  *
+  * @param transferInstrumentId
+  */ 
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransferInstrumentId(String transferInstrumentId) {
+    this.transferInstrumentId = transferInstrumentId;
+  }
+
+
   public AchDetails type(TypeEnum type) {
     this.type = type;
     return this;
@@ -483,12 +517,13 @@ public class AchDetails {
         Objects.equals(this.ownerName, achDetails.ownerName) &&
         Objects.equals(this.recurringDetailReference, achDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, achDetails.storedPaymentMethodId) &&
+        Objects.equals(this.transferInstrumentId, achDetails.transferInstrumentId) &&
         Objects.equals(this.type, achDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccountNumber, bankAccountType, bankLocationId, checkoutAttemptId, encryptedBankAccountNumber, encryptedBankLocationId, ownerName, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(bankAccountNumber, bankAccountType, bankLocationId, checkoutAttemptId, encryptedBankAccountNumber, encryptedBankLocationId, ownerName, recurringDetailReference, storedPaymentMethodId, transferInstrumentId, type);
   }
 
   @Override
@@ -504,6 +539,7 @@ public class AchDetails {
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    transferInstrumentId: ").append(toIndentedString(transferInstrumentId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

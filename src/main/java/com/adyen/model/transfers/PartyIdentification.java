@@ -62,7 +62,7 @@ public class PartyIdentification {
   private String reference;
 
   /**
-   * The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.
+   * The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
    */
   public enum TypeEnum {
     INDIVIDUAL("individual"),
@@ -140,10 +140,10 @@ public class PartyIdentification {
   }
 
    /**
-   * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before January 1, 1900.  Allowed only when &#x60;type&#x60; is **individual**.
+   * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
    * @return dateOfBirth
   **/
-  @ApiModelProperty(value = "The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before January 1, 1900.  Allowed only when `type` is **individual**.")
+  @ApiModelProperty(value = "The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when `type` is **individual**.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -153,7 +153,7 @@ public class PartyIdentification {
 
 
  /**
-  * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**. Should not be before January 1, 1900.  Allowed only when &#x60;type&#x60; is **individual**.
+  * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
   *
   * @param dateOfBirth
   */ 
@@ -170,10 +170,10 @@ public class PartyIdentification {
   }
 
    /**
-   * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
+   * The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    * @return firstName
   **/
-  @ApiModelProperty(value = "First name of the individual.  Allowed only when `type` is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. ")
+  @ApiModelProperty(value = "The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when `type` is **individual**. - Required when `category` is **card**.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,7 +183,7 @@ public class PartyIdentification {
 
 
  /**
-  * First name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
+  * The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
   *
   * @param firstName
   */ 
@@ -200,10 +200,10 @@ public class PartyIdentification {
   }
 
    /**
-   * The name of the entity.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and Space. 
+   * The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
    * @return fullName
   **/
-  @ApiModelProperty(required = true, value = "The name of the entity.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + & ! ? @ ( ) \" ' and Space. ")
+  @ApiModelProperty(value = "The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + & ! ? @ ( ) \" ' and space.  Required when `category` is **bank**.")
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -213,7 +213,7 @@ public class PartyIdentification {
 
 
  /**
-  * The name of the entity.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and Space. 
+  * The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
   *
   * @param fullName
   */ 
@@ -230,10 +230,10 @@ public class PartyIdentification {
   }
 
    /**
-   * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
+   * The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    * @return lastName
   **/
-  @ApiModelProperty(value = "Last name of the individual.  Allowed only when `type` is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. ")
+  @ApiModelProperty(value = "The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when `type` is **individual**. - Required when `category` is **card**.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -243,7 +243,7 @@ public class PartyIdentification {
 
 
  /**
-  * Last name of the individual.  Allowed only when &#x60;type&#x60; is **individual**.  Supported characters: [a-z] [A-Z] - . / — and Space. 
+  * The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
   *
   * @param lastName
   */ 
@@ -260,10 +260,10 @@ public class PartyIdentification {
   }
 
    /**
-   * A unique reference to identify the party or counterparty involved in transfers. This identifier ensures consistency and uniqueness throughout all transactions initiated to and from the same party. For example, your client&#39;s unique wallet or payee ID.
+   * A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
    * @return reference
   **/
-  @ApiModelProperty(value = "A unique reference to identify the party or counterparty involved in transfers. This identifier ensures consistency and uniqueness throughout all transactions initiated to and from the same party. For example, your client's unique wallet or payee ID.")
+  @ApiModelProperty(value = "A unique reference to identify the party or counterparty involved in the transfer. For example, your client's unique wallet or payee ID.  Required when you include `cardIdentification.storedPaymentMethodId`.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -273,7 +273,7 @@ public class PartyIdentification {
 
 
  /**
-  * A unique reference to identify the party or counterparty involved in transfers. This identifier ensures consistency and uniqueness throughout all transactions initiated to and from the same party. For example, your client&#39;s unique wallet or payee ID.
+  * A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
   *
   * @param reference
   */ 
@@ -290,10 +290,10 @@ public class PartyIdentification {
   }
 
    /**
-   * The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.
+   * The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
    * @return type
   **/
-  @ApiModelProperty(value = "The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.")
+  @ApiModelProperty(value = "The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when `category` is **card**. In this case, the value must be **individual**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -303,7 +303,7 @@ public class PartyIdentification {
 
 
  /**
-  * The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.
+  * The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
   *
   * @param type
   */ 

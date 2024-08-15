@@ -36,6 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   SepaDirectDebitDetails.JSON_PROPERTY_OWNER_NAME,
   SepaDirectDebitDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   SepaDirectDebitDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  SepaDirectDebitDetails.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
   SepaDirectDebitDetails.JSON_PROPERTY_TYPE
 })
 
@@ -55,6 +56,9 @@ public class SepaDirectDebitDetails {
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
+  private String transferInstrumentId;
 
   /**
    * **sepadirectdebit**
@@ -251,6 +255,36 @@ public class SepaDirectDebitDetails {
   }
 
 
+  public SepaDirectDebitDetails transferInstrumentId(String transferInstrumentId) {
+    this.transferInstrumentId = transferInstrumentId;
+    return this;
+  }
+
+   /**
+   * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
+   * @return transferInstrumentId
+  **/
+  @ApiModelProperty(value = "The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.")
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTransferInstrumentId() {
+    return transferInstrumentId;
+  }
+
+
+ /**
+  * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
+  *
+  * @param transferInstrumentId
+  */ 
+  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransferInstrumentId(String transferInstrumentId) {
+    this.transferInstrumentId = transferInstrumentId;
+  }
+
+
   public SepaDirectDebitDetails type(TypeEnum type) {
     this.type = type;
     return this;
@@ -298,12 +332,13 @@ public class SepaDirectDebitDetails {
         Objects.equals(this.ownerName, sepaDirectDebitDetails.ownerName) &&
         Objects.equals(this.recurringDetailReference, sepaDirectDebitDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, sepaDirectDebitDetails.storedPaymentMethodId) &&
+        Objects.equals(this.transferInstrumentId, sepaDirectDebitDetails.transferInstrumentId) &&
         Objects.equals(this.type, sepaDirectDebitDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, iban, ownerName, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, iban, ownerName, recurringDetailReference, storedPaymentMethodId, transferInstrumentId, type);
   }
 
   @Override
@@ -315,6 +350,7 @@ public class SepaDirectDebitDetails {
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    transferInstrumentId: ").append(toIndentedString(transferInstrumentId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

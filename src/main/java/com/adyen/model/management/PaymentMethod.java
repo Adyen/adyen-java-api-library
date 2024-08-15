@@ -30,6 +30,7 @@ import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
+import com.adyen.model.management.TicketInfo;
 import com.adyen.model.management.TwintInfo;
 import com.adyen.model.management.VippsInfo;
 import com.adyen.model.management.WeChatPayInfo;
@@ -84,6 +85,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethod.JSON_PROPERTY_SOFORT,
   PaymentMethod.JSON_PROPERTY_STORE_IDS,
   PaymentMethod.JSON_PROPERTY_SWISH,
+  PaymentMethod.JSON_PROPERTY_TICKET,
   PaymentMethod.JSON_PROPERTY_TWINT,
   PaymentMethod.JSON_PROPERTY_TYPE,
   PaymentMethod.JSON_PROPERTY_VERIFICATION_STATUS,
@@ -192,6 +194,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_SWISH = "swish";
   private SwishInfo swish;
+
+  public static final String JSON_PROPERTY_TICKET = "ticket";
+  private TicketInfo ticket;
 
   public static final String JSON_PROPERTY_TWINT = "twint";
   private TwintInfo twint;
@@ -1278,6 +1283,36 @@ public class PaymentMethod {
   }
 
 
+  public PaymentMethod ticket(TicketInfo ticket) {
+    this.ticket = ticket;
+    return this;
+  }
+
+   /**
+   * Get ticket
+   * @return ticket
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TICKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TicketInfo getTicket() {
+    return ticket;
+  }
+
+
+ /**
+  * ticket
+  *
+  * @param ticket
+  */ 
+  @JsonProperty(JSON_PROPERTY_TICKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTicket(TicketInfo ticket) {
+    this.ticket = ticket;
+  }
+
+
   public PaymentMethod twint(TwintInfo twint) {
     this.twint = twint;
     return this;
@@ -1533,6 +1568,7 @@ public class PaymentMethod {
         Objects.equals(this.sofort, paymentMethod.sofort) &&
         Objects.equals(this.storeIds, paymentMethod.storeIds) &&
         Objects.equals(this.swish, paymentMethod.swish) &&
+        Objects.equals(this.ticket, paymentMethod.ticket) &&
         Objects.equals(this.twint, paymentMethod.twint) &&
         Objects.equals(this.type, paymentMethod.type) &&
         Objects.equals(this.verificationStatus, paymentMethod.verificationStatus) &&
@@ -1544,7 +1580,7 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterpayTouch, allowed, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, giroPay, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, twint, type, verificationStatus, vipps, visa, wechatpay, wechatpayPos);
+    return Objects.hash(afterpayTouch, allowed, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, giroPay, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, ticket, twint, type, verificationStatus, vipps, visa, wechatpay, wechatpayPos);
   }
 
   @Override
@@ -1584,6 +1620,7 @@ public class PaymentMethod {
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
+    sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");
     sb.append("    twint: ").append(toIndentedString(twint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
