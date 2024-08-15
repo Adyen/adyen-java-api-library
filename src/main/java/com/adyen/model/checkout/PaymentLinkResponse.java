@@ -20,6 +20,8 @@ import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.CheckoutSessionThreeDS2RequestData;
+import com.adyen.model.checkout.FundOrigin;
+import com.adyen.model.checkout.FundRecipient;
 import com.adyen.model.checkout.InstallmentOption;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.Name;
@@ -59,6 +61,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentLinkResponse.JSON_PROPERTY_DELIVERY_ADDRESS,
   PaymentLinkResponse.JSON_PROPERTY_DESCRIPTION,
   PaymentLinkResponse.JSON_PROPERTY_EXPIRES_AT,
+  PaymentLinkResponse.JSON_PROPERTY_FUND_ORIGIN,
+  PaymentLinkResponse.JSON_PROPERTY_FUND_RECIPIENT,
   PaymentLinkResponse.JSON_PROPERTY_ID,
   PaymentLinkResponse.JSON_PROPERTY_INSTALLMENT_OPTIONS,
   PaymentLinkResponse.JSON_PROPERTY_LINE_ITEMS,
@@ -129,6 +133,12 @@ public class PaymentLinkResponse {
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
+
+  public static final String JSON_PROPERTY_FUND_ORIGIN = "fundOrigin";
+  private FundOrigin fundOrigin;
+
+  public static final String JSON_PROPERTY_FUND_RECIPIENT = "fundRecipient";
+  private FundRecipient fundRecipient;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -758,6 +768,66 @@ public class PaymentLinkResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
+  }
+
+
+  public PaymentLinkResponse fundOrigin(FundOrigin fundOrigin) {
+    this.fundOrigin = fundOrigin;
+    return this;
+  }
+
+   /**
+   * Get fundOrigin
+   * @return fundOrigin
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FUND_ORIGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FundOrigin getFundOrigin() {
+    return fundOrigin;
+  }
+
+
+ /**
+  * fundOrigin
+  *
+  * @param fundOrigin
+  */ 
+  @JsonProperty(JSON_PROPERTY_FUND_ORIGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFundOrigin(FundOrigin fundOrigin) {
+    this.fundOrigin = fundOrigin;
+  }
+
+
+  public PaymentLinkResponse fundRecipient(FundRecipient fundRecipient) {
+    this.fundRecipient = fundRecipient;
+    return this;
+  }
+
+   /**
+   * Get fundRecipient
+   * @return fundRecipient
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FUND_RECIPIENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FundRecipient getFundRecipient() {
+    return fundRecipient;
+  }
+
+
+ /**
+  * fundRecipient
+  *
+  * @param fundRecipient
+  */ 
+  @JsonProperty(JSON_PROPERTY_FUND_RECIPIENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFundRecipient(FundRecipient fundRecipient) {
+    this.fundRecipient = fundRecipient;
   }
 
 
@@ -1785,6 +1855,8 @@ public class PaymentLinkResponse {
         Objects.equals(this.deliveryAddress, paymentLinkResponse.deliveryAddress) &&
         Objects.equals(this.description, paymentLinkResponse.description) &&
         Objects.equals(this.expiresAt, paymentLinkResponse.expiresAt) &&
+        Objects.equals(this.fundOrigin, paymentLinkResponse.fundOrigin) &&
+        Objects.equals(this.fundRecipient, paymentLinkResponse.fundRecipient) &&
         Objects.equals(this.id, paymentLinkResponse.id) &&
         Objects.equals(this.installmentOptions, paymentLinkResponse.installmentOptions) &&
         Objects.equals(this.lineItems, paymentLinkResponse.lineItems) &&
@@ -1821,7 +1893,7 @@ public class PaymentLinkResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, id, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, platformChargebackLogic, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, status, store, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData, updatedAt, url);
+    return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, countryCode, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, fundOrigin, fundRecipient, id, installmentOptions, lineItems, manualCapture, mcc, merchantAccount, merchantOrderReference, metadata, platformChargebackLogic, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, shopperStatement, showRemovePaymentMethodButton, socialSecurityNumber, splitCardFundingSources, splits, status, store, storePaymentMethodMode, telephoneNumber, themeId, threeDS2RequestData, updatedAt, url);
   }
 
   @Override
@@ -1840,6 +1912,8 @@ public class PaymentLinkResponse {
     sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    fundOrigin: ").append(toIndentedString(fundOrigin)).append("\n");
+    sb.append("    fundRecipient: ").append(toIndentedString(fundRecipient)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    installmentOptions: ").append(toIndentedString(installmentOptions)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");

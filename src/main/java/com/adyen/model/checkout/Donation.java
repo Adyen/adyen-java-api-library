@@ -91,10 +91,10 @@ public class Donation {
   }
 
    /**
-   * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).\&quot;Possible values:\\n\\n**roundup**: a donation where the original transaction amount is rounded up as a donation.**fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.
+   * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.
    * @return donationType
   **/
-  @ApiModelProperty(required = true, value = "The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).\"Possible values:\\n\\n**roundup**: a donation where the original transaction amount is rounded up as a donation.**fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.")
+  @ApiModelProperty(required = true, value = "The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.")
   @JsonProperty(JSON_PROPERTY_DONATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -104,7 +104,7 @@ public class Donation {
 
 
  /**
-  * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).\&quot;Possible values:\\n\\n**roundup**: a donation where the original transaction amount is rounded up as a donation.**fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.
+  * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.
   *
   * @param donationType
   */ 

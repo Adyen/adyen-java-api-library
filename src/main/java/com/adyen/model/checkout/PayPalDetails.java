@@ -69,6 +69,8 @@ public class PayPalDetails {
    * The type of flow to initiate.
    */
   public enum SubtypeEnum {
+    EXPRESS("express"),
+    
     REDIRECT("redirect"),
     
     SDK("sdk");
