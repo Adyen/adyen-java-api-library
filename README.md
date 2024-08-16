@@ -68,7 +68,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>28.0.0</version>
+  <version>28.1.0</version>
 </dependency>
 ```
 
@@ -240,7 +240,7 @@ client.setHttpClient(adyenHttpClientWithProxy);
 If your proxy requires authentication, set all the settings as system properties instead (don't mix with previous approach), for example: 
 
 ~~~~ java
-System.setProperty("https.proxyHost", "128.0.0.1");
+System.setProperty("https.proxyHost", "128.1.0.1");
 System.setProperty("https.proxyPort", "3128");
 System.setProperty("https.proxyUser", "squid");
 System.setProperty("https.proxyPassword", "ward");
