@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * FundRecipient
  */
 @JsonPropertyOrder({
+  FundRecipient.JSON_PROPERTY_I_B_A_N,
   FundRecipient.JSON_PROPERTY_BILLING_ADDRESS,
   FundRecipient.JSON_PROPERTY_PAYMENT_METHOD,
   FundRecipient.JSON_PROPERTY_SHOPPER_EMAIL,
@@ -48,6 +49,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class FundRecipient {
+  public static final String JSON_PROPERTY_I_B_A_N = "IBAN";
+  private String IBAN;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
@@ -80,6 +84,36 @@ public class FundRecipient {
 
   public FundRecipient() { 
   }
+
+  public FundRecipient IBAN(String IBAN) {
+    this.IBAN = IBAN;
+    return this;
+  }
+
+   /**
+   * Fund Recipient Iban for C2C payments
+   * @return IBAN
+  **/
+  @ApiModelProperty(value = "Fund Recipient Iban for C2C payments")
+  @JsonProperty(JSON_PROPERTY_I_B_A_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getIBAN() {
+    return IBAN;
+  }
+
+
+ /**
+  * Fund Recipient Iban for C2C payments
+  *
+  * @param IBAN
+  */ 
+  @JsonProperty(JSON_PROPERTY_I_B_A_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIBAN(String IBAN) {
+    this.IBAN = IBAN;
+  }
+
 
   public FundRecipient billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
@@ -393,7 +427,8 @@ public class FundRecipient {
       return false;
     }
     FundRecipient fundRecipient = (FundRecipient) o;
-    return Objects.equals(this.billingAddress, fundRecipient.billingAddress) &&
+    return Objects.equals(this.IBAN, fundRecipient.IBAN) &&
+        Objects.equals(this.billingAddress, fundRecipient.billingAddress) &&
         Objects.equals(this.paymentMethod, fundRecipient.paymentMethod) &&
         Objects.equals(this.shopperEmail, fundRecipient.shopperEmail) &&
         Objects.equals(this.shopperName, fundRecipient.shopperName) &&
@@ -407,13 +442,14 @@ public class FundRecipient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, paymentMethod, shopperEmail, shopperName, shopperReference, storedPaymentMethodId, subMerchant, telephoneNumber, walletIdentifier, walletOwnerTaxId);
+    return Objects.hash(IBAN, billingAddress, paymentMethod, shopperEmail, shopperName, shopperReference, storedPaymentMethodId, subMerchant, telephoneNumber, walletIdentifier, walletOwnerTaxId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FundRecipient {\n");
+    sb.append("    IBAN: ").append(toIndentedString(IBAN)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
