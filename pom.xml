@@ -245,6 +245,11 @@
             <version>3.9.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version> <!-- or the latest version -->
+        </dependency>
         <!-- Generated model annotations -->
         <dependency>
             <groupId>io.swagger</groupId>
