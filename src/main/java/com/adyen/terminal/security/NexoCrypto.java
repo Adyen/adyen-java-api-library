@@ -27,7 +27,7 @@ import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.model.terminal.security.SecurityTrailer;
 import com.adyen.terminal.security.exception.NexoCryptoException;
-import java.util.Base64;
+import org.apache.commons.codec.binary.Base64;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -74,7 +74,7 @@ public class NexoCrypto {
 
         SaleToPOISecuredMessage saleToPoiSecuredMessage = new SaleToPOISecuredMessage();
         saleToPoiSecuredMessage.setMessageHeader(messageHeader);
-        saleToPoiSecuredMessage.setNexoBlob(new String(Base64.getEncoder().encode(encryptedSaleToPoiMessage)));
+        saleToPoiSecuredMessage.setNexoBlob(new String(Base64.encodeBase64(encryptedSaleToPoiMessage)));
         saleToPoiSecuredMessage.setSecurityTrailer(securityTrailer);
 
         return saleToPoiSecuredMessage;
@@ -82,7 +82,7 @@ public class NexoCrypto {
 
     public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
         NexoDerivedKey derivedKey = getNexoDerivedKey();
-        byte[] encryptedSaleToPoiMessageByteArray = Base64.getDecoder().decode(saleToPoiSecuredMessage.getNexoBlob().getBytes());
+        byte[] encryptedSaleToPoiMessageByteArray = Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
         byte[] decryptedSaleToPoiMessageByteArray = crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
 
