@@ -37,6 +37,7 @@ import com.adyen.model.checkout.Name;
 import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.Split;
+import com.adyen.model.checkout.SubMerchantInfo;
 import com.adyen.model.checkout.ThreeDS2RequestFields;
 import com.adyen.model.checkout.ThreeDSecureData;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -122,6 +123,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRequest.JSON_PROPERTY_SPLITS,
   PaymentRequest.JSON_PROPERTY_STORE,
   PaymentRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD,
+  PaymentRequest.JSON_PROPERTY_SUB_MERCHANTS,
   PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
   PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   PaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
@@ -504,6 +506,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_STORE_PAYMENT_METHOD = "storePaymentMethod";
   private Boolean storePaymentMethod;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
+  private List<SubMerchantInfo> subMerchants = null;
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
@@ -2459,6 +2464,44 @@ public class PaymentRequest {
   }
 
 
+  public PaymentRequest subMerchants(List<SubMerchantInfo> subMerchants) {
+    this.subMerchants = subMerchants;
+    return this;
+  }
+
+  public PaymentRequest addSubMerchantsItem(SubMerchantInfo subMerchantsItem) {
+    if (this.subMerchants == null) {
+      this.subMerchants = new ArrayList<>();
+    }
+    this.subMerchants.add(subMerchantsItem);
+    return this;
+  }
+
+   /**
+   * This field contains additional information on the submerchant, who is onboarded to an acquirer through a payment facilitator or aggregator
+   * @return subMerchants
+  **/
+  @ApiModelProperty(value = "This field contains additional information on the submerchant, who is onboarded to an acquirer through a payment facilitator or aggregator")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubMerchantInfo> getSubMerchants() {
+    return subMerchants;
+  }
+
+
+ /**
+  * This field contains additional information on the submerchant, who is onboarded to an acquirer through a payment facilitator or aggregator
+  *
+  * @param subMerchants
+  */ 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchants(List<SubMerchantInfo> subMerchants) {
+    this.subMerchants = subMerchants;
+  }
+
+
   public PaymentRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
@@ -2658,6 +2701,7 @@ public class PaymentRequest {
         Objects.equals(this.splits, paymentRequest.splits) &&
         Objects.equals(this.store, paymentRequest.store) &&
         Objects.equals(this.storePaymentMethod, paymentRequest.storePaymentMethod) &&
+        Objects.equals(this.subMerchants, paymentRequest.subMerchants) &&
         Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber) &&
         Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData) &&
         Objects.equals(this.threeDSAuthenticationOnly, paymentRequest.threeDSAuthenticationOnly) &&
@@ -2666,7 +2710,7 @@ public class PaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, subMerchants, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2736,6 +2780,7 @@ public class PaymentRequest {
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
     sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
+    sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
     sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");

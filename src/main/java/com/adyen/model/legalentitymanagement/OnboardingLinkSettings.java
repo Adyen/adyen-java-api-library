@@ -263,10 +263,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Default value: **false**  Indicates if the user of the individual legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+   * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionIndividual
   **/
-  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the individual legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
+  @ApiModelProperty(value = "Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -276,7 +276,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * Default value: **false**  Indicates if the user of the individual legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+  * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionIndividual
   */ 
@@ -293,10 +293,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Default value: **false**  Indicates if the user of the organization legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+   * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionOrganization
   **/
-  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the organization legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
+  @ApiModelProperty(value = "Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -306,7 +306,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * Default value: **false**  Indicates if the user of the organization legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+  * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionOrganization
   */ 
@@ -323,10 +323,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Default value: **false**  Indicates if the user of the sole proprietorship legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+   * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionSoleProprietor
   **/
-  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the sole proprietorship legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
+  @ApiModelProperty(value = "Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_SOLE_PROPRIETOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -336,7 +336,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * Default value: **false**  Indicates if the user of the sole proprietorship legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+  * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionSoleProprietor
   */ 
@@ -353,10 +353,10 @@ public class OnboardingLinkSettings {
   }
 
    /**
-   * Default value: **false**  Indicates if the user of the trust legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+   * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return hideOnboardingIntroductionTrust
   **/
-  @ApiModelProperty(value = "Default value: **false**  Indicates if the user of the trust legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
+  @ApiModelProperty(value = "Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.")
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -366,7 +366,7 @@ public class OnboardingLinkSettings {
 
 
  /**
-  * Default value: **false**  Indicates if the user of the trust legal entity type can view the introduction screen. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
+  * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
   *
   * @param hideOnboardingIntroductionTrust
   */ 

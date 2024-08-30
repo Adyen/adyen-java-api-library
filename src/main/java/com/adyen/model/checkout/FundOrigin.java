@@ -95,10 +95,10 @@ public class FundOrigin {
   }
 
    /**
-   * Email address of the person.
+   * The email address of the person funding the money.
    * @return shopperEmail
   **/
-  @ApiModelProperty(value = "Email address of the person.")
+  @ApiModelProperty(value = "The email address of the person funding the money.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +108,7 @@ public class FundOrigin {
 
 
  /**
-  * Email address of the person.
+  * The email address of the person funding the money.
   *
   * @param shopperEmail
   */ 
@@ -155,10 +155,10 @@ public class FundOrigin {
   }
 
    /**
-   * Phone number of the person
+   * The phone number of the person funding the money.
    * @return telephoneNumber
   **/
-  @ApiModelProperty(value = "Phone number of the person")
+  @ApiModelProperty(value = "The phone number of the person funding the money.")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -168,7 +168,7 @@ public class FundOrigin {
 
 
  /**
-  * Phone number of the person
+  * The phone number of the person funding the money.
   *
   * @param telephoneNumber
   */ 
@@ -185,10 +185,10 @@ public class FundOrigin {
   }
 
    /**
-   * Get walletIdentifier
+   * The unique identifier of the wallet where the funds are coming from.
    * @return walletIdentifier
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier of the wallet where the funds are coming from.")
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -198,7 +198,7 @@ public class FundOrigin {
 
 
  /**
-  * walletIdentifier
+  * The unique identifier of the wallet where the funds are coming from.
   *
   * @param walletIdentifier
   */ 
