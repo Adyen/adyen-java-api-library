@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.CheckoutAwaitAction;
+import com.adyen.model.checkout.CheckoutBankTransferAction;
 import com.adyen.model.checkout.CheckoutDelegatedAuthenticationAction;
 import com.adyen.model.checkout.CheckoutNativeRedirectAction;
 import com.adyen.model.checkout.CheckoutQrCodeAction;
@@ -129,6 +130,34 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CheckoutAwaitAction'", e);
+            }
+
+
+            // deserialize CheckoutBankTransferAction
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckoutBankTransferAction.class.equals(Integer.class) || CheckoutBankTransferAction.class.equals(Long.class) || CheckoutBankTransferAction.class.equals(Float.class) || CheckoutBankTransferAction.class.equals(Double.class) || CheckoutBankTransferAction.class.equals(Boolean.class) || CheckoutBankTransferAction.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckoutBankTransferAction.class.equals(Integer.class) || CheckoutBankTransferAction.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckoutBankTransferAction.class.equals(Float.class) || CheckoutBankTransferAction.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckoutBankTransferAction.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckoutBankTransferAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(CheckoutBankTransferAction.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), CheckoutBankTransferAction.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckoutBankTransferAction'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckoutBankTransferAction'", e);
             }
 
 
@@ -362,6 +391,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public PaymentResponseAction(CheckoutBankTransferAction o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public PaymentResponseAction(CheckoutDelegatedAuthenticationAction o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -400,6 +434,8 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     static {
         schemas.put("CheckoutAwaitAction", new GenericType<CheckoutAwaitAction>() {
         });
+        schemas.put("CheckoutBankTransferAction", new GenericType<CheckoutBankTransferAction>() {
+        });
         schemas.put("CheckoutDelegatedAuthenticationAction", new GenericType<CheckoutDelegatedAuthenticationAction>() {
         });
         schemas.put("CheckoutNativeRedirectAction", new GenericType<CheckoutNativeRedirectAction>() {
@@ -425,7 +461,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CheckoutAwaitAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction
+     * CheckoutAwaitAction, CheckoutBankTransferAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -433,6 +469,11 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     @Override
     public void setActualInstance(Object instance) {
         if (JSON.isInstanceOf(CheckoutAwaitAction.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(CheckoutBankTransferAction.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -472,14 +513,14 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CheckoutAwaitAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction");
+        throw new RuntimeException("Invalid instance type. Must be CheckoutAwaitAction, CheckoutBankTransferAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CheckoutAwaitAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction
+     * CheckoutAwaitAction, CheckoutBankTransferAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction
      *
-     * @return The actual instance (CheckoutAwaitAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction)
+     * @return The actual instance (CheckoutAwaitAction, CheckoutBankTransferAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction)
      */
     @Override
     public Object getActualInstance() {
@@ -495,6 +536,17 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
      */
     public CheckoutAwaitAction getCheckoutAwaitAction() throws ClassCastException {
         return (CheckoutAwaitAction)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CheckoutBankTransferAction`. If the actual instance is not `CheckoutBankTransferAction`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CheckoutBankTransferAction`
+     * @throws ClassCastException if the instance is not `CheckoutBankTransferAction`
+     */
+    public CheckoutBankTransferAction getCheckoutBankTransferAction() throws ClassCastException {
+        return (CheckoutBankTransferAction)super.getActualInstance();
     }
 
     /**

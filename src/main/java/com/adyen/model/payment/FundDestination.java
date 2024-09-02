@@ -38,6 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * FundDestination
  */
 @JsonPropertyOrder({
+  FundDestination.JSON_PROPERTY_I_B_A_N,
   FundDestination.JSON_PROPERTY_ADDITIONAL_DATA,
   FundDestination.JSON_PROPERTY_BILLING_ADDRESS,
   FundDestination.JSON_PROPERTY_CARD,
@@ -51,6 +52,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class FundDestination {
+  public static final String JSON_PROPERTY_I_B_A_N = "IBAN";
+  private String IBAN;
+
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData = null;
 
@@ -83,6 +87,36 @@ public class FundDestination {
 
   public FundDestination() { 
   }
+
+  public FundDestination IBAN(String IBAN) {
+    this.IBAN = IBAN;
+    return this;
+  }
+
+   /**
+   * Bank Account Number of the recipient
+   * @return IBAN
+  **/
+  @ApiModelProperty(value = "Bank Account Number of the recipient")
+  @JsonProperty(JSON_PROPERTY_I_B_A_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getIBAN() {
+    return IBAN;
+  }
+
+
+ /**
+  * Bank Account Number of the recipient
+  *
+  * @param IBAN
+  */ 
+  @JsonProperty(JSON_PROPERTY_I_B_A_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIBAN(String IBAN) {
+    this.IBAN = IBAN;
+  }
+
 
   public FundDestination additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
@@ -404,7 +438,8 @@ public class FundDestination {
       return false;
     }
     FundDestination fundDestination = (FundDestination) o;
-    return Objects.equals(this.additionalData, fundDestination.additionalData) &&
+    return Objects.equals(this.IBAN, fundDestination.IBAN) &&
+        Objects.equals(this.additionalData, fundDestination.additionalData) &&
         Objects.equals(this.billingAddress, fundDestination.billingAddress) &&
         Objects.equals(this.card, fundDestination.card) &&
         Objects.equals(this.selectedRecurringDetailReference, fundDestination.selectedRecurringDetailReference) &&
@@ -418,13 +453,14 @@ public class FundDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, billingAddress, card, selectedRecurringDetailReference, shopperEmail, shopperName, shopperReference, subMerchant, telephoneNumber, walletPurpose);
+    return Objects.hash(IBAN, additionalData, billingAddress, card, selectedRecurringDetailReference, shopperEmail, shopperName, shopperReference, subMerchant, telephoneNumber, walletPurpose);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FundDestination {\n");
+    sb.append("    IBAN: ").append(toIndentedString(IBAN)).append("\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    card: ").append(toIndentedString(card)).append("\n");
