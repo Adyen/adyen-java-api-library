@@ -184,7 +184,7 @@ public class VerificationErrorRecursive {
   private String message;
 
   /**
-   * The type of error.
+   * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    */
   public enum TypeEnum {
     DATAMISSING("dataMissing"),
@@ -337,10 +337,10 @@ public class VerificationErrorRecursive {
   }
 
    /**
-   * The type of error.
+   * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    * @return type
   **/
-  @ApiModelProperty(value = "The type of error.")
+  @ApiModelProperty(value = "The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -350,7 +350,7 @@ public class VerificationErrorRecursive {
 
 
  /**
-  * The type of error.
+  * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
   *
   * @param type
   */ 

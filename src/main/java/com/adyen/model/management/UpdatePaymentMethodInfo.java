@@ -16,9 +16,13 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.management.AccelInfo;
 import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.GenericPmWithTdiInfo;
+import com.adyen.model.management.NyceInfo;
+import com.adyen.model.management.PulseInfo;
+import com.adyen.model.management.StarInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,6 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * UpdatePaymentMethodInfo
  */
 @JsonPropertyOrder({
+  UpdatePaymentMethodInfo.JSON_PROPERTY_ACCEL,
   UpdatePaymentMethodInfo.JSON_PROPERTY_BCMC,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CARTES_BANCAIRES,
   UpdatePaymentMethodInfo.JSON_PROPERTY_COUNTRIES,
@@ -52,11 +57,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdatePaymentMethodInfo.JSON_PROPERTY_JCB,
   UpdatePaymentMethodInfo.JSON_PROPERTY_MAESTRO,
   UpdatePaymentMethodInfo.JSON_PROPERTY_MC,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_NYCE,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_PULSE,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_STAR,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_IDS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_VISA
 })
 
 public class UpdatePaymentMethodInfo {
+  public static final String JSON_PROPERTY_ACCEL = "accel";
+  private AccelInfo accel;
+
   public static final String JSON_PROPERTY_BCMC = "bcmc";
   private BcmcInfo bcmc;
 
@@ -105,6 +116,15 @@ public class UpdatePaymentMethodInfo {
   public static final String JSON_PROPERTY_MC = "mc";
   private GenericPmWithTdiInfo mc;
 
+  public static final String JSON_PROPERTY_NYCE = "nyce";
+  private NyceInfo nyce;
+
+  public static final String JSON_PROPERTY_PULSE = "pulse";
+  private PulseInfo pulse;
+
+  public static final String JSON_PROPERTY_STAR = "star";
+  private StarInfo star;
+
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
   private List<String> storeIds = null;
 
@@ -113,6 +133,36 @@ public class UpdatePaymentMethodInfo {
 
   public UpdatePaymentMethodInfo() { 
   }
+
+  public UpdatePaymentMethodInfo accel(AccelInfo accel) {
+    this.accel = accel;
+    return this;
+  }
+
+   /**
+   * Get accel
+   * @return accel
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AccelInfo getAccel() {
+    return accel;
+  }
+
+
+ /**
+  * accel
+  *
+  * @param accel
+  */ 
+  @JsonProperty(JSON_PROPERTY_ACCEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccel(AccelInfo accel) {
+    this.accel = accel;
+  }
+
 
   public UpdatePaymentMethodInfo bcmc(BcmcInfo bcmc) {
     this.bcmc = bcmc;
@@ -618,6 +668,96 @@ public class UpdatePaymentMethodInfo {
   }
 
 
+  public UpdatePaymentMethodInfo nyce(NyceInfo nyce) {
+    this.nyce = nyce;
+    return this;
+  }
+
+   /**
+   * Get nyce
+   * @return nyce
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NYCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public NyceInfo getNyce() {
+    return nyce;
+  }
+
+
+ /**
+  * nyce
+  *
+  * @param nyce
+  */ 
+  @JsonProperty(JSON_PROPERTY_NYCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNyce(NyceInfo nyce) {
+    this.nyce = nyce;
+  }
+
+
+  public UpdatePaymentMethodInfo pulse(PulseInfo pulse) {
+    this.pulse = pulse;
+    return this;
+  }
+
+   /**
+   * Get pulse
+   * @return pulse
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PULSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PulseInfo getPulse() {
+    return pulse;
+  }
+
+
+ /**
+  * pulse
+  *
+  * @param pulse
+  */ 
+  @JsonProperty(JSON_PROPERTY_PULSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPulse(PulseInfo pulse) {
+    this.pulse = pulse;
+  }
+
+
+  public UpdatePaymentMethodInfo star(StarInfo star) {
+    this.star = star;
+    return this;
+  }
+
+   /**
+   * Get star
+   * @return star
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StarInfo getStar() {
+    return star;
+  }
+
+
+ /**
+  * star
+  *
+  * @param star
+  */ 
+  @JsonProperty(JSON_PROPERTY_STAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStar(StarInfo star) {
+    this.star = star;
+  }
+
+
   public UpdatePaymentMethodInfo storeIds(List<String> storeIds) {
     this.storeIds = storeIds;
     return this;
@@ -698,7 +838,8 @@ public class UpdatePaymentMethodInfo {
       return false;
     }
     UpdatePaymentMethodInfo updatePaymentMethodInfo = (UpdatePaymentMethodInfo) o;
-    return Objects.equals(this.bcmc, updatePaymentMethodInfo.bcmc) &&
+    return Objects.equals(this.accel, updatePaymentMethodInfo.accel) &&
+        Objects.equals(this.bcmc, updatePaymentMethodInfo.bcmc) &&
         Objects.equals(this.cartesBancaires, updatePaymentMethodInfo.cartesBancaires) &&
         Objects.equals(this.countries, updatePaymentMethodInfo.countries) &&
         Objects.equals(this.cup, updatePaymentMethodInfo.cup) &&
@@ -714,19 +855,23 @@ public class UpdatePaymentMethodInfo {
         Objects.equals(this.jcb, updatePaymentMethodInfo.jcb) &&
         Objects.equals(this.maestro, updatePaymentMethodInfo.maestro) &&
         Objects.equals(this.mc, updatePaymentMethodInfo.mc) &&
+        Objects.equals(this.nyce, updatePaymentMethodInfo.nyce) &&
+        Objects.equals(this.pulse, updatePaymentMethodInfo.pulse) &&
+        Objects.equals(this.star, updatePaymentMethodInfo.star) &&
         Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds) &&
         Objects.equals(this.visa, updatePaymentMethodInfo.visa);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, storeIds, visa);
+    return Objects.hash(accel, bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, nyce, pulse, star, storeIds, visa);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePaymentMethodInfo {\n");
+    sb.append("    accel: ").append(toIndentedString(accel)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
@@ -743,6 +888,9 @@ public class UpdatePaymentMethodInfo {
     sb.append("    jcb: ").append(toIndentedString(jcb)).append("\n");
     sb.append("    maestro: ").append(toIndentedString(maestro)).append("\n");
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
+    sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
+    sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
+    sb.append("    star: ").append(toIndentedString(star)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
     sb.append("    visa: ").append(toIndentedString(visa)).append("\n");
     sb.append("}");
