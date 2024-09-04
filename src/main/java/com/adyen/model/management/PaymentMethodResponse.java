@@ -59,7 +59,11 @@ public class PaymentMethodResponse {
    * Gets or Sets typesWithErrors
    */
   public enum TypesWithErrorsEnum {
+    ACCEL("accel"),
+    
     AFTERPAYTOUCH("afterpaytouch"),
+    
+    ALELO("alelo"),
     
     ALIPAY("alipay"),
     
@@ -68,6 +72,14 @@ public class PaymentMethodResponse {
     AMEX("amex"),
     
     APPLEPAY("applepay"),
+    
+    BANESE_CARD("banese_card"),
+    
+    BANESE_CARD_CREDIT("banese_card_credit"),
+    
+    BANESE_CARD_DEBIT("banese_card_debit"),
+    
+    BANESE_CARD_PREPAID("banese_card_prepaid"),
     
     BCMC("bcmc"),
     
@@ -78,6 +90,12 @@ public class PaymentMethodResponse {
     CLEARPAY("clearpay"),
     
     CLICKTOPAY("clicktopay"),
+    
+    CREDTODOS("credtodos"),
+    
+    CREDTODOS_PRIVATE_CREDIT("credtodos_private_credit"),
+    
+    CREDTODOS_PRIVATE_DEBIT("credtodos_private_debit"),
     
     CUP("cup"),
     
@@ -131,9 +149,15 @@ public class PaymentMethodResponse {
     
     MULTIBANCO("multibanco"),
     
+    NYCE("nyce"),
+    
     ONLINEBANKING_PL("onlineBanking_PL"),
     
     PAYBYBANK("paybybank"),
+    
+    PAYME("payme"),
+    
+    PAYME_POS("payme_pos"),
     
     PAYNOW("paynow"),
     
@@ -143,15 +167,29 @@ public class PaymentMethodResponse {
     
     PAYSHOP("payshop"),
     
+    PULSE("pulse"),
+    
+    SODEXO("sodexo"),
+    
+    STAR("star"),
+    
     SWISH("swish"),
     
     TICKET("ticket"),
+    
+    TODO_GIFTCARD("todo_giftcard"),
     
     TRUSTLY("trustly"),
     
     TWINT("twint"),
     
     TWINT_POS("twint_pos"),
+    
+    UP_BRAZIL_CREDIT("up_brazil_credit"),
+    
+    VALE_REFEICAO("vale_refeicao"),
+    
+    VALE_REFEICAO_PREPAID("vale_refeicao_prepaid"),
     
     VIPPS("vipps"),
     

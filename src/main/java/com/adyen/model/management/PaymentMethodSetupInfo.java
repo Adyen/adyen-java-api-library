@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.management.AccelInfo;
 import com.adyen.model.management.AfterpayTouchInfo;
 import com.adyen.model.management.AmexInfo;
 import com.adyen.model.management.ApplePayInfo;
@@ -27,8 +28,13 @@ import com.adyen.model.management.GiroPayInfo;
 import com.adyen.model.management.GooglePayInfo;
 import com.adyen.model.management.KlarnaInfo;
 import com.adyen.model.management.MealVoucherFRInfo;
+import com.adyen.model.management.NyceInfo;
+import com.adyen.model.management.PayMeInfo;
 import com.adyen.model.management.PayPalInfo;
+import com.adyen.model.management.PulseInfo;
+import com.adyen.model.management.SodexoInfo;
 import com.adyen.model.management.SofortInfo;
+import com.adyen.model.management.StarInfo;
 import com.adyen.model.management.SwishInfo;
 import com.adyen.model.management.TicketInfo;
 import com.adyen.model.management.TwintInfo;
@@ -52,6 +58,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * PaymentMethodSetupInfo
  */
 @JsonPropertyOrder({
+  PaymentMethodSetupInfo.JSON_PROPERTY_ACCEL,
   PaymentMethodSetupInfo.JSON_PROPERTY_AFTERPAY_TOUCH,
   PaymentMethodSetupInfo.JSON_PROPERTY_AMEX,
   PaymentMethodSetupInfo.JSON_PROPERTY_APPLE_PAY,
@@ -76,10 +83,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodSetupInfo.JSON_PROPERTY_MAESTRO,
   PaymentMethodSetupInfo.JSON_PROPERTY_MC,
   PaymentMethodSetupInfo.JSON_PROPERTY_MEAL_VOUCHER_F_R,
+  PaymentMethodSetupInfo.JSON_PROPERTY_NYCE,
+  PaymentMethodSetupInfo.JSON_PROPERTY_PAYME,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYPAL,
+  PaymentMethodSetupInfo.JSON_PROPERTY_PULSE,
   PaymentMethodSetupInfo.JSON_PROPERTY_REFERENCE,
   PaymentMethodSetupInfo.JSON_PROPERTY_SHOPPER_INTERACTION,
+  PaymentMethodSetupInfo.JSON_PROPERTY_SODEXO,
   PaymentMethodSetupInfo.JSON_PROPERTY_SOFORT,
+  PaymentMethodSetupInfo.JSON_PROPERTY_STAR,
   PaymentMethodSetupInfo.JSON_PROPERTY_STORE_IDS,
   PaymentMethodSetupInfo.JSON_PROPERTY_SWISH,
   PaymentMethodSetupInfo.JSON_PROPERTY_TICKET,
@@ -92,6 +104,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class PaymentMethodSetupInfo {
+  public static final String JSON_PROPERTY_ACCEL = "accel";
+  private AccelInfo accel;
+
   public static final String JSON_PROPERTY_AFTERPAY_TOUCH = "afterpayTouch";
   private AfterpayTouchInfo afterpayTouch;
 
@@ -164,8 +179,17 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_MEAL_VOUCHER_F_R = "mealVoucher_FR";
   private MealVoucherFRInfo mealVoucherFR;
 
+  public static final String JSON_PROPERTY_NYCE = "nyce";
+  private NyceInfo nyce;
+
+  public static final String JSON_PROPERTY_PAYME = "payme";
+  private PayMeInfo payme;
+
   public static final String JSON_PROPERTY_PAYPAL = "paypal";
   private PayPalInfo paypal;
+
+  public static final String JSON_PROPERTY_PULSE = "pulse";
+  private PulseInfo pulse;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -212,8 +236,14 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  public static final String JSON_PROPERTY_SODEXO = "sodexo";
+  private SodexoInfo sodexo;
+
   public static final String JSON_PROPERTY_SOFORT = "sofort";
   private SofortInfo sofort;
+
+  public static final String JSON_PROPERTY_STAR = "star";
+  private StarInfo star;
 
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
   private List<String> storeIds = null;
@@ -231,7 +261,11 @@ public class PaymentMethodSetupInfo {
    * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    */
   public enum TypeEnum {
+    ACCEL("accel"),
+    
     AFTERPAYTOUCH("afterpaytouch"),
+    
+    ALELO("alelo"),
     
     ALIPAY("alipay"),
     
@@ -240,6 +274,14 @@ public class PaymentMethodSetupInfo {
     AMEX("amex"),
     
     APPLEPAY("applepay"),
+    
+    BANESE_CARD("banese_card"),
+    
+    BANESE_CARD_CREDIT("banese_card_credit"),
+    
+    BANESE_CARD_DEBIT("banese_card_debit"),
+    
+    BANESE_CARD_PREPAID("banese_card_prepaid"),
     
     BCMC("bcmc"),
     
@@ -250,6 +292,12 @@ public class PaymentMethodSetupInfo {
     CLEARPAY("clearpay"),
     
     CLICKTOPAY("clicktopay"),
+    
+    CREDTODOS("credtodos"),
+    
+    CREDTODOS_PRIVATE_CREDIT("credtodos_private_credit"),
+    
+    CREDTODOS_PRIVATE_DEBIT("credtodos_private_debit"),
     
     CUP("cup"),
     
@@ -303,9 +351,15 @@ public class PaymentMethodSetupInfo {
     
     MULTIBANCO("multibanco"),
     
+    NYCE("nyce"),
+    
     ONLINEBANKING_PL("onlineBanking_PL"),
     
     PAYBYBANK("paybybank"),
+    
+    PAYME("payme"),
+    
+    PAYME_POS("payme_pos"),
     
     PAYNOW("paynow"),
     
@@ -315,15 +369,29 @@ public class PaymentMethodSetupInfo {
     
     PAYSHOP("payshop"),
     
+    PULSE("pulse"),
+    
+    SODEXO("sodexo"),
+    
+    STAR("star"),
+    
     SWISH("swish"),
     
     TICKET("ticket"),
+    
+    TODO_GIFTCARD("todo_giftcard"),
     
     TRUSTLY("trustly"),
     
     TWINT("twint"),
     
     TWINT_POS("twint_pos"),
+    
+    UP_BRAZIL_CREDIT("up_brazil_credit"),
+    
+    VALE_REFEICAO("vale_refeicao"),
+    
+    VALE_REFEICAO_PREPAID("vale_refeicao_prepaid"),
     
     VIPPS("vipps"),
     
@@ -381,6 +449,36 @@ public class PaymentMethodSetupInfo {
 
   public PaymentMethodSetupInfo() { 
   }
+
+  public PaymentMethodSetupInfo accel(AccelInfo accel) {
+    this.accel = accel;
+    return this;
+  }
+
+   /**
+   * Get accel
+   * @return accel
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AccelInfo getAccel() {
+    return accel;
+  }
+
+
+ /**
+  * accel
+  *
+  * @param accel
+  */ 
+  @JsonProperty(JSON_PROPERTY_ACCEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccel(AccelInfo accel) {
+    this.accel = accel;
+  }
+
 
   public PaymentMethodSetupInfo afterpayTouch(AfterpayTouchInfo afterpayTouch) {
     this.afterpayTouch = afterpayTouch;
@@ -1126,6 +1224,66 @@ public class PaymentMethodSetupInfo {
   }
 
 
+  public PaymentMethodSetupInfo nyce(NyceInfo nyce) {
+    this.nyce = nyce;
+    return this;
+  }
+
+   /**
+   * Get nyce
+   * @return nyce
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NYCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public NyceInfo getNyce() {
+    return nyce;
+  }
+
+
+ /**
+  * nyce
+  *
+  * @param nyce
+  */ 
+  @JsonProperty(JSON_PROPERTY_NYCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNyce(NyceInfo nyce) {
+    this.nyce = nyce;
+  }
+
+
+  public PaymentMethodSetupInfo payme(PayMeInfo payme) {
+    this.payme = payme;
+    return this;
+  }
+
+   /**
+   * Get payme
+   * @return payme
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAYME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PayMeInfo getPayme() {
+    return payme;
+  }
+
+
+ /**
+  * payme
+  *
+  * @param payme
+  */ 
+  @JsonProperty(JSON_PROPERTY_PAYME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPayme(PayMeInfo payme) {
+    this.payme = payme;
+  }
+
+
   public PaymentMethodSetupInfo paypal(PayPalInfo paypal) {
     this.paypal = paypal;
     return this;
@@ -1153,6 +1311,36 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaypal(PayPalInfo paypal) {
     this.paypal = paypal;
+  }
+
+
+  public PaymentMethodSetupInfo pulse(PulseInfo pulse) {
+    this.pulse = pulse;
+    return this;
+  }
+
+   /**
+   * Get pulse
+   * @return pulse
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PULSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PulseInfo getPulse() {
+    return pulse;
+  }
+
+
+ /**
+  * pulse
+  *
+  * @param pulse
+  */ 
+  @JsonProperty(JSON_PROPERTY_PULSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPulse(PulseInfo pulse) {
+    this.pulse = pulse;
   }
 
 
@@ -1216,6 +1404,36 @@ public class PaymentMethodSetupInfo {
   }
 
 
+  public PaymentMethodSetupInfo sodexo(SodexoInfo sodexo) {
+    this.sodexo = sodexo;
+    return this;
+  }
+
+   /**
+   * Get sodexo
+   * @return sodexo
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SODEXO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SodexoInfo getSodexo() {
+    return sodexo;
+  }
+
+
+ /**
+  * sodexo
+  *
+  * @param sodexo
+  */ 
+  @JsonProperty(JSON_PROPERTY_SODEXO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSodexo(SodexoInfo sodexo) {
+    this.sodexo = sodexo;
+  }
+
+
   public PaymentMethodSetupInfo sofort(SofortInfo sofort) {
     this.sofort = sofort;
     return this;
@@ -1243,6 +1461,36 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSofort(SofortInfo sofort) {
     this.sofort = sofort;
+  }
+
+
+  public PaymentMethodSetupInfo star(StarInfo star) {
+    this.star = star;
+    return this;
+  }
+
+   /**
+   * Get star
+   * @return star
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StarInfo getStar() {
+    return star;
+  }
+
+
+ /**
+  * star
+  *
+  * @param star
+  */ 
+  @JsonProperty(JSON_PROPERTY_STAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStar(StarInfo star) {
+    this.star = star;
   }
 
 
@@ -1536,7 +1784,8 @@ public class PaymentMethodSetupInfo {
       return false;
     }
     PaymentMethodSetupInfo paymentMethodSetupInfo = (PaymentMethodSetupInfo) o;
-    return Objects.equals(this.afterpayTouch, paymentMethodSetupInfo.afterpayTouch) &&
+    return Objects.equals(this.accel, paymentMethodSetupInfo.accel) &&
+        Objects.equals(this.afterpayTouch, paymentMethodSetupInfo.afterpayTouch) &&
         Objects.equals(this.amex, paymentMethodSetupInfo.amex) &&
         Objects.equals(this.applePay, paymentMethodSetupInfo.applePay) &&
         Objects.equals(this.bcmc, paymentMethodSetupInfo.bcmc) &&
@@ -1560,10 +1809,15 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.maestro, paymentMethodSetupInfo.maestro) &&
         Objects.equals(this.mc, paymentMethodSetupInfo.mc) &&
         Objects.equals(this.mealVoucherFR, paymentMethodSetupInfo.mealVoucherFR) &&
+        Objects.equals(this.nyce, paymentMethodSetupInfo.nyce) &&
+        Objects.equals(this.payme, paymentMethodSetupInfo.payme) &&
         Objects.equals(this.paypal, paymentMethodSetupInfo.paypal) &&
+        Objects.equals(this.pulse, paymentMethodSetupInfo.pulse) &&
         Objects.equals(this.reference, paymentMethodSetupInfo.reference) &&
         Objects.equals(this.shopperInteraction, paymentMethodSetupInfo.shopperInteraction) &&
+        Objects.equals(this.sodexo, paymentMethodSetupInfo.sodexo) &&
         Objects.equals(this.sofort, paymentMethodSetupInfo.sofort) &&
+        Objects.equals(this.star, paymentMethodSetupInfo.star) &&
         Objects.equals(this.storeIds, paymentMethodSetupInfo.storeIds) &&
         Objects.equals(this.swish, paymentMethodSetupInfo.swish) &&
         Objects.equals(this.ticket, paymentMethodSetupInfo.ticket) &&
@@ -1577,13 +1831,14 @@ public class PaymentMethodSetupInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, giroPay, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeIds, swish, ticket, twint, type, vipps, visa, wechatpay, wechatpayPos);
+    return Objects.hash(accel, afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, giroPay, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, nyce, payme, paypal, pulse, reference, shopperInteraction, sodexo, sofort, star, storeIds, swish, ticket, twint, type, vipps, visa, wechatpay, wechatpayPos);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentMethodSetupInfo {\n");
+    sb.append("    accel: ").append(toIndentedString(accel)).append("\n");
     sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
@@ -1608,10 +1863,15 @@ public class PaymentMethodSetupInfo {
     sb.append("    maestro: ").append(toIndentedString(maestro)).append("\n");
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
+    sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
+    sb.append("    payme: ").append(toIndentedString(payme)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
+    sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
+    sb.append("    sodexo: ").append(toIndentedString(sodexo)).append("\n");
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
+    sb.append("    star: ").append(toIndentedString(star)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
     sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");

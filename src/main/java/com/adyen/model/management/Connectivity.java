@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.adyen.model.management.EventUrl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,7 +32,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * Connectivity
  */
 @JsonPropertyOrder({
-  Connectivity.JSON_PROPERTY_SIMCARD_STATUS
+  Connectivity.JSON_PROPERTY_SIMCARD_STATUS,
+  Connectivity.JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L
 })
 
 public class Connectivity {
@@ -73,6 +75,9 @@ public class Connectivity {
   public static final String JSON_PROPERTY_SIMCARD_STATUS = "simcardStatus";
   private SimcardStatusEnum simcardStatus;
 
+  public static final String JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L = "terminalIPAddressURL";
+  private EventUrl terminalIPAddressURL;
+
   public Connectivity() { 
   }
 
@@ -106,6 +111,36 @@ public class Connectivity {
   }
 
 
+  public Connectivity terminalIPAddressURL(EventUrl terminalIPAddressURL) {
+    this.terminalIPAddressURL = terminalIPAddressURL;
+    return this;
+  }
+
+   /**
+   * Get terminalIPAddressURL
+   * @return terminalIPAddressURL
+  **/
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EventUrl getTerminalIPAddressURL() {
+    return terminalIPAddressURL;
+  }
+
+
+ /**
+  * terminalIPAddressURL
+  *
+  * @param terminalIPAddressURL
+  */ 
+  @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTerminalIPAddressURL(EventUrl terminalIPAddressURL) {
+    this.terminalIPAddressURL = terminalIPAddressURL;
+  }
+
+
   /**
    * Return true if this Connectivity object is equal to o.
    */
@@ -118,12 +153,13 @@ public class Connectivity {
       return false;
     }
     Connectivity connectivity = (Connectivity) o;
-    return Objects.equals(this.simcardStatus, connectivity.simcardStatus);
+    return Objects.equals(this.simcardStatus, connectivity.simcardStatus) &&
+        Objects.equals(this.terminalIPAddressURL, connectivity.terminalIPAddressURL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(simcardStatus);
+    return Objects.hash(simcardStatus, terminalIPAddressURL);
   }
 
   @Override
@@ -131,6 +167,7 @@ public class Connectivity {
     StringBuilder sb = new StringBuilder();
     sb.append("class Connectivity {\n");
     sb.append("    simcardStatus: ").append(toIndentedString(simcardStatus)).append("\n");
+    sb.append("    terminalIPAddressURL: ").append(toIndentedString(terminalIPAddressURL)).append("\n");
     sb.append("}");
     return sb.toString();
   }
