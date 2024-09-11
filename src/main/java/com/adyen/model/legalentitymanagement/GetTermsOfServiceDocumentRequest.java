@@ -132,10 +132,10 @@ public class GetTermsOfServiceDocumentRequest {
   }
 
    /**
-   * The requested format for the Terms of Service document. Default value: JSON. Possible values: JSON or PDF.
+   * The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.
    * @return termsOfServiceDocumentFormat
   **/
-  @ApiModelProperty(value = "The requested format for the Terms of Service document. Default value: JSON. Possible values: JSON or PDF.")
+  @ApiModelProperty(value = "The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -145,7 +145,7 @@ public class GetTermsOfServiceDocumentRequest {
 
 
  /**
-  * The requested format for the Terms of Service document. Default value: JSON. Possible values: JSON or PDF.
+  * The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.
   *
   * @param termsOfServiceDocumentFormat
   */ 

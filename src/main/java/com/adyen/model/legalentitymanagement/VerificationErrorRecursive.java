@@ -89,6 +89,8 @@ public class VerificationErrorRecursive {
     
     ISSUECARDCONSUMER("issueCardConsumer"),
     
+    ISSUECREDITLIMIT("issueCreditLimit"),
+    
     LOCALACCEPTANCE("localAcceptance"),
     
     PAYOUT("payout"),
