@@ -32,19 +32,25 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * CheckoutBankTransferAction
  */
 @JsonPropertyOrder({
+  CheckoutBankTransferAction.JSON_PROPERTY_ACCOUNT_NUMBER,
   CheckoutBankTransferAction.JSON_PROPERTY_BENEFICIARY,
   CheckoutBankTransferAction.JSON_PROPERTY_BIC,
   CheckoutBankTransferAction.JSON_PROPERTY_DOWNLOAD_URL,
   CheckoutBankTransferAction.JSON_PROPERTY_IBAN,
   CheckoutBankTransferAction.JSON_PROPERTY_PAYMENT_METHOD_TYPE,
   CheckoutBankTransferAction.JSON_PROPERTY_REFERENCE,
+  CheckoutBankTransferAction.JSON_PROPERTY_ROUTING_NUMBER,
   CheckoutBankTransferAction.JSON_PROPERTY_SHOPPER_EMAIL,
+  CheckoutBankTransferAction.JSON_PROPERTY_SORT_CODE,
   CheckoutBankTransferAction.JSON_PROPERTY_TOTAL_AMOUNT,
   CheckoutBankTransferAction.JSON_PROPERTY_TYPE,
   CheckoutBankTransferAction.JSON_PROPERTY_URL
 })
 
 public class CheckoutBankTransferAction {
+  public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
+  private String accountNumber;
+
   public static final String JSON_PROPERTY_BENEFICIARY = "beneficiary";
   private String beneficiary;
 
@@ -63,8 +69,14 @@ public class CheckoutBankTransferAction {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
+  private String routingNumber;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  public static final String JSON_PROPERTY_SORT_CODE = "sortCode";
+  private String sortCode;
 
   public static final String JSON_PROPERTY_TOTAL_AMOUNT = "totalAmount";
   private Amount totalAmount;
@@ -110,6 +122,36 @@ public class CheckoutBankTransferAction {
 
   public CheckoutBankTransferAction() { 
   }
+
+  public CheckoutBankTransferAction accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+   /**
+   * The account number of the bank transfer.
+   * @return accountNumber
+  **/
+  @ApiModelProperty(value = "The account number of the bank transfer.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+
+ /**
+  * The account number of the bank transfer.
+  *
+  * @param accountNumber
+  */ 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
 
   public CheckoutBankTransferAction beneficiary(String beneficiary) {
     this.beneficiary = beneficiary;
@@ -291,6 +333,36 @@ public class CheckoutBankTransferAction {
   }
 
 
+  public CheckoutBankTransferAction routingNumber(String routingNumber) {
+    this.routingNumber = routingNumber;
+    return this;
+  }
+
+   /**
+   * The routing number of the bank transfer.
+   * @return routingNumber
+  **/
+  @ApiModelProperty(value = "The routing number of the bank transfer.")
+  @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRoutingNumber() {
+    return routingNumber;
+  }
+
+
+ /**
+  * The routing number of the bank transfer.
+  *
+  * @param routingNumber
+  */ 
+  @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRoutingNumber(String routingNumber) {
+    this.routingNumber = routingNumber;
+  }
+
+
   public CheckoutBankTransferAction shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
@@ -318,6 +390,36 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+  }
+
+
+  public CheckoutBankTransferAction sortCode(String sortCode) {
+    this.sortCode = sortCode;
+    return this;
+  }
+
+   /**
+   * The sort code of the bank transfer.
+   * @return sortCode
+  **/
+  @ApiModelProperty(value = "The sort code of the bank transfer.")
+  @JsonProperty(JSON_PROPERTY_SORT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSortCode() {
+    return sortCode;
+  }
+
+
+ /**
+  * The sort code of the bank transfer.
+  *
+  * @param sortCode
+  */ 
+  @JsonProperty(JSON_PROPERTY_SORT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSortCode(String sortCode) {
+    this.sortCode = sortCode;
   }
 
 
@@ -423,13 +525,16 @@ public class CheckoutBankTransferAction {
       return false;
     }
     CheckoutBankTransferAction checkoutBankTransferAction = (CheckoutBankTransferAction) o;
-    return Objects.equals(this.beneficiary, checkoutBankTransferAction.beneficiary) &&
+    return Objects.equals(this.accountNumber, checkoutBankTransferAction.accountNumber) &&
+        Objects.equals(this.beneficiary, checkoutBankTransferAction.beneficiary) &&
         Objects.equals(this.bic, checkoutBankTransferAction.bic) &&
         Objects.equals(this.downloadUrl, checkoutBankTransferAction.downloadUrl) &&
         Objects.equals(this.iban, checkoutBankTransferAction.iban) &&
         Objects.equals(this.paymentMethodType, checkoutBankTransferAction.paymentMethodType) &&
         Objects.equals(this.reference, checkoutBankTransferAction.reference) &&
+        Objects.equals(this.routingNumber, checkoutBankTransferAction.routingNumber) &&
         Objects.equals(this.shopperEmail, checkoutBankTransferAction.shopperEmail) &&
+        Objects.equals(this.sortCode, checkoutBankTransferAction.sortCode) &&
         Objects.equals(this.totalAmount, checkoutBankTransferAction.totalAmount) &&
         Objects.equals(this.type, checkoutBankTransferAction.type) &&
         Objects.equals(this.url, checkoutBankTransferAction.url);
@@ -437,20 +542,23 @@ public class CheckoutBankTransferAction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beneficiary, bic, downloadUrl, iban, paymentMethodType, reference, shopperEmail, totalAmount, type, url);
+    return Objects.hash(accountNumber, beneficiary, bic, downloadUrl, iban, paymentMethodType, reference, routingNumber, shopperEmail, sortCode, totalAmount, type, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckoutBankTransferAction {\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    beneficiary: ").append(toIndentedString(beneficiary)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+    sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

@@ -90,6 +90,8 @@ public class VerificationError {
     
     ISSUECARDCONSUMER("issueCardConsumer"),
     
+    ISSUECREDITLIMIT("issueCreditLimit"),
+    
     LOCALACCEPTANCE("localAcceptance"),
     
     PAYOUT("payout"),

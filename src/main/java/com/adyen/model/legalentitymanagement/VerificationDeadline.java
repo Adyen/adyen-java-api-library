@@ -86,6 +86,8 @@ public class VerificationDeadline {
     
     ISSUECARDCONSUMER("issueCardConsumer"),
     
+    ISSUECREDITLIMIT("issueCreditLimit"),
+    
     LOCALACCEPTANCE("localAcceptance"),
     
     PAYOUT("payout"),
