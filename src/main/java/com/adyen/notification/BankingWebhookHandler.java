@@ -11,8 +11,12 @@ import com.adyen.model.transferwebhooks.JSON;
 import com.adyen.model.transferwebhooks.TransferNotificationRequest;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 public class BankingWebhookHandler {
+
+    private static final Logger LOG = Logger.getLogger(BankingWebhookHandler.class.getName());
+
     private final String payload;
 
     public BankingWebhookHandler(String payload) {
@@ -59,6 +63,7 @@ public class BankingWebhookHandler {
             T val = JSON.getMapper().readValue(payload, clazz);
             return Optional.ofNullable(val);
         } catch (Exception e) {
+            LOG.warning("Deserialization error: " + e.getMessage());
             return Optional.empty();
         }
     }
