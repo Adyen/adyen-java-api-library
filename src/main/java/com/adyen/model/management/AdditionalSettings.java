@@ -63,10 +63,10 @@ public class AdditionalSettings {
   }
 
    /**
-   * Object containing list of event codes for which the notifcation will be sent. 
+   * Object containing list of event codes for which the notification will be sent. 
    * @return includeEventCodes
   **/
-  @ApiModelProperty(value = "Object containing list of event codes for which the notifcation will be sent. ")
+  @ApiModelProperty(value = "Object containing list of event codes for which the notification will be sent. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -76,7 +76,7 @@ public class AdditionalSettings {
 
 
  /**
-  * Object containing list of event codes for which the notifcation will be sent. 
+  * Object containing list of event codes for which the notification will be sent. 
   *
   * @param includeEventCodes
   */ 

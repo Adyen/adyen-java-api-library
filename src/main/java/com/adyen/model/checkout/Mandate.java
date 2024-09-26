@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Mandate.JSON_PROPERTY_AMOUNT_RULE,
   Mandate.JSON_PROPERTY_BILLING_ATTEMPTS_RULE,
   Mandate.JSON_PROPERTY_BILLING_DAY,
+  Mandate.JSON_PROPERTY_COUNT,
   Mandate.JSON_PROPERTY_ENDS_AT,
   Mandate.JSON_PROPERTY_FREQUENCY,
   Mandate.JSON_PROPERTY_REMARKS,
@@ -125,6 +126,9 @@ public class Mandate {
 
   public static final String JSON_PROPERTY_BILLING_DAY = "billingDay";
   private String billingDay;
+
+  public static final String JSON_PROPERTY_COUNT = "count";
+  private String count;
 
   public static final String JSON_PROPERTY_ENDS_AT = "endsAt";
   private String endsAt;
@@ -308,6 +312,36 @@ public class Mandate {
   }
 
 
+  public Mandate count(String count) {
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * The number of transactions that can be performed within the given frequency.
+   * @return count
+  **/
+  @ApiModelProperty(value = "The number of transactions that can be performed within the given frequency.")
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCount() {
+    return count;
+  }
+
+
+ /**
+  * The number of transactions that can be performed within the given frequency.
+  *
+  * @param count
+  */ 
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCount(String count) {
+    this.count = count;
+  }
+
+
   public Mandate endsAt(String endsAt) {
     this.endsAt = endsAt;
     return this;
@@ -444,6 +478,7 @@ public class Mandate {
         Objects.equals(this.amountRule, mandate.amountRule) &&
         Objects.equals(this.billingAttemptsRule, mandate.billingAttemptsRule) &&
         Objects.equals(this.billingDay, mandate.billingDay) &&
+        Objects.equals(this.count, mandate.count) &&
         Objects.equals(this.endsAt, mandate.endsAt) &&
         Objects.equals(this.frequency, mandate.frequency) &&
         Objects.equals(this.remarks, mandate.remarks) &&
@@ -452,7 +487,7 @@ public class Mandate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountRule, billingAttemptsRule, billingDay, endsAt, frequency, remarks, startsAt);
+    return Objects.hash(amount, amountRule, billingAttemptsRule, billingDay, count, endsAt, frequency, remarks, startsAt);
   }
 
   @Override
@@ -463,6 +498,7 @@ public class Mandate {
     sb.append("    amountRule: ").append(toIndentedString(amountRule)).append("\n");
     sb.append("    billingAttemptsRule: ").append(toIndentedString(billingAttemptsRule)).append("\n");
     sb.append("    billingDay: ").append(toIndentedString(billingDay)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    endsAt: ").append(toIndentedString(endsAt)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    remarks: ").append(toIndentedString(remarks)).append("\n");
