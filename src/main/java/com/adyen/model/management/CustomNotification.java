@@ -223,10 +223,10 @@ public class CustomNotification {
   }
 
    /**
-   * A descripton of what caused the notification.
+   * A description of what caused the notification.
    * @return reason
   **/
-  @ApiModelProperty(value = "A descripton of what caused the notification.")
+  @ApiModelProperty(value = "A description of what caused the notification.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -236,7 +236,7 @@ public class CustomNotification {
 
 
  /**
-  * A descripton of what caused the notification.
+  * A description of what caused the notification.
   *
   * @param reason
   */ 

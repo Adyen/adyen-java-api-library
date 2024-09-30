@@ -826,10 +826,10 @@ public class PaymentLinkRequest {
   }
 
    /**
-   * Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, and Zip.
+   * Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, and Zip.")
+  @ApiModelProperty(value = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.")
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -839,7 +839,7 @@ public class PaymentLinkRequest {
 
 
  /**
-  * Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, and Zip.
+  * Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
   *
   * @param lineItems
   */ 
