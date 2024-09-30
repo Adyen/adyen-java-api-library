@@ -58,7 +58,7 @@ public class TermsOfServiceApi extends Service {
     /**
     * Accept Terms of Service
     *
-    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. (required)
+    * @param id {@link String } The unique identifier of the legal entity.  For sole proprietorships, this is the individual legal entity ID of the owner.  For organizations, this is the ID of the organization.  For legal representatives of individuals, this is the ID of the individual.   (required)
     * @param termsofservicedocumentid {@link String } The unique identifier of the Terms of Service document. (required)
     * @param acceptTermsOfServiceRequest {@link AcceptTermsOfServiceRequest }  (required)
     * @return {@link AcceptTermsOfServiceResponse }
@@ -71,7 +71,7 @@ public class TermsOfServiceApi extends Service {
     /**
     * Accept Terms of Service
     *
-    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. (required)
+    * @param id {@link String } The unique identifier of the legal entity.  For sole proprietorships, this is the individual legal entity ID of the owner.  For organizations, this is the ID of the organization.  For legal representatives of individuals, this is the ID of the individual.   (required)
     * @param termsofservicedocumentid {@link String } The unique identifier of the Terms of Service document. (required)
     * @param acceptTermsOfServiceRequest {@link AcceptTermsOfServiceRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)

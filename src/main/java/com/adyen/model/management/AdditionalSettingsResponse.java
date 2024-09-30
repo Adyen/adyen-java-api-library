@@ -67,10 +67,10 @@ public class AdditionalSettingsResponse {
   }
 
    /**
-   * Object containing list of event codes for which the notifcation will not be sent. 
+   * Object containing list of event codes for which the notification will not be sent. 
    * @return excludeEventCodes
   **/
-  @ApiModelProperty(value = "Object containing list of event codes for which the notifcation will not be sent. ")
+  @ApiModelProperty(value = "Object containing list of event codes for which the notification will not be sent. ")
   @JsonProperty(JSON_PROPERTY_EXCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -80,7 +80,7 @@ public class AdditionalSettingsResponse {
 
 
  /**
-  * Object containing list of event codes for which the notifcation will not be sent. 
+  * Object containing list of event codes for which the notification will not be sent. 
   *
   * @param excludeEventCodes
   */ 
@@ -105,10 +105,10 @@ public class AdditionalSettingsResponse {
   }
 
    /**
-   * Object containing list of event codes for which the notifcation will be sent. 
+   * Object containing list of event codes for which the notification will be sent. 
    * @return includeEventCodes
   **/
-  @ApiModelProperty(value = "Object containing list of event codes for which the notifcation will be sent. ")
+  @ApiModelProperty(value = "Object containing list of event codes for which the notification will be sent. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -118,7 +118,7 @@ public class AdditionalSettingsResponse {
 
 
  /**
-  * Object containing list of event codes for which the notifcation will be sent. 
+  * Object containing list of event codes for which the notification will be sent. 
   *
   * @param includeEventCodes
   */ 

@@ -113,6 +113,8 @@ public class PaymentDetails {
     
     PIX("pix"),
     
+    BIZUM("bizum"),
+    
     WALLEY("walley"),
     
     WALLEY_B2B("walley_b2b"),

@@ -391,10 +391,10 @@ public class FundRecipient {
   }
 
    /**
-   * Indicates the tax identifier of the fund recepient
+   * Indicates the tax identifier of the fund recipient
    * @return walletOwnerTaxId
   **/
-  @ApiModelProperty(value = "Indicates the tax identifier of the fund recepient")
+  @ApiModelProperty(value = "Indicates the tax identifier of the fund recipient")
   @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -404,7 +404,7 @@ public class FundRecipient {
 
 
  /**
-  * Indicates the tax identifier of the fund recepient
+  * Indicates the tax identifier of the fund recipient
   *
   * @param walletOwnerTaxId
   */ 
