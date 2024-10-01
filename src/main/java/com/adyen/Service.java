@@ -64,8 +64,14 @@ public class Service {
             if (config.getLiveEndpointUrlPrefix() == null) {
                 throw new IllegalArgumentException("please provide a live url prefix in the client");
             }
-            url = url.replaceFirst("https://checkout-test.adyen.com/",
-                    "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/checkout/");
+            if (url.contains("/possdk/v68")) {
+                // Temporary until they fix possdk
+                url = url.replaceFirst("https://checkout-test.adyen.com/",
+                        "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/");
+            } else {
+                url = url.replaceFirst("https://checkout-test.adyen.com/",
+                        "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/checkout/");
+            }
         }
 
         return url.replaceFirst("-test", "-live");
