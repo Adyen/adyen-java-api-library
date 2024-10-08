@@ -16,7 +16,8 @@
 {{/returnType}}
     * @throws ApiException if fails to make API call
 {{#isDeprecated}}
-    * @deprecated
+    * @deprecated since {{#appName}}{{{.}}}{{/appName}} v{{#vendorExtensions.x-deprecatedInVersion}}{{.}}{{/vendorExtensions.x-deprecatedInVersion}}
+    * {{#vendorExtensions.x-deprecatedMessage}}{{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
 {{/isDeprecated}}
 {{#externalDocs}}
     * {{description}}
