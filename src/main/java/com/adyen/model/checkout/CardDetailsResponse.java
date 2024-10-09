@@ -35,12 +35,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   CardDetailsResponse.JSON_PROPERTY_BRANDS,
+  CardDetailsResponse.JSON_PROPERTY_FUNDING_SOURCE,
+  CardDetailsResponse.JSON_PROPERTY_IS_CARD_COMMERCIAL,
   CardDetailsResponse.JSON_PROPERTY_ISSUING_COUNTRY_CODE
 })
 
 public class CardDetailsResponse {
   public static final String JSON_PROPERTY_BRANDS = "brands";
   private List<CardBrandDetails> brands = null;
+
+  public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
+  private String fundingSource;
+
+  public static final String JSON_PROPERTY_IS_CARD_COMMERCIAL = "isCardCommercial";
+  private Boolean isCardCommercial;
 
   public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODE = "issuingCountryCode";
   private String issuingCountryCode;
@@ -83,6 +91,66 @@ public class CardDetailsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<CardBrandDetails> brands) {
     this.brands = brands;
+  }
+
+
+  public CardDetailsResponse fundingSource(String fundingSource) {
+    this.fundingSource = fundingSource;
+    return this;
+  }
+
+   /**
+   * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
+   * @return fundingSource
+  **/
+  @ApiModelProperty(value = "The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.")
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFundingSource() {
+    return fundingSource;
+  }
+
+
+ /**
+  * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
+  *
+  * @param fundingSource
+  */ 
+  @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFundingSource(String fundingSource) {
+    this.fundingSource = fundingSource;
+  }
+
+
+  public CardDetailsResponse isCardCommercial(Boolean isCardCommercial) {
+    this.isCardCommercial = isCardCommercial;
+    return this;
+  }
+
+   /**
+   * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
+   * @return isCardCommercial
+  **/
+  @ApiModelProperty(value = "Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.")
+  @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsCardCommercial() {
+    return isCardCommercial;
+  }
+
+
+ /**
+  * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
+  *
+  * @param isCardCommercial
+  */ 
+  @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsCardCommercial(Boolean isCardCommercial) {
+    this.isCardCommercial = isCardCommercial;
   }
 
 
@@ -129,12 +197,14 @@ public class CardDetailsResponse {
     }
     CardDetailsResponse cardDetailsResponse = (CardDetailsResponse) o;
     return Objects.equals(this.brands, cardDetailsResponse.brands) &&
+        Objects.equals(this.fundingSource, cardDetailsResponse.fundingSource) &&
+        Objects.equals(this.isCardCommercial, cardDetailsResponse.isCardCommercial) &&
         Objects.equals(this.issuingCountryCode, cardDetailsResponse.issuingCountryCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brands, issuingCountryCode);
+    return Objects.hash(brands, fundingSource, isCardCommercial, issuingCountryCode);
   }
 
   @Override
@@ -142,6 +212,8 @@ public class CardDetailsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardDetailsResponse {\n");
     sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
+    sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+    sb.append("    isCardCommercial: ").append(toIndentedString(isCardCommercial)).append("\n");
     sb.append("    issuingCountryCode: ").append(toIndentedString(issuingCountryCode)).append("\n");
     sb.append("}");
     return sb.toString();

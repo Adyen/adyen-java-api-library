@@ -26,6 +26,7 @@ import com.adyen.model.management.ClearpayInfo;
 import com.adyen.model.management.GenericPmWithTdiInfo;
 import com.adyen.model.management.GiroPayInfo;
 import com.adyen.model.management.GooglePayInfo;
+import com.adyen.model.management.JCBInfo;
 import com.adyen.model.management.KlarnaInfo;
 import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.NyceInfo;
@@ -165,7 +166,7 @@ public class PaymentMethodSetupInfo {
   private GenericPmWithTdiInfo interacCard;
 
   public static final String JSON_PROPERTY_JCB = "jcb";
-  private GenericPmWithTdiInfo jcb;
+  private JCBInfo jcb;
 
   public static final String JSON_PROPERTY_KLARNA = "klarna";
   private KlarnaInfo klarna;
@@ -1074,7 +1075,7 @@ public class PaymentMethodSetupInfo {
   }
 
 
-  public PaymentMethodSetupInfo jcb(GenericPmWithTdiInfo jcb) {
+  public PaymentMethodSetupInfo jcb(JCBInfo jcb) {
     this.jcb = jcb;
     return this;
   }
@@ -1087,7 +1088,7 @@ public class PaymentMethodSetupInfo {
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public GenericPmWithTdiInfo getJcb() {
+  public JCBInfo getJcb() {
     return jcb;
   }
 
@@ -1099,7 +1100,7 @@ public class PaymentMethodSetupInfo {
   */ 
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setJcb(GenericPmWithTdiInfo jcb) {
+  public void setJcb(JCBInfo jcb) {
     this.jcb = jcb;
   }
 
