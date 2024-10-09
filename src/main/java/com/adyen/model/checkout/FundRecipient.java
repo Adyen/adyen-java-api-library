@@ -45,7 +45,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   FundRecipient.JSON_PROPERTY_SUB_MERCHANT,
   FundRecipient.JSON_PROPERTY_TELEPHONE_NUMBER,
   FundRecipient.JSON_PROPERTY_WALLET_IDENTIFIER,
-  FundRecipient.JSON_PROPERTY_WALLET_OWNER_TAX_ID
+  FundRecipient.JSON_PROPERTY_WALLET_OWNER_TAX_ID,
+  FundRecipient.JSON_PROPERTY_WALLET_PURPOSE
 })
 
 public class FundRecipient {
@@ -81,6 +82,50 @@ public class FundRecipient {
 
   public static final String JSON_PROPERTY_WALLET_OWNER_TAX_ID = "walletOwnerTaxId";
   private String walletOwnerTaxId;
+
+  /**
+   * The purpose of a digital wallet transaction
+   */
+  public enum WalletPurposeEnum {
+    IDENTIFIEDBOLETO("identifiedBoleto"),
+    
+    TRANSFERDIFFERENTWALLET("transferDifferentWallet"),
+    
+    TRANSFEROWNWALLET("transferOwnWallet"),
+    
+    TRANSFERSAMEWALLET("transferSameWallet"),
+    
+    UNIDENTIFIEDBOLETO("unidentifiedBoleto");
+
+    private String value;
+
+    WalletPurposeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static WalletPurposeEnum fromValue(String value) {
+      for (WalletPurposeEnum b : WalletPurposeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_WALLET_PURPOSE = "walletPurpose";
+  private WalletPurposeEnum walletPurpose;
 
   public FundRecipient() { 
   }
@@ -415,6 +460,36 @@ public class FundRecipient {
   }
 
 
+  public FundRecipient walletPurpose(WalletPurposeEnum walletPurpose) {
+    this.walletPurpose = walletPurpose;
+    return this;
+  }
+
+   /**
+   * The purpose of a digital wallet transaction
+   * @return walletPurpose
+  **/
+  @ApiModelProperty(value = "The purpose of a digital wallet transaction")
+  @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WalletPurposeEnum getWalletPurpose() {
+    return walletPurpose;
+  }
+
+
+ /**
+  * The purpose of a digital wallet transaction
+  *
+  * @param walletPurpose
+  */ 
+  @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWalletPurpose(WalletPurposeEnum walletPurpose) {
+    this.walletPurpose = walletPurpose;
+  }
+
+
   /**
    * Return true if this FundRecipient object is equal to o.
    */
@@ -437,12 +512,13 @@ public class FundRecipient {
         Objects.equals(this.subMerchant, fundRecipient.subMerchant) &&
         Objects.equals(this.telephoneNumber, fundRecipient.telephoneNumber) &&
         Objects.equals(this.walletIdentifier, fundRecipient.walletIdentifier) &&
-        Objects.equals(this.walletOwnerTaxId, fundRecipient.walletOwnerTaxId);
+        Objects.equals(this.walletOwnerTaxId, fundRecipient.walletOwnerTaxId) &&
+        Objects.equals(this.walletPurpose, fundRecipient.walletPurpose);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(IBAN, billingAddress, paymentMethod, shopperEmail, shopperName, shopperReference, storedPaymentMethodId, subMerchant, telephoneNumber, walletIdentifier, walletOwnerTaxId);
+    return Objects.hash(IBAN, billingAddress, paymentMethod, shopperEmail, shopperName, shopperReference, storedPaymentMethodId, subMerchant, telephoneNumber, walletIdentifier, walletOwnerTaxId, walletPurpose);
   }
 
   @Override
@@ -460,6 +536,7 @@ public class FundRecipient {
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    walletIdentifier: ").append(toIndentedString(walletIdentifier)).append("\n");
     sb.append("    walletOwnerTaxId: ").append(toIndentedString(walletOwnerTaxId)).append("\n");
+    sb.append("    walletPurpose: ").append(toIndentedString(walletPurpose)).append("\n");
     sb.append("}");
     return sb.toString();
   }

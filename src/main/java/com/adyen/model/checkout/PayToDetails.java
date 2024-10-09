@@ -32,7 +32,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   PayToDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  PayToDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   PayToDetails.JSON_PROPERTY_SHOPPER_ACCOUNT_IDENTIFIER,
+  PayToDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   PayToDetails.JSON_PROPERTY_TYPE
 })
 
@@ -40,8 +42,15 @@ public class PayToDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated
+  private String recurringDetailReference;
+
   public static final String JSON_PROPERTY_SHOPPER_ACCOUNT_IDENTIFIER = "shopperAccountIdentifier";
   private String shopperAccountIdentifier;
+
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
+  private String storedPaymentMethodId;
 
   /**
    * **payto**
@@ -112,6 +121,40 @@ public class PayToDetails {
   }
 
 
+  @Deprecated
+  public PayToDetails recurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+    return this;
+  }
+
+   /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   * @return recurringDetailReference
+   * @deprecated
+  **/
+  @Deprecated
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRecurringDetailReference() {
+    return recurringDetailReference;
+  }
+
+
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param recurringDetailReference
+  */ 
+  @Deprecated
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+  }
+
+
   public PayToDetails shopperAccountIdentifier(String shopperAccountIdentifier) {
     this.shopperAccountIdentifier = shopperAccountIdentifier;
     return this;
@@ -139,6 +182,36 @@ public class PayToDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperAccountIdentifier(String shopperAccountIdentifier) {
     this.shopperAccountIdentifier = shopperAccountIdentifier;
+  }
+
+
+  public PayToDetails storedPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    return this;
+  }
+
+   /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   * @return storedPaymentMethodId
+  **/
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getStoredPaymentMethodId() {
+    return storedPaymentMethodId;
+  }
+
+
+ /**
+  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  *
+  * @param storedPaymentMethodId
+  */ 
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
 
@@ -185,13 +258,15 @@ public class PayToDetails {
     }
     PayToDetails payToDetails = (PayToDetails) o;
     return Objects.equals(this.checkoutAttemptId, payToDetails.checkoutAttemptId) &&
+        Objects.equals(this.recurringDetailReference, payToDetails.recurringDetailReference) &&
         Objects.equals(this.shopperAccountIdentifier, payToDetails.shopperAccountIdentifier) &&
+        Objects.equals(this.storedPaymentMethodId, payToDetails.storedPaymentMethodId) &&
         Objects.equals(this.type, payToDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, shopperAccountIdentifier, type);
+    return Objects.hash(checkoutAttemptId, recurringDetailReference, shopperAccountIdentifier, storedPaymentMethodId, type);
   }
 
   @Override
@@ -199,7 +274,9 @@ public class PayToDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayToDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    shopperAccountIdentifier: ").append(toIndentedString(shopperAccountIdentifier)).append("\n");
+    sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
