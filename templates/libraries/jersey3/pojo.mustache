@@ -1,6 +1,7 @@
 /**
  * {{description}}{{^description}}{{classname}}{{/description}}{{#isDeprecated}}
- * @deprecated{{/isDeprecated}}
+ * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
+ * {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}{{/isDeprecated}}
  */{{#isDeprecated}}
 @Deprecated{{/isDeprecated}}{{#description}}
 @ApiModel(description = "{{{.}}}"){{/description}}
@@ -72,27 +73,27 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#vendorExtensions.x-is-jackson-optional-nullable}}
   {{#isContainer}}
   {{#deprecated}}
-  @Deprecated
+  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
   {{/deprecated}}
   private JsonNullable<{{{datatypeWithEnum}}}> {{name}} = JsonNullable.<{{{datatypeWithEnum}}}>undefined();
   {{/isContainer}}
   {{^isContainer}}
-   {{#deprecated}}
-   @Deprecated
-   {{/deprecated}}
+  {{#deprecated}}
+  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+  {{/deprecated}}
   private JsonNullable<{{{datatypeWithEnum}}}> {{name}} = JsonNullable.<{{{datatypeWithEnum}}}>{{#defaultValue}}of({{{.}}}){{/defaultValue}}{{^defaultValue}}undefined(){{/defaultValue}};
   {{/isContainer}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
   {{^vendorExtensions.x-is-jackson-optional-nullable}}
   {{#isContainer}}
   {{#deprecated}}
-  @Deprecated
+  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
   {{/deprecated}}
   private {{{datatypeWithEnum}}} {{name}}{{#required}}{{#defaultValue}} = {{{.}}}{{/defaultValue}}{{/required}}{{^required}} = null{{/required}};
   {{/isContainer}}
   {{^isContainer}}
   {{#deprecated}}
-  @Deprecated
+  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
   {{/deprecated}}
   private {{{datatypeWithEnum}}} {{name}};
   {{/isContainer}}
@@ -111,6 +112,17 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   ));
 
   {{/vendorExtensions.x-enum-as-string}}
+  /**
+   * {{{description}}}{{^description}}{{name}}{{/description}}
+   *
+   * @param {{name}}
+   * @return the current {@code {{classname}}} instance, allowing for method chaining
+   {{#deprecated}}
+   *
+   * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
+   * {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+   {{/deprecated}}
+   */
   {{#deprecated}}
   @Deprecated
   {{/deprecated}}
@@ -180,12 +192,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   }
   {{/isMap}}
 
-   /**
+  /**
   {{#description}}
-   * {{.}}
+   * {{{.}}}
   {{/description}}
   {{^description}}
-   * Get {{name}}
+   * {{name}}
   {{/description}}
   {{#minimum}}
    * minimum: {{.}}
@@ -195,11 +207,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{/maximum}}
    * @return {{name}}
   {{#deprecated}}
-   * @deprecated
+   *
+   * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
+   * {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
   {{/deprecated}}
-  **/
-{{#deprecated}}
-  @Deprecated
+   */
+{{#deprecated}}  @Deprecated
 {{/deprecated}}
 {{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  @ApiModelProperty({{#example}}example = "{{{.}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}value = "{{{description}}}")
 {{#vendorExtensions.x-extra-annotation}}
@@ -209,8 +222,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{!unannotated, Jackson would pick this up automatically and add it *in addition* to the _JsonNullable getter field}}
   @JsonIgnore
 {{/vendorExtensions.x-is-jackson-optional-nullable}}
-{{^vendorExtensions.x-is-jackson-optional-nullable}}{{#jackson}}{{> jackson_annotations}}{{/jackson}}{{/vendorExtensions.x-is-jackson-optional-nullable}}
-  public {{{datatypeWithEnum}}} {{getter}}() {
+{{^vendorExtensions.x-is-jackson-optional-nullable}}{{#jackson}}{{> jackson_annotations}}{{/jackson}}{{/vendorExtensions.x-is-jackson-optional-nullable}}  public {{{datatypeWithEnum}}} {{getter}}() {
     {{#vendorExtensions.x-is-jackson-optional-nullable}}
     return {{name}}.orElse(null);
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
@@ -219,12 +231,16 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
 
-
- /**
-  * {{description}}{{^description}}{{name}}{{/description}}
-  *
-  * @param {{name}}
-  */ {{#vendorExtensions.x-is-jackson-optional-nullable}}
+  /**
+   * {{{description}}}{{^description}}{{name}}{{/description}}
+   *
+   * @param {{name}}
+   {{#deprecated}}
+   *
+   * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
+   * {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+   {{/deprecated}}
+   */ {{#vendorExtensions.x-is-jackson-optional-nullable}}
 {{> jackson_annotations}}
   public JsonNullable<{{{datatypeWithEnum}}}> {{getter}}_JsonNullable() {
     return {{name}};
@@ -254,7 +270,6 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
-
   {{/vars}}
 {{>libraries/jersey2/additional_properties}}
   /**
