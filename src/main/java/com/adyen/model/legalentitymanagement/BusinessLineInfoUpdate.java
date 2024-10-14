@@ -36,104 +36,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * BusinessLineInfoUpdate
  */
 @JsonPropertyOrder({
-  BusinessLineInfoUpdate.JSON_PROPERTY_CAPABILITY,
   BusinessLineInfoUpdate.JSON_PROPERTY_INDUSTRY_CODE,
-  BusinessLineInfoUpdate.JSON_PROPERTY_LEGAL_ENTITY_ID,
   BusinessLineInfoUpdate.JSON_PROPERTY_SALES_CHANNELS,
-  BusinessLineInfoUpdate.JSON_PROPERTY_SERVICE,
   BusinessLineInfoUpdate.JSON_PROPERTY_SOURCE_OF_FUNDS,
   BusinessLineInfoUpdate.JSON_PROPERTY_WEB_DATA,
   BusinessLineInfoUpdate.JSON_PROPERTY_WEB_DATA_EXEMPTION
 })
 
 public class BusinessLineInfoUpdate {
-  /**
-   * The capability for which you are creating the business line. For example, **receivePayments**.
-   */
-  public enum CapabilityEnum {
-    RECEIVEPAYMENTS("receivePayments"),
-    
-    RECEIVEFROMPLATFORMPAYMENTS("receiveFromPlatformPayments"),
-    
-    ISSUEBANKACCOUNT("issueBankAccount");
-
-    private String value;
-
-    CapabilityEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static CapabilityEnum fromValue(String value) {
-      for (CapabilityEnum b : CapabilityEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_CAPABILITY = "capability";
-  @Deprecated
-  private CapabilityEnum capability;
-
   public static final String JSON_PROPERTY_INDUSTRY_CODE = "industryCode";
   private String industryCode;
 
-  public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
-  private String legalEntityId;
-
   public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
   private List<String> salesChannels = null;
-
-  /**
-   * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
-   */
-  public enum ServiceEnum {
-    PAYMENTPROCESSING("paymentProcessing"),
-    
-    BANKING("banking");
-
-    private String value;
-
-    ServiceEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ServiceEnum fromValue(String value) {
-      for (ServiceEnum b : ServiceEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_SERVICE = "service";
-  private ServiceEnum service;
 
   public static final String JSON_PROPERTY_SOURCE_OF_FUNDS = "sourceOfFunds";
   private SourceOfFunds sourceOfFunds;
@@ -146,40 +61,6 @@ public class BusinessLineInfoUpdate {
 
   public BusinessLineInfoUpdate() { 
   }
-
-  @Deprecated
-  public BusinessLineInfoUpdate capability(CapabilityEnum capability) {
-    this.capability = capability;
-    return this;
-  }
-
-   /**
-   * The capability for which you are creating the business line. For example, **receivePayments**.
-   * @return capability
-   * @deprecated
-  **/
-  @Deprecated
-  @ApiModelProperty(value = "The capability for which you are creating the business line. For example, **receivePayments**.")
-  @JsonProperty(JSON_PROPERTY_CAPABILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public CapabilityEnum getCapability() {
-    return capability;
-  }
-
-
- /**
-  * The capability for which you are creating the business line. For example, **receivePayments**.
-  *
-  * @param capability
-  */ 
-  @Deprecated
-  @JsonProperty(JSON_PROPERTY_CAPABILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCapability(CapabilityEnum capability) {
-    this.capability = capability;
-  }
-
 
   public BusinessLineInfoUpdate industryCode(String industryCode) {
     this.industryCode = industryCode;
@@ -208,36 +89,6 @@ public class BusinessLineInfoUpdate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryCode(String industryCode) {
     this.industryCode = industryCode;
-  }
-
-
-  public BusinessLineInfoUpdate legalEntityId(String legalEntityId) {
-    this.legalEntityId = legalEntityId;
-    return this;
-  }
-
-   /**
-   * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
-   * @return legalEntityId
-  **/
-  @ApiModelProperty(value = "Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.")
-  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getLegalEntityId() {
-    return legalEntityId;
-  }
-
-
- /**
-  * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
-  *
-  * @param legalEntityId
-  */ 
-  @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLegalEntityId(String legalEntityId) {
-    this.legalEntityId = legalEntityId;
   }
 
 
@@ -276,36 +127,6 @@ public class BusinessLineInfoUpdate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
-  }
-
-
-  public BusinessLineInfoUpdate service(ServiceEnum service) {
-    this.service = service;
-    return this;
-  }
-
-   /**
-   * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
-   * @return service
-  **/
-  @ApiModelProperty(value = "The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  ")
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public ServiceEnum getService() {
-    return service;
-  }
-
-
- /**
-  * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
-  *
-  * @param service
-  */ 
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setService(ServiceEnum service) {
-    this.service = service;
   }
 
 
@@ -419,11 +240,8 @@ public class BusinessLineInfoUpdate {
       return false;
     }
     BusinessLineInfoUpdate businessLineInfoUpdate = (BusinessLineInfoUpdate) o;
-    return Objects.equals(this.capability, businessLineInfoUpdate.capability) &&
-        Objects.equals(this.industryCode, businessLineInfoUpdate.industryCode) &&
-        Objects.equals(this.legalEntityId, businessLineInfoUpdate.legalEntityId) &&
+    return Objects.equals(this.industryCode, businessLineInfoUpdate.industryCode) &&
         Objects.equals(this.salesChannels, businessLineInfoUpdate.salesChannels) &&
-        Objects.equals(this.service, businessLineInfoUpdate.service) &&
         Objects.equals(this.sourceOfFunds, businessLineInfoUpdate.sourceOfFunds) &&
         Objects.equals(this.webData, businessLineInfoUpdate.webData) &&
         Objects.equals(this.webDataExemption, businessLineInfoUpdate.webDataExemption);
@@ -431,18 +249,15 @@ public class BusinessLineInfoUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capability, industryCode, legalEntityId, salesChannels, service, sourceOfFunds, webData, webDataExemption);
+    return Objects.hash(industryCode, salesChannels, sourceOfFunds, webData, webDataExemption);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BusinessLineInfoUpdate {\n");
-    sb.append("    capability: ").append(toIndentedString(capability)).append("\n");
     sb.append("    industryCode: ").append(toIndentedString(industryCode)).append("\n");
-    sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    salesChannels: ").append(toIndentedString(salesChannels)).append("\n");
-    sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    sourceOfFunds: ").append(toIndentedString(sourceOfFunds)).append("\n");
     sb.append("    webData: ").append(toIndentedString(webData)).append("\n");
     sb.append("    webDataExemption: ").append(toIndentedString(webDataExemption)).append("\n");
