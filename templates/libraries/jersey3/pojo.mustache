@@ -113,14 +113,14 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
 
   {{/vendorExtensions.x-enum-as-string}}
   /**
-   * {{{description}}}{{^description}}{{name}}{{/description}}
+   * {{description}}{{^description}}{{name}}{{/description}}
    *
    * @param {{name}}
    * @return the current {@code {{classname}}} instance, allowing for method chaining
    {{#deprecated}}
    *
    * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
-   * {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+   * {{.}}{{/vendorExtensions.x-deprecatedMessage}}
    {{/deprecated}}
    */
   {{#deprecated}}
@@ -194,7 +194,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
 
   /**
   {{#description}}
-   * {{{.}}}
+   * {{.}}
   {{/description}}
   {{^description}}
    * {{name}}
@@ -209,7 +209,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#deprecated}}
    *
    * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
-   * {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+   * {{.}}{{/vendorExtensions.x-deprecatedMessage}}
   {{/deprecated}}
    */
 {{#deprecated}}  @Deprecated
@@ -232,13 +232,13 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   }
 
   /**
-   * {{{description}}}{{^description}}{{name}}{{/description}}
+   * {{description}}{{^description}}{{name}}{{/description}}
    *
    * @param {{name}}
    {{#deprecated}}
    *
    * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
-   * {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+   * {{.}}{{/vendorExtensions.x-deprecatedMessage}}
    {{/deprecated}}
    */ {{#vendorExtensions.x-is-jackson-optional-nullable}}
 {{> jackson_annotations}}
