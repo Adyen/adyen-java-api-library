@@ -132,575 +132,632 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions() { 
   }
 
+  /**
+   * activeNetworkTokens
+   *
+   * @param activeNetworkTokens
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions activeNetworkTokens(ActiveNetworkTokensRestriction activeNetworkTokens) {
     this.activeNetworkTokens = activeNetworkTokens;
     return this;
   }
 
-   /**
-   * Get activeNetworkTokens
+  /**
+   * activeNetworkTokens
    * @return activeNetworkTokens
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACTIVE_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ActiveNetworkTokensRestriction getActiveNetworkTokens() {
     return activeNetworkTokens;
   }
 
-
- /**
-  * activeNetworkTokens
-  *
-  * @param activeNetworkTokens
-  */ 
+  /**
+   * activeNetworkTokens
+   *
+   * @param activeNetworkTokens
+   */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActiveNetworkTokens(ActiveNetworkTokensRestriction activeNetworkTokens) {
     this.activeNetworkTokens = activeNetworkTokens;
   }
 
-
+  /**
+   * brandVariants
+   *
+   * @param brandVariants
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions brandVariants(BrandVariantsRestriction brandVariants) {
     this.brandVariants = brandVariants;
     return this;
   }
 
-   /**
-   * Get brandVariants
+  /**
+   * brandVariants
    * @return brandVariants
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BrandVariantsRestriction getBrandVariants() {
     return brandVariants;
   }
 
-
- /**
-  * brandVariants
-  *
-  * @param brandVariants
-  */ 
+  /**
+   * brandVariants
+   *
+   * @param brandVariants
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariants(BrandVariantsRestriction brandVariants) {
     this.brandVariants = brandVariants;
   }
 
-
+  /**
+   * counterpartyBank
+   *
+   * @param counterpartyBank
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions counterpartyBank(CounterpartyBankRestriction counterpartyBank) {
     this.counterpartyBank = counterpartyBank;
     return this;
   }
 
-   /**
-   * Get counterpartyBank
+  /**
+   * counterpartyBank
    * @return counterpartyBank
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CounterpartyBankRestriction getCounterpartyBank() {
     return counterpartyBank;
   }
 
-
- /**
-  * counterpartyBank
-  *
-  * @param counterpartyBank
-  */ 
+  /**
+   * counterpartyBank
+   *
+   * @param counterpartyBank
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterpartyBank(CounterpartyBankRestriction counterpartyBank) {
     this.counterpartyBank = counterpartyBank;
   }
 
-
+  /**
+   * countries
+   *
+   * @param countries
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions countries(CountriesRestriction countries) {
     this.countries = countries;
     return this;
   }
 
-   /**
-   * Get countries
+  /**
+   * countries
    * @return countries
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CountriesRestriction getCountries() {
     return countries;
   }
 
-
- /**
-  * countries
-  *
-  * @param countries
-  */ 
+  /**
+   * countries
+   *
+   * @param countries
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(CountriesRestriction countries) {
     this.countries = countries;
   }
 
-
+  /**
+   * dayOfWeek
+   *
+   * @param dayOfWeek
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions dayOfWeek(DayOfWeekRestriction dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
     return this;
   }
 
-   /**
-   * Get dayOfWeek
+  /**
+   * dayOfWeek
    * @return dayOfWeek
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DayOfWeekRestriction getDayOfWeek() {
     return dayOfWeek;
   }
 
-
- /**
-  * dayOfWeek
-  *
-  * @param dayOfWeek
-  */ 
+  /**
+   * dayOfWeek
+   *
+   * @param dayOfWeek
+   */ 
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDayOfWeek(DayOfWeekRestriction dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
   }
 
-
+  /**
+   * differentCurrencies
+   *
+   * @param differentCurrencies
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions differentCurrencies(DifferentCurrenciesRestriction differentCurrencies) {
     this.differentCurrencies = differentCurrencies;
     return this;
   }
 
-   /**
-   * Get differentCurrencies
+  /**
+   * differentCurrencies
    * @return differentCurrencies
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIFFERENT_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DifferentCurrenciesRestriction getDifferentCurrencies() {
     return differentCurrencies;
   }
 
-
- /**
-  * differentCurrencies
-  *
-  * @param differentCurrencies
-  */ 
+  /**
+   * differentCurrencies
+   *
+   * @param differentCurrencies
+   */ 
   @JsonProperty(JSON_PROPERTY_DIFFERENT_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDifferentCurrencies(DifferentCurrenciesRestriction differentCurrencies) {
     this.differentCurrencies = differentCurrencies;
   }
 
-
+  /**
+   * entryModes
+   *
+   * @param entryModes
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions entryModes(EntryModesRestriction entryModes) {
     this.entryModes = entryModes;
     return this;
   }
 
-   /**
-   * Get entryModes
+  /**
+   * entryModes
    * @return entryModes
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTRY_MODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EntryModesRestriction getEntryModes() {
     return entryModes;
   }
 
-
- /**
-  * entryModes
-  *
-  * @param entryModes
-  */ 
+  /**
+   * entryModes
+   *
+   * @param entryModes
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTRY_MODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntryModes(EntryModesRestriction entryModes) {
     this.entryModes = entryModes;
   }
 
-
+  /**
+   * internationalTransaction
+   *
+   * @param internationalTransaction
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions internationalTransaction(InternationalTransactionRestriction internationalTransaction) {
     this.internationalTransaction = internationalTransaction;
     return this;
   }
 
-   /**
-   * Get internationalTransaction
+  /**
+   * internationalTransaction
    * @return internationalTransaction
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERNATIONAL_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public InternationalTransactionRestriction getInternationalTransaction() {
     return internationalTransaction;
   }
 
-
- /**
-  * internationalTransaction
-  *
-  * @param internationalTransaction
-  */ 
+  /**
+   * internationalTransaction
+   *
+   * @param internationalTransaction
+   */ 
   @JsonProperty(JSON_PROPERTY_INTERNATIONAL_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInternationalTransaction(InternationalTransactionRestriction internationalTransaction) {
     this.internationalTransaction = internationalTransaction;
   }
 
-
+  /**
+   * matchingTransactions
+   *
+   * @param matchingTransactions
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions matchingTransactions(MatchingTransactionsRestriction matchingTransactions) {
     this.matchingTransactions = matchingTransactions;
     return this;
   }
 
-   /**
-   * Get matchingTransactions
+  /**
+   * matchingTransactions
    * @return matchingTransactions
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MATCHING_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MatchingTransactionsRestriction getMatchingTransactions() {
     return matchingTransactions;
   }
 
-
- /**
-  * matchingTransactions
-  *
-  * @param matchingTransactions
-  */ 
+  /**
+   * matchingTransactions
+   *
+   * @param matchingTransactions
+   */ 
   @JsonProperty(JSON_PROPERTY_MATCHING_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchingTransactions(MatchingTransactionsRestriction matchingTransactions) {
     this.matchingTransactions = matchingTransactions;
   }
 
-
+  /**
+   * matchingValues
+   *
+   * @param matchingValues
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions matchingValues(MatchingValuesRestriction matchingValues) {
     this.matchingValues = matchingValues;
     return this;
   }
 
-   /**
-   * Get matchingValues
+  /**
+   * matchingValues
    * @return matchingValues
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MATCHING_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MatchingValuesRestriction getMatchingValues() {
     return matchingValues;
   }
 
-
- /**
-  * matchingValues
-  *
-  * @param matchingValues
-  */ 
+  /**
+   * matchingValues
+   *
+   * @param matchingValues
+   */ 
   @JsonProperty(JSON_PROPERTY_MATCHING_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchingValues(MatchingValuesRestriction matchingValues) {
     this.matchingValues = matchingValues;
   }
 
-
+  /**
+   * mccs
+   *
+   * @param mccs
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions mccs(MccsRestriction mccs) {
     this.mccs = mccs;
     return this;
   }
 
-   /**
-   * Get mccs
+  /**
+   * mccs
    * @return mccs
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MCCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MccsRestriction getMccs() {
     return mccs;
   }
 
-
- /**
-  * mccs
-  *
-  * @param mccs
-  */ 
+  /**
+   * mccs
+   *
+   * @param mccs
+   */ 
   @JsonProperty(JSON_PROPERTY_MCCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMccs(MccsRestriction mccs) {
     this.mccs = mccs;
   }
 
-
+  /**
+   * merchantNames
+   *
+   * @param merchantNames
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions merchantNames(MerchantNamesRestriction merchantNames) {
     this.merchantNames = merchantNames;
     return this;
   }
 
-   /**
-   * Get merchantNames
+  /**
+   * merchantNames
    * @return merchantNames
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MerchantNamesRestriction getMerchantNames() {
     return merchantNames;
   }
 
-
- /**
-  * merchantNames
-  *
-  * @param merchantNames
-  */ 
+  /**
+   * merchantNames
+   *
+   * @param merchantNames
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantNames(MerchantNamesRestriction merchantNames) {
     this.merchantNames = merchantNames;
   }
 
-
+  /**
+   * merchants
+   *
+   * @param merchants
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions merchants(MerchantsRestriction merchants) {
     this.merchants = merchants;
     return this;
   }
 
-   /**
-   * Get merchants
+  /**
+   * merchants
    * @return merchants
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MerchantsRestriction getMerchants() {
     return merchants;
   }
 
-
- /**
-  * merchants
-  *
-  * @param merchants
-  */ 
+  /**
+   * merchants
+   *
+   * @param merchants
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchants(MerchantsRestriction merchants) {
     this.merchants = merchants;
   }
 
-
+  /**
+   * processingTypes
+   *
+   * @param processingTypes
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions processingTypes(ProcessingTypesRestriction processingTypes) {
     this.processingTypes = processingTypes;
     return this;
   }
 
-   /**
-   * Get processingTypes
+  /**
+   * processingTypes
    * @return processingTypes
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ProcessingTypesRestriction getProcessingTypes() {
     return processingTypes;
   }
 
-
- /**
-  * processingTypes
-  *
-  * @param processingTypes
-  */ 
+  /**
+   * processingTypes
+   *
+   * @param processingTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingTypes(ProcessingTypesRestriction processingTypes) {
     this.processingTypes = processingTypes;
   }
 
-
+  /**
+   * riskScores
+   *
+   * @param riskScores
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions riskScores(RiskScoresRestriction riskScores) {
     this.riskScores = riskScores;
     return this;
   }
 
-   /**
-   * Get riskScores
+  /**
+   * riskScores
    * @return riskScores
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_SCORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RiskScoresRestriction getRiskScores() {
     return riskScores;
   }
 
-
- /**
-  * riskScores
-  *
-  * @param riskScores
-  */ 
+  /**
+   * riskScores
+   *
+   * @param riskScores
+   */ 
   @JsonProperty(JSON_PROPERTY_RISK_SCORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScores(RiskScoresRestriction riskScores) {
     this.riskScores = riskScores;
   }
 
-
+  /**
+   * sameAmountRestriction
+   *
+   * @param sameAmountRestriction
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions sameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
     this.sameAmountRestriction = sameAmountRestriction;
     return this;
   }
 
-   /**
-   * Get sameAmountRestriction
+  /**
+   * sameAmountRestriction
    * @return sameAmountRestriction
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SAME_AMOUNT_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SameAmountRestriction getSameAmountRestriction() {
     return sameAmountRestriction;
   }
 
-
- /**
-  * sameAmountRestriction
-  *
-  * @param sameAmountRestriction
-  */ 
+  /**
+   * sameAmountRestriction
+   *
+   * @param sameAmountRestriction
+   */ 
   @JsonProperty(JSON_PROPERTY_SAME_AMOUNT_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
     this.sameAmountRestriction = sameAmountRestriction;
   }
 
-
+  /**
+   * sameCounterpartyRestriction
+   *
+   * @param sameCounterpartyRestriction
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions sameCounterpartyRestriction(SameCounterpartyRestriction sameCounterpartyRestriction) {
     this.sameCounterpartyRestriction = sameCounterpartyRestriction;
     return this;
   }
 
-   /**
-   * Get sameCounterpartyRestriction
+  /**
+   * sameCounterpartyRestriction
    * @return sameCounterpartyRestriction
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SameCounterpartyRestriction getSameCounterpartyRestriction() {
     return sameCounterpartyRestriction;
   }
 
-
- /**
-  * sameCounterpartyRestriction
-  *
-  * @param sameCounterpartyRestriction
-  */ 
+  /**
+   * sameCounterpartyRestriction
+   *
+   * @param sameCounterpartyRestriction
+   */ 
   @JsonProperty(JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSameCounterpartyRestriction(SameCounterpartyRestriction sameCounterpartyRestriction) {
     this.sameCounterpartyRestriction = sameCounterpartyRestriction;
   }
 
-
+  /**
+   * timeOfDay
+   *
+   * @param timeOfDay
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions timeOfDay(TimeOfDayRestriction timeOfDay) {
     this.timeOfDay = timeOfDay;
     return this;
   }
 
-   /**
-   * Get timeOfDay
+  /**
+   * timeOfDay
    * @return timeOfDay
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TimeOfDayRestriction getTimeOfDay() {
     return timeOfDay;
   }
 
-
- /**
-  * timeOfDay
-  *
-  * @param timeOfDay
-  */ 
+  /**
+   * timeOfDay
+   *
+   * @param timeOfDay
+   */ 
   @JsonProperty(JSON_PROPERTY_TIME_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeOfDay(TimeOfDayRestriction timeOfDay) {
     this.timeOfDay = timeOfDay;
   }
 
-
+  /**
+   * totalAmount
+   *
+   * @param totalAmount
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
   public TransactionRuleRestrictions totalAmount(TotalAmountRestriction totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
 
-   /**
-   * Get totalAmount
+  /**
+   * totalAmount
    * @return totalAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TotalAmountRestriction getTotalAmount() {
     return totalAmount;
   }
 
-
- /**
-  * totalAmount
-  *
-  * @param totalAmount
-  */ 
+  /**
+   * totalAmount
+   *
+   * @param totalAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(TotalAmountRestriction totalAmount) {
     this.totalAmount = totalAmount;
   }
-
 
   /**
    * Return true if this TransactionRuleRestrictions object is equal to o.

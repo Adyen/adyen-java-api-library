@@ -48,36 +48,45 @@ public class MerchantsRestriction {
   public MerchantsRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code MerchantsRestriction} instance, allowing for method chaining
+   */
   public MerchantsRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * List of merchant ID and acquirer ID pairs.
+   *
+   * @param value
+   * @return the current {@code MerchantsRestriction} instance, allowing for method chaining
+   */
   public MerchantsRestriction value(List<MerchantAcquirerPair> value) {
     this.value = value;
     return this;
@@ -91,30 +100,27 @@ public class MerchantsRestriction {
     return this;
   }
 
-   /**
+  /**
    * List of merchant ID and acquirer ID pairs.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "List of merchant ID and acquirer ID pairs.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<MerchantAcquirerPair> getValue() {
     return value;
   }
 
-
- /**
-  * List of merchant ID and acquirer ID pairs.
-  *
-  * @param value
-  */ 
+  /**
+   * List of merchant ID and acquirer ID pairs.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<MerchantAcquirerPair> value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this MerchantsRestriction object is equal to o.

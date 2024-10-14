@@ -58,7 +58,7 @@ public class EftDetails {
   private String ownerName;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -103,182 +103,209 @@ public class EftDetails {
   public EftDetails() { 
   }
 
+  /**
+   * The bank account number (without separators).
+   *
+   * @param bankAccountNumber
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   */
   public EftDetails bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
     return this;
   }
 
-   /**
+  /**
    * The bank account number (without separators).
    * @return bankAccountNumber
-  **/
+   */
   @ApiModelProperty(value = "The bank account number (without separators).")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBankAccountNumber() {
     return bankAccountNumber;
   }
 
-
- /**
-  * The bank account number (without separators).
-  *
-  * @param bankAccountNumber
-  */ 
+  /**
+   * The bank account number (without separators).
+   *
+   * @param bankAccountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
   }
 
-
+  /**
+   * The financial institution code.
+   *
+   * @param bankCode
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   */
   public EftDetails bankCode(String bankCode) {
     this.bankCode = bankCode;
     return this;
   }
 
-   /**
+  /**
    * The financial institution code.
    * @return bankCode
-  **/
+   */
   @ApiModelProperty(value = "The financial institution code.")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBankCode() {
     return bankCode;
   }
 
-
- /**
-  * The financial institution code.
-  *
-  * @param bankCode
-  */ 
+  /**
+   * The financial institution code.
+   *
+   * @param bankCode
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
   }
 
-
+  /**
+   * The bank routing number of the account.
+   *
+   * @param bankLocationId
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   */
   public EftDetails bankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
     return this;
   }
 
-   /**
+  /**
    * The bank routing number of the account.
    * @return bankLocationId
-  **/
+   */
   @ApiModelProperty(value = "The bank routing number of the account.")
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBankLocationId() {
     return bankLocationId;
   }
 
-
- /**
-  * The bank routing number of the account.
-  *
-  * @param bankLocationId
-  */ 
+  /**
+   * The bank routing number of the account.
+   *
+   * @param bankLocationId
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
   }
 
-
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   */
   public EftDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. > If provided details don't match the required format, the response returns the error message: 203 'Invalid bank account holder name'.
+   *
+   * @param ownerName
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   */
   public EftDetails ownerName(String ownerName) {
     this.ownerName = ownerName;
     return this;
   }
 
-   /**
-   * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
+  /**
+   * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. > If provided details don't match the required format, the response returns the error message: 203 'Invalid bank account holder name'.
    * @return ownerName
-  **/
+   */
   @ApiModelProperty(value = "The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. > If provided details don't match the required format, the response returns the error message: 203 'Invalid bank account holder name'.")
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOwnerName() {
     return ownerName;
   }
 
-
- /**
-  * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
-  *
-  * @param ownerName
-  */ 
+  /**
+   * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. > If provided details don't match the required format, the response returns the error message: 203 'Invalid bank account holder name'.
+   *
+   * @param ownerName
+   */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   public EftDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated
-  **/
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,66 +313,71 @@ public class EftDetails {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   */
   public EftDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
-
+  /**
+   * **eft**
+   *
+   * @param type
+   * @return the current {@code EftDetails} instance, allowing for method chaining
+   */
   public EftDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **eft**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**eft**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **eft**
-  *
-  * @param type
-  */ 
+  /**
+   * **eft**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this EftDetails object is equal to o.

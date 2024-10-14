@@ -106,7 +106,7 @@ public class PaymentMethod {
   private PaymentMethodGroup group;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
-  @Deprecated
+  @Deprecated // deprecated 
   private List<InputDetail> inputDetails = null;
 
   public static final String JSON_PROPERTY_ISSUERS = "issuers";
@@ -121,6 +121,12 @@ public class PaymentMethod {
   public PaymentMethod() { 
   }
 
+  /**
+   * A list of apps for this payment method.
+   *
+   * @param apps
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod apps(List<PaymentMethodUPIApps> apps) {
     this.apps = apps;
     return this;
@@ -134,61 +140,67 @@ public class PaymentMethod {
     return this;
   }
 
-   /**
+  /**
    * A list of apps for this payment method.
    * @return apps
-  **/
+   */
   @ApiModelProperty(value = "A list of apps for this payment method.")
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PaymentMethodUPIApps> getApps() {
     return apps;
   }
 
-
- /**
-  * A list of apps for this payment method.
-  *
-  * @param apps
-  */ 
+  /**
+   * A list of apps for this payment method.
+   *
+   * @param apps
+   */ 
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApps(List<PaymentMethodUPIApps> apps) {
     this.apps = apps;
   }
 
-
+  /**
+   * Brand for the selected gift card. For example: plastix, hmclub.
+   *
+   * @param brand
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod brand(String brand) {
     this.brand = brand;
     return this;
   }
 
-   /**
+  /**
    * Brand for the selected gift card. For example: plastix, hmclub.
    * @return brand
-  **/
+   */
   @ApiModelProperty(value = "Brand for the selected gift card. For example: plastix, hmclub.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrand() {
     return brand;
   }
 
-
- /**
-  * Brand for the selected gift card. For example: plastix, hmclub.
-  *
-  * @param brand
-  */ 
+  /**
+   * Brand for the selected gift card. For example: plastix, hmclub.
+   *
+   * @param brand
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
-
+  /**
+   * List of possible brands. For example: visa, mc.
+   *
+   * @param brands
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod brands(List<String> brands) {
     this.brands = brands;
     return this;
@@ -202,31 +214,34 @@ public class PaymentMethod {
     return this;
   }
 
-   /**
+  /**
    * List of possible brands. For example: visa, mc.
    * @return brands
-  **/
+   */
   @ApiModelProperty(value = "List of possible brands. For example: visa, mc.")
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getBrands() {
     return brands;
   }
 
-
- /**
-  * List of possible brands. For example: visa, mc.
-  *
-  * @param brands
-  */ 
+  /**
+   * List of possible brands. For example: visa, mc.
+   *
+   * @param brands
+   */ 
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
     this.brands = brands;
   }
 
-
+  /**
+   * The configuration of the payment method.
+   *
+   * @param configuration
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod configuration(Map<String, String> configuration) {
     this.configuration = configuration;
     return this;
@@ -240,91 +255,102 @@ public class PaymentMethod {
     return this;
   }
 
-   /**
+  /**
    * The configuration of the payment method.
    * @return configuration
-  **/
+   */
   @ApiModelProperty(value = "The configuration of the payment method.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getConfiguration() {
     return configuration;
   }
 
-
- /**
-  * The configuration of the payment method.
-  *
-  * @param configuration
-  */ 
+  /**
+   * The configuration of the payment method.
+   *
+   * @param configuration
+   */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
     this.configuration = configuration;
   }
 
-
+  /**
+   * The funding source of the payment method.
+   *
+   * @param fundingSource
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
     return this;
   }
 
-   /**
+  /**
    * The funding source of the payment method.
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "The funding source of the payment method.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FundingSourceEnum getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * The funding source of the payment method.
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * The funding source of the payment method.
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * group
+   *
+   * @param group
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod group(PaymentMethodGroup group) {
     this.group = group;
     return this;
   }
 
-   /**
-   * Get group
+  /**
+   * group
    * @return group
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentMethodGroup getGroup() {
     return group;
   }
 
-
- /**
-  * group
-  *
-  * @param group
-  */ 
+  /**
+   * group
+   *
+   * @param group
+   */ 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(PaymentMethodGroup group) {
     this.group = group;
   }
 
-
+  /**
+   * All input details to be provided to complete the payment with this payment method.
+   *
+   * @param inputDetails
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   *
+   * @deprecated 
+   */
   @Deprecated
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
@@ -339,26 +365,27 @@ public class PaymentMethod {
     return this;
   }
 
-   /**
+  /**
    * All input details to be provided to complete the payment with this payment method.
    * @return inputDetails
-   * @deprecated
-  **/
+   *
+   * @deprecated 
+   */
   @Deprecated
   @ApiModelProperty(value = "All input details to be provided to complete the payment with this payment method.")
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<InputDetail> getInputDetails() {
     return inputDetails;
   }
 
-
- /**
-  * All input details to be provided to complete the payment with this payment method.
-  *
-  * @param inputDetails
-  */ 
+  /**
+   * All input details to be provided to complete the payment with this payment method.
+   *
+   * @param inputDetails
+   *
+   * @deprecated 
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,7 +393,12 @@ public class PaymentMethod {
     this.inputDetails = inputDetails;
   }
 
-
+  /**
+   * A list of issuers for this payment method.
+   *
+   * @param issuers
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod issuers(List<PaymentMethodIssuer> issuers) {
     this.issuers = issuers;
     return this;
@@ -380,90 +412,93 @@ public class PaymentMethod {
     return this;
   }
 
-   /**
+  /**
    * A list of issuers for this payment method.
    * @return issuers
-  **/
+   */
   @ApiModelProperty(value = "A list of issuers for this payment method.")
   @JsonProperty(JSON_PROPERTY_ISSUERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PaymentMethodIssuer> getIssuers() {
     return issuers;
   }
 
-
- /**
-  * A list of issuers for this payment method.
-  *
-  * @param issuers
-  */ 
+  /**
+   * A list of issuers for this payment method.
+   *
+   * @param issuers
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuers(List<PaymentMethodIssuer> issuers) {
     this.issuers = issuers;
   }
 
-
+  /**
+   * The displayable name of this payment method.
+   *
+   * @param name
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The displayable name of this payment method.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The displayable name of this payment method.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The displayable name of this payment method.
-  *
-  * @param name
-  */ 
+  /**
+   * The displayable name of this payment method.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The unique payment method code.
+   *
+   * @param type
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
   public PaymentMethod type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The unique payment method code.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The unique payment method code.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The unique payment method code.
-  *
-  * @param type
-  */ 
+  /**
+   * The unique payment method code.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PaymentMethod object is equal to o.

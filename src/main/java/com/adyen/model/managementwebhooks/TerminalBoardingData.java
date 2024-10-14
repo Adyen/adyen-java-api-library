@@ -53,125 +53,137 @@ public class TerminalBoardingData {
   public TerminalBoardingData() { 
   }
 
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param companyId
+   * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
+   */
   public TerminalBoardingData companyId(String companyId) {
     this.companyId = companyId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the company account.
    * @return companyId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyId() {
     return companyId;
   }
 
-
- /**
-  * The unique identifier of the company account.
-  *
-  * @param companyId
-  */ 
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param companyId
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
 
-
+  /**
+   * The unique identifier of the merchant account.
+   *
+   * @param merchantId
+   * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
+   */
   public TerminalBoardingData merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the merchant account.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * The unique identifier of the merchant account.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * The unique identifier of the merchant account.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
-
+  /**
+   * The unique identifier of the store.
+   *
+   * @param storeId
+   * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
+   */
   public TerminalBoardingData storeId(String storeId) {
     this.storeId = storeId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the store.
    * @return storeId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the store.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoreId() {
     return storeId;
   }
 
-
- /**
-  * The unique identifier of the store.
-  *
-  * @param storeId
-  */ 
+  /**
+   * The unique identifier of the store.
+   *
+   * @param storeId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
     this.storeId = storeId;
   }
 
-
+  /**
+   * The unique identifier of the terminal.
+   *
+   * @param uniqueTerminalId
+   * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
+   */
   public TerminalBoardingData uniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the terminal.
    * @return uniqueTerminalId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the terminal.")
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUniqueTerminalId() {
     return uniqueTerminalId;
   }
 
-
- /**
-  * The unique identifier of the terminal.
-  *
-  * @param uniqueTerminalId
-  */ 
+  /**
+   * The unique identifier of the terminal.
+   *
+   * @param uniqueTerminalId
+   */ 
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
   }
-
 
   /**
    * Return true if this TerminalBoardingData object is equal to o.

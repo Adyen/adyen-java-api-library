@@ -41,35 +41,38 @@ public class ApplePaySessionResponse {
   public ApplePaySessionResponse() { 
   }
 
+  /**
+   * Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab=adyen-certificate-validation_1#complete-apple-pay-session-validation).
+   *
+   * @param data
+   * @return the current {@code ApplePaySessionResponse} instance, allowing for method chaining
+   */
   public ApplePaySessionResponse data(String data) {
     this.data = data;
     return this;
   }
 
-   /**
-   * Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab&#x3D;adyen-certificate-validation_1#complete-apple-pay-session-validation).
+  /**
+   * Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab=adyen-certificate-validation_1#complete-apple-pay-session-validation).
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab=adyen-certificate-validation_1#complete-apple-pay-session-validation).")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getData() {
     return data;
   }
 
-
- /**
-  * Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab&#x3D;adyen-certificate-validation_1#complete-apple-pay-session-validation).
-  *
-  * @param data
-  */ 
+  /**
+   * Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab=adyen-certificate-validation_1#complete-apple-pay-session-validation).
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(String data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this ApplePaySessionResponse object is equal to o.

@@ -49,95 +49,104 @@ public class Key {
   public Key() { 
   }
 
+  /**
+   * The unique identifier of the shared key.
+   *
+   * @param identifier
+   * @return the current {@code Key} instance, allowing for method chaining
+   */
   public Key identifier(String identifier) {
     this.identifier = identifier;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the shared key.
    * @return identifier
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the shared key.")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdentifier() {
     return identifier;
   }
 
-
- /**
-  * The unique identifier of the shared key.
-  *
-  * @param identifier
-  */ 
+  /**
+   * The unique identifier of the shared key.
+   *
+   * @param identifier
+   */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentifier(String identifier) {
     this.identifier = identifier;
   }
 
-
+  /**
+   * The secure passphrase to protect the shared key.
+   *
+   * @param passphrase
+   * @return the current {@code Key} instance, allowing for method chaining
+   */
   public Key passphrase(String passphrase) {
     this.passphrase = passphrase;
     return this;
   }
 
-   /**
+  /**
    * The secure passphrase to protect the shared key.
    * @return passphrase
-  **/
+   */
   @ApiModelProperty(value = "The secure passphrase to protect the shared key.")
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassphrase() {
     return passphrase;
   }
 
-
- /**
-  * The secure passphrase to protect the shared key.
-  *
-  * @param passphrase
-  */ 
+  /**
+   * The secure passphrase to protect the shared key.
+   *
+   * @param passphrase
+   */ 
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassphrase(String passphrase) {
     this.passphrase = passphrase;
   }
 
-
+  /**
+   * The version number of the shared key.
+   *
+   * @param version
+   * @return the current {@code Key} instance, allowing for method chaining
+   */
   public Key version(Integer version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number of the shared key.
    * @return version
-  **/
+   */
   @ApiModelProperty(value = "The version number of the shared key.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getVersion() {
     return version;
   }
 
-
- /**
-  * The version number of the shared key.
-  *
-  * @param version
-  */ 
+  /**
+   * The version number of the shared key.
+   *
+   * @param version
+   */ 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(Integer version) {
     this.version = version;
   }
-
 
   /**
    * Return true if this Key object is equal to o.

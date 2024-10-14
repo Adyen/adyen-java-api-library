@@ -41,35 +41,38 @@ public class DetailsRequestAuthenticationData {
   public DetailsRequestAuthenticationData() { 
   }
 
+  /**
+   * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.
+   *
+   * @param authenticationOnly
+   * @return the current {@code DetailsRequestAuthenticationData} instance, allowing for method chaining
+   */
   public DetailsRequestAuthenticationData authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
     return this;
   }
 
-   /**
+  /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.
    * @return authenticationOnly
-  **/
+   */
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAuthenticationOnly() {
     return authenticationOnly;
   }
 
-
- /**
-  * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.
-  *
-  * @param authenticationOnly
-  */ 
+  /**
+   * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.
+   *
+   * @param authenticationOnly
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
   }
-
 
   /**
    * Return true if this DetailsRequestAuthenticationData object is equal to o.

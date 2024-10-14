@@ -41,35 +41,38 @@ public class GenerateHmacKeyResponse {
   public GenerateHmacKeyResponse() { 
   }
 
+  /**
+   * The HMAC key generated for this webhook.
+   *
+   * @param hmacKey
+   * @return the current {@code GenerateHmacKeyResponse} instance, allowing for method chaining
+   */
   public GenerateHmacKeyResponse hmacKey(String hmacKey) {
     this.hmacKey = hmacKey;
     return this;
   }
 
-   /**
+  /**
    * The HMAC key generated for this webhook.
    * @return hmacKey
-  **/
+   */
   @ApiModelProperty(required = true, value = "The HMAC key generated for this webhook.")
   @JsonProperty(JSON_PROPERTY_HMAC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHmacKey() {
     return hmacKey;
   }
 
-
- /**
-  * The HMAC key generated for this webhook.
-  *
-  * @param hmacKey
-  */ 
+  /**
+   * The HMAC key generated for this webhook.
+   *
+   * @param hmacKey
+   */ 
   @JsonProperty(JSON_PROPERTY_HMAC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHmacKey(String hmacKey) {
     this.hmacKey = hmacKey;
   }
-
 
   /**
    * Return true if this GenerateHmacKeyResponse object is equal to o.

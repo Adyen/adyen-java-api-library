@@ -372,485 +372,533 @@ public class AcctInfo {
   public AcctInfo() { 
   }
 
+  /**
+   * Length of time that the cardholder has had the account with the 3DS Requestor.  Allowed values: * **01** — No account * **02** — Created during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+   *
+   * @param chAccAgeInd
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo chAccAgeInd(ChAccAgeIndEnum chAccAgeInd) {
     this.chAccAgeInd = chAccAgeInd;
     return this;
   }
 
-   /**
+  /**
    * Length of time that the cardholder has had the account with the 3DS Requestor.  Allowed values: * **01** — No account * **02** — Created during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
    * @return chAccAgeInd
-  **/
+   */
   @ApiModelProperty(value = "Length of time that the cardholder has had the account with the 3DS Requestor.  Allowed values: * **01** — No account * **02** — Created during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days")
   @JsonProperty(JSON_PROPERTY_CH_ACC_AGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ChAccAgeIndEnum getChAccAgeInd() {
     return chAccAgeInd;
   }
 
-
- /**
-  * Length of time that the cardholder has had the account with the 3DS Requestor.  Allowed values: * **01** — No account * **02** — Created during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
-  *
-  * @param chAccAgeInd
-  */ 
+  /**
+   * Length of time that the cardholder has had the account with the 3DS Requestor.  Allowed values: * **01** — No account * **02** — Created during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+   *
+   * @param chAccAgeInd
+   */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_AGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccAgeInd(ChAccAgeIndEnum chAccAgeInd) {
     this.chAccAgeInd = chAccAgeInd;
   }
 
-
+  /**
+   * Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Format: **YYYYMMDD**
+   *
+   * @param chAccChange
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo chAccChange(String chAccChange) {
     this.chAccChange = chAccChange;
     return this;
   }
 
-   /**
+  /**
    * Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Format: **YYYYMMDD**
    * @return chAccChange
-  **/
+   */
   @ApiModelProperty(value = "Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Format: **YYYYMMDD**")
   @JsonProperty(JSON_PROPERTY_CH_ACC_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getChAccChange() {
     return chAccChange;
   }
 
-
- /**
-  * Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Format: **YYYYMMDD**
-  *
-  * @param chAccChange
-  */ 
+  /**
+   * Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Format: **YYYYMMDD**
+   *
+   * @param chAccChange
+   */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccChange(String chAccChange) {
     this.chAccChange = chAccChange;
   }
 
-
+  /**
+   * Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Allowed values: * **01** — Changed during this transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
+   *
+   * @param chAccChangeInd
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo chAccChangeInd(ChAccChangeIndEnum chAccChangeInd) {
     this.chAccChangeInd = chAccChangeInd;
     return this;
   }
 
-   /**
+  /**
    * Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Allowed values: * **01** — Changed during this transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
    * @return chAccChangeInd
-  **/
+   */
   @ApiModelProperty(value = "Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Allowed values: * **01** — Changed during this transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days")
   @JsonProperty(JSON_PROPERTY_CH_ACC_CHANGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ChAccChangeIndEnum getChAccChangeInd() {
     return chAccChangeInd;
   }
 
-
- /**
-  * Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Allowed values: * **01** — Changed during this transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
-  *
-  * @param chAccChangeInd
-  */ 
+  /**
+   * Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.  Allowed values: * **01** — Changed during this transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
+   *
+   * @param chAccChangeInd
+   */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_CHANGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccChangeInd(ChAccChangeIndEnum chAccChangeInd) {
     this.chAccChangeInd = chAccChangeInd;
   }
 
-
+  /**
+   * Date that cardholder’s account with the 3DS Requestor had a password change or account reset.  Format: **YYYYMMDD**
+   *
+   * @param chAccPwChange
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo chAccPwChange(String chAccPwChange) {
     this.chAccPwChange = chAccPwChange;
     return this;
   }
 
-   /**
+  /**
    * Date that cardholder’s account with the 3DS Requestor had a password change or account reset.  Format: **YYYYMMDD**
    * @return chAccPwChange
-  **/
+   */
   @ApiModelProperty(value = "Date that cardholder’s account with the 3DS Requestor had a password change or account reset.  Format: **YYYYMMDD**")
   @JsonProperty(JSON_PROPERTY_CH_ACC_PW_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getChAccPwChange() {
     return chAccPwChange;
   }
 
-
- /**
-  * Date that cardholder’s account with the 3DS Requestor had a password change or account reset.  Format: **YYYYMMDD**
-  *
-  * @param chAccPwChange
-  */ 
+  /**
+   * Date that cardholder’s account with the 3DS Requestor had a password change or account reset.  Format: **YYYYMMDD**
+   *
+   * @param chAccPwChange
+   */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_PW_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccPwChange(String chAccPwChange) {
     this.chAccPwChange = chAccPwChange;
   }
 
-
+  /**
+   * Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset.  Allowed values: * **01** — No change * **02** — Changed during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+   *
+   * @param chAccPwChangeInd
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo chAccPwChangeInd(ChAccPwChangeIndEnum chAccPwChangeInd) {
     this.chAccPwChangeInd = chAccPwChangeInd;
     return this;
   }
 
-   /**
+  /**
    * Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset.  Allowed values: * **01** — No change * **02** — Changed during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
    * @return chAccPwChangeInd
-  **/
+   */
   @ApiModelProperty(value = "Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset.  Allowed values: * **01** — No change * **02** — Changed during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days")
   @JsonProperty(JSON_PROPERTY_CH_ACC_PW_CHANGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ChAccPwChangeIndEnum getChAccPwChangeInd() {
     return chAccPwChangeInd;
   }
 
-
- /**
-  * Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset.  Allowed values: * **01** — No change * **02** — Changed during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
-  *
-  * @param chAccPwChangeInd
-  */ 
+  /**
+   * Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset.  Allowed values: * **01** — No change * **02** — Changed during this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+   *
+   * @param chAccPwChangeInd
+   */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_PW_CHANGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccPwChangeInd(ChAccPwChangeIndEnum chAccPwChangeInd) {
     this.chAccPwChangeInd = chAccPwChangeInd;
   }
 
-
+  /**
+   * Date that the cardholder opened the account with the 3DS Requestor.  Format: **YYYYMMDD**
+   *
+   * @param chAccString
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo chAccString(String chAccString) {
     this.chAccString = chAccString;
     return this;
   }
 
-   /**
+  /**
    * Date that the cardholder opened the account with the 3DS Requestor.  Format: **YYYYMMDD**
    * @return chAccString
-  **/
+   */
   @ApiModelProperty(value = "Date that the cardholder opened the account with the 3DS Requestor.  Format: **YYYYMMDD**")
   @JsonProperty(JSON_PROPERTY_CH_ACC_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getChAccString() {
     return chAccString;
   }
 
-
- /**
-  * Date that the cardholder opened the account with the 3DS Requestor.  Format: **YYYYMMDD**
-  *
-  * @param chAccString
-  */ 
+  /**
+   * Date that the cardholder opened the account with the 3DS Requestor.  Format: **YYYYMMDD**
+   *
+   * @param chAccString
+   */ 
   @JsonProperty(JSON_PROPERTY_CH_ACC_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccString(String chAccString) {
     this.chAccString = chAccString;
   }
 
-
+  /**
+   * Number of purchases with this cardholder account during the previous six months. Max length: 4 characters.
+   *
+   * @param nbPurchaseAccount
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo nbPurchaseAccount(String nbPurchaseAccount) {
     this.nbPurchaseAccount = nbPurchaseAccount;
     return this;
   }
 
-   /**
+  /**
    * Number of purchases with this cardholder account during the previous six months. Max length: 4 characters.
    * @return nbPurchaseAccount
-  **/
+   */
   @ApiModelProperty(value = "Number of purchases with this cardholder account during the previous six months. Max length: 4 characters.")
   @JsonProperty(JSON_PROPERTY_NB_PURCHASE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNbPurchaseAccount() {
     return nbPurchaseAccount;
   }
 
-
- /**
-  * Number of purchases with this cardholder account during the previous six months. Max length: 4 characters.
-  *
-  * @param nbPurchaseAccount
-  */ 
+  /**
+   * Number of purchases with this cardholder account during the previous six months. Max length: 4 characters.
+   *
+   * @param nbPurchaseAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_NB_PURCHASE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNbPurchaseAccount(String nbPurchaseAccount) {
     this.nbPurchaseAccount = nbPurchaseAccount;
   }
 
-
+  /**
+   * String that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Format: **YYYYMMDD**
+   *
+   * @param paymentAccAge
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo paymentAccAge(String paymentAccAge) {
     this.paymentAccAge = paymentAccAge;
     return this;
   }
 
-   /**
+  /**
    * String that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Format: **YYYYMMDD**
    * @return paymentAccAge
-  **/
+   */
   @ApiModelProperty(value = "String that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Format: **YYYYMMDD**")
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACC_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentAccAge() {
     return paymentAccAge;
   }
 
-
- /**
-  * String that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Format: **YYYYMMDD**
-  *
-  * @param paymentAccAge
-  */ 
+  /**
+   * String that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Format: **YYYYMMDD**
+   *
+   * @param paymentAccAge
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACC_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccAge(String paymentAccAge) {
     this.paymentAccAge = paymentAccAge;
   }
 
-
+  /**
+   * Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Allowed values: * **01** — No account (guest checkout) * **02** — During this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+   *
+   * @param paymentAccInd
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo paymentAccInd(PaymentAccIndEnum paymentAccInd) {
     this.paymentAccInd = paymentAccInd;
     return this;
   }
 
-   /**
+  /**
    * Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Allowed values: * **01** — No account (guest checkout) * **02** — During this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
    * @return paymentAccInd
-  **/
+   */
   @ApiModelProperty(value = "Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Allowed values: * **01** — No account (guest checkout) * **02** — During this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days")
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACC_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentAccIndEnum getPaymentAccInd() {
     return paymentAccInd;
   }
 
-
- /**
-  * Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Allowed values: * **01** — No account (guest checkout) * **02** — During this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
-  *
-  * @param paymentAccInd
-  */ 
+  /**
+   * Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.  Allowed values: * **01** — No account (guest checkout) * **02** — During this transaction * **03** — Less than 30 days * **04** — 30–60 days * **05** — More than 60 days
+   *
+   * @param paymentAccInd
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACC_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccInd(PaymentAccIndEnum paymentAccInd) {
     this.paymentAccInd = paymentAccInd;
   }
 
-
+  /**
+   * Number of Add Card attempts in the last 24 hours. Max length: 3 characters.
+   *
+   * @param provisionAttemptsDay
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo provisionAttemptsDay(String provisionAttemptsDay) {
     this.provisionAttemptsDay = provisionAttemptsDay;
     return this;
   }
 
-   /**
+  /**
    * Number of Add Card attempts in the last 24 hours. Max length: 3 characters.
    * @return provisionAttemptsDay
-  **/
+   */
   @ApiModelProperty(value = "Number of Add Card attempts in the last 24 hours. Max length: 3 characters.")
   @JsonProperty(JSON_PROPERTY_PROVISION_ATTEMPTS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getProvisionAttemptsDay() {
     return provisionAttemptsDay;
   }
 
-
- /**
-  * Number of Add Card attempts in the last 24 hours. Max length: 3 characters.
-  *
-  * @param provisionAttemptsDay
-  */ 
+  /**
+   * Number of Add Card attempts in the last 24 hours. Max length: 3 characters.
+   *
+   * @param provisionAttemptsDay
+   */ 
   @JsonProperty(JSON_PROPERTY_PROVISION_ATTEMPTS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProvisionAttemptsDay(String provisionAttemptsDay) {
     this.provisionAttemptsDay = provisionAttemptsDay;
   }
 
-
+  /**
+   * String when the shipping address used for this transaction was first used with the 3DS Requestor.  Format: **YYYYMMDD**
+   *
+   * @param shipAddressUsage
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo shipAddressUsage(String shipAddressUsage) {
     this.shipAddressUsage = shipAddressUsage;
     return this;
   }
 
-   /**
+  /**
    * String when the shipping address used for this transaction was first used with the 3DS Requestor.  Format: **YYYYMMDD**
    * @return shipAddressUsage
-  **/
+   */
   @ApiModelProperty(value = "String when the shipping address used for this transaction was first used with the 3DS Requestor.  Format: **YYYYMMDD**")
   @JsonProperty(JSON_PROPERTY_SHIP_ADDRESS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShipAddressUsage() {
     return shipAddressUsage;
   }
 
-
- /**
-  * String when the shipping address used for this transaction was first used with the 3DS Requestor.  Format: **YYYYMMDD**
-  *
-  * @param shipAddressUsage
-  */ 
+  /**
+   * String when the shipping address used for this transaction was first used with the 3DS Requestor.  Format: **YYYYMMDD**
+   *
+   * @param shipAddressUsage
+   */ 
   @JsonProperty(JSON_PROPERTY_SHIP_ADDRESS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipAddressUsage(String shipAddressUsage) {
     this.shipAddressUsage = shipAddressUsage;
   }
 
-
+  /**
+   * Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.  Allowed values: * **01** — This transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
+   *
+   * @param shipAddressUsageInd
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo shipAddressUsageInd(ShipAddressUsageIndEnum shipAddressUsageInd) {
     this.shipAddressUsageInd = shipAddressUsageInd;
     return this;
   }
 
-   /**
+  /**
    * Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.  Allowed values: * **01** — This transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
    * @return shipAddressUsageInd
-  **/
+   */
   @ApiModelProperty(value = "Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.  Allowed values: * **01** — This transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days")
   @JsonProperty(JSON_PROPERTY_SHIP_ADDRESS_USAGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ShipAddressUsageIndEnum getShipAddressUsageInd() {
     return shipAddressUsageInd;
   }
 
-
- /**
-  * Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.  Allowed values: * **01** — This transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
-  *
-  * @param shipAddressUsageInd
-  */ 
+  /**
+   * Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.  Allowed values: * **01** — This transaction * **02** — Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
+   *
+   * @param shipAddressUsageInd
+   */ 
   @JsonProperty(JSON_PROPERTY_SHIP_ADDRESS_USAGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipAddressUsageInd(ShipAddressUsageIndEnum shipAddressUsageInd) {
     this.shipAddressUsageInd = shipAddressUsageInd;
   }
 
-
+  /**
+   * Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction.  Allowed values: * **01** — Account Name identical to shipping Name * **02** — Account Name different to shipping Name
+   *
+   * @param shipNameIndicator
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo shipNameIndicator(ShipNameIndicatorEnum shipNameIndicator) {
     this.shipNameIndicator = shipNameIndicator;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction.  Allowed values: * **01** — Account Name identical to shipping Name * **02** — Account Name different to shipping Name
    * @return shipNameIndicator
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction.  Allowed values: * **01** — Account Name identical to shipping Name * **02** — Account Name different to shipping Name")
   @JsonProperty(JSON_PROPERTY_SHIP_NAME_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ShipNameIndicatorEnum getShipNameIndicator() {
     return shipNameIndicator;
   }
 
-
- /**
-  * Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction.  Allowed values: * **01** — Account Name identical to shipping Name * **02** — Account Name different to shipping Name
-  *
-  * @param shipNameIndicator
-  */ 
+  /**
+   * Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction.  Allowed values: * **01** — Account Name identical to shipping Name * **02** — Account Name different to shipping Name
+   *
+   * @param shipNameIndicator
+   */ 
   @JsonProperty(JSON_PROPERTY_SHIP_NAME_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipNameIndicator(ShipNameIndicatorEnum shipNameIndicator) {
     this.shipNameIndicator = shipNameIndicator;
   }
 
-
+  /**
+   * Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account.  Allowed values: * **01** — No suspicious activity has been observed * **02** — Suspicious activity has been observed
+   *
+   * @param suspiciousAccActivity
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo suspiciousAccActivity(SuspiciousAccActivityEnum suspiciousAccActivity) {
     this.suspiciousAccActivity = suspiciousAccActivity;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account.  Allowed values: * **01** — No suspicious activity has been observed * **02** — Suspicious activity has been observed
    * @return suspiciousAccActivity
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account.  Allowed values: * **01** — No suspicious activity has been observed * **02** — Suspicious activity has been observed")
   @JsonProperty(JSON_PROPERTY_SUSPICIOUS_ACC_ACTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SuspiciousAccActivityEnum getSuspiciousAccActivity() {
     return suspiciousAccActivity;
   }
 
-
- /**
-  * Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account.  Allowed values: * **01** — No suspicious activity has been observed * **02** — Suspicious activity has been observed
-  *
-  * @param suspiciousAccActivity
-  */ 
+  /**
+   * Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account.  Allowed values: * **01** — No suspicious activity has been observed * **02** — Suspicious activity has been observed
+   *
+   * @param suspiciousAccActivity
+   */ 
   @JsonProperty(JSON_PROPERTY_SUSPICIOUS_ACC_ACTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuspiciousAccActivity(SuspiciousAccActivityEnum suspiciousAccActivity) {
     this.suspiciousAccActivity = suspiciousAccActivity;
   }
 
-
+  /**
+   * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Max length: 3 characters.
+   *
+   * @param txnActivityDay
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo txnActivityDay(String txnActivityDay) {
     this.txnActivityDay = txnActivityDay;
     return this;
   }
 
-   /**
+  /**
    * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Max length: 3 characters.
    * @return txnActivityDay
-  **/
+   */
   @ApiModelProperty(value = "Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Max length: 3 characters.")
   @JsonProperty(JSON_PROPERTY_TXN_ACTIVITY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTxnActivityDay() {
     return txnActivityDay;
   }
 
-
- /**
-  * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Max length: 3 characters.
-  *
-  * @param txnActivityDay
-  */ 
+  /**
+   * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Max length: 3 characters.
+   *
+   * @param txnActivityDay
+   */ 
   @JsonProperty(JSON_PROPERTY_TXN_ACTIVITY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxnActivityDay(String txnActivityDay) {
     this.txnActivityDay = txnActivityDay;
   }
 
-
+  /**
+   * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Max length: 3 characters.
+   *
+   * @param txnActivityYear
+   * @return the current {@code AcctInfo} instance, allowing for method chaining
+   */
   public AcctInfo txnActivityYear(String txnActivityYear) {
     this.txnActivityYear = txnActivityYear;
     return this;
   }
 
-   /**
+  /**
    * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Max length: 3 characters.
    * @return txnActivityYear
-  **/
+   */
   @ApiModelProperty(value = "Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Max length: 3 characters.")
   @JsonProperty(JSON_PROPERTY_TXN_ACTIVITY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTxnActivityYear() {
     return txnActivityYear;
   }
 
-
- /**
-  * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Max length: 3 characters.
-  *
-  * @param txnActivityYear
-  */ 
+  /**
+   * Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Max length: 3 characters.
+   *
+   * @param txnActivityYear
+   */ 
   @JsonProperty(JSON_PROPERTY_TXN_ACTIVITY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxnActivityYear(String txnActivityYear) {
     this.txnActivityYear = txnActivityYear;
   }
-
 
   /**
    * Return true if this AcctInfo object is equal to o.

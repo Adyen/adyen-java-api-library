@@ -86,65 +86,71 @@ public class Duration {
   public Duration() { 
   }
 
+  /**
+   * The unit of time. You can only use **minutes** and **hours** if the `interval.type` is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
+   *
+   * @param unit
+   * @return the current {@code Duration} instance, allowing for method chaining
+   */
   public Duration unit(UnitEnum unit) {
     this.unit = unit;
     return this;
   }
 
-   /**
-   * The unit of time. You can only use **minutes** and **hours** if the &#x60;interval.type&#x60; is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
+  /**
+   * The unit of time. You can only use **minutes** and **hours** if the `interval.type` is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
    * @return unit
-  **/
+   */
   @ApiModelProperty(value = "The unit of time. You can only use **minutes** and **hours** if the `interval.type` is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UnitEnum getUnit() {
     return unit;
   }
 
-
- /**
-  * The unit of time. You can only use **minutes** and **hours** if the &#x60;interval.type&#x60; is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
-  *
-  * @param unit
-  */ 
+  /**
+   * The unit of time. You can only use **minutes** and **hours** if the `interval.type` is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
+   *
+   * @param unit
+   */ 
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUnit(UnitEnum unit) {
     this.unit = unit;
   }
 
-
+  /**
+   * The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.
+   *
+   * @param value
+   * @return the current {@code Duration} instance, allowing for method chaining
+   */
   public Duration value(Integer value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getValue() {
     return value;
   }
 
-
- /**
-  * The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.
-  *
-  * @param value
-  */ 
+  /**
+   * The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this Duration object is equal to o.

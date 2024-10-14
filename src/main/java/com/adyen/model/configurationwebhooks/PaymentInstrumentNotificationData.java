@@ -46,65 +46,71 @@ public class PaymentInstrumentNotificationData {
   public PaymentInstrumentNotificationData() { 
   }
 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   * @return the current {@code PaymentInstrumentNotificationData} instance, allowing for method chaining
+   */
   public PaymentInstrumentNotificationData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the balance platform.
    * @return balancePlatform
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
-
- /**
-  * The unique identifier of the balance platform.
-  *
-  * @param balancePlatform
-  */ 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
-
+  /**
+   * paymentInstrument
+   *
+   * @param paymentInstrument
+   * @return the current {@code PaymentInstrumentNotificationData} instance, allowing for method chaining
+   */
   public PaymentInstrumentNotificationData paymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
     return this;
   }
 
-   /**
-   * Get paymentInstrument
+  /**
+   * paymentInstrument
    * @return paymentInstrument
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentInstrument getPaymentInstrument() {
     return paymentInstrument;
   }
 
-
- /**
-  * paymentInstrument
-  *
-  * @param paymentInstrument
-  */ 
+  /**
+   * paymentInstrument
+   *
+   * @param paymentInstrument
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
   }
-
 
   /**
    * Return true if this PaymentInstrumentNotificationData object is equal to o.

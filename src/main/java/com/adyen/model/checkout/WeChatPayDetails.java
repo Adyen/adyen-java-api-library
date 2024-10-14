@@ -80,65 +80,71 @@ public class WeChatPayDetails {
   public WeChatPayDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   */
   public WeChatPayDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * **wechatpay**
+   *
+   * @param type
+   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   */
   public WeChatPayDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **wechatpay**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**wechatpay**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **wechatpay**
-  *
-  * @param type
-  */ 
+  /**
+   * **wechatpay**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this WeChatPayDetails object is equal to o.

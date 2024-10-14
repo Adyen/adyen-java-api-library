@@ -49,95 +49,104 @@ public class AdditionalDataRetry {
   public AdditionalDataRetry() { 
   }
 
+  /**
+   * The number of times the transaction (not order) has been retried between different payment service providers. For instance, the `chainAttemptNumber` set to 2 means that this transaction has been recently tried on another provider before being sent to Adyen.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
+   *
+   * @param retryChainAttemptNumber
+   * @return the current {@code AdditionalDataRetry} instance, allowing for method chaining
+   */
   public AdditionalDataRetry retryChainAttemptNumber(String retryChainAttemptNumber) {
     this.retryChainAttemptNumber = retryChainAttemptNumber;
     return this;
   }
 
-   /**
-   * The number of times the transaction (not order) has been retried between different payment service providers. For instance, the &#x60;chainAttemptNumber&#x60; set to 2 means that this transaction has been recently tried on another provider before being sent to Adyen.  &gt; If you submit &#x60;retry.chainAttemptNumber&#x60;, &#x60;retry.orderAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values, we also recommend you provide the &#x60;merchantOrderReference&#x60; to facilitate linking payment attempts together.
+  /**
+   * The number of times the transaction (not order) has been retried between different payment service providers. For instance, the `chainAttemptNumber` set to 2 means that this transaction has been recently tried on another provider before being sent to Adyen.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
    * @return retryChainAttemptNumber
-  **/
+   */
   @ApiModelProperty(value = "The number of times the transaction (not order) has been retried between different payment service providers. For instance, the `chainAttemptNumber` set to 2 means that this transaction has been recently tried on another provider before being sent to Adyen.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.")
   @JsonProperty(JSON_PROPERTY_RETRY_CHAIN_ATTEMPT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRetryChainAttemptNumber() {
     return retryChainAttemptNumber;
   }
 
-
- /**
-  * The number of times the transaction (not order) has been retried between different payment service providers. For instance, the &#x60;chainAttemptNumber&#x60; set to 2 means that this transaction has been recently tried on another provider before being sent to Adyen.  &gt; If you submit &#x60;retry.chainAttemptNumber&#x60;, &#x60;retry.orderAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values, we also recommend you provide the &#x60;merchantOrderReference&#x60; to facilitate linking payment attempts together.
-  *
-  * @param retryChainAttemptNumber
-  */ 
+  /**
+   * The number of times the transaction (not order) has been retried between different payment service providers. For instance, the `chainAttemptNumber` set to 2 means that this transaction has been recently tried on another provider before being sent to Adyen.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
+   *
+   * @param retryChainAttemptNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_RETRY_CHAIN_ATTEMPT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetryChainAttemptNumber(String retryChainAttemptNumber) {
     this.retryChainAttemptNumber = retryChainAttemptNumber;
   }
 
-
+  /**
+   * The index of the attempt to bill a particular order, which is identified by the `merchantOrderReference` field. For example, if a recurring transaction fails and is retried one day later, then the order number for these attempts would be 1 and 2, respectively.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
+   *
+   * @param retryOrderAttemptNumber
+   * @return the current {@code AdditionalDataRetry} instance, allowing for method chaining
+   */
   public AdditionalDataRetry retryOrderAttemptNumber(String retryOrderAttemptNumber) {
     this.retryOrderAttemptNumber = retryOrderAttemptNumber;
     return this;
   }
 
-   /**
-   * The index of the attempt to bill a particular order, which is identified by the &#x60;merchantOrderReference&#x60; field. For example, if a recurring transaction fails and is retried one day later, then the order number for these attempts would be 1 and 2, respectively.  &gt; If you submit &#x60;retry.chainAttemptNumber&#x60;, &#x60;retry.orderAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values, we also recommend you provide the &#x60;merchantOrderReference&#x60; to facilitate linking payment attempts together.
+  /**
+   * The index of the attempt to bill a particular order, which is identified by the `merchantOrderReference` field. For example, if a recurring transaction fails and is retried one day later, then the order number for these attempts would be 1 and 2, respectively.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
    * @return retryOrderAttemptNumber
-  **/
+   */
   @ApiModelProperty(value = "The index of the attempt to bill a particular order, which is identified by the `merchantOrderReference` field. For example, if a recurring transaction fails and is retried one day later, then the order number for these attempts would be 1 and 2, respectively.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.")
   @JsonProperty(JSON_PROPERTY_RETRY_ORDER_ATTEMPT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRetryOrderAttemptNumber() {
     return retryOrderAttemptNumber;
   }
 
-
- /**
-  * The index of the attempt to bill a particular order, which is identified by the &#x60;merchantOrderReference&#x60; field. For example, if a recurring transaction fails and is retried one day later, then the order number for these attempts would be 1 and 2, respectively.  &gt; If you submit &#x60;retry.chainAttemptNumber&#x60;, &#x60;retry.orderAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values, we also recommend you provide the &#x60;merchantOrderReference&#x60; to facilitate linking payment attempts together.
-  *
-  * @param retryOrderAttemptNumber
-  */ 
+  /**
+   * The index of the attempt to bill a particular order, which is identified by the `merchantOrderReference` field. For example, if a recurring transaction fails and is retried one day later, then the order number for these attempts would be 1 and 2, respectively.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
+   *
+   * @param retryOrderAttemptNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_RETRY_ORDER_ATTEMPT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetryOrderAttemptNumber(String retryOrderAttemptNumber) {
     this.retryOrderAttemptNumber = retryOrderAttemptNumber;
   }
 
-
+  /**
+   * The Boolean value indicating whether Adyen should skip or retry this transaction, if possible.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
+   *
+   * @param retrySkipRetry
+   * @return the current {@code AdditionalDataRetry} instance, allowing for method chaining
+   */
   public AdditionalDataRetry retrySkipRetry(String retrySkipRetry) {
     this.retrySkipRetry = retrySkipRetry;
     return this;
   }
 
-   /**
-   * The Boolean value indicating whether Adyen should skip or retry this transaction, if possible.  &gt; If you submit &#x60;retry.chainAttemptNumber&#x60;, &#x60;retry.orderAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values, we also recommend you provide the &#x60;merchantOrderReference&#x60; to facilitate linking payment attempts together.
+  /**
+   * The Boolean value indicating whether Adyen should skip or retry this transaction, if possible.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
    * @return retrySkipRetry
-  **/
+   */
   @ApiModelProperty(value = "The Boolean value indicating whether Adyen should skip or retry this transaction, if possible.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.")
   @JsonProperty(JSON_PROPERTY_RETRY_SKIP_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRetrySkipRetry() {
     return retrySkipRetry;
   }
 
-
- /**
-  * The Boolean value indicating whether Adyen should skip or retry this transaction, if possible.  &gt; If you submit &#x60;retry.chainAttemptNumber&#x60;, &#x60;retry.orderAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values, we also recommend you provide the &#x60;merchantOrderReference&#x60; to facilitate linking payment attempts together.
-  *
-  * @param retrySkipRetry
-  */ 
+  /**
+   * The Boolean value indicating whether Adyen should skip or retry this transaction, if possible.  > If you submit `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and `retry.skipRetry` values, we also recommend you provide the `merchantOrderReference` to facilitate linking payment attempts together.
+   *
+   * @param retrySkipRetry
+   */ 
   @JsonProperty(JSON_PROPERTY_RETRY_SKIP_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetrySkipRetry(String retrySkipRetry) {
     this.retrySkipRetry = retrySkipRetry;
   }
-
 
   /**
    * Return true if this AdditionalDataRetry object is equal to o.

@@ -45,65 +45,71 @@ public class AcceptDisputeRequest {
   public AcceptDisputeRequest() { 
   }
 
+  /**
+   * The PSP reference assigned to the dispute.
+   *
+   * @param disputePspReference
+   * @return the current {@code AcceptDisputeRequest} instance, allowing for method chaining
+   */
   public AcceptDisputeRequest disputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
     return this;
   }
 
-   /**
+  /**
    * The PSP reference assigned to the dispute.
    * @return disputePspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The PSP reference assigned to the dispute.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisputePspReference() {
     return disputePspReference;
   }
 
-
- /**
-  * The PSP reference assigned to the dispute.
-  *
-  * @param disputePspReference
-  */ 
+  /**
+   * The PSP reference assigned to the dispute.
+   *
+   * @param disputePspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
 
-
+  /**
+   * The merchant account identifier, for which you want to process the dispute transaction.
+   *
+   * @param merchantAccountCode
+   * @return the current {@code AcceptDisputeRequest} instance, allowing for method chaining
+   */
   public AcceptDisputeRequest merchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, for which you want to process the dispute transaction.
    * @return merchantAccountCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, for which you want to process the dispute transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
 
-
- /**
-  * The merchant account identifier, for which you want to process the dispute transaction.
-  *
-  * @param merchantAccountCode
-  */ 
+  /**
+   * The merchant account identifier, for which you want to process the dispute transaction.
+   *
+   * @param merchantAccountCode
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }
-
 
   /**
    * Return true if this AcceptDisputeRequest object is equal to o.

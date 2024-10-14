@@ -42,35 +42,38 @@ public class GetNetworkTokenResponse {
   public GetNetworkTokenResponse() { 
   }
 
+  /**
+   * token
+   *
+   * @param token
+   * @return the current {@code GetNetworkTokenResponse} instance, allowing for method chaining
+   */
   public GetNetworkTokenResponse token(NetworkToken token) {
     this.token = token;
     return this;
   }
 
-   /**
-   * Get token
+  /**
+   * token
    * @return token
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NetworkToken getToken() {
     return token;
   }
 
-
- /**
-  * token
-  *
-  * @param token
-  */ 
+  /**
+   * token
+   *
+   * @param token
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(NetworkToken token) {
     this.token = token;
   }
-
 
   /**
    * Return true if this GetNetworkTokenResponse object is equal to o.

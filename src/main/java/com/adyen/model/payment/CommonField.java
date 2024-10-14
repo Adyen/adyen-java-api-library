@@ -45,65 +45,71 @@ public class CommonField {
   public CommonField() { 
   }
 
+  /**
+   * Name of the field. For example, Name of External Platform.
+   *
+   * @param name
+   * @return the current {@code CommonField} instance, allowing for method chaining
+   */
   public CommonField name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the field. For example, Name of External Platform.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "Name of the field. For example, Name of External Platform.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * Name of the field. For example, Name of External Platform.
-  *
-  * @param name
-  */ 
+  /**
+   * Name of the field. For example, Name of External Platform.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * Version of the field. For example, Version of External Platform.
+   *
+   * @param version
+   * @return the current {@code CommonField} instance, allowing for method chaining
+   */
   public CommonField version(String version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Version of the field. For example, Version of External Platform.
    * @return version
-  **/
+   */
   @ApiModelProperty(value = "Version of the field. For example, Version of External Platform.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVersion() {
     return version;
   }
 
-
- /**
-  * Version of the field. For example, Version of External Platform.
-  *
-  * @param version
-  */ 
+  /**
+   * Version of the field. For example, Version of External Platform.
+   *
+   * @param version
+   */ 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {
     this.version = version;
   }
-
 
   /**
    * Return true if this CommonField object is equal to o.

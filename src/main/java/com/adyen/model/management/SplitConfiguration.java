@@ -56,36 +56,45 @@ public class SplitConfiguration {
   public SplitConfiguration() { 
   }
 
+  /**
+   * Your description for the split configuration.
+   *
+   * @param description
+   * @return the current {@code SplitConfiguration} instance, allowing for method chaining
+   */
   public SplitConfiguration description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the split configuration.
    * @return description
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your description for the split configuration.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the split configuration.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the split configuration.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * Array of rules that define the split configuration behavior.
+   *
+   * @param rules
+   * @return the current {@code SplitConfiguration} instance, allowing for method chaining
+   */
   public SplitConfiguration rules(List<SplitConfigurationRule> rules) {
     this.rules = rules;
     return this;
@@ -96,61 +105,67 @@ public class SplitConfiguration {
     return this;
   }
 
-   /**
+  /**
    * Array of rules that define the split configuration behavior.
    * @return rules
-  **/
+   */
   @ApiModelProperty(required = true, value = "Array of rules that define the split configuration behavior.")
   @JsonProperty(JSON_PROPERTY_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SplitConfigurationRule> getRules() {
     return rules;
   }
 
-
- /**
-  * Array of rules that define the split configuration behavior.
-  *
-  * @param rules
-  */ 
+  /**
+   * Array of rules that define the split configuration behavior.
+   *
+   * @param rules
+   */ 
   @JsonProperty(JSON_PROPERTY_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRules(List<SplitConfigurationRule> rules) {
     this.rules = rules;
   }
 
-
+  /**
+   * Unique identifier of the split configuration.
+   *
+   * @param splitConfigurationId
+   * @return the current {@code SplitConfiguration} instance, allowing for method chaining
+   */
   public SplitConfiguration splitConfigurationId(String splitConfigurationId) {
     this.splitConfigurationId = splitConfigurationId;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the split configuration.
    * @return splitConfigurationId
-  **/
+   */
   @ApiModelProperty(value = "Unique identifier of the split configuration.")
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSplitConfigurationId() {
     return splitConfigurationId;
   }
 
-
- /**
-  * Unique identifier of the split configuration.
-  *
-  * @param splitConfigurationId
-  */ 
+  /**
+   * Unique identifier of the split configuration.
+   *
+   * @param splitConfigurationId
+   */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfigurationId(String splitConfigurationId) {
     this.splitConfigurationId = splitConfigurationId;
   }
 
-
+  /**
+   * List of stores to which the split configuration applies.
+   *
+   * @param stores
+   * @return the current {@code SplitConfiguration} instance, allowing for method chaining
+   */
   public SplitConfiguration stores(List<String> stores) {
     this.stores = stores;
     return this;
@@ -164,30 +179,27 @@ public class SplitConfiguration {
     return this;
   }
 
-   /**
+  /**
    * List of stores to which the split configuration applies.
    * @return stores
-  **/
+   */
   @ApiModelProperty(value = "List of stores to which the split configuration applies.")
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getStores() {
     return stores;
   }
 
-
- /**
-  * List of stores to which the split configuration applies.
-  *
-  * @param stores
-  */ 
+  /**
+   * List of stores to which the split configuration applies.
+   *
+   * @param stores
+   */ 
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<String> stores) {
     this.stores = stores;
   }
-
 
   /**
    * Return true if this SplitConfiguration object is equal to o.

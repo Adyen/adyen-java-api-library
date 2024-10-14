@@ -49,95 +49,104 @@ public class Settings {
   public Settings() { 
   }
 
+  /**
+   * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
+   *
+   * @param band
+   * @return the current {@code Settings} instance, allowing for method chaining
+   */
   public Settings band(String band) {
     this.band = band;
     return this;
   }
 
-   /**
+  /**
    * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
    * @return band
-  **/
+   */
   @ApiModelProperty(value = "The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.")
   @JsonProperty(JSON_PROPERTY_BAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBand() {
     return band;
   }
 
-
- /**
-  * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
-  *
-  * @param band
-  */ 
+  /**
+   * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
+   *
+   * @param band
+   */ 
   @JsonProperty(JSON_PROPERTY_BAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBand(String band) {
     this.band = band;
   }
 
-
+  /**
+   * Indicates whether roaming is enabled on the terminals.
+   *
+   * @param roaming
+   * @return the current {@code Settings} instance, allowing for method chaining
+   */
   public Settings roaming(Boolean roaming) {
     this.roaming = roaming;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether roaming is enabled on the terminals.
    * @return roaming
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether roaming is enabled on the terminals.")
   @JsonProperty(JSON_PROPERTY_ROAMING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getRoaming() {
     return roaming;
   }
 
-
- /**
-  * Indicates whether roaming is enabled on the terminals.
-  *
-  * @param roaming
-  */ 
+  /**
+   * Indicates whether roaming is enabled on the terminals.
+   *
+   * @param roaming
+   */ 
   @JsonProperty(JSON_PROPERTY_ROAMING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoaming(Boolean roaming) {
     this.roaming = roaming;
   }
 
-
+  /**
+   * The connection time-out in seconds. Minimum value: 0.
+   *
+   * @param timeout
+   * @return the current {@code Settings} instance, allowing for method chaining
+   */
   public Settings timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
   }
 
-   /**
+  /**
    * The connection time-out in seconds. Minimum value: 0.
    * @return timeout
-  **/
+   */
   @ApiModelProperty(value = "The connection time-out in seconds. Minimum value: 0.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getTimeout() {
     return timeout;
   }
 
-
- /**
-  * The connection time-out in seconds. Minimum value: 0.
-  *
-  * @param timeout
-  */ 
+  /**
+   * The connection time-out in seconds. Minimum value: 0.
+   *
+   * @param timeout
+   */ 
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeout(Integer timeout) {
     this.timeout = timeout;
   }
-
 
   /**
    * Return true if this Settings object is equal to o.

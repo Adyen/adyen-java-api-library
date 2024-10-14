@@ -41,35 +41,38 @@ public class Timeouts {
   public Timeouts() { 
   }
 
+  /**
+   * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
+   *
+   * @param fromActiveToSleep
+   * @return the current {@code Timeouts} instance, allowing for method chaining
+   */
   public Timeouts fromActiveToSleep(Integer fromActiveToSleep) {
     this.fromActiveToSleep = fromActiveToSleep;
     return this;
   }
 
-   /**
+  /**
    * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
    * @return fromActiveToSleep
-  **/
+   */
   @ApiModelProperty(value = "Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.")
   @JsonProperty(JSON_PROPERTY_FROM_ACTIVE_TO_SLEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getFromActiveToSleep() {
     return fromActiveToSleep;
   }
 
-
- /**
-  * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
-  *
-  * @param fromActiveToSleep
-  */ 
+  /**
+   * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
+   *
+   * @param fromActiveToSleep
+   */ 
   @JsonProperty(JSON_PROPERTY_FROM_ACTIVE_TO_SLEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromActiveToSleep(Integer fromActiveToSleep) {
     this.fromActiveToSleep = fromActiveToSleep;
   }
-
 
   /**
    * Return true if this Timeouts object is equal to o.

@@ -46,65 +46,71 @@ public class ReturnTransferRequest {
   public ReturnTransferRequest() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code ReturnTransferRequest} instance, allowing for method chaining
+   */
   public ReturnTransferRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * Your internal reference for the return. If you don't provide this in the request, Adyen generates a unique reference. This reference is used in all communication with you about the instruction status.  We recommend using a unique value per instruction. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). 
+   *
+   * @param reference
+   * @return the current {@code ReturnTransferRequest} instance, allowing for method chaining
+   */
   public ReturnTransferRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
-   * Your internal reference for the return. If you don&#39;t provide this in the request, Adyen generates a unique reference. This reference is used in all communication with you about the instruction status.  We recommend using a unique value per instruction. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). 
+  /**
+   * Your internal reference for the return. If you don't provide this in the request, Adyen generates a unique reference. This reference is used in all communication with you about the instruction status.  We recommend using a unique value per instruction. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). 
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your internal reference for the return. If you don't provide this in the request, Adyen generates a unique reference. This reference is used in all communication with you about the instruction status.  We recommend using a unique value per instruction. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). ")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your internal reference for the return. If you don&#39;t provide this in the request, Adyen generates a unique reference. This reference is used in all communication with you about the instruction status.  We recommend using a unique value per instruction. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). 
-  *
-  * @param reference
-  */ 
+  /**
+   * Your internal reference for the return. If you don't provide this in the request, Adyen generates a unique reference. This reference is used in all communication with you about the instruction status.  We recommend using a unique value per instruction. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). 
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this ReturnTransferRequest object is equal to o.

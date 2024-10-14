@@ -101,485 +101,533 @@ public class ReceiptPrinting {
   public ReceiptPrinting() { 
   }
 
+  /**
+   * Print a merchant receipt when the payment is approved.
+   *
+   * @param merchantApproved
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantApproved(Boolean merchantApproved) {
     this.merchantApproved = merchantApproved;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when the payment is approved.
    * @return merchantApproved
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when the payment is approved.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantApproved() {
     return merchantApproved;
   }
 
-
- /**
-  * Print a merchant receipt when the payment is approved.
-  *
-  * @param merchantApproved
-  */ 
+  /**
+   * Print a merchant receipt when the payment is approved.
+   *
+   * @param merchantApproved
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantApproved(Boolean merchantApproved) {
     this.merchantApproved = merchantApproved;
   }
 
-
+  /**
+   * Print a merchant receipt when the transaction is cancelled.
+   *
+   * @param merchantCancelled
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantCancelled(Boolean merchantCancelled) {
     this.merchantCancelled = merchantCancelled;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when the transaction is cancelled.
    * @return merchantCancelled
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when the transaction is cancelled.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_CANCELLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantCancelled() {
     return merchantCancelled;
   }
 
-
- /**
-  * Print a merchant receipt when the transaction is cancelled.
-  *
-  * @param merchantCancelled
-  */ 
+  /**
+   * Print a merchant receipt when the transaction is cancelled.
+   *
+   * @param merchantCancelled
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_CANCELLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCancelled(Boolean merchantCancelled) {
     this.merchantCancelled = merchantCancelled;
   }
 
-
+  /**
+   * Print a merchant receipt when capturing the payment is approved.
+   *
+   * @param merchantCaptureApproved
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantCaptureApproved(Boolean merchantCaptureApproved) {
     this.merchantCaptureApproved = merchantCaptureApproved;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when capturing the payment is approved.
    * @return merchantCaptureApproved
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when capturing the payment is approved.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantCaptureApproved() {
     return merchantCaptureApproved;
   }
 
-
- /**
-  * Print a merchant receipt when capturing the payment is approved.
-  *
-  * @param merchantCaptureApproved
-  */ 
+  /**
+   * Print a merchant receipt when capturing the payment is approved.
+   *
+   * @param merchantCaptureApproved
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureApproved(Boolean merchantCaptureApproved) {
     this.merchantCaptureApproved = merchantCaptureApproved;
   }
 
-
+  /**
+   * Print a merchant receipt when capturing the payment is refused.
+   *
+   * @param merchantCaptureRefused
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantCaptureRefused(Boolean merchantCaptureRefused) {
     this.merchantCaptureRefused = merchantCaptureRefused;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when capturing the payment is refused.
    * @return merchantCaptureRefused
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when capturing the payment is refused.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantCaptureRefused() {
     return merchantCaptureRefused;
   }
 
-
- /**
-  * Print a merchant receipt when capturing the payment is refused.
-  *
-  * @param merchantCaptureRefused
-  */ 
+  /**
+   * Print a merchant receipt when capturing the payment is refused.
+   *
+   * @param merchantCaptureRefused
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureRefused(Boolean merchantCaptureRefused) {
     this.merchantCaptureRefused = merchantCaptureRefused;
   }
 
-
+  /**
+   * Print a merchant receipt when the refund is approved.
+   *
+   * @param merchantRefundApproved
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantRefundApproved(Boolean merchantRefundApproved) {
     this.merchantRefundApproved = merchantRefundApproved;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when the refund is approved.
    * @return merchantRefundApproved
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when the refund is approved.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantRefundApproved() {
     return merchantRefundApproved;
   }
 
-
- /**
-  * Print a merchant receipt when the refund is approved.
-  *
-  * @param merchantRefundApproved
-  */ 
+  /**
+   * Print a merchant receipt when the refund is approved.
+   *
+   * @param merchantRefundApproved
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundApproved(Boolean merchantRefundApproved) {
     this.merchantRefundApproved = merchantRefundApproved;
   }
 
-
+  /**
+   * Print a merchant receipt when the refund is refused.
+   *
+   * @param merchantRefundRefused
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantRefundRefused(Boolean merchantRefundRefused) {
     this.merchantRefundRefused = merchantRefundRefused;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when the refund is refused.
    * @return merchantRefundRefused
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when the refund is refused.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantRefundRefused() {
     return merchantRefundRefused;
   }
 
-
- /**
-  * Print a merchant receipt when the refund is refused.
-  *
-  * @param merchantRefundRefused
-  */ 
+  /**
+   * Print a merchant receipt when the refund is refused.
+   *
+   * @param merchantRefundRefused
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundRefused(Boolean merchantRefundRefused) {
     this.merchantRefundRefused = merchantRefundRefused;
   }
 
-
+  /**
+   * Print a merchant receipt when the payment is refused.
+   *
+   * @param merchantRefused
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantRefused(Boolean merchantRefused) {
     this.merchantRefused = merchantRefused;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when the payment is refused.
    * @return merchantRefused
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when the payment is refused.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantRefused() {
     return merchantRefused;
   }
 
-
- /**
-  * Print a merchant receipt when the payment is refused.
-  *
-  * @param merchantRefused
-  */ 
+  /**
+   * Print a merchant receipt when the payment is refused.
+   *
+   * @param merchantRefused
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefused(Boolean merchantRefused) {
     this.merchantRefused = merchantRefused;
   }
 
-
+  /**
+   * Print a merchant receipt when a previous transaction is voided.
+   *
+   * @param merchantVoid
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting merchantVoid(Boolean merchantVoid) {
     this.merchantVoid = merchantVoid;
     return this;
   }
 
-   /**
+  /**
    * Print a merchant receipt when a previous transaction is voided.
    * @return merchantVoid
-  **/
+   */
   @ApiModelProperty(value = "Print a merchant receipt when a previous transaction is voided.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_VOID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantVoid() {
     return merchantVoid;
   }
 
-
- /**
-  * Print a merchant receipt when a previous transaction is voided.
-  *
-  * @param merchantVoid
-  */ 
+  /**
+   * Print a merchant receipt when a previous transaction is voided.
+   *
+   * @param merchantVoid
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_VOID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantVoid(Boolean merchantVoid) {
     this.merchantVoid = merchantVoid;
   }
 
-
+  /**
+   * Print a shopper receipt when the payment is approved.
+   *
+   * @param shopperApproved
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperApproved(Boolean shopperApproved) {
     this.shopperApproved = shopperApproved;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when the payment is approved.
    * @return shopperApproved
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when the payment is approved.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperApproved() {
     return shopperApproved;
   }
 
-
- /**
-  * Print a shopper receipt when the payment is approved.
-  *
-  * @param shopperApproved
-  */ 
+  /**
+   * Print a shopper receipt when the payment is approved.
+   *
+   * @param shopperApproved
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperApproved(Boolean shopperApproved) {
     this.shopperApproved = shopperApproved;
   }
 
-
+  /**
+   * Print a shopper receipt when the transaction is cancelled.
+   *
+   * @param shopperCancelled
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperCancelled(Boolean shopperCancelled) {
     this.shopperCancelled = shopperCancelled;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when the transaction is cancelled.
    * @return shopperCancelled
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when the transaction is cancelled.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_CANCELLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperCancelled() {
     return shopperCancelled;
   }
 
-
- /**
-  * Print a shopper receipt when the transaction is cancelled.
-  *
-  * @param shopperCancelled
-  */ 
+  /**
+   * Print a shopper receipt when the transaction is cancelled.
+   *
+   * @param shopperCancelled
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_CANCELLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCancelled(Boolean shopperCancelled) {
     this.shopperCancelled = shopperCancelled;
   }
 
-
+  /**
+   * Print a shopper receipt when capturing the payment is approved.
+   *
+   * @param shopperCaptureApproved
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperCaptureApproved(Boolean shopperCaptureApproved) {
     this.shopperCaptureApproved = shopperCaptureApproved;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when capturing the payment is approved.
    * @return shopperCaptureApproved
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when capturing the payment is approved.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperCaptureApproved() {
     return shopperCaptureApproved;
   }
 
-
- /**
-  * Print a shopper receipt when capturing the payment is approved.
-  *
-  * @param shopperCaptureApproved
-  */ 
+  /**
+   * Print a shopper receipt when capturing the payment is approved.
+   *
+   * @param shopperCaptureApproved
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureApproved(Boolean shopperCaptureApproved) {
     this.shopperCaptureApproved = shopperCaptureApproved;
   }
 
-
+  /**
+   * Print a shopper receipt when capturing the payment is refused.
+   *
+   * @param shopperCaptureRefused
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperCaptureRefused(Boolean shopperCaptureRefused) {
     this.shopperCaptureRefused = shopperCaptureRefused;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when capturing the payment is refused.
    * @return shopperCaptureRefused
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when capturing the payment is refused.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperCaptureRefused() {
     return shopperCaptureRefused;
   }
 
-
- /**
-  * Print a shopper receipt when capturing the payment is refused.
-  *
-  * @param shopperCaptureRefused
-  */ 
+  /**
+   * Print a shopper receipt when capturing the payment is refused.
+   *
+   * @param shopperCaptureRefused
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureRefused(Boolean shopperCaptureRefused) {
     this.shopperCaptureRefused = shopperCaptureRefused;
   }
 
-
+  /**
+   * Print a shopper receipt when the refund is approved.
+   *
+   * @param shopperRefundApproved
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperRefundApproved(Boolean shopperRefundApproved) {
     this.shopperRefundApproved = shopperRefundApproved;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when the refund is approved.
    * @return shopperRefundApproved
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when the refund is approved.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperRefundApproved() {
     return shopperRefundApproved;
   }
 
-
- /**
-  * Print a shopper receipt when the refund is approved.
-  *
-  * @param shopperRefundApproved
-  */ 
+  /**
+   * Print a shopper receipt when the refund is approved.
+   *
+   * @param shopperRefundApproved
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundApproved(Boolean shopperRefundApproved) {
     this.shopperRefundApproved = shopperRefundApproved;
   }
 
-
+  /**
+   * Print a shopper receipt when the refund is refused.
+   *
+   * @param shopperRefundRefused
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperRefundRefused(Boolean shopperRefundRefused) {
     this.shopperRefundRefused = shopperRefundRefused;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when the refund is refused.
    * @return shopperRefundRefused
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when the refund is refused.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperRefundRefused() {
     return shopperRefundRefused;
   }
 
-
- /**
-  * Print a shopper receipt when the refund is refused.
-  *
-  * @param shopperRefundRefused
-  */ 
+  /**
+   * Print a shopper receipt when the refund is refused.
+   *
+   * @param shopperRefundRefused
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUND_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundRefused(Boolean shopperRefundRefused) {
     this.shopperRefundRefused = shopperRefundRefused;
   }
 
-
+  /**
+   * Print a shopper receipt when the payment is refused.
+   *
+   * @param shopperRefused
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperRefused(Boolean shopperRefused) {
     this.shopperRefused = shopperRefused;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when the payment is refused.
    * @return shopperRefused
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when the payment is refused.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperRefused() {
     return shopperRefused;
   }
 
-
- /**
-  * Print a shopper receipt when the payment is refused.
-  *
-  * @param shopperRefused
-  */ 
+  /**
+   * Print a shopper receipt when the payment is refused.
+   *
+   * @param shopperRefused
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFUSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefused(Boolean shopperRefused) {
     this.shopperRefused = shopperRefused;
   }
 
-
+  /**
+   * Print a shopper receipt when a previous transaction is voided.
+   *
+   * @param shopperVoid
+   * @return the current {@code ReceiptPrinting} instance, allowing for method chaining
+   */
   public ReceiptPrinting shopperVoid(Boolean shopperVoid) {
     this.shopperVoid = shopperVoid;
     return this;
   }
 
-   /**
+  /**
    * Print a shopper receipt when a previous transaction is voided.
    * @return shopperVoid
-  **/
+   */
   @ApiModelProperty(value = "Print a shopper receipt when a previous transaction is voided.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_VOID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShopperVoid() {
     return shopperVoid;
   }
 
-
- /**
-  * Print a shopper receipt when a previous transaction is voided.
-  *
-  * @param shopperVoid
-  */ 
+  /**
+   * Print a shopper receipt when a previous transaction is voided.
+   *
+   * @param shopperVoid
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_VOID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperVoid(Boolean shopperVoid) {
     this.shopperVoid = shopperVoid;
   }
-
 
   /**
    * Return true if this ReceiptPrinting object is equal to o.

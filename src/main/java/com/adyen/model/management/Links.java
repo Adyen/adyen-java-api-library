@@ -42,35 +42,38 @@ public class Links {
   public Links() { 
   }
 
+  /**
+   * self
+   *
+   * @param self
+   * @return the current {@code Links} instance, allowing for method chaining
+   */
   public Links self(LinksElement self) {
     this.self = self;
     return this;
   }
 
-   /**
-   * Get self
+  /**
+   * self
    * @return self
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getSelf() {
     return self;
   }
 
-
- /**
-  * self
-  *
-  * @param self
-  */ 
+  /**
+   * self
+   *
+   * @param self
+   */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
-
 
   /**
    * Return true if this Links object is equal to o.

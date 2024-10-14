@@ -41,35 +41,38 @@ public class TerminalSettingsNotificationResponse {
   public TerminalSettingsNotificationResponse() { 
   }
 
+  /**
+   * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   *
+   * @param notificationResponse
+   * @return the current {@code TerminalSettingsNotificationResponse} instance, allowing for method chaining
+   */
   public TerminalSettingsNotificationResponse notificationResponse(String notificationResponse) {
     this.notificationResponse = notificationResponse;
     return this;
   }
 
-   /**
+  /**
    * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    * @return notificationResponse
-  **/
+   */
   @ApiModelProperty(value = "Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNotificationResponse() {
     return notificationResponse;
   }
 
-
- /**
-  * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
-  *
-  * @param notificationResponse
-  */ 
+  /**
+   * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   *
+   * @param notificationResponse
+   */ 
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotificationResponse(String notificationResponse) {
     this.notificationResponse = notificationResponse;
   }
-
 
   /**
    * Return true if this TerminalSettingsNotificationResponse object is equal to o.

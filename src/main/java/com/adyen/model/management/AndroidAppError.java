@@ -47,36 +47,45 @@ public class AndroidAppError {
   public AndroidAppError() { 
   }
 
+  /**
+   * The error code of the Android app with the `status` of either **error** or **invalid**.
+   *
+   * @param errorCode
+   * @return the current {@code AndroidAppError} instance, allowing for method chaining
+   */
   public AndroidAppError errorCode(String errorCode) {
     this.errorCode = errorCode;
     return this;
   }
 
-   /**
-   * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
+  /**
+   * The error code of the Android app with the `status` of either **error** or **invalid**.
    * @return errorCode
-  **/
+   */
   @ApiModelProperty(value = "The error code of the Android app with the `status` of either **error** or **invalid**.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorCode() {
     return errorCode;
   }
 
-
- /**
-  * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
-  *
-  * @param errorCode
-  */ 
+  /**
+   * The error code of the Android app with the `status` of either **error** or **invalid**.
+   *
+   * @param errorCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
 
-
+  /**
+   * The list of payment terminal models to which the returned `errorCode` applies.
+   *
+   * @param terminalModels
+   * @return the current {@code AndroidAppError} instance, allowing for method chaining
+   */
   public AndroidAppError terminalModels(List<String> terminalModels) {
     this.terminalModels = terminalModels;
     return this;
@@ -90,30 +99,27 @@ public class AndroidAppError {
     return this;
   }
 
-   /**
-   * The list of payment terminal models to which the returned &#x60;errorCode&#x60; applies.
+  /**
+   * The list of payment terminal models to which the returned `errorCode` applies.
    * @return terminalModels
-  **/
+   */
   @ApiModelProperty(value = "The list of payment terminal models to which the returned `errorCode` applies.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getTerminalModels() {
     return terminalModels;
   }
 
-
- /**
-  * The list of payment terminal models to which the returned &#x60;errorCode&#x60; applies.
-  *
-  * @param terminalModels
-  */ 
+  /**
+   * The list of payment terminal models to which the returned `errorCode` applies.
+   *
+   * @param terminalModels
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalModels(List<String> terminalModels) {
     this.terminalModels = terminalModels;
   }
-
 
   /**
    * Return true if this AndroidAppError object is equal to o.

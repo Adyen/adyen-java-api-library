@@ -80,65 +80,71 @@ public class AdditionalBankIdentification {
   public AdditionalBankIdentification() { 
   }
 
+  /**
+   * The value of the additional bank identification.
+   *
+   * @param code
+   * @return the current {@code AdditionalBankIdentification} instance, allowing for method chaining
+   */
   public AdditionalBankIdentification code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * The value of the additional bank identification.
    * @return code
-  **/
+   */
   @ApiModelProperty(value = "The value of the additional bank identification.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
- /**
-  * The value of the additional bank identification.
-  *
-  * @param code
-  */ 
+  /**
+   * The value of the additional bank identification.
+   *
+   * @param code
+   */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
   }
 
-
+  /**
+   * The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.
+   *
+   * @param type
+   * @return the current {@code AdditionalBankIdentification} instance, allowing for method chaining
+   */
   public AdditionalBankIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this AdditionalBankIdentification object is equal to o.

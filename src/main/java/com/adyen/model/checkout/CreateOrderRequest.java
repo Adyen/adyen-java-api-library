@@ -54,125 +54,137 @@ public class CreateOrderRequest {
   public CreateOrderRequest() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
+   */
   public CreateOrderRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
+   *
+   * @param expiresAt
+   * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
+   */
   public CreateOrderRequest expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
-   /**
+  /**
    * The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    * @return expiresAt
-  **/
+   */
   @ApiModelProperty(value = "The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiresAt() {
     return expiresAt;
   }
 
-
- /**
-  * The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
-  *
-  * @param expiresAt
-  */ 
+  /**
+   * The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
+   *
+   * @param expiresAt
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
-
+  /**
+   * The merchant account identifier, with which you want to process the order.
+   *
+   * @param merchantAccount
+   * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
+   */
   public CreateOrderRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the order.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the order.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the order.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the order.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * A custom reference identifying the order.
+   *
+   * @param reference
+   * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
+   */
   public CreateOrderRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * A custom reference identifying the order.
    * @return reference
-  **/
+   */
   @ApiModelProperty(required = true, value = "A custom reference identifying the order.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * A custom reference identifying the order.
-  *
-  * @param reference
-  */ 
+  /**
+   * A custom reference identifying the order.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this CreateOrderRequest object is equal to o.

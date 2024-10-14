@@ -149,66 +149,78 @@ public class TerminalSettings {
   public TerminalSettings() { 
   }
 
+  /**
+   * cardholderReceipt
+   *
+   * @param cardholderReceipt
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings cardholderReceipt(CardholderReceipt cardholderReceipt) {
     this.cardholderReceipt = cardholderReceipt;
     return this;
   }
 
-   /**
-   * Get cardholderReceipt
+  /**
+   * cardholderReceipt
    * @return cardholderReceipt
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardholderReceipt getCardholderReceipt() {
     return cardholderReceipt;
   }
 
-
- /**
-  * cardholderReceipt
-  *
-  * @param cardholderReceipt
-  */ 
+  /**
+   * cardholderReceipt
+   *
+   * @param cardholderReceipt
+   */ 
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderReceipt(CardholderReceipt cardholderReceipt) {
     this.cardholderReceipt = cardholderReceipt;
   }
 
-
+  /**
+   * connectivity
+   *
+   * @param connectivity
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings connectivity(Connectivity connectivity) {
     this.connectivity = connectivity;
     return this;
   }
 
-   /**
-   * Get connectivity
+  /**
+   * connectivity
    * @return connectivity
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Connectivity getConnectivity() {
     return connectivity;
   }
 
-
- /**
-  * connectivity
-  *
-  * @param connectivity
-  */ 
+  /**
+   * connectivity
+   *
+   * @param connectivity
+   */ 
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(Connectivity connectivity) {
     this.connectivity = connectivity;
   }
 
-
+  /**
+   * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
+   *
+   * @param gratuities
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings gratuities(List<Gratuity> gratuities) {
     this.gratuities = gratuities;
     return this;
@@ -222,600 +234,654 @@ public class TerminalSettings {
     return this;
   }
 
-   /**
+  /**
    * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
    * @return gratuities
-  **/
+   */
   @ApiModelProperty(value = "Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.")
   @JsonProperty(JSON_PROPERTY_GRATUITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Gratuity> getGratuities() {
     return gratuities;
   }
 
-
- /**
-  * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
-  *
-  * @param gratuities
-  */ 
+  /**
+   * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
+   *
+   * @param gratuities
+   */ 
   @JsonProperty(JSON_PROPERTY_GRATUITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGratuities(List<Gratuity> gratuities) {
     this.gratuities = gratuities;
   }
 
-
+  /**
+   * hardware
+   *
+   * @param hardware
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings hardware(Hardware hardware) {
     this.hardware = hardware;
     return this;
   }
 
-   /**
-   * Get hardware
+  /**
+   * hardware
    * @return hardware
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Hardware getHardware() {
     return hardware;
   }
 
-
- /**
-  * hardware
-  *
-  * @param hardware
-  */ 
+  /**
+   * hardware
+   *
+   * @param hardware
+   */ 
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHardware(Hardware hardware) {
     this.hardware = hardware;
   }
 
-
+  /**
+   * localization
+   *
+   * @param localization
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings localization(Localization localization) {
     this.localization = localization;
     return this;
   }
 
-   /**
-   * Get localization
+  /**
+   * localization
    * @return localization
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Localization getLocalization() {
     return localization;
   }
 
-
- /**
-  * localization
-  *
-  * @param localization
-  */ 
+  /**
+   * localization
+   *
+   * @param localization
+   */ 
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalization(Localization localization) {
     this.localization = localization;
   }
 
-
+  /**
+   * nexo
+   *
+   * @param nexo
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings nexo(Nexo nexo) {
     this.nexo = nexo;
     return this;
   }
 
-   /**
-   * Get nexo
+  /**
+   * nexo
    * @return nexo
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Nexo getNexo() {
     return nexo;
   }
 
-
- /**
-  * nexo
-  *
-  * @param nexo
-  */ 
+  /**
+   * nexo
+   *
+   * @param nexo
+   */ 
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexo(Nexo nexo) {
     this.nexo = nexo;
   }
 
-
+  /**
+   * offlineProcessing
+   *
+   * @param offlineProcessing
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings offlineProcessing(OfflineProcessing offlineProcessing) {
     this.offlineProcessing = offlineProcessing;
     return this;
   }
 
-   /**
-   * Get offlineProcessing
+  /**
+   * offlineProcessing
    * @return offlineProcessing
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OfflineProcessing getOfflineProcessing() {
     return offlineProcessing;
   }
 
-
- /**
-  * offlineProcessing
-  *
-  * @param offlineProcessing
-  */ 
+  /**
+   * offlineProcessing
+   *
+   * @param offlineProcessing
+   */ 
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineProcessing(OfflineProcessing offlineProcessing) {
     this.offlineProcessing = offlineProcessing;
   }
 
-
+  /**
+   * opi
+   *
+   * @param opi
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings opi(Opi opi) {
     this.opi = opi;
     return this;
   }
 
-   /**
-   * Get opi
+  /**
+   * opi
    * @return opi
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Opi getOpi() {
     return opi;
   }
 
-
- /**
-  * opi
-  *
-  * @param opi
-  */ 
+  /**
+   * opi
+   *
+   * @param opi
+   */ 
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpi(Opi opi) {
     this.opi = opi;
   }
 
-
+  /**
+   * passcodes
+   *
+   * @param passcodes
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings passcodes(Passcodes passcodes) {
     this.passcodes = passcodes;
     return this;
   }
 
-   /**
-   * Get passcodes
+  /**
+   * passcodes
    * @return passcodes
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Passcodes getPasscodes() {
     return passcodes;
   }
 
-
- /**
-  * passcodes
-  *
-  * @param passcodes
-  */ 
+  /**
+   * passcodes
+   *
+   * @param passcodes
+   */ 
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasscodes(Passcodes passcodes) {
     this.passcodes = passcodes;
   }
 
-
+  /**
+   * payAtTable
+   *
+   * @param payAtTable
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings payAtTable(PayAtTable payAtTable) {
     this.payAtTable = payAtTable;
     return this;
   }
 
-   /**
-   * Get payAtTable
+  /**
+   * payAtTable
    * @return payAtTable
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PayAtTable getPayAtTable() {
     return payAtTable;
   }
 
-
- /**
-  * payAtTable
-  *
-  * @param payAtTable
-  */ 
+  /**
+   * payAtTable
+   *
+   * @param payAtTable
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTable(PayAtTable payAtTable) {
     this.payAtTable = payAtTable;
   }
 
-
+  /**
+   * payment
+   *
+   * @param payment
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings payment(Payment payment) {
     this.payment = payment;
     return this;
   }
 
-   /**
-   * Get payment
+  /**
+   * payment
    * @return payment
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Payment getPayment() {
     return payment;
   }
 
-
- /**
-  * payment
-  *
-  * @param payment
-  */ 
+  /**
+   * payment
+   *
+   * @param payment
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayment(Payment payment) {
     this.payment = payment;
   }
 
-
+  /**
+   * receiptOptions
+   *
+   * @param receiptOptions
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings receiptOptions(ReceiptOptions receiptOptions) {
     this.receiptOptions = receiptOptions;
     return this;
   }
 
-   /**
-   * Get receiptOptions
+  /**
+   * receiptOptions
    * @return receiptOptions
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReceiptOptions getReceiptOptions() {
     return receiptOptions;
   }
 
-
- /**
-  * receiptOptions
-  *
-  * @param receiptOptions
-  */ 
+  /**
+   * receiptOptions
+   *
+   * @param receiptOptions
+   */ 
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptOptions(ReceiptOptions receiptOptions) {
     this.receiptOptions = receiptOptions;
   }
 
-
+  /**
+   * receiptPrinting
+   *
+   * @param receiptPrinting
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings receiptPrinting(ReceiptPrinting receiptPrinting) {
     this.receiptPrinting = receiptPrinting;
     return this;
   }
 
-   /**
-   * Get receiptPrinting
+  /**
+   * receiptPrinting
    * @return receiptPrinting
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReceiptPrinting getReceiptPrinting() {
     return receiptPrinting;
   }
 
-
- /**
-  * receiptPrinting
-  *
-  * @param receiptPrinting
-  */ 
+  /**
+   * receiptPrinting
+   *
+   * @param receiptPrinting
+   */ 
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptPrinting(ReceiptPrinting receiptPrinting) {
     this.receiptPrinting = receiptPrinting;
   }
 
-
+  /**
+   * refunds
+   *
+   * @param refunds
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings refunds(Refunds refunds) {
     this.refunds = refunds;
     return this;
   }
 
-   /**
-   * Get refunds
+  /**
+   * refunds
    * @return refunds
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Refunds getRefunds() {
     return refunds;
   }
 
-
- /**
-  * refunds
-  *
-  * @param refunds
-  */ 
+  /**
+   * refunds
+   *
+   * @param refunds
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefunds(Refunds refunds) {
     this.refunds = refunds;
   }
 
-
+  /**
+   * signature
+   *
+   * @param signature
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings signature(Signature signature) {
     this.signature = signature;
     return this;
   }
 
-   /**
-   * Get signature
+  /**
+   * signature
    * @return signature
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Signature getSignature() {
     return signature;
   }
 
-
- /**
-  * signature
-  *
-  * @param signature
-  */ 
+  /**
+   * signature
+   *
+   * @param signature
+   */ 
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(Signature signature) {
     this.signature = signature;
   }
 
-
+  /**
+   * standalone
+   *
+   * @param standalone
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings standalone(Standalone standalone) {
     this.standalone = standalone;
     return this;
   }
 
-   /**
-   * Get standalone
+  /**
+   * standalone
    * @return standalone
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Standalone getStandalone() {
     return standalone;
   }
 
-
- /**
-  * standalone
-  *
-  * @param standalone
-  */ 
+  /**
+   * standalone
+   *
+   * @param standalone
+   */ 
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStandalone(Standalone standalone) {
     this.standalone = standalone;
   }
 
-
+  /**
+   * storeAndForward
+   *
+   * @param storeAndForward
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings storeAndForward(StoreAndForward storeAndForward) {
     this.storeAndForward = storeAndForward;
     return this;
   }
 
-   /**
-   * Get storeAndForward
+  /**
+   * storeAndForward
    * @return storeAndForward
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StoreAndForward getStoreAndForward() {
     return storeAndForward;
   }
 
-
- /**
-  * storeAndForward
-  *
-  * @param storeAndForward
-  */ 
+  /**
+   * storeAndForward
+   *
+   * @param storeAndForward
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreAndForward(StoreAndForward storeAndForward) {
     this.storeAndForward = storeAndForward;
   }
 
-
+  /**
+   * surcharge
+   *
+   * @param surcharge
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings surcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
     return this;
   }
 
-   /**
-   * Get surcharge
+  /**
+   * surcharge
    * @return surcharge
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Surcharge getSurcharge() {
     return surcharge;
   }
 
-
- /**
-  * surcharge
-  *
-  * @param surcharge
-  */ 
+  /**
+   * surcharge
+   *
+   * @param surcharge
+   */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
   }
 
-
+  /**
+   * tapToPay
+   *
+   * @param tapToPay
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings tapToPay(TapToPay tapToPay) {
     this.tapToPay = tapToPay;
     return this;
   }
 
-   /**
-   * Get tapToPay
+  /**
+   * tapToPay
    * @return tapToPay
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TapToPay getTapToPay() {
     return tapToPay;
   }
 
-
- /**
-  * tapToPay
-  *
-  * @param tapToPay
-  */ 
+  /**
+   * tapToPay
+   *
+   * @param tapToPay
+   */ 
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTapToPay(TapToPay tapToPay) {
     this.tapToPay = tapToPay;
   }
 
-
+  /**
+   * terminalInstructions
+   *
+   * @param terminalInstructions
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings terminalInstructions(TerminalInstructions terminalInstructions) {
     this.terminalInstructions = terminalInstructions;
     return this;
   }
 
-   /**
-   * Get terminalInstructions
+  /**
+   * terminalInstructions
    * @return terminalInstructions
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalInstructions getTerminalInstructions() {
     return terminalInstructions;
   }
 
-
- /**
-  * terminalInstructions
-  *
-  * @param terminalInstructions
-  */ 
+  /**
+   * terminalInstructions
+   *
+   * @param terminalInstructions
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalInstructions(TerminalInstructions terminalInstructions) {
     this.terminalInstructions = terminalInstructions;
   }
 
-
+  /**
+   * timeouts
+   *
+   * @param timeouts
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings timeouts(Timeouts timeouts) {
     this.timeouts = timeouts;
     return this;
   }
 
-   /**
-   * Get timeouts
+  /**
+   * timeouts
    * @return timeouts
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Timeouts getTimeouts() {
     return timeouts;
   }
 
-
- /**
-  * timeouts
-  *
-  * @param timeouts
-  */ 
+  /**
+   * timeouts
+   *
+   * @param timeouts
+   */ 
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeouts(Timeouts timeouts) {
     this.timeouts = timeouts;
   }
 
-
+  /**
+   * wifiProfiles
+   *
+   * @param wifiProfiles
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
   public TerminalSettings wifiProfiles(WifiProfiles wifiProfiles) {
     this.wifiProfiles = wifiProfiles;
     return this;
   }
 
-   /**
-   * Get wifiProfiles
+  /**
+   * wifiProfiles
    * @return wifiProfiles
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WifiProfiles getWifiProfiles() {
     return wifiProfiles;
   }
 
-
- /**
-  * wifiProfiles
-  *
-  * @param wifiProfiles
-  */ 
+  /**
+   * wifiProfiles
+   *
+   * @param wifiProfiles
+   */ 
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiProfiles(WifiProfiles wifiProfiles) {
     this.wifiProfiles = wifiProfiles;
   }
-
 
   /**
    * Return true if this TerminalSettings object is equal to o.

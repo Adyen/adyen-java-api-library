@@ -49,95 +49,104 @@ public class ResponseAdditionalDataNetworkTokens {
   public ResponseAdditionalDataNetworkTokens() { 
   }
 
+  /**
+   * Indicates whether a network token is available for the specified card.
+   *
+   * @param networkTokenAvailable
+   * @return the current {@code ResponseAdditionalDataNetworkTokens} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataNetworkTokens networkTokenAvailable(String networkTokenAvailable) {
     this.networkTokenAvailable = networkTokenAvailable;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether a network token is available for the specified card.
    * @return networkTokenAvailable
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether a network token is available for the specified card.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetworkTokenAvailable() {
     return networkTokenAvailable;
   }
 
-
- /**
-  * Indicates whether a network token is available for the specified card.
-  *
-  * @param networkTokenAvailable
-  */ 
+  /**
+   * Indicates whether a network token is available for the specified card.
+   *
+   * @param networkTokenAvailable
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenAvailable(String networkTokenAvailable) {
     this.networkTokenAvailable = networkTokenAvailable;
   }
 
-
+  /**
+   * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
+   *
+   * @param networkTokenBin
+   * @return the current {@code ResponseAdditionalDataNetworkTokens} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataNetworkTokens networkTokenBin(String networkTokenBin) {
     this.networkTokenBin = networkTokenBin;
     return this;
   }
 
-   /**
+  /**
    * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
    * @return networkTokenBin
-  **/
+   */
   @ApiModelProperty(value = "The Bank Identification Number of a tokenized card, which is the first six digits of a card number.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetworkTokenBin() {
     return networkTokenBin;
   }
 
-
- /**
-  * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
-  *
-  * @param networkTokenBin
-  */ 
+  /**
+   * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
+   *
+   * @param networkTokenBin
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenBin(String networkTokenBin) {
     this.networkTokenBin = networkTokenBin;
   }
 
-
+  /**
+   * The last four digits of a network token.
+   *
+   * @param networkTokenTokenSummary
+   * @return the current {@code ResponseAdditionalDataNetworkTokens} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataNetworkTokens networkTokenTokenSummary(String networkTokenTokenSummary) {
     this.networkTokenTokenSummary = networkTokenTokenSummary;
     return this;
   }
 
-   /**
+  /**
    * The last four digits of a network token.
    * @return networkTokenTokenSummary
-  **/
+   */
   @ApiModelProperty(value = "The last four digits of a network token.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_TOKEN_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetworkTokenTokenSummary() {
     return networkTokenTokenSummary;
   }
 
-
- /**
-  * The last four digits of a network token.
-  *
-  * @param networkTokenTokenSummary
-  */ 
+  /**
+   * The last four digits of a network token.
+   *
+   * @param networkTokenTokenSummary
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_TOKEN_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenTokenSummary(String networkTokenTokenSummary) {
     this.networkTokenTokenSummary = networkTokenTokenSummary;
   }
-
 
   /**
    * Return true if this ResponseAdditionalDataNetworkTokens object is equal to o.

@@ -57,155 +57,170 @@ public class ResponseAdditionalData3DSecure {
   public ResponseAdditionalData3DSecure() { 
   }
 
+  /**
+   * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
+   *
+   * @param cardHolderInfo
+   * @return the current {@code ResponseAdditionalData3DSecure} instance, allowing for method chaining
+   */
   public ResponseAdditionalData3DSecure cardHolderInfo(String cardHolderInfo) {
     this.cardHolderInfo = cardHolderInfo;
     return this;
   }
 
-   /**
+  /**
    * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
    * @return cardHolderInfo
-  **/
+   */
   @ApiModelProperty(value = "Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. ")
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardHolderInfo() {
     return cardHolderInfo;
   }
 
-
- /**
-  * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
-  *
-  * @param cardHolderInfo
-  */ 
+  /**
+   * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
+   *
+   * @param cardHolderInfo
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderInfo(String cardHolderInfo) {
     this.cardHolderInfo = cardHolderInfo;
   }
 
-
+  /**
+   * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
+   *
+   * @param cavv
+   * @return the current {@code ResponseAdditionalData3DSecure} instance, allowing for method chaining
+   */
   public ResponseAdditionalData3DSecure cavv(String cavv) {
     this.cavv = cavv;
     return this;
   }
 
-   /**
+  /**
    * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
    * @return cavv
-  **/
+   */
   @ApiModelProperty(value = "The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.")
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCavv() {
     return cavv;
   }
 
-
- /**
-  * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
-  *
-  * @param cavv
-  */ 
+  /**
+   * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
+   *
+   * @param cavv
+   */ 
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(String cavv) {
     this.cavv = cavv;
   }
 
-
+  /**
+   * The CAVV algorithm used.
+   *
+   * @param cavvAlgorithm
+   * @return the current {@code ResponseAdditionalData3DSecure} instance, allowing for method chaining
+   */
   public ResponseAdditionalData3DSecure cavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
     return this;
   }
 
-   /**
+  /**
    * The CAVV algorithm used.
    * @return cavvAlgorithm
-  **/
+   */
   @ApiModelProperty(value = "The CAVV algorithm used.")
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCavvAlgorithm() {
     return cavvAlgorithm;
   }
 
-
- /**
-  * The CAVV algorithm used.
-  *
-  * @param cavvAlgorithm
-  */ 
+  /**
+   * The CAVV algorithm used.
+   *
+   * @param cavvAlgorithm
+   */ 
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
   }
 
-
+  /**
+   * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
+   *
+   * @param scaExemptionRequested
+   * @return the current {@code ResponseAdditionalData3DSecure} instance, allowing for method chaining
+   */
   public ResponseAdditionalData3DSecure scaExemptionRequested(String scaExemptionRequested) {
     this.scaExemptionRequested = scaExemptionRequested;
     return this;
   }
 
-   /**
+  /**
    * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
    * @return scaExemptionRequested
-  **/
+   */
   @ApiModelProperty(value = "Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** ")
   @JsonProperty(JSON_PROPERTY_SCA_EXEMPTION_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getScaExemptionRequested() {
     return scaExemptionRequested;
   }
 
-
- /**
-  * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
-  *
-  * @param scaExemptionRequested
-  */ 
+  /**
+   * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
+   *
+   * @param scaExemptionRequested
+   */ 
   @JsonProperty(JSON_PROPERTY_SCA_EXEMPTION_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaExemptionRequested(String scaExemptionRequested) {
     this.scaExemptionRequested = scaExemptionRequested;
   }
 
-
+  /**
+   * Indicates whether a card is enrolled for 3D Secure 2.
+   *
+   * @param threeds2CardEnrolled
+   * @return the current {@code ResponseAdditionalData3DSecure} instance, allowing for method chaining
+   */
   public ResponseAdditionalData3DSecure threeds2CardEnrolled(Boolean threeds2CardEnrolled) {
     this.threeds2CardEnrolled = threeds2CardEnrolled;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether a card is enrolled for 3D Secure 2.
    * @return threeds2CardEnrolled
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether a card is enrolled for 3D Secure 2.")
   @JsonProperty(JSON_PROPERTY_THREEDS2_CARD_ENROLLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getThreeds2CardEnrolled() {
     return threeds2CardEnrolled;
   }
 
-
- /**
-  * Indicates whether a card is enrolled for 3D Secure 2.
-  *
-  * @param threeds2CardEnrolled
-  */ 
+  /**
+   * Indicates whether a card is enrolled for 3D Secure 2.
+   *
+   * @param threeds2CardEnrolled
+   */ 
   @JsonProperty(JSON_PROPERTY_THREEDS2_CARD_ENROLLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2CardEnrolled(Boolean threeds2CardEnrolled) {
     this.threeds2CardEnrolled = threeds2CardEnrolled;
   }
-
 
   /**
    * Return true if this ResponseAdditionalData3DSecure object is equal to o.

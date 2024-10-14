@@ -129,695 +129,764 @@ public class AdditionalDataCarRental {
   public AdditionalDataCarRental() { 
   }
 
+  /**
+   * The pick-up date. * Date format: `yyyyMMdd`
+   *
+   * @param carRentalCheckOutDate
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalCheckOutDate(String carRentalCheckOutDate) {
     this.carRentalCheckOutDate = carRentalCheckOutDate;
     return this;
   }
 
-   /**
-   * The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
+  /**
+   * The pick-up date. * Date format: `yyyyMMdd`
    * @return carRentalCheckOutDate
-  **/
+   */
   @ApiModelProperty(value = "The pick-up date. * Date format: `yyyyMMdd`")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalCheckOutDate() {
     return carRentalCheckOutDate;
   }
 
-
- /**
-  * The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
-  *
-  * @param carRentalCheckOutDate
-  */ 
+  /**
+   * The pick-up date. * Date format: `yyyyMMdd`
+   *
+   * @param carRentalCheckOutDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalCheckOutDate(String carRentalCheckOutDate) {
     this.carRentalCheckOutDate = carRentalCheckOutDate;
   }
 
-
+  /**
+   * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
+   *
+   * @param carRentalCustomerServiceTollFreeNumber
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalCustomerServiceTollFreeNumber(String carRentalCustomerServiceTollFreeNumber) {
     this.carRentalCustomerServiceTollFreeNumber = carRentalCustomerServiceTollFreeNumber;
     return this;
   }
 
-   /**
+  /**
    * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    * @return carRentalCustomerServiceTollFreeNumber
-  **/
+   */
   @ApiModelProperty(value = "The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalCustomerServiceTollFreeNumber() {
     return carRentalCustomerServiceTollFreeNumber;
   }
 
-
- /**
-  * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
-  *
-  * @param carRentalCustomerServiceTollFreeNumber
-  */ 
+  /**
+   * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
+   *
+   * @param carRentalCustomerServiceTollFreeNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalCustomerServiceTollFreeNumber(String carRentalCustomerServiceTollFreeNumber) {
     this.carRentalCustomerServiceTollFreeNumber = carRentalCustomerServiceTollFreeNumber;
   }
 
-
+  /**
+   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
+   *
+   * @param carRentalDaysRented
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalDaysRented(String carRentalDaysRented) {
     this.carRentalDaysRented = carRentalDaysRented;
     return this;
   }
 
-   /**
+  /**
    * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    * @return carRentalDaysRented
-  **/
+   */
   @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalDaysRented() {
     return carRentalDaysRented;
   }
 
-
- /**
-  * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
-  *
-  * @param carRentalDaysRented
-  */ 
+  /**
+   * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
+   *
+   * @param carRentalDaysRented
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalDaysRented(String carRentalDaysRented) {
     this.carRentalDaysRented = carRentalDaysRented;
   }
 
-
+  /**
+   * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
+   *
+   * @param carRentalFuelCharges
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalFuelCharges(String carRentalFuelCharges) {
     this.carRentalFuelCharges = carRentalFuelCharges;
     return this;
   }
 
-   /**
+  /**
    * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
    * @return carRentalFuelCharges
-  **/
+   */
   @ApiModelProperty(value = "Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_FUEL_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalFuelCharges() {
     return carRentalFuelCharges;
   }
 
-
- /**
-  * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
-  *
-  * @param carRentalFuelCharges
-  */ 
+  /**
+   * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
+   *
+   * @param carRentalFuelCharges
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_FUEL_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalFuelCharges(String carRentalFuelCharges) {
     this.carRentalFuelCharges = carRentalFuelCharges;
   }
 
-
+  /**
+   * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
+   *
+   * @param carRentalInsuranceCharges
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalInsuranceCharges(String carRentalInsuranceCharges) {
     this.carRentalInsuranceCharges = carRentalInsuranceCharges;
     return this;
   }
 
-   /**
+  /**
    * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
    * @return carRentalInsuranceCharges
-  **/
+   */
   @ApiModelProperty(value = "Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_INSURANCE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalInsuranceCharges() {
     return carRentalInsuranceCharges;
   }
 
-
- /**
-  * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
-  *
-  * @param carRentalInsuranceCharges
-  */ 
+  /**
+   * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
+   *
+   * @param carRentalInsuranceCharges
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_INSURANCE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalInsuranceCharges(String carRentalInsuranceCharges) {
     this.carRentalInsuranceCharges = carRentalInsuranceCharges;
   }
 
-
+  /**
+   * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalLocationCity
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalLocationCity(String carRentalLocationCity) {
     this.carRentalLocationCity = carRentalLocationCity;
     return this;
   }
 
-   /**
+  /**
    * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalLocationCity
-  **/
+   */
   @ApiModelProperty(value = "The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalLocationCity() {
     return carRentalLocationCity;
   }
 
-
- /**
-  * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalLocationCity
-  */ 
+  /**
+   * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalLocationCity
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalLocationCity(String carRentalLocationCity) {
     this.carRentalLocationCity = carRentalLocationCity;
   }
 
-
+  /**
+   * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
+   *
+   * @param carRentalLocationCountry
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalLocationCountry(String carRentalLocationCountry) {
     this.carRentalLocationCountry = carRentalLocationCountry;
     return this;
   }
 
-   /**
+  /**
    * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    * @return carRentalLocationCountry
-  **/
+   */
   @ApiModelProperty(value = "The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalLocationCountry() {
     return carRentalLocationCountry;
   }
 
-
- /**
-  * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
-  *
-  * @param carRentalLocationCountry
-  */ 
+  /**
+   * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
+   *
+   * @param carRentalLocationCountry
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalLocationCountry(String carRentalLocationCountry) {
     this.carRentalLocationCountry = carRentalLocationCountry;
   }
 
-
+  /**
+   * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalLocationStateProvince
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalLocationStateProvince(String carRentalLocationStateProvince) {
     this.carRentalLocationStateProvince = carRentalLocationStateProvince;
     return this;
   }
 
-   /**
+  /**
    * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalLocationStateProvince
-  **/
+   */
   @ApiModelProperty(value = "The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalLocationStateProvince() {
     return carRentalLocationStateProvince;
   }
 
-
- /**
-  * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalLocationStateProvince
-  */ 
+  /**
+   * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalLocationStateProvince
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalLocationStateProvince(String carRentalLocationStateProvince) {
     this.carRentalLocationStateProvince = carRentalLocationStateProvince;
   }
 
-
+  /**
+   * Indicates if the customer didn't pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
+   *
+   * @param carRentalNoShowIndicator
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalNoShowIndicator(String carRentalNoShowIndicator) {
     this.carRentalNoShowIndicator = carRentalNoShowIndicator;
     return this;
   }
 
-   /**
-   * Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
+  /**
+   * Indicates if the customer didn't pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
    * @return carRentalNoShowIndicator
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the customer didn't pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalNoShowIndicator() {
     return carRentalNoShowIndicator;
   }
 
-
- /**
-  * Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
-  *
-  * @param carRentalNoShowIndicator
-  */ 
+  /**
+   * Indicates if the customer didn't pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
+   *
+   * @param carRentalNoShowIndicator
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalNoShowIndicator(String carRentalNoShowIndicator) {
     this.carRentalNoShowIndicator = carRentalNoShowIndicator;
   }
 
-
+  /**
+   * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
+   *
+   * @param carRentalOneWayDropOffCharges
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalOneWayDropOffCharges(String carRentalOneWayDropOffCharges) {
     this.carRentalOneWayDropOffCharges = carRentalOneWayDropOffCharges;
     return this;
   }
 
-   /**
+  /**
    * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
    * @return carRentalOneWayDropOffCharges
-  **/
+   */
   @ApiModelProperty(value = "The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_ONE_WAY_DROP_OFF_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalOneWayDropOffCharges() {
     return carRentalOneWayDropOffCharges;
   }
 
-
- /**
-  * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
-  *
-  * @param carRentalOneWayDropOffCharges
-  */ 
+  /**
+   * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
+   *
+   * @param carRentalOneWayDropOffCharges
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_ONE_WAY_DROP_OFF_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalOneWayDropOffCharges(String carRentalOneWayDropOffCharges) {
     this.carRentalOneWayDropOffCharges = carRentalOneWayDropOffCharges;
   }
 
-
+  /**
+   * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
+   *
+   * @param carRentalRate
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalRate(String carRentalRate) {
     this.carRentalRate = carRentalRate;
     return this;
   }
 
-   /**
+  /**
    * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
    * @return carRentalRate
-  **/
+   */
   @ApiModelProperty(value = "The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalRate() {
     return carRentalRate;
   }
 
-
- /**
-  * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
-  *
-  * @param carRentalRate
-  */ 
+  /**
+   * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
+   *
+   * @param carRentalRate
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRate(String carRentalRate) {
     this.carRentalRate = carRentalRate;
   }
 
-
+  /**
+   * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
+   *
+   * @param carRentalRateIndicator
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalRateIndicator(String carRentalRateIndicator) {
     this.carRentalRateIndicator = carRentalRateIndicator;
     return this;
   }
 
-   /**
+  /**
    * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
    * @return carRentalRateIndicator
-  **/
+   */
   @ApiModelProperty(value = "Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalRateIndicator() {
     return carRentalRateIndicator;
   }
 
-
- /**
-  * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
-  *
-  * @param carRentalRateIndicator
-  */ 
+  /**
+   * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
+   *
+   * @param carRentalRateIndicator
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRateIndicator(String carRentalRateIndicator) {
     this.carRentalRateIndicator = carRentalRateIndicator;
   }
 
-
+  /**
+   * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalRentalAgreementNumber
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalRentalAgreementNumber(String carRentalRentalAgreementNumber) {
     this.carRentalRentalAgreementNumber = carRentalRentalAgreementNumber;
     return this;
   }
 
-   /**
+  /**
    * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalRentalAgreementNumber
-  **/
+   */
   @ApiModelProperty(value = "The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_AGREEMENT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalRentalAgreementNumber() {
     return carRentalRentalAgreementNumber;
   }
 
-
- /**
-  * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalRentalAgreementNumber
-  */ 
+  /**
+   * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalRentalAgreementNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_AGREEMENT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRentalAgreementNumber(String carRentalRentalAgreementNumber) {
     this.carRentalRentalAgreementNumber = carRentalRentalAgreementNumber;
   }
 
-
+  /**
+   * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalRentalClassId
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalRentalClassId(String carRentalRentalClassId) {
     this.carRentalRentalClassId = carRentalRentalClassId;
     return this;
   }
 
-   /**
+  /**
    * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalRentalClassId
-  **/
+   */
   @ApiModelProperty(value = "The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_CLASS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalRentalClassId() {
     return carRentalRentalClassId;
   }
 
-
- /**
-  * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalRentalClassId
-  */ 
+  /**
+   * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalRentalClassId
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_CLASS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRentalClassId(String carRentalRentalClassId) {
     this.carRentalRentalClassId = carRentalRentalClassId;
   }
 
-
+  /**
+   * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalRenterName
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalRenterName(String carRentalRenterName) {
     this.carRentalRenterName = carRentalRenterName;
     return this;
   }
 
-   /**
+  /**
    * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalRenterName
-  **/
+   */
   @ApiModelProperty(value = "The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalRenterName() {
     return carRentalRenterName;
   }
 
-
- /**
-  * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalRenterName
-  */ 
+  /**
+   * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalRenterName
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRenterName(String carRentalRenterName) {
     this.carRentalRenterName = carRentalRenterName;
   }
 
-
+  /**
+   * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalReturnCity
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalReturnCity(String carRentalReturnCity) {
     this.carRentalReturnCity = carRentalReturnCity;
     return this;
   }
 
-   /**
+  /**
    * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalReturnCity
-  **/
+   */
   @ApiModelProperty(value = "The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalReturnCity() {
     return carRentalReturnCity;
   }
 
-
- /**
-  * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalReturnCity
-  */ 
+  /**
+   * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalReturnCity
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnCity(String carRentalReturnCity) {
     this.carRentalReturnCity = carRentalReturnCity;
   }
 
-
+  /**
+   * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
+   *
+   * @param carRentalReturnCountry
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalReturnCountry(String carRentalReturnCountry) {
     this.carRentalReturnCountry = carRentalReturnCountry;
     return this;
   }
 
-   /**
+  /**
    * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    * @return carRentalReturnCountry
-  **/
+   */
   @ApiModelProperty(value = "The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalReturnCountry() {
     return carRentalReturnCountry;
   }
 
-
- /**
-  * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
-  *
-  * @param carRentalReturnCountry
-  */ 
+  /**
+   * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
+   *
+   * @param carRentalReturnCountry
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnCountry(String carRentalReturnCountry) {
     this.carRentalReturnCountry = carRentalReturnCountry;
   }
 
-
+  /**
+   * The last date to return the car by. * Date format: `yyyyMMdd` * maxLength: 8
+   *
+   * @param carRentalReturnDate
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalReturnDate(String carRentalReturnDate) {
     this.carRentalReturnDate = carRentalReturnDate;
     return this;
   }
 
-   /**
-   * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
+  /**
+   * The last date to return the car by. * Date format: `yyyyMMdd` * maxLength: 8
    * @return carRentalReturnDate
-  **/
+   */
   @ApiModelProperty(value = "The last date to return the car by. * Date format: `yyyyMMdd` * maxLength: 8")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalReturnDate() {
     return carRentalReturnDate;
   }
 
-
- /**
-  * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
-  *
-  * @param carRentalReturnDate
-  */ 
+  /**
+   * The last date to return the car by. * Date format: `yyyyMMdd` * maxLength: 8
+   *
+   * @param carRentalReturnDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnDate(String carRentalReturnDate) {
     this.carRentalReturnDate = carRentalReturnDate;
   }
 
-
+  /**
+   * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalReturnLocationId
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalReturnLocationId(String carRentalReturnLocationId) {
     this.carRentalReturnLocationId = carRentalReturnLocationId;
     return this;
   }
 
-   /**
+  /**
    * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalReturnLocationId
-  **/
+   */
   @ApiModelProperty(value = "The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalReturnLocationId() {
     return carRentalReturnLocationId;
   }
 
-
- /**
-  * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalReturnLocationId
-  */ 
+  /**
+   * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalReturnLocationId
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnLocationId(String carRentalReturnLocationId) {
     this.carRentalReturnLocationId = carRentalReturnLocationId;
   }
 
-
+  /**
+   * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalReturnStateProvince
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalReturnStateProvince(String carRentalReturnStateProvince) {
     this.carRentalReturnStateProvince = carRentalReturnStateProvince;
     return this;
   }
 
-   /**
+  /**
    * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return carRentalReturnStateProvince
-  **/
+   */
   @ApiModelProperty(value = "The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalReturnStateProvince() {
     return carRentalReturnStateProvince;
   }
 
-
- /**
-  * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
-  *
-  * @param carRentalReturnStateProvince
-  */ 
+  /**
+   * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
+   *
+   * @param carRentalReturnStateProvince
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnStateProvince(String carRentalReturnStateProvince) {
     this.carRentalReturnStateProvince = carRentalReturnStateProvince;
   }
 
-
+  /**
+   * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
+   *
+   * @param carRentalTaxExemptIndicator
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental carRentalTaxExemptIndicator(String carRentalTaxExemptIndicator) {
     this.carRentalTaxExemptIndicator = carRentalTaxExemptIndicator;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    * @return carRentalTaxExemptIndicator
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected")
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_TAX_EXEMPT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCarRentalTaxExemptIndicator() {
     return carRentalTaxExemptIndicator;
   }
 
-
- /**
-  * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
-  *
-  * @param carRentalTaxExemptIndicator
-  */ 
+  /**
+   * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
+   *
+   * @param carRentalTaxExemptIndicator
+   */ 
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_TAX_EXEMPT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalTaxExemptIndicator(String carRentalTaxExemptIndicator) {
     this.carRentalTaxExemptIndicator = carRentalTaxExemptIndicator;
   }
 
-
+  /**
+   * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
+   *
+   * @param travelEntertainmentAuthDataDuration
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental travelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
     return this;
   }
 
-   /**
+  /**
    * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    * @return travelEntertainmentAuthDataDuration
-  **/
+   */
   @ApiModelProperty(value = "Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4")
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTravelEntertainmentAuthDataDuration() {
     return travelEntertainmentAuthDataDuration;
   }
 
-
- /**
-  * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
-  *
-  * @param travelEntertainmentAuthDataDuration
-  */ 
+  /**
+   * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
+   *
+   * @param travelEntertainmentAuthDataDuration
+   */ 
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
   }
 
-
+  /**
+   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be 'A' for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
+   *
+   * @param travelEntertainmentAuthDataMarket
+   * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
+   */
   public AdditionalDataCarRental travelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
     return this;
   }
 
-   /**
-   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
+  /**
+   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be 'A' for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    * @return travelEntertainmentAuthDataMarket
-  **/
+   */
   @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be 'A' for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1")
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTravelEntertainmentAuthDataMarket() {
     return travelEntertainmentAuthDataMarket;
   }
 
-
- /**
-  * Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
-  *
-  * @param travelEntertainmentAuthDataMarket
-  */ 
+  /**
+   * Indicates what market-specific dataset will be submitted or is being submitted. Value should be 'A' for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
+   *
+   * @param travelEntertainmentAuthDataMarket
+   */ 
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
   }
-
 
   /**
    * Return true if this AdditionalDataCarRental object is equal to o.

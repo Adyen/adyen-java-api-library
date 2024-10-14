@@ -81,36 +81,45 @@ public class CreateUserResponse {
   public CreateUserResponse() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse links(Links links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Links getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
     this.links = links;
   }
 
-
+  /**
+   * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
+   *
+   * @param accountGroups
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse accountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
     return this;
@@ -124,61 +133,67 @@ public class CreateUserResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
-  **/
+   */
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getAccountGroups() {
     return accountGroups;
   }
 
-
- /**
-  * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
-  *
-  * @param accountGroups
-  */ 
+  /**
+   * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
+   *
+   * @param accountGroups
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
   }
 
-
+  /**
+   * Indicates whether this user is active.
+   *
+   * @param active
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse active(Boolean active) {
     this.active = active;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether this user is active.
    * @return active
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether this user is active.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getActive() {
     return active;
   }
 
-
- /**
-  * Indicates whether this user is active.
-  *
-  * @param active
-  */ 
+  /**
+   * Indicates whether this user is active.
+   *
+   * @param active
+   */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
 
-
+  /**
+   * Set of apps available to this user
+   *
+   * @param apps
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse apps(List<String> apps) {
     this.apps = apps;
     return this;
@@ -192,121 +207,133 @@ public class CreateUserResponse {
     return this;
   }
 
-   /**
+  /**
    * Set of apps available to this user
    * @return apps
-  **/
+   */
   @ApiModelProperty(value = "Set of apps available to this user")
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getApps() {
     return apps;
   }
 
-
- /**
-  * Set of apps available to this user
-  *
-  * @param apps
-  */ 
+  /**
+   * Set of apps available to this user
+   *
+   * @param apps
+   */ 
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApps(List<String> apps) {
     this.apps = apps;
   }
 
-
+  /**
+   * The email address of the user.
+   *
+   * @param email
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address of the user.
    * @return email
-  **/
+   */
   @ApiModelProperty(required = true, value = "The email address of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address of the user.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address of the user.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * The unique identifier of the user.
+   *
+   * @param id
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the user.
    * @return id
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the user.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the user.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * name
+   *
+   * @param name
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse name(Name name) {
     this.name = name;
     return this;
   }
 
-   /**
-   * Get name
+  /**
+   * name
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getName() {
     return name;
   }
 
-
- /**
-  * name
-  *
-  * @param name
-  */ 
+  /**
+   * name
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
   }
 
-
+  /**
+   * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
+   *
+   * @param roles
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse roles(List<String> roles) {
     this.roles = roles;
     return this;
@@ -317,90 +344,93 @@ public class CreateUserResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
-  **/
+   */
   @ApiModelProperty(required = true, value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getRoles() {
     return roles;
   }
 
-
- /**
-  * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
-  *
-  * @param roles
-  */ 
+  /**
+   * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
+   *
+   * @param roles
+   */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
 
-
+  /**
+   * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
+   *
+   * @param timeZoneCode
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse timeZoneCode(String timeZoneCode) {
     this.timeZoneCode = timeZoneCode;
     return this;
   }
 
-   /**
+  /**
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTimeZoneCode() {
     return timeZoneCode;
   }
 
-
- /**
-  * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
-  *
-  * @param timeZoneCode
-  */ 
+  /**
+   * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
+   *
+   * @param timeZoneCode
+   */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {
     this.timeZoneCode = timeZoneCode;
   }
 
-
+  /**
+   * The username for this user.
+   *
+   * @param username
+   * @return the current {@code CreateUserResponse} instance, allowing for method chaining
+   */
   public CreateUserResponse username(String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * The username for this user.
    * @return username
-  **/
+   */
   @ApiModelProperty(required = true, value = "The username for this user.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUsername() {
     return username;
   }
 
-
- /**
-  * The username for this user.
-  *
-  * @param username
-  */ 
+  /**
+   * The username for this user.
+   *
+   * @param username
+   */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
-
 
   /**
    * Return true if this CreateUserResponse object is equal to o.

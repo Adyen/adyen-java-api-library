@@ -90,155 +90,170 @@ public class BRLocalAccountIdentification {
   public BRLocalAccountIdentification() { 
   }
 
+  /**
+   * The bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
+   */
   public BRLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The bank account number, without separators or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The bank account number, without separators or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The 3-digit bank code, with leading zeros.
+   *
+   * @param bankCode
+   * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
+   */
   public BRLocalAccountIdentification bankCode(String bankCode) {
     this.bankCode = bankCode;
     return this;
   }
 
-   /**
+  /**
    * The 3-digit bank code, with leading zeros.
    * @return bankCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 3-digit bank code, with leading zeros.")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBankCode() {
     return bankCode;
   }
 
-
- /**
-  * The 3-digit bank code, with leading zeros.
-  *
-  * @param bankCode
-  */ 
+  /**
+   * The 3-digit bank code, with leading zeros.
+   *
+   * @param bankCode
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
   }
 
-
+  /**
+   * The bank account branch number, without separators or whitespace.
+   *
+   * @param branchNumber
+   * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
+   */
   public BRLocalAccountIdentification branchNumber(String branchNumber) {
     this.branchNumber = branchNumber;
     return this;
   }
 
-   /**
+  /**
    * The bank account branch number, without separators or whitespace.
    * @return branchNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The bank account branch number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBranchNumber() {
     return branchNumber;
   }
 
-
- /**
-  * The bank account branch number, without separators or whitespace.
-  *
-  * @param branchNumber
-  */ 
+  /**
+   * The bank account branch number, without separators or whitespace.
+   *
+   * @param branchNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranchNumber(String branchNumber) {
     this.branchNumber = branchNumber;
   }
 
-
+  /**
+   * The 8-digit ISPB, with leading zeros.
+   *
+   * @param ispb
+   * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
+   */
   public BRLocalAccountIdentification ispb(String ispb) {
     this.ispb = ispb;
     return this;
   }
 
-   /**
+  /**
    * The 8-digit ISPB, with leading zeros.
    * @return ispb
-  **/
+   */
   @ApiModelProperty(value = "The 8-digit ISPB, with leading zeros.")
   @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIspb() {
     return ispb;
   }
 
-
- /**
-  * The 8-digit ISPB, with leading zeros.
-  *
-  * @param ispb
-  */ 
+  /**
+   * The 8-digit ISPB, with leading zeros.
+   *
+   * @param ispb
+   */ 
   @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIspb(String ispb) {
     this.ispb = ispb;
   }
 
-
+  /**
+   * **brLocal**
+   *
+   * @param type
+   * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
+   */
   public BRLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **brLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**brLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **brLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **brLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this BRLocalAccountIdentification object is equal to o.

@@ -52,6 +52,12 @@ public class SupplyDefenseDocumentRequest {
   public SupplyDefenseDocumentRequest() { 
   }
 
+  /**
+   * An array containing a list of the defense documents.
+   *
+   * @param defenseDocuments
+   * @return the current {@code SupplyDefenseDocumentRequest} instance, allowing for method chaining
+   */
   public SupplyDefenseDocumentRequest defenseDocuments(List<DefenseDocument> defenseDocuments) {
     this.defenseDocuments = defenseDocuments;
     return this;
@@ -62,90 +68,93 @@ public class SupplyDefenseDocumentRequest {
     return this;
   }
 
-   /**
+  /**
    * An array containing a list of the defense documents.
    * @return defenseDocuments
-  **/
+   */
   @ApiModelProperty(required = true, value = "An array containing a list of the defense documents.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DefenseDocument> getDefenseDocuments() {
     return defenseDocuments;
   }
 
-
- /**
-  * An array containing a list of the defense documents.
-  *
-  * @param defenseDocuments
-  */ 
+  /**
+   * An array containing a list of the defense documents.
+   *
+   * @param defenseDocuments
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocuments(List<DefenseDocument> defenseDocuments) {
     this.defenseDocuments = defenseDocuments;
   }
 
-
+  /**
+   * The PSP reference assigned to the dispute.
+   *
+   * @param disputePspReference
+   * @return the current {@code SupplyDefenseDocumentRequest} instance, allowing for method chaining
+   */
   public SupplyDefenseDocumentRequest disputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
     return this;
   }
 
-   /**
+  /**
    * The PSP reference assigned to the dispute.
    * @return disputePspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The PSP reference assigned to the dispute.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisputePspReference() {
     return disputePspReference;
   }
 
-
- /**
-  * The PSP reference assigned to the dispute.
-  *
-  * @param disputePspReference
-  */ 
+  /**
+   * The PSP reference assigned to the dispute.
+   *
+   * @param disputePspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
 
-
+  /**
+   * The merchant account identifier, for which you want to process the dispute transaction.
+   *
+   * @param merchantAccountCode
+   * @return the current {@code SupplyDefenseDocumentRequest} instance, allowing for method chaining
+   */
   public SupplyDefenseDocumentRequest merchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, for which you want to process the dispute transaction.
    * @return merchantAccountCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, for which you want to process the dispute transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
 
-
- /**
-  * The merchant account identifier, for which you want to process the dispute transaction.
-  *
-  * @param merchantAccountCode
-  */ 
+  /**
+   * The merchant account identifier, for which you want to process the dispute transaction.
+   *
+   * @param merchantAccountCode
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }
-
 
   /**
    * Return true if this SupplyDefenseDocumentRequest object is equal to o.

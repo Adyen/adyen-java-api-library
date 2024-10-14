@@ -45,65 +45,71 @@ public class WebData {
   public WebData() { 
   }
 
+  /**
+   * The URL of the website or the app store URL.
+   *
+   * @param webAddress
+   * @return the current {@code WebData} instance, allowing for method chaining
+   */
   public WebData webAddress(String webAddress) {
     this.webAddress = webAddress;
     return this;
   }
 
-   /**
+  /**
    * The URL of the website or the app store URL.
    * @return webAddress
-  **/
+   */
   @ApiModelProperty(value = "The URL of the website or the app store URL.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWebAddress() {
     return webAddress;
   }
 
-
- /**
-  * The URL of the website or the app store URL.
-  *
-  * @param webAddress
-  */ 
+  /**
+   * The URL of the website or the app store URL.
+   *
+   * @param webAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {
     this.webAddress = webAddress;
   }
 
-
+  /**
+   * The unique identifier of the web address.
+   *
+   * @param webAddressId
+   * @return the current {@code WebData} instance, allowing for method chaining
+   */
   public WebData webAddressId(String webAddressId) {
     this.webAddressId = webAddressId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the web address.
    * @return webAddressId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the web address.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWebAddressId() {
     return webAddressId;
   }
 
-
- /**
-  * The unique identifier of the web address.
-  *
-  * @param webAddressId
-  */ 
+  /**
+   * The unique identifier of the web address.
+   *
+   * @param webAddressId
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddressId(String webAddressId) {
     this.webAddressId = webAddressId;
   }
-
 
   /**
    * Return true if this WebData object is equal to o.

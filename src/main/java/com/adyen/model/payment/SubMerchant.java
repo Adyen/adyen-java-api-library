@@ -57,155 +57,170 @@ public class SubMerchant {
   public SubMerchant() { 
   }
 
+  /**
+   * The city of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 13 characters
+   *
+   * @param city
+   * @return the current {@code SubMerchant} instance, allowing for method chaining
+   */
   public SubMerchant city(String city) {
     this.city = city;
     return this;
   }
 
-   /**
-   * The city of the sub-merchant&#39;s address. * Format: Alphanumeric * Maximum length: 13 characters
+  /**
+   * The city of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 13 characters
    * @return city
-  **/
+   */
   @ApiModelProperty(value = "The city of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 13 characters")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCity() {
     return city;
   }
 
-
- /**
-  * The city of the sub-merchant&#39;s address. * Format: Alphanumeric * Maximum length: 13 characters
-  *
-  * @param city
-  */ 
+  /**
+   * The city of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 13 characters
+   *
+   * @param city
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
-
+  /**
+   * The three-letter country code of the sub-merchant's address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters
+   *
+   * @param country
+   * @return the current {@code SubMerchant} instance, allowing for method chaining
+   */
   public SubMerchant country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
-   * The three-letter country code of the sub-merchant&#39;s address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters
+  /**
+   * The three-letter country code of the sub-merchant's address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "The three-letter country code of the sub-merchant's address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The three-letter country code of the sub-merchant&#39;s address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters
-  *
-  * @param country
-  */ 
+  /**
+   * The three-letter country code of the sub-merchant's address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
+   *
+   * @param mcc
+   * @return the current {@code SubMerchant} instance, allowing for method chaining
+   */
   public SubMerchant mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
 
-   /**
-   * The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
+  /**
+   * The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    * @return mcc
-  **/
+   */
   @ApiModelProperty(value = "The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits")
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMcc() {
     return mcc;
   }
 
-
- /**
-  * The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
-  *
-  * @param mcc
-  */ 
+  /**
+   * The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
+   *
+   * @param mcc
+   */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
-
+  /**
+   * The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
+   *
+   * @param name
+   * @return the current {@code SubMerchant} instance, allowing for method chaining
+   */
   public SubMerchant name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
+   *
+   * @param taxId
+   * @return the current {@code SubMerchant} instance, allowing for method chaining
+   */
   public SubMerchant taxId(String taxId) {
     this.taxId = taxId;
     return this;
   }
 
-   /**
+  /**
    * The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    * @return taxId
-  **/
+   */
   @ApiModelProperty(value = "The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTaxId() {
     return taxId;
   }
 
-
- /**
-  * The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
-  *
-  * @param taxId
-  */ 
+  /**
+   * The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
+   *
+   * @param taxId
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
   }
-
 
   /**
    * Return true if this SubMerchant object is equal to o.

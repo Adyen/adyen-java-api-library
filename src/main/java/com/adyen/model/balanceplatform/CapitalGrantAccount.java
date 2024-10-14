@@ -57,6 +57,12 @@ public class CapitalGrantAccount {
   public CapitalGrantAccount() { 
   }
 
+  /**
+   * The balances of the grant account.
+   *
+   * @param balances
+   * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
+   */
   public CapitalGrantAccount balances(List<CapitalBalance> balances) {
     this.balances = balances;
     return this;
@@ -70,91 +76,100 @@ public class CapitalGrantAccount {
     return this;
   }
 
-   /**
+  /**
    * The balances of the grant account.
    * @return balances
-  **/
+   */
   @ApiModelProperty(value = "The balances of the grant account.")
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CapitalBalance> getBalances() {
     return balances;
   }
 
-
- /**
-  * The balances of the grant account.
-  *
-  * @param balances
-  */ 
+  /**
+   * The balances of the grant account.
+   *
+   * @param balances
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(List<CapitalBalance> balances) {
     this.balances = balances;
   }
 
-
+  /**
+   * The unique identifier of the balance account used to fund the grant.
+   *
+   * @param fundingBalanceAccountId
+   * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
+   */
   public CapitalGrantAccount fundingBalanceAccountId(String fundingBalanceAccountId) {
     this.fundingBalanceAccountId = fundingBalanceAccountId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the balance account used to fund the grant.
    * @return fundingBalanceAccountId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the balance account used to fund the grant.")
   @JsonProperty(JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFundingBalanceAccountId() {
     return fundingBalanceAccountId;
   }
 
-
- /**
-  * The unique identifier of the balance account used to fund the grant.
-  *
-  * @param fundingBalanceAccountId
-  */ 
+  /**
+   * The unique identifier of the balance account used to fund the grant.
+   *
+   * @param fundingBalanceAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingBalanceAccountId(String fundingBalanceAccountId) {
     this.fundingBalanceAccountId = fundingBalanceAccountId;
   }
 
-
+  /**
+   * The identifier of the grant account.
+   *
+   * @param id
+   * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
+   */
   public CapitalGrantAccount id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The identifier of the grant account.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The identifier of the grant account.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The identifier of the grant account.
-  *
-  * @param id
-  */ 
+  /**
+   * The identifier of the grant account.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The limits of the grant account.
+   *
+   * @param limits
+   * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
+   */
   public CapitalGrantAccount limits(List<GrantLimit> limits) {
     this.limits = limits;
     return this;
@@ -168,30 +183,27 @@ public class CapitalGrantAccount {
     return this;
   }
 
-   /**
+  /**
    * The limits of the grant account.
    * @return limits
-  **/
+   */
   @ApiModelProperty(value = "The limits of the grant account.")
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<GrantLimit> getLimits() {
     return limits;
   }
 
-
- /**
-  * The limits of the grant account.
-  *
-  * @param limits
-  */ 
+  /**
+   * The limits of the grant account.
+   *
+   * @param limits
+   */ 
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimits(List<GrantLimit> limits) {
     this.limits = limits;
   }
-
 
   /**
    * Return true if this CapitalGrantAccount object is equal to o.

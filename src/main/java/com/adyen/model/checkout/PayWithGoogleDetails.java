@@ -86,7 +86,7 @@ public class PayWithGoogleDetails {
   private String googlePayToken;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -134,122 +134,143 @@ public class PayWithGoogleDetails {
   public PayWithGoogleDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code PayWithGoogleDetails} instance, allowing for method chaining
+   */
   public PayWithGoogleDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   *
+   * @param fundingSource
+   * @return the current {@code PayWithGoogleDetails} instance, allowing for method chaining
+   */
   public PayWithGoogleDetails fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
     return this;
   }
 
-   /**
+  /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FundingSourceEnum getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.
+   *
+   * @param googlePayToken
+   * @return the current {@code PayWithGoogleDetails} instance, allowing for method chaining
+   */
   public PayWithGoogleDetails googlePayToken(String googlePayToken) {
     this.googlePayToken = googlePayToken;
     return this;
   }
 
-   /**
-   * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
+  /**
+   * The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.
    * @return googlePayToken
-  **/
+   */
   @ApiModelProperty(required = true, value = "The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.")
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getGooglePayToken() {
     return googlePayToken;
   }
 
-
- /**
-  * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
-  *
-  * @param googlePayToken
-  */ 
+  /**
+   * The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.
+   *
+   * @param googlePayToken
+   */ 
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePayToken(String googlePayToken) {
     this.googlePayToken = googlePayToken;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code PayWithGoogleDetails} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   public PayWithGoogleDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated
-  **/
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,96 +278,104 @@ public class PayWithGoogleDetails {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code PayWithGoogleDetails} instance, allowing for method chaining
+   */
   public PayWithGoogleDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
-
+  /**
+   * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
+   *
+   * @param threeDS2SdkVersion
+   * @return the current {@code PayWithGoogleDetails} instance, allowing for method chaining
+   */
   public PayWithGoogleDetails threeDS2SdkVersion(String threeDS2SdkVersion) {
     this.threeDS2SdkVersion = threeDS2SdkVersion;
     return this;
   }
 
-   /**
+  /**
    * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    * @return threeDS2SdkVersion
-  **/
+   */
   @ApiModelProperty(value = "Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDS2SdkVersion() {
     return threeDS2SdkVersion;
   }
 
-
- /**
-  * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
-  *
-  * @param threeDS2SdkVersion
-  */ 
+  /**
+   * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
+   *
+   * @param threeDS2SdkVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2SdkVersion(String threeDS2SdkVersion) {
     this.threeDS2SdkVersion = threeDS2SdkVersion;
   }
 
-
+  /**
+   * **paywithgoogle**
+   *
+   * @param type
+   * @return the current {@code PayWithGoogleDetails} instance, allowing for method chaining
+   */
   public PayWithGoogleDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **paywithgoogle**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**paywithgoogle**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **paywithgoogle**
-  *
-  * @param type
-  */ 
+  /**
+   * **paywithgoogle**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PayWithGoogleDetails object is equal to o.

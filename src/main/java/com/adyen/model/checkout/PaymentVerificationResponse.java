@@ -142,6 +142,12 @@ public class PaymentVerificationResponse {
   public PaymentVerificationResponse() { 
   }
 
+  /**
+   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.
+   *
+   * @param additionalData
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -155,300 +161,324 @@ public class PaymentVerificationResponse {
     return this;
   }
 
-   /**
-   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+  /**
+   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * fraudResult
+   *
+   * @param fraudResult
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
     return this;
   }
 
-   /**
-   * Get fraudResult
+  /**
+   * fraudResult
    * @return fraudResult
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FraudResult getFraudResult() {
     return fraudResult;
   }
 
-
- /**
-  * fraudResult
-  *
-  * @param fraudResult
-  */ 
+  /**
+   * fraudResult
+   *
+   * @param fraudResult
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
   }
 
-
+  /**
+   * A unique value that you provided in the initial `/paymentSession` request as a `reference` field.
+   *
+   * @param merchantReference
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
     return this;
   }
 
-   /**
-   * A unique value that you provided in the initial &#x60;/paymentSession&#x60; request as a &#x60;reference&#x60; field.
+  /**
+   * A unique value that you provided in the initial `/paymentSession` request as a `reference` field.
    * @return merchantReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "A unique value that you provided in the initial `/paymentSession` request as a `reference` field.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantReference() {
     return merchantReference;
   }
 
-
- /**
-  * A unique value that you provided in the initial &#x60;/paymentSession&#x60; request as a &#x60;reference&#x60; field.
-  *
-  * @param merchantReference
-  */ 
+  /**
+   * A unique value that you provided in the initial `/paymentSession` request as a `reference` field.
+   *
+   * @param merchantReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
-
+  /**
+   * order
+   *
+   * @param order
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse order(CheckoutOrderResponse order) {
     this.order = order;
     return this;
   }
 
-   /**
-   * Get order
+  /**
+   * order
    * @return order
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CheckoutOrderResponse getOrder() {
     return order;
   }
 
-
- /**
-  * order
-  *
-  * @param order
-  */ 
+  /**
+   * order
+   *
+   * @param order
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(CheckoutOrderResponse order) {
     this.order = order;
   }
 
-
+  /**
+   * Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
-   * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+  /**
+   * Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReason
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
   }
 
-   /**
-   * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+  /**
+   * If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReason
-  **/
+   */
   @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRefusalReason() {
     return refusalReason;
   }
 
-
- /**
-  * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-  *
-  * @param refusalReason
-  */ 
+  /**
+   * If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReason
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
 
-
+  /**
+   * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReasonCode
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse refusalReasonCode(String refusalReasonCode) {
     this.refusalReasonCode = refusalReasonCode;
     return this;
   }
 
-   /**
+  /**
    * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReasonCode
-  **/
+   */
   @ApiModelProperty(value = "Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRefusalReasonCode() {
     return refusalReasonCode;
   }
 
-
- /**
-  * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-  *
-  * @param refusalReasonCode
-  */ 
+  /**
+   * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReasonCode
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReasonCode(String refusalReasonCode) {
     this.refusalReasonCode = refusalReasonCode;
   }
 
-
+  /**
+   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state.
+   *
+   * @param resultCode
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     return this;
   }
 
-   /**
-   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
+  /**
+   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state.
    * @return resultCode
-  **/
+   */
   @ApiModelProperty(value = "The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
 
-
- /**
-  * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
-  *
-  * @param resultCode
-  */ 
+  /**
+   * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state.
+   *
+   * @param resultCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }
 
-
+  /**
+   * serviceError
+   *
+   * @param serviceError
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse serviceError(ServiceErrorDetails serviceError) {
     this.serviceError = serviceError;
     return this;
   }
 
-   /**
-   * Get serviceError
+  /**
+   * serviceError
    * @return serviceError
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SERVICE_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ServiceErrorDetails getServiceError() {
     return serviceError;
   }
 
-
- /**
-  * serviceError
-  *
-  * @param serviceError
-  */ 
+  /**
+   * serviceError
+   *
+   * @param serviceError
+   */ 
   @JsonProperty(JSON_PROPERTY_SERVICE_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceError(ServiceErrorDetails serviceError) {
     this.serviceError = serviceError;
   }
 
-
+  /**
+   * The shopperLocale value provided in the payment request.
+   *
+   * @param shopperLocale
+   * @return the current {@code PaymentVerificationResponse} instance, allowing for method chaining
+   */
   public PaymentVerificationResponse shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
     return this;
   }
 
-   /**
+  /**
    * The shopperLocale value provided in the payment request.
    * @return shopperLocale
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopperLocale value provided in the payment request.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperLocale() {
     return shopperLocale;
   }
 
-
- /**
-  * The shopperLocale value provided in the payment request.
-  *
-  * @param shopperLocale
-  */ 
+  /**
+   * The shopperLocale value provided in the payment request.
+   *
+   * @param shopperLocale
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
   }
-
 
   /**
    * Return true if this PaymentVerificationResponse object is equal to o.

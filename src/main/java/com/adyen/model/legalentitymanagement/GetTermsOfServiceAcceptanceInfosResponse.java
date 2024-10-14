@@ -44,6 +44,12 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
   public GetTermsOfServiceAcceptanceInfosResponse() { 
   }
 
+  /**
+   * The Terms of Service acceptance information.
+   *
+   * @param data
+   * @return the current {@code GetTermsOfServiceAcceptanceInfosResponse} instance, allowing for method chaining
+   */
   public GetTermsOfServiceAcceptanceInfosResponse data(List<TermsOfServiceAcceptanceInfo> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
     return this;
   }
 
-   /**
+  /**
    * The Terms of Service acceptance information.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The Terms of Service acceptance information.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TermsOfServiceAcceptanceInfo> getData() {
     return data;
   }
 
-
- /**
-  * The Terms of Service acceptance information.
-  *
-  * @param data
-  */ 
+  /**
+   * The Terms of Service acceptance information.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TermsOfServiceAcceptanceInfo> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this GetTermsOfServiceAcceptanceInfosResponse object is equal to o.

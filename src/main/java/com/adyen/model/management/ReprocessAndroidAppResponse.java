@@ -41,35 +41,38 @@ public class ReprocessAndroidAppResponse {
   public ReprocessAndroidAppResponse() { 
   }
 
+  /**
+   * The result of the reprocess.
+   *
+   * @param message
+   * @return the current {@code ReprocessAndroidAppResponse} instance, allowing for method chaining
+   */
   public ReprocessAndroidAppResponse message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * The result of the reprocess.
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "The result of the reprocess.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * The result of the reprocess.
-  *
-  * @param message
-  */ 
+  /**
+   * The result of the reprocess.
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   /**
    * Return true if this ReprocessAndroidAppResponse object is equal to o.

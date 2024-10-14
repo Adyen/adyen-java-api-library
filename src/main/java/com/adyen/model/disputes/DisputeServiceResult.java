@@ -45,65 +45,71 @@ public class DisputeServiceResult {
   public DisputeServiceResult() { 
   }
 
+  /**
+   * The general error message.
+   *
+   * @param errorMessage
+   * @return the current {@code DisputeServiceResult} instance, allowing for method chaining
+   */
   public DisputeServiceResult errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
   }
 
-   /**
+  /**
    * The general error message.
    * @return errorMessage
-  **/
+   */
   @ApiModelProperty(value = "The general error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorMessage() {
     return errorMessage;
   }
 
-
- /**
-  * The general error message.
-  *
-  * @param errorMessage
-  */ 
+  /**
+   * The general error message.
+   *
+   * @param errorMessage
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
 
-
+  /**
+   * Indicates whether the request succeeded.
+   *
+   * @param success
+   * @return the current {@code DisputeServiceResult} instance, allowing for method chaining
+   */
   public DisputeServiceResult success(Boolean success) {
     this.success = success;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the request succeeded.
    * @return success
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether the request succeeded.")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSuccess() {
     return success;
   }
 
-
- /**
-  * Indicates whether the request succeeded.
-  *
-  * @param success
-  */ 
+  /**
+   * Indicates whether the request succeeded.
+   *
+   * @param success
+   */ 
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
     this.success = success;
   }
-
 
   /**
    * Return true if this DisputeServiceResult object is equal to o.

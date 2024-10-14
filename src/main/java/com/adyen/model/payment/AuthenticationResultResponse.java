@@ -47,65 +47,71 @@ public class AuthenticationResultResponse {
   public AuthenticationResultResponse() { 
   }
 
+  /**
+   * threeDS1Result
+   *
+   * @param threeDS1Result
+   * @return the current {@code AuthenticationResultResponse} instance, allowing for method chaining
+   */
   public AuthenticationResultResponse threeDS1Result(ThreeDS1Result threeDS1Result) {
     this.threeDS1Result = threeDS1Result;
     return this;
   }
 
-   /**
-   * Get threeDS1Result
+  /**
+   * threeDS1Result
    * @return threeDS1Result
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THREE_D_S1_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ThreeDS1Result getThreeDS1Result() {
     return threeDS1Result;
   }
 
-
- /**
-  * threeDS1Result
-  *
-  * @param threeDS1Result
-  */ 
+  /**
+   * threeDS1Result
+   *
+   * @param threeDS1Result
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S1_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS1Result(ThreeDS1Result threeDS1Result) {
     this.threeDS1Result = threeDS1Result;
   }
 
-
+  /**
+   * threeDS2Result
+   *
+   * @param threeDS2Result
+   * @return the current {@code AuthenticationResultResponse} instance, allowing for method chaining
+   */
   public AuthenticationResultResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
     return this;
   }
 
-   /**
-   * Get threeDS2Result
+  /**
+   * threeDS2Result
    * @return threeDS2Result
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ThreeDS2Result getThreeDS2Result() {
     return threeDS2Result;
   }
 
-
- /**
-  * threeDS2Result
-  *
-  * @param threeDS2Result
-  */ 
+  /**
+   * threeDS2Result
+   *
+   * @param threeDS2Result
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
   }
-
 
   /**
    * Return true if this AuthenticationResultResponse object is equal to o.

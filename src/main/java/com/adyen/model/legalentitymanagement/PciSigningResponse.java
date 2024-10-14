@@ -47,6 +47,12 @@ public class PciSigningResponse {
   public PciSigningResponse() { 
   }
 
+  /**
+   * The unique identifiers of the signed PCI documents.
+   *
+   * @param pciQuestionnaireIds
+   * @return the current {@code PciSigningResponse} instance, allowing for method chaining
+   */
   public PciSigningResponse pciQuestionnaireIds(List<String> pciQuestionnaireIds) {
     this.pciQuestionnaireIds = pciQuestionnaireIds;
     return this;
@@ -60,60 +66,60 @@ public class PciSigningResponse {
     return this;
   }
 
-   /**
+  /**
    * The unique identifiers of the signed PCI documents.
    * @return pciQuestionnaireIds
-  **/
+   */
   @ApiModelProperty(value = "The unique identifiers of the signed PCI documents.")
   @JsonProperty(JSON_PROPERTY_PCI_QUESTIONNAIRE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPciQuestionnaireIds() {
     return pciQuestionnaireIds;
   }
 
-
- /**
-  * The unique identifiers of the signed PCI documents.
-  *
-  * @param pciQuestionnaireIds
-  */ 
+  /**
+   * The unique identifiers of the signed PCI documents.
+   *
+   * @param pciQuestionnaireIds
+   */ 
   @JsonProperty(JSON_PROPERTY_PCI_QUESTIONNAIRE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciQuestionnaireIds(List<String> pciQuestionnaireIds) {
     this.pciQuestionnaireIds = pciQuestionnaireIds;
   }
 
-
+  /**
+   * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
+   *
+   * @param signedBy
+   * @return the current {@code PciSigningResponse} instance, allowing for method chaining
+   */
   public PciSigningResponse signedBy(String signedBy) {
     this.signedBy = signedBy;
     return this;
   }
 
-   /**
+  /**
    * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
    * @return signedBy
-  **/
+   */
   @ApiModelProperty(value = "The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.")
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSignedBy() {
     return signedBy;
   }
 
-
- /**
-  * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
-  *
-  * @param signedBy
-  */ 
+  /**
+   * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
+   *
+   * @param signedBy
+   */ 
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignedBy(String signedBy) {
     this.signedBy = signedBy;
   }
-
 
   /**
    * Return true if this PciSigningResponse object is equal to o.

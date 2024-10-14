@@ -52,66 +52,78 @@ public class ListStoredPaymentMethodsResponse {
   public ListStoredPaymentMethodsResponse() { 
   }
 
+  /**
+   * Your merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code ListStoredPaymentMethodsResponse} instance, allowing for method chaining
+   */
   public ListStoredPaymentMethodsResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * Your merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "Your merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * Your merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * Your merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
+   *
+   * @param shopperReference
+   * @return the current {@code ListStoredPaymentMethodsResponse} instance, allowing for method chaining
+   */
   public ListStoredPaymentMethodsResponse shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
-   * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  /**
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(value = "Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
-
+  /**
+   * List of all stored payment methods.
+   *
+   * @param storedPaymentMethods
+   * @return the current {@code ListStoredPaymentMethodsResponse} instance, allowing for method chaining
+   */
   public ListStoredPaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethodResource> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
     return this;
@@ -125,30 +137,27 @@ public class ListStoredPaymentMethodsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of all stored payment methods.
    * @return storedPaymentMethods
-  **/
+   */
   @ApiModelProperty(value = "List of all stored payment methods.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<StoredPaymentMethodResource> getStoredPaymentMethods() {
     return storedPaymentMethods;
   }
 
-
- /**
-  * List of all stored payment methods.
-  *
-  * @param storedPaymentMethods
-  */ 
+  /**
+   * List of all stored payment methods.
+   *
+   * @param storedPaymentMethods
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethods(List<StoredPaymentMethodResource> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
   }
-
 
   /**
    * Return true if this ListStoredPaymentMethodsResponse object is equal to o.

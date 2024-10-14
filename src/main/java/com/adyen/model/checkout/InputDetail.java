@@ -56,7 +56,7 @@ public class InputDetail {
   private List<SubInputDetail> details = null;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
-  @Deprecated
+  @Deprecated // deprecated 
   private List<SubInputDetail> inputDetails = null;
 
   public static final String JSON_PROPERTY_ITEM_SEARCH_URL = "itemSearchUrl";
@@ -80,6 +80,12 @@ public class InputDetail {
   public InputDetail() { 
   }
 
+  /**
+   * Configuration parameters for the required input.
+   *
+   * @param configuration
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail configuration(Map<String, String> configuration) {
     this.configuration = configuration;
     return this;
@@ -93,31 +99,34 @@ public class InputDetail {
     return this;
   }
 
-   /**
+  /**
    * Configuration parameters for the required input.
    * @return configuration
-  **/
+   */
   @ApiModelProperty(value = "Configuration parameters for the required input.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getConfiguration() {
     return configuration;
   }
 
-
- /**
-  * Configuration parameters for the required input.
-  *
-  * @param configuration
-  */ 
+  /**
+   * Configuration parameters for the required input.
+   *
+   * @param configuration
+   */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
     this.configuration = configuration;
   }
 
-
+  /**
+   * Input details can also be provided recursively.
+   *
+   * @param details
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail details(List<SubInputDetail> details) {
     this.details = details;
     return this;
@@ -131,31 +140,36 @@ public class InputDetail {
     return this;
   }
 
-   /**
+  /**
    * Input details can also be provided recursively.
    * @return details
-  **/
+   */
   @ApiModelProperty(value = "Input details can also be provided recursively.")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SubInputDetail> getDetails() {
     return details;
   }
 
-
- /**
-  * Input details can also be provided recursively.
-  *
-  * @param details
-  */ 
+  /**
+   * Input details can also be provided recursively.
+   *
+   * @param details
+   */ 
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(List<SubInputDetail> details) {
     this.details = details;
   }
 
-
+  /**
+   * Input details can also be provided recursively (deprecated).
+   *
+   * @param inputDetails
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   *
+   * @deprecated 
+   */
   @Deprecated
   public InputDetail inputDetails(List<SubInputDetail> inputDetails) {
     this.inputDetails = inputDetails;
@@ -170,26 +184,27 @@ public class InputDetail {
     return this;
   }
 
-   /**
+  /**
    * Input details can also be provided recursively (deprecated).
    * @return inputDetails
-   * @deprecated
-  **/
+   *
+   * @deprecated 
+   */
   @Deprecated
   @ApiModelProperty(value = "Input details can also be provided recursively (deprecated).")
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SubInputDetail> getInputDetails() {
     return inputDetails;
   }
 
-
- /**
-  * Input details can also be provided recursively (deprecated).
-  *
-  * @param inputDetails
-  */ 
+  /**
+   * Input details can also be provided recursively (deprecated).
+   *
+   * @param inputDetails
+   *
+   * @deprecated 
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,37 +212,45 @@ public class InputDetail {
     this.inputDetails = inputDetails;
   }
 
-
+  /**
+   * In case of a select, the URL from which to query the items.
+   *
+   * @param itemSearchUrl
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail itemSearchUrl(String itemSearchUrl) {
     this.itemSearchUrl = itemSearchUrl;
     return this;
   }
 
-   /**
+  /**
    * In case of a select, the URL from which to query the items.
    * @return itemSearchUrl
-  **/
+   */
   @ApiModelProperty(value = "In case of a select, the URL from which to query the items.")
   @JsonProperty(JSON_PROPERTY_ITEM_SEARCH_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getItemSearchUrl() {
     return itemSearchUrl;
   }
 
-
- /**
-  * In case of a select, the URL from which to query the items.
-  *
-  * @param itemSearchUrl
-  */ 
+  /**
+   * In case of a select, the URL from which to query the items.
+   *
+   * @param itemSearchUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEM_SEARCH_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemSearchUrl(String itemSearchUrl) {
     this.itemSearchUrl = itemSearchUrl;
   }
 
-
+  /**
+   * In case of a select, the items to choose from.
+   *
+   * @param items
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail items(List<Item> items) {
     this.items = items;
     return this;
@@ -241,150 +264,159 @@ public class InputDetail {
     return this;
   }
 
-   /**
+  /**
    * In case of a select, the items to choose from.
    * @return items
-  **/
+   */
   @ApiModelProperty(value = "In case of a select, the items to choose from.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Item> getItems() {
     return items;
   }
 
-
- /**
-  * In case of a select, the items to choose from.
-  *
-  * @param items
-  */ 
+  /**
+   * In case of a select, the items to choose from.
+   *
+   * @param items
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<Item> items) {
     this.items = items;
   }
 
-
+  /**
+   * The value to provide in the result.
+   *
+   * @param key
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail key(String key) {
     this.key = key;
     return this;
   }
 
-   /**
+  /**
    * The value to provide in the result.
    * @return key
-  **/
+   */
   @ApiModelProperty(value = "The value to provide in the result.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getKey() {
     return key;
   }
 
-
- /**
-  * The value to provide in the result.
-  *
-  * @param key
-  */ 
+  /**
+   * The value to provide in the result.
+   *
+   * @param key
+   */ 
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKey(String key) {
     this.key = key;
   }
 
-
+  /**
+   * True if this input value is optional.
+   *
+   * @param optional
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail optional(Boolean optional) {
     this.optional = optional;
     return this;
   }
 
-   /**
+  /**
    * True if this input value is optional.
    * @return optional
-  **/
+   */
   @ApiModelProperty(value = "True if this input value is optional.")
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getOptional() {
     return optional;
   }
 
-
- /**
-  * True if this input value is optional.
-  *
-  * @param optional
-  */ 
+  /**
+   * True if this input value is optional.
+   *
+   * @param optional
+   */ 
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptional(Boolean optional) {
     this.optional = optional;
   }
 
-
+  /**
+   * The type of the required input.
+   *
+   * @param type
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the required input.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of the required input.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of the required input.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of the required input.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
-
+  /**
+   * The value can be pre-filled, if available.
+   *
+   * @param value
+   * @return the current {@code InputDetail} instance, allowing for method chaining
+   */
   public InputDetail value(String value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The value can be pre-filled, if available.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "The value can be pre-filled, if available.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getValue() {
     return value;
   }
 
-
- /**
-  * The value can be pre-filled, if available.
-  *
-  * @param value
-  */ 
+  /**
+   * The value can be pre-filled, if available.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this InputDetail object is equal to o.

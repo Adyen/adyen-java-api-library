@@ -45,65 +45,71 @@ public class Item {
   public Item() { 
   }
 
+  /**
+   * The value to provide in the result.
+   *
+   * @param id
+   * @return the current {@code Item} instance, allowing for method chaining
+   */
   public Item id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The value to provide in the result.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The value to provide in the result.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The value to provide in the result.
-  *
-  * @param id
-  */ 
+  /**
+   * The value to provide in the result.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The display name.
+   *
+   * @param name
+   * @return the current {@code Item} instance, allowing for method chaining
+   */
   public Item name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The display name.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The display name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The display name.
-  *
-  * @param name
-  */ 
+  /**
+   * The display name.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
-
 
   /**
    * Return true if this Item object is equal to o.

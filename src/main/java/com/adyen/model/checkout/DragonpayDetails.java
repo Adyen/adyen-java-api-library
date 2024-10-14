@@ -92,125 +92,137 @@ public class DragonpayDetails {
   public DragonpayDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code DragonpayDetails} instance, allowing for method chaining
+   */
   public DragonpayDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The Dragonpay issuer value of the shopper's selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
+   *
+   * @param issuer
+   * @return the current {@code DragonpayDetails} instance, allowing for method chaining
+   */
   public DragonpayDetails issuer(String issuer) {
     this.issuer = issuer;
     return this;
   }
 
-   /**
-   * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
+  /**
+   * The Dragonpay issuer value of the shopper's selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    * @return issuer
-  **/
+   */
   @ApiModelProperty(required = true, value = "The Dragonpay issuer value of the shopper's selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuer() {
     return issuer;
   }
 
-
- /**
-  * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
-  *
-  * @param issuer
-  */ 
+  /**
+   * The Dragonpay issuer value of the shopper's selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
+   *
+   * @param issuer
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
 
-
+  /**
+   * The shopper’s email address.
+   *
+   * @param shopperEmail
+   * @return the current {@code DragonpayDetails} instance, allowing for method chaining
+   */
   public DragonpayDetails shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * The shopper’s email address.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(value = "The shopper’s email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * The shopper’s email address.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * The shopper’s email address.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * **dragonpay**
+   *
+   * @param type
+   * @return the current {@code DragonpayDetails} instance, allowing for method chaining
+   */
   public DragonpayDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **dragonpay**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**dragonpay**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **dragonpay**
-  *
-  * @param type
-  */ 
+  /**
+   * **dragonpay**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this DragonpayDetails object is equal to o.

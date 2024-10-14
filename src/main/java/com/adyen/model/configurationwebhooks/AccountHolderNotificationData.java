@@ -46,65 +46,71 @@ public class AccountHolderNotificationData {
   public AccountHolderNotificationData() { 
   }
 
+  /**
+   * accountHolder
+   *
+   * @param accountHolder
+   * @return the current {@code AccountHolderNotificationData} instance, allowing for method chaining
+   */
   public AccountHolderNotificationData accountHolder(AccountHolder accountHolder) {
     this.accountHolder = accountHolder;
     return this;
   }
 
-   /**
-   * Get accountHolder
+  /**
+   * accountHolder
    * @return accountHolder
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AccountHolder getAccountHolder() {
     return accountHolder;
   }
 
-
- /**
-  * accountHolder
-  *
-  * @param accountHolder
-  */ 
+  /**
+   * accountHolder
+   *
+   * @param accountHolder
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(AccountHolder accountHolder) {
     this.accountHolder = accountHolder;
   }
 
-
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   * @return the current {@code AccountHolderNotificationData} instance, allowing for method chaining
+   */
   public AccountHolderNotificationData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the balance platform.
    * @return balancePlatform
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
-
- /**
-  * The unique identifier of the balance platform.
-  *
-  * @param balancePlatform
-  */ 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
-
 
   /**
    * Return true if this AccountHolderNotificationData object is equal to o.

@@ -86,125 +86,137 @@ public class WeChatPayMiniProgramDetails {
   public WeChatPayMiniProgramDetails() { 
   }
 
+  /**
+   * appId
+   *
+   * @param appId
+   * @return the current {@code WeChatPayMiniProgramDetails} instance, allowing for method chaining
+   */
   public WeChatPayMiniProgramDetails appId(String appId) {
     this.appId = appId;
     return this;
   }
 
-   /**
-   * Get appId
+  /**
+   * appId
    * @return appId
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAppId() {
     return appId;
   }
 
-
- /**
-  * appId
-  *
-  * @param appId
-  */ 
+  /**
+   * appId
+   *
+   * @param appId
+   */ 
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
     this.appId = appId;
   }
 
-
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code WeChatPayMiniProgramDetails} instance, allowing for method chaining
+   */
   public WeChatPayMiniProgramDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * openid
+   *
+   * @param openid
+   * @return the current {@code WeChatPayMiniProgramDetails} instance, allowing for method chaining
+   */
   public WeChatPayMiniProgramDetails openid(String openid) {
     this.openid = openid;
     return this;
   }
 
-   /**
-   * Get openid
+  /**
+   * openid
    * @return openid
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPENID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOpenid() {
     return openid;
   }
 
-
- /**
-  * openid
-  *
-  * @param openid
-  */ 
+  /**
+   * openid
+   *
+   * @param openid
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpenid(String openid) {
     this.openid = openid;
   }
 
-
+  /**
+   * **wechatpayMiniProgram**
+   *
+   * @param type
+   * @return the current {@code WeChatPayMiniProgramDetails} instance, allowing for method chaining
+   */
   public WeChatPayMiniProgramDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **wechatpayMiniProgram**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**wechatpayMiniProgram**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **wechatpayMiniProgram**
-  *
-  * @param type
-  */ 
+  /**
+   * **wechatpayMiniProgram**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this WeChatPayMiniProgramDetails object is equal to o.

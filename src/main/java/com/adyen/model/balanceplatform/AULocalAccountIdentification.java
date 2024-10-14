@@ -82,95 +82,104 @@ public class AULocalAccountIdentification {
   public AULocalAccountIdentification() { 
   }
 
+  /**
+   * The bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code AULocalAccountIdentification} instance, allowing for method chaining
+   */
   public AULocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The bank account number, without separators or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The bank account number, without separators or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
+   *
+   * @param bsbCode
+   * @return the current {@code AULocalAccountIdentification} instance, allowing for method chaining
+   */
   public AULocalAccountIdentification bsbCode(String bsbCode) {
     this.bsbCode = bsbCode;
     return this;
   }
 
-   /**
+  /**
    * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
    * @return bsbCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_BSB_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBsbCode() {
     return bsbCode;
   }
 
-
- /**
-  * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
-  *
-  * @param bsbCode
-  */ 
+  /**
+   * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
+   *
+   * @param bsbCode
+   */ 
   @JsonProperty(JSON_PROPERTY_BSB_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBsbCode(String bsbCode) {
     this.bsbCode = bsbCode;
   }
 
-
+  /**
+   * **auLocal**
+   *
+   * @param type
+   * @return the current {@code AULocalAccountIdentification} instance, allowing for method chaining
+   */
   public AULocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **auLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**auLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **auLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **auLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this AULocalAccountIdentification object is equal to o.

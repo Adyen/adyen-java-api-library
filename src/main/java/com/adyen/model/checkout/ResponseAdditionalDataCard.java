@@ -69,245 +69,269 @@ public class ResponseAdditionalDataCard {
   public ResponseAdditionalDataCard() { 
   }
 
+  /**
+   * The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
+   *
+   * @param cardBin
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard cardBin(String cardBin) {
     this.cardBin = cardBin;
     return this;
   }
 
-   /**
+  /**
    * The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
    * @return cardBin
-  **/
+   */
   @ApiModelProperty(value = "The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234")
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardBin() {
     return cardBin;
   }
 
-
- /**
-  * The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
-  *
-  * @param cardBin
-  */ 
+  /**
+   * The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
+   *
+   * @param cardBin
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(String cardBin) {
     this.cardBin = cardBin;
   }
 
-
+  /**
+   * The cardholder name passed in the payment request.
+   *
+   * @param cardHolderName
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard cardHolderName(String cardHolderName) {
     this.cardHolderName = cardHolderName;
     return this;
   }
 
-   /**
+  /**
    * The cardholder name passed in the payment request.
    * @return cardHolderName
-  **/
+   */
   @ApiModelProperty(value = "The cardholder name passed in the payment request.")
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardHolderName() {
     return cardHolderName;
   }
 
-
- /**
-  * The cardholder name passed in the payment request.
-  *
-  * @param cardHolderName
-  */ 
+  /**
+   * The cardholder name passed in the payment request.
+   *
+   * @param cardHolderName
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderName(String cardHolderName) {
     this.cardHolderName = cardHolderName;
   }
 
-
+  /**
+   * The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
+   *
+   * @param cardIssuingBank
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard cardIssuingBank(String cardIssuingBank) {
     this.cardIssuingBank = cardIssuingBank;
     return this;
   }
 
-   /**
+  /**
    * The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
    * @return cardIssuingBank
-  **/
+   */
   @ApiModelProperty(value = "The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.")
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardIssuingBank() {
     return cardIssuingBank;
   }
 
-
- /**
-  * The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
-  *
-  * @param cardIssuingBank
-  */ 
+  /**
+   * The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
+   *
+   * @param cardIssuingBank
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingBank(String cardIssuingBank) {
     this.cardIssuingBank = cardIssuingBank;
   }
 
-
+  /**
+   * The country where the card was issued.  Example: US
+   *
+   * @param cardIssuingCountry
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard cardIssuingCountry(String cardIssuingCountry) {
     this.cardIssuingCountry = cardIssuingCountry;
     return this;
   }
 
-   /**
+  /**
    * The country where the card was issued.  Example: US
    * @return cardIssuingCountry
-  **/
+   */
   @ApiModelProperty(value = "The country where the card was issued.  Example: US")
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardIssuingCountry() {
     return cardIssuingCountry;
   }
 
-
- /**
-  * The country where the card was issued.  Example: US
-  *
-  * @param cardIssuingCountry
-  */ 
+  /**
+   * The country where the card was issued.  Example: US
+   *
+   * @param cardIssuingCountry
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingCountry(String cardIssuingCountry) {
     this.cardIssuingCountry = cardIssuingCountry;
   }
 
-
+  /**
+   * The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
+   *
+   * @param cardIssuingCurrency
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard cardIssuingCurrency(String cardIssuingCurrency) {
     this.cardIssuingCurrency = cardIssuingCurrency;
     return this;
   }
 
-   /**
+  /**
    * The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
    * @return cardIssuingCurrency
-  **/
+   */
   @ApiModelProperty(value = "The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD")
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardIssuingCurrency() {
     return cardIssuingCurrency;
   }
 
-
- /**
-  * The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
-  *
-  * @param cardIssuingCurrency
-  */ 
+  /**
+   * The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
+   *
+   * @param cardIssuingCurrency
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingCurrency(String cardIssuingCurrency) {
     this.cardIssuingCurrency = cardIssuingCurrency;
   }
 
-
+  /**
+   * The card payment method used for the transaction.  Example: amex
+   *
+   * @param cardPaymentMethod
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard cardPaymentMethod(String cardPaymentMethod) {
     this.cardPaymentMethod = cardPaymentMethod;
     return this;
   }
 
-   /**
+  /**
    * The card payment method used for the transaction.  Example: amex
    * @return cardPaymentMethod
-  **/
+   */
   @ApiModelProperty(value = "The card payment method used for the transaction.  Example: amex")
   @JsonProperty(JSON_PROPERTY_CARD_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardPaymentMethod() {
     return cardPaymentMethod;
   }
 
-
- /**
-  * The card payment method used for the transaction.  Example: amex
-  *
-  * @param cardPaymentMethod
-  */ 
+  /**
+   * The card payment method used for the transaction.  Example: amex
+   *
+   * @param cardPaymentMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardPaymentMethod(String cardPaymentMethod) {
     this.cardPaymentMethod = cardPaymentMethod;
   }
 
-
+  /**
+   * The last four digits of a card number.  > Returned only in case of a card payment.
+   *
+   * @param cardSummary
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard cardSummary(String cardSummary) {
     this.cardSummary = cardSummary;
     return this;
   }
 
-   /**
-   * The last four digits of a card number.  &gt; Returned only in case of a card payment.
+  /**
+   * The last four digits of a card number.  > Returned only in case of a card payment.
    * @return cardSummary
-  **/
+   */
   @ApiModelProperty(value = "The last four digits of a card number.  > Returned only in case of a card payment.")
   @JsonProperty(JSON_PROPERTY_CARD_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardSummary() {
     return cardSummary;
   }
 
-
- /**
-  * The last four digits of a card number.  &gt; Returned only in case of a card payment.
-  *
-  * @param cardSummary
-  */ 
+  /**
+   * The last four digits of a card number.  > Returned only in case of a card payment.
+   *
+   * @param cardSummary
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardSummary(String cardSummary) {
     this.cardSummary = cardSummary;
   }
 
-
+  /**
+   * The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
+   *
+   * @param issuerBin
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCard issuerBin(String issuerBin) {
     this.issuerBin = issuerBin;
     return this;
   }
 
-   /**
+  /**
    * The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
    * @return issuerBin
-  **/
+   */
   @ApiModelProperty(value = "The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423")
   @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuerBin() {
     return issuerBin;
   }
 
-
- /**
-  * The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
-  *
-  * @param issuerBin
-  */ 
+  /**
+   * The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
+   *
+   * @param issuerBin
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerBin(String issuerBin) {
     this.issuerBin = issuerBin;
   }
-
 
   /**
    * Return true if this ResponseAdditionalDataCard object is equal to o.

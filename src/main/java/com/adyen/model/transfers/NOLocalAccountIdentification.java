@@ -78,65 +78,71 @@ public class NOLocalAccountIdentification {
   public NOLocalAccountIdentification() { 
   }
 
+  /**
+   * The 11-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code NOLocalAccountIdentification} instance, allowing for method chaining
+   */
   public NOLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 11-digit bank account number, without separators or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 11-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 11-digit bank account number, without separators or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 11-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * **noLocal**
+   *
+   * @param type
+   * @return the current {@code NOLocalAccountIdentification} instance, allowing for method chaining
+   */
   public NOLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **noLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**noLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **noLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **noLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this NOLocalAccountIdentification object is equal to o.

@@ -62,36 +62,45 @@ public class BusinessLineInfoUpdate {
   public BusinessLineInfoUpdate() { 
   }
 
+  /**
+   * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
+   *
+   * @param industryCode
+   * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
+   */
   public BusinessLineInfoUpdate industryCode(String industryCode) {
     this.industryCode = industryCode;
     return this;
   }
 
-   /**
+  /**
    * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    * @return industryCode
-  **/
+   */
   @ApiModelProperty(value = "A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIndustryCode() {
     return industryCode;
   }
 
-
- /**
-  * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
-  *
-  * @param industryCode
-  */ 
+  /**
+   * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
+   *
+   * @param industryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryCode(String industryCode) {
     this.industryCode = industryCode;
   }
 
-
+  /**
+   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
+   *
+   * @param salesChannels
+   * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
+   */
   public BusinessLineInfoUpdate salesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
     return this;
@@ -105,61 +114,67 @@ public class BusinessLineInfoUpdate {
     return this;
   }
 
-   /**
-   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
+  /**
+   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
    * @return salesChannels
-  **/
+   */
   @ApiModelProperty(value = "A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.")
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getSalesChannels() {
     return salesChannels;
   }
 
-
- /**
-  * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
-  *
-  * @param salesChannels
-  */ 
+  /**
+   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
+   *
+   * @param salesChannels
+   */ 
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
   }
 
-
+  /**
+   * sourceOfFunds
+   *
+   * @param sourceOfFunds
+   * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
+   */
   public BusinessLineInfoUpdate sourceOfFunds(SourceOfFunds sourceOfFunds) {
     this.sourceOfFunds = sourceOfFunds;
     return this;
   }
 
-   /**
-   * Get sourceOfFunds
+  /**
+   * sourceOfFunds
    * @return sourceOfFunds
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SourceOfFunds getSourceOfFunds() {
     return sourceOfFunds;
   }
 
-
- /**
-  * sourceOfFunds
-  *
-  * @param sourceOfFunds
-  */ 
+  /**
+   * sourceOfFunds
+   *
+   * @param sourceOfFunds
+   */ 
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSourceOfFunds(SourceOfFunds sourceOfFunds) {
     this.sourceOfFunds = sourceOfFunds;
   }
 
-
+  /**
+   * List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
+   *
+   * @param webData
+   * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
+   */
   public BusinessLineInfoUpdate webData(List<WebData> webData) {
     this.webData = webData;
     return this;
@@ -173,60 +188,60 @@ public class BusinessLineInfoUpdate {
     return this;
   }
 
-   /**
-   * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
+  /**
+   * List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
    * @return webData
-  **/
+   */
   @ApiModelProperty(value = "List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.")
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<WebData> getWebData() {
     return webData;
   }
 
-
- /**
-  * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
-  *
-  * @param webData
-  */ 
+  /**
+   * List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
+   *
+   * @param webData
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(List<WebData> webData) {
     this.webData = webData;
   }
 
-
+  /**
+   * webDataExemption
+   *
+   * @param webDataExemption
+   * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
+   */
   public BusinessLineInfoUpdate webDataExemption(WebDataExemption webDataExemption) {
     this.webDataExemption = webDataExemption;
     return this;
   }
 
-   /**
-   * Get webDataExemption
+  /**
+   * webDataExemption
    * @return webDataExemption
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WebDataExemption getWebDataExemption() {
     return webDataExemption;
   }
 
-
- /**
-  * webDataExemption
-  *
-  * @param webDataExemption
-  */ 
+  /**
+   * webDataExemption
+   *
+   * @param webDataExemption
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebDataExemption(WebDataExemption webDataExemption) {
     this.webDataExemption = webDataExemption;
   }
-
 
   /**
    * Return true if this BusinessLineInfoUpdate object is equal to o.

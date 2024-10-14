@@ -100,6 +100,12 @@ public class CheckoutSessionInstallmentOption {
   public CheckoutSessionInstallmentOption() { 
   }
 
+  /**
+   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
+   *
+   * @param plans
+   * @return the current {@code CheckoutSessionInstallmentOption} instance, allowing for method chaining
+   */
   public CheckoutSessionInstallmentOption plans(List<PlansEnum> plans) {
     this.plans = plans;
     return this;
@@ -113,61 +119,67 @@ public class CheckoutSessionInstallmentOption {
     return this;
   }
 
-   /**
+  /**
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    * @return plans
-  **/
+   */
   @ApiModelProperty(value = "Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**")
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PlansEnum> getPlans() {
     return plans;
   }
 
-
- /**
-  * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
-  *
-  * @param plans
-  */ 
+  /**
+   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
+   *
+   * @param plans
+   */ 
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlans(List<PlansEnum> plans) {
     this.plans = plans;
   }
 
-
+  /**
+   * Preselected number of installments offered for this payment method.
+   *
+   * @param preselectedValue
+   * @return the current {@code CheckoutSessionInstallmentOption} instance, allowing for method chaining
+   */
   public CheckoutSessionInstallmentOption preselectedValue(Integer preselectedValue) {
     this.preselectedValue = preselectedValue;
     return this;
   }
 
-   /**
+  /**
    * Preselected number of installments offered for this payment method.
    * @return preselectedValue
-  **/
+   */
   @ApiModelProperty(value = "Preselected number of installments offered for this payment method.")
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPreselectedValue() {
     return preselectedValue;
   }
 
-
- /**
-  * Preselected number of installments offered for this payment method.
-  *
-  * @param preselectedValue
-  */ 
+  /**
+   * Preselected number of installments offered for this payment method.
+   *
+   * @param preselectedValue
+   */ 
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreselectedValue(Integer preselectedValue) {
     this.preselectedValue = preselectedValue;
   }
 
-
+  /**
+   * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.
+   *
+   * @param values
+   * @return the current {@code CheckoutSessionInstallmentOption} instance, allowing for method chaining
+   */
   public CheckoutSessionInstallmentOption values(List<Integer> values) {
     this.values = values;
     return this;
@@ -181,30 +193,27 @@ public class CheckoutSessionInstallmentOption {
     return this;
   }
 
-   /**
-   * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
+  /**
+   * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.
    * @return values
-  **/
+   */
   @ApiModelProperty(value = "An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Integer> getValues() {
     return values;
   }
 
-
- /**
-  * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
-  *
-  * @param values
-  */ 
+  /**
+   * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.
+   *
+   * @param values
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Integer> values) {
     this.values = values;
   }
-
 
   /**
    * Return true if this CheckoutSessionInstallmentOption object is equal to o.

@@ -81,65 +81,71 @@ public class Connectivity {
   public Connectivity() { 
   }
 
+  /**
+   * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can't use cellular connectivity.
+   *
+   * @param simcardStatus
+   * @return the current {@code Connectivity} instance, allowing for method chaining
+   */
   public Connectivity simcardStatus(SimcardStatusEnum simcardStatus) {
     this.simcardStatus = simcardStatus;
     return this;
   }
 
-   /**
-   * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can&#39;t use cellular connectivity.
+  /**
+   * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can't use cellular connectivity.
    * @return simcardStatus
-  **/
+   */
   @ApiModelProperty(value = "Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can't use cellular connectivity.")
   @JsonProperty(JSON_PROPERTY_SIMCARD_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SimcardStatusEnum getSimcardStatus() {
     return simcardStatus;
   }
 
-
- /**
-  * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can&#39;t use cellular connectivity.
-  *
-  * @param simcardStatus
-  */ 
+  /**
+   * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can't use cellular connectivity.
+   *
+   * @param simcardStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_SIMCARD_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSimcardStatus(SimcardStatusEnum simcardStatus) {
     this.simcardStatus = simcardStatus;
   }
 
-
+  /**
+   * terminalIPAddressURL
+   *
+   * @param terminalIPAddressURL
+   * @return the current {@code Connectivity} instance, allowing for method chaining
+   */
   public Connectivity terminalIPAddressURL(EventUrl terminalIPAddressURL) {
     this.terminalIPAddressURL = terminalIPAddressURL;
     return this;
   }
 
-   /**
-   * Get terminalIPAddressURL
+  /**
+   * terminalIPAddressURL
    * @return terminalIPAddressURL
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EventUrl getTerminalIPAddressURL() {
     return terminalIPAddressURL;
   }
 
-
- /**
-  * terminalIPAddressURL
-  *
-  * @param terminalIPAddressURL
-  */ 
+  /**
+   * terminalIPAddressURL
+   *
+   * @param terminalIPAddressURL
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalIPAddressURL(EventUrl terminalIPAddressURL) {
     this.terminalIPAddressURL = terminalIPAddressURL;
   }
-
 
   /**
    * Return true if this Connectivity object is equal to o.

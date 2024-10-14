@@ -44,6 +44,12 @@ public class GetPciQuestionnaireInfosResponse {
   public GetPciQuestionnaireInfosResponse() { 
   }
 
+  /**
+   * Information about the signed PCI questionnaires.
+   *
+   * @param data
+   * @return the current {@code GetPciQuestionnaireInfosResponse} instance, allowing for method chaining
+   */
   public GetPciQuestionnaireInfosResponse data(List<PciDocumentInfo> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class GetPciQuestionnaireInfosResponse {
     return this;
   }
 
-   /**
+  /**
    * Information about the signed PCI questionnaires.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "Information about the signed PCI questionnaires.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PciDocumentInfo> getData() {
     return data;
   }
 
-
- /**
-  * Information about the signed PCI questionnaires.
-  *
-  * @param data
-  */ 
+  /**
+   * Information about the signed PCI questionnaires.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PciDocumentInfo> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this GetPciQuestionnaireInfosResponse object is equal to o.

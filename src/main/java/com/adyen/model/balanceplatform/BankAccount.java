@@ -42,35 +42,38 @@ public class BankAccount {
   public BankAccount() { 
   }
 
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   * @return the current {@code BankAccount} instance, allowing for method chaining
+   */
   public BankAccount accountIdentification(BankAccountAccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
     return this;
   }
 
-   /**
-   * Get accountIdentification
+  /**
+   * accountIdentification
    * @return accountIdentification
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccountAccountIdentification getAccountIdentification() {
     return accountIdentification;
   }
 
-
- /**
-  * accountIdentification
-  *
-  * @param accountIdentification
-  */ 
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountAccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
   }
-
 
   /**
    * Return true if this BankAccount object is equal to o.

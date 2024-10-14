@@ -73,96 +73,111 @@ public class DefaultErrorResponseEntity {
   public DefaultErrorResponseEntity() { 
   }
 
+  /**
+   * A human-readable explanation specific to this occurrence of the problem.
+   *
+   * @param detail
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity detail(String detail) {
     this.detail = detail;
     return this;
   }
 
-   /**
+  /**
    * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
-  **/
+   */
   @ApiModelProperty(value = "A human-readable explanation specific to this occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDetail() {
     return detail;
   }
 
-
- /**
-  * A human-readable explanation specific to this occurrence of the problem.
-  *
-  * @param detail
-  */ 
+  /**
+   * A human-readable explanation specific to this occurrence of the problem.
+   *
+   * @param detail
+   */ 
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
     this.detail = detail;
   }
 
-
+  /**
+   * Unique business error code.
+   *
+   * @param errorCode
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity errorCode(String errorCode) {
     this.errorCode = errorCode;
     return this;
   }
 
-   /**
+  /**
    * Unique business error code.
    * @return errorCode
-  **/
+   */
   @ApiModelProperty(value = "Unique business error code.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorCode() {
     return errorCode;
   }
 
-
- /**
-  * Unique business error code.
-  *
-  * @param errorCode
-  */ 
+  /**
+   * Unique business error code.
+   *
+   * @param errorCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
 
-
+  /**
+   * A URI that identifies the specific occurrence of the problem if applicable.
+   *
+   * @param instance
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity instance(String instance) {
     this.instance = instance;
     return this;
   }
 
-   /**
+  /**
    * A URI that identifies the specific occurrence of the problem if applicable.
    * @return instance
-  **/
+   */
   @ApiModelProperty(value = "A URI that identifies the specific occurrence of the problem if applicable.")
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInstance() {
     return instance;
   }
 
-
- /**
-  * A URI that identifies the specific occurrence of the problem if applicable.
-  *
-  * @param instance
-  */ 
+  /**
+   * A URI that identifies the specific occurrence of the problem if applicable.
+   *
+   * @param instance
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(String instance) {
     this.instance = instance;
   }
 
-
+  /**
+   * Array of fields with validation errors when applicable.
+   *
+   * @param invalidFields
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity invalidFields(List<InvalidField> invalidFields) {
     this.invalidFields = invalidFields;
     return this;
@@ -176,150 +191,159 @@ public class DefaultErrorResponseEntity {
     return this;
   }
 
-   /**
+  /**
    * Array of fields with validation errors when applicable.
    * @return invalidFields
-  **/
+   */
   @ApiModelProperty(value = "Array of fields with validation errors when applicable.")
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<InvalidField> getInvalidFields() {
     return invalidFields;
   }
 
-
- /**
-  * Array of fields with validation errors when applicable.
-  *
-  * @param invalidFields
-  */ 
+  /**
+   * Array of fields with validation errors when applicable.
+   *
+   * @param invalidFields
+   */ 
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvalidFields(List<InvalidField> invalidFields) {
     this.invalidFields = invalidFields;
   }
 
-
+  /**
+   * The unique reference for the request.
+   *
+   * @param requestId
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
-   /**
+  /**
    * The unique reference for the request.
    * @return requestId
-  **/
+   */
   @ApiModelProperty(value = "The unique reference for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestId() {
     return requestId;
   }
 
-
- /**
-  * The unique reference for the request.
-  *
-  * @param requestId
-  */ 
+  /**
+   * The unique reference for the request.
+   *
+   * @param requestId
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
 
-
+  /**
+   * The HTTP status code.
+   *
+   * @param status
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity status(Integer status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The HTTP status code.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The HTTP status code.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getStatus() {
     return status;
   }
 
-
- /**
-  * The HTTP status code.
-  *
-  * @param status
-  */ 
+  /**
+   * The HTTP status code.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
     this.status = status;
   }
 
-
+  /**
+   * A short, human-readable summary of the problem type.
+   *
+   * @param title
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * A short, human-readable summary of the problem type.
    * @return title
-  **/
+   */
   @ApiModelProperty(value = "A short, human-readable summary of the problem type.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
- /**
-  * A short, human-readable summary of the problem type.
-  *
-  * @param title
-  */ 
+  /**
+   * A short, human-readable summary of the problem type.
+   *
+   * @param title
+   */ 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
   }
 
-
+  /**
+   * A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
+   *
+   * @param type
+   * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
+   */
   public DefaultErrorResponseEntity type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "A URI that identifies the validation error type. It points to human-readable documentation for the problem type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
-  *
-  * @param type
-  */ 
+  /**
+   * A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this DefaultErrorResponseEntity object is equal to o.

@@ -45,65 +45,71 @@ public class GooglePayInfo {
   public GooglePayInfo() { 
   }
 
+  /**
+   * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
+   *
+   * @param merchantId
+   * @return the current {@code GooglePayInfo} instance, allowing for method chaining
+   */
   public GooglePayInfo merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
-   * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
+  /**
+   * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(required = true, value = "Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
-
+  /**
+   * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
+   *
+   * @param reuseMerchantId
+   * @return the current {@code GooglePayInfo} instance, allowing for method chaining
+   */
   public GooglePayInfo reuseMerchantId(Boolean reuseMerchantId) {
     this.reuseMerchantId = reuseMerchantId;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
    * @return reuseMerchantId
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.")
   @JsonProperty(JSON_PROPERTY_REUSE_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getReuseMerchantId() {
     return reuseMerchantId;
   }
 
-
- /**
-  * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
-  *
-  * @param reuseMerchantId
-  */ 
+  /**
+   * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
+   *
+   * @param reuseMerchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_REUSE_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMerchantId(Boolean reuseMerchantId) {
     this.reuseMerchantId = reuseMerchantId;
   }
-
 
   /**
    * Return true if this GooglePayInfo object is equal to o.

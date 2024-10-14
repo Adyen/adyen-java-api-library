@@ -99,185 +99,203 @@ public class StoredPaymentMethodRequest {
   public StoredPaymentMethodRequest() { 
   }
 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code StoredPaymentMethodRequest} instance, allowing for method chaining
+   */
   public StoredPaymentMethodRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * paymentMethod
+   *
+   * @param paymentMethod
+   * @return the current {@code StoredPaymentMethodRequest} instance, allowing for method chaining
+   */
   public StoredPaymentMethodRequest paymentMethod(PaymentMethodToStore paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-   /**
-   * Get paymentMethod
+  /**
+   * paymentMethod
    * @return paymentMethod
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentMethodToStore getPaymentMethod() {
     return paymentMethod;
   }
 
-
- /**
-  * paymentMethod
-  *
-  * @param paymentMethod
-  */ 
+  /**
+   * paymentMethod
+   *
+   * @param paymentMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(PaymentMethodToStore paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-
+  /**
+   * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. 
+   *
+   * @param recurringProcessingModel
+   * @return the current {@code StoredPaymentMethodRequest} instance, allowing for method chaining
+   */
   public StoredPaymentMethodRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
 
-   /**
-   * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
+  /**
+   * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. 
    * @return recurringProcessingModel
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
     return recurringProcessingModel;
   }
 
-
- /**
-  * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
-  *
-  * @param recurringProcessingModel
-  */ 
+  /**
+   * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. 
+   *
+   * @param recurringProcessingModel
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
   }
 
-
+  /**
+   * The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks.
+   *
+   * @param shopperEmail
+   * @return the current {@code StoredPaymentMethodRequest} instance, allowing for method chaining
+   */
   public StoredPaymentMethodRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
-   * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks.
+  /**
+   * The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(value = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * The IP address of a shopper.
+   *
+   * @param shopperIP
+   * @return the current {@code StoredPaymentMethodRequest} instance, allowing for method chaining
+   */
   public StoredPaymentMethodRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
     return this;
   }
 
-   /**
+  /**
    * The IP address of a shopper.
    * @return shopperIP
-  **/
+   */
   @ApiModelProperty(value = "The IP address of a shopper.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperIP() {
     return shopperIP;
   }
 
-
- /**
-  * The IP address of a shopper.
-  *
-  * @param shopperIP
-  */ 
+  /**
+   * The IP address of a shopper.
+   *
+   * @param shopperIP
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
   }
 
-
+  /**
+   * A unique identifier for the shopper (for example, user ID or account ID).
+   *
+   * @param shopperReference
+   * @return the current {@code StoredPaymentMethodRequest} instance, allowing for method chaining
+   */
   public StoredPaymentMethodRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
+  /**
    * A unique identifier for the shopper (for example, user ID or account ID).
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "A unique identifier for the shopper (for example, user ID or account ID).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * A unique identifier for the shopper (for example, user ID or account ID).
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * A unique identifier for the shopper (for example, user ID or account ID).
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
-
 
   /**
    * Return true if this StoredPaymentMethodRequest object is equal to o.

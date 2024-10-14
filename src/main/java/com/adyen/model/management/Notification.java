@@ -94,155 +94,170 @@ public class Notification {
   public Notification() { 
   }
 
+  /**
+   * The type of event notification sent when you select the notification button.
+   *
+   * @param category
+   * @return the current {@code Notification} instance, allowing for method chaining
+   */
   public Notification category(CategoryEnum category) {
     this.category = category;
     return this;
   }
 
-   /**
+  /**
    * The type of event notification sent when you select the notification button.
    * @return category
-  **/
+   */
   @ApiModelProperty(value = "The type of event notification sent when you select the notification button.")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CategoryEnum getCategory() {
     return category;
   }
 
-
- /**
-  * The type of event notification sent when you select the notification button.
-  *
-  * @param category
-  */ 
+  /**
+   * The type of event notification sent when you select the notification button.
+   *
+   * @param category
+   */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
 
-
+  /**
+   * The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.
+   *
+   * @param details
+   * @return the current {@code Notification} instance, allowing for method chaining
+   */
   public Notification details(String details) {
     this.details = details;
     return this;
   }
 
-   /**
+  /**
    * The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.
    * @return details
-  **/
+   */
   @ApiModelProperty(value = "The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDetails() {
     return details;
   }
 
-
- /**
-  * The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.
-  *
-  * @param details
-  */ 
+  /**
+   * The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.
+   *
+   * @param details
+   */ 
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(String details) {
     this.details = details;
   }
 
-
+  /**
+   * Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.
+   *
+   * @param enabled
+   * @return the current {@code Notification} instance, allowing for method chaining
+   */
   public Notification enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
-   /**
+  /**
    * Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.
    * @return enabled
-  **/
+   */
   @ApiModelProperty(value = "Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnabled() {
     return enabled;
   }
 
-
- /**
-  * Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.
-  *
-  * @param enabled
-  */ 
+  /**
+   * Enables sending event notifications either by pressing the Confirm key on terminals with a keypad or by tapping the event notification button on the terminal screen.
+   *
+   * @param enabled
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
-
+  /**
+   * Shows or hides the event notification button on the screen of terminal models that have a keypad.
+   *
+   * @param showButton
+   * @return the current {@code Notification} instance, allowing for method chaining
+   */
   public Notification showButton(Boolean showButton) {
     this.showButton = showButton;
     return this;
   }
 
-   /**
+  /**
    * Shows or hides the event notification button on the screen of terminal models that have a keypad.
    * @return showButton
-  **/
+   */
   @ApiModelProperty(value = "Shows or hides the event notification button on the screen of terminal models that have a keypad.")
   @JsonProperty(JSON_PROPERTY_SHOW_BUTTON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShowButton() {
     return showButton;
   }
 
-
- /**
-  * Shows or hides the event notification button on the screen of terminal models that have a keypad.
-  *
-  * @param showButton
-  */ 
+  /**
+   * Shows or hides the event notification button on the screen of terminal models that have a keypad.
+   *
+   * @param showButton
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOW_BUTTON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowButton(Boolean showButton) {
     this.showButton = showButton;
   }
 
-
+  /**
+   * The name of the notification button on the terminal screen.
+   *
+   * @param title
+   * @return the current {@code Notification} instance, allowing for method chaining
+   */
   public Notification title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * The name of the notification button on the terminal screen.
    * @return title
-  **/
+   */
   @ApiModelProperty(value = "The name of the notification button on the terminal screen.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
- /**
-  * The name of the notification button on the terminal screen.
-  *
-  * @param title
-  */ 
+  /**
+   * The name of the notification button on the terminal screen.
+   *
+   * @param title
+   */ 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   /**
    * Return true if this Notification object is equal to o.

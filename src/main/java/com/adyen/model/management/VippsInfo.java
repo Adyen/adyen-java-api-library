@@ -45,65 +45,71 @@ public class VippsInfo {
   public VippsInfo() { 
   }
 
+  /**
+   * Vipps logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   * @return the current {@code VippsInfo} instance, allowing for method chaining
+   */
   public VippsInfo logo(String logo) {
     this.logo = logo;
     return this;
   }
 
-   /**
+  /**
    * Vipps logo. Format: Base64-encoded string.
    * @return logo
-  **/
+   */
   @ApiModelProperty(required = true, value = "Vipps logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLogo() {
     return logo;
   }
 
-
- /**
-  * Vipps logo. Format: Base64-encoded string.
-  *
-  * @param logo
-  */ 
+  /**
+   * Vipps logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }
 
-
+  /**
+   * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
+   *
+   * @param subscriptionCancelUrl
+   * @return the current {@code VippsInfo} instance, allowing for method chaining
+   */
   public VippsInfo subscriptionCancelUrl(String subscriptionCancelUrl) {
     this.subscriptionCancelUrl = subscriptionCancelUrl;
     return this;
   }
 
-   /**
+  /**
    * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    * @return subscriptionCancelUrl
-  **/
+   */
   @ApiModelProperty(value = "Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubscriptionCancelUrl() {
     return subscriptionCancelUrl;
   }
 
-
- /**
-  * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
-  *
-  * @param subscriptionCancelUrl
-  */ 
+  /**
+   * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
+   *
+   * @param subscriptionCancelUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriptionCancelUrl(String subscriptionCancelUrl) {
     this.subscriptionCancelUrl = subscriptionCancelUrl;
   }
-
 
   /**
    * Return true if this VippsInfo object is equal to o.

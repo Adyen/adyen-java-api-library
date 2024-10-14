@@ -44,6 +44,12 @@ public class PaymentsAppResponse {
   public PaymentsAppResponse() { 
   }
 
+  /**
+   * List of Payments Apps.
+   *
+   * @param paymentsApps
+   * @return the current {@code PaymentsAppResponse} instance, allowing for method chaining
+   */
   public PaymentsAppResponse paymentsApps(List<PaymentsAppDto> paymentsApps) {
     this.paymentsApps = paymentsApps;
     return this;
@@ -54,30 +60,27 @@ public class PaymentsAppResponse {
     return this;
   }
 
-   /**
+  /**
    * List of Payments Apps.
    * @return paymentsApps
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of Payments Apps.")
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PaymentsAppDto> getPaymentsApps() {
     return paymentsApps;
   }
 
-
- /**
-  * List of Payments Apps.
-  *
-  * @param paymentsApps
-  */ 
+  /**
+   * List of Payments Apps.
+   *
+   * @param paymentsApps
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentsApps(List<PaymentsAppDto> paymentsApps) {
     this.paymentsApps = paymentsApps;
   }
-
 
   /**
    * Return true if this PaymentsAppResponse object is equal to o.

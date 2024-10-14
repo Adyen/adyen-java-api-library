@@ -42,35 +42,38 @@ public class FraudCheckResultWrapper {
   public FraudCheckResultWrapper() { 
   }
 
+  /**
+   * fraudCheckResult
+   *
+   * @param fraudCheckResult
+   * @return the current {@code FraudCheckResultWrapper} instance, allowing for method chaining
+   */
   public FraudCheckResultWrapper fraudCheckResult(FraudCheckResult fraudCheckResult) {
     this.fraudCheckResult = fraudCheckResult;
     return this;
   }
 
-   /**
-   * Get fraudCheckResult
+  /**
+   * fraudCheckResult
    * @return fraudCheckResult
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FraudCheckResult getFraudCheckResult() {
     return fraudCheckResult;
   }
 
-
- /**
-  * fraudCheckResult
-  *
-  * @param fraudCheckResult
-  */ 
+  /**
+   * fraudCheckResult
+   *
+   * @param fraudCheckResult
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudCheckResult(FraudCheckResult fraudCheckResult) {
     this.fraudCheckResult = fraudCheckResult;
   }
-
 
   /**
    * Return true if this FraudCheckResultWrapper object is equal to o.

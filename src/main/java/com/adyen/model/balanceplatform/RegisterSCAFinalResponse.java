@@ -41,35 +41,38 @@ public class RegisterSCAFinalResponse {
   public RegisterSCAFinalResponse() { 
   }
 
+  /**
+   * Specifies if the registration was initiated successfully.
+   *
+   * @param success
+   * @return the current {@code RegisterSCAFinalResponse} instance, allowing for method chaining
+   */
   public RegisterSCAFinalResponse success(Boolean success) {
     this.success = success;
     return this;
   }
 
-   /**
+  /**
    * Specifies if the registration was initiated successfully.
    * @return success
-  **/
+   */
   @ApiModelProperty(value = "Specifies if the registration was initiated successfully.")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSuccess() {
     return success;
   }
 
-
- /**
-  * Specifies if the registration was initiated successfully.
-  *
-  * @param success
-  */ 
+  /**
+   * Specifies if the registration was initiated successfully.
+   *
+   * @param success
+   */ 
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
     this.success = success;
   }
-
 
   /**
    * Return true if this RegisterSCAFinalResponse object is equal to o.

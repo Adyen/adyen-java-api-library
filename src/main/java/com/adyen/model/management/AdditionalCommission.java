@@ -49,95 +49,104 @@ public class AdditionalCommission {
   public AdditionalCommission() { 
   }
 
+  /**
+   * Unique identifier of the balance account to which the additional commission is booked.
+   *
+   * @param balanceAccountId
+   * @return the current {@code AdditionalCommission} instance, allowing for method chaining
+   */
   public AdditionalCommission balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the balance account to which the additional commission is booked.
    * @return balanceAccountId
-  **/
+   */
   @ApiModelProperty(value = "Unique identifier of the balance account to which the additional commission is booked.")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
-
- /**
-  * Unique identifier of the balance account to which the additional commission is booked.
-  *
-  * @param balanceAccountId
-  */ 
+  /**
+   * Unique identifier of the balance account to which the additional commission is booked.
+   *
+   * @param balanceAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
-
+  /**
+   * A fixed commission fee, in minor units.
+   *
+   * @param fixedAmount
+   * @return the current {@code AdditionalCommission} instance, allowing for method chaining
+   */
   public AdditionalCommission fixedAmount(Long fixedAmount) {
     this.fixedAmount = fixedAmount;
     return this;
   }
 
-   /**
+  /**
    * A fixed commission fee, in minor units.
    * @return fixedAmount
-  **/
+   */
   @ApiModelProperty(value = "A fixed commission fee, in minor units.")
   @JsonProperty(JSON_PROPERTY_FIXED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getFixedAmount() {
     return fixedAmount;
   }
 
-
- /**
-  * A fixed commission fee, in minor units.
-  *
-  * @param fixedAmount
-  */ 
+  /**
+   * A fixed commission fee, in minor units.
+   *
+   * @param fixedAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_FIXED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFixedAmount(Long fixedAmount) {
     this.fixedAmount = fixedAmount;
   }
 
-
+  /**
+   * A variable commission fee, in basis points.
+   *
+   * @param variablePercentage
+   * @return the current {@code AdditionalCommission} instance, allowing for method chaining
+   */
   public AdditionalCommission variablePercentage(Long variablePercentage) {
     this.variablePercentage = variablePercentage;
     return this;
   }
 
-   /**
+  /**
    * A variable commission fee, in basis points.
    * @return variablePercentage
-  **/
+   */
   @ApiModelProperty(value = "A variable commission fee, in basis points.")
   @JsonProperty(JSON_PROPERTY_VARIABLE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getVariablePercentage() {
     return variablePercentage;
   }
 
-
- /**
-  * A variable commission fee, in basis points.
-  *
-  * @param variablePercentage
-  */ 
+  /**
+   * A variable commission fee, in basis points.
+   *
+   * @param variablePercentage
+   */ 
   @JsonProperty(JSON_PROPERTY_VARIABLE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariablePercentage(Long variablePercentage) {
     this.variablePercentage = variablePercentage;
   }
-
 
   /**
    * Return true if this AdditionalCommission object is equal to o.

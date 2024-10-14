@@ -41,35 +41,38 @@ public class BinDetail {
   public BinDetail() { 
   }
 
+  /**
+   * The country where the card was issued.
+   *
+   * @param issuerCountry
+   * @return the current {@code BinDetail} instance, allowing for method chaining
+   */
   public BinDetail issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
     return this;
   }
 
-   /**
+  /**
    * The country where the card was issued.
    * @return issuerCountry
-  **/
+   */
   @ApiModelProperty(value = "The country where the card was issued.")
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuerCountry() {
     return issuerCountry;
   }
 
-
- /**
-  * The country where the card was issued.
-  *
-  * @param issuerCountry
-  */ 
+  /**
+   * The country where the card was issued.
+   *
+   * @param issuerCountry
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
   }
-
 
   /**
    * Return true if this BinDetail object is equal to o.

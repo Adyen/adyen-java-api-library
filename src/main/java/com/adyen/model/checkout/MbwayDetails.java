@@ -86,125 +86,137 @@ public class MbwayDetails {
   public MbwayDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code MbwayDetails} instance, allowing for method chaining
+   */
   public MbwayDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * 
+   *
+   * @param shopperEmail
+   * @return the current {@code MbwayDetails} instance, allowing for method chaining
+   */
   public MbwayDetails shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * 
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * 
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * 
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * 
+   *
+   * @param telephoneNumber
+   * @return the current {@code MbwayDetails} instance, allowing for method chaining
+   */
   public MbwayDetails telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
 
-   /**
+  /**
    * 
    * @return telephoneNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
 
-
- /**
-  * 
-  *
-  * @param telephoneNumber
-  */ 
+  /**
+   * 
+   *
+   * @param telephoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
 
-
+  /**
+   * **mbway**
+   *
+   * @param type
+   * @return the current {@code MbwayDetails} instance, allowing for method chaining
+   */
   public MbwayDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **mbway**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**mbway**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **mbway**
-  *
-  * @param type
-  */ 
+  /**
+   * **mbway**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this MbwayDetails object is equal to o.

@@ -54,125 +54,137 @@ public class StandalonePaymentCancelRequest {
   public StandalonePaymentCancelRequest() { 
   }
 
+  /**
+   * applicationInfo
+   *
+   * @param applicationInfo
+   * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
     return this;
   }
 
-   /**
-   * Get applicationInfo
+  /**
+   * applicationInfo
    * @return applicationInfo
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationInfo getApplicationInfo() {
     return applicationInfo;
   }
 
-
- /**
-  * applicationInfo
-  *
-  * @param applicationInfo
-  */ 
+  /**
+   * applicationInfo
+   *
+   * @param applicationInfo
+   */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
   }
 
-
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account that is used to process the payment.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that is used to process the payment.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
+   *
+   * @param paymentReference
+   * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelRequest paymentReference(String paymentReference) {
     this.paymentReference = paymentReference;
     return this;
   }
 
-   /**
-   * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
+  /**
+   * The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
    * @return paymentReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentReference() {
     return paymentReference;
   }
 
-
- /**
-  * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
-  *
-  * @param paymentReference
-  */ 
+  /**
+   * The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
+   *
+   * @param paymentReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentReference(String paymentReference) {
     this.paymentReference = paymentReference;
   }
 
-
+  /**
+   * Your reference for the cancel request. Maximum length: 80 characters.
+   *
+   * @param reference
+   * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the cancel request. Maximum length: 80 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the cancel request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the cancel request. Maximum length: 80 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the cancel request. Maximum length: 80 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this StandalonePaymentCancelRequest object is equal to o.

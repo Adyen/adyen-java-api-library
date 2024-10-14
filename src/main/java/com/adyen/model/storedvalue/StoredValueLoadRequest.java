@@ -151,96 +151,111 @@ public class StoredValueLoadRequest {
   public StoredValueLoadRequest() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The type of load you are trying to do, when absent we default to 'Load'
+   *
+   * @param loadType
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest loadType(LoadTypeEnum loadType) {
     this.loadType = loadType;
     return this;
   }
 
-   /**
-   * The type of load you are trying to do, when absent we default to &#39;Load&#39;
+  /**
+   * The type of load you are trying to do, when absent we default to 'Load'
    * @return loadType
-  **/
+   */
   @ApiModelProperty(value = "The type of load you are trying to do, when absent we default to 'Load'")
   @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LoadTypeEnum getLoadType() {
     return loadType;
   }
 
-
- /**
-  * The type of load you are trying to do, when absent we default to &#39;Load&#39;
-  *
-  * @param loadType
-  */ 
+  /**
+   * The type of load you are trying to do, when absent we default to 'Load'
+   *
+   * @param loadType
+   */ 
   @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLoadType(LoadTypeEnum loadType) {
     this.loadType = loadType;
   }
 
-
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The collection that contains the type of the payment method and its specific information if available
+   *
+   * @param paymentMethod
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest paymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
@@ -251,180 +266,192 @@ public class StoredValueLoadRequest {
     return this;
   }
 
-   /**
+  /**
    * The collection that contains the type of the payment method and its specific information if available
    * @return paymentMethod
-  **/
+   */
   @ApiModelProperty(required = true, value = "The collection that contains the type of the payment method and its specific information if available")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getPaymentMethod() {
     return paymentMethod;
   }
 
-
- /**
-  * The collection that contains the type of the payment method and its specific information if available
-  *
-  * @param paymentMethod
-  */ 
+  /**
+   * The collection that contains the type of the payment method and its specific information if available
+   *
+   * @param paymentMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-
+  /**
+   * recurringDetailReference
+   *
+   * @param recurringDetailReference
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
-   * Get recurringDetailReference
+  /**
+   * recurringDetailReference
    * @return recurringDetailReference
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * recurringDetailReference
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * recurringDetailReference
+   *
+   * @param recurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.
+   *
+   * @param reference
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
-   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
+  /**
+   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+   *
+   * @param shopperInteraction
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     return this;
   }
 
-   /**
-   * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+  /**
+   * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return shopperInteraction
-  **/
+   */
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ShopperInteractionEnum getShopperInteraction() {
     return shopperInteraction;
   }
 
-
- /**
-  * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
-  *
-  * @param shopperInteraction
-  */ 
+  /**
+   * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+   *
+   * @param shopperInteraction
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
 
-
+  /**
+   * shopperReference
+   *
+   * @param shopperReference
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
-   * Get shopperReference
+  /**
+   * shopperReference
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * shopperReference
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * shopperReference
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
-
+  /**
+   * The physical store, for which this payment is processed.
+   *
+   * @param store
+   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   */
   public StoredValueLoadRequest store(String store) {
     this.store = store;
     return this;
   }
 
-   /**
+  /**
    * The physical store, for which this payment is processed.
    * @return store
-  **/
+   */
   @ApiModelProperty(value = "The physical store, for which this payment is processed.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStore() {
     return store;
   }
 
-
- /**
-  * The physical store, for which this payment is processed.
-  *
-  * @param store
-  */ 
+  /**
+   * The physical store, for which this payment is processed.
+   *
+   * @param store
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
-
 
   /**
    * Return true if this StoredValueLoadRequest object is equal to o.

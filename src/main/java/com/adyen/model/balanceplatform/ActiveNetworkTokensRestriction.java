@@ -45,65 +45,71 @@ public class ActiveNetworkTokensRestriction {
   public ActiveNetworkTokensRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code ActiveNetworkTokensRestriction} instance, allowing for method chaining
+   */
   public ActiveNetworkTokensRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * The number of tokens.
+   *
+   * @param value
+   * @return the current {@code ActiveNetworkTokensRestriction} instance, allowing for method chaining
+   */
   public ActiveNetworkTokensRestriction value(Integer value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The number of tokens.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "The number of tokens.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getValue() {
     return value;
   }
 
-
- /**
-  * The number of tokens.
-  *
-  * @param value
-  */ 
+  /**
+   * The number of tokens.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this ActiveNetworkTokensRestriction object is equal to o.

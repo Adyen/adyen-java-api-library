@@ -45,65 +45,71 @@ public class EncryptedOrderData {
   public EncryptedOrderData() { 
   }
 
+  /**
+   * The encrypted order data.
+   *
+   * @param orderData
+   * @return the current {@code EncryptedOrderData} instance, allowing for method chaining
+   */
   public EncryptedOrderData orderData(String orderData) {
     this.orderData = orderData;
     return this;
   }
 
-   /**
+  /**
    * The encrypted order data.
    * @return orderData
-  **/
+   */
   @ApiModelProperty(required = true, value = "The encrypted order data.")
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOrderData() {
     return orderData;
   }
 
-
- /**
-  * The encrypted order data.
-  *
-  * @param orderData
-  */ 
+  /**
+   * The encrypted order data.
+   *
+   * @param orderData
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
   }
 
-
+  /**
+   * The `pspReference` that belongs to the order.
+   *
+   * @param pspReference
+   * @return the current {@code EncryptedOrderData} instance, allowing for method chaining
+   */
   public EncryptedOrderData pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
-   * The &#x60;pspReference&#x60; that belongs to the order.
+  /**
+   * The `pspReference` that belongs to the order.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The `pspReference` that belongs to the order.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * The &#x60;pspReference&#x60; that belongs to the order.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * The `pspReference` that belongs to the order.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
-
 
   /**
    * Return true if this EncryptedOrderData object is equal to o.

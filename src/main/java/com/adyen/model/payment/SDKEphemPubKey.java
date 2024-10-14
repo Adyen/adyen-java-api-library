@@ -53,125 +53,137 @@ public class SDKEphemPubKey {
   public SDKEphemPubKey() { 
   }
 
+  /**
+   * The `crv` value as received from the 3D Secure 2 SDK.
+   *
+   * @param crv
+   * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
+   */
   public SDKEphemPubKey crv(String crv) {
     this.crv = crv;
     return this;
   }
 
-   /**
-   * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
+  /**
+   * The `crv` value as received from the 3D Secure 2 SDK.
    * @return crv
-  **/
+   */
   @ApiModelProperty(value = "The `crv` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCrv() {
     return crv;
   }
 
-
- /**
-  * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
-  *
-  * @param crv
-  */ 
+  /**
+   * The `crv` value as received from the 3D Secure 2 SDK.
+   *
+   * @param crv
+   */ 
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCrv(String crv) {
     this.crv = crv;
   }
 
-
+  /**
+   * The `kty` value as received from the 3D Secure 2 SDK.
+   *
+   * @param kty
+   * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
+   */
   public SDKEphemPubKey kty(String kty) {
     this.kty = kty;
     return this;
   }
 
-   /**
-   * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
+  /**
+   * The `kty` value as received from the 3D Secure 2 SDK.
    * @return kty
-  **/
+   */
   @ApiModelProperty(value = "The `kty` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getKty() {
     return kty;
   }
 
-
- /**
-  * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
-  *
-  * @param kty
-  */ 
+  /**
+   * The `kty` value as received from the 3D Secure 2 SDK.
+   *
+   * @param kty
+   */ 
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKty(String kty) {
     this.kty = kty;
   }
 
-
+  /**
+   * The `x` value as received from the 3D Secure 2 SDK.
+   *
+   * @param x
+   * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
+   */
   public SDKEphemPubKey x(String x) {
     this.x = x;
     return this;
   }
 
-   /**
-   * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
+  /**
+   * The `x` value as received from the 3D Secure 2 SDK.
    * @return x
-  **/
+   */
   @ApiModelProperty(value = "The `x` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getX() {
     return x;
   }
 
-
- /**
-  * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
-  *
-  * @param x
-  */ 
+  /**
+   * The `x` value as received from the 3D Secure 2 SDK.
+   *
+   * @param x
+   */ 
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(String x) {
     this.x = x;
   }
 
-
+  /**
+   * The `y` value as received from the 3D Secure 2 SDK.
+   *
+   * @param y
+   * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
+   */
   public SDKEphemPubKey y(String y) {
     this.y = y;
     return this;
   }
 
-   /**
-   * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
+  /**
+   * The `y` value as received from the 3D Secure 2 SDK.
    * @return y
-  **/
+   */
   @ApiModelProperty(value = "The `y` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getY() {
     return y;
   }
 
-
- /**
-  * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
-  *
-  * @param y
-  */ 
+  /**
+   * The `y` value as received from the 3D Secure 2 SDK.
+   *
+   * @param y
+   */ 
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(String y) {
     this.y = y;
   }
-
 
   /**
    * Return true if this SDKEphemPubKey object is equal to o.

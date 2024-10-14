@@ -59,7 +59,7 @@ public class PayPalDetails {
   private String payerSelected;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -144,182 +144,209 @@ public class PayPalDetails {
   public PayPalDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The unique ID associated with the order.
+   *
+   * @param orderID
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails orderID(String orderID) {
     this.orderID = orderID;
     return this;
   }
 
-   /**
+  /**
    * The unique ID associated with the order.
    * @return orderID
-  **/
+   */
   @ApiModelProperty(value = "The unique ID associated with the order.")
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOrderID() {
     return orderID;
   }
 
-
- /**
-  * The unique ID associated with the order.
-  *
-  * @param orderID
-  */ 
+  /**
+   * The unique ID associated with the order.
+   *
+   * @param orderID
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderID(String orderID) {
     this.orderID = orderID;
   }
 
-
+  /**
+   * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
+   *
+   * @param payeePreferred
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails payeePreferred(String payeePreferred) {
     this.payeePreferred = payeePreferred;
     return this;
   }
 
-   /**
+  /**
    * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
    * @return payeePreferred
-  **/
+   */
   @ApiModelProperty(value = "IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED")
   @JsonProperty(JSON_PROPERTY_PAYEE_PREFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayeePreferred() {
     return payeePreferred;
   }
 
-
- /**
-  * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
-  *
-  * @param payeePreferred
-  */ 
+  /**
+   * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
+   *
+   * @param payeePreferred
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYEE_PREFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayeePreferred(String payeePreferred) {
     this.payeePreferred = payeePreferred;
   }
 
-
+  /**
+   * The unique ID associated with the payer.
+   *
+   * @param payerID
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails payerID(String payerID) {
     this.payerID = payerID;
     return this;
   }
 
-   /**
+  /**
    * The unique ID associated with the payer.
    * @return payerID
-  **/
+   */
   @ApiModelProperty(value = "The unique ID associated with the payer.")
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayerID() {
     return payerID;
   }
 
-
- /**
-  * The unique ID associated with the payer.
-  *
-  * @param payerID
-  */ 
+  /**
+   * The unique ID associated with the payer.
+   *
+   * @param payerID
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerID(String payerID) {
     this.payerID = payerID;
   }
 
-
+  /**
+   * PAYPAL or PAYPAL_CREDIT
+   *
+   * @param payerSelected
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails payerSelected(String payerSelected) {
     this.payerSelected = payerSelected;
     return this;
   }
 
-   /**
+  /**
    * PAYPAL or PAYPAL_CREDIT
    * @return payerSelected
-  **/
+   */
   @ApiModelProperty(value = "PAYPAL or PAYPAL_CREDIT")
   @JsonProperty(JSON_PROPERTY_PAYER_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayerSelected() {
     return payerSelected;
   }
 
-
- /**
-  * PAYPAL or PAYPAL_CREDIT
-  *
-  * @param payerSelected
-  */ 
+  /**
+   * PAYPAL or PAYPAL_CREDIT
+   *
+   * @param payerSelected
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYER_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerSelected(String payerSelected) {
     this.payerSelected = payerSelected;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   public PayPalDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated
-  **/
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,96 +354,104 @@ public class PayPalDetails {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
-
+  /**
+   * The type of flow to initiate.
+   *
+   * @param subtype
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails subtype(SubtypeEnum subtype) {
     this.subtype = subtype;
     return this;
   }
 
-   /**
+  /**
    * The type of flow to initiate.
    * @return subtype
-  **/
+   */
   @ApiModelProperty(value = "The type of flow to initiate.")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SubtypeEnum getSubtype() {
     return subtype;
   }
 
-
- /**
-  * The type of flow to initiate.
-  *
-  * @param subtype
-  */ 
+  /**
+   * The type of flow to initiate.
+   *
+   * @param subtype
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(SubtypeEnum subtype) {
     this.subtype = subtype;
   }
 
-
+  /**
+   * **paypal**
+   *
+   * @param type
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
   public PayPalDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **paypal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**paypal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **paypal**
-  *
-  * @param type
-  */ 
+  /**
+   * **paypal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PayPalDetails object is equal to o.

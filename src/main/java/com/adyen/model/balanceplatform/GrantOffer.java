@@ -108,245 +108,269 @@ public class GrantOffer {
   public GrantOffer() { 
   }
 
+  /**
+   * The identifier of the account holder to which the grant is offered.
+   *
+   * @param accountHolderId
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
     return this;
   }
 
-   /**
+  /**
    * The identifier of the account holder to which the grant is offered.
    * @return accountHolderId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The identifier of the account holder to which the grant is offered.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountHolderId() {
     return accountHolderId;
   }
 
-
- /**
-  * The identifier of the account holder to which the grant is offered.
-  *
-  * @param accountHolderId
-  */ 
+  /**
+   * The identifier of the account holder to which the grant is offered.
+   *
+   * @param accountHolderId
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }
 
-
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
+   *
+   * @param contractType
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer contractType(ContractTypeEnum contractType) {
     this.contractType = contractType;
     return this;
   }
 
-   /**
+  /**
    * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    * @return contractType
-  **/
+   */
   @ApiModelProperty(value = "The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.")
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ContractTypeEnum getContractType() {
     return contractType;
   }
 
-
- /**
-  * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
-  *
-  * @param contractType
-  */ 
+  /**
+   * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
+   *
+   * @param contractType
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContractType(ContractTypeEnum contractType) {
     this.contractType = contractType;
   }
 
-
+  /**
+   * The end date of the grant offer validity period.
+   *
+   * @param expiresAt
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
-   /**
+  /**
    * The end date of the grant offer validity period.
    * @return expiresAt
-  **/
+   */
   @ApiModelProperty(value = "The end date of the grant offer validity period.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
 
-
- /**
-  * The end date of the grant offer validity period.
-  *
-  * @param expiresAt
-  */ 
+  /**
+   * The end date of the grant offer validity period.
+   *
+   * @param expiresAt
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
 
-
+  /**
+   * fee
+   *
+   * @param fee
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer fee(Fee fee) {
     this.fee = fee;
     return this;
   }
 
-   /**
-   * Get fee
+  /**
+   * fee
    * @return fee
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Fee getFee() {
     return fee;
   }
 
-
- /**
-  * fee
-  *
-  * @param fee
-  */ 
+  /**
+   * fee
+   *
+   * @param fee
+   */ 
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
     this.fee = fee;
   }
 
-
+  /**
+   * The unique identifier of the grant offer.
+   *
+   * @param id
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the grant offer.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the grant offer.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the grant offer.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the grant offer.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * repayment
+   *
+   * @param repayment
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer repayment(Repayment repayment) {
     this.repayment = repayment;
     return this;
   }
 
-   /**
-   * Get repayment
+  /**
+   * repayment
    * @return repayment
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Repayment getRepayment() {
     return repayment;
   }
 
-
- /**
-  * repayment
-  *
-  * @param repayment
-  */ 
+  /**
+   * repayment
+   *
+   * @param repayment
+   */ 
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
     this.repayment = repayment;
   }
 
-
+  /**
+   * The starting date of the grant offer validity period.
+   *
+   * @param startsAt
+   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   */
   public GrantOffer startsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
     return this;
   }
 
-   /**
+  /**
    * The starting date of the grant offer validity period.
    * @return startsAt
-  **/
+   */
   @ApiModelProperty(value = "The starting date of the grant offer validity period.")
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getStartsAt() {
     return startsAt;
   }
 
-
- /**
-  * The starting date of the grant offer validity period.
-  *
-  * @param startsAt
-  */ 
+  /**
+   * The starting date of the grant offer validity period.
+   *
+   * @param startsAt
+   */ 
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
   }
-
 
   /**
    * Return true if this GrantOffer object is equal to o.

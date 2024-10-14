@@ -49,6 +49,12 @@ public class WifiProfiles {
   public WifiProfiles() { 
   }
 
+  /**
+   * List of remote Wi-Fi profiles.
+   *
+   * @param profiles
+   * @return the current {@code WifiProfiles} instance, allowing for method chaining
+   */
   public WifiProfiles profiles(List<Profile> profiles) {
     this.profiles = profiles;
     return this;
@@ -62,60 +68,60 @@ public class WifiProfiles {
     return this;
   }
 
-   /**
+  /**
    * List of remote Wi-Fi profiles.
    * @return profiles
-  **/
+   */
   @ApiModelProperty(value = "List of remote Wi-Fi profiles.")
   @JsonProperty(JSON_PROPERTY_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Profile> getProfiles() {
     return profiles;
   }
 
-
- /**
-  * List of remote Wi-Fi profiles.
-  *
-  * @param profiles
-  */ 
+  /**
+   * List of remote Wi-Fi profiles.
+   *
+   * @param profiles
+   */ 
   @JsonProperty(JSON_PROPERTY_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfiles(List<Profile> profiles) {
     this.profiles = profiles;
   }
 
-
+  /**
+   * settings
+   *
+   * @param settings
+   * @return the current {@code WifiProfiles} instance, allowing for method chaining
+   */
   public WifiProfiles settings(Settings settings) {
     this.settings = settings;
     return this;
   }
 
-   /**
-   * Get settings
+  /**
+   * settings
    * @return settings
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Settings getSettings() {
     return settings;
   }
 
-
- /**
-  * settings
-  *
-  * @param settings
-  */ 
+  /**
+   * settings
+   *
+   * @param settings
+   */ 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(Settings settings) {
     this.settings = settings;
   }
-
 
   /**
    * Return true if this WifiProfiles object is equal to o.

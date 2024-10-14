@@ -88,7 +88,7 @@ public class UtilityApi extends Service {
     * @param utilityRequest {@link UtilityRequest }  (required)
     * @return {@link UtilityResponse }
     * @throws ApiException if fails to make API call
-    * @deprecated
+    * @deprecated since Adyen Checkout API v67
     */
     @Deprecated
     public UtilityResponse originKeys(UtilityRequest utilityRequest) throws ApiException, IOException {
@@ -102,7 +102,7 @@ public class UtilityApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link UtilityResponse }
     * @throws ApiException if fails to make API call
-    * @deprecated
+    * @deprecated since Adyen Checkout API v67
     */
    @Deprecated
     public UtilityResponse originKeys(UtilityRequest utilityRequest, RequestOptions requestOptions) throws ApiException, IOException {

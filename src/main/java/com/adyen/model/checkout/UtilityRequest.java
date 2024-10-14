@@ -43,6 +43,12 @@ public class UtilityRequest {
   public UtilityRequest() { 
   }
 
+  /**
+   * The list of origin domains, for which origin keys are requested.
+   *
+   * @param originDomains
+   * @return the current {@code UtilityRequest} instance, allowing for method chaining
+   */
   public UtilityRequest originDomains(List<String> originDomains) {
     this.originDomains = originDomains;
     return this;
@@ -53,30 +59,27 @@ public class UtilityRequest {
     return this;
   }
 
-   /**
+  /**
    * The list of origin domains, for which origin keys are requested.
    * @return originDomains
-  **/
+   */
   @ApiModelProperty(required = true, value = "The list of origin domains, for which origin keys are requested.")
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getOriginDomains() {
     return originDomains;
   }
 
-
- /**
-  * The list of origin domains, for which origin keys are requested.
-  *
-  * @param originDomains
-  */ 
+  /**
+   * The list of origin domains, for which origin keys are requested.
+   *
+   * @param originDomains
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginDomains(List<String> originDomains) {
     this.originDomains = originDomains;
   }
-
 
   /**
    * Return true if this UtilityRequest object is equal to o.

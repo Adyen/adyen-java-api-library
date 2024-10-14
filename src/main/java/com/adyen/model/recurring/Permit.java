@@ -59,155 +59,170 @@ public class Permit {
   public Permit() { 
   }
 
+  /**
+   * Partner ID (when using the permit-per-partner token sharing model).
+   *
+   * @param partnerId
+   * @return the current {@code Permit} instance, allowing for method chaining
+   */
   public Permit partnerId(String partnerId) {
     this.partnerId = partnerId;
     return this;
   }
 
-   /**
+  /**
    * Partner ID (when using the permit-per-partner token sharing model).
    * @return partnerId
-  **/
+   */
   @ApiModelProperty(value = "Partner ID (when using the permit-per-partner token sharing model).")
   @JsonProperty(JSON_PROPERTY_PARTNER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPartnerId() {
     return partnerId;
   }
 
-
- /**
-  * Partner ID (when using the permit-per-partner token sharing model).
-  *
-  * @param partnerId
-  */ 
+  /**
+   * Partner ID (when using the permit-per-partner token sharing model).
+   *
+   * @param partnerId
+   */ 
   @JsonProperty(JSON_PROPERTY_PARTNER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPartnerId(String partnerId) {
     this.partnerId = partnerId;
   }
 
-
+  /**
+   * The profile to apply to this permit (when using the shared permits model).
+   *
+   * @param profileReference
+   * @return the current {@code Permit} instance, allowing for method chaining
+   */
   public Permit profileReference(String profileReference) {
     this.profileReference = profileReference;
     return this;
   }
 
-   /**
+  /**
    * The profile to apply to this permit (when using the shared permits model).
    * @return profileReference
-  **/
+   */
   @ApiModelProperty(value = "The profile to apply to this permit (when using the shared permits model).")
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getProfileReference() {
     return profileReference;
   }
 
-
- /**
-  * The profile to apply to this permit (when using the shared permits model).
-  *
-  * @param profileReference
-  */ 
+  /**
+   * The profile to apply to this permit (when using the shared permits model).
+   *
+   * @param profileReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {
     this.profileReference = profileReference;
   }
 
-
+  /**
+   * restriction
+   *
+   * @param restriction
+   * @return the current {@code Permit} instance, allowing for method chaining
+   */
   public Permit restriction(PermitRestriction restriction) {
     this.restriction = restriction;
     return this;
   }
 
-   /**
-   * Get restriction
+  /**
+   * restriction
    * @return restriction
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PermitRestriction getRestriction() {
     return restriction;
   }
 
-
- /**
-  * restriction
-  *
-  * @param restriction
-  */ 
+  /**
+   * restriction
+   *
+   * @param restriction
+   */ 
   @JsonProperty(JSON_PROPERTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestriction(PermitRestriction restriction) {
     this.restriction = restriction;
   }
 
-
+  /**
+   * The key to link permit requests to permit results.
+   *
+   * @param resultKey
+   * @return the current {@code Permit} instance, allowing for method chaining
+   */
   public Permit resultKey(String resultKey) {
     this.resultKey = resultKey;
     return this;
   }
 
-   /**
+  /**
    * The key to link permit requests to permit results.
    * @return resultKey
-  **/
+   */
   @ApiModelProperty(value = "The key to link permit requests to permit results.")
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResultKey() {
     return resultKey;
   }
 
-
- /**
-  * The key to link permit requests to permit results.
-  *
-  * @param resultKey
-  */ 
+  /**
+   * The key to link permit requests to permit results.
+   *
+   * @param resultKey
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
     this.resultKey = resultKey;
   }
 
-
+  /**
+   * The expiry date for this permit.
+   *
+   * @param validTillDate
+   * @return the current {@code Permit} instance, allowing for method chaining
+   */
   public Permit validTillDate(OffsetDateTime validTillDate) {
     this.validTillDate = validTillDate;
     return this;
   }
 
-   /**
+  /**
    * The expiry date for this permit.
    * @return validTillDate
-  **/
+   */
   @ApiModelProperty(value = "The expiry date for this permit.")
   @JsonProperty(JSON_PROPERTY_VALID_TILL_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getValidTillDate() {
     return validTillDate;
   }
 
-
- /**
-  * The expiry date for this permit.
-  *
-  * @param validTillDate
-  */ 
+  /**
+   * The expiry date for this permit.
+   *
+   * @param validTillDate
+   */ 
   @JsonProperty(JSON_PROPERTY_VALID_TILL_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTillDate(OffsetDateTime validTillDate) {
     this.validTillDate = validTillDate;
   }
-
 
   /**
    * Return true if this Permit object is equal to o.

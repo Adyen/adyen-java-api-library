@@ -123,395 +123,434 @@ public class CheckoutBankTransferAction {
   public CheckoutBankTransferAction() { 
   }
 
+  /**
+   * The account number of the bank transfer.
+   *
+   * @param accountNumber
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The account number of the bank transfer.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(value = "The account number of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The account number of the bank transfer.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The account number of the bank transfer.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The name of the account holder.
+   *
+   * @param beneficiary
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction beneficiary(String beneficiary) {
     this.beneficiary = beneficiary;
     return this;
   }
 
-   /**
+  /**
    * The name of the account holder.
    * @return beneficiary
-  **/
+   */
   @ApiModelProperty(value = "The name of the account holder.")
   @JsonProperty(JSON_PROPERTY_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBeneficiary() {
     return beneficiary;
   }
 
-
- /**
-  * The name of the account holder.
-  *
-  * @param beneficiary
-  */ 
+  /**
+   * The name of the account holder.
+   *
+   * @param beneficiary
+   */ 
   @JsonProperty(JSON_PROPERTY_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBeneficiary(String beneficiary) {
     this.beneficiary = beneficiary;
   }
 
-
+  /**
+   * The BIC of the IBAN.
+   *
+   * @param bic
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction bic(String bic) {
     this.bic = bic;
     return this;
   }
 
-   /**
+  /**
    * The BIC of the IBAN.
    * @return bic
-  **/
+   */
   @ApiModelProperty(value = "The BIC of the IBAN.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBic() {
     return bic;
   }
 
-
- /**
-  * The BIC of the IBAN.
-  *
-  * @param bic
-  */ 
+  /**
+   * The BIC of the IBAN.
+   *
+   * @param bic
+   */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
   }
 
-
+  /**
+   * The url to download payment details with.
+   *
+   * @param downloadUrl
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
     return this;
   }
 
-   /**
+  /**
    * The url to download payment details with.
    * @return downloadUrl
-  **/
+   */
   @ApiModelProperty(value = "The url to download payment details with.")
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDownloadUrl() {
     return downloadUrl;
   }
 
-
- /**
-  * The url to download payment details with.
-  *
-  * @param downloadUrl
-  */ 
+  /**
+   * The url to download payment details with.
+   *
+   * @param downloadUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
   }
 
-
+  /**
+   * The IBAN of the bank transfer.
+   *
+   * @param iban
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction iban(String iban) {
     this.iban = iban;
     return this;
   }
 
-   /**
+  /**
    * The IBAN of the bank transfer.
    * @return iban
-  **/
+   */
   @ApiModelProperty(value = "The IBAN of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIban() {
     return iban;
   }
 
-
- /**
-  * The IBAN of the bank transfer.
-  *
-  * @param iban
-  */ 
+  /**
+   * The IBAN of the bank transfer.
+   *
+   * @param iban
+   */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
   }
 
-
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
     return this;
   }
 
-   /**
+  /**
    * Specifies the payment method.
    * @return paymentMethodType
-  **/
+   */
   @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodType() {
     return paymentMethodType;
   }
 
-
- /**
-  * Specifies the payment method.
-  *
-  * @param paymentMethodType
-  */ 
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
   }
 
-
+  /**
+   * The transfer reference.
+   *
+   * @param reference
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The transfer reference.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The transfer reference.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The transfer reference.
-  *
-  * @param reference
-  */ 
+  /**
+   * The transfer reference.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The routing number of the bank transfer.
+   *
+   * @param routingNumber
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction routingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
     return this;
   }
 
-   /**
+  /**
    * The routing number of the bank transfer.
    * @return routingNumber
-  **/
+   */
   @ApiModelProperty(value = "The routing number of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRoutingNumber() {
     return routingNumber;
   }
 
-
- /**
-  * The routing number of the bank transfer.
-  *
-  * @param routingNumber
-  */ 
+  /**
+   * The routing number of the bank transfer.
+   *
+   * @param routingNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
   }
 
-
+  /**
+   * The e-mail of the shopper, included if an e-mail was sent to the shopper.
+   *
+   * @param shopperEmail
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * The e-mail of the shopper, included if an e-mail was sent to the shopper.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(value = "The e-mail of the shopper, included if an e-mail was sent to the shopper.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * The e-mail of the shopper, included if an e-mail was sent to the shopper.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * The e-mail of the shopper, included if an e-mail was sent to the shopper.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * The sort code of the bank transfer.
+   *
+   * @param sortCode
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction sortCode(String sortCode) {
     this.sortCode = sortCode;
     return this;
   }
 
-   /**
+  /**
    * The sort code of the bank transfer.
    * @return sortCode
-  **/
+   */
   @ApiModelProperty(value = "The sort code of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSortCode() {
     return sortCode;
   }
 
-
- /**
-  * The sort code of the bank transfer.
-  *
-  * @param sortCode
-  */ 
+  /**
+   * The sort code of the bank transfer.
+   *
+   * @param sortCode
+   */ 
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSortCode(String sortCode) {
     this.sortCode = sortCode;
   }
 
-
+  /**
+   * totalAmount
+   *
+   * @param totalAmount
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction totalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
 
-   /**
-   * Get totalAmount
+  /**
+   * totalAmount
    * @return totalAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getTotalAmount() {
     return totalAmount;
   }
 
-
- /**
-  * totalAmount
-  *
-  * @param totalAmount
-  */ 
+  /**
+   * totalAmount
+   *
+   * @param totalAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
   }
 
-
+  /**
+   * The type of the action.
+   *
+   * @param type
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the action.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of the action.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of the action.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of the action.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
   public CheckoutBankTransferAction url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Specifies the URL to redirect to.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Specifies the URL to redirect to.
-  *
-  * @param url
-  */ 
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this CheckoutBankTransferAction object is equal to o.

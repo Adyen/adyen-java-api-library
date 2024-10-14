@@ -41,35 +41,38 @@ public class BalancePlatformNotificationResponse {
   public BalancePlatformNotificationResponse() { 
   }
 
+  /**
+   * Respond with **HTTP 200 OK** and `[accepted]` in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   *
+   * @param notificationResponse
+   * @return the current {@code BalancePlatformNotificationResponse} instance, allowing for method chaining
+   */
   public BalancePlatformNotificationResponse notificationResponse(String notificationResponse) {
     this.notificationResponse = notificationResponse;
     return this;
   }
 
-   /**
-   * Respond with **HTTP 200 OK** and &#x60;[accepted]&#x60; in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+  /**
+   * Respond with **HTTP 200 OK** and `[accepted]` in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    * @return notificationResponse
-  **/
+   */
   @ApiModelProperty(value = "Respond with **HTTP 200 OK** and `[accepted]` in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNotificationResponse() {
     return notificationResponse;
   }
 
-
- /**
-  * Respond with **HTTP 200 OK** and &#x60;[accepted]&#x60; in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
-  *
-  * @param notificationResponse
-  */ 
+  /**
+   * Respond with **HTTP 200 OK** and `[accepted]` in the response body to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   *
+   * @param notificationResponse
+   */ 
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotificationResponse(String notificationResponse) {
     this.notificationResponse = notificationResponse;
   }
-
 
   /**
    * Return true if this BalancePlatformNotificationResponse object is equal to o.

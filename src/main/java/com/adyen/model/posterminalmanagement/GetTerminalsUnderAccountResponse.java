@@ -52,36 +52,45 @@ public class GetTerminalsUnderAccountResponse {
   public GetTerminalsUnderAccountResponse() { 
   }
 
+  /**
+   * Your company account.
+   *
+   * @param companyAccount
+   * @return the current {@code GetTerminalsUnderAccountResponse} instance, allowing for method chaining
+   */
   public GetTerminalsUnderAccountResponse companyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
     return this;
   }
 
-   /**
+  /**
    * Your company account.
    * @return companyAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyAccount() {
     return companyAccount;
   }
 
-
- /**
-  * Your company account.
-  *
-  * @param companyAccount
-  */ 
+  /**
+   * Your company account.
+   *
+   * @param companyAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
-
+  /**
+   * Array that returns a list of all terminals that are in the inventory of the company account.
+   *
+   * @param inventoryTerminals
+   * @return the current {@code GetTerminalsUnderAccountResponse} instance, allowing for method chaining
+   */
   public GetTerminalsUnderAccountResponse inventoryTerminals(List<String> inventoryTerminals) {
     this.inventoryTerminals = inventoryTerminals;
     return this;
@@ -95,31 +104,34 @@ public class GetTerminalsUnderAccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Array that returns a list of all terminals that are in the inventory of the company account.
    * @return inventoryTerminals
-  **/
+   */
   @ApiModelProperty(value = "Array that returns a list of all terminals that are in the inventory of the company account.")
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getInventoryTerminals() {
     return inventoryTerminals;
   }
 
-
- /**
-  * Array that returns a list of all terminals that are in the inventory of the company account.
-  *
-  * @param inventoryTerminals
-  */ 
+  /**
+   * Array that returns a list of all terminals that are in the inventory of the company account.
+   *
+   * @param inventoryTerminals
+   */ 
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventoryTerminals(List<String> inventoryTerminals) {
     this.inventoryTerminals = inventoryTerminals;
   }
 
-
+  /**
+   * Array that returns a list of all merchant accounts belonging to the company account.
+   *
+   * @param merchantAccounts
+   * @return the current {@code GetTerminalsUnderAccountResponse} instance, allowing for method chaining
+   */
   public GetTerminalsUnderAccountResponse merchantAccounts(List<MerchantAccount> merchantAccounts) {
     this.merchantAccounts = merchantAccounts;
     return this;
@@ -133,30 +145,27 @@ public class GetTerminalsUnderAccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Array that returns a list of all merchant accounts belonging to the company account.
    * @return merchantAccounts
-  **/
+   */
   @ApiModelProperty(value = "Array that returns a list of all merchant accounts belonging to the company account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<MerchantAccount> getMerchantAccounts() {
     return merchantAccounts;
   }
 
-
- /**
-  * Array that returns a list of all merchant accounts belonging to the company account.
-  *
-  * @param merchantAccounts
-  */ 
+  /**
+   * Array that returns a list of all merchant accounts belonging to the company account.
+   *
+   * @param merchantAccounts
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccounts(List<MerchantAccount> merchantAccounts) {
     this.merchantAccounts = merchantAccounts;
   }
-
 
   /**
    * Return true if this GetTerminalsUnderAccountResponse object is equal to o.

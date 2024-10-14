@@ -45,65 +45,71 @@ public class RemediatingAction {
   public RemediatingAction() { 
   }
 
+  /**
+   * The remediating action code.
+   *
+   * @param code
+   * @return the current {@code RemediatingAction} instance, allowing for method chaining
+   */
   public RemediatingAction code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * The remediating action code.
    * @return code
-  **/
+   */
   @ApiModelProperty(value = "The remediating action code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
- /**
-  * The remediating action code.
-  *
-  * @param code
-  */ 
+  /**
+   * The remediating action code.
+   *
+   * @param code
+   */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
   }
 
-
+  /**
+   * A description of how you can resolve the verification error.
+   *
+   * @param message
+   * @return the current {@code RemediatingAction} instance, allowing for method chaining
+   */
   public RemediatingAction message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * A description of how you can resolve the verification error.
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "A description of how you can resolve the verification error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * A description of how you can resolve the verification error.
-  *
-  * @param message
-  */ 
+  /**
+   * A description of how you can resolve the verification error.
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   /**
    * Return true if this RemediatingAction object is equal to o.

@@ -44,6 +44,12 @@ public class CapitalGrants {
   public CapitalGrants() { 
   }
 
+  /**
+   * The unique identifier of the grant.
+   *
+   * @param grants
+   * @return the current {@code CapitalGrants} instance, allowing for method chaining
+   */
   public CapitalGrants grants(List<CapitalGrant> grants) {
     this.grants = grants;
     return this;
@@ -54,30 +60,27 @@ public class CapitalGrants {
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the grant.
    * @return grants
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the grant.")
   @JsonProperty(JSON_PROPERTY_GRANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CapitalGrant> getGrants() {
     return grants;
   }
 
-
- /**
-  * The unique identifier of the grant.
-  *
-  * @param grants
-  */ 
+  /**
+   * The unique identifier of the grant.
+   *
+   * @param grants
+   */ 
   @JsonProperty(JSON_PROPERTY_GRANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrants(List<CapitalGrant> grants) {
     this.grants = grants;
   }
-
 
   /**
    * Return true if this CapitalGrants object is equal to o.

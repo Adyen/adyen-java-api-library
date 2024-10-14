@@ -59,126 +59,144 @@ public class CardDetailsRequest {
   public CardDetailsRequest() { 
   }
 
+  /**
+   * A minimum of the first 8 digits of the card number and a maximum of the full card number. 11 digits gives the best result.   You must be [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect raw card data.
+   *
+   * @param cardNumber
+   * @return the current {@code CardDetailsRequest} instance, allowing for method chaining
+   */
   public CardDetailsRequest cardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
     return this;
   }
 
-   /**
+  /**
    * A minimum of the first 8 digits of the card number and a maximum of the full card number. 11 digits gives the best result.   You must be [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect raw card data.
    * @return cardNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "A minimum of the first 8 digits of the card number and a maximum of the full card number. 11 digits gives the best result.   You must be [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect raw card data.")
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardNumber() {
     return cardNumber;
   }
 
-
- /**
-  * A minimum of the first 8 digits of the card number and a maximum of the full card number. 11 digits gives the best result.   You must be [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect raw card data.
-  *
-  * @param cardNumber
-  */ 
+  /**
+   * A minimum of the first 8 digits of the card number and a maximum of the full card number. 11 digits gives the best result.   You must be [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect raw card data.
+   *
+   * @param cardNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
   }
 
-
+  /**
+   * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
+   *
+   * @param countryCode
+   * @return the current {@code CardDetailsRequest} instance, allowing for method chaining
+   */
   public CardDetailsRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
 
-   /**
+  /**
    * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
    * @return countryCode
-  **/
+   */
   @ApiModelProperty(value = "The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountryCode() {
     return countryCode;
   }
 
-
- /**
-  * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
-  *
-  * @param countryCode
-  */ 
+  /**
+   * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
+   *
+   * @param countryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
-
+  /**
+   * The encrypted card number.
+   *
+   * @param encryptedCardNumber
+   * @return the current {@code CardDetailsRequest} instance, allowing for method chaining
+   */
   public CardDetailsRequest encryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
     return this;
   }
 
-   /**
+  /**
    * The encrypted card number.
    * @return encryptedCardNumber
-  **/
+   */
   @ApiModelProperty(value = "The encrypted card number.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEncryptedCardNumber() {
     return encryptedCardNumber;
   }
 
-
- /**
-  * The encrypted card number.
-  *
-  * @param encryptedCardNumber
-  */ 
+  /**
+   * The encrypted card number.
+   *
+   * @param encryptedCardNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
   }
 
-
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code CardDetailsRequest} instance, allowing for method chaining
+   */
   public CardDetailsRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The card brands you support. This is the [`brands`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands) array from your [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.   If not included, our API uses the ones configured for your merchant account and, if provided, the country code.
+   *
+   * @param supportedBrands
+   * @return the current {@code CardDetailsRequest} instance, allowing for method chaining
+   */
   public CardDetailsRequest supportedBrands(List<String> supportedBrands) {
     this.supportedBrands = supportedBrands;
     return this;
@@ -192,30 +210,27 @@ public class CardDetailsRequest {
     return this;
   }
 
-   /**
-   * The card brands you support. This is the [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands) array from your [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.   If not included, our API uses the ones configured for your merchant account and, if provided, the country code.
+  /**
+   * The card brands you support. This is the [`brands`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands) array from your [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.   If not included, our API uses the ones configured for your merchant account and, if provided, the country code.
    * @return supportedBrands
-  **/
+   */
   @ApiModelProperty(value = "The card brands you support. This is the [`brands`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands) array from your [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.   If not included, our API uses the ones configured for your merchant account and, if provided, the country code.")
   @JsonProperty(JSON_PROPERTY_SUPPORTED_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getSupportedBrands() {
     return supportedBrands;
   }
 
-
- /**
-  * The card brands you support. This is the [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands) array from your [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.   If not included, our API uses the ones configured for your merchant account and, if provided, the country code.
-  *
-  * @param supportedBrands
-  */ 
+  /**
+   * The card brands you support. This is the [`brands`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands) array from your [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.   If not included, our API uses the ones configured for your merchant account and, if provided, the country code.
+   *
+   * @param supportedBrands
+   */ 
   @JsonProperty(JSON_PROPERTY_SUPPORTED_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedBrands(List<String> supportedBrands) {
     this.supportedBrands = supportedBrands;
   }
-
 
   /**
    * Return true if this CardDetailsRequest object is equal to o.

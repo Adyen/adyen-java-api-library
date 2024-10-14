@@ -45,65 +45,71 @@ public class TerminalActionScheduleDetail {
   public TerminalActionScheduleDetail() { 
   }
 
+  /**
+   * The ID of the action on the specified terminal.
+   *
+   * @param id
+   * @return the current {@code TerminalActionScheduleDetail} instance, allowing for method chaining
+   */
   public TerminalActionScheduleDetail id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The ID of the action on the specified terminal.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The ID of the action on the specified terminal.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The ID of the action on the specified terminal.
-  *
-  * @param id
-  */ 
+  /**
+   * The ID of the action on the specified terminal.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The unique ID of the terminal that the action applies to.
+   *
+   * @param terminalId
+   * @return the current {@code TerminalActionScheduleDetail} instance, allowing for method chaining
+   */
   public TerminalActionScheduleDetail terminalId(String terminalId) {
     this.terminalId = terminalId;
     return this;
   }
 
-   /**
+  /**
    * The unique ID of the terminal that the action applies to.
    * @return terminalId
-  **/
+   */
   @ApiModelProperty(value = "The unique ID of the terminal that the action applies to.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminalId() {
     return terminalId;
   }
 
-
- /**
-  * The unique ID of the terminal that the action applies to.
-  *
-  * @param terminalId
-  */ 
+  /**
+   * The unique ID of the terminal that the action applies to.
+   *
+   * @param terminalId
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
   }
-
 
   /**
    * Return true if this TerminalActionScheduleDetail object is equal to o.

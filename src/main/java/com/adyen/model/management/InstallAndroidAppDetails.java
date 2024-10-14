@@ -78,65 +78,71 @@ public class InstallAndroidAppDetails {
   public InstallAndroidAppDetails() { 
   }
 
+  /**
+   * The unique identifier of the app to be installed.
+   *
+   * @param appId
+   * @return the current {@code InstallAndroidAppDetails} instance, allowing for method chaining
+   */
   public InstallAndroidAppDetails appId(String appId) {
     this.appId = appId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the app to be installed.
    * @return appId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the app to be installed.")
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAppId() {
     return appId;
   }
 
-
- /**
-  * The unique identifier of the app to be installed.
-  *
-  * @param appId
-  */ 
+  /**
+   * The unique identifier of the app to be installed.
+   *
+   * @param appId
+   */ 
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
     this.appId = appId;
   }
 
-
+  /**
+   * Type of terminal action: Install an Android app.
+   *
+   * @param type
+   * @return the current {@code InstallAndroidAppDetails} instance, allowing for method chaining
+   */
   public InstallAndroidAppDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of terminal action: Install an Android app.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Type of terminal action: Install an Android app.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of terminal action: Install an Android app.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of terminal action: Install an Android app.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this InstallAndroidAppDetails object is equal to o.

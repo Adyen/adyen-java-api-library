@@ -41,35 +41,38 @@ public class Logo {
   public Logo() { 
   }
 
+  /**
+   * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
+   *
+   * @param data
+   * @return the current {@code Logo} instance, allowing for method chaining
+   */
   public Logo data(String data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getData() {
     return data;
   }
 
-
- /**
-  * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
-  *
-  * @param data
-  */ 
+  /**
+   * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(String data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this Logo object is equal to o.

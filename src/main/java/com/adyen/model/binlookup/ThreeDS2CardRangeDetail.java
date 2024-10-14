@@ -63,6 +63,12 @@ public class ThreeDS2CardRangeDetail {
   public ThreeDS2CardRangeDetail() { 
   }
 
+  /**
+   * Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)
+   *
+   * @param acsInfoInd
+   * @return the current {@code ThreeDS2CardRangeDetail} instance, allowing for method chaining
+   */
   public ThreeDS2CardRangeDetail acsInfoInd(List<String> acsInfoInd) {
     this.acsInfoInd = acsInfoInd;
     return this;
@@ -76,121 +82,133 @@ public class ThreeDS2CardRangeDetail {
     return this;
   }
 
-   /**
+  /**
    * Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)
    * @return acsInfoInd
-  **/
+   */
   @ApiModelProperty(value = "Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)")
   @JsonProperty(JSON_PROPERTY_ACS_INFO_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getAcsInfoInd() {
     return acsInfoInd;
   }
 
-
- /**
-  * Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)
-  *
-  * @param acsInfoInd
-  */ 
+  /**
+   * Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)
+   *
+   * @param acsInfoInd
+   */ 
   @JsonProperty(JSON_PROPERTY_ACS_INFO_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsInfoInd(List<String> acsInfoInd) {
     this.acsInfoInd = acsInfoInd;
   }
 
-
+  /**
+   * Card brand.
+   *
+   * @param brandCode
+   * @return the current {@code ThreeDS2CardRangeDetail} instance, allowing for method chaining
+   */
   public ThreeDS2CardRangeDetail brandCode(String brandCode) {
     this.brandCode = brandCode;
     return this;
   }
 
-   /**
+  /**
    * Card brand.
    * @return brandCode
-  **/
+   */
   @ApiModelProperty(value = "Card brand.")
   @JsonProperty(JSON_PROPERTY_BRAND_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrandCode() {
     return brandCode;
   }
 
-
- /**
-  * Card brand.
-  *
-  * @param brandCode
-  */ 
+  /**
+   * Card brand.
+   *
+   * @param brandCode
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandCode(String brandCode) {
     this.brandCode = brandCode;
   }
 
-
+  /**
+   * BIN end range.
+   *
+   * @param endRange
+   * @return the current {@code ThreeDS2CardRangeDetail} instance, allowing for method chaining
+   */
   public ThreeDS2CardRangeDetail endRange(String endRange) {
     this.endRange = endRange;
     return this;
   }
 
-   /**
+  /**
    * BIN end range.
    * @return endRange
-  **/
+   */
   @ApiModelProperty(value = "BIN end range.")
   @JsonProperty(JSON_PROPERTY_END_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEndRange() {
     return endRange;
   }
 
-
- /**
-  * BIN end range.
-  *
-  * @param endRange
-  */ 
+  /**
+   * BIN end range.
+   *
+   * @param endRange
+   */ 
   @JsonProperty(JSON_PROPERTY_END_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndRange(String endRange) {
     this.endRange = endRange;
   }
 
-
+  /**
+   * BIN start range.
+   *
+   * @param startRange
+   * @return the current {@code ThreeDS2CardRangeDetail} instance, allowing for method chaining
+   */
   public ThreeDS2CardRangeDetail startRange(String startRange) {
     this.startRange = startRange;
     return this;
   }
 
-   /**
+  /**
    * BIN start range.
    * @return startRange
-  **/
+   */
   @ApiModelProperty(value = "BIN start range.")
   @JsonProperty(JSON_PROPERTY_START_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStartRange() {
     return startRange;
   }
 
-
- /**
-  * BIN start range.
-  *
-  * @param startRange
-  */ 
+  /**
+   * BIN start range.
+   *
+   * @param startRange
+   */ 
   @JsonProperty(JSON_PROPERTY_START_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartRange(String startRange) {
     this.startRange = startRange;
   }
 
-
+  /**
+   * Supported 3D Secure protocol versions
+   *
+   * @param threeDS2Versions
+   * @return the current {@code ThreeDS2CardRangeDetail} instance, allowing for method chaining
+   */
   public ThreeDS2CardRangeDetail threeDS2Versions(List<String> threeDS2Versions) {
     this.threeDS2Versions = threeDS2Versions;
     return this;
@@ -204,60 +222,60 @@ public class ThreeDS2CardRangeDetail {
     return this;
   }
 
-   /**
+  /**
    * Supported 3D Secure protocol versions
    * @return threeDS2Versions
-  **/
+   */
   @ApiModelProperty(value = "Supported 3D Secure protocol versions")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_VERSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getThreeDS2Versions() {
     return threeDS2Versions;
   }
 
-
- /**
-  * Supported 3D Secure protocol versions
-  *
-  * @param threeDS2Versions
-  */ 
+  /**
+   * Supported 3D Secure protocol versions
+   *
+   * @param threeDS2Versions
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_VERSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Versions(List<String> threeDS2Versions) {
     this.threeDS2Versions = threeDS2Versions;
   }
 
-
+  /**
+   * In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.
+   *
+   * @param threeDSMethodURL
+   * @return the current {@code ThreeDS2CardRangeDetail} instance, allowing for method chaining
+   */
   public ThreeDS2CardRangeDetail threeDSMethodURL(String threeDSMethodURL) {
     this.threeDSMethodURL = threeDSMethodURL;
     return this;
   }
 
-   /**
+  /**
    * In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.
    * @return threeDSMethodURL
-  **/
+   */
   @ApiModelProperty(value = "In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_METHOD_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDSMethodURL() {
     return threeDSMethodURL;
   }
 
-
- /**
-  * In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.
-  *
-  * @param threeDSMethodURL
-  */ 
+  /**
+   * In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.
+   *
+   * @param threeDSMethodURL
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_METHOD_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSMethodURL(String threeDSMethodURL) {
     this.threeDSMethodURL = threeDSMethodURL;
   }
-
 
   /**
    * Return true if this ThreeDS2CardRangeDetail object is equal to o.

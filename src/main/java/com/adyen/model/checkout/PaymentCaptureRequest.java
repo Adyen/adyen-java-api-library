@@ -77,66 +77,78 @@ public class PaymentCaptureRequest {
   public PaymentCaptureRequest() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * applicationInfo
+   *
+   * @param applicationInfo
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
     return this;
   }
 
-   /**
-   * Get applicationInfo
+  /**
+   * applicationInfo
    * @return applicationInfo
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationInfo getApplicationInfo() {
     return applicationInfo;
   }
 
-
- /**
-  * applicationInfo
-  *
-  * @param applicationInfo
-  */ 
+  /**
+   * applicationInfo
+   *
+   * @param applicationInfo
+   */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
   }
 
-
+  /**
+   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+   *
+   * @param lineItems
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
@@ -150,121 +162,133 @@ public class PaymentCaptureRequest {
     return this;
   }
 
-   /**
-   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+  /**
+   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return lineItems
-  **/
+   */
   @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<LineItem> getLineItems() {
     return lineItems;
   }
 
-
- /**
-  * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
-  *
-  * @param lineItems
-  */ 
+  /**
+   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+   *
+   * @param lineItems
+   */ 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
 
-
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account that is used to process the payment.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that is used to process the payment.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * platformChargebackLogic
+   *
+   * @param platformChargebackLogic
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
     return this;
   }
 
-   /**
-   * Get platformChargebackLogic
+  /**
+   * platformChargebackLogic
    * @return platformChargebackLogic
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PlatformChargebackLogic getPlatformChargebackLogic() {
     return platformChargebackLogic;
   }
 
-
- /**
-  * platformChargebackLogic
-  *
-  * @param platformChargebackLogic
-  */ 
+  /**
+   * platformChargebackLogic
+   *
+   * @param platformChargebackLogic
+   */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
   }
 
-
+  /**
+   * Your reference for the capture request. Maximum length: 80 characters.
+   *
+   * @param reference
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the capture request. Maximum length: 80 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the capture request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the capture request. Maximum length: 80 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the capture request. Maximum length: 80 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
+   *
+   * @param splits
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest splits(List<Split> splits) {
     this.splits = splits;
     return this;
@@ -278,31 +302,34 @@ public class PaymentCaptureRequest {
     return this;
   }
 
-   /**
+  /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    * @return splits
-  **/
+   */
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).")
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Split> getSplits() {
     return splits;
   }
 
-
- /**
-  * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
-  *
-  * @param splits
-  */ 
+  /**
+   * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
+   *
+   * @param splits
+   */ 
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
   }
 
-
+  /**
+   * A List of sub-merchants.
+   *
+   * @param subMerchants
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
   public PaymentCaptureRequest subMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
     return this;
@@ -316,30 +343,27 @@ public class PaymentCaptureRequest {
     return this;
   }
 
-   /**
+  /**
    * A List of sub-merchants.
    * @return subMerchants
-  **/
+   */
   @ApiModelProperty(value = "A List of sub-merchants.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SubMerchantInfo> getSubMerchants() {
     return subMerchants;
   }
 
-
- /**
-  * A List of sub-merchants.
-  *
-  * @param subMerchants
-  */ 
+  /**
+   * A List of sub-merchants.
+   *
+   * @param subMerchants
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
   }
-
 
   /**
    * Return true if this PaymentCaptureRequest object is equal to o.

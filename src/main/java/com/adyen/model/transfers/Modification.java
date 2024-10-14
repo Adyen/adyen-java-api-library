@@ -156,6 +156,8 @@ public class Modification {
     
     PENDINGAPPROVAL("pendingApproval"),
     
+    PENDINGEXECUTION("pendingExecution"),
+    
     RECEIVED("received"),
     
     REFUNDPENDING("refundPending"),
@@ -220,155 +222,170 @@ public class Modification {
   public Modification() { 
   }
 
+  /**
+   * The direction of the money movement.
+   *
+   * @param direction
+   * @return the current {@code Modification} instance, allowing for method chaining
+   */
   public Modification direction(String direction) {
     this.direction = direction;
     return this;
   }
 
-   /**
+  /**
    * The direction of the money movement.
    * @return direction
-  **/
+   */
   @ApiModelProperty(value = "The direction of the money movement.")
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDirection() {
     return direction;
   }
 
-
- /**
-  * The direction of the money movement.
-  *
-  * @param direction
-  */ 
+  /**
+   * The direction of the money movement.
+   *
+   * @param direction
+   */ 
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirection(String direction) {
     this.direction = direction;
   }
 
-
+  /**
+   * Our reference for the modification.
+   *
+   * @param id
+   * @return the current {@code Modification} instance, allowing for method chaining
+   */
   public Modification id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Our reference for the modification.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "Our reference for the modification.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * Our reference for the modification.
-  *
-  * @param id
-  */ 
+  /**
+   * Our reference for the modification.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Your reference for the modification, used internally within your platform.
+   *
+   * @param reference
+   * @return the current {@code Modification} instance, allowing for method chaining
+   */
   public Modification reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the modification, used internally within your platform.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the modification, used internally within your platform.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the modification, used internally within your platform.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the modification, used internally within your platform.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The status of the transfer event.
+   *
+   * @param status
+   * @return the current {@code Modification} instance, allowing for method chaining
+   */
   public Modification status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the transfer event.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the transfer event.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the transfer event.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the transfer event.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The type of transfer modification.
+   *
+   * @param type
+   * @return the current {@code Modification} instance, allowing for method chaining
+   */
   public Modification type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of transfer modification.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of transfer modification.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of transfer modification.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of transfer modification.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this Modification object is equal to o.

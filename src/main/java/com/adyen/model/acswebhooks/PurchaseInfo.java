@@ -50,95 +50,104 @@ public class PurchaseInfo {
   public PurchaseInfo() { 
   }
 
+  /**
+   * Date of the purchase.
+   *
+   * @param date
+   * @return the current {@code PurchaseInfo} instance, allowing for method chaining
+   */
   public PurchaseInfo date(String date) {
     this.date = date;
     return this;
   }
 
-   /**
+  /**
    * Date of the purchase.
    * @return date
-  **/
+   */
   @ApiModelProperty(required = true, value = "Date of the purchase.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDate() {
     return date;
   }
 
-
- /**
-  * Date of the purchase.
-  *
-  * @param date
-  */ 
+  /**
+   * Date of the purchase.
+   *
+   * @param date
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(String date) {
     this.date = date;
   }
 
-
+  /**
+   * Name of the merchant.
+   *
+   * @param merchantName
+   * @return the current {@code PurchaseInfo} instance, allowing for method chaining
+   */
   public PurchaseInfo merchantName(String merchantName) {
     this.merchantName = merchantName;
     return this;
   }
 
-   /**
+  /**
    * Name of the merchant.
    * @return merchantName
-  **/
+   */
   @ApiModelProperty(required = true, value = "Name of the merchant.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantName() {
     return merchantName;
   }
 
-
- /**
-  * Name of the merchant.
-  *
-  * @param merchantName
-  */ 
+  /**
+   * Name of the merchant.
+   *
+   * @param merchantName
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
   }
 
-
+  /**
+   * originalAmount
+   *
+   * @param originalAmount
+   * @return the current {@code PurchaseInfo} instance, allowing for method chaining
+   */
   public PurchaseInfo originalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
     return this;
   }
 
-   /**
-   * Get originalAmount
+  /**
+   * originalAmount
    * @return originalAmount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getOriginalAmount() {
     return originalAmount;
   }
 
-
- /**
-  * originalAmount
-  *
-  * @param originalAmount
-  */ 
+  /**
+   * originalAmount
+   *
+   * @param originalAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
   }
-
 
   /**
    * Return true if this PurchaseInfo object is equal to o.

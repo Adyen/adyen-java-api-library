@@ -46,65 +46,71 @@ public class ModelFile {
   public ModelFile() { 
   }
 
+  /**
+   * The certificate content converted to a Base64-encoded string.
+   *
+   * @param data
+   * @return the current {@code ModelFile} instance, allowing for method chaining
+   */
   public ModelFile data(String data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * The certificate content converted to a Base64-encoded string.
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "The certificate content converted to a Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getData() {
     return data;
   }
 
-
- /**
-  * The certificate content converted to a Base64-encoded string.
-  *
-  * @param data
-  */ 
+  /**
+   * The certificate content converted to a Base64-encoded string.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(String data) {
     this.data = data;
   }
 
-
+  /**
+   * The name of the certificate. Must be unique across Wi-Fi profiles.
+   *
+   * @param name
+   * @return the current {@code ModelFile} instance, allowing for method chaining
+   */
   public ModelFile name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the certificate. Must be unique across Wi-Fi profiles.
    * @return name
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the certificate. Must be unique across Wi-Fi profiles.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the certificate. Must be unique across Wi-Fi profiles.
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the certificate. Must be unique across Wi-Fi profiles.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
-
 
   /**
    * Return true if this File object is equal to o.

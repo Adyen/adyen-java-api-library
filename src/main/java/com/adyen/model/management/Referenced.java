@@ -41,35 +41,38 @@ public class Referenced {
   public Referenced() { 
   }
 
+  /**
+   * Indicates whether referenced refunds are enabled on the standalone terminal.
+   *
+   * @param enableStandaloneRefunds
+   * @return the current {@code Referenced} instance, allowing for method chaining
+   */
   public Referenced enableStandaloneRefunds(Boolean enableStandaloneRefunds) {
     this.enableStandaloneRefunds = enableStandaloneRefunds;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether referenced refunds are enabled on the standalone terminal.
    * @return enableStandaloneRefunds
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether referenced refunds are enabled on the standalone terminal.")
   @JsonProperty(JSON_PROPERTY_ENABLE_STANDALONE_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnableStandaloneRefunds() {
     return enableStandaloneRefunds;
   }
 
-
- /**
-  * Indicates whether referenced refunds are enabled on the standalone terminal.
-  *
-  * @param enableStandaloneRefunds
-  */ 
+  /**
+   * Indicates whether referenced refunds are enabled on the standalone terminal.
+   *
+   * @param enableStandaloneRefunds
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_STANDALONE_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableStandaloneRefunds(Boolean enableStandaloneRefunds) {
     this.enableStandaloneRefunds = enableStandaloneRefunds;
   }
-
 
   /**
    * Return true if this Referenced object is equal to o.

@@ -57,155 +57,170 @@ public class Contact {
   public Contact() { 
   }
 
+  /**
+   * The individual's email address.
+   *
+   * @param email
+   * @return the current {@code Contact} instance, allowing for method chaining
+   */
   public Contact email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
-   * The individual&#39;s email address.
+  /**
+   * The individual's email address.
    * @return email
-  **/
+   */
   @ApiModelProperty(value = "The individual's email address.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The individual&#39;s email address.
-  *
-  * @param email
-  */ 
+  /**
+   * The individual's email address.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * The individual's first name.
+   *
+   * @param firstName
+   * @return the current {@code Contact} instance, allowing for method chaining
+   */
   public Contact firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
 
-   /**
-   * The individual&#39;s first name.
+  /**
+   * The individual's first name.
    * @return firstName
-  **/
+   */
   @ApiModelProperty(value = "The individual's first name.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFirstName() {
     return firstName;
   }
 
-
- /**
-  * The individual&#39;s first name.
-  *
-  * @param firstName
-  */ 
+  /**
+   * The individual's first name.
+   *
+   * @param firstName
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
-
+  /**
+   * The infix in the individual's name, if any.
+   *
+   * @param infix
+   * @return the current {@code Contact} instance, allowing for method chaining
+   */
   public Contact infix(String infix) {
     this.infix = infix;
     return this;
   }
 
-   /**
-   * The infix in the individual&#39;s name, if any.
+  /**
+   * The infix in the individual's name, if any.
    * @return infix
-  **/
+   */
   @ApiModelProperty(value = "The infix in the individual's name, if any.")
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInfix() {
     return infix;
   }
 
-
- /**
-  * The infix in the individual&#39;s name, if any.
-  *
-  * @param infix
-  */ 
+  /**
+   * The infix in the individual's name, if any.
+   *
+   * @param infix
+   */ 
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfix(String infix) {
     this.infix = infix;
   }
 
-
+  /**
+   * The individual's last name.
+   *
+   * @param lastName
+   * @return the current {@code Contact} instance, allowing for method chaining
+   */
   public Contact lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
 
-   /**
-   * The individual&#39;s last name.
+  /**
+   * The individual's last name.
    * @return lastName
-  **/
+   */
   @ApiModelProperty(value = "The individual's last name.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLastName() {
     return lastName;
   }
 
-
- /**
-  * The individual&#39;s last name.
-  *
-  * @param lastName
-  */ 
+  /**
+   * The individual's last name.
+   *
+   * @param lastName
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
-
+  /**
+   * The individual's phone number, specified as 10-14 digits with an optional `+` prefix.
+   *
+   * @param phoneNumber
+   * @return the current {@code Contact} instance, allowing for method chaining
+   */
   public Contact phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
 
-   /**
-   * The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
+  /**
+   * The individual's phone number, specified as 10-14 digits with an optional `+` prefix.
    * @return phoneNumber
-  **/
+   */
   @ApiModelProperty(value = "The individual's phone number, specified as 10-14 digits with an optional `+` prefix.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
-
- /**
-  * The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
-  *
-  * @param phoneNumber
-  */ 
+  /**
+   * The individual's phone number, specified as 10-14 digits with an optional `+` prefix.
+   *
+   * @param phoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
-
 
   /**
    * Return true if this Contact object is equal to o.

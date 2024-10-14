@@ -70,245 +70,269 @@ public class ExternalTerminalAction {
   public ExternalTerminalAction() { 
   }
 
+  /**
+   * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
+   *
+   * @param actionType
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction actionType(String actionType) {
     this.actionType = actionType;
     return this;
   }
 
-   /**
+  /**
    * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
    * @return actionType
-  **/
+   */
   @ApiModelProperty(value = "The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.")
   @JsonProperty(JSON_PROPERTY_ACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getActionType() {
     return actionType;
   }
 
-
- /**
-  * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
-  *
-  * @param actionType
-  */ 
+  /**
+   * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
+   *
+   * @param actionType
+   */ 
   @JsonProperty(JSON_PROPERTY_ACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionType(String actionType) {
     this.actionType = actionType;
   }
 
-
+  /**
+   * Technical information about the terminal action.
+   *
+   * @param config
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction config(String config) {
     this.config = config;
     return this;
   }
 
-   /**
+  /**
    * Technical information about the terminal action.
    * @return config
-  **/
+   */
   @ApiModelProperty(value = "Technical information about the terminal action.")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getConfig() {
     return config;
   }
 
-
- /**
-  * Technical information about the terminal action.
-  *
-  * @param config
-  */ 
+  /**
+   * Technical information about the terminal action.
+   *
+   * @param config
+   */ 
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfig(String config) {
     this.config = config;
   }
 
-
+  /**
+   * The date and time when the action was carried out.
+   *
+   * @param confirmedAt
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction confirmedAt(OffsetDateTime confirmedAt) {
     this.confirmedAt = confirmedAt;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the action was carried out.
    * @return confirmedAt
-  **/
+   */
   @ApiModelProperty(value = "The date and time when the action was carried out.")
   @JsonProperty(JSON_PROPERTY_CONFIRMED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getConfirmedAt() {
     return confirmedAt;
   }
 
-
- /**
-  * The date and time when the action was carried out.
-  *
-  * @param confirmedAt
-  */ 
+  /**
+   * The date and time when the action was carried out.
+   *
+   * @param confirmedAt
+   */ 
   @JsonProperty(JSON_PROPERTY_CONFIRMED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfirmedAt(OffsetDateTime confirmedAt) {
     this.confirmedAt = confirmedAt;
   }
 
-
+  /**
+   * The unique ID of the terminal action.
+   *
+   * @param id
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique ID of the terminal action.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique ID of the terminal action.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique ID of the terminal action.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique ID of the terminal action.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The result message for the action.
+   *
+   * @param result
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction result(String result) {
     this.result = result;
     return this;
   }
 
-   /**
+  /**
    * The result message for the action.
    * @return result
-  **/
+   */
   @ApiModelProperty(value = "The result message for the action.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResult() {
     return result;
   }
 
-
- /**
-  * The result message for the action.
-  *
-  * @param result
-  */ 
+  /**
+   * The result message for the action.
+   *
+   * @param result
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
     this.result = result;
   }
 
-
+  /**
+   * The date and time when the action was scheduled to happen.
+   *
+   * @param scheduledAt
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction scheduledAt(OffsetDateTime scheduledAt) {
     this.scheduledAt = scheduledAt;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the action was scheduled to happen.
    * @return scheduledAt
-  **/
+   */
   @ApiModelProperty(value = "The date and time when the action was scheduled to happen.")
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getScheduledAt() {
     return scheduledAt;
   }
 
-
- /**
-  * The date and time when the action was scheduled to happen.
-  *
-  * @param scheduledAt
-  */ 
+  /**
+   * The date and time when the action was scheduled to happen.
+   *
+   * @param scheduledAt
+   */ 
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledAt(OffsetDateTime scheduledAt) {
     this.scheduledAt = scheduledAt;
   }
 
-
+  /**
+   * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
+   *
+   * @param status
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
 
-
+  /**
+   * The unique ID of the terminal that the action applies to.
+   *
+   * @param terminalId
+   * @return the current {@code ExternalTerminalAction} instance, allowing for method chaining
+   */
   public ExternalTerminalAction terminalId(String terminalId) {
     this.terminalId = terminalId;
     return this;
   }
 
-   /**
+  /**
    * The unique ID of the terminal that the action applies to.
    * @return terminalId
-  **/
+   */
   @ApiModelProperty(value = "The unique ID of the terminal that the action applies to.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminalId() {
     return terminalId;
   }
 
-
- /**
-  * The unique ID of the terminal that the action applies to.
-  *
-  * @param terminalId
-  */ 
+  /**
+   * The unique ID of the terminal that the action applies to.
+   *
+   * @param terminalId
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
   }
-
 
   /**
    * Return true if this ExternalTerminalAction object is equal to o.

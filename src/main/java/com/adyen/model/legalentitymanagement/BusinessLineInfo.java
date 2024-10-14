@@ -85,7 +85,7 @@ public class BusinessLineInfo {
   }
 
   public static final String JSON_PROPERTY_CAPABILITY = "capability";
-  @Deprecated
+  @Deprecated // deprecated since Legal Entity Management API v3: Use `service` instead.
   private CapabilityEnum capability;
 
   public static final String JSON_PROPERTY_INDUSTRY_CODE = "industryCode";
@@ -147,32 +147,44 @@ public class BusinessLineInfo {
   public BusinessLineInfo() { 
   }
 
+  /**
+   * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
+   *
+   * @param capability
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   *
+   * @deprecated since Legal Entity Management API v3
+   * Use `service` instead.
+   */
   @Deprecated
   public BusinessLineInfo capability(CapabilityEnum capability) {
     this.capability = capability;
     return this;
   }
 
-   /**
+  /**
    * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
    * @return capability
-   * @deprecated
-  **/
+   *
+   * @deprecated since Legal Entity Management API v3
+   * Use `service` instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**")
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CapabilityEnum getCapability() {
     return capability;
   }
 
-
- /**
-  * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
-  *
-  * @param capability
-  */ 
+  /**
+   * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
+   *
+   * @param capability
+   *
+   * @deprecated since Legal Entity Management API v3
+   * Use `service` instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,67 +192,78 @@ public class BusinessLineInfo {
     this.capability = capability;
   }
 
-
+  /**
+   * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
+   *
+   * @param industryCode
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   */
   public BusinessLineInfo industryCode(String industryCode) {
     this.industryCode = industryCode;
     return this;
   }
 
-   /**
+  /**
    * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    * @return industryCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIndustryCode() {
     return industryCode;
   }
 
-
- /**
-  * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
-  *
-  * @param industryCode
-  */ 
+  /**
+   * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
+   *
+   * @param industryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryCode(String industryCode) {
     this.industryCode = industryCode;
   }
 
-
+  /**
+   * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
+   *
+   * @param legalEntityId
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   */
   public BusinessLineInfo legalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
    * @return legalEntityId
-  **/
+   */
   @ApiModelProperty(required = true, value = "Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLegalEntityId() {
     return legalEntityId;
   }
 
-
- /**
-  * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
-  *
-  * @param legalEntityId
-  */ 
+  /**
+   * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
+   *
+   * @param legalEntityId
+   */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
 
-
+  /**
+   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
+   *
+   * @param salesChannels
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   */
   public BusinessLineInfo salesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
     return this;
@@ -254,91 +277,100 @@ public class BusinessLineInfo {
     return this;
   }
 
-   /**
-   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
+  /**
+   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
    * @return salesChannels
-  **/
+   */
   @ApiModelProperty(value = "A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.")
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getSalesChannels() {
     return salesChannels;
   }
 
-
- /**
-  * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
-  *
-  * @param salesChannels
-  */ 
+  /**
+   * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
+   *
+   * @param salesChannels
+   */ 
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
   }
 
-
+  /**
+   * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
+   *
+   * @param service
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   */
   public BusinessLineInfo service(ServiceEnum service) {
     this.service = service;
     return this;
   }
 
-   /**
+  /**
    * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    * @return service
-  **/
+   */
   @ApiModelProperty(required = true, value = "The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  ")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ServiceEnum getService() {
     return service;
   }
 
-
- /**
-  * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
-  *
-  * @param service
-  */ 
+  /**
+   * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
+   *
+   * @param service
+   */ 
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setService(ServiceEnum service) {
     this.service = service;
   }
 
-
+  /**
+   * sourceOfFunds
+   *
+   * @param sourceOfFunds
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   */
   public BusinessLineInfo sourceOfFunds(SourceOfFunds sourceOfFunds) {
     this.sourceOfFunds = sourceOfFunds;
     return this;
   }
 
-   /**
-   * Get sourceOfFunds
+  /**
+   * sourceOfFunds
    * @return sourceOfFunds
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SourceOfFunds getSourceOfFunds() {
     return sourceOfFunds;
   }
 
-
- /**
-  * sourceOfFunds
-  *
-  * @param sourceOfFunds
-  */ 
+  /**
+   * sourceOfFunds
+   *
+   * @param sourceOfFunds
+   */ 
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSourceOfFunds(SourceOfFunds sourceOfFunds) {
     this.sourceOfFunds = sourceOfFunds;
   }
 
-
+  /**
+   * List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
+   *
+   * @param webData
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   */
   public BusinessLineInfo webData(List<WebData> webData) {
     this.webData = webData;
     return this;
@@ -352,60 +384,60 @@ public class BusinessLineInfo {
     return this;
   }
 
-   /**
-   * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
+  /**
+   * List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
    * @return webData
-  **/
+   */
   @ApiModelProperty(value = "List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.")
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<WebData> getWebData() {
     return webData;
   }
 
-
- /**
-  * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
-  *
-  * @param webData
-  */ 
+  /**
+   * List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
+   *
+   * @param webData
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(List<WebData> webData) {
     this.webData = webData;
   }
 
-
+  /**
+   * webDataExemption
+   *
+   * @param webDataExemption
+   * @return the current {@code BusinessLineInfo} instance, allowing for method chaining
+   */
   public BusinessLineInfo webDataExemption(WebDataExemption webDataExemption) {
     this.webDataExemption = webDataExemption;
     return this;
   }
 
-   /**
-   * Get webDataExemption
+  /**
+   * webDataExemption
    * @return webDataExemption
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WebDataExemption getWebDataExemption() {
     return webDataExemption;
   }
 
-
- /**
-  * webDataExemption
-  *
-  * @param webDataExemption
-  */ 
+  /**
+   * webDataExemption
+   *
+   * @param webDataExemption
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebDataExemption(WebDataExemption webDataExemption) {
     this.webDataExemption = webDataExemption;
   }
-
 
   /**
    * Return true if this BusinessLineInfo object is equal to o.

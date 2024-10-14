@@ -47,36 +47,45 @@ public class CountriesRestriction {
   public CountriesRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code CountriesRestriction} instance, allowing for method chaining
+   */
   public CountriesRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * List of two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
+   *
+   * @param value
+   * @return the current {@code CountriesRestriction} instance, allowing for method chaining
+   */
   public CountriesRestriction value(List<String> value) {
     this.value = value;
     return this;
@@ -90,30 +99,27 @@ public class CountriesRestriction {
     return this;
   }
 
-   /**
+  /**
    * List of two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "List of two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getValue() {
     return value;
   }
 
-
- /**
-  * List of two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
-  *
-  * @param value
-  */ 
+  /**
+   * List of two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<String> value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this CountriesRestriction object is equal to o.

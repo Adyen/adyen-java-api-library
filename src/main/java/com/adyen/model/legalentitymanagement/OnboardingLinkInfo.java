@@ -54,125 +54,137 @@ public class OnboardingLinkInfo {
   public OnboardingLinkInfo() { 
   }
 
+  /**
+   * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
+   *
+   * @param locale
+   * @return the current {@code OnboardingLinkInfo} instance, allowing for method chaining
+   */
   public OnboardingLinkInfo locale(String locale) {
     this.locale = locale;
     return this;
   }
 
-   /**
+  /**
    * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
    * @return locale
-  **/
+   */
   @ApiModelProperty(value = "The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLocale() {
     return locale;
   }
 
-
- /**
-  * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
-  *
-  * @param locale
-  */ 
+  /**
+   * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
+   *
+   * @param locale
+   */ 
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
     this.locale = locale;
   }
 
-
+  /**
+   * The URL where the user is redirected after they complete hosted onboarding.
+   *
+   * @param redirectUrl
+   * @return the current {@code OnboardingLinkInfo} instance, allowing for method chaining
+   */
   public OnboardingLinkInfo redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL where the user is redirected after they complete hosted onboarding.
    * @return redirectUrl
-  **/
+   */
   @ApiModelProperty(value = "The URL where the user is redirected after they complete hosted onboarding.")
   @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRedirectUrl() {
     return redirectUrl;
   }
 
-
- /**
-  * The URL where the user is redirected after they complete hosted onboarding.
-  *
-  * @param redirectUrl
-  */ 
+  /**
+   * The URL where the user is redirected after they complete hosted onboarding.
+   *
+   * @param redirectUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
   }
 
-
+  /**
+   * settings
+   *
+   * @param settings
+   * @return the current {@code OnboardingLinkInfo} instance, allowing for method chaining
+   */
   public OnboardingLinkInfo settings(OnboardingLinkSettings settings) {
     this.settings = settings;
     return this;
   }
 
-   /**
-   * Get settings
+  /**
+   * settings
    * @return settings
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OnboardingLinkSettings getSettings() {
     return settings;
   }
 
-
- /**
-  * settings
-  *
-  * @param settings
-  */ 
+  /**
+   * settings
+   *
+   * @param settings
+   */ 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(OnboardingLinkSettings settings) {
     this.settings = settings;
   }
 
-
+  /**
+   * The unique identifier of the hosted onboarding theme.
+   *
+   * @param themeId
+   * @return the current {@code OnboardingLinkInfo} instance, allowing for method chaining
+   */
   public OnboardingLinkInfo themeId(String themeId) {
     this.themeId = themeId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the hosted onboarding theme.
    * @return themeId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the hosted onboarding theme.")
   @JsonProperty(JSON_PROPERTY_THEME_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThemeId() {
     return themeId;
   }
 
-
- /**
-  * The unique identifier of the hosted onboarding theme.
-  *
-  * @param themeId
-  */ 
+  /**
+   * The unique identifier of the hosted onboarding theme.
+   *
+   * @param themeId
+   */ 
   @JsonProperty(JSON_PROPERTY_THEME_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {
     this.themeId = themeId;
   }
-
 
   /**
    * Return true if this OnboardingLinkInfo object is equal to o.

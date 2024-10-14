@@ -74,35 +74,38 @@ public class UpdatePaymentLinkRequest {
   public UpdatePaymentLinkRequest() { 
   }
 
+  /**
+   * Status of the payment link. Possible values: * **expired**
+   *
+   * @param status
+   * @return the current {@code UpdatePaymentLinkRequest} instance, allowing for method chaining
+   */
   public UpdatePaymentLinkRequest status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Status of the payment link. Possible values: * **expired**
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "Status of the payment link. Possible values: * **expired**")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * Status of the payment link. Possible values: * **expired**
-  *
-  * @param status
-  */ 
+  /**
+   * Status of the payment link. Possible values: * **expired**
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this UpdatePaymentLinkRequest object is equal to o.

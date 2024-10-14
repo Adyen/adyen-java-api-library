@@ -45,65 +45,71 @@ public class RequestActivationResponse {
   public RequestActivationResponse() { 
   }
 
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param companyId
+   * @return the current {@code RequestActivationResponse} instance, allowing for method chaining
+   */
   public RequestActivationResponse companyId(String companyId) {
     this.companyId = companyId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the company account.
    * @return companyId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyId() {
     return companyId;
   }
 
-
- /**
-  * The unique identifier of the company account.
-  *
-  * @param companyId
-  */ 
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param companyId
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
 
-
+  /**
+   * The unique identifier of the merchant account you requested to activate.
+   *
+   * @param merchantId
+   * @return the current {@code RequestActivationResponse} instance, allowing for method chaining
+   */
   public RequestActivationResponse merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the merchant account you requested to activate.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the merchant account you requested to activate.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * The unique identifier of the merchant account you requested to activate.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * The unique identifier of the merchant account you requested to activate.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
-
 
   /**
    * Return true if this RequestActivationResponse object is equal to o.

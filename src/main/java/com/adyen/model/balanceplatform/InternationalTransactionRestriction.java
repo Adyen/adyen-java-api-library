@@ -45,65 +45,71 @@ public class InternationalTransactionRestriction {
   public InternationalTransactionRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code InternationalTransactionRestriction} instance, allowing for method chaining
+   */
   public InternationalTransactionRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  
+   *
+   * @param value
+   * @return the current {@code InternationalTransactionRestriction} instance, allowing for method chaining
+   */
   public InternationalTransactionRestriction value(Boolean value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  ")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getValue() {
     return value;
   }
 
-
- /**
-  * Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  
-  *
-  * @param value
-  */ 
+  /**
+   * Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Boolean value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this InternationalTransactionRestriction object is equal to o.

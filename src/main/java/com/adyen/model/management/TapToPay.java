@@ -41,35 +41,38 @@ public class TapToPay {
   public TapToPay() { 
   }
 
+  /**
+   * The text shown on the screen during the Tap to Pay transaction.
+   *
+   * @param merchantDisplayName
+   * @return the current {@code TapToPay} instance, allowing for method chaining
+   */
   public TapToPay merchantDisplayName(String merchantDisplayName) {
     this.merchantDisplayName = merchantDisplayName;
     return this;
   }
 
-   /**
+  /**
    * The text shown on the screen during the Tap to Pay transaction.
    * @return merchantDisplayName
-  **/
+   */
   @ApiModelProperty(value = "The text shown on the screen during the Tap to Pay transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantDisplayName() {
     return merchantDisplayName;
   }
 
-
- /**
-  * The text shown on the screen during the Tap to Pay transaction.
-  *
-  * @param merchantDisplayName
-  */ 
+  /**
+   * The text shown on the screen during the Tap to Pay transaction.
+   *
+   * @param merchantDisplayName
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantDisplayName(String merchantDisplayName) {
     this.merchantDisplayName = merchantDisplayName;
   }
-
 
   /**
    * Return true if this TapToPay object is equal to o.

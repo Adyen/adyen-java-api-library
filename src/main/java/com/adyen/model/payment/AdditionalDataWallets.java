@@ -61,185 +61,203 @@ public class AdditionalDataWallets {
   public AdditionalDataWallets() { 
   }
 
+  /**
+   * The Android Pay token retrieved from the SDK.
+   *
+   * @param androidpayToken
+   * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
+   */
   public AdditionalDataWallets androidpayToken(String androidpayToken) {
     this.androidpayToken = androidpayToken;
     return this;
   }
 
-   /**
+  /**
    * The Android Pay token retrieved from the SDK.
    * @return androidpayToken
-  **/
+   */
   @ApiModelProperty(value = "The Android Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_ANDROIDPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAndroidpayToken() {
     return androidpayToken;
   }
 
-
- /**
-  * The Android Pay token retrieved from the SDK.
-  *
-  * @param androidpayToken
-  */ 
+  /**
+   * The Android Pay token retrieved from the SDK.
+   *
+   * @param androidpayToken
+   */ 
   @JsonProperty(JSON_PROPERTY_ANDROIDPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAndroidpayToken(String androidpayToken) {
     this.androidpayToken = androidpayToken;
   }
 
-
+  /**
+   * The Mastercard Masterpass Transaction ID retrieved from the SDK.
+   *
+   * @param masterpassTransactionId
+   * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
+   */
   public AdditionalDataWallets masterpassTransactionId(String masterpassTransactionId) {
     this.masterpassTransactionId = masterpassTransactionId;
     return this;
   }
 
-   /**
+  /**
    * The Mastercard Masterpass Transaction ID retrieved from the SDK.
    * @return masterpassTransactionId
-  **/
+   */
   @ApiModelProperty(value = "The Mastercard Masterpass Transaction ID retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMasterpassTransactionId() {
     return masterpassTransactionId;
   }
 
-
- /**
-  * The Mastercard Masterpass Transaction ID retrieved from the SDK.
-  *
-  * @param masterpassTransactionId
-  */ 
+  /**
+   * The Mastercard Masterpass Transaction ID retrieved from the SDK.
+   *
+   * @param masterpassTransactionId
+   */ 
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMasterpassTransactionId(String masterpassTransactionId) {
     this.masterpassTransactionId = masterpassTransactionId;
   }
 
-
+  /**
+   * The Apple Pay token retrieved from the SDK.
+   *
+   * @param paymentToken
+   * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
+   */
   public AdditionalDataWallets paymentToken(String paymentToken) {
     this.paymentToken = paymentToken;
     return this;
   }
 
-   /**
+  /**
    * The Apple Pay token retrieved from the SDK.
    * @return paymentToken
-  **/
+   */
   @ApiModelProperty(value = "The Apple Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentToken() {
     return paymentToken;
   }
 
-
- /**
-  * The Apple Pay token retrieved from the SDK.
-  *
-  * @param paymentToken
-  */ 
+  /**
+   * The Apple Pay token retrieved from the SDK.
+   *
+   * @param paymentToken
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentToken(String paymentToken) {
     this.paymentToken = paymentToken;
   }
 
-
+  /**
+   * The Google Pay token retrieved from the SDK.
+   *
+   * @param paywithgoogleToken
+   * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
+   */
   public AdditionalDataWallets paywithgoogleToken(String paywithgoogleToken) {
     this.paywithgoogleToken = paywithgoogleToken;
     return this;
   }
 
-   /**
+  /**
    * The Google Pay token retrieved from the SDK.
    * @return paywithgoogleToken
-  **/
+   */
   @ApiModelProperty(value = "The Google Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_PAYWITHGOOGLE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaywithgoogleToken() {
     return paywithgoogleToken;
   }
 
-
- /**
-  * The Google Pay token retrieved from the SDK.
-  *
-  * @param paywithgoogleToken
-  */ 
+  /**
+   * The Google Pay token retrieved from the SDK.
+   *
+   * @param paywithgoogleToken
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYWITHGOOGLE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaywithgoogleToken(String paywithgoogleToken) {
     this.paywithgoogleToken = paywithgoogleToken;
   }
 
-
+  /**
+   * The Samsung Pay token retrieved from the SDK.
+   *
+   * @param samsungpayToken
+   * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
+   */
   public AdditionalDataWallets samsungpayToken(String samsungpayToken) {
     this.samsungpayToken = samsungpayToken;
     return this;
   }
 
-   /**
+  /**
    * The Samsung Pay token retrieved from the SDK.
    * @return samsungpayToken
-  **/
+   */
   @ApiModelProperty(value = "The Samsung Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_SAMSUNGPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSamsungpayToken() {
     return samsungpayToken;
   }
 
-
- /**
-  * The Samsung Pay token retrieved from the SDK.
-  *
-  * @param samsungpayToken
-  */ 
+  /**
+   * The Samsung Pay token retrieved from the SDK.
+   *
+   * @param samsungpayToken
+   */ 
   @JsonProperty(JSON_PROPERTY_SAMSUNGPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSamsungpayToken(String samsungpayToken) {
     this.samsungpayToken = samsungpayToken;
   }
 
-
+  /**
+   * The Visa Checkout Call ID retrieved from the SDK.
+   *
+   * @param visacheckoutCallId
+   * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
+   */
   public AdditionalDataWallets visacheckoutCallId(String visacheckoutCallId) {
     this.visacheckoutCallId = visacheckoutCallId;
     return this;
   }
 
-   /**
+  /**
    * The Visa Checkout Call ID retrieved from the SDK.
    * @return visacheckoutCallId
-  **/
+   */
   @ApiModelProperty(value = "The Visa Checkout Call ID retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_VISACHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVisacheckoutCallId() {
     return visacheckoutCallId;
   }
 
-
- /**
-  * The Visa Checkout Call ID retrieved from the SDK.
-  *
-  * @param visacheckoutCallId
-  */ 
+  /**
+   * The Visa Checkout Call ID retrieved from the SDK.
+   *
+   * @param visacheckoutCallId
+   */ 
   @JsonProperty(JSON_PROPERTY_VISACHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisacheckoutCallId(String visacheckoutCallId) {
     this.visacheckoutCallId = visacheckoutCallId;
   }
-
 
   /**
    * Return true if this AdditionalDataWallets object is equal to o.

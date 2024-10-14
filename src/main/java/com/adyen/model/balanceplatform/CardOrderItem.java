@@ -71,245 +71,269 @@ public class CardOrderItem {
   public CardOrderItem() { 
   }
 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the balance platform.
    * @return balancePlatform
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
-
- /**
-  * The unique identifier of the balance platform.
-  *
-  * @param balancePlatform
-  */ 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem card(CardOrderItemDeliveryStatus card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardOrderItemDeliveryStatus getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardOrderItemDeliveryStatus card) {
     this.card = card;
   }
 
-
+  /**
+   * The unique identifier of the card order item.
+   *
+   * @param cardOrderItemId
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem cardOrderItemId(String cardOrderItemId) {
     this.cardOrderItemId = cardOrderItemId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the card order item.
    * @return cardOrderItemId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the card order item.")
   @JsonProperty(JSON_PROPERTY_CARD_ORDER_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardOrderItemId() {
     return cardOrderItemId;
   }
 
-
- /**
-  * The unique identifier of the card order item.
-  *
-  * @param cardOrderItemId
-  */ 
+  /**
+   * The unique identifier of the card order item.
+   *
+   * @param cardOrderItemId
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_ORDER_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardOrderItemId(String cardOrderItemId) {
     this.cardOrderItemId = cardOrderItemId;
   }
 
-
+  /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+   *
+   * @param creationDate
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return creationDate
-  **/
+   */
   @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
-
- /**
-  * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
-  *
-  * @param creationDate
-  */ 
+  /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+   *
+   * @param creationDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
-
+  /**
+   * The ID of the resource.
+   *
+   * @param id
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The ID of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The ID of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The ID of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The ID of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The unique identifier of the payment instrument related to the card order item.
+   *
+   * @param paymentInstrumentId
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the payment instrument related to the card order item.
    * @return paymentInstrumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the payment instrument related to the card order item.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the payment instrument related to the card order item.
-  *
-  * @param paymentInstrumentId
-  */ 
+  /**
+   * The unique identifier of the payment instrument related to the card order item.
+   *
+   * @param paymentInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
-
+  /**
+   * pin
+   *
+   * @param pin
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem pin(CardOrderItemDeliveryStatus pin) {
     this.pin = pin;
     return this;
   }
 
-   /**
-   * Get pin
+  /**
+   * pin
    * @return pin
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardOrderItemDeliveryStatus getPin() {
     return pin;
   }
 
-
- /**
-  * pin
-  *
-  * @param pin
-  */ 
+  /**
+   * pin
+   *
+   * @param pin
+   */ 
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPin(CardOrderItemDeliveryStatus pin) {
     this.pin = pin;
   }
 
-
+  /**
+   * The shipping method used to deliver the card or the PIN.
+   *
+   * @param shippingMethod
+   * @return the current {@code CardOrderItem} instance, allowing for method chaining
+   */
   public CardOrderItem shippingMethod(String shippingMethod) {
     this.shippingMethod = shippingMethod;
     return this;
   }
 
-   /**
+  /**
    * The shipping method used to deliver the card or the PIN.
    * @return shippingMethod
-  **/
+   */
   @ApiModelProperty(value = "The shipping method used to deliver the card or the PIN.")
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShippingMethod() {
     return shippingMethod;
   }
 
-
- /**
-  * The shipping method used to deliver the card or the PIN.
-  *
-  * @param shippingMethod
-  */ 
+  /**
+   * The shipping method used to deliver the card or the PIN.
+   *
+   * @param shippingMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingMethod(String shippingMethod) {
     this.shippingMethod = shippingMethod;
   }
-
 
   /**
    * Return true if this CardOrderItem object is equal to o.

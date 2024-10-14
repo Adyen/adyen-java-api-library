@@ -52,66 +52,78 @@ public class OnboardingThemes {
   public OnboardingThemes() { 
   }
 
+  /**
+   * The next page. Only present if there is a next page.
+   *
+   * @param next
+   * @return the current {@code OnboardingThemes} instance, allowing for method chaining
+   */
   public OnboardingThemes next(String next) {
     this.next = next;
     return this;
   }
 
-   /**
+  /**
    * The next page. Only present if there is a next page.
    * @return next
-  **/
+   */
   @ApiModelProperty(value = "The next page. Only present if there is a next page.")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNext() {
     return next;
   }
 
-
- /**
-  * The next page. Only present if there is a next page.
-  *
-  * @param next
-  */ 
+  /**
+   * The next page. Only present if there is a next page.
+   *
+   * @param next
+   */ 
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(String next) {
     this.next = next;
   }
 
-
+  /**
+   * The previous page. Only present if there is a previous page.
+   *
+   * @param previous
+   * @return the current {@code OnboardingThemes} instance, allowing for method chaining
+   */
   public OnboardingThemes previous(String previous) {
     this.previous = previous;
     return this;
   }
 
-   /**
+  /**
    * The previous page. Only present if there is a previous page.
    * @return previous
-  **/
+   */
   @ApiModelProperty(value = "The previous page. Only present if there is a previous page.")
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPrevious() {
     return previous;
   }
 
-
- /**
-  * The previous page. Only present if there is a previous page.
-  *
-  * @param previous
-  */ 
+  /**
+   * The previous page. Only present if there is a previous page.
+   *
+   * @param previous
+   */ 
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(String previous) {
     this.previous = previous;
   }
 
-
+  /**
+   * List of onboarding themes.
+   *
+   * @param themes
+   * @return the current {@code OnboardingThemes} instance, allowing for method chaining
+   */
   public OnboardingThemes themes(List<OnboardingTheme> themes) {
     this.themes = themes;
     return this;
@@ -122,30 +134,27 @@ public class OnboardingThemes {
     return this;
   }
 
-   /**
+  /**
    * List of onboarding themes.
    * @return themes
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of onboarding themes.")
   @JsonProperty(JSON_PROPERTY_THEMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<OnboardingTheme> getThemes() {
     return themes;
   }
 
-
- /**
-  * List of onboarding themes.
-  *
-  * @param themes
-  */ 
+  /**
+   * List of onboarding themes.
+   *
+   * @param themes
+   */ 
   @JsonProperty(JSON_PROPERTY_THEMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemes(List<OnboardingTheme> themes) {
     this.themes = themes;
   }
-
 
   /**
    * Return true if this OnboardingThemes object is equal to o.

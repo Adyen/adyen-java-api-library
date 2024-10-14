@@ -49,95 +49,104 @@ public class ShopperInteractionDevice {
   public ShopperInteractionDevice() { 
   }
 
+  /**
+   * Locale on the shopper interaction device.
+   *
+   * @param locale
+   * @return the current {@code ShopperInteractionDevice} instance, allowing for method chaining
+   */
   public ShopperInteractionDevice locale(String locale) {
     this.locale = locale;
     return this;
   }
 
-   /**
+  /**
    * Locale on the shopper interaction device.
    * @return locale
-  **/
+   */
   @ApiModelProperty(value = "Locale on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLocale() {
     return locale;
   }
 
-
- /**
-  * Locale on the shopper interaction device.
-  *
-  * @param locale
-  */ 
+  /**
+   * Locale on the shopper interaction device.
+   *
+   * @param locale
+   */ 
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
     this.locale = locale;
   }
 
-
+  /**
+   * Operating system running on the shopper interaction device.
+   *
+   * @param os
+   * @return the current {@code ShopperInteractionDevice} instance, allowing for method chaining
+   */
   public ShopperInteractionDevice os(String os) {
     this.os = os;
     return this;
   }
 
-   /**
+  /**
    * Operating system running on the shopper interaction device.
    * @return os
-  **/
+   */
   @ApiModelProperty(value = "Operating system running on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOs() {
     return os;
   }
 
-
- /**
-  * Operating system running on the shopper interaction device.
-  *
-  * @param os
-  */ 
+  /**
+   * Operating system running on the shopper interaction device.
+   *
+   * @param os
+   */ 
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOs(String os) {
     this.os = os;
   }
 
-
+  /**
+   * Version of the operating system on the shopper interaction device.
+   *
+   * @param osVersion
+   * @return the current {@code ShopperInteractionDevice} instance, allowing for method chaining
+   */
   public ShopperInteractionDevice osVersion(String osVersion) {
     this.osVersion = osVersion;
     return this;
   }
 
-   /**
+  /**
    * Version of the operating system on the shopper interaction device.
    * @return osVersion
-  **/
+   */
   @ApiModelProperty(value = "Version of the operating system on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOsVersion() {
     return osVersion;
   }
 
-
- /**
-  * Version of the operating system on the shopper interaction device.
-  *
-  * @param osVersion
-  */ 
+  /**
+   * Version of the operating system on the shopper interaction device.
+   *
+   * @param osVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
     this.osVersion = osVersion;
   }
-
 
   /**
    * Return true if this ShopperInteractionDevice object is equal to o.

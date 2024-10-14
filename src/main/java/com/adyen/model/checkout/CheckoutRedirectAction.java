@@ -93,6 +93,12 @@ public class CheckoutRedirectAction {
   public CheckoutRedirectAction() { 
   }
 
+  /**
+   * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
+   *
+   * @param data
+   * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
+   */
   public CheckoutRedirectAction data(Map<String, String> data) {
     this.data = data;
     return this;
@@ -106,150 +112,159 @@ public class CheckoutRedirectAction {
     return this;
   }
 
-   /**
+  /**
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "When the redirect URL must be accessed via POST, use this data to post to the redirect URL.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getData() {
     return data;
   }
 
-
- /**
-  * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
-  *
-  * @param data
-  */ 
+  /**
+   * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Map<String, String> data) {
     this.data = data;
   }
 
-
+  /**
+   * Specifies the HTTP method, for example GET or POST.
+   *
+   * @param method
+   * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
+   */
   public CheckoutRedirectAction method(String method) {
     this.method = method;
     return this;
   }
 
-   /**
+  /**
    * Specifies the HTTP method, for example GET or POST.
    * @return method
-  **/
+   */
   @ApiModelProperty(value = "Specifies the HTTP method, for example GET or POST.")
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMethod() {
     return method;
   }
 
-
- /**
-  * Specifies the HTTP method, for example GET or POST.
-  *
-  * @param method
-  */ 
+  /**
+   * Specifies the HTTP method, for example GET or POST.
+   *
+   * @param method
+   */ 
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMethod(String method) {
     this.method = method;
   }
 
-
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
+   */
   public CheckoutRedirectAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
     return this;
   }
 
-   /**
+  /**
    * Specifies the payment method.
    * @return paymentMethodType
-  **/
+   */
   @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodType() {
     return paymentMethodType;
   }
 
-
- /**
-  * Specifies the payment method.
-  *
-  * @param paymentMethodType
-  */ 
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
   }
 
-
+  /**
+   * **redirect**
+   *
+   * @param type
+   * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
+   */
   public CheckoutRedirectAction type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **redirect**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**redirect**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **redirect**
-  *
-  * @param type
-  */ 
+  /**
+   * **redirect**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
+   */
   public CheckoutRedirectAction url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Specifies the URL to redirect to.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Specifies the URL to redirect to.
-  *
-  * @param url
-  */ 
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this CheckoutRedirectAction object is equal to o.

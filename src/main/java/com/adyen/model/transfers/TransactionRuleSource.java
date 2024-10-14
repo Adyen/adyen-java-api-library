@@ -45,65 +45,71 @@ public class TransactionRuleSource {
   public TransactionRuleSource() { 
   }
 
+  /**
+   * ID of the resource, when applicable.
+   *
+   * @param id
+   * @return the current {@code TransactionRuleSource} instance, allowing for method chaining
+   */
   public TransactionRuleSource id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID of the resource, when applicable.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "ID of the resource, when applicable.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * ID of the resource, when applicable.
-  *
-  * @param id
-  */ 
+  /**
+   * ID of the resource, when applicable.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Indicates the type of resource for which the transaction rule is defined.  Possible values:   * **PaymentInstrumentGroup**  * **PaymentInstrument**  * **BalancePlatform**  * **EntityUsageConfiguration**  * **PlatformRule**: The transaction rule is a platform-wide rule imposed by Adyen.
+   *
+   * @param type
+   * @return the current {@code TransactionRuleSource} instance, allowing for method chaining
+   */
   public TransactionRuleSource type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Indicates the type of resource for which the transaction rule is defined.  Possible values:   * **PaymentInstrumentGroup**  * **PaymentInstrument**  * **BalancePlatform**  * **EntityUsageConfiguration**  * **PlatformRule**: The transaction rule is a platform-wide rule imposed by Adyen.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Indicates the type of resource for which the transaction rule is defined.  Possible values:   * **PaymentInstrumentGroup**  * **PaymentInstrument**  * **BalancePlatform**  * **EntityUsageConfiguration**  * **PlatformRule**: The transaction rule is a platform-wide rule imposed by Adyen.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * Indicates the type of resource for which the transaction rule is defined.  Possible values:   * **PaymentInstrumentGroup**  * **PaymentInstrument**  * **BalancePlatform**  * **EntityUsageConfiguration**  * **PlatformRule**: The transaction rule is a platform-wide rule imposed by Adyen.
-  *
-  * @param type
-  */ 
+  /**
+   * Indicates the type of resource for which the transaction rule is defined.  Possible values:   * **PaymentInstrumentGroup**  * **PaymentInstrument**  * **BalancePlatform**  * **EntityUsageConfiguration**  * **PlatformRule**: The transaction rule is a platform-wide rule imposed by Adyen.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TransactionRuleSource object is equal to o.

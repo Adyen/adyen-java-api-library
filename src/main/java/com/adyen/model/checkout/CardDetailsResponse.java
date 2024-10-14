@@ -56,6 +56,12 @@ public class CardDetailsResponse {
   public CardDetailsResponse() { 
   }
 
+  /**
+   * The list of brands identified for the card.
+   *
+   * @param brands
+   * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
+   */
   public CardDetailsResponse brands(List<CardBrandDetails> brands) {
     this.brands = brands;
     return this;
@@ -69,120 +75,126 @@ public class CardDetailsResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of brands identified for the card.
    * @return brands
-  **/
+   */
   @ApiModelProperty(value = "The list of brands identified for the card.")
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CardBrandDetails> getBrands() {
     return brands;
   }
 
-
- /**
-  * The list of brands identified for the card.
-  *
-  * @param brands
-  */ 
+  /**
+   * The list of brands identified for the card.
+   *
+   * @param brands
+   */ 
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<CardBrandDetails> brands) {
     this.brands = brands;
   }
 
-
+  /**
+   * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
+   *
+   * @param fundingSource
+   * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
+   */
   public CardDetailsResponse fundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
     return this;
   }
 
-   /**
+  /**
    * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
+   *
+   * @param isCardCommercial
+   * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
+   */
   public CardDetailsResponse isCardCommercial(Boolean isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
     return this;
   }
 
-   /**
+  /**
    * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    * @return isCardCommercial
-  **/
+   */
   @ApiModelProperty(value = "Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.")
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsCardCommercial() {
     return isCardCommercial;
   }
 
-
- /**
-  * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
-  *
-  * @param isCardCommercial
-  */ 
+  /**
+   * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
+   *
+   * @param isCardCommercial
+   */ 
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCardCommercial(Boolean isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
   }
 
-
+  /**
+   * The two-letter country code  of the country where the card was issued.
+   *
+   * @param issuingCountryCode
+   * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
+   */
   public CardDetailsResponse issuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
     return this;
   }
 
-   /**
+  /**
    * The two-letter country code  of the country where the card was issued.
    * @return issuingCountryCode
-  **/
+   */
   @ApiModelProperty(value = "The two-letter country code  of the country where the card was issued.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuingCountryCode() {
     return issuingCountryCode;
   }
 
-
- /**
-  * The two-letter country code  of the country where the card was issued.
-  *
-  * @param issuingCountryCode
-  */ 
+  /**
+   * The two-letter country code  of the country where the card was issued.
+   *
+   * @param issuingCountryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
   }
-
 
   /**
    * Return true if this CardDetailsResponse object is equal to o.

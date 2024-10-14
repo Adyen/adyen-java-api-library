@@ -44,6 +44,12 @@ public class TransactionRulesResponse {
   public TransactionRulesResponse() { 
   }
 
+  /**
+   * List of transaction rules.
+   *
+   * @param transactionRules
+   * @return the current {@code TransactionRulesResponse} instance, allowing for method chaining
+   */
   public TransactionRulesResponse transactionRules(List<TransactionRule> transactionRules) {
     this.transactionRules = transactionRules;
     return this;
@@ -57,30 +63,27 @@ public class TransactionRulesResponse {
     return this;
   }
 
-   /**
+  /**
    * List of transaction rules.
    * @return transactionRules
-  **/
+   */
   @ApiModelProperty(value = "List of transaction rules.")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TransactionRule> getTransactionRules() {
     return transactionRules;
   }
 
-
- /**
-  * List of transaction rules.
-  *
-  * @param transactionRules
-  */ 
+  /**
+   * List of transaction rules.
+   *
+   * @param transactionRules
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRules(List<TransactionRule> transactionRules) {
     this.transactionRules = transactionRules;
   }
-
 
   /**
    * Return true if this TransactionRulesResponse object is equal to o.

@@ -69,36 +69,45 @@ public class Company {
   public Company() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company links(CompanyLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CompanyLinks getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(CompanyLinks links) {
     this.links = links;
   }
 
-
+  /**
+   * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
+   *
+   * @param dataCenters
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company dataCenters(List<DataCenter> dataCenters) {
     this.dataCenters = dataCenters;
     return this;
@@ -112,180 +121,192 @@ public class Company {
     return this;
   }
 
-   /**
+  /**
    * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
    * @return dataCenters
-  **/
+   */
   @ApiModelProperty(value = "List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.")
   @JsonProperty(JSON_PROPERTY_DATA_CENTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DataCenter> getDataCenters() {
     return dataCenters;
   }
 
-
- /**
-  * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
-  *
-  * @param dataCenters
-  */ 
+  /**
+   * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
+   *
+   * @param dataCenters
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA_CENTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataCenters(List<DataCenter> dataCenters) {
     this.dataCenters = dataCenters;
   }
 
-
+  /**
+   * Your description for the company account, maximum 300 characters
+   *
+   * @param description
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the company account, maximum 300 characters
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Your description for the company account, maximum 300 characters")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the company account, maximum 300 characters
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the company account, maximum 300 characters
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param id
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the company account.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the company account.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The legal or trading name of the company.
+   *
+   * @param name
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The legal or trading name of the company.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The legal or trading name of the company.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The legal or trading name of the company.
-  *
-  * @param name
-  */ 
+  /**
+   * The legal or trading name of the company.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * Your reference to the account
+   *
+   * @param reference
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference to the account
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference to the account")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference to the account
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference to the account
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The status of the company account.  Possible values:  * **Active**: Users can log in. Processing and payout capabilities depend on the status of the merchant account. * **Inactive**: Users can log in. Payment processing and payouts are disabled. * **Closed**: The company account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
+   *
+   * @param status
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the company account.  Possible values:  * **Active**: Users can log in. Processing and payout capabilities depend on the status of the merchant account. * **Inactive**: Users can log in. Payment processing and payouts are disabled. * **Closed**: The company account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the company account.  Possible values:  * **Active**: Users can log in. Processing and payout capabilities depend on the status of the merchant account. * **Inactive**: Users can log in. Payment processing and payouts are disabled. * **Closed**: The company account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the company account.  Possible values:  * **Active**: Users can log in. Processing and payout capabilities depend on the status of the merchant account. * **Inactive**: Users can log in. Payment processing and payouts are disabled. * **Closed**: The company account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the company account.  Possible values:  * **Active**: Users can log in. Processing and payout capabilities depend on the status of the merchant account. * **Inactive**: Users can log in. Payment processing and payouts are disabled. * **Closed**: The company account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this Company object is equal to o.

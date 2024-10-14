@@ -86,125 +86,137 @@ public class CheckoutAwaitAction {
   public CheckoutAwaitAction() { 
   }
 
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
+   */
   public CheckoutAwaitAction paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
 
-   /**
+  /**
    * Encoded payment data.
    * @return paymentData
-  **/
+   */
   @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentData() {
     return paymentData;
   }
 
-
- /**
-  * Encoded payment data.
-  *
-  * @param paymentData
-  */ 
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
 
-
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
+   */
   public CheckoutAwaitAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
     return this;
   }
 
-   /**
+  /**
    * Specifies the payment method.
    * @return paymentMethodType
-  **/
+   */
   @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodType() {
     return paymentMethodType;
   }
 
-
- /**
-  * Specifies the payment method.
-  *
-  * @param paymentMethodType
-  */ 
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
   }
 
-
+  /**
+   * **await**
+   *
+   * @param type
+   * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
+   */
   public CheckoutAwaitAction type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **await**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**await**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **await**
-  *
-  * @param type
-  */ 
+  /**
+   * **await**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
+   */
   public CheckoutAwaitAction url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Specifies the URL to redirect to.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Specifies the URL to redirect to.
-  *
-  * @param url
-  */ 
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this CheckoutAwaitAction object is equal to o.

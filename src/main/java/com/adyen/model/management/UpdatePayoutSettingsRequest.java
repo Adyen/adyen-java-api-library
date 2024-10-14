@@ -41,35 +41,38 @@ public class UpdatePayoutSettingsRequest {
   public UpdatePayoutSettingsRequest() { 
   }
 
+  /**
+   * Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both `enabled` and `allowed` must be **true**.
+   *
+   * @param enabled
+   * @return the current {@code UpdatePayoutSettingsRequest} instance, allowing for method chaining
+   */
   public UpdatePayoutSettingsRequest enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
-   /**
-   * Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both &#x60;enabled&#x60; and &#x60;allowed&#x60; must be **true**.
+  /**
+   * Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both `enabled` and `allowed` must be **true**.
    * @return enabled
-  **/
+   */
   @ApiModelProperty(value = "Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both `enabled` and `allowed` must be **true**.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnabled() {
     return enabled;
   }
 
-
- /**
-  * Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both &#x60;enabled&#x60; and &#x60;allowed&#x60; must be **true**.
-  *
-  * @param enabled
-  */ 
+  /**
+   * Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both `enabled` and `allowed` must be **true**.
+   *
+   * @param enabled
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
 
   /**
    * Return true if this UpdatePayoutSettingsRequest object is equal to o.

@@ -149,6 +149,12 @@ public class BankAccountIdentificationTypeRequirement {
   public BankAccountIdentificationTypeRequirement() { 
   }
 
+  /**
+   * List of bank account identification types: eg.; [iban , numberAndBic]
+   *
+   * @param bankAccountIdentificationTypes
+   * @return the current {@code BankAccountIdentificationTypeRequirement} instance, allowing for method chaining
+   */
   public BankAccountIdentificationTypeRequirement bankAccountIdentificationTypes(List<BankAccountIdentificationTypesEnum> bankAccountIdentificationTypes) {
     this.bankAccountIdentificationTypes = bankAccountIdentificationTypes;
     return this;
@@ -162,90 +168,93 @@ public class BankAccountIdentificationTypeRequirement {
     return this;
   }
 
-   /**
+  /**
    * List of bank account identification types: eg.; [iban , numberAndBic]
    * @return bankAccountIdentificationTypes
-  **/
+   */
   @ApiModelProperty(value = "List of bank account identification types: eg.; [iban , numberAndBic]")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<BankAccountIdentificationTypesEnum> getBankAccountIdentificationTypes() {
     return bankAccountIdentificationTypes;
   }
 
-
- /**
-  * List of bank account identification types: eg.; [iban , numberAndBic]
-  *
-  * @param bankAccountIdentificationTypes
-  */ 
+  /**
+   * List of bank account identification types: eg.; [iban , numberAndBic]
+   *
+   * @param bankAccountIdentificationTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountIdentificationTypes(List<BankAccountIdentificationTypesEnum> bankAccountIdentificationTypes) {
     this.bankAccountIdentificationTypes = bankAccountIdentificationTypes;
   }
 
-
+  /**
+   * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
+   *
+   * @param description
+   * @return the current {@code BankAccountIdentificationTypeRequirement} instance, allowing for method chaining
+   */
   public BankAccountIdentificationTypeRequirement description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
-  *
-  * @param description
-  */ 
+  /**
+   * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * **bankAccountIdentificationTypeRequirement**
+   *
+   * @param type
+   * @return the current {@code BankAccountIdentificationTypeRequirement} instance, allowing for method chaining
+   */
   public BankAccountIdentificationTypeRequirement type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **bankAccountIdentificationTypeRequirement**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**bankAccountIdentificationTypeRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **bankAccountIdentificationTypeRequirement**
-  *
-  * @param type
-  */ 
+  /**
+   * **bankAccountIdentificationTypeRequirement**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this BankAccountIdentificationTypeRequirement object is equal to o.

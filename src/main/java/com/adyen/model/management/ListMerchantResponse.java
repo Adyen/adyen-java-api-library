@@ -57,36 +57,45 @@ public class ListMerchantResponse {
   public ListMerchantResponse() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code ListMerchantResponse} instance, allowing for method chaining
+   */
   public ListMerchantResponse links(PaginationLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationLinks getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
     this.links = links;
   }
 
-
+  /**
+   * The list of merchant accounts.
+   *
+   * @param data
+   * @return the current {@code ListMerchantResponse} instance, allowing for method chaining
+   */
   public ListMerchantResponse data(List<Merchant> data) {
     this.data = data;
     return this;
@@ -100,90 +109,93 @@ public class ListMerchantResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of merchant accounts.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The list of merchant accounts.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Merchant> getData() {
     return data;
   }
 
-
- /**
-  * The list of merchant accounts.
-  *
-  * @param data
-  */ 
+  /**
+   * The list of merchant accounts.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Merchant> data) {
     this.data = data;
   }
 
-
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   * @return the current {@code ListMerchantResponse} instance, allowing for method chaining
+   */
   public ListMerchantResponse itemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of items.
    * @return itemsTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getItemsTotal() {
     return itemsTotal;
   }
 
-
- /**
-  * Total number of items.
-  *
-  * @param itemsTotal
-  */ 
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
 
-
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   * @return the current {@code ListMerchantResponse} instance, allowing for method chaining
+   */
   public ListMerchantResponse pagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of pages.
    * @return pagesTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPagesTotal() {
     return pagesTotal;
   }
 
-
- /**
-  * Total number of pages.
-  *
-  * @param pagesTotal
-  */ 
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }
-
 
   /**
    * Return true if this ListMerchantResponse object is equal to o.

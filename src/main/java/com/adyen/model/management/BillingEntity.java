@@ -58,155 +58,170 @@ public class BillingEntity {
   public BillingEntity() { 
   }
 
+  /**
+   * address
+   *
+   * @param address
+   * @return the current {@code BillingEntity} instance, allowing for method chaining
+   */
   public BillingEntity address(Address address) {
     this.address = address;
     return this;
   }
 
-   /**
-   * Get address
+  /**
+   * address
    * @return address
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
 
-
- /**
-  * address
-  *
-  * @param address
-  */ 
+  /**
+   * address
+   *
+   * @param address
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
     this.address = address;
   }
 
-
+  /**
+   * The email address of the billing entity.
+   *
+   * @param email
+   * @return the current {@code BillingEntity} instance, allowing for method chaining
+   */
   public BillingEntity email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address of the billing entity.
    * @return email
-  **/
+   */
   @ApiModelProperty(value = "The email address of the billing entity.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address of the billing entity.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address of the billing entity.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.
+   *
+   * @param id
+   * @return the current {@code BillingEntity} instance, allowing for method chaining
+   */
   public BillingEntity id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
-   * The unique identifier of the billing entity, for use as &#x60;billingEntityId&#x60; when creating an order.
+  /**
+   * The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the billing entity, for use as &#x60;billingEntityId&#x60; when creating an order.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The unique name of the billing entity.
+   *
+   * @param name
+   * @return the current {@code BillingEntity} instance, allowing for method chaining
+   */
   public BillingEntity name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The unique name of the billing entity.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The unique name of the billing entity.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The unique name of the billing entity.
-  *
-  * @param name
-  */ 
+  /**
+   * The unique name of the billing entity.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The tax number of the billing entity.
+   *
+   * @param taxId
+   * @return the current {@code BillingEntity} instance, allowing for method chaining
+   */
   public BillingEntity taxId(String taxId) {
     this.taxId = taxId;
     return this;
   }
 
-   /**
+  /**
    * The tax number of the billing entity.
    * @return taxId
-  **/
+   */
   @ApiModelProperty(value = "The tax number of the billing entity.")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTaxId() {
     return taxId;
   }
 
-
- /**
-  * The tax number of the billing entity.
-  *
-  * @param taxId
-  */ 
+  /**
+   * The tax number of the billing entity.
+   *
+   * @param taxId
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
   }
-
 
   /**
    * Return true if this BillingEntity object is equal to o.

@@ -14,6 +14,8 @@ package com.adyen.service.transfers;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.transfers.ApproveTransfersRequest;
+import com.adyen.model.transfers.CancelTransfersRequest;
 import com.adyen.model.transfers.FindTransfersResponse;
 import java.time.OffsetDateTime;
 import com.adyen.model.transfers.ReturnTransferRequest;
@@ -55,6 +57,54 @@ public class TransfersApi extends Service {
     public TransfersApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
+    }
+
+    /**
+    * Approve initiated transfers
+    *
+    * @param approveTransfersRequest {@link ApproveTransfersRequest }  (required)
+    * @throws ApiException if fails to make API call
+    */
+    public void approveInitiatedTransfers(ApproveTransfersRequest approveTransfersRequest) throws ApiException, IOException {
+        approveInitiatedTransfers(approveTransfersRequest, null);
+    }
+
+    /**
+    * Approve initiated transfers
+    *
+    * @param approveTransfersRequest {@link ApproveTransfersRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @throws ApiException if fails to make API call
+    */
+    public void approveInitiatedTransfers(ApproveTransfersRequest approveTransfersRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = approveTransfersRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/transfers/approve", null);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+    }
+
+    /**
+    * Cancel initiated transfers
+    *
+    * @param cancelTransfersRequest {@link CancelTransfersRequest }  (required)
+    * @throws ApiException if fails to make API call
+    */
+    public void cancelInitiatedTransfers(CancelTransfersRequest cancelTransfersRequest) throws ApiException, IOException {
+        cancelInitiatedTransfers(cancelTransfersRequest, null);
+    }
+
+    /**
+    * Cancel initiated transfers
+    *
+    * @param cancelTransfersRequest {@link CancelTransfersRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @throws ApiException if fails to make API call
+    */
+    public void cancelInitiatedTransfers(CancelTransfersRequest cancelTransfersRequest, RequestOptions requestOptions) throws ApiException, IOException {
+
+        String requestBody = cancelTransfersRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/transfers/cancel", null);
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
     }
 
     /**

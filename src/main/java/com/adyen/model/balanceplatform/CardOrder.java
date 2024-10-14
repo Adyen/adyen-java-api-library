@@ -105,245 +105,269 @@ public class CardOrder {
   public CardOrder() { 
   }
 
+  /**
+   * The date when the card order is created.
+   *
+   * @param beginDate
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder beginDate(OffsetDateTime beginDate) {
     this.beginDate = beginDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the card order is created.
    * @return beginDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the card order is created.")
   @JsonProperty(JSON_PROPERTY_BEGIN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getBeginDate() {
     return beginDate;
   }
 
-
- /**
-  * The date when the card order is created.
-  *
-  * @param beginDate
-  */ 
+  /**
+   * The date when the card order is created.
+   *
+   * @param beginDate
+   */ 
   @JsonProperty(JSON_PROPERTY_BEGIN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBeginDate(OffsetDateTime beginDate) {
     this.beginDate = beginDate;
   }
 
-
+  /**
+   * The unique identifier of the card manufacturer profile.
+   *
+   * @param cardManufacturingProfileId
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder cardManufacturingProfileId(String cardManufacturingProfileId) {
     this.cardManufacturingProfileId = cardManufacturingProfileId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the card manufacturer profile.
    * @return cardManufacturingProfileId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the card manufacturer profile.")
   @JsonProperty(JSON_PROPERTY_CARD_MANUFACTURING_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardManufacturingProfileId() {
     return cardManufacturingProfileId;
   }
 
-
- /**
-  * The unique identifier of the card manufacturer profile.
-  *
-  * @param cardManufacturingProfileId
-  */ 
+  /**
+   * The unique identifier of the card manufacturer profile.
+   *
+   * @param cardManufacturingProfileId
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_MANUFACTURING_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardManufacturingProfileId(String cardManufacturingProfileId) {
     this.cardManufacturingProfileId = cardManufacturingProfileId;
   }
 
-
+  /**
+   * The date when the card order processing ends.
+   *
+   * @param closedDate
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder closedDate(OffsetDateTime closedDate) {
     this.closedDate = closedDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the card order processing ends.
    * @return closedDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the card order processing ends.")
   @JsonProperty(JSON_PROPERTY_CLOSED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getClosedDate() {
     return closedDate;
   }
 
-
- /**
-  * The date when the card order processing ends.
-  *
-  * @param closedDate
-  */ 
+  /**
+   * The date when the card order processing ends.
+   *
+   * @param closedDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CLOSED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClosedDate(OffsetDateTime closedDate) {
     this.closedDate = closedDate;
   }
 
-
+  /**
+   * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the `endDate`.
+   *
+   * @param endDate
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
 
-   /**
-   * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
+  /**
+   * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the `endDate`.
    * @return endDate
-  **/
+   */
   @ApiModelProperty(value = "The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the `endDate`.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getEndDate() {
     return endDate;
   }
 
-
- /**
-  * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
-  *
-  * @param endDate
-  */ 
+  /**
+   * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the `endDate`.
+   *
+   * @param endDate
+   */ 
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
-
+  /**
+   * The unique identifier of the card order.
+   *
+   * @param id
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the card order.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the card order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the card order.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the card order.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The date when the card order processing begins.
+   *
+   * @param lockDate
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder lockDate(OffsetDateTime lockDate) {
     this.lockDate = lockDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the card order processing begins.
    * @return lockDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the card order processing begins.")
   @JsonProperty(JSON_PROPERTY_LOCK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getLockDate() {
     return lockDate;
   }
 
-
- /**
-  * The date when the card order processing begins.
-  *
-  * @param lockDate
-  */ 
+  /**
+   * The date when the card order processing begins.
+   *
+   * @param lockDate
+   */ 
   @JsonProperty(JSON_PROPERTY_LOCK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLockDate(OffsetDateTime lockDate) {
     this.lockDate = lockDate;
   }
 
-
+  /**
+   * The service center.
+   *
+   * @param serviceCenter
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder serviceCenter(String serviceCenter) {
     this.serviceCenter = serviceCenter;
     return this;
   }
 
-   /**
+  /**
    * The service center.
    * @return serviceCenter
-  **/
+   */
   @ApiModelProperty(value = "The service center.")
   @JsonProperty(JSON_PROPERTY_SERVICE_CENTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getServiceCenter() {
     return serviceCenter;
   }
 
-
- /**
-  * The service center.
-  *
-  * @param serviceCenter
-  */ 
+  /**
+   * The service center.
+   *
+   * @param serviceCenter
+   */ 
   @JsonProperty(JSON_PROPERTY_SERVICE_CENTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceCenter(String serviceCenter) {
     this.serviceCenter = serviceCenter;
   }
 
-
+  /**
+   * The status of the card order.  Possible values: **Open**, **Closed**.
+   *
+   * @param status
+   * @return the current {@code CardOrder} instance, allowing for method chaining
+   */
   public CardOrder status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the card order.  Possible values: **Open**, **Closed**.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the card order.  Possible values: **Open**, **Closed**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the card order.  Possible values: **Open**, **Closed**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the card order.  Possible values: **Open**, **Closed**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this CardOrder object is equal to o.

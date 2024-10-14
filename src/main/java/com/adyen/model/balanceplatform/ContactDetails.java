@@ -31,7 +31,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 /**
  * ContactDetails
- * @deprecated
+ * @deprecated 
  */
 @Deprecated
 @JsonPropertyOrder({
@@ -57,125 +57,137 @@ public class ContactDetails {
   public ContactDetails() { 
   }
 
+  /**
+   * address
+   *
+   * @param address
+   * @return the current {@code ContactDetails} instance, allowing for method chaining
+   */
   public ContactDetails address(Address address) {
     this.address = address;
     return this;
   }
 
-   /**
-   * Get address
+  /**
+   * address
    * @return address
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
 
-
- /**
-  * address
-  *
-  * @param address
-  */ 
+  /**
+   * address
+   *
+   * @param address
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
     this.address = address;
   }
 
-
+  /**
+   * The email address of the account holder.
+   *
+   * @param email
+   * @return the current {@code ContactDetails} instance, allowing for method chaining
+   */
   public ContactDetails email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address of the account holder.
    * @return email
-  **/
+   */
   @ApiModelProperty(required = true, value = "The email address of the account holder.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address of the account holder.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address of the account holder.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * phone
+   *
+   * @param phone
+   * @return the current {@code ContactDetails} instance, allowing for method chaining
+   */
   public ContactDetails phone(Phone phone) {
     this.phone = phone;
     return this;
   }
 
-   /**
-   * Get phone
+  /**
+   * phone
    * @return phone
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
 
-
- /**
-  * phone
-  *
-  * @param phone
-  */ 
+  /**
+   * phone
+   *
+   * @param phone
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(Phone phone) {
     this.phone = phone;
   }
 
-
+  /**
+   * The URL of the account holder's website.
+   *
+   * @param webAddress
+   * @return the current {@code ContactDetails} instance, allowing for method chaining
+   */
   public ContactDetails webAddress(String webAddress) {
     this.webAddress = webAddress;
     return this;
   }
 
-   /**
-   * The URL of the account holder&#39;s website.
+  /**
+   * The URL of the account holder's website.
    * @return webAddress
-  **/
+   */
   @ApiModelProperty(value = "The URL of the account holder's website.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWebAddress() {
     return webAddress;
   }
 
-
- /**
-  * The URL of the account holder&#39;s website.
-  *
-  * @param webAddress
-  */ 
+  /**
+   * The URL of the account holder's website.
+   *
+   * @param webAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {
     this.webAddress = webAddress;
   }
-
 
   /**
    * Return true if this ContactDetails object is equal to o.

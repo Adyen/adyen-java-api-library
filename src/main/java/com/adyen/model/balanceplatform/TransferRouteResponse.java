@@ -44,6 +44,12 @@ public class TransferRouteResponse {
   public TransferRouteResponse() { 
   }
 
+  /**
+   * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
+   *
+   * @param transferRoutes
+   * @return the current {@code TransferRouteResponse} instance, allowing for method chaining
+   */
   public TransferRouteResponse transferRoutes(List<TransferRoute> transferRoutes) {
     this.transferRoutes = transferRoutes;
     return this;
@@ -57,30 +63,27 @@ public class TransferRouteResponse {
     return this;
   }
 
-   /**
+  /**
    * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    * @return transferRoutes
-  **/
+   */
   @ApiModelProperty(value = "List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TransferRoute> getTransferRoutes() {
     return transferRoutes;
   }
 
-
- /**
-  * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
-  *
-  * @param transferRoutes
-  */ 
+  /**
+   * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
+   *
+   * @param transferRoutes
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferRoutes(List<TransferRoute> transferRoutes) {
     this.transferRoutes = transferRoutes;
   }
-
 
   /**
    * Return true if this TransferRouteResponse object is equal to o.

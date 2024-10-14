@@ -136,485 +136,533 @@ public class AdditionalDataCommon {
   public AdditionalDataCommon() { 
   }
 
+  /**
+   * Triggers test scenarios that allow to replicate certain communication errors.  Allowed values: * **NO_CONNECTION_AVAILABLE** – There wasn't a connection available to service the outgoing communication. This is a transient, retriable error since no messaging could be initiated to an issuing system (or third-party acquiring system). Therefore, the header Transient-Error: true is returned in the response. A subsequent request using the same idempotency key will be processed as if it was the first request. * **IOEXCEPTION_RECEIVED** – Something went wrong during transmission of the message or receiving the response. This is a classified as non-transient because the message could have been received by the issuing party and been acted upon. No transient error header is returned. If using idempotency, the (error) response is stored as the final result for the idempotency key. Subsequent messages with the same idempotency key not be processed beyond returning the stored response.
+   *
+   * @param requestedTestErrorResponseCode
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon requestedTestErrorResponseCode(String requestedTestErrorResponseCode) {
     this.requestedTestErrorResponseCode = requestedTestErrorResponseCode;
     return this;
   }
 
-   /**
-   * Triggers test scenarios that allow to replicate certain communication errors.  Allowed values: * **NO_CONNECTION_AVAILABLE** – There wasn&#39;t a connection available to service the outgoing communication. This is a transient, retriable error since no messaging could be initiated to an issuing system (or third-party acquiring system). Therefore, the header Transient-Error: true is returned in the response. A subsequent request using the same idempotency key will be processed as if it was the first request. * **IOEXCEPTION_RECEIVED** – Something went wrong during transmission of the message or receiving the response. This is a classified as non-transient because the message could have been received by the issuing party and been acted upon. No transient error header is returned. If using idempotency, the (error) response is stored as the final result for the idempotency key. Subsequent messages with the same idempotency key not be processed beyond returning the stored response.
+  /**
+   * Triggers test scenarios that allow to replicate certain communication errors.  Allowed values: * **NO_CONNECTION_AVAILABLE** – There wasn't a connection available to service the outgoing communication. This is a transient, retriable error since no messaging could be initiated to an issuing system (or third-party acquiring system). Therefore, the header Transient-Error: true is returned in the response. A subsequent request using the same idempotency key will be processed as if it was the first request. * **IOEXCEPTION_RECEIVED** – Something went wrong during transmission of the message or receiving the response. This is a classified as non-transient because the message could have been received by the issuing party and been acted upon. No transient error header is returned. If using idempotency, the (error) response is stored as the final result for the idempotency key. Subsequent messages with the same idempotency key not be processed beyond returning the stored response.
    * @return requestedTestErrorResponseCode
-  **/
+   */
   @ApiModelProperty(value = "Triggers test scenarios that allow to replicate certain communication errors.  Allowed values: * **NO_CONNECTION_AVAILABLE** – There wasn't a connection available to service the outgoing communication. This is a transient, retriable error since no messaging could be initiated to an issuing system (or third-party acquiring system). Therefore, the header Transient-Error: true is returned in the response. A subsequent request using the same idempotency key will be processed as if it was the first request. * **IOEXCEPTION_RECEIVED** – Something went wrong during transmission of the message or receiving the response. This is a classified as non-transient because the message could have been received by the issuing party and been acted upon. No transient error header is returned. If using idempotency, the (error) response is stored as the final result for the idempotency key. Subsequent messages with the same idempotency key not be processed beyond returning the stored response.")
   @JsonProperty(JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestedTestErrorResponseCode() {
     return requestedTestErrorResponseCode;
   }
 
-
- /**
-  * Triggers test scenarios that allow to replicate certain communication errors.  Allowed values: * **NO_CONNECTION_AVAILABLE** – There wasn&#39;t a connection available to service the outgoing communication. This is a transient, retriable error since no messaging could be initiated to an issuing system (or third-party acquiring system). Therefore, the header Transient-Error: true is returned in the response. A subsequent request using the same idempotency key will be processed as if it was the first request. * **IOEXCEPTION_RECEIVED** – Something went wrong during transmission of the message or receiving the response. This is a classified as non-transient because the message could have been received by the issuing party and been acted upon. No transient error header is returned. If using idempotency, the (error) response is stored as the final result for the idempotency key. Subsequent messages with the same idempotency key not be processed beyond returning the stored response.
-  *
-  * @param requestedTestErrorResponseCode
-  */ 
+  /**
+   * Triggers test scenarios that allow to replicate certain communication errors.  Allowed values: * **NO_CONNECTION_AVAILABLE** – There wasn't a connection available to service the outgoing communication. This is a transient, retriable error since no messaging could be initiated to an issuing system (or third-party acquiring system). Therefore, the header Transient-Error: true is returned in the response. A subsequent request using the same idempotency key will be processed as if it was the first request. * **IOEXCEPTION_RECEIVED** – Something went wrong during transmission of the message or receiving the response. This is a classified as non-transient because the message could have been received by the issuing party and been acted upon. No transient error header is returned. If using idempotency, the (error) response is stored as the final result for the idempotency key. Subsequent messages with the same idempotency key not be processed beyond returning the stored response.
+   *
+   * @param requestedTestErrorResponseCode
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedTestErrorResponseCode(String requestedTestErrorResponseCode) {
     this.requestedTestErrorResponseCode = requestedTestErrorResponseCode;
   }
 
-
+  /**
+   * Set to true to authorise a part of the requested amount in case the cardholder does not have enough funds on their account.  If a payment was partially authorised, the response includes resultCode: PartiallyAuthorised and the authorised amount in additionalData.authorisedAmountValue. To enable this functionality, contact our Support Team.
+   *
+   * @param allowPartialAuth
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon allowPartialAuth(String allowPartialAuth) {
     this.allowPartialAuth = allowPartialAuth;
     return this;
   }
 
-   /**
+  /**
    * Set to true to authorise a part of the requested amount in case the cardholder does not have enough funds on their account.  If a payment was partially authorised, the response includes resultCode: PartiallyAuthorised and the authorised amount in additionalData.authorisedAmountValue. To enable this functionality, contact our Support Team.
    * @return allowPartialAuth
-  **/
+   */
   @ApiModelProperty(value = "Set to true to authorise a part of the requested amount in case the cardholder does not have enough funds on their account.  If a payment was partially authorised, the response includes resultCode: PartiallyAuthorised and the authorised amount in additionalData.authorisedAmountValue. To enable this functionality, contact our Support Team.")
   @JsonProperty(JSON_PROPERTY_ALLOW_PARTIAL_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAllowPartialAuth() {
     return allowPartialAuth;
   }
 
-
- /**
-  * Set to true to authorise a part of the requested amount in case the cardholder does not have enough funds on their account.  If a payment was partially authorised, the response includes resultCode: PartiallyAuthorised and the authorised amount in additionalData.authorisedAmountValue. To enable this functionality, contact our Support Team.
-  *
-  * @param allowPartialAuth
-  */ 
+  /**
+   * Set to true to authorise a part of the requested amount in case the cardholder does not have enough funds on their account.  If a payment was partially authorised, the response includes resultCode: PartiallyAuthorised and the authorised amount in additionalData.authorisedAmountValue. To enable this functionality, contact our Support Team.
+   *
+   * @param allowPartialAuth
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOW_PARTIAL_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowPartialAuth(String allowPartialAuth) {
     this.allowPartialAuth = allowPartialAuth;
   }
 
-
+  /**
+   * Flags a card payment request for either pre-authorisation or final authorisation. For more information, refer to [Authorisation types](https://docs.adyen.com/online-payments/adjust-authorisation#authorisation-types).  Allowed values: * **PreAuth** – flags the payment request to be handled as a pre-authorisation. * **FinalAuth** – flags the payment request to be handled as a final authorisation.
+   *
+   * @param authorisationType
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon authorisationType(String authorisationType) {
     this.authorisationType = authorisationType;
     return this;
   }
 
-   /**
+  /**
    * Flags a card payment request for either pre-authorisation or final authorisation. For more information, refer to [Authorisation types](https://docs.adyen.com/online-payments/adjust-authorisation#authorisation-types).  Allowed values: * **PreAuth** – flags the payment request to be handled as a pre-authorisation. * **FinalAuth** – flags the payment request to be handled as a final authorisation.
    * @return authorisationType
-  **/
+   */
   @ApiModelProperty(value = "Flags a card payment request for either pre-authorisation or final authorisation. For more information, refer to [Authorisation types](https://docs.adyen.com/online-payments/adjust-authorisation#authorisation-types).  Allowed values: * **PreAuth** – flags the payment request to be handled as a pre-authorisation. * **FinalAuth** – flags the payment request to be handled as a final authorisation.")
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthorisationType() {
     return authorisationType;
   }
 
-
- /**
-  * Flags a card payment request for either pre-authorisation or final authorisation. For more information, refer to [Authorisation types](https://docs.adyen.com/online-payments/adjust-authorisation#authorisation-types).  Allowed values: * **PreAuth** – flags the payment request to be handled as a pre-authorisation. * **FinalAuth** – flags the payment request to be handled as a final authorisation.
-  *
-  * @param authorisationType
-  */ 
+  /**
+   * Flags a card payment request for either pre-authorisation or final authorisation. For more information, refer to [Authorisation types](https://docs.adyen.com/online-payments/adjust-authorisation#authorisation-types).  Allowed values: * **PreAuth** – flags the payment request to be handled as a pre-authorisation. * **FinalAuth** – flags the payment request to be handled as a final authorisation.
+   *
+   * @param authorisationType
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationType(String authorisationType) {
     this.authorisationType = authorisationType;
   }
 
-
+  /**
+   * Allows you to determine or override the acquirer account that should be used for the transaction.  If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request's additional data to target a specific acquirer.  To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new).
+   *
+   * @param customRoutingFlag
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon customRoutingFlag(String customRoutingFlag) {
     this.customRoutingFlag = customRoutingFlag;
     return this;
   }
 
-   /**
-   * Allows you to determine or override the acquirer account that should be used for the transaction.  If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request&#39;s additional data to target a specific acquirer.  To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new).
+  /**
+   * Allows you to determine or override the acquirer account that should be used for the transaction.  If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request's additional data to target a specific acquirer.  To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return customRoutingFlag
-  **/
+   */
   @ApiModelProperty(value = "Allows you to determine or override the acquirer account that should be used for the transaction.  If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request's additional data to target a specific acquirer.  To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new).")
   @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomRoutingFlag() {
     return customRoutingFlag;
   }
 
-
- /**
-  * Allows you to determine or override the acquirer account that should be used for the transaction.  If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request&#39;s additional data to target a specific acquirer.  To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new).
-  *
-  * @param customRoutingFlag
-  */ 
+  /**
+   * Allows you to determine or override the acquirer account that should be used for the transaction.  If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request's additional data to target a specific acquirer.  To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new).
+   *
+   * @param customRoutingFlag
+   */ 
   @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomRoutingFlag(String customRoutingFlag) {
     this.customRoutingFlag = customRoutingFlag;
   }
 
-
+  /**
+   * In case of [asynchronous authorisation adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#adjust-authorisation), this field denotes why the additional payment is made.  Possible values:   * **NoShow**: An incremental charge is carried out because of a no-show for a guaranteed reservation.   * **DelayedCharge**: An incremental charge is carried out to process an additional payment after the original services have been rendered and the respective payment has been processed.
+   *
+   * @param industryUsage
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon industryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
     return this;
   }
 
-   /**
+  /**
    * In case of [asynchronous authorisation adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#adjust-authorisation), this field denotes why the additional payment is made.  Possible values:   * **NoShow**: An incremental charge is carried out because of a no-show for a guaranteed reservation.   * **DelayedCharge**: An incremental charge is carried out to process an additional payment after the original services have been rendered and the respective payment has been processed.
    * @return industryUsage
-  **/
+   */
   @ApiModelProperty(value = "In case of [asynchronous authorisation adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#adjust-authorisation), this field denotes why the additional payment is made.  Possible values:   * **NoShow**: An incremental charge is carried out because of a no-show for a guaranteed reservation.   * **DelayedCharge**: An incremental charge is carried out to process an additional payment after the original services have been rendered and the respective payment has been processed.")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public IndustryUsageEnum getIndustryUsage() {
     return industryUsage;
   }
 
-
- /**
-  * In case of [asynchronous authorisation adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#adjust-authorisation), this field denotes why the additional payment is made.  Possible values:   * **NoShow**: An incremental charge is carried out because of a no-show for a guaranteed reservation.   * **DelayedCharge**: An incremental charge is carried out to process an additional payment after the original services have been rendered and the respective payment has been processed.
-  *
-  * @param industryUsage
-  */ 
+  /**
+   * In case of [asynchronous authorisation adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#adjust-authorisation), this field denotes why the additional payment is made.  Possible values:   * **NoShow**: An incremental charge is carried out because of a no-show for a guaranteed reservation.   * **DelayedCharge**: An incremental charge is carried out to process an additional payment after the original services have been rendered and the respective payment has been processed.
+   *
+   * @param industryUsage
+   */ 
   @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
   }
 
-
+  /**
+   * Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction.
+   *
+   * @param manualCapture
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon manualCapture(String manualCapture) {
     this.manualCapture = manualCapture;
     return this;
   }
 
-   /**
+  /**
    * Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction.
    * @return manualCapture
-  **/
+   */
   @ApiModelProperty(value = "Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction.")
   @JsonProperty(JSON_PROPERTY_MANUAL_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getManualCapture() {
     return manualCapture;
   }
 
-
- /**
-  * Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction.
-  *
-  * @param manualCapture
-  */ 
+  /**
+   * Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction.
+   *
+   * @param manualCapture
+   */ 
   @JsonProperty(JSON_PROPERTY_MANUAL_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManualCapture(String manualCapture) {
     this.manualCapture = manualCapture;
   }
 
-
+  /**
+   * Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.
+   *
+   * @param networkTxReference
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
     return this;
   }
 
-   /**
-   * Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending &#x60;shopperInteraction&#x60; **ContAuth** and &#x60;recurringProcessingModel&#x60; **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.
+  /**
+   * Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.
    * @return networkTxReference
-  **/
+   */
   @ApiModelProperty(value = "Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetworkTxReference() {
     return networkTxReference;
   }
 
-
- /**
-  * Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending &#x60;shopperInteraction&#x60; **ContAuth** and &#x60;recurringProcessingModel&#x60; **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.
-  *
-  * @param networkTxReference
-  */ 
+  /**
+   * Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.
+   *
+   * @param networkTxReference
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
   }
 
-
+  /**
+   * Boolean indicator that can be optionally used for performing debit transactions on combo cards (for example, combo cards in Brazil). This is not mandatory but we recommend that you set this to true if you want to use the `selectedBrand` value to specify how to process the transaction.
+   *
+   * @param overwriteBrand
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon overwriteBrand(String overwriteBrand) {
     this.overwriteBrand = overwriteBrand;
     return this;
   }
 
-   /**
-   * Boolean indicator that can be optionally used for performing debit transactions on combo cards (for example, combo cards in Brazil). This is not mandatory but we recommend that you set this to true if you want to use the &#x60;selectedBrand&#x60; value to specify how to process the transaction.
+  /**
+   * Boolean indicator that can be optionally used for performing debit transactions on combo cards (for example, combo cards in Brazil). This is not mandatory but we recommend that you set this to true if you want to use the `selectedBrand` value to specify how to process the transaction.
    * @return overwriteBrand
-  **/
+   */
   @ApiModelProperty(value = "Boolean indicator that can be optionally used for performing debit transactions on combo cards (for example, combo cards in Brazil). This is not mandatory but we recommend that you set this to true if you want to use the `selectedBrand` value to specify how to process the transaction.")
   @JsonProperty(JSON_PROPERTY_OVERWRITE_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOverwriteBrand() {
     return overwriteBrand;
   }
 
-
- /**
-  * Boolean indicator that can be optionally used for performing debit transactions on combo cards (for example, combo cards in Brazil). This is not mandatory but we recommend that you set this to true if you want to use the &#x60;selectedBrand&#x60; value to specify how to process the transaction.
-  *
-  * @param overwriteBrand
-  */ 
+  /**
+   * Boolean indicator that can be optionally used for performing debit transactions on combo cards (for example, combo cards in Brazil). This is not mandatory but we recommend that you set this to true if you want to use the `selectedBrand` value to specify how to process the transaction.
+   *
+   * @param overwriteBrand
+   */ 
   @JsonProperty(JSON_PROPERTY_OVERWRITE_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOverwriteBrand(String overwriteBrand) {
     this.overwriteBrand = overwriteBrand;
   }
 
-
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the city of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 13 characters.
+   *
+   * @param subMerchantCity
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantCity(String subMerchantCity) {
     this.subMerchantCity = subMerchantCity;
     return this;
   }
 
-   /**
-   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the city of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 13 characters.
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the city of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 13 characters.
    * @return subMerchantCity
-  **/
+   */
   @ApiModelProperty(value = "This field is required if the transaction is performed by a registered payment facilitator. This field must contain the city of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 13 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantCity() {
     return subMerchantCity;
   }
 
-
- /**
-  * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the city of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 13 characters.
-  *
-  * @param subMerchantCity
-  */ 
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the city of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 13 characters.
+   *
+   * @param subMerchantCity
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantCity(String subMerchantCity) {
     this.subMerchantCity = subMerchantCity;
   }
 
-
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the three-letter country code of the actual merchant's address. * Format: alpha-numeric. * Fixed length: 3 characters.
+   *
+   * @param subMerchantCountry
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantCountry(String subMerchantCountry) {
     this.subMerchantCountry = subMerchantCountry;
     return this;
   }
 
-   /**
-   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the three-letter country code of the actual merchant&#39;s address. * Format: alpha-numeric. * Fixed length: 3 characters.
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the three-letter country code of the actual merchant's address. * Format: alpha-numeric. * Fixed length: 3 characters.
    * @return subMerchantCountry
-  **/
+   */
   @ApiModelProperty(value = "This field is required if the transaction is performed by a registered payment facilitator. This field must contain the three-letter country code of the actual merchant's address. * Format: alpha-numeric. * Fixed length: 3 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantCountry() {
     return subMerchantCountry;
   }
 
-
- /**
-  * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the three-letter country code of the actual merchant&#39;s address. * Format: alpha-numeric. * Fixed length: 3 characters.
-  *
-  * @param subMerchantCountry
-  */ 
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the three-letter country code of the actual merchant's address. * Format: alpha-numeric. * Fixed length: 3 characters.
+   *
+   * @param subMerchantCountry
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantCountry(String subMerchantCountry) {
     this.subMerchantCountry = subMerchantCountry;
   }
 
-
+  /**
+   * This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.  A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator. * Format: alpha-numeric. * Fixed length: 15 characters.
+   *
+   * @param subMerchantID
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantID(String subMerchantID) {
     this.subMerchantID = subMerchantID;
     return this;
   }
 
-   /**
+  /**
    * This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.  A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator. * Format: alpha-numeric. * Fixed length: 15 characters.
    * @return subMerchantID
-  **/
+   */
   @ApiModelProperty(value = "This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.  A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator. * Format: alpha-numeric. * Fixed length: 15 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantID() {
     return subMerchantID;
   }
 
-
- /**
-  * This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.  A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator. * Format: alpha-numeric. * Fixed length: 15 characters.
-  *
-  * @param subMerchantID
-  */ 
+  /**
+   * This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.  A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator. * Format: alpha-numeric. * Fixed length: 15 characters.
+   *
+   * @param subMerchantID
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantID(String subMerchantID) {
     this.subMerchantID = subMerchantID;
   }
 
-
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the name of the actual merchant. * Format: alpha-numeric. * Maximum length: 22 characters.
+   *
+   * @param subMerchantName
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantName(String subMerchantName) {
     this.subMerchantName = subMerchantName;
     return this;
   }
 
-   /**
+  /**
    * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the name of the actual merchant. * Format: alpha-numeric. * Maximum length: 22 characters.
    * @return subMerchantName
-  **/
+   */
   @ApiModelProperty(value = "This field is required if the transaction is performed by a registered payment facilitator. This field must contain the name of the actual merchant. * Format: alpha-numeric. * Maximum length: 22 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantName() {
     return subMerchantName;
   }
 
-
- /**
-  * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the name of the actual merchant. * Format: alpha-numeric. * Maximum length: 22 characters.
-  *
-  * @param subMerchantName
-  */ 
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the name of the actual merchant. * Format: alpha-numeric. * Maximum length: 22 characters.
+   *
+   * @param subMerchantName
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantName(String subMerchantName) {
     this.subMerchantName = subMerchantName;
   }
 
-
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the postal code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 10 characters.
+   *
+   * @param subMerchantPostalCode
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantPostalCode(String subMerchantPostalCode) {
     this.subMerchantPostalCode = subMerchantPostalCode;
     return this;
   }
 
-   /**
-   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the postal code of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 10 characters.
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the postal code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 10 characters.
    * @return subMerchantPostalCode
-  **/
+   */
   @ApiModelProperty(value = "This field is required if the transaction is performed by a registered payment facilitator. This field must contain the postal code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 10 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantPostalCode() {
     return subMerchantPostalCode;
   }
 
-
- /**
-  * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the postal code of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 10 characters.
-  *
-  * @param subMerchantPostalCode
-  */ 
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the postal code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 10 characters.
+   *
+   * @param subMerchantPostalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantPostalCode(String subMerchantPostalCode) {
     this.subMerchantPostalCode = subMerchantPostalCode;
   }
 
-
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator, and if applicable to the country. This field must contain the state code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 3 characters.
+   *
+   * @param subMerchantState
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantState(String subMerchantState) {
     this.subMerchantState = subMerchantState;
     return this;
   }
 
-   /**
-   * This field is required if the transaction is performed by a registered payment facilitator, and if applicable to the country. This field must contain the state code of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 3 characters.
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator, and if applicable to the country. This field must contain the state code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 3 characters.
    * @return subMerchantState
-  **/
+   */
   @ApiModelProperty(value = "This field is required if the transaction is performed by a registered payment facilitator, and if applicable to the country. This field must contain the state code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 3 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantState() {
     return subMerchantState;
   }
 
-
- /**
-  * This field is required if the transaction is performed by a registered payment facilitator, and if applicable to the country. This field must contain the state code of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 3 characters.
-  *
-  * @param subMerchantState
-  */ 
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator, and if applicable to the country. This field must contain the state code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 3 characters.
+   *
+   * @param subMerchantState
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantState(String subMerchantState) {
     this.subMerchantState = subMerchantState;
   }
 
-
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 60 characters.
+   *
+   * @param subMerchantStreet
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantStreet(String subMerchantStreet) {
     this.subMerchantStreet = subMerchantStreet;
     return this;
   }
 
-   /**
-   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 60 characters.
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 60 characters.
    * @return subMerchantStreet
-  **/
+   */
   @ApiModelProperty(value = "This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 60 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantStreet() {
     return subMerchantStreet;
   }
 
-
- /**
-  * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant&#39;s address. * Format: alpha-numeric. * Maximum length: 60 characters.
-  *
-  * @param subMerchantStreet
-  */ 
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 60 characters.
+   *
+   * @param subMerchantStreet
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantStreet(String subMerchantStreet) {
     this.subMerchantStreet = subMerchantStreet;
   }
 
-
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant. * Format: alpha-numeric. * Fixed length: 11 or 14 characters.
+   *
+   * @param subMerchantTaxId
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
   public AdditionalDataCommon subMerchantTaxId(String subMerchantTaxId) {
     this.subMerchantTaxId = subMerchantTaxId;
     return this;
   }
 
-   /**
+  /**
    * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant. * Format: alpha-numeric. * Fixed length: 11 or 14 characters.
    * @return subMerchantTaxId
-  **/
+   */
   @ApiModelProperty(value = "This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant. * Format: alpha-numeric. * Fixed length: 11 or 14 characters.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubMerchantTaxId() {
     return subMerchantTaxId;
   }
 
-
- /**
-  * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant. * Format: alpha-numeric. * Fixed length: 11 or 14 characters.
-  *
-  * @param subMerchantTaxId
-  */ 
+  /**
+   * This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant. * Format: alpha-numeric. * Fixed length: 11 or 14 characters.
+   *
+   * @param subMerchantTaxId
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantTaxId(String subMerchantTaxId) {
     this.subMerchantTaxId = subMerchantTaxId;
   }
-
 
   /**
    * Return true if this AdditionalDataCommon object is equal to o.

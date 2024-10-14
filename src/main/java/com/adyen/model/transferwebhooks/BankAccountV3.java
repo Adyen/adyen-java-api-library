@@ -47,65 +47,71 @@ public class BankAccountV3 {
   public BankAccountV3() { 
   }
 
+  /**
+   * accountHolder
+   *
+   * @param accountHolder
+   * @return the current {@code BankAccountV3} instance, allowing for method chaining
+   */
   public BankAccountV3 accountHolder(PartyIdentification accountHolder) {
     this.accountHolder = accountHolder;
     return this;
   }
 
-   /**
-   * Get accountHolder
+  /**
+   * accountHolder
    * @return accountHolder
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PartyIdentification getAccountHolder() {
     return accountHolder;
   }
 
-
- /**
-  * accountHolder
-  *
-  * @param accountHolder
-  */ 
+  /**
+   * accountHolder
+   *
+   * @param accountHolder
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(PartyIdentification accountHolder) {
     this.accountHolder = accountHolder;
   }
 
-
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   * @return the current {@code BankAccountV3} instance, allowing for method chaining
+   */
   public BankAccountV3 accountIdentification(BankAccountV3AccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
     return this;
   }
 
-   /**
-   * Get accountIdentification
+  /**
+   * accountIdentification
    * @return accountIdentification
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccountV3AccountIdentification getAccountIdentification() {
     return accountIdentification;
   }
 
-
- /**
-  * accountIdentification
-  *
-  * @param accountIdentification
-  */ 
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountV3AccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
   }
-
 
   /**
    * Return true if this BankAccountV3 object is equal to o.

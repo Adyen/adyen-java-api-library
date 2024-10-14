@@ -65,185 +65,203 @@ public class ApplicationInfo {
   public ApplicationInfo() { 
   }
 
+  /**
+   * adyenLibrary
+   *
+   * @param adyenLibrary
+   * @return the current {@code ApplicationInfo} instance, allowing for method chaining
+   */
   public ApplicationInfo adyenLibrary(CommonField adyenLibrary) {
     this.adyenLibrary = adyenLibrary;
     return this;
   }
 
-   /**
-   * Get adyenLibrary
+  /**
+   * adyenLibrary
    * @return adyenLibrary
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADYEN_LIBRARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CommonField getAdyenLibrary() {
     return adyenLibrary;
   }
 
-
- /**
-  * adyenLibrary
-  *
-  * @param adyenLibrary
-  */ 
+  /**
+   * adyenLibrary
+   *
+   * @param adyenLibrary
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_LIBRARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenLibrary(CommonField adyenLibrary) {
     this.adyenLibrary = adyenLibrary;
   }
 
-
+  /**
+   * adyenPaymentSource
+   *
+   * @param adyenPaymentSource
+   * @return the current {@code ApplicationInfo} instance, allowing for method chaining
+   */
   public ApplicationInfo adyenPaymentSource(CommonField adyenPaymentSource) {
     this.adyenPaymentSource = adyenPaymentSource;
     return this;
   }
 
-   /**
-   * Get adyenPaymentSource
+  /**
+   * adyenPaymentSource
    * @return adyenPaymentSource
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADYEN_PAYMENT_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CommonField getAdyenPaymentSource() {
     return adyenPaymentSource;
   }
 
-
- /**
-  * adyenPaymentSource
-  *
-  * @param adyenPaymentSource
-  */ 
+  /**
+   * adyenPaymentSource
+   *
+   * @param adyenPaymentSource
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_PAYMENT_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenPaymentSource(CommonField adyenPaymentSource) {
     this.adyenPaymentSource = adyenPaymentSource;
   }
 
-
+  /**
+   * externalPlatform
+   *
+   * @param externalPlatform
+   * @return the current {@code ApplicationInfo} instance, allowing for method chaining
+   */
   public ApplicationInfo externalPlatform(ExternalPlatform externalPlatform) {
     this.externalPlatform = externalPlatform;
     return this;
   }
 
-   /**
-   * Get externalPlatform
+  /**
+   * externalPlatform
    * @return externalPlatform
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ExternalPlatform getExternalPlatform() {
     return externalPlatform;
   }
 
-
- /**
-  * externalPlatform
-  *
-  * @param externalPlatform
-  */ 
+  /**
+   * externalPlatform
+   *
+   * @param externalPlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalPlatform(ExternalPlatform externalPlatform) {
     this.externalPlatform = externalPlatform;
   }
 
-
+  /**
+   * merchantApplication
+   *
+   * @param merchantApplication
+   * @return the current {@code ApplicationInfo} instance, allowing for method chaining
+   */
   public ApplicationInfo merchantApplication(CommonField merchantApplication) {
     this.merchantApplication = merchantApplication;
     return this;
   }
 
-   /**
-   * Get merchantApplication
+  /**
+   * merchantApplication
    * @return merchantApplication
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CommonField getMerchantApplication() {
     return merchantApplication;
   }
 
-
- /**
-  * merchantApplication
-  *
-  * @param merchantApplication
-  */ 
+  /**
+   * merchantApplication
+   *
+   * @param merchantApplication
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantApplication(CommonField merchantApplication) {
     this.merchantApplication = merchantApplication;
   }
 
-
+  /**
+   * merchantDevice
+   *
+   * @param merchantDevice
+   * @return the current {@code ApplicationInfo} instance, allowing for method chaining
+   */
   public ApplicationInfo merchantDevice(MerchantDevice merchantDevice) {
     this.merchantDevice = merchantDevice;
     return this;
   }
 
-   /**
-   * Get merchantDevice
+  /**
+   * merchantDevice
    * @return merchantDevice
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MerchantDevice getMerchantDevice() {
     return merchantDevice;
   }
 
-
- /**
-  * merchantDevice
-  *
-  * @param merchantDevice
-  */ 
+  /**
+   * merchantDevice
+   *
+   * @param merchantDevice
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantDevice(MerchantDevice merchantDevice) {
     this.merchantDevice = merchantDevice;
   }
 
-
+  /**
+   * shopperInteractionDevice
+   *
+   * @param shopperInteractionDevice
+   * @return the current {@code ApplicationInfo} instance, allowing for method chaining
+   */
   public ApplicationInfo shopperInteractionDevice(ShopperInteractionDevice shopperInteractionDevice) {
     this.shopperInteractionDevice = shopperInteractionDevice;
     return this;
   }
 
-   /**
-   * Get shopperInteractionDevice
+  /**
+   * shopperInteractionDevice
    * @return shopperInteractionDevice
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ShopperInteractionDevice getShopperInteractionDevice() {
     return shopperInteractionDevice;
   }
 
-
- /**
-  * shopperInteractionDevice
-  *
-  * @param shopperInteractionDevice
-  */ 
+  /**
+   * shopperInteractionDevice
+   *
+   * @param shopperInteractionDevice
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteractionDevice(ShopperInteractionDevice shopperInteractionDevice) {
     this.shopperInteractionDevice = shopperInteractionDevice;
   }
-
 
   /**
    * Return true if this ApplicationInfo object is equal to o.

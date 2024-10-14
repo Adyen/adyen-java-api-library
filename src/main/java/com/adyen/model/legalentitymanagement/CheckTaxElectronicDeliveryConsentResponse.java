@@ -41,35 +41,38 @@ public class CheckTaxElectronicDeliveryConsentResponse {
   public CheckTaxElectronicDeliveryConsentResponse() { 
   }
 
+  /**
+   * Consent to electronically deliver tax form US1099-K.
+   *
+   * @param us1099k
+   * @return the current {@code CheckTaxElectronicDeliveryConsentResponse} instance, allowing for method chaining
+   */
   public CheckTaxElectronicDeliveryConsentResponse us1099k(Boolean us1099k) {
     this.us1099k = us1099k;
     return this;
   }
 
-   /**
+  /**
    * Consent to electronically deliver tax form US1099-K.
    * @return us1099k
-  **/
+   */
   @ApiModelProperty(value = "Consent to electronically deliver tax form US1099-K.")
   @JsonProperty(JSON_PROPERTY_US1099K)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getUs1099k() {
     return us1099k;
   }
 
-
- /**
-  * Consent to electronically deliver tax form US1099-K.
-  *
-  * @param us1099k
-  */ 
+  /**
+   * Consent to electronically deliver tax form US1099-K.
+   *
+   * @param us1099k
+   */ 
   @JsonProperty(JSON_PROPERTY_US1099K)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUs1099k(Boolean us1099k) {
     this.us1099k = us1099k;
   }
-
 
   /**
    * Return true if this CheckTaxElectronicDeliveryConsentResponse object is equal to o.

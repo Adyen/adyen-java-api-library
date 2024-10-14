@@ -41,35 +41,38 @@ public class InstallmentsNumber {
   public InstallmentsNumber() { 
   }
 
+  /**
+   * Maximum number of installments
+   *
+   * @param maxNumberOfInstallments
+   * @return the current {@code InstallmentsNumber} instance, allowing for method chaining
+   */
   public InstallmentsNumber maxNumberOfInstallments(Integer maxNumberOfInstallments) {
     this.maxNumberOfInstallments = maxNumberOfInstallments;
     return this;
   }
 
-   /**
+  /**
    * Maximum number of installments
    * @return maxNumberOfInstallments
-  **/
+   */
   @ApiModelProperty(required = true, value = "Maximum number of installments")
   @JsonProperty(JSON_PROPERTY_MAX_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getMaxNumberOfInstallments() {
     return maxNumberOfInstallments;
   }
 
-
- /**
-  * Maximum number of installments
-  *
-  * @param maxNumberOfInstallments
-  */ 
+  /**
+   * Maximum number of installments
+   *
+   * @param maxNumberOfInstallments
+   */ 
   @JsonProperty(JSON_PROPERTY_MAX_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxNumberOfInstallments(Integer maxNumberOfInstallments) {
     this.maxNumberOfInstallments = maxNumberOfInstallments;
   }
-
 
   /**
    * Return true if this InstallmentsNumber object is equal to o.

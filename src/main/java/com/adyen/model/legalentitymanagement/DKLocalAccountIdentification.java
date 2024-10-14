@@ -82,95 +82,104 @@ public class DKLocalAccountIdentification {
   public DKLocalAccountIdentification() { 
   }
 
+  /**
+   * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
+   *
+   * @param accountNumber
+   * @return the current {@code DKLocalAccountIdentification} instance, allowing for method chaining
+   */
   public DKLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
+   *
+   * @param bankCode
+   * @return the current {@code DKLocalAccountIdentification} instance, allowing for method chaining
+   */
   public DKLocalAccountIdentification bankCode(String bankCode) {
     this.bankCode = bankCode;
     return this;
   }
 
-   /**
+  /**
    * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    * @return bankCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 4-digit bank code (Registreringsnummer) (without separators or whitespace).")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBankCode() {
     return bankCode;
   }
 
-
- /**
-  * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
-  *
-  * @param bankCode
-  */ 
+  /**
+   * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
+   *
+   * @param bankCode
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
   }
 
-
+  /**
+   * **dkLocal**
+   *
+   * @param type
+   * @return the current {@code DKLocalAccountIdentification} instance, allowing for method chaining
+   */
   public DKLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **dkLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**dkLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **dkLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **dkLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this DKLocalAccountIdentification object is equal to o.

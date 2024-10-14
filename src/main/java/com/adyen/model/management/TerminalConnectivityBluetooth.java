@@ -45,65 +45,71 @@ public class TerminalConnectivityBluetooth {
   public TerminalConnectivityBluetooth() { 
   }
 
+  /**
+   * The terminal's Bluetooth IP address.
+   *
+   * @param ipAddress
+   * @return the current {@code TerminalConnectivityBluetooth} instance, allowing for method chaining
+   */
   public TerminalConnectivityBluetooth ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
 
-   /**
-   * The terminal&#39;s Bluetooth IP address.
+  /**
+   * The terminal's Bluetooth IP address.
    * @return ipAddress
-  **/
+   */
   @ApiModelProperty(value = "The terminal's Bluetooth IP address.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIpAddress() {
     return ipAddress;
   }
 
-
- /**
-  * The terminal&#39;s Bluetooth IP address.
-  *
-  * @param ipAddress
-  */ 
+  /**
+   * The terminal's Bluetooth IP address.
+   *
+   * @param ipAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
   }
 
-
+  /**
+   * The terminal's Bluetooth MAC address.
+   *
+   * @param macAddress
+   * @return the current {@code TerminalConnectivityBluetooth} instance, allowing for method chaining
+   */
   public TerminalConnectivityBluetooth macAddress(String macAddress) {
     this.macAddress = macAddress;
     return this;
   }
 
-   /**
-   * The terminal&#39;s Bluetooth MAC address.
+  /**
+   * The terminal's Bluetooth MAC address.
    * @return macAddress
-  **/
+   */
   @ApiModelProperty(value = "The terminal's Bluetooth MAC address.")
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMacAddress() {
     return macAddress;
   }
 
-
- /**
-  * The terminal&#39;s Bluetooth MAC address.
-  *
-  * @param macAddress
-  */ 
+  /**
+   * The terminal's Bluetooth MAC address.
+   *
+   * @param macAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {
     this.macAddress = macAddress;
   }
-
 
   /**
    * Return true if this TerminalConnectivityBluetooth object is equal to o.

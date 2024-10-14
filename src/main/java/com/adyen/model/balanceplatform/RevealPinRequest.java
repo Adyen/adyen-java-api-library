@@ -45,65 +45,71 @@ public class RevealPinRequest {
   public RevealPinRequest() { 
   }
 
+  /**
+   * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
+   *
+   * @param encryptedKey
+   * @return the current {@code RevealPinRequest} instance, allowing for method chaining
+   */
   public RevealPinRequest encryptedKey(String encryptedKey) {
     this.encryptedKey = encryptedKey;
     return this;
   }
 
-   /**
+  /**
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    * @return encryptedKey
-  **/
+   */
   @ApiModelProperty(required = true, value = "The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEncryptedKey() {
     return encryptedKey;
   }
 
-
- /**
-  * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
-  *
-  * @param encryptedKey
-  */ 
+  /**
+   * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
+   *
+   * @param encryptedKey
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedKey(String encryptedKey) {
     this.encryptedKey = encryptedKey;
   }
 
-
+  /**
+   * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
+   *
+   * @param paymentInstrumentId
+   * @return the current {@code RevealPinRequest} instance, allowing for method chaining
+   */
   public RevealPinRequest paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    * @return paymentInstrumentId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the payment instrument, which is the card for which you are managing the PIN.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
-  *
-  * @param paymentInstrumentId
-  */ 
+  /**
+   * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
+   *
+   * @param paymentInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
-
 
   /**
    * Return true if this RevealPinRequest object is equal to o.

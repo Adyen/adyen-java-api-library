@@ -32,11 +32,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * RegisterSCARequest
  */
 @JsonPropertyOrder({
+  RegisterSCARequest.JSON_PROPERTY_NAME,
   RegisterSCARequest.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
   RegisterSCARequest.JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION
 })
 
 public class RegisterSCARequest {
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
 
@@ -46,65 +50,104 @@ public class RegisterSCARequest {
   public RegisterSCARequest() { 
   }
 
+  /**
+   * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a `name`, Adyen automatically generates one.
+   *
+   * @param name
+   * @return the current {@code RegisterSCARequest} instance, allowing for method chaining
+   */
+  public RegisterSCARequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a `name`, Adyen automatically generates one.
+   * @return name
+   */
+  @ApiModelProperty(value = "The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a `name`, Adyen automatically generates one.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a `name`, Adyen automatically generates one.
+   *
+   * @param name
+   */ 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   * The unique identifier of the payment instrument for which you are registering the SCA device.
+   *
+   * @param paymentInstrumentId
+   * @return the current {@code RegisterSCARequest} instance, allowing for method chaining
+   */
   public RegisterSCARequest paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    * @return paymentInstrumentId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the payment instrument for which you are registering the SCA device.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the payment instrument for which you are registering the SCA device.
-  *
-  * @param paymentInstrumentId
-  */ 
+  /**
+   * The unique identifier of the payment instrument for which you are registering the SCA device.
+   *
+   * @param paymentInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
-
+  /**
+   * strongCustomerAuthentication
+   *
+   * @param strongCustomerAuthentication
+   * @return the current {@code RegisterSCARequest} instance, allowing for method chaining
+   */
   public RegisterSCARequest strongCustomerAuthentication(DelegatedAuthenticationData strongCustomerAuthentication) {
     this.strongCustomerAuthentication = strongCustomerAuthentication;
     return this;
   }
 
-   /**
-   * Get strongCustomerAuthentication
+  /**
+   * strongCustomerAuthentication
    * @return strongCustomerAuthentication
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DelegatedAuthenticationData getStrongCustomerAuthentication() {
     return strongCustomerAuthentication;
   }
 
-
- /**
-  * strongCustomerAuthentication
-  *
-  * @param strongCustomerAuthentication
-  */ 
+  /**
+   * strongCustomerAuthentication
+   *
+   * @param strongCustomerAuthentication
+   */ 
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStrongCustomerAuthentication(DelegatedAuthenticationData strongCustomerAuthentication) {
     this.strongCustomerAuthentication = strongCustomerAuthentication;
   }
-
 
   /**
    * Return true if this RegisterSCARequest object is equal to o.
@@ -118,19 +161,21 @@ public class RegisterSCARequest {
       return false;
     }
     RegisterSCARequest registerSCARequest = (RegisterSCARequest) o;
-    return Objects.equals(this.paymentInstrumentId, registerSCARequest.paymentInstrumentId) &&
+    return Objects.equals(this.name, registerSCARequest.name) &&
+        Objects.equals(this.paymentInstrumentId, registerSCARequest.paymentInstrumentId) &&
         Objects.equals(this.strongCustomerAuthentication, registerSCARequest.strongCustomerAuthentication);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentInstrumentId, strongCustomerAuthentication);
+    return Objects.hash(name, paymentInstrumentId, strongCustomerAuthentication);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RegisterSCARequest {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");
     sb.append("    strongCustomerAuthentication: ").append(toIndentedString(strongCustomerAuthentication)).append("\n");
     sb.append("}");

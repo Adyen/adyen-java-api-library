@@ -53,125 +53,137 @@ public class UpdateSplitConfigurationRuleRequest {
   public UpdateSplitConfigurationRuleRequest() { 
   }
 
+  /**
+   * The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param currency
+   * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationRuleRequest currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return currency
-  **/
+   */
   @ApiModelProperty(required = true, value = "The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
-  *
-  * @param currency
-  */ 
+  /**
+   * The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
+   *
+   * @param fundingSource
+   * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationRuleRequest fundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
     return this;
   }
 
-   /**
+  /**
    * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * The payment method condition that defines whether the split logic applies.  Possible values: * [Payment method variant](https://docs.adyen.com/development-resources/paymentmethodvariant): Apply the split logic for a specific payment method. * **ANY**: Apply the split logic for all available payment methods.
+   *
+   * @param paymentMethod
+   * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationRuleRequest paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-   /**
+  /**
    * The payment method condition that defines whether the split logic applies.  Possible values: * [Payment method variant](https://docs.adyen.com/development-resources/paymentmethodvariant): Apply the split logic for a specific payment method. * **ANY**: Apply the split logic for all available payment methods.
    * @return paymentMethod
-  **/
+   */
   @ApiModelProperty(required = true, value = "The payment method condition that defines whether the split logic applies.  Possible values: * [Payment method variant](https://docs.adyen.com/development-resources/paymentmethodvariant): Apply the split logic for a specific payment method. * **ANY**: Apply the split logic for all available payment methods.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethod() {
     return paymentMethod;
   }
 
-
- /**
-  * The payment method condition that defines whether the split logic applies.  Possible values: * [Payment method variant](https://docs.adyen.com/development-resources/paymentmethodvariant): Apply the split logic for a specific payment method. * **ANY**: Apply the split logic for all available payment methods.
-  *
-  * @param paymentMethod
-  */ 
+  /**
+   * The payment method condition that defines whether the split logic applies.  Possible values: * [Payment method variant](https://docs.adyen.com/development-resources/paymentmethodvariant): Apply the split logic for a specific payment method. * **ANY**: Apply the split logic for all available payment methods.
+   *
+   * @param paymentMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-
+  /**
+   * The sales channel condition that defines whether the split logic applies.  Possible values: * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
+   *
+   * @param shopperInteraction
+   * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationRuleRequest shopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     return this;
   }
 
-   /**
+  /**
    * The sales channel condition that defines whether the split logic applies.  Possible values: * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
    * @return shopperInteraction
-  **/
+   */
   @ApiModelProperty(required = true, value = "The sales channel condition that defines whether the split logic applies.  Possible values: * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure payment terminal. * **ANY**: All sales channels.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperInteraction() {
     return shopperInteraction;
   }
 
-
- /**
-  * The sales channel condition that defines whether the split logic applies.  Possible values: * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
-  *
-  * @param shopperInteraction
-  */ 
+  /**
+   * The sales channel condition that defines whether the split logic applies.  Possible values: * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
+   *
+   * @param shopperInteraction
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
-
 
   /**
    * Return true if this UpdateSplitConfigurationRuleRequest object is equal to o.

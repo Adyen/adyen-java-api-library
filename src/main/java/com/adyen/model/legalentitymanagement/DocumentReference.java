@@ -69,156 +69,177 @@ public class DocumentReference {
   public DocumentReference() { 
   }
 
+  /**
+   * Identifies whether the document is active and used for checks.
+   *
+   * @param active
+   * @return the current {@code DocumentReference} instance, allowing for method chaining
+   */
   public DocumentReference active(Boolean active) {
     this.active = active;
     return this;
   }
 
-   /**
+  /**
    * Identifies whether the document is active and used for checks.
    * @return active
-  **/
+   */
   @ApiModelProperty(value = "Identifies whether the document is active and used for checks.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getActive() {
     return active;
   }
 
-
- /**
-  * Identifies whether the document is active and used for checks.
-  *
-  * @param active
-  */ 
+  /**
+   * Identifies whether the document is active and used for checks.
+   *
+   * @param active
+   */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
 
-
+  /**
+   * Your description for the document.
+   *
+   * @param description
+   * @return the current {@code DocumentReference} instance, allowing for method chaining
+   */
   public DocumentReference description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the document.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Your description for the document.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the document.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the document.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * Document name.
+   *
+   * @param fileName
+   * @return the current {@code DocumentReference} instance, allowing for method chaining
+   */
   public DocumentReference fileName(String fileName) {
     this.fileName = fileName;
     return this;
   }
 
-   /**
+  /**
    * Document name.
    * @return fileName
-  **/
+   */
   @ApiModelProperty(value = "Document name.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFileName() {
     return fileName;
   }
 
-
- /**
-  * Document name.
-  *
-  * @param fileName
-  */ 
+  /**
+   * Document name.
+   *
+   * @param fileName
+   */ 
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
 
-
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   * @return the current {@code DocumentReference} instance, allowing for method chaining
+   */
   public DocumentReference id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The modification date of the document.
+   *
+   * @param modificationDate
+   * @return the current {@code DocumentReference} instance, allowing for method chaining
+   */
   public DocumentReference modificationDate(OffsetDateTime modificationDate) {
     this.modificationDate = modificationDate;
     return this;
   }
 
-   /**
+  /**
    * The modification date of the document.
    * @return modificationDate
-  **/
+   */
   @ApiModelProperty(value = "The modification date of the document.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getModificationDate() {
     return modificationDate;
   }
 
-
- /**
-  * The modification date of the document.
-  *
-  * @param modificationDate
-  */ 
+  /**
+   * The modification date of the document.
+   *
+   * @param modificationDate
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationDate(OffsetDateTime modificationDate) {
     this.modificationDate = modificationDate;
   }
 
-
+  /**
+   * List of document pages
+   *
+   * @param pages
+   * @return the current {@code DocumentReference} instance, allowing for method chaining
+   */
   public DocumentReference pages(List<DocumentPage> pages) {
     this.pages = pages;
     return this;
@@ -232,60 +253,60 @@ public class DocumentReference {
     return this;
   }
 
-   /**
+  /**
    * List of document pages
    * @return pages
-  **/
+   */
   @ApiModelProperty(value = "List of document pages")
   @JsonProperty(JSON_PROPERTY_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DocumentPage> getPages() {
     return pages;
   }
 
-
- /**
-  * List of document pages
-  *
-  * @param pages
-  */ 
+  /**
+   * List of document pages
+   *
+   * @param pages
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPages(List<DocumentPage> pages) {
     this.pages = pages;
   }
 
-
+  /**
+   * Type of document, used when providing an ID number or uploading a document.
+   *
+   * @param type
+   * @return the current {@code DocumentReference} instance, allowing for method chaining
+   */
   public DocumentReference type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of document, used when providing an ID number or uploading a document.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Type of document, used when providing an ID number or uploading a document.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * Type of document, used when providing an ID number or uploading a document.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of document, used when providing an ID number or uploading a document.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this DocumentReference object is equal to o.

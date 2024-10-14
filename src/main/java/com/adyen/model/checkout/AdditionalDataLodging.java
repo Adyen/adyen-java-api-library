@@ -105,515 +105,566 @@ public class AdditionalDataLodging {
   public AdditionalDataLodging() { 
   }
 
+  /**
+   * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
+   *
+   * @param lodgingSpecialProgramCode
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingSpecialProgramCode(String lodgingSpecialProgramCode) {
     this.lodgingSpecialProgramCode = lodgingSpecialProgramCode;
     return this;
   }
 
-   /**
+  /**
    * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
    * @return lodgingSpecialProgramCode
-  **/
+   */
   @ApiModelProperty(value = "A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit")
   @JsonProperty(JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingSpecialProgramCode() {
     return lodgingSpecialProgramCode;
   }
 
-
- /**
-  * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
-  *
-  * @param lodgingSpecialProgramCode
-  */ 
+  /**
+   * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
+   *
+   * @param lodgingSpecialProgramCode
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingSpecialProgramCode(String lodgingSpecialProgramCode) {
     this.lodgingSpecialProgramCode = lodgingSpecialProgramCode;
   }
 
-
+  /**
+   * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
+   *
+   * @param lodgingCheckInDate
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingCheckInDate(String lodgingCheckInDate) {
     this.lodgingCheckInDate = lodgingCheckInDate;
     return this;
   }
 
-   /**
+  /**
    * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    * @return lodgingCheckInDate
-  **/
+   */
   @ApiModelProperty(value = "The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.")
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingCheckInDate() {
     return lodgingCheckInDate;
   }
 
-
- /**
-  * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
-  *
-  * @param lodgingCheckInDate
-  */ 
+  /**
+   * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
+   *
+   * @param lodgingCheckInDate
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingCheckInDate(String lodgingCheckInDate) {
     this.lodgingCheckInDate = lodgingCheckInDate;
   }
 
-
+  /**
+   * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
+   *
+   * @param lodgingCheckOutDate
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingCheckOutDate(String lodgingCheckOutDate) {
     this.lodgingCheckOutDate = lodgingCheckOutDate;
     return this;
   }
 
-   /**
+  /**
    * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    * @return lodgingCheckOutDate
-  **/
+   */
   @ApiModelProperty(value = "The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.")
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingCheckOutDate() {
     return lodgingCheckOutDate;
   }
 
-
- /**
-  * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
-  *
-  * @param lodgingCheckOutDate
-  */ 
+  /**
+   * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
+   *
+   * @param lodgingCheckOutDate
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingCheckOutDate(String lodgingCheckOutDate) {
     this.lodgingCheckOutDate = lodgingCheckOutDate;
   }
 
-
+  /**
+   * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
+   *
+   * @param lodgingCustomerServiceTollFreeNumber
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingCustomerServiceTollFreeNumber(String lodgingCustomerServiceTollFreeNumber) {
     this.lodgingCustomerServiceTollFreeNumber = lodgingCustomerServiceTollFreeNumber;
     return this;
   }
 
-   /**
+  /**
    * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    * @return lodgingCustomerServiceTollFreeNumber
-  **/
+   */
   @ApiModelProperty(value = "The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingCustomerServiceTollFreeNumber() {
     return lodgingCustomerServiceTollFreeNumber;
   }
 
-
- /**
-  * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
-  *
-  * @param lodgingCustomerServiceTollFreeNumber
-  */ 
+  /**
+   * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
+   *
+   * @param lodgingCustomerServiceTollFreeNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingCustomerServiceTollFreeNumber(String lodgingCustomerServiceTollFreeNumber) {
     this.lodgingCustomerServiceTollFreeNumber = lodgingCustomerServiceTollFreeNumber;
   }
 
-
+  /**
+   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be 'Y' or 'N'. * Format: alphabetic * Max length: 1 character
+   *
+   * @param lodgingFireSafetyActIndicator
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingFireSafetyActIndicator(String lodgingFireSafetyActIndicator) {
     this.lodgingFireSafetyActIndicator = lodgingFireSafetyActIndicator;
     return this;
   }
 
-   /**
-   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
+  /**
+   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be 'Y' or 'N'. * Format: alphabetic * Max length: 1 character
    * @return lodgingFireSafetyActIndicator
-  **/
+   */
   @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be 'Y' or 'N'. * Format: alphabetic * Max length: 1 character")
   @JsonProperty(JSON_PROPERTY_LODGING_FIRE_SAFETY_ACT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingFireSafetyActIndicator() {
     return lodgingFireSafetyActIndicator;
   }
 
-
- /**
-  * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
-  *
-  * @param lodgingFireSafetyActIndicator
-  */ 
+  /**
+   * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be 'Y' or 'N'. * Format: alphabetic * Max length: 1 character
+   *
+   * @param lodgingFireSafetyActIndicator
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_FIRE_SAFETY_ACT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFireSafetyActIndicator(String lodgingFireSafetyActIndicator) {
     this.lodgingFireSafetyActIndicator = lodgingFireSafetyActIndicator;
   }
 
-
+  /**
+   * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
+   *
+   * @param lodgingFolioCashAdvances
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingFolioCashAdvances(String lodgingFolioCashAdvances) {
     this.lodgingFolioCashAdvances = lodgingFolioCashAdvances;
     return this;
   }
 
-   /**
+  /**
    * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return lodgingFolioCashAdvances
-  **/
+   */
   @ApiModelProperty(value = "The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters")
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_CASH_ADVANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingFolioCashAdvances() {
     return lodgingFolioCashAdvances;
   }
 
-
- /**
-  * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
-  *
-  * @param lodgingFolioCashAdvances
-  */ 
+  /**
+   * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
+   *
+   * @param lodgingFolioCashAdvances
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_CASH_ADVANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFolioCashAdvances(String lodgingFolioCashAdvances) {
     this.lodgingFolioCashAdvances = lodgingFolioCashAdvances;
   }
 
-
+  /**
+   * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
+   *
+   * @param lodgingFolioNumber
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingFolioNumber(String lodgingFolioNumber) {
     this.lodgingFolioNumber = lodgingFolioNumber;
     return this;
   }
 
-   /**
+  /**
    * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
    * @return lodgingFolioNumber
-  **/
+   */
   @ApiModelProperty(value = "The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingFolioNumber() {
     return lodgingFolioNumber;
   }
 
-
- /**
-  * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
-  *
-  * @param lodgingFolioNumber
-  */ 
+  /**
+   * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
+   *
+   * @param lodgingFolioNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFolioNumber(String lodgingFolioNumber) {
     this.lodgingFolioNumber = lodgingFolioNumber;
   }
 
-
+  /**
+   * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
+   *
+   * @param lodgingFoodBeverageCharges
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingFoodBeverageCharges(String lodgingFoodBeverageCharges) {
     this.lodgingFoodBeverageCharges = lodgingFoodBeverageCharges;
     return this;
   }
 
-   /**
+  /**
    * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return lodgingFoodBeverageCharges
-  **/
+   */
   @ApiModelProperty(value = "Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters")
   @JsonProperty(JSON_PROPERTY_LODGING_FOOD_BEVERAGE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingFoodBeverageCharges() {
     return lodgingFoodBeverageCharges;
   }
 
-
- /**
-  * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
-  *
-  * @param lodgingFoodBeverageCharges
-  */ 
+  /**
+   * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
+   *
+   * @param lodgingFoodBeverageCharges
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_FOOD_BEVERAGE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFoodBeverageCharges(String lodgingFoodBeverageCharges) {
     this.lodgingFoodBeverageCharges = lodgingFoodBeverageCharges;
   }
 
-
+  /**
+   * Indicates if the customer didn't check in for their booking.  Possible values:  * **Y**: the customer didn't check in  * **N**: the customer checked in
+   *
+   * @param lodgingNoShowIndicator
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingNoShowIndicator(String lodgingNoShowIndicator) {
     this.lodgingNoShowIndicator = lodgingNoShowIndicator;
     return this;
   }
 
-   /**
-   * Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
+  /**
+   * Indicates if the customer didn't check in for their booking.  Possible values:  * **Y**: the customer didn't check in  * **N**: the customer checked in
    * @return lodgingNoShowIndicator
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the customer didn't check in for their booking.  Possible values:  * **Y**: the customer didn't check in  * **N**: the customer checked in")
   @JsonProperty(JSON_PROPERTY_LODGING_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingNoShowIndicator() {
     return lodgingNoShowIndicator;
   }
 
-
- /**
-  * Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
-  *
-  * @param lodgingNoShowIndicator
-  */ 
+  /**
+   * Indicates if the customer didn't check in for their booking.  Possible values:  * **Y**: the customer didn't check in  * **N**: the customer checked in
+   *
+   * @param lodgingNoShowIndicator
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingNoShowIndicator(String lodgingNoShowIndicator) {
     this.lodgingNoShowIndicator = lodgingNoShowIndicator;
   }
 
-
+  /**
+   * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
+   *
+   * @param lodgingPrepaidExpenses
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingPrepaidExpenses(String lodgingPrepaidExpenses) {
     this.lodgingPrepaidExpenses = lodgingPrepaidExpenses;
     return this;
   }
 
-   /**
+  /**
    * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    * @return lodgingPrepaidExpenses
-  **/
+   */
   @ApiModelProperty(value = "The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters")
   @JsonProperty(JSON_PROPERTY_LODGING_PREPAID_EXPENSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingPrepaidExpenses() {
     return lodgingPrepaidExpenses;
   }
 
-
- /**
-  * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
-  *
-  * @param lodgingPrepaidExpenses
-  */ 
+  /**
+   * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
+   *
+   * @param lodgingPrepaidExpenses
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_PREPAID_EXPENSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingPrepaidExpenses(String lodgingPrepaidExpenses) {
     this.lodgingPrepaidExpenses = lodgingPrepaidExpenses;
   }
 
-
+  /**
+   * The lodging property location's phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
+   *
+   * @param lodgingPropertyPhoneNumber
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingPropertyPhoneNumber(String lodgingPropertyPhoneNumber) {
     this.lodgingPropertyPhoneNumber = lodgingPropertyPhoneNumber;
     return this;
   }
 
-   /**
-   * The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
+  /**
+   * The lodging property location's phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    * @return lodgingPropertyPhoneNumber
-  **/
+   */
   @ApiModelProperty(value = "The lodging property location's phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_LODGING_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingPropertyPhoneNumber() {
     return lodgingPropertyPhoneNumber;
   }
 
-
- /**
-  * The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
-  *
-  * @param lodgingPropertyPhoneNumber
-  */ 
+  /**
+   * The lodging property location's phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
+   *
+   * @param lodgingPropertyPhoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingPropertyPhoneNumber(String lodgingPropertyPhoneNumber) {
     this.lodgingPropertyPhoneNumber = lodgingPropertyPhoneNumber;
   }
 
-
+  /**
+   * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
+   *
+   * @param lodgingRoom1NumberOfNights
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingRoom1NumberOfNights(String lodgingRoom1NumberOfNights) {
     this.lodgingRoom1NumberOfNights = lodgingRoom1NumberOfNights;
     return this;
   }
 
-   /**
+  /**
    * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
    * @return lodgingRoom1NumberOfNights
-  **/
+   */
   @ApiModelProperty(value = "The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters")
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingRoom1NumberOfNights() {
     return lodgingRoom1NumberOfNights;
   }
 
-
- /**
-  * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
-  *
-  * @param lodgingRoom1NumberOfNights
-  */ 
+  /**
+   * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
+   *
+   * @param lodgingRoom1NumberOfNights
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingRoom1NumberOfNights(String lodgingRoom1NumberOfNights) {
     this.lodgingRoom1NumberOfNights = lodgingRoom1NumberOfNights;
   }
 
-
+  /**
+   * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
+   *
+   * @param lodgingRoom1Rate
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingRoom1Rate(String lodgingRoom1Rate) {
     this.lodgingRoom1Rate = lodgingRoom1Rate;
     return this;
   }
 
-   /**
+  /**
    * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingRoom1Rate
-  **/
+   */
   @ApiModelProperty(value = "The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingRoom1Rate() {
     return lodgingRoom1Rate;
   }
 
-
- /**
-  * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
-  *
-  * @param lodgingRoom1Rate
-  */ 
+  /**
+   * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
+   *
+   * @param lodgingRoom1Rate
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingRoom1Rate(String lodgingRoom1Rate) {
     this.lodgingRoom1Rate = lodgingRoom1Rate;
   }
 
-
+  /**
+   * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
+   *
+   * @param lodgingTotalRoomTax
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingTotalRoomTax(String lodgingTotalRoomTax) {
     this.lodgingTotalRoomTax = lodgingTotalRoomTax;
     return this;
   }
 
-   /**
+  /**
    * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingTotalRoomTax
-  **/
+   */
   @ApiModelProperty(value = "The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_ROOM_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingTotalRoomTax() {
     return lodgingTotalRoomTax;
   }
 
-
- /**
-  * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
-  *
-  * @param lodgingTotalRoomTax
-  */ 
+  /**
+   * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
+   *
+   * @param lodgingTotalRoomTax
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_ROOM_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingTotalRoomTax(String lodgingTotalRoomTax) {
     this.lodgingTotalRoomTax = lodgingTotalRoomTax;
   }
 
-
+  /**
+   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
+   *
+   * @param lodgingTotalTax
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging lodgingTotalTax(String lodgingTotalTax) {
     this.lodgingTotalTax = lodgingTotalTax;
     return this;
   }
 
-   /**
+  /**
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return lodgingTotalTax
-  **/
+   */
   @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number")
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLodgingTotalTax() {
     return lodgingTotalTax;
   }
 
-
- /**
-  * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
-  *
-  * @param lodgingTotalTax
-  */ 
+  /**
+   * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
+   *
+   * @param lodgingTotalTax
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingTotalTax(String lodgingTotalTax) {
     this.lodgingTotalTax = lodgingTotalTax;
   }
 
-
+  /**
+   * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
+   *
+   * @param travelEntertainmentAuthDataDuration
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging travelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
     return this;
   }
 
-   /**
+  /**
    * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
    * @return travelEntertainmentAuthDataDuration
-  **/
+   */
   @ApiModelProperty(value = "The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters")
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTravelEntertainmentAuthDataDuration() {
     return travelEntertainmentAuthDataDuration;
   }
 
-
- /**
-  * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
-  *
-  * @param travelEntertainmentAuthDataDuration
-  */ 
+  /**
+   * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
+   *
+   * @param travelEntertainmentAuthDataDuration
+   */ 
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
   }
 
-
+  /**
+   * Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
+   *
+   * @param travelEntertainmentAuthDataMarket
+   * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
+   */
   public AdditionalDataLodging travelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
     return this;
   }
 
-   /**
-   * Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
+  /**
+   * Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    * @return travelEntertainmentAuthDataMarket
-  **/
+   */
   @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character")
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTravelEntertainmentAuthDataMarket() {
     return travelEntertainmentAuthDataMarket;
   }
 
-
- /**
-  * Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
-  *
-  * @param travelEntertainmentAuthDataMarket
-  */ 
+  /**
+   * Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
+   *
+   * @param travelEntertainmentAuthDataMarket
+   */ 
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
   }
-
 
   /**
    * Return true if this AdditionalDataLodging object is equal to o.

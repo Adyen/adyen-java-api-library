@@ -58,155 +58,170 @@ public class PaginationLinks {
   public PaginationLinks() { 
   }
 
+  /**
+   * first
+   *
+   * @param first
+   * @return the current {@code PaginationLinks} instance, allowing for method chaining
+   */
   public PaginationLinks first(LinksElement first) {
     this.first = first;
     return this;
   }
 
-   /**
-   * Get first
+  /**
+   * first
    * @return first
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getFirst() {
     return first;
   }
 
-
- /**
-  * first
-  *
-  * @param first
-  */ 
+  /**
+   * first
+   *
+   * @param first
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirst(LinksElement first) {
     this.first = first;
   }
 
-
+  /**
+   * last
+   *
+   * @param last
+   * @return the current {@code PaginationLinks} instance, allowing for method chaining
+   */
   public PaginationLinks last(LinksElement last) {
     this.last = last;
     return this;
   }
 
-   /**
-   * Get last
+  /**
+   * last
    * @return last
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getLast() {
     return last;
   }
 
-
- /**
-  * last
-  *
-  * @param last
-  */ 
+  /**
+   * last
+   *
+   * @param last
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLast(LinksElement last) {
     this.last = last;
   }
 
-
+  /**
+   * next
+   *
+   * @param next
+   * @return the current {@code PaginationLinks} instance, allowing for method chaining
+   */
   public PaginationLinks next(LinksElement next) {
     this.next = next;
     return this;
   }
 
-   /**
-   * Get next
+  /**
+   * next
    * @return next
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getNext() {
     return next;
   }
 
-
- /**
-  * next
-  *
-  * @param next
-  */ 
+  /**
+   * next
+   *
+   * @param next
+   */ 
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(LinksElement next) {
     this.next = next;
   }
 
-
+  /**
+   * prev
+   *
+   * @param prev
+   * @return the current {@code PaginationLinks} instance, allowing for method chaining
+   */
   public PaginationLinks prev(LinksElement prev) {
     this.prev = prev;
     return this;
   }
 
-   /**
-   * Get prev
+  /**
+   * prev
    * @return prev
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getPrev() {
     return prev;
   }
 
-
- /**
-  * prev
-  *
-  * @param prev
-  */ 
+  /**
+   * prev
+   *
+   * @param prev
+   */ 
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrev(LinksElement prev) {
     this.prev = prev;
   }
 
-
+  /**
+   * self
+   *
+   * @param self
+   * @return the current {@code PaginationLinks} instance, allowing for method chaining
+   */
   public PaginationLinks self(LinksElement self) {
     this.self = self;
     return this;
   }
 
-   /**
-   * Get self
+  /**
+   * self
    * @return self
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getSelf() {
     return self;
   }
 
-
- /**
-  * self
-  *
-  * @param self
-  */ 
+  /**
+   * self
+   *
+   * @param self
+   */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
-
 
   /**
    * Return true if this PaginationLinks object is equal to o.

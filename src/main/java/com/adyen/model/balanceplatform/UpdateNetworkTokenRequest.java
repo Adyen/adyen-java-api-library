@@ -78,35 +78,38 @@ public class UpdateNetworkTokenRequest {
   public UpdateNetworkTokenRequest() { 
   }
 
+  /**
+   * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
+   *
+   * @param status
+   * @return the current {@code UpdateNetworkTokenRequest} instance, allowing for method chaining
+   */
   public UpdateNetworkTokenRequest status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
-  *
-  * @param status
-  */ 
+  /**
+   * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this UpdateNetworkTokenRequest object is equal to o.

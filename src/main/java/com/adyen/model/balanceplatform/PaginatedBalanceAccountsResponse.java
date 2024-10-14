@@ -52,6 +52,12 @@ public class PaginatedBalanceAccountsResponse {
   public PaginatedBalanceAccountsResponse() { 
   }
 
+  /**
+   * List of balance accounts.
+   *
+   * @param balanceAccounts
+   * @return the current {@code PaginatedBalanceAccountsResponse} instance, allowing for method chaining
+   */
   public PaginatedBalanceAccountsResponse balanceAccounts(List<BalanceAccountBase> balanceAccounts) {
     this.balanceAccounts = balanceAccounts;
     return this;
@@ -62,90 +68,93 @@ public class PaginatedBalanceAccountsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of balance accounts.
    * @return balanceAccounts
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of balance accounts.")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<BalanceAccountBase> getBalanceAccounts() {
     return balanceAccounts;
   }
 
-
- /**
-  * List of balance accounts.
-  *
-  * @param balanceAccounts
-  */ 
+  /**
+   * List of balance accounts.
+   *
+   * @param balanceAccounts
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccounts(List<BalanceAccountBase> balanceAccounts) {
     this.balanceAccounts = balanceAccounts;
   }
 
-
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   * @return the current {@code PaginatedBalanceAccountsResponse} instance, allowing for method chaining
+   */
   public PaginatedBalanceAccountsResponse hasNext(Boolean hasNext) {
     this.hasNext = hasNext;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the next page.
    * @return hasNext
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasNext() {
     return hasNext;
   }
 
-
- /**
-  * Indicates whether there are more items on the next page.
-  *
-  * @param hasNext
-  */ 
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
 
-
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   * @return the current {@code PaginatedBalanceAccountsResponse} instance, allowing for method chaining
+   */
   public PaginatedBalanceAccountsResponse hasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
 
-
- /**
-  * Indicates whether there are more items on the previous page.
-  *
-  * @param hasPrevious
-  */ 
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
-
 
   /**
    * Return true if this PaginatedBalanceAccountsResponse object is equal to o.

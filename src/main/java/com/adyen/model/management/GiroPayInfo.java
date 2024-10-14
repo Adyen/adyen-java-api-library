@@ -41,35 +41,38 @@ public class GiroPayInfo {
   public GiroPayInfo() { 
   }
 
+  /**
+   * The email address of merchant support.
+   *
+   * @param supportEmail
+   * @return the current {@code GiroPayInfo} instance, allowing for method chaining
+   */
   public GiroPayInfo supportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
     return this;
   }
 
-   /**
+  /**
    * The email address of merchant support.
    * @return supportEmail
-  **/
+   */
   @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSupportEmail() {
     return supportEmail;
   }
 
-
- /**
-  * The email address of merchant support.
-  *
-  * @param supportEmail
-  */ 
+  /**
+   * The email address of merchant support.
+   *
+   * @param supportEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
   }
-
 
   /**
    * Return true if this GiroPayInfo object is equal to o.

@@ -49,36 +49,45 @@ public class CapabilityProblem {
   public CapabilityProblem() { 
   }
 
+  /**
+   * entity
+   *
+   * @param entity
+   * @return the current {@code CapabilityProblem} instance, allowing for method chaining
+   */
   public CapabilityProblem entity(CapabilityProblemEntity entity) {
     this.entity = entity;
     return this;
   }
 
-   /**
-   * Get entity
+  /**
+   * entity
    * @return entity
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CapabilityProblemEntity getEntity() {
     return entity;
   }
 
-
- /**
-  * entity
-  *
-  * @param entity
-  */ 
+  /**
+   * entity
+   *
+   * @param entity
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(CapabilityProblemEntity entity) {
     this.entity = entity;
   }
 
-
+  /**
+   * verificationErrors
+   *
+   * @param verificationErrors
+   * @return the current {@code CapabilityProblem} instance, allowing for method chaining
+   */
   public CapabilityProblem verificationErrors(List<VerificationError> verificationErrors) {
     this.verificationErrors = verificationErrors;
     return this;
@@ -92,30 +101,27 @@ public class CapabilityProblem {
     return this;
   }
 
-   /**
-   * Get verificationErrors
+  /**
+   * verificationErrors
    * @return verificationErrors
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<VerificationError> getVerificationErrors() {
     return verificationErrors;
   }
 
-
- /**
-  * verificationErrors
-  *
-  * @param verificationErrors
-  */ 
+  /**
+   * verificationErrors
+   *
+   * @param verificationErrors
+   */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationErrors(List<VerificationError> verificationErrors) {
     this.verificationErrors = verificationErrors;
   }
-
 
   /**
    * Return true if this CapabilityProblem object is equal to o.

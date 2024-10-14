@@ -49,95 +49,104 @@ public class DefenseDocument {
   public DefenseDocument() { 
   }
 
+  /**
+   * The content of the defense document.
+   *
+   * @param content
+   * @return the current {@code DefenseDocument} instance, allowing for method chaining
+   */
   public DefenseDocument content(byte[] content) {
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The content of the defense document.
    * @return content
-  **/
+   */
   @ApiModelProperty(required = true, value = "The content of the defense document.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public byte[] getContent() {
     return content;
   }
 
-
- /**
-  * The content of the defense document.
-  *
-  * @param content
-  */ 
+  /**
+   * The content of the defense document.
+   *
+   * @param content
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
     this.content = content;
   }
 
-
+  /**
+   * The content type of the defense document.
+   *
+   * @param contentType
+   * @return the current {@code DefenseDocument} instance, allowing for method chaining
+   */
   public DefenseDocument contentType(String contentType) {
     this.contentType = contentType;
     return this;
   }
 
-   /**
+  /**
    * The content type of the defense document.
    * @return contentType
-  **/
+   */
   @ApiModelProperty(required = true, value = "The content type of the defense document.")
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getContentType() {
     return contentType;
   }
 
-
- /**
-  * The content type of the defense document.
-  *
-  * @param contentType
-  */ 
+  /**
+   * The content type of the defense document.
+   *
+   * @param contentType
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(String contentType) {
     this.contentType = contentType;
   }
 
-
+  /**
+   * The document type code of the defense document.
+   *
+   * @param defenseDocumentTypeCode
+   * @return the current {@code DefenseDocument} instance, allowing for method chaining
+   */
   public DefenseDocument defenseDocumentTypeCode(String defenseDocumentTypeCode) {
     this.defenseDocumentTypeCode = defenseDocumentTypeCode;
     return this;
   }
 
-   /**
+  /**
    * The document type code of the defense document.
    * @return defenseDocumentTypeCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The document type code of the defense document.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDefenseDocumentTypeCode() {
     return defenseDocumentTypeCode;
   }
 
-
- /**
-  * The document type code of the defense document.
-  *
-  * @param defenseDocumentTypeCode
-  */ 
+  /**
+   * The document type code of the defense document.
+   *
+   * @param defenseDocumentTypeCode
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {
     this.defenseDocumentTypeCode = defenseDocumentTypeCode;
   }
-
 
   /**
    * Return true if this DefenseDocument object is equal to o.

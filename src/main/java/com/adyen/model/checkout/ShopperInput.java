@@ -160,95 +160,104 @@ public class ShopperInput {
   public ShopperInput() { 
   }
 
+  /**
+   * Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly
+   *
+   * @param billingAddress
+   * @return the current {@code ShopperInput} instance, allowing for method chaining
+   */
   public ShopperInput billingAddress(BillingAddressEnum billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly
    * @return billingAddress
-  **/
+   */
   @ApiModelProperty(value = "Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BillingAddressEnum getBillingAddress() {
     return billingAddress;
   }
 
-
- /**
-  * Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly
-  *
-  * @param billingAddress
-  */ 
+  /**
+   * Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly
+   *
+   * @param billingAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(BillingAddressEnum billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-
+  /**
+   * Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly
+   *
+   * @param deliveryAddress
+   * @return the current {@code ShopperInput} instance, allowing for method chaining
+   */
   public ShopperInput deliveryAddress(DeliveryAddressEnum deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     return this;
   }
 
-   /**
+  /**
    * Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly
    * @return deliveryAddress
-  **/
+   */
   @ApiModelProperty(value = "Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly")
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DeliveryAddressEnum getDeliveryAddress() {
     return deliveryAddress;
   }
 
-
- /**
-  * Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly
-  *
-  * @param deliveryAddress
-  */ 
+  /**
+   * Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly
+   *
+   * @param deliveryAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(DeliveryAddressEnum deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
   }
 
-
+  /**
+   * Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly
+   *
+   * @param personalDetails
+   * @return the current {@code ShopperInput} instance, allowing for method chaining
+   */
   public ShopperInput personalDetails(PersonalDetailsEnum personalDetails) {
     this.personalDetails = personalDetails;
     return this;
   }
 
-   /**
+  /**
    * Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly
    * @return personalDetails
-  **/
+   */
   @ApiModelProperty(value = "Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly")
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PersonalDetailsEnum getPersonalDetails() {
     return personalDetails;
   }
 
-
- /**
-  * Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly
-  *
-  * @param personalDetails
-  */ 
+  /**
+   * Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly
+   *
+   * @param personalDetails
+   */ 
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPersonalDetails(PersonalDetailsEnum personalDetails) {
     this.personalDetails = personalDetails;
   }
-
 
   /**
    * Return true if this ShopperInput object is equal to o.

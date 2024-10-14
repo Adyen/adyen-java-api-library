@@ -44,6 +44,12 @@ public class PayoutSettingsResponse {
   public PayoutSettingsResponse() { 
   }
 
+  /**
+   * The list of payout accounts.
+   *
+   * @param data
+   * @return the current {@code PayoutSettingsResponse} instance, allowing for method chaining
+   */
   public PayoutSettingsResponse data(List<PayoutSettings> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class PayoutSettingsResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of payout accounts.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The list of payout accounts.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PayoutSettings> getData() {
     return data;
   }
 
-
- /**
-  * The list of payout accounts.
-  *
-  * @param data
-  */ 
+  /**
+   * The list of payout accounts.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PayoutSettings> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this PayoutSettingsResponse object is equal to o.

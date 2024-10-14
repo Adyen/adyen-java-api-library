@@ -51,95 +51,104 @@ public class Repayment {
   public Repayment() { 
   }
 
+  /**
+   * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
+   *
+   * @param basisPoints
+   * @return the current {@code Repayment} instance, allowing for method chaining
+   */
   public Repayment basisPoints(Integer basisPoints) {
     this.basisPoints = basisPoints;
     return this;
   }
 
-   /**
+  /**
    * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    * @return basisPoints
-  **/
+   */
   @ApiModelProperty(required = true, value = "The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).")
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getBasisPoints() {
     return basisPoints;
   }
 
-
- /**
-  * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
-  *
-  * @param basisPoints
-  */ 
+  /**
+   * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
+   *
+   * @param basisPoints
+   */ 
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasisPoints(Integer basisPoints) {
     this.basisPoints = basisPoints;
   }
 
-
+  /**
+   * term
+   *
+   * @param term
+   * @return the current {@code Repayment} instance, allowing for method chaining
+   */
   public Repayment term(RepaymentTerm term) {
     this.term = term;
     return this;
   }
 
-   /**
-   * Get term
+  /**
+   * term
    * @return term
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RepaymentTerm getTerm() {
     return term;
   }
 
-
- /**
-  * term
-  *
-  * @param term
-  */ 
+  /**
+   * term
+   *
+   * @param term
+   */ 
   @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerm(RepaymentTerm term) {
     this.term = term;
   }
 
-
+  /**
+   * threshold
+   *
+   * @param threshold
+   * @return the current {@code Repayment} instance, allowing for method chaining
+   */
   public Repayment threshold(ThresholdRepayment threshold) {
     this.threshold = threshold;
     return this;
   }
 
-   /**
-   * Get threshold
+  /**
+   * threshold
    * @return threshold
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ThresholdRepayment getThreshold() {
     return threshold;
   }
 
-
- /**
-  * threshold
-  *
-  * @param threshold
-  */ 
+  /**
+   * threshold
+   *
+   * @param threshold
+   */ 
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreshold(ThresholdRepayment threshold) {
     this.threshold = threshold;
   }
-
 
   /**
    * Return true if this Repayment object is equal to o.

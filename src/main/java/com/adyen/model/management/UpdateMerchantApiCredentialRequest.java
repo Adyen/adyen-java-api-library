@@ -55,36 +55,45 @@ public class UpdateMerchantApiCredentialRequest {
   public UpdateMerchantApiCredentialRequest() { 
   }
 
+  /**
+   * Indicates if the API credential is enabled.
+   *
+   * @param active
+   * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
+   */
   public UpdateMerchantApiCredentialRequest active(Boolean active) {
     this.active = active;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the API credential is enabled.
    * @return active
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the API credential is enabled.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getActive() {
     return active;
   }
 
-
- /**
-  * Indicates if the API credential is enabled.
-  *
-  * @param active
-  */ 
+  /**
+   * Indicates if the API credential is enabled.
+   *
+   * @param active
+   */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
 
-
+  /**
+   * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
+   *
+   * @param allowedOrigins
+   * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
+   */
   public UpdateMerchantApiCredentialRequest allowedOrigins(List<String> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
     return this;
@@ -98,61 +107,67 @@ public class UpdateMerchantApiCredentialRequest {
     return this;
   }
 
-   /**
+  /**
    * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
    * @return allowedOrigins
-  **/
+   */
   @ApiModelProperty(value = "The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getAllowedOrigins() {
     return allowedOrigins;
   }
 
-
- /**
-  * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
-  *
-  * @param allowedOrigins
-  */ 
+  /**
+   * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
+   *
+   * @param allowedOrigins
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<String> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
   }
 
-
+  /**
+   * Description of the API credential.
+   *
+   * @param description
+   * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
+   */
   public UpdateMerchantApiCredentialRequest description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the API credential.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Description of the API credential.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Description of the API credential.
-  *
-  * @param description
-  */ 
+  /**
+   * Description of the API credential.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.
+   *
+   * @param roles
+   * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
+   */
   public UpdateMerchantApiCredentialRequest roles(List<String> roles) {
     this.roles = roles;
     return this;
@@ -166,30 +181,27 @@ public class UpdateMerchantApiCredentialRequest {
     return this;
   }
 
-   /**
-   * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
+  /**
+   * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.
    * @return roles
-  **/
+   */
   @ApiModelProperty(value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getRoles() {
     return roles;
   }
 
-
- /**
-  * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
-  *
-  * @param roles
-  */ 
+  /**
+   * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.
+   *
+   * @param roles
+   */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
-
 
   /**
    * Return true if this UpdateMerchantApiCredentialRequest object is equal to o.

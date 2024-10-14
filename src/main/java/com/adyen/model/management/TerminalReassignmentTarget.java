@@ -53,125 +53,137 @@ public class TerminalReassignmentTarget {
   public TerminalReassignmentTarget() { 
   }
 
+  /**
+   * The unique identifier of the company account to which the terminal is reassigned.
+   *
+   * @param companyId
+   * @return the current {@code TerminalReassignmentTarget} instance, allowing for method chaining
+   */
   public TerminalReassignmentTarget companyId(String companyId) {
     this.companyId = companyId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the company account to which the terminal is reassigned.
    * @return companyId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the company account to which the terminal is reassigned.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyId() {
     return companyId;
   }
 
-
- /**
-  * The unique identifier of the company account to which the terminal is reassigned.
-  *
-  * @param companyId
-  */ 
+  /**
+   * The unique identifier of the company account to which the terminal is reassigned.
+   *
+   * @param companyId
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
 
-
+  /**
+   * Indicates if the terminal is reassigned to the inventory of the merchant account. - If **true**, the terminal is in the inventory of the merchant account and cannot process transactions. - If **false**, the terminal is reassigned directly to the merchant account and can process transactions.
+   *
+   * @param inventory
+   * @return the current {@code TerminalReassignmentTarget} instance, allowing for method chaining
+   */
   public TerminalReassignmentTarget inventory(Boolean inventory) {
     this.inventory = inventory;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the terminal is reassigned to the inventory of the merchant account. - If **true**, the terminal is in the inventory of the merchant account and cannot process transactions. - If **false**, the terminal is reassigned directly to the merchant account and can process transactions.
    * @return inventory
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates if the terminal is reassigned to the inventory of the merchant account. - If **true**, the terminal is in the inventory of the merchant account and cannot process transactions. - If **false**, the terminal is reassigned directly to the merchant account and can process transactions.")
   @JsonProperty(JSON_PROPERTY_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getInventory() {
     return inventory;
   }
 
-
- /**
-  * Indicates if the terminal is reassigned to the inventory of the merchant account. - If **true**, the terminal is in the inventory of the merchant account and cannot process transactions. - If **false**, the terminal is reassigned directly to the merchant account and can process transactions.
-  *
-  * @param inventory
-  */ 
+  /**
+   * Indicates if the terminal is reassigned to the inventory of the merchant account. - If **true**, the terminal is in the inventory of the merchant account and cannot process transactions. - If **false**, the terminal is reassigned directly to the merchant account and can process transactions.
+   *
+   * @param inventory
+   */ 
   @JsonProperty(JSON_PROPERTY_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventory(Boolean inventory) {
     this.inventory = inventory;
   }
 
-
+  /**
+   * The unique identifier of the merchant account to which the terminal is reassigned.
+   *
+   * @param merchantId
+   * @return the current {@code TerminalReassignmentTarget} instance, allowing for method chaining
+   */
   public TerminalReassignmentTarget merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the merchant account to which the terminal is reassigned.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the merchant account to which the terminal is reassigned.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * The unique identifier of the merchant account to which the terminal is reassigned.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * The unique identifier of the merchant account to which the terminal is reassigned.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
-
+  /**
+   * The unique identifier of the store to which the terminal is reassigned.
+   *
+   * @param storeId
+   * @return the current {@code TerminalReassignmentTarget} instance, allowing for method chaining
+   */
   public TerminalReassignmentTarget storeId(String storeId) {
     this.storeId = storeId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the store to which the terminal is reassigned.
    * @return storeId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the store to which the terminal is reassigned.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoreId() {
     return storeId;
   }
 
-
- /**
-  * The unique identifier of the store to which the terminal is reassigned.
-  *
-  * @param storeId
-  */ 
+  /**
+   * The unique identifier of the store to which the terminal is reassigned.
+   *
+   * @param storeId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
     this.storeId = storeId;
   }
-
 
   /**
    * Return true if this TerminalReassignmentTarget object is equal to o.

@@ -45,65 +45,71 @@ public class ResponseAdditionalDataDomesticError {
   public ResponseAdditionalDataDomesticError() { 
   }
 
+  /**
+   * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
+   *
+   * @param domesticRefusalReasonRaw
+   * @return the current {@code ResponseAdditionalDataDomesticError} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataDomesticError domesticRefusalReasonRaw(String domesticRefusalReasonRaw) {
     this.domesticRefusalReasonRaw = domesticRefusalReasonRaw;
     return this;
   }
 
-   /**
+  /**
    * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    * @return domesticRefusalReasonRaw
-  **/
+   */
   @ApiModelProperty(value = "The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.")
   @JsonProperty(JSON_PROPERTY_DOMESTIC_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDomesticRefusalReasonRaw() {
     return domesticRefusalReasonRaw;
   }
 
-
- /**
-  * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
-  *
-  * @param domesticRefusalReasonRaw
-  */ 
+  /**
+   * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
+   *
+   * @param domesticRefusalReasonRaw
+   */ 
   @JsonProperty(JSON_PROPERTY_DOMESTIC_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomesticRefusalReasonRaw(String domesticRefusalReasonRaw) {
     this.domesticRefusalReasonRaw = domesticRefusalReasonRaw;
   }
 
-
+  /**
+   * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
+   *
+   * @param domesticShopperAdvice
+   * @return the current {@code ResponseAdditionalDataDomesticError} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataDomesticError domesticShopperAdvice(String domesticShopperAdvice) {
     this.domesticShopperAdvice = domesticShopperAdvice;
     return this;
   }
 
-   /**
+  /**
    * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    * @return domesticShopperAdvice
-  **/
+   */
   @ApiModelProperty(value = "The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.")
   @JsonProperty(JSON_PROPERTY_DOMESTIC_SHOPPER_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDomesticShopperAdvice() {
     return domesticShopperAdvice;
   }
 
-
- /**
-  * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
-  *
-  * @param domesticShopperAdvice
-  */ 
+  /**
+   * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
+   *
+   * @param domesticShopperAdvice
+   */ 
   @JsonProperty(JSON_PROPERTY_DOMESTIC_SHOPPER_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomesticShopperAdvice(String domesticShopperAdvice) {
     this.domesticShopperAdvice = domesticShopperAdvice;
   }
-
 
   /**
    * Return true if this ResponseAdditionalDataDomesticError object is equal to o.

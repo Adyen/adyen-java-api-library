@@ -67,6 +67,12 @@ public class FundSource {
   public FundSource() { 
   }
 
+  /**
+   * A map of name-value pairs for passing additional or industry-specific data.
+   *
+   * @param additionalData
+   * @return the current {@code FundSource} instance, allowing for method chaining
+   */
   public FundSource additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -80,180 +86,192 @@ public class FundSource {
     return this;
   }
 
-   /**
+  /**
    * A map of name-value pairs for passing additional or industry-specific data.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "A map of name-value pairs for passing additional or industry-specific data.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * A map of name-value pairs for passing additional or industry-specific data.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * A map of name-value pairs for passing additional or industry-specific data.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   * @return the current {@code FundSource} instance, allowing for method chaining
+   */
   public FundSource billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
-   * Get billingAddress
+  /**
+   * billingAddress
    * @return billingAddress
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getBillingAddress() {
     return billingAddress;
   }
 
-
- /**
-  * billingAddress
-  *
-  * @param billingAddress
-  */ 
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code FundSource} instance, allowing for method chaining
+   */
   public FundSource card(Card card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Card getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
-
+  /**
+   * Email address of the person.
+   *
+   * @param shopperEmail
+   * @return the current {@code FundSource} instance, allowing for method chaining
+   */
   public FundSource shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * Email address of the person.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(value = "Email address of the person.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * Email address of the person.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * Email address of the person.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   * @return the current {@code FundSource} instance, allowing for method chaining
+   */
   public FundSource shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
 
-   /**
-   * Get shopperName
+  /**
+   * shopperName
    * @return shopperName
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getShopperName() {
     return shopperName;
   }
 
-
- /**
-  * shopperName
-  *
-  * @param shopperName
-  */ 
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
-
+  /**
+   * Phone number of the person
+   *
+   * @param telephoneNumber
+   * @return the current {@code FundSource} instance, allowing for method chaining
+   */
   public FundSource telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
 
-   /**
+  /**
    * Phone number of the person
    * @return telephoneNumber
-  **/
+   */
   @ApiModelProperty(value = "Phone number of the person")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
 
-
- /**
-  * Phone number of the person
-  *
-  * @param telephoneNumber
-  */ 
+  /**
+   * Phone number of the person
+   *
+   * @param telephoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
-
 
   /**
    * Return true if this FundSource object is equal to o.

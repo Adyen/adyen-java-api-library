@@ -44,6 +44,12 @@ public class AllowedOriginsResponse {
   public AllowedOriginsResponse() { 
   }
 
+  /**
+   * List of allowed origins.
+   *
+   * @param data
+   * @return the current {@code AllowedOriginsResponse} instance, allowing for method chaining
+   */
   public AllowedOriginsResponse data(List<AllowedOrigin> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class AllowedOriginsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of allowed origins.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "List of allowed origins.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AllowedOrigin> getData() {
     return data;
   }
 
-
- /**
-  * List of allowed origins.
-  *
-  * @param data
-  */ 
+  /**
+   * List of allowed origins.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<AllowedOrigin> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this AllowedOriginsResponse object is equal to o.

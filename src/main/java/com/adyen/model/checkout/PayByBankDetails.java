@@ -82,95 +82,104 @@ public class PayByBankDetails {
   public PayByBankDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code PayByBankDetails} instance, allowing for method chaining
+   */
   public PayByBankDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The PayByBank issuer value of the shopper's selected bank.
+   *
+   * @param issuer
+   * @return the current {@code PayByBankDetails} instance, allowing for method chaining
+   */
   public PayByBankDetails issuer(String issuer) {
     this.issuer = issuer;
     return this;
   }
 
-   /**
-   * The PayByBank issuer value of the shopper&#39;s selected bank.
+  /**
+   * The PayByBank issuer value of the shopper's selected bank.
    * @return issuer
-  **/
+   */
   @ApiModelProperty(value = "The PayByBank issuer value of the shopper's selected bank.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuer() {
     return issuer;
   }
 
-
- /**
-  * The PayByBank issuer value of the shopper&#39;s selected bank.
-  *
-  * @param issuer
-  */ 
+  /**
+   * The PayByBank issuer value of the shopper's selected bank.
+   *
+   * @param issuer
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
 
-
+  /**
+   * **paybybank**
+   *
+   * @param type
+   * @return the current {@code PayByBankDetails} instance, allowing for method chaining
+   */
   public PayByBankDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **paybybank**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**paybybank**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **paybybank**
-  *
-  * @param type
-  */ 
+  /**
+   * **paybybank**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PayByBankDetails object is equal to o.

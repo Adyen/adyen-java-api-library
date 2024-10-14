@@ -44,6 +44,12 @@ public class ShippingLocationsResponse {
   public ShippingLocationsResponse() { 
   }
 
+  /**
+   * Physical locations where orders can be shipped to.
+   *
+   * @param data
+   * @return the current {@code ShippingLocationsResponse} instance, allowing for method chaining
+   */
   public ShippingLocationsResponse data(List<ShippingLocation> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class ShippingLocationsResponse {
     return this;
   }
 
-   /**
+  /**
    * Physical locations where orders can be shipped to.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "Physical locations where orders can be shipped to.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ShippingLocation> getData() {
     return data;
   }
 
-
- /**
-  * Physical locations where orders can be shipped to.
-  *
-  * @param data
-  */ 
+  /**
+   * Physical locations where orders can be shipped to.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<ShippingLocation> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this ShippingLocationsResponse object is equal to o.

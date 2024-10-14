@@ -42,35 +42,38 @@ public class BankAccountIdentificationValidationRequest {
   public BankAccountIdentificationValidationRequest() { 
   }
 
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   * @return the current {@code BankAccountIdentificationValidationRequest} instance, allowing for method chaining
+   */
   public BankAccountIdentificationValidationRequest accountIdentification(BankAccountIdentificationValidationRequestAccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
     return this;
   }
 
-   /**
-   * Get accountIdentification
+  /**
+   * accountIdentification
    * @return accountIdentification
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccountIdentificationValidationRequestAccountIdentification getAccountIdentification() {
     return accountIdentification;
   }
 
-
- /**
-  * accountIdentification
-  *
-  * @param accountIdentification
-  */ 
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountIdentificationValidationRequestAccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
   }
-
 
   /**
    * Return true if this BankAccountIdentificationValidationRequest object is equal to o.

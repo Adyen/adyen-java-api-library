@@ -47,65 +47,71 @@ public class Card {
   public Card() { 
   }
 
+  /**
+   * cardHolder
+   *
+   * @param cardHolder
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card cardHolder(PartyIdentification cardHolder) {
     this.cardHolder = cardHolder;
     return this;
   }
 
-   /**
-   * Get cardHolder
+  /**
+   * cardHolder
    * @return cardHolder
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PartyIdentification getCardHolder() {
     return cardHolder;
   }
 
-
- /**
-  * cardHolder
-  *
-  * @param cardHolder
-  */ 
+  /**
+   * cardHolder
+   *
+   * @param cardHolder
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolder(PartyIdentification cardHolder) {
     this.cardHolder = cardHolder;
   }
 
-
+  /**
+   * cardIdentification
+   *
+   * @param cardIdentification
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card cardIdentification(CardIdentification cardIdentification) {
     this.cardIdentification = cardIdentification;
     return this;
   }
 
-   /**
-   * Get cardIdentification
+  /**
+   * cardIdentification
    * @return cardIdentification
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardIdentification getCardIdentification() {
     return cardIdentification;
   }
 
-
- /**
-  * cardIdentification
-  *
-  * @param cardIdentification
-  */ 
+  /**
+   * cardIdentification
+   *
+   * @param cardIdentification
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIdentification(CardIdentification cardIdentification) {
     this.cardIdentification = cardIdentification;
   }
-
 
   /**
    * Return true if this Card object is equal to o.

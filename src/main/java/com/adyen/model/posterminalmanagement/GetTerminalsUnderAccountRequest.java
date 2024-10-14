@@ -49,95 +49,104 @@ public class GetTerminalsUnderAccountRequest {
   public GetTerminalsUnderAccountRequest() { 
   }
 
+  /**
+   * Your company account. If you only specify this parameter, the response includes all terminals at all account levels.
+   *
+   * @param companyAccount
+   * @return the current {@code GetTerminalsUnderAccountRequest} instance, allowing for method chaining
+   */
   public GetTerminalsUnderAccountRequest companyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
     return this;
   }
 
-   /**
+  /**
    * Your company account. If you only specify this parameter, the response includes all terminals at all account levels.
    * @return companyAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your company account. If you only specify this parameter, the response includes all terminals at all account levels.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyAccount() {
     return companyAccount;
   }
 
-
- /**
-  * Your company account. If you only specify this parameter, the response includes all terminals at all account levels.
-  *
-  * @param companyAccount
-  */ 
+  /**
+   * Your company account. If you only specify this parameter, the response includes all terminals at all account levels.
+   *
+   * @param companyAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
-
+  /**
+   * The merchant account. This is required if you are retrieving the terminals assigned to a store.If you don't specify a `store` the response includes the terminals assigned to the specified merchant account and the terminals assigned to the stores under this merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code GetTerminalsUnderAccountRequest} instance, allowing for method chaining
+   */
   public GetTerminalsUnderAccountRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
-   * The merchant account. This is required if you are retrieving the terminals assigned to a store.If you don&#39;t specify a &#x60;store&#x60; the response includes the terminals assigned to the specified merchant account and the terminals assigned to the stores under this merchant account.
+  /**
+   * The merchant account. This is required if you are retrieving the terminals assigned to a store.If you don't specify a `store` the response includes the terminals assigned to the specified merchant account and the terminals assigned to the stores under this merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "The merchant account. This is required if you are retrieving the terminals assigned to a store.If you don't specify a `store` the response includes the terminals assigned to the specified merchant account and the terminals assigned to the stores under this merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account. This is required if you are retrieving the terminals assigned to a store.If you don&#39;t specify a &#x60;store&#x60; the response includes the terminals assigned to the specified merchant account and the terminals assigned to the stores under this merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account. This is required if you are retrieving the terminals assigned to a store.If you don't specify a `store` the response includes the terminals assigned to the specified merchant account and the terminals assigned to the stores under this merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The store code of the store. With this parameter, the response only includes the terminals assigned to the specified store.
+   *
+   * @param store
+   * @return the current {@code GetTerminalsUnderAccountRequest} instance, allowing for method chaining
+   */
   public GetTerminalsUnderAccountRequest store(String store) {
     this.store = store;
     return this;
   }
 
-   /**
+  /**
    * The store code of the store. With this parameter, the response only includes the terminals assigned to the specified store.
    * @return store
-  **/
+   */
   @ApiModelProperty(value = "The store code of the store. With this parameter, the response only includes the terminals assigned to the specified store.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStore() {
     return store;
   }
 
-
- /**
-  * The store code of the store. With this parameter, the response only includes the terminals assigned to the specified store.
-  *
-  * @param store
-  */ 
+  /**
+   * The store code of the store. With this parameter, the response only includes the terminals assigned to the specified store.
+   *
+   * @param store
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
-
 
   /**
    * Return true if this GetTerminalsUnderAccountRequest object is equal to o.

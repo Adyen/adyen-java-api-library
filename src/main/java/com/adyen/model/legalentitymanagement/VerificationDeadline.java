@@ -185,6 +185,12 @@ public class VerificationDeadline {
   public VerificationDeadline() { 
   }
 
+  /**
+   * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
+   *
+   * @param capabilities
+   * @return the current {@code VerificationDeadline} instance, allowing for method chaining
+   */
   public VerificationDeadline capabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
     return this;
@@ -195,31 +201,34 @@ public class VerificationDeadline {
     return this;
   }
 
-   /**
+  /**
    * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
    * @return capabilities
-  **/
+   */
   @ApiModelProperty(required = true, value = "The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CapabilitiesEnum> getCapabilities() {
     return capabilities;
   }
 
-
- /**
-  * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
-  *
-  * @param capabilities
-  */ 
+  /**
+   * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
+   *
+   * @param capabilities
+   */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
   }
 
-
+  /**
+   * The unique identifiers of the legal entity or supporting entities that the deadline applies to
+   *
+   * @param entityIds
+   * @return the current {@code VerificationDeadline} instance, allowing for method chaining
+   */
   public VerificationDeadline entityIds(List<String> entityIds) {
     this.entityIds = entityIds;
     return this;
@@ -233,60 +242,60 @@ public class VerificationDeadline {
     return this;
   }
 
-   /**
+  /**
    * The unique identifiers of the legal entity or supporting entities that the deadline applies to
    * @return entityIds
-  **/
+   */
   @ApiModelProperty(value = "The unique identifiers of the legal entity or supporting entities that the deadline applies to")
   @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getEntityIds() {
     return entityIds;
   }
 
-
- /**
-  * The unique identifiers of the legal entity or supporting entities that the deadline applies to
-  *
-  * @param entityIds
-  */ 
+  /**
+   * The unique identifiers of the legal entity or supporting entities that the deadline applies to
+   *
+   * @param entityIds
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityIds(List<String> entityIds) {
     this.entityIds = entityIds;
   }
 
-
+  /**
+   * The date that verification is due by before capabilities are disallowed.
+   *
+   * @param expiresAt
+   * @return the current {@code VerificationDeadline} instance, allowing for method chaining
+   */
   public VerificationDeadline expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
-   /**
+  /**
    * The date that verification is due by before capabilities are disallowed.
    * @return expiresAt
-  **/
+   */
   @ApiModelProperty(required = true, value = "The date that verification is due by before capabilities are disallowed.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
 
-
- /**
-  * The date that verification is due by before capabilities are disallowed.
-  *
-  * @param expiresAt
-  */ 
+  /**
+   * The date that verification is due by before capabilities are disallowed.
+   *
+   * @param expiresAt
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
-
 
   /**
    * Return true if this VerificationDeadline object is equal to o.

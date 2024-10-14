@@ -67,215 +67,236 @@ public class CustomNotification {
   public CustomNotification() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code CustomNotification} instance, allowing for method chaining
+   */
   public CustomNotification amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**
+   *
+   * @param eventCode
+   * @return the current {@code CustomNotification} instance, allowing for method chaining
+   */
   public CustomNotification eventCode(String eventCode) {
     this.eventCode = eventCode;
     return this;
   }
 
-   /**
+  /**
    * The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**
    * @return eventCode
-  **/
+   */
   @ApiModelProperty(value = "The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**")
   @JsonProperty(JSON_PROPERTY_EVENT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEventCode() {
     return eventCode;
   }
 
-
- /**
-  * The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**
-  *
-  * @param eventCode
-  */ 
+  /**
+   * The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**
+   *
+   * @param eventCode
+   */ 
   @JsonProperty(JSON_PROPERTY_EVENT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventCode(String eventCode) {
     this.eventCode = eventCode;
   }
 
-
+  /**
+   * The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.
+   *
+   * @param eventDate
+   * @return the current {@code CustomNotification} instance, allowing for method chaining
+   */
   public CustomNotification eventDate(OffsetDateTime eventDate) {
     this.eventDate = eventDate;
     return this;
   }
 
-   /**
+  /**
    * The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.
    * @return eventDate
-  **/
+   */
   @ApiModelProperty(value = "The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.")
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getEventDate() {
     return eventDate;
   }
 
-
- /**
-  * The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.
-  *
-  * @param eventDate
-  */ 
+  /**
+   * The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.
+   *
+   * @param eventDate
+   */ 
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventDate(OffsetDateTime eventDate) {
     this.eventDate = eventDate;
   }
 
-
+  /**
+   * Your reference for the custom test notification.
+   *
+   * @param merchantReference
+   * @return the current {@code CustomNotification} instance, allowing for method chaining
+   */
   public CustomNotification merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the custom test notification.
    * @return merchantReference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the custom test notification.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantReference() {
     return merchantReference;
   }
 
-
- /**
-  * Your reference for the custom test notification.
-  *
-  * @param merchantReference
-  */ 
+  /**
+   * Your reference for the custom test notification.
+   *
+   * @param merchantReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
-
+  /**
+   * The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** 
+   *
+   * @param paymentMethod
+   * @return the current {@code CustomNotification} instance, allowing for method chaining
+   */
   public CustomNotification paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-   /**
+  /**
    * The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** 
    * @return paymentMethod
-  **/
+   */
   @ApiModelProperty(value = "The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** ")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethod() {
     return paymentMethod;
   }
 
-
- /**
-  * The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** 
-  *
-  * @param paymentMethod
-  */ 
+  /**
+   * The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** 
+   *
+   * @param paymentMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-
+  /**
+   * A description of what caused the notification.
+   *
+   * @param reason
+   * @return the current {@code CustomNotification} instance, allowing for method chaining
+   */
   public CustomNotification reason(String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * A description of what caused the notification.
    * @return reason
-  **/
+   */
   @ApiModelProperty(value = "A description of what caused the notification.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReason() {
     return reason;
   }
 
-
- /**
-  * A description of what caused the notification.
-  *
-  * @param reason
-  */ 
+  /**
+   * A description of what caused the notification.
+   *
+   * @param reason
+   */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
     this.reason = reason;
   }
 
-
+  /**
+   * The outcome of the event which the notification is about. Set to either **true** or **false**. 
+   *
+   * @param success
+   * @return the current {@code CustomNotification} instance, allowing for method chaining
+   */
   public CustomNotification success(Boolean success) {
     this.success = success;
     return this;
   }
 
-   /**
+  /**
    * The outcome of the event which the notification is about. Set to either **true** or **false**. 
    * @return success
-  **/
+   */
   @ApiModelProperty(value = "The outcome of the event which the notification is about. Set to either **true** or **false**. ")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSuccess() {
     return success;
   }
 
-
- /**
-  * The outcome of the event which the notification is about. Set to either **true** or **false**. 
-  *
-  * @param success
-  */ 
+  /**
+   * The outcome of the event which the notification is about. Set to either **true** or **false**. 
+   *
+   * @param success
+   */ 
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
     this.success = success;
   }
-
 
   /**
    * Return true if this CustomNotification object is equal to o.

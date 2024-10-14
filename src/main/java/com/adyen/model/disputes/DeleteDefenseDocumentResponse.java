@@ -42,35 +42,38 @@ public class DeleteDefenseDocumentResponse {
   public DeleteDefenseDocumentResponse() { 
   }
 
+  /**
+   * disputeServiceResult
+   *
+   * @param disputeServiceResult
+   * @return the current {@code DeleteDefenseDocumentResponse} instance, allowing for method chaining
+   */
   public DeleteDefenseDocumentResponse disputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
     return this;
   }
 
-   /**
-   * Get disputeServiceResult
+  /**
+   * disputeServiceResult
    * @return disputeServiceResult
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DisputeServiceResult getDisputeServiceResult() {
     return disputeServiceResult;
   }
 
-
- /**
-  * disputeServiceResult
-  *
-  * @param disputeServiceResult
-  */ 
+  /**
+   * disputeServiceResult
+   *
+   * @param disputeServiceResult
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
   }
-
 
   /**
    * Return true if this DeleteDefenseDocumentResponse object is equal to o.

@@ -194,755 +194,830 @@ public class GetTerminalDetailsResponse {
   public GetTerminalDetailsResponse() { 
   }
 
+  /**
+   * The Bluetooth IP address of the terminal.
+   *
+   * @param bluetoothIp
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse bluetoothIp(String bluetoothIp) {
     this.bluetoothIp = bluetoothIp;
     return this;
   }
 
-   /**
+  /**
    * The Bluetooth IP address of the terminal.
    * @return bluetoothIp
-  **/
+   */
   @ApiModelProperty(value = "The Bluetooth IP address of the terminal.")
   @JsonProperty(JSON_PROPERTY_BLUETOOTH_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBluetoothIp() {
     return bluetoothIp;
   }
 
-
- /**
-  * The Bluetooth IP address of the terminal.
-  *
-  * @param bluetoothIp
-  */ 
+  /**
+   * The Bluetooth IP address of the terminal.
+   *
+   * @param bluetoothIp
+   */ 
   @JsonProperty(JSON_PROPERTY_BLUETOOTH_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothIp(String bluetoothIp) {
     this.bluetoothIp = bluetoothIp;
   }
 
-
+  /**
+   * The Bluetooth MAC address of the terminal.
+   *
+   * @param bluetoothMac
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse bluetoothMac(String bluetoothMac) {
     this.bluetoothMac = bluetoothMac;
     return this;
   }
 
-   /**
+  /**
    * The Bluetooth MAC address of the terminal.
    * @return bluetoothMac
-  **/
+   */
   @ApiModelProperty(value = "The Bluetooth MAC address of the terminal.")
   @JsonProperty(JSON_PROPERTY_BLUETOOTH_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBluetoothMac() {
     return bluetoothMac;
   }
 
-
- /**
-  * The Bluetooth MAC address of the terminal.
-  *
-  * @param bluetoothMac
-  */ 
+  /**
+   * The Bluetooth MAC address of the terminal.
+   *
+   * @param bluetoothMac
+   */ 
   @JsonProperty(JSON_PROPERTY_BLUETOOTH_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetoothMac(String bluetoothMac) {
     this.bluetoothMac = bluetoothMac;
   }
 
-
+  /**
+   * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
+   *
+   * @param companyAccount
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse companyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
     return this;
   }
 
-   /**
+  /**
    * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
    * @return companyAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyAccount() {
     return companyAccount;
   }
 
-
- /**
-  * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
-  *
-  * @param companyAccount
-  */ 
+  /**
+   * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
+   *
+   * @param companyAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
-
+  /**
+   * The country where the terminal is used.
+   *
+   * @param country
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
+  /**
    * The country where the terminal is used.
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "The country where the terminal is used.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The country where the terminal is used.
-  *
-  * @param country
-  */ 
+  /**
+   * The country where the terminal is used.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The model name of the terminal.
+   *
+   * @param deviceModel
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse deviceModel(String deviceModel) {
     this.deviceModel = deviceModel;
     return this;
   }
 
-   /**
+  /**
    * The model name of the terminal.
    * @return deviceModel
-  **/
+   */
   @ApiModelProperty(value = "The model name of the terminal.")
   @JsonProperty(JSON_PROPERTY_DEVICE_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDeviceModel() {
     return deviceModel;
   }
 
-
- /**
-  * The model name of the terminal.
-  *
-  * @param deviceModel
-  */ 
+  /**
+   * The model name of the terminal.
+   *
+   * @param deviceModel
+   */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceModel(String deviceModel) {
     this.deviceModel = deviceModel;
   }
 
-
+  /**
+   * Indicates whether assigning IP addresses through a DHCP server is enabled on the terminal.
+   *
+   * @param dhcpEnabled
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse dhcpEnabled(Boolean dhcpEnabled) {
     this.dhcpEnabled = dhcpEnabled;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether assigning IP addresses through a DHCP server is enabled on the terminal.
    * @return dhcpEnabled
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether assigning IP addresses through a DHCP server is enabled on the terminal.")
   @JsonProperty(JSON_PROPERTY_DHCP_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDhcpEnabled() {
     return dhcpEnabled;
   }
 
-
- /**
-  * Indicates whether assigning IP addresses through a DHCP server is enabled on the terminal.
-  *
-  * @param dhcpEnabled
-  */ 
+  /**
+   * Indicates whether assigning IP addresses through a DHCP server is enabled on the terminal.
+   *
+   * @param dhcpEnabled
+   */ 
   @JsonProperty(JSON_PROPERTY_DHCP_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDhcpEnabled(Boolean dhcpEnabled) {
     this.dhcpEnabled = dhcpEnabled;
   }
 
-
+  /**
+   * The label shown on the status bar of the display. This label (if any) is specified in your Customer Area.
+   *
+   * @param displayLabel
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse displayLabel(String displayLabel) {
     this.displayLabel = displayLabel;
     return this;
   }
 
-   /**
+  /**
    * The label shown on the status bar of the display. This label (if any) is specified in your Customer Area.
    * @return displayLabel
-  **/
+   */
   @ApiModelProperty(value = "The label shown on the status bar of the display. This label (if any) is specified in your Customer Area.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisplayLabel() {
     return displayLabel;
   }
 
-
- /**
-  * The label shown on the status bar of the display. This label (if any) is specified in your Customer Area.
-  *
-  * @param displayLabel
-  */ 
+  /**
+   * The label shown on the status bar of the display. This label (if any) is specified in your Customer Area.
+   *
+   * @param displayLabel
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPLAY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayLabel(String displayLabel) {
     this.displayLabel = displayLabel;
   }
 
-
+  /**
+   * The terminal's IP address in your Ethernet network.
+   *
+   * @param ethernetIp
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse ethernetIp(String ethernetIp) {
     this.ethernetIp = ethernetIp;
     return this;
   }
 
-   /**
-   * The terminal&#39;s IP address in your Ethernet network.
+  /**
+   * The terminal's IP address in your Ethernet network.
    * @return ethernetIp
-  **/
+   */
   @ApiModelProperty(value = "The terminal's IP address in your Ethernet network.")
   @JsonProperty(JSON_PROPERTY_ETHERNET_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEthernetIp() {
     return ethernetIp;
   }
 
-
- /**
-  * The terminal&#39;s IP address in your Ethernet network.
-  *
-  * @param ethernetIp
-  */ 
+  /**
+   * The terminal's IP address in your Ethernet network.
+   *
+   * @param ethernetIp
+   */ 
   @JsonProperty(JSON_PROPERTY_ETHERNET_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetIp(String ethernetIp) {
     this.ethernetIp = ethernetIp;
   }
 
-
+  /**
+   * The terminal's MAC address in your Ethernet network.
+   *
+   * @param ethernetMac
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse ethernetMac(String ethernetMac) {
     this.ethernetMac = ethernetMac;
     return this;
   }
 
-   /**
-   * The terminal&#39;s MAC address in your Ethernet network.
+  /**
+   * The terminal's MAC address in your Ethernet network.
    * @return ethernetMac
-  **/
+   */
   @ApiModelProperty(value = "The terminal's MAC address in your Ethernet network.")
   @JsonProperty(JSON_PROPERTY_ETHERNET_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEthernetMac() {
     return ethernetMac;
   }
 
-
- /**
-  * The terminal&#39;s MAC address in your Ethernet network.
-  *
-  * @param ethernetMac
-  */ 
+  /**
+   * The terminal's MAC address in your Ethernet network.
+   *
+   * @param ethernetMac
+   */ 
   @JsonProperty(JSON_PROPERTY_ETHERNET_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernetMac(String ethernetMac) {
     this.ethernetMac = ethernetMac;
   }
 
-
+  /**
+   * The software release currently in use on the terminal.
+   *
+   * @param firmwareVersion
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse firmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
     return this;
   }
 
-   /**
+  /**
    * The software release currently in use on the terminal.
    * @return firmwareVersion
-  **/
+   */
   @ApiModelProperty(value = "The software release currently in use on the terminal.")
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFirmwareVersion() {
     return firmwareVersion;
   }
 
-
- /**
-  * The software release currently in use on the terminal.
-  *
-  * @param firmwareVersion
-  */ 
+  /**
+   * The software release currently in use on the terminal.
+   *
+   * @param firmwareVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
   }
 
-
+  /**
+   * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+   *
+   * @param iccid
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse iccid(String iccid) {
     this.iccid = iccid;
     return this;
   }
 
-   /**
+  /**
    * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
    * @return iccid
-  **/
+   */
   @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the SIM card in the terminal.")
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIccid() {
     return iccid;
   }
 
-
- /**
-  * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
-  *
-  * @param iccid
-  */ 
+  /**
+   * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+   *
+   * @param iccid
+   */ 
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
     this.iccid = iccid;
   }
 
-
+  /**
+   * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
+   *
+   * @param lastActivityDateTime
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse lastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     this.lastActivityDateTime = lastActivityDateTime;
     return this;
   }
 
-   /**
+  /**
    * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    * @return lastActivityDateTime
-  **/
+   */
   @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getLastActivityDateTime() {
     return lastActivityDateTime;
   }
 
-
- /**
-  * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
-  *
-  * @param lastActivityDateTime
-  */ 
+  /**
+   * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
+   *
+   * @param lastActivityDateTime
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     this.lastActivityDateTime = lastActivityDateTime;
   }
 
-
+  /**
+   * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
+   *
+   * @param lastTransactionDateTime
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse lastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     this.lastTransactionDateTime = lastTransactionDateTime;
     return this;
   }
 
-   /**
+  /**
    * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    * @return lastTransactionDateTime
-  **/
+   */
   @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getLastTransactionDateTime() {
     return lastTransactionDateTime;
   }
 
-
- /**
-  * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
-  *
-  * @param lastTransactionDateTime
-  */ 
+  /**
+   * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
+   *
+   * @param lastTransactionDateTime
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     this.lastTransactionDateTime = lastTransactionDateTime;
   }
 
-
+  /**
+   * The Ethernet link negotiation that the terminal uses:   - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex
+   *
+   * @param linkNegotiation
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse linkNegotiation(String linkNegotiation) {
     this.linkNegotiation = linkNegotiation;
     return this;
   }
 
-   /**
-   * The Ethernet link negotiation that the terminal uses:   - &#x60;auto&#x60;: Auto-negotiation  - &#x60;100full&#x60;: 100 Mbps full duplex
+  /**
+   * The Ethernet link negotiation that the terminal uses:   - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex
    * @return linkNegotiation
-  **/
+   */
   @ApiModelProperty(value = "The Ethernet link negotiation that the terminal uses:   - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex")
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLinkNegotiation() {
     return linkNegotiation;
   }
 
-
- /**
-  * The Ethernet link negotiation that the terminal uses:   - &#x60;auto&#x60;: Auto-negotiation  - &#x60;100full&#x60;: 100 Mbps full duplex
-  *
-  * @param linkNegotiation
-  */ 
+  /**
+   * The Ethernet link negotiation that the terminal uses:   - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex
+   *
+   * @param linkNegotiation
+   */ 
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkNegotiation(String linkNegotiation) {
     this.linkNegotiation = linkNegotiation;
   }
 
-
+  /**
+   * The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
-   * The merchant account that the terminal is associated with. If the response doesn&#39;t contain a &#x60;store&#x60; the terminal is assigned to this merchant account.
+  /**
+   * The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that the terminal is associated with. If the response doesn&#39;t contain a &#x60;store&#x60; the terminal is assigned to this merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
+   *
+   * @param merchantInventory
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse merchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
     return this;
   }
 
-   /**
+  /**
    * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
    * @return merchantInventory
-  **/
+   */
   @ApiModelProperty(value = "Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantInventory() {
     return merchantInventory;
   }
 
-
- /**
-  * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
-  *
-  * @param merchantInventory
-  */ 
+  /**
+   * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
+   *
+   * @param merchantInventory
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
   }
 
-
+  /**
+   * The permanent terminal ID.
+   *
+   * @param permanentTerminalId
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse permanentTerminalId(String permanentTerminalId) {
     this.permanentTerminalId = permanentTerminalId;
     return this;
   }
 
-   /**
+  /**
    * The permanent terminal ID.
    * @return permanentTerminalId
-  **/
+   */
   @ApiModelProperty(value = "The permanent terminal ID.")
   @JsonProperty(JSON_PROPERTY_PERMANENT_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPermanentTerminalId() {
     return permanentTerminalId;
   }
 
-
- /**
-  * The permanent terminal ID.
-  *
-  * @param permanentTerminalId
-  */ 
+  /**
+   * The permanent terminal ID.
+   *
+   * @param permanentTerminalId
+   */ 
   @JsonProperty(JSON_PROPERTY_PERMANENT_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermanentTerminalId(String permanentTerminalId) {
     this.permanentTerminalId = permanentTerminalId;
   }
 
-
+  /**
+   * The serial number of the terminal.
+   *
+   * @param serialNumber
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
     return this;
   }
 
-   /**
+  /**
    * The serial number of the terminal.
    * @return serialNumber
-  **/
+   */
   @ApiModelProperty(value = "The serial number of the terminal.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSerialNumber() {
     return serialNumber;
   }
 
-
- /**
-  * The serial number of the terminal.
-  *
-  * @param serialNumber
-  */ 
+  /**
+   * The serial number of the terminal.
+   *
+   * @param serialNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
 
-
+  /**
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.
+   *
+   * @param simStatus
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse simStatus(String simStatus) {
     this.simStatus = simStatus;
     return this;
   }
 
-   /**
+  /**
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.
    * @return simStatus
-  **/
+   */
   @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.")
   @JsonProperty(JSON_PROPERTY_SIM_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSimStatus() {
     return simStatus;
   }
 
-
- /**
-  * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.
-  *
-  * @param simStatus
-  */ 
+  /**
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.
+   *
+   * @param simStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_SIM_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSimStatus(String simStatus) {
     this.simStatus = simStatus;
   }
 
-
+  /**
+   * The store code of the store that the terminal is assigned to.
+   *
+   * @param store
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse store(String store) {
     this.store = store;
     return this;
   }
 
-   /**
+  /**
    * The store code of the store that the terminal is assigned to.
    * @return store
-  **/
+   */
   @ApiModelProperty(value = "The store code of the store that the terminal is assigned to.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStore() {
     return store;
   }
 
-
- /**
-  * The store code of the store that the terminal is assigned to.
-  *
-  * @param store
-  */ 
+  /**
+   * The store code of the store that the terminal is assigned to.
+   *
+   * @param store
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
 
-
+  /**
+   * storeDetails
+   *
+   * @param storeDetails
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse storeDetails(Store storeDetails) {
     this.storeDetails = storeDetails;
     return this;
   }
 
-   /**
-   * Get storeDetails
+  /**
+   * storeDetails
    * @return storeDetails
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STORE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Store getStoreDetails() {
     return storeDetails;
   }
 
-
- /**
-  * storeDetails
-  *
-  * @param storeDetails
-  */ 
+  /**
+   * storeDetails
+   *
+   * @param storeDetails
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreDetails(Store storeDetails) {
     this.storeDetails = storeDetails;
   }
 
-
+  /**
+   * The unique terminal ID.
+   *
+   * @param terminal
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse terminal(String terminal) {
     this.terminal = terminal;
     return this;
   }
 
-   /**
+  /**
    * The unique terminal ID.
    * @return terminal
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique terminal ID.")
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminal() {
     return terminal;
   }
 
-
- /**
-  * The unique terminal ID.
-  *
-  * @param terminal
-  */ 
+  /**
+   * The unique terminal ID.
+   *
+   * @param terminal
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }
 
-
+  /**
+   * The status of the terminal:   - `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.   - `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.   - `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned.
+   *
+   * @param terminalStatus
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse terminalStatus(TerminalStatusEnum terminalStatus) {
     this.terminalStatus = terminalStatus;
     return this;
   }
 
-   /**
-   * The status of the terminal:   - &#x60;OnlineToday&#x60;, &#x60;OnlineLast1Day&#x60;, &#x60;OnlineLast2Days&#x60; etcetera to &#x60;OnlineLast7Days&#x60;: Indicates when in the past week the terminal was last online.   - &#x60;SwitchedOff&#x60;: Indicates it was more than a week ago that the terminal was last online.   - &#x60;ReAssignToInventoryPending&#x60;, &#x60;ReAssignToStorePending&#x60;, &#x60;ReAssignToMerchantInventoryPending&#x60;: Indicates the terminal is scheduled to be reassigned.
+  /**
+   * The status of the terminal:   - `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.   - `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.   - `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned.
    * @return terminalStatus
-  **/
+   */
   @ApiModelProperty(value = "The status of the terminal:   - `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.   - `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.   - `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalStatusEnum getTerminalStatus() {
     return terminalStatus;
   }
 
-
- /**
-  * The status of the terminal:   - &#x60;OnlineToday&#x60;, &#x60;OnlineLast1Day&#x60;, &#x60;OnlineLast2Days&#x60; etcetera to &#x60;OnlineLast7Days&#x60;: Indicates when in the past week the terminal was last online.   - &#x60;SwitchedOff&#x60;: Indicates it was more than a week ago that the terminal was last online.   - &#x60;ReAssignToInventoryPending&#x60;, &#x60;ReAssignToStorePending&#x60;, &#x60;ReAssignToMerchantInventoryPending&#x60;: Indicates the terminal is scheduled to be reassigned.
-  *
-  * @param terminalStatus
-  */ 
+  /**
+   * The status of the terminal:   - `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.   - `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.   - `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned.
+   *
+   * @param terminalStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalStatus(TerminalStatusEnum terminalStatus) {
     this.terminalStatus = terminalStatus;
   }
 
-
+  /**
+   * The terminal's IP address in your Wi-Fi network.
+   *
+   * @param wifiIp
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse wifiIp(String wifiIp) {
     this.wifiIp = wifiIp;
     return this;
   }
 
-   /**
-   * The terminal&#39;s IP address in your Wi-Fi network.
+  /**
+   * The terminal's IP address in your Wi-Fi network.
    * @return wifiIp
-  **/
+   */
   @ApiModelProperty(value = "The terminal's IP address in your Wi-Fi network.")
   @JsonProperty(JSON_PROPERTY_WIFI_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWifiIp() {
     return wifiIp;
   }
 
-
- /**
-  * The terminal&#39;s IP address in your Wi-Fi network.
-  *
-  * @param wifiIp
-  */ 
+  /**
+   * The terminal's IP address in your Wi-Fi network.
+   *
+   * @param wifiIp
+   */ 
   @JsonProperty(JSON_PROPERTY_WIFI_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiIp(String wifiIp) {
     this.wifiIp = wifiIp;
   }
 
-
+  /**
+   * The terminal's MAC address in your Wi-Fi network.
+   *
+   * @param wifiMac
+   * @return the current {@code GetTerminalDetailsResponse} instance, allowing for method chaining
+   */
   public GetTerminalDetailsResponse wifiMac(String wifiMac) {
     this.wifiMac = wifiMac;
     return this;
   }
 
-   /**
-   * The terminal&#39;s MAC address in your Wi-Fi network.
+  /**
+   * The terminal's MAC address in your Wi-Fi network.
    * @return wifiMac
-  **/
+   */
   @ApiModelProperty(value = "The terminal's MAC address in your Wi-Fi network.")
   @JsonProperty(JSON_PROPERTY_WIFI_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWifiMac() {
     return wifiMac;
   }
 
-
- /**
-  * The terminal&#39;s MAC address in your Wi-Fi network.
-  *
-  * @param wifiMac
-  */ 
+  /**
+   * The terminal's MAC address in your Wi-Fi network.
+   *
+   * @param wifiMac
+   */ 
   @JsonProperty(JSON_PROPERTY_WIFI_MAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiMac(String wifiMac) {
     this.wifiMac = wifiMac;
   }
-
 
   /**
    * Return true if this GetTerminalDetailsResponse object is equal to o.

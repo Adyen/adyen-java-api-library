@@ -41,35 +41,38 @@ public class PaymentInstrumentRevealResponse {
   public PaymentInstrumentRevealResponse() { 
   }
 
+  /**
+   * The data encrypted using the `encryptedKey`.
+   *
+   * @param encryptedData
+   * @return the current {@code PaymentInstrumentRevealResponse} instance, allowing for method chaining
+   */
   public PaymentInstrumentRevealResponse encryptedData(String encryptedData) {
     this.encryptedData = encryptedData;
     return this;
   }
 
-   /**
-   * The data encrypted using the &#x60;encryptedKey&#x60;.
+  /**
+   * The data encrypted using the `encryptedKey`.
    * @return encryptedData
-  **/
+   */
   @ApiModelProperty(required = true, value = "The data encrypted using the `encryptedKey`.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEncryptedData() {
     return encryptedData;
   }
 
-
- /**
-  * The data encrypted using the &#x60;encryptedKey&#x60;.
-  *
-  * @param encryptedData
-  */ 
+  /**
+   * The data encrypted using the `encryptedKey`.
+   *
+   * @param encryptedData
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedData(String encryptedData) {
     this.encryptedData = encryptedData;
   }
-
 
   /**
    * Return true if this PaymentInstrumentRevealResponse object is equal to o.

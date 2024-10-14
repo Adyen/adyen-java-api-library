@@ -60,66 +60,78 @@ public class TerminalProduct {
   public TerminalProduct() { 
   }
 
+  /**
+   * Information about items included and integration options.
+   *
+   * @param description
+   * @return the current {@code TerminalProduct} instance, allowing for method chaining
+   */
   public TerminalProduct description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Information about items included and integration options.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Information about items included and integration options.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Information about items included and integration options.
-  *
-  * @param description
-  */ 
+  /**
+   * Information about items included and integration options.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the product.
+   *
+   * @param id
+   * @return the current {@code TerminalProduct} instance, allowing for method chaining
+   */
   public TerminalProduct id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the product.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the product.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the product.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the product.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * A list of parts included in the terminal package.
+   *
+   * @param itemsIncluded
+   * @return the current {@code TerminalProduct} instance, allowing for method chaining
+   */
   public TerminalProduct itemsIncluded(List<String> itemsIncluded) {
     this.itemsIncluded = itemsIncluded;
     return this;
@@ -133,90 +145,93 @@ public class TerminalProduct {
     return this;
   }
 
-   /**
+  /**
    * A list of parts included in the terminal package.
    * @return itemsIncluded
-  **/
+   */
   @ApiModelProperty(value = "A list of parts included in the terminal package.")
   @JsonProperty(JSON_PROPERTY_ITEMS_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getItemsIncluded() {
     return itemsIncluded;
   }
 
-
- /**
-  * A list of parts included in the terminal package.
-  *
-  * @param itemsIncluded
-  */ 
+  /**
+   * A list of parts included in the terminal package.
+   *
+   * @param itemsIncluded
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsIncluded(List<String> itemsIncluded) {
     this.itemsIncluded = itemsIncluded;
   }
 
-
+  /**
+   * The descriptive name of the product.
+   *
+   * @param name
+   * @return the current {@code TerminalProduct} instance, allowing for method chaining
+   */
   public TerminalProduct name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The descriptive name of the product.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The descriptive name of the product.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The descriptive name of the product.
-  *
-  * @param name
-  */ 
+  /**
+   * The descriptive name of the product.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * price
+   *
+   * @param price
+   * @return the current {@code TerminalProduct} instance, allowing for method chaining
+   */
   public TerminalProduct price(TerminalProductPrice price) {
     this.price = price;
     return this;
   }
 
-   /**
-   * Get price
+  /**
+   * price
    * @return price
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalProductPrice getPrice() {
     return price;
   }
 
-
- /**
-  * price
-  *
-  * @param price
-  */ 
+  /**
+   * price
+   *
+   * @param price
+   */ 
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrice(TerminalProductPrice price) {
     this.price = price;
   }
-
 
   /**
    * Return true if this TerminalProduct object is equal to o.

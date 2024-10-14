@@ -47,36 +47,45 @@ public class MccsRestriction {
   public MccsRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code MccsRestriction} instance, allowing for method chaining
+   */
   public MccsRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * List of merchant category codes (MCCs).
+   *
+   * @param value
+   * @return the current {@code MccsRestriction} instance, allowing for method chaining
+   */
   public MccsRestriction value(List<String> value) {
     this.value = value;
     return this;
@@ -90,30 +99,27 @@ public class MccsRestriction {
     return this;
   }
 
-   /**
+  /**
    * List of merchant category codes (MCCs).
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "List of merchant category codes (MCCs).")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getValue() {
     return value;
   }
 
-
- /**
-  * List of merchant category codes (MCCs).
-  *
-  * @param value
-  */ 
+  /**
+   * List of merchant category codes (MCCs).
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<String> value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this MccsRestriction object is equal to o.

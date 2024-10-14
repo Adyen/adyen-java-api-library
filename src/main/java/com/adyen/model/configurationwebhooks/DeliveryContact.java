@@ -68,215 +68,236 @@ public class DeliveryContact {
   public DeliveryContact() { 
   }
 
+  /**
+   * address
+   *
+   * @param address
+   * @return the current {@code DeliveryContact} instance, allowing for method chaining
+   */
   public DeliveryContact address(DeliveryAddress address) {
     this.address = address;
     return this;
   }
 
-   /**
-   * Get address
+  /**
+   * address
    * @return address
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DeliveryAddress getAddress() {
     return address;
   }
 
-
- /**
-  * address
-  *
-  * @param address
-  */ 
+  /**
+   * address
+   *
+   * @param address
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(DeliveryAddress address) {
     this.address = address;
   }
 
-
+  /**
+   * The company name of the contact.
+   *
+   * @param company
+   * @return the current {@code DeliveryContact} instance, allowing for method chaining
+   */
   public DeliveryContact company(String company) {
     this.company = company;
     return this;
   }
 
-   /**
+  /**
    * The company name of the contact.
    * @return company
-  **/
+   */
   @ApiModelProperty(value = "The company name of the contact.")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompany() {
     return company;
   }
 
-
- /**
-  * The company name of the contact.
-  *
-  * @param company
-  */ 
+  /**
+   * The company name of the contact.
+   *
+   * @param company
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(String company) {
     this.company = company;
   }
 
-
+  /**
+   * The email address of the contact.
+   *
+   * @param email
+   * @return the current {@code DeliveryContact} instance, allowing for method chaining
+   */
   public DeliveryContact email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address of the contact.
    * @return email
-  **/
+   */
   @ApiModelProperty(value = "The email address of the contact.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address of the contact.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address of the contact.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"
+   *
+   * @param fullPhoneNumber
+   * @return the current {@code DeliveryContact} instance, allowing for method chaining
+   */
   public DeliveryContact fullPhoneNumber(String fullPhoneNumber) {
     this.fullPhoneNumber = fullPhoneNumber;
     return this;
   }
 
-   /**
-   * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
+  /**
+   * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"
    * @return fullPhoneNumber
-  **/
+   */
   @ApiModelProperty(value = "The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"")
   @JsonProperty(JSON_PROPERTY_FULL_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFullPhoneNumber() {
     return fullPhoneNumber;
   }
 
-
- /**
-  * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
-  *
-  * @param fullPhoneNumber
-  */ 
+  /**
+   * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"
+   *
+   * @param fullPhoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_FULL_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullPhoneNumber(String fullPhoneNumber) {
     this.fullPhoneNumber = fullPhoneNumber;
   }
 
-
+  /**
+   * name
+   *
+   * @param name
+   * @return the current {@code DeliveryContact} instance, allowing for method chaining
+   */
   public DeliveryContact name(Name name) {
     this.name = name;
     return this;
   }
 
-   /**
-   * Get name
+  /**
+   * name
    * @return name
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getName() {
     return name;
   }
 
-
- /**
-  * name
-  *
-  * @param name
-  */ 
+  /**
+   * name
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
   }
 
-
+  /**
+   * phoneNumber
+   *
+   * @param phoneNumber
+   * @return the current {@code DeliveryContact} instance, allowing for method chaining
+   */
   public DeliveryContact phoneNumber(PhoneNumber phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
 
-   /**
-   * Get phoneNumber
+  /**
+   * phoneNumber
    * @return phoneNumber
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PhoneNumber getPhoneNumber() {
     return phoneNumber;
   }
 
-
- /**
-  * phoneNumber
-  *
-  * @param phoneNumber
-  */ 
+  /**
+   * phoneNumber
+   *
+   * @param phoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(PhoneNumber phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
 
-
+  /**
+   * The URL of the contact's website.
+   *
+   * @param webAddress
+   * @return the current {@code DeliveryContact} instance, allowing for method chaining
+   */
   public DeliveryContact webAddress(String webAddress) {
     this.webAddress = webAddress;
     return this;
   }
 
-   /**
-   * The URL of the contact&#39;s website.
+  /**
+   * The URL of the contact's website.
    * @return webAddress
-  **/
+   */
   @ApiModelProperty(value = "The URL of the contact's website.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWebAddress() {
     return webAddress;
   }
 
-
- /**
-  * The URL of the contact&#39;s website.
-  *
-  * @param webAddress
-  */ 
+  /**
+   * The URL of the contact's website.
+   *
+   * @param webAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {
     this.webAddress = webAddress;
   }
-
 
   /**
    * Return true if this DeliveryContact object is equal to o.

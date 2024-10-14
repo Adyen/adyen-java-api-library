@@ -44,6 +44,12 @@ public class AndroidAppsResponse {
   public AndroidAppsResponse() { 
   }
 
+  /**
+   * Apps uploaded for Android payment terminals.
+   *
+   * @param data
+   * @return the current {@code AndroidAppsResponse} instance, allowing for method chaining
+   */
   public AndroidAppsResponse data(List<AndroidApp> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class AndroidAppsResponse {
     return this;
   }
 
-   /**
+  /**
    * Apps uploaded for Android payment terminals.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "Apps uploaded for Android payment terminals.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AndroidApp> getData() {
     return data;
   }
 
-
- /**
-  * Apps uploaded for Android payment terminals.
-  *
-  * @param data
-  */ 
+  /**
+   * Apps uploaded for Android payment terminals.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<AndroidApp> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this AndroidAppsResponse object is equal to o.

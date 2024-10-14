@@ -94,96 +94,111 @@ public class VerificationErrorRecursive {
   public VerificationErrorRecursive() { 
   }
 
+  /**
+   * The verification error code.
+   *
+   * @param code
+   * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
+   */
   public VerificationErrorRecursive code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * The verification error code.
    * @return code
-  **/
+   */
   @ApiModelProperty(value = "The verification error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
- /**
-  * The verification error code.
-  *
-  * @param code
-  */ 
+  /**
+   * The verification error code.
+   *
+   * @param code
+   */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
   }
 
-
+  /**
+   * The verification error message.
+   *
+   * @param message
+   * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
+   */
   public VerificationErrorRecursive message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * The verification error message.
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "The verification error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * The verification error message.
-  *
-  * @param message
-  */ 
+  /**
+   * The verification error message.
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
-
+  /**
+   * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
+   *
+   * @param type
+   * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
+   */
   public VerificationErrorRecursive type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * The actions that you can take to resolve the verification error.
+   *
+   * @param remediatingActions
+   * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
+   */
   public VerificationErrorRecursive remediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
     return this;
@@ -197,30 +212,27 @@ public class VerificationErrorRecursive {
     return this;
   }
 
-   /**
+  /**
    * The actions that you can take to resolve the verification error.
    * @return remediatingActions
-  **/
+   */
   @ApiModelProperty(value = "The actions that you can take to resolve the verification error.")
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<RemediatingAction> getRemediatingActions() {
     return remediatingActions;
   }
 
-
- /**
-  * The actions that you can take to resolve the verification error.
-  *
-  * @param remediatingActions
-  */ 
+  /**
+   * The actions that you can take to resolve the verification error.
+   *
+   * @param remediatingActions
+   */ 
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
   }
-
 
   /**
    * Return true if this VerificationError-recursive object is equal to o.

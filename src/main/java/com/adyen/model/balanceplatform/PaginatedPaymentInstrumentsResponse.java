@@ -52,66 +52,78 @@ public class PaginatedPaymentInstrumentsResponse {
   public PaginatedPaymentInstrumentsResponse() { 
   }
 
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   * @return the current {@code PaginatedPaymentInstrumentsResponse} instance, allowing for method chaining
+   */
   public PaginatedPaymentInstrumentsResponse hasNext(Boolean hasNext) {
     this.hasNext = hasNext;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the next page.
    * @return hasNext
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasNext() {
     return hasNext;
   }
 
-
- /**
-  * Indicates whether there are more items on the next page.
-  *
-  * @param hasNext
-  */ 
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
 
-
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   * @return the current {@code PaginatedPaymentInstrumentsResponse} instance, allowing for method chaining
+   */
   public PaginatedPaymentInstrumentsResponse hasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
 
-
- /**
-  * Indicates whether there are more items on the previous page.
-  *
-  * @param hasPrevious
-  */ 
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
 
-
+  /**
+   * List of payment instruments associated with the balance account.
+   *
+   * @param paymentInstruments
+   * @return the current {@code PaginatedPaymentInstrumentsResponse} instance, allowing for method chaining
+   */
   public PaginatedPaymentInstrumentsResponse paymentInstruments(List<PaymentInstrument> paymentInstruments) {
     this.paymentInstruments = paymentInstruments;
     return this;
@@ -122,30 +134,27 @@ public class PaginatedPaymentInstrumentsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of payment instruments associated with the balance account.
    * @return paymentInstruments
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of payment instruments associated with the balance account.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PaymentInstrument> getPaymentInstruments() {
     return paymentInstruments;
   }
 
-
- /**
-  * List of payment instruments associated with the balance account.
-  *
-  * @param paymentInstruments
-  */ 
+  /**
+   * List of payment instruments associated with the balance account.
+   *
+   * @param paymentInstruments
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstruments(List<PaymentInstrument> paymentInstruments) {
     this.paymentInstruments = paymentInstruments;
   }
-
 
   /**
    * Return true if this PaginatedPaymentInstrumentsResponse object is equal to o.

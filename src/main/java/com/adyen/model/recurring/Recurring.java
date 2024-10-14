@@ -134,155 +134,170 @@ public class Recurring {
   public Recurring() { 
   }
 
+  /**
+   * The type of recurring contract to be used. Possible values: * `ONECLICK` – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * `RECURRING` – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * `ONECLICK,RECURRING` – Payment details can be used regardless of whether the shopper is on your site or not. * `PAYOUT` – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).
+   *
+   * @param contract
+   * @return the current {@code Recurring} instance, allowing for method chaining
+   */
   public Recurring contract(ContractEnum contract) {
     this.contract = contract;
     return this;
   }
 
-   /**
-   * The type of recurring contract to be used. Possible values: * &#x60;ONECLICK&#x60; – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * &#x60;RECURRING&#x60; – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).
+  /**
+   * The type of recurring contract to be used. Possible values: * `ONECLICK` – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * `RECURRING` – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * `ONECLICK,RECURRING` – Payment details can be used regardless of whether the shopper is on your site or not. * `PAYOUT` – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).
    * @return contract
-  **/
+   */
   @ApiModelProperty(value = "The type of recurring contract to be used. Possible values: * `ONECLICK` – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * `RECURRING` – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * `ONECLICK,RECURRING` – Payment details can be used regardless of whether the shopper is on your site or not. * `PAYOUT` – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).")
   @JsonProperty(JSON_PROPERTY_CONTRACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ContractEnum getContract() {
     return contract;
   }
 
-
- /**
-  * The type of recurring contract to be used. Possible values: * &#x60;ONECLICK&#x60; – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * &#x60;RECURRING&#x60; – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).
-  *
-  * @param contract
-  */ 
+  /**
+   * The type of recurring contract to be used. Possible values: * `ONECLICK` – Payment details can be used to initiate a one-click payment, where the shopper enters the [card security code (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid). * `RECURRING` – Payment details can be used without the card security code to initiate [card-not-present transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp). * `ONECLICK,RECURRING` – Payment details can be used regardless of whether the shopper is on your site or not. * `PAYOUT` – Payment details can be used to [make a payout](https://docs.adyen.com/online-payments/online-payouts).
+   *
+   * @param contract
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTRACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContract(ContractEnum contract) {
     this.contract = contract;
   }
 
-
+  /**
+   * A descriptive name for this detail.
+   *
+   * @param recurringDetailName
+   * @return the current {@code Recurring} instance, allowing for method chaining
+   */
   public Recurring recurringDetailName(String recurringDetailName) {
     this.recurringDetailName = recurringDetailName;
     return this;
   }
 
-   /**
+  /**
    * A descriptive name for this detail.
    * @return recurringDetailName
-  **/
+   */
   @ApiModelProperty(value = "A descriptive name for this detail.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailName() {
     return recurringDetailName;
   }
 
-
- /**
-  * A descriptive name for this detail.
-  *
-  * @param recurringDetailName
-  */ 
+  /**
+   * A descriptive name for this detail.
+   *
+   * @param recurringDetailName
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailName(String recurringDetailName) {
     this.recurringDetailName = recurringDetailName;
   }
 
-
+  /**
+   * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
+   *
+   * @param recurringExpiry
+   * @return the current {@code Recurring} instance, allowing for method chaining
+   */
   public Recurring recurringExpiry(OffsetDateTime recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
     return this;
   }
 
-   /**
+  /**
    * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    * @return recurringExpiry
-  **/
+   */
   @ApiModelProperty(value = "Date after which no further authorisations shall be performed. Only for 3D Secure 2.")
   @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getRecurringExpiry() {
     return recurringExpiry;
   }
 
-
- /**
-  * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
-  *
-  * @param recurringExpiry
-  */ 
+  /**
+   * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
+   *
+   * @param recurringExpiry
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringExpiry(OffsetDateTime recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
   }
 
-
+  /**
+   * Minimum number of days between authorisations. Only for 3D Secure 2.
+   *
+   * @param recurringFrequency
+   * @return the current {@code Recurring} instance, allowing for method chaining
+   */
   public Recurring recurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
     return this;
   }
 
-   /**
+  /**
    * Minimum number of days between authorisations. Only for 3D Secure 2.
    * @return recurringFrequency
-  **/
+   */
   @ApiModelProperty(value = "Minimum number of days between authorisations. Only for 3D Secure 2.")
   @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringFrequency() {
     return recurringFrequency;
   }
 
-
- /**
-  * Minimum number of days between authorisations. Only for 3D Secure 2.
-  *
-  * @param recurringFrequency
-  */ 
+  /**
+   * Minimum number of days between authorisations. Only for 3D Secure 2.
+   *
+   * @param recurringFrequency
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
   }
 
-
+  /**
+   * The name of the token service.
+   *
+   * @param tokenService
+   * @return the current {@code Recurring} instance, allowing for method chaining
+   */
   public Recurring tokenService(TokenServiceEnum tokenService) {
     this.tokenService = tokenService;
     return this;
   }
 
-   /**
+  /**
    * The name of the token service.
    * @return tokenService
-  **/
+   */
   @ApiModelProperty(value = "The name of the token service.")
   @JsonProperty(JSON_PROPERTY_TOKEN_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TokenServiceEnum getTokenService() {
     return tokenService;
   }
 
-
- /**
-  * The name of the token service.
-  *
-  * @param tokenService
-  */ 
+  /**
+   * The name of the token service.
+   *
+   * @param tokenService
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenService(TokenServiceEnum tokenService) {
     this.tokenService = tokenService;
   }
-
 
   /**
    * Return true if this Recurring object is equal to o.

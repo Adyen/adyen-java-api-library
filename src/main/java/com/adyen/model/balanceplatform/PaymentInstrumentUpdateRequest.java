@@ -146,155 +146,170 @@ public class PaymentInstrumentUpdateRequest {
   public PaymentInstrumentUpdateRequest() { 
   }
 
+  /**
+   * The unique identifier of the balance account associated with this payment instrument. >You can only change the balance account ID if the payment instrument has **inactive** status.
+   *
+   * @param balanceAccountId
+   * @return the current {@code PaymentInstrumentUpdateRequest} instance, allowing for method chaining
+   */
   public PaymentInstrumentUpdateRequest balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     return this;
   }
 
-   /**
-   * The unique identifier of the balance account associated with this payment instrument. &gt;You can only change the balance account ID if the payment instrument has **inactive** status.
+  /**
+   * The unique identifier of the balance account associated with this payment instrument. >You can only change the balance account ID if the payment instrument has **inactive** status.
    * @return balanceAccountId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the balance account associated with this payment instrument. >You can only change the balance account ID if the payment instrument has **inactive** status.")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
-
- /**
-  * The unique identifier of the balance account associated with this payment instrument. &gt;You can only change the balance account ID if the payment instrument has **inactive** status.
-  *
-  * @param balanceAccountId
-  */ 
+  /**
+   * The unique identifier of the balance account associated with this payment instrument. >You can only change the balance account ID if the payment instrument has **inactive** status.
+   *
+   * @param balanceAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code PaymentInstrumentUpdateRequest} instance, allowing for method chaining
+   */
   public PaymentInstrumentUpdateRequest card(CardInfo card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardInfo getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardInfo card) {
     this.card = card;
   }
 
-
+  /**
+   * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the `card.formFactor` and the `issuingCountryCode`. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
+   *
+   * @param status
+   * @return the current {@code PaymentInstrumentUpdateRequest} instance, allowing for method chaining
+   */
   public PaymentInstrumentUpdateRequest status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
-   * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
+  /**
+   * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the `card.formFactor` and the `issuingCountryCode`. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the `card.formFactor` and the `issuingCountryCode`. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the `card.formFactor` and the `issuingCountryCode`. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * Comment for the status of the payment instrument.  Required if `statusReason` is **other**.
+   *
+   * @param statusComment
+   * @return the current {@code PaymentInstrumentUpdateRequest} instance, allowing for method chaining
+   */
   public PaymentInstrumentUpdateRequest statusComment(String statusComment) {
     this.statusComment = statusComment;
     return this;
   }
 
-   /**
-   * Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
+  /**
+   * Comment for the status of the payment instrument.  Required if `statusReason` is **other**.
    * @return statusComment
-  **/
+   */
   @ApiModelProperty(value = "Comment for the status of the payment instrument.  Required if `statusReason` is **other**.")
   @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatusComment() {
     return statusComment;
   }
 
-
- /**
-  * Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
-  *
-  * @param statusComment
-  */ 
+  /**
+   * Comment for the status of the payment instrument.  Required if `statusReason` is **other**.
+   *
+   * @param statusComment
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusComment(String statusComment) {
     this.statusComment = statusComment;
   }
 
-
+  /**
+   * The reason for updating the status of the payment instrument.  Possible values: **lost**, **stolen**, **damaged**, **suspectedFraud**, **expired**, **endOfLife**, **accountClosure**, **other**. If the reason is **other**, you must also send the `statusComment` parameter describing the status change.
+   *
+   * @param statusReason
+   * @return the current {@code PaymentInstrumentUpdateRequest} instance, allowing for method chaining
+   */
   public PaymentInstrumentUpdateRequest statusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
     return this;
   }
 
-   /**
-   * The reason for updating the status of the payment instrument.  Possible values: **lost**, **stolen**, **damaged**, **suspectedFraud**, **expired**, **endOfLife**, **accountClosure**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
+  /**
+   * The reason for updating the status of the payment instrument.  Possible values: **lost**, **stolen**, **damaged**, **suspectedFraud**, **expired**, **endOfLife**, **accountClosure**, **other**. If the reason is **other**, you must also send the `statusComment` parameter describing the status change.
    * @return statusReason
-  **/
+   */
   @ApiModelProperty(value = "The reason for updating the status of the payment instrument.  Possible values: **lost**, **stolen**, **damaged**, **suspectedFraud**, **expired**, **endOfLife**, **accountClosure**, **other**. If the reason is **other**, you must also send the `statusComment` parameter describing the status change.")
   @JsonProperty(JSON_PROPERTY_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusReasonEnum getStatusReason() {
     return statusReason;
   }
 
-
- /**
-  * The reason for updating the status of the payment instrument.  Possible values: **lost**, **stolen**, **damaged**, **suspectedFraud**, **expired**, **endOfLife**, **accountClosure**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
-  *
-  * @param statusReason
-  */ 
+  /**
+   * The reason for updating the status of the payment instrument.  Possible values: **lost**, **stolen**, **damaged**, **suspectedFraud**, **expired**, **endOfLife**, **accountClosure**, **other**. If the reason is **other**, you must also send the `statusComment` parameter describing the status change.
+   *
+   * @param statusReason
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
   }
-
 
   /**
    * Return true if this PaymentInstrumentUpdateRequest object is equal to o.

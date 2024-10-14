@@ -76,275 +76,302 @@ public class Terminal {
   public Terminal() { 
   }
 
+  /**
+   * assignment
+   *
+   * @param assignment
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal assignment(TerminalAssignment assignment) {
     this.assignment = assignment;
     return this;
   }
 
-   /**
-   * Get assignment
+  /**
+   * assignment
    * @return assignment
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalAssignment getAssignment() {
     return assignment;
   }
 
-
- /**
-  * assignment
-  *
-  * @param assignment
-  */ 
+  /**
+   * assignment
+   *
+   * @param assignment
+   */ 
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignment(TerminalAssignment assignment) {
     this.assignment = assignment;
   }
 
-
+  /**
+   * connectivity
+   *
+   * @param connectivity
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal connectivity(TerminalConnectivity connectivity) {
     this.connectivity = connectivity;
     return this;
   }
 
-   /**
-   * Get connectivity
+  /**
+   * connectivity
    * @return connectivity
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalConnectivity getConnectivity() {
     return connectivity;
   }
 
-
- /**
-  * connectivity
-  *
-  * @param connectivity
-  */ 
+  /**
+   * connectivity
+   *
+   * @param connectivity
+   */ 
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(TerminalConnectivity connectivity) {
     this.connectivity = connectivity;
   }
 
-
+  /**
+   * The software release currently in use on the terminal.
+   *
+   * @param firmwareVersion
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal firmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
     return this;
   }
 
-   /**
+  /**
    * The software release currently in use on the terminal.
    * @return firmwareVersion
-  **/
+   */
   @ApiModelProperty(value = "The software release currently in use on the terminal.")
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFirmwareVersion() {
     return firmwareVersion;
   }
 
-
- /**
-  * The software release currently in use on the terminal.
-  *
-  * @param firmwareVersion
-  */ 
+  /**
+   * The software release currently in use on the terminal.
+   *
+   * @param firmwareVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
   }
 
-
+  /**
+   * The unique identifier of the terminal.
+   *
+   * @param id
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the terminal.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the terminal.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the terminal.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the terminal.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
+   *
+   * @param lastActivityAt
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal lastActivityAt(OffsetDateTime lastActivityAt) {
     this.lastActivityAt = lastActivityAt;
     return this;
   }
 
-   /**
+  /**
    * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    * @return lastActivityAt
-  **/
+   */
   @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getLastActivityAt() {
     return lastActivityAt;
   }
 
-
- /**
-  * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
-  *
-  * @param lastActivityAt
-  */ 
+  /**
+   * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
+   *
+   * @param lastActivityAt
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityAt(OffsetDateTime lastActivityAt) {
     this.lastActivityAt = lastActivityAt;
   }
 
-
+  /**
+   * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
+   *
+   * @param lastTransactionAt
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal lastTransactionAt(OffsetDateTime lastTransactionAt) {
     this.lastTransactionAt = lastTransactionAt;
     return this;
   }
 
-   /**
+  /**
    * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    * @return lastTransactionAt
-  **/
+   */
   @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getLastTransactionAt() {
     return lastTransactionAt;
   }
 
-
- /**
-  * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
-  *
-  * @param lastTransactionAt
-  */ 
+  /**
+   * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
+   *
+   * @param lastTransactionAt
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionAt(OffsetDateTime lastTransactionAt) {
     this.lastTransactionAt = lastTransactionAt;
   }
 
-
+  /**
+   * The model name of the terminal.
+   *
+   * @param model
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal model(String model) {
     this.model = model;
     return this;
   }
 
-   /**
+  /**
    * The model name of the terminal.
    * @return model
-  **/
+   */
   @ApiModelProperty(value = "The model name of the terminal.")
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getModel() {
     return model;
   }
 
-
- /**
-  * The model name of the terminal.
-  *
-  * @param model
-  */ 
+  /**
+   * The model name of the terminal.
+   *
+   * @param model
+   */ 
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModel(String model) {
     this.model = model;
   }
 
-
+  /**
+   * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
+   *
+   * @param restartLocalTime
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal restartLocalTime(String restartLocalTime) {
     this.restartLocalTime = restartLocalTime;
     return this;
   }
 
-   /**
+  /**
    * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
    * @return restartLocalTime
-  **/
+   */
   @ApiModelProperty(value = "The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.")
   @JsonProperty(JSON_PROPERTY_RESTART_LOCAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRestartLocalTime() {
     return restartLocalTime;
   }
 
-
- /**
-  * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
-  *
-  * @param restartLocalTime
-  */ 
+  /**
+   * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
+   *
+   * @param restartLocalTime
+   */ 
   @JsonProperty(JSON_PROPERTY_RESTART_LOCAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestartLocalTime(String restartLocalTime) {
     this.restartLocalTime = restartLocalTime;
   }
 
-
+  /**
+   * The serial number of the terminal.
+   *
+   * @param serialNumber
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
   public Terminal serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
     return this;
   }
 
-   /**
+  /**
    * The serial number of the terminal.
    * @return serialNumber
-  **/
+   */
   @ApiModelProperty(value = "The serial number of the terminal.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSerialNumber() {
     return serialNumber;
   }
 
-
- /**
-  * The serial number of the terminal.
-  *
-  * @param serialNumber
-  */ 
+  /**
+   * The serial number of the terminal.
+   *
+   * @param serialNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
-
 
   /**
    * Return true if this Terminal object is equal to o.

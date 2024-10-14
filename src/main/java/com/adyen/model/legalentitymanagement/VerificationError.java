@@ -239,6 +239,12 @@ public class VerificationError {
   public VerificationError() { 
   }
 
+  /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+   *
+   * @param capabilities
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError capabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
     return this;
@@ -252,91 +258,100 @@ public class VerificationError {
     return this;
   }
 
-   /**
+  /**
    * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    * @return capabilities
-  **/
+   */
   @ApiModelProperty(value = "Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CapabilitiesEnum> getCapabilities() {
     return capabilities;
   }
 
-
- /**
-  * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
-  *
-  * @param capabilities
-  */ 
+  /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+   *
+   * @param capabilities
+   */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
   }
 
-
+  /**
+   * The general error code.
+   *
+   * @param code
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * The general error code.
    * @return code
-  **/
+   */
   @ApiModelProperty(value = "The general error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
- /**
-  * The general error code.
-  *
-  * @param code
-  */ 
+  /**
+   * The general error code.
+   *
+   * @param code
+   */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
   }
 
-
+  /**
+   * The general error message.
+   *
+   * @param message
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * The general error message.
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "The general error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * The general error message.
-  *
-  * @param message
-  */ 
+  /**
+   * The general error message.
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
-
+  /**
+   * An object containing possible solutions to fix a verification error.
+   *
+   * @param remediatingActions
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError remediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
     return this;
@@ -350,31 +365,34 @@ public class VerificationError {
     return this;
   }
 
-   /**
+  /**
    * An object containing possible solutions to fix a verification error.
    * @return remediatingActions
-  **/
+   */
   @ApiModelProperty(value = "An object containing possible solutions to fix a verification error.")
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<RemediatingAction> getRemediatingActions() {
     return remediatingActions;
   }
 
-
- /**
-  * An object containing possible solutions to fix a verification error.
-  *
-  * @param remediatingActions
-  */ 
+  /**
+   * An object containing possible solutions to fix a verification error.
+   *
+   * @param remediatingActions
+   */ 
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
   }
 
-
+  /**
+   * An array containing more granular information about the cause of the verification error.
+   *
+   * @param subErrors
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError subErrors(List<VerificationErrorRecursive> subErrors) {
     this.subErrors = subErrors;
     return this;
@@ -388,60 +406,60 @@ public class VerificationError {
     return this;
   }
 
-   /**
+  /**
    * An array containing more granular information about the cause of the verification error.
    * @return subErrors
-  **/
+   */
   @ApiModelProperty(value = "An array containing more granular information about the cause of the verification error.")
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<VerificationErrorRecursive> getSubErrors() {
     return subErrors;
   }
 
-
- /**
-  * An array containing more granular information about the cause of the verification error.
-  *
-  * @param subErrors
-  */ 
+  /**
+   * An array containing more granular information about the cause of the verification error.
+   *
+   * @param subErrors
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubErrors(List<VerificationErrorRecursive> subErrors) {
     this.subErrors = subErrors;
   }
 
-
+  /**
+   * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
+   *
+   * @param type
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
-  *
-  * @param type
-  */ 
+  /**
+   * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this VerificationError object is equal to o.

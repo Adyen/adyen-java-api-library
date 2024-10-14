@@ -58,155 +58,170 @@ public class WebhookLinks {
   public WebhookLinks() { 
   }
 
+  /**
+   * company
+   *
+   * @param company
+   * @return the current {@code WebhookLinks} instance, allowing for method chaining
+   */
   public WebhookLinks company(LinksElement company) {
     this.company = company;
     return this;
   }
 
-   /**
-   * Get company
+  /**
+   * company
    * @return company
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getCompany() {
     return company;
   }
 
-
- /**
-  * company
-  *
-  * @param company
-  */ 
+  /**
+   * company
+   *
+   * @param company
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
     this.company = company;
   }
 
-
+  /**
+   * generateHmac
+   *
+   * @param generateHmac
+   * @return the current {@code WebhookLinks} instance, allowing for method chaining
+   */
   public WebhookLinks generateHmac(LinksElement generateHmac) {
     this.generateHmac = generateHmac;
     return this;
   }
 
-   /**
-   * Get generateHmac
+  /**
+   * generateHmac
    * @return generateHmac
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getGenerateHmac() {
     return generateHmac;
   }
 
-
- /**
-  * generateHmac
-  *
-  * @param generateHmac
-  */ 
+  /**
+   * generateHmac
+   *
+   * @param generateHmac
+   */ 
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateHmac(LinksElement generateHmac) {
     this.generateHmac = generateHmac;
   }
 
-
+  /**
+   * merchant
+   *
+   * @param merchant
+   * @return the current {@code WebhookLinks} instance, allowing for method chaining
+   */
   public WebhookLinks merchant(LinksElement merchant) {
     this.merchant = merchant;
     return this;
   }
 
-   /**
-   * Get merchant
+  /**
+   * merchant
    * @return merchant
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getMerchant() {
     return merchant;
   }
 
-
- /**
-  * merchant
-  *
-  * @param merchant
-  */ 
+  /**
+   * merchant
+   *
+   * @param merchant
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
     this.merchant = merchant;
   }
 
-
+  /**
+   * self
+   *
+   * @param self
+   * @return the current {@code WebhookLinks} instance, allowing for method chaining
+   */
   public WebhookLinks self(LinksElement self) {
     this.self = self;
     return this;
   }
 
-   /**
-   * Get self
+  /**
+   * self
    * @return self
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getSelf() {
     return self;
   }
 
-
- /**
-  * self
-  *
-  * @param self
-  */ 
+  /**
+   * self
+   *
+   * @param self
+   */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
 
-
+  /**
+   * testWebhook
+   *
+   * @param testWebhook
+   * @return the current {@code WebhookLinks} instance, allowing for method chaining
+   */
   public WebhookLinks testWebhook(LinksElement testWebhook) {
     this.testWebhook = testWebhook;
     return this;
   }
 
-   /**
-   * Get testWebhook
+  /**
+   * testWebhook
    * @return testWebhook
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getTestWebhook() {
     return testWebhook;
   }
 
-
- /**
-  * testWebhook
-  *
-  * @param testWebhook
-  */ 
+  /**
+   * testWebhook
+   *
+   * @param testWebhook
+   */ 
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestWebhook(LinksElement testWebhook) {
     this.testWebhook = testWebhook;
   }
-
 
   /**
    * Return true if this WebhookLinks object is equal to o.

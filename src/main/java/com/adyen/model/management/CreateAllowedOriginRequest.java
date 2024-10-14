@@ -50,95 +50,104 @@ public class CreateAllowedOriginRequest {
   public CreateAllowedOriginRequest() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code CreateAllowedOriginRequest} instance, allowing for method chaining
+   */
   public CreateAllowedOriginRequest links(Links links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Links getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
     this.links = links;
   }
 
-
+  /**
+   * Domain of the allowed origin.
+   *
+   * @param domain
+   * @return the current {@code CreateAllowedOriginRequest} instance, allowing for method chaining
+   */
   public CreateAllowedOriginRequest domain(String domain) {
     this.domain = domain;
     return this;
   }
 
-   /**
+  /**
    * Domain of the allowed origin.
    * @return domain
-  **/
+   */
   @ApiModelProperty(example = "https://adyen.com", required = true, value = "Domain of the allowed origin.")
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDomain() {
     return domain;
   }
 
-
- /**
-  * Domain of the allowed origin.
-  *
-  * @param domain
-  */ 
+  /**
+   * Domain of the allowed origin.
+   *
+   * @param domain
+   */ 
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomain(String domain) {
     this.domain = domain;
   }
 
-
+  /**
+   * Unique identifier of the allowed origin.
+   *
+   * @param id
+   * @return the current {@code CreateAllowedOriginRequest} instance, allowing for method chaining
+   */
   public CreateAllowedOriginRequest id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the allowed origin.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "Unique identifier of the allowed origin.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * Unique identifier of the allowed origin.
-  *
-  * @param id
-  */ 
+  /**
+   * Unique identifier of the allowed origin.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
-
 
   /**
    * Return true if this CreateAllowedOriginRequest object is equal to o.

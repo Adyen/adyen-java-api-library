@@ -49,95 +49,104 @@ public class ApplePaySessionRequest {
   public ApplePaySessionRequest() { 
   }
 
+  /**
+   * This is the name that your shoppers will see in the Apple Pay interface.  The value returned as `configuration.merchantName` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
+   *
+   * @param displayName
+   * @return the current {@code ApplePaySessionRequest} instance, allowing for method chaining
+   */
   public ApplePaySessionRequest displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
-   /**
-   * This is the name that your shoppers will see in the Apple Pay interface.  The value returned as &#x60;configuration.merchantName&#x60; field from the [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
+  /**
+   * This is the name that your shoppers will see in the Apple Pay interface.  The value returned as `configuration.merchantName` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
    * @return displayName
-  **/
+   */
   @ApiModelProperty(required = true, value = "This is the name that your shoppers will see in the Apple Pay interface.  The value returned as `configuration.merchantName` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisplayName() {
     return displayName;
   }
 
-
- /**
-  * This is the name that your shoppers will see in the Apple Pay interface.  The value returned as &#x60;configuration.merchantName&#x60; field from the [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
-  *
-  * @param displayName
-  */ 
+  /**
+   * This is the name that your shoppers will see in the Apple Pay interface.  The value returned as `configuration.merchantName` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
+   *
+   * @param displayName
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
-
+  /**
+   * The domain name you provided when you added Apple Pay in your Customer Area.  This must match the `window.location.hostname` of the web shop.
+   *
+   * @param domainName
+   * @return the current {@code ApplePaySessionRequest} instance, allowing for method chaining
+   */
   public ApplePaySessionRequest domainName(String domainName) {
     this.domainName = domainName;
     return this;
   }
 
-   /**
-   * The domain name you provided when you added Apple Pay in your Customer Area.  This must match the &#x60;window.location.hostname&#x60; of the web shop.
+  /**
+   * The domain name you provided when you added Apple Pay in your Customer Area.  This must match the `window.location.hostname` of the web shop.
    * @return domainName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The domain name you provided when you added Apple Pay in your Customer Area.  This must match the `window.location.hostname` of the web shop.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDomainName() {
     return domainName;
   }
 
-
- /**
-  * The domain name you provided when you added Apple Pay in your Customer Area.  This must match the &#x60;window.location.hostname&#x60; of the web shop.
-  *
-  * @param domainName
-  */ 
+  /**
+   * The domain name you provided when you added Apple Pay in your Customer Area.  This must match the `window.location.hostname` of the web shop.
+   *
+   * @param domainName
+   */ 
   @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomainName(String domainName) {
     this.domainName = domainName;
   }
 
-
+  /**
+   * Your merchant identifier registered with Apple Pay.  Use the value of the `configuration.merchantId` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
+   *
+   * @param merchantIdentifier
+   * @return the current {@code ApplePaySessionRequest} instance, allowing for method chaining
+   */
   public ApplePaySessionRequest merchantIdentifier(String merchantIdentifier) {
     this.merchantIdentifier = merchantIdentifier;
     return this;
   }
 
-   /**
-   * Your merchant identifier registered with Apple Pay.  Use the value of the &#x60;configuration.merchantId&#x60; field from the [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
+  /**
+   * Your merchant identifier registered with Apple Pay.  Use the value of the `configuration.merchantId` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
    * @return merchantIdentifier
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your merchant identifier registered with Apple Pay.  Use the value of the `configuration.merchantId` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantIdentifier() {
     return merchantIdentifier;
   }
 
-
- /**
-  * Your merchant identifier registered with Apple Pay.  Use the value of the &#x60;configuration.merchantId&#x60; field from the [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
-  *
-  * @param merchantIdentifier
-  */ 
+  /**
+   * Your merchant identifier registered with Apple Pay.  Use the value of the `configuration.merchantId` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
+   *
+   * @param merchantIdentifier
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantIdentifier(String merchantIdentifier) {
     this.merchantIdentifier = merchantIdentifier;
   }
-
 
   /**
    * Return true if this ApplePaySessionRequest object is equal to o.

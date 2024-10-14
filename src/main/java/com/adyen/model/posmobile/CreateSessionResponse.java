@@ -57,155 +57,170 @@ public class CreateSessionResponse {
   public CreateSessionResponse() { 
   }
 
+  /**
+   * The unique identifier of the session.
+   *
+   * @param id
+   * @return the current {@code CreateSessionResponse} instance, allowing for method chaining
+   */
   public CreateSessionResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the session.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the session.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the session.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the session.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The unique identifier of the SDK installation. If you create the [Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/) transaction request on your backend, use this as the `POIID` in the `MessageHeader` of the request.
+   *
+   * @param installationId
+   * @return the current {@code CreateSessionResponse} instance, allowing for method chaining
+   */
   public CreateSessionResponse installationId(String installationId) {
     this.installationId = installationId;
     return this;
   }
 
-   /**
-   * The unique identifier of the SDK installation. If you create the [Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/) transaction request on your backend, use this as the &#x60;POIID&#x60; in the &#x60;MessageHeader&#x60; of the request.
+  /**
+   * The unique identifier of the SDK installation. If you create the [Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/) transaction request on your backend, use this as the `POIID` in the `MessageHeader` of the request.
    * @return installationId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the SDK installation. If you create the [Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/) transaction request on your backend, use this as the `POIID` in the `MessageHeader` of the request.")
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInstallationId() {
     return installationId;
   }
 
-
- /**
-  * The unique identifier of the SDK installation. If you create the [Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/) transaction request on your backend, use this as the &#x60;POIID&#x60; in the &#x60;MessageHeader&#x60; of the request.
-  *
-  * @param installationId
-  */ 
+  /**
+   * The unique identifier of the SDK installation. If you create the [Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/) transaction request on your backend, use this as the `POIID` in the `MessageHeader` of the request.
+   *
+   * @param installationId
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
   }
 
-
+  /**
+   * The unique identifier of your merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code CreateSessionResponse} instance, allowing for method chaining
+   */
   public CreateSessionResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of your merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of your merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The unique identifier of your merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The unique identifier of your merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The data that the SDK uses to authenticate responses from the Adyen payments platform. Pass this value to your POS app.
+   *
+   * @param sdkData
+   * @return the current {@code CreateSessionResponse} instance, allowing for method chaining
+   */
   public CreateSessionResponse sdkData(String sdkData) {
     this.sdkData = sdkData;
     return this;
   }
 
-   /**
+  /**
    * The data that the SDK uses to authenticate responses from the Adyen payments platform. Pass this value to your POS app.
    * @return sdkData
-  **/
+   */
   @ApiModelProperty(value = "The data that the SDK uses to authenticate responses from the Adyen payments platform. Pass this value to your POS app.")
   @JsonProperty(JSON_PROPERTY_SDK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSdkData() {
     return sdkData;
   }
 
-
- /**
-  * The data that the SDK uses to authenticate responses from the Adyen payments platform. Pass this value to your POS app.
-  *
-  * @param sdkData
-  */ 
+  /**
+   * The data that the SDK uses to authenticate responses from the Adyen payments platform. Pass this value to your POS app.
+   *
+   * @param sdkData
+   */ 
   @JsonProperty(JSON_PROPERTY_SDK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
   }
 
-
+  /**
+   * The unique identifier of the store that you want to process transactions for.
+   *
+   * @param store
+   * @return the current {@code CreateSessionResponse} instance, allowing for method chaining
+   */
   public CreateSessionResponse store(String store) {
     this.store = store;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the store that you want to process transactions for.
    * @return store
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the store that you want to process transactions for.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStore() {
     return store;
   }
 
-
- /**
-  * The unique identifier of the store that you want to process transactions for.
-  *
-  * @param store
-  */ 
+  /**
+   * The unique identifier of the store that you want to process transactions for.
+   *
+   * @param store
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
-
 
   /**
    * Return true if this CreateSessionResponse object is equal to o.

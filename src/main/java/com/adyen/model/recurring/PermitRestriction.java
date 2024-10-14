@@ -50,95 +50,104 @@ public class PermitRestriction {
   public PermitRestriction() { 
   }
 
+  /**
+   * maxAmount
+   *
+   * @param maxAmount
+   * @return the current {@code PermitRestriction} instance, allowing for method chaining
+   */
   public PermitRestriction maxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
     return this;
   }
 
-   /**
-   * Get maxAmount
+  /**
+   * maxAmount
    * @return maxAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getMaxAmount() {
     return maxAmount;
   }
 
-
- /**
-  * maxAmount
-  *
-  * @param maxAmount
-  */ 
+  /**
+   * maxAmount
+   *
+   * @param maxAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
   }
 
-
+  /**
+   * singleTransactionLimit
+   *
+   * @param singleTransactionLimit
+   * @return the current {@code PermitRestriction} instance, allowing for method chaining
+   */
   public PermitRestriction singleTransactionLimit(Amount singleTransactionLimit) {
     this.singleTransactionLimit = singleTransactionLimit;
     return this;
   }
 
-   /**
-   * Get singleTransactionLimit
+  /**
+   * singleTransactionLimit
    * @return singleTransactionLimit
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SINGLE_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getSingleTransactionLimit() {
     return singleTransactionLimit;
   }
 
-
- /**
-  * singleTransactionLimit
-  *
-  * @param singleTransactionLimit
-  */ 
+  /**
+   * singleTransactionLimit
+   *
+   * @param singleTransactionLimit
+   */ 
   @JsonProperty(JSON_PROPERTY_SINGLE_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSingleTransactionLimit(Amount singleTransactionLimit) {
     this.singleTransactionLimit = singleTransactionLimit;
   }
 
-
+  /**
+   * Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.
+   *
+   * @param singleUse
+   * @return the current {@code PermitRestriction} instance, allowing for method chaining
+   */
   public PermitRestriction singleUse(Boolean singleUse) {
     this.singleUse = singleUse;
     return this;
   }
 
-   /**
+  /**
    * Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.
    * @return singleUse
-  **/
+   */
   @ApiModelProperty(value = "Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.")
   @JsonProperty(JSON_PROPERTY_SINGLE_USE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSingleUse() {
     return singleUse;
   }
 
-
- /**
-  * Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.
-  *
-  * @param singleUse
-  */ 
+  /**
+   * Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.
+   *
+   * @param singleUse
+   */ 
   @JsonProperty(JSON_PROPERTY_SINGLE_USE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSingleUse(Boolean singleUse) {
     this.singleUse = singleUse;
   }
-
 
   /**
    * Return true if this PermitRestriction object is equal to o.

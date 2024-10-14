@@ -51,7 +51,7 @@ public class SepaDirectDebitDetails {
   private String ownerName;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
@@ -101,122 +101,143 @@ public class SepaDirectDebitDetails {
   public SepaDirectDebitDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
   public SepaDirectDebitDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The International Bank Account Number (IBAN).
+   *
+   * @param iban
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
   public SepaDirectDebitDetails iban(String iban) {
     this.iban = iban;
     return this;
   }
 
-   /**
+  /**
    * The International Bank Account Number (IBAN).
    * @return iban
-  **/
+   */
   @ApiModelProperty(required = true, value = "The International Bank Account Number (IBAN).")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIban() {
     return iban;
   }
 
-
- /**
-  * The International Bank Account Number (IBAN).
-  *
-  * @param iban
-  */ 
+  /**
+   * The International Bank Account Number (IBAN).
+   *
+   * @param iban
+   */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
   }
 
-
+  /**
+   * The name of the bank account holder.
+   *
+   * @param ownerName
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
   public SepaDirectDebitDetails ownerName(String ownerName) {
     this.ownerName = ownerName;
     return this;
   }
 
-   /**
+  /**
    * The name of the bank account holder.
    * @return ownerName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the bank account holder.")
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOwnerName() {
     return ownerName;
   }
 
-
- /**
-  * The name of the bank account holder.
-  *
-  * @param ownerName
-  */ 
+  /**
+   * The name of the bank account holder.
+   *
+   * @param ownerName
+   */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   public SepaDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated
-  **/
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use `storedPaymentMethodId` instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,96 +245,104 @@ public class SepaDirectDebitDetails {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
   public SepaDirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
-
+  /**
+   * The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.
+   *
+   * @param transferInstrumentId
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
   public SepaDirectDebitDetails transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
     return this;
   }
 
-   /**
-   * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
+  /**
+   * The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.
    * @return transferInstrumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
 
-
- /**
-  * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
-  *
-  * @param transferInstrumentId
-  */ 
+  /**
+   * The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.
+   *
+   * @param transferInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }
 
-
+  /**
+   * **sepadirectdebit**
+   *
+   * @param type
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
   public SepaDirectDebitDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **sepadirectdebit**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**sepadirectdebit**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **sepadirectdebit**
-  *
-  * @param type
-  */ 
+  /**
+   * **sepadirectdebit**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this SepaDirectDebitDetails object is equal to o.

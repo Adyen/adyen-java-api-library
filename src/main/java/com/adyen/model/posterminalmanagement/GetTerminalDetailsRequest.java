@@ -41,35 +41,38 @@ public class GetTerminalDetailsRequest {
   public GetTerminalDetailsRequest() { 
   }
 
+  /**
+   * The unique terminal ID in the format `[Device model]-[Serial number]`.   For example, **V400m-324689776**.
+   *
+   * @param terminal
+   * @return the current {@code GetTerminalDetailsRequest} instance, allowing for method chaining
+   */
   public GetTerminalDetailsRequest terminal(String terminal) {
     this.terminal = terminal;
     return this;
   }
 
-   /**
-   * The unique terminal ID in the format &#x60;[Device model]-[Serial number]&#x60;.   For example, **V400m-324689776**.
+  /**
+   * The unique terminal ID in the format `[Device model]-[Serial number]`.   For example, **V400m-324689776**.
    * @return terminal
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique terminal ID in the format `[Device model]-[Serial number]`.   For example, **V400m-324689776**.")
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminal() {
     return terminal;
   }
 
-
- /**
-  * The unique terminal ID in the format &#x60;[Device model]-[Serial number]&#x60;.   For example, **V400m-324689776**.
-  *
-  * @param terminal
-  */ 
+  /**
+   * The unique terminal ID in the format `[Device model]-[Serial number]`.   For example, **V400m-324689776**.
+   *
+   * @param terminal
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }
-
 
   /**
    * Return true if this GetTerminalDetailsRequest object is equal to o.

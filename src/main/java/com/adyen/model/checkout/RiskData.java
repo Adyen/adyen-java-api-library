@@ -56,36 +56,45 @@ public class RiskData {
   public RiskData() { 
   }
 
+  /**
+   * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
+   *
+   * @param clientData
+   * @return the current {@code RiskData} instance, allowing for method chaining
+   */
   public RiskData clientData(String clientData) {
     this.clientData = clientData;
     return this;
   }
 
-   /**
+  /**
    * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
    * @return clientData
-  **/
+   */
   @ApiModelProperty(value = "Contains client-side data, like the device fingerprint, cookies, and specific browser settings.")
   @JsonProperty(JSON_PROPERTY_CLIENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getClientData() {
     return clientData;
   }
 
-
- /**
-  * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
-  *
-  * @param clientData
-  */ 
+  /**
+   * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
+   *
+   * @param clientData
+   */ 
   @JsonProperty(JSON_PROPERTY_CLIENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientData(String clientData) {
     this.clientData = clientData;
   }
 
-
+  /**
+   * Any custom fields used as part of the input to configured risk rules.
+   *
+   * @param customFields
+   * @return the current {@code RiskData} instance, allowing for method chaining
+   */
   public RiskData customFields(Map<String, String> customFields) {
     this.customFields = customFields;
     return this;
@@ -99,90 +108,93 @@ public class RiskData {
     return this;
   }
 
-   /**
+  /**
    * Any custom fields used as part of the input to configured risk rules.
    * @return customFields
-  **/
+   */
   @ApiModelProperty(value = "Any custom fields used as part of the input to configured risk rules.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getCustomFields() {
     return customFields;
   }
 
-
- /**
-  * Any custom fields used as part of the input to configured risk rules.
-  *
-  * @param customFields
-  */ 
+  /**
+   * Any custom fields used as part of the input to configured risk rules.
+   *
+   * @param customFields
+   */ 
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(Map<String, String> customFields) {
     this.customFields = customFields;
   }
 
-
+  /**
+   * An integer value that is added to the normal fraud score. The value can be either positive or negative.
+   *
+   * @param fraudOffset
+   * @return the current {@code RiskData} instance, allowing for method chaining
+   */
   public RiskData fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
     return this;
   }
 
-   /**
+  /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
-  **/
+   */
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getFraudOffset() {
     return fraudOffset;
   }
 
-
- /**
-  * An integer value that is added to the normal fraud score. The value can be either positive or negative.
-  *
-  * @param fraudOffset
-  */ 
+  /**
+   * An integer value that is added to the normal fraud score. The value can be either positive or negative.
+   *
+   * @param fraudOffset
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
   }
 
-
+  /**
+   * The risk profile to assign to this payment. When left empty, the merchant-level account's default risk profile will be applied.
+   *
+   * @param profileReference
+   * @return the current {@code RiskData} instance, allowing for method chaining
+   */
   public RiskData profileReference(String profileReference) {
     this.profileReference = profileReference;
     return this;
   }
 
-   /**
-   * The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
+  /**
+   * The risk profile to assign to this payment. When left empty, the merchant-level account's default risk profile will be applied.
    * @return profileReference
-  **/
+   */
   @ApiModelProperty(value = "The risk profile to assign to this payment. When left empty, the merchant-level account's default risk profile will be applied.")
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getProfileReference() {
     return profileReference;
   }
 
-
- /**
-  * The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
-  *
-  * @param profileReference
-  */ 
+  /**
+   * The risk profile to assign to this payment. When left empty, the merchant-level account's default risk profile will be applied.
+   *
+   * @param profileReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {
     this.profileReference = profileReference;
   }
-
 
   /**
    * Return true if this RiskData object is equal to o.

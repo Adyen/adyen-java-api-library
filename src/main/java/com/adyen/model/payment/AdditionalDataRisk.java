@@ -121,635 +121,698 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk() { 
   }
 
+  /**
+   * The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).
+   *
+   * @param riskdataCustomFieldName
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataCustomFieldName(String riskdataCustomFieldName) {
     this.riskdataCustomFieldName = riskdataCustomFieldName;
     return this;
   }
 
-   /**
+  /**
    * The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).
    * @return riskdataCustomFieldName
-  **/
+   */
   @ApiModelProperty(value = "The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataCustomFieldName() {
     return riskdataCustomFieldName;
   }
 
-
- /**
-  * The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).
-  *
-  * @param riskdataCustomFieldName
-  */ 
+  /**
+   * The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).
+   *
+   * @param riskdataCustomFieldName
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataCustomFieldName(String riskdataCustomFieldName) {
     this.riskdataCustomFieldName = riskdataCustomFieldName;
   }
 
-
+  /**
+   * The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param riskdataBasketItemItemNrAmountPerItem
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrAmountPerItem(String riskdataBasketItemItemNrAmountPerItem) {
     this.riskdataBasketItemItemNrAmountPerItem = riskdataBasketItemItemNrAmountPerItem;
     return this;
   }
 
-   /**
+  /**
    * The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return riskdataBasketItemItemNrAmountPerItem
-  **/
+   */
   @ApiModelProperty(value = "The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrAmountPerItem() {
     return riskdataBasketItemItemNrAmountPerItem;
   }
 
-
- /**
-  * The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param riskdataBasketItemItemNrAmountPerItem
-  */ 
+  /**
+   * The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param riskdataBasketItemItemNrAmountPerItem
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrAmountPerItem(String riskdataBasketItemItemNrAmountPerItem) {
     this.riskdataBasketItemItemNrAmountPerItem = riskdataBasketItemItemNrAmountPerItem;
   }
 
-
+  /**
+   * Brand of the item.
+   *
+   * @param riskdataBasketItemItemNrBrand
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrBrand(String riskdataBasketItemItemNrBrand) {
     this.riskdataBasketItemItemNrBrand = riskdataBasketItemItemNrBrand;
     return this;
   }
 
-   /**
+  /**
    * Brand of the item.
    * @return riskdataBasketItemItemNrBrand
-  **/
+   */
   @ApiModelProperty(value = "Brand of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrBrand() {
     return riskdataBasketItemItemNrBrand;
   }
 
-
- /**
-  * Brand of the item.
-  *
-  * @param riskdataBasketItemItemNrBrand
-  */ 
+  /**
+   * Brand of the item.
+   *
+   * @param riskdataBasketItemItemNrBrand
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrBrand(String riskdataBasketItemItemNrBrand) {
     this.riskdataBasketItemItemNrBrand = riskdataBasketItemItemNrBrand;
   }
 
-
+  /**
+   * Category of the item.
+   *
+   * @param riskdataBasketItemItemNrCategory
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrCategory(String riskdataBasketItemItemNrCategory) {
     this.riskdataBasketItemItemNrCategory = riskdataBasketItemItemNrCategory;
     return this;
   }
 
-   /**
+  /**
    * Category of the item.
    * @return riskdataBasketItemItemNrCategory
-  **/
+   */
   @ApiModelProperty(value = "Category of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrCategory() {
     return riskdataBasketItemItemNrCategory;
   }
 
-
- /**
-  * Category of the item.
-  *
-  * @param riskdataBasketItemItemNrCategory
-  */ 
+  /**
+   * Category of the item.
+   *
+   * @param riskdataBasketItemItemNrCategory
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCategory(String riskdataBasketItemItemNrCategory) {
     this.riskdataBasketItemItemNrCategory = riskdataBasketItemItemNrCategory;
   }
 
-
+  /**
+   * Color of the item.
+   *
+   * @param riskdataBasketItemItemNrColor
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrColor(String riskdataBasketItemItemNrColor) {
     this.riskdataBasketItemItemNrColor = riskdataBasketItemItemNrColor;
     return this;
   }
 
-   /**
+  /**
    * Color of the item.
    * @return riskdataBasketItemItemNrColor
-  **/
+   */
   @ApiModelProperty(value = "Color of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrColor() {
     return riskdataBasketItemItemNrColor;
   }
 
-
- /**
-  * Color of the item.
-  *
-  * @param riskdataBasketItemItemNrColor
-  */ 
+  /**
+   * Color of the item.
+   *
+   * @param riskdataBasketItemItemNrColor
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrColor(String riskdataBasketItemItemNrColor) {
     this.riskdataBasketItemItemNrColor = riskdataBasketItemItemNrColor;
   }
 
-
+  /**
+   * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param riskdataBasketItemItemNrCurrency
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrCurrency(String riskdataBasketItemItemNrCurrency) {
     this.riskdataBasketItemItemNrCurrency = riskdataBasketItemItemNrCurrency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return riskdataBasketItemItemNrCurrency
-  **/
+   */
   @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrCurrency() {
     return riskdataBasketItemItemNrCurrency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
-  *
-  * @param riskdataBasketItemItemNrCurrency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param riskdataBasketItemItemNrCurrency
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCurrency(String riskdataBasketItemItemNrCurrency) {
     this.riskdataBasketItemItemNrCurrency = riskdataBasketItemItemNrCurrency;
   }
 
-
+  /**
+   * ID of the item.
+   *
+   * @param riskdataBasketItemItemNrItemID
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrItemID(String riskdataBasketItemItemNrItemID) {
     this.riskdataBasketItemItemNrItemID = riskdataBasketItemItemNrItemID;
     return this;
   }
 
-   /**
+  /**
    * ID of the item.
    * @return riskdataBasketItemItemNrItemID
-  **/
+   */
   @ApiModelProperty(value = "ID of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrItemID() {
     return riskdataBasketItemItemNrItemID;
   }
 
-
- /**
-  * ID of the item.
-  *
-  * @param riskdataBasketItemItemNrItemID
-  */ 
+  /**
+   * ID of the item.
+   *
+   * @param riskdataBasketItemItemNrItemID
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrItemID(String riskdataBasketItemItemNrItemID) {
     this.riskdataBasketItemItemNrItemID = riskdataBasketItemItemNrItemID;
   }
 
-
+  /**
+   * Manufacturer of the item.
+   *
+   * @param riskdataBasketItemItemNrManufacturer
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrManufacturer(String riskdataBasketItemItemNrManufacturer) {
     this.riskdataBasketItemItemNrManufacturer = riskdataBasketItemItemNrManufacturer;
     return this;
   }
 
-   /**
+  /**
    * Manufacturer of the item.
    * @return riskdataBasketItemItemNrManufacturer
-  **/
+   */
   @ApiModelProperty(value = "Manufacturer of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrManufacturer() {
     return riskdataBasketItemItemNrManufacturer;
   }
 
-
- /**
-  * Manufacturer of the item.
-  *
-  * @param riskdataBasketItemItemNrManufacturer
-  */ 
+  /**
+   * Manufacturer of the item.
+   *
+   * @param riskdataBasketItemItemNrManufacturer
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrManufacturer(String riskdataBasketItemItemNrManufacturer) {
     this.riskdataBasketItemItemNrManufacturer = riskdataBasketItemItemNrManufacturer;
   }
 
-
+  /**
+   * A text description of the product the invoice line refers to.
+   *
+   * @param riskdataBasketItemItemNrProductTitle
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrProductTitle(String riskdataBasketItemItemNrProductTitle) {
     this.riskdataBasketItemItemNrProductTitle = riskdataBasketItemItemNrProductTitle;
     return this;
   }
 
-   /**
+  /**
    * A text description of the product the invoice line refers to.
    * @return riskdataBasketItemItemNrProductTitle
-  **/
+   */
   @ApiModelProperty(value = "A text description of the product the invoice line refers to.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrProductTitle() {
     return riskdataBasketItemItemNrProductTitle;
   }
 
-
- /**
-  * A text description of the product the invoice line refers to.
-  *
-  * @param riskdataBasketItemItemNrProductTitle
-  */ 
+  /**
+   * A text description of the product the invoice line refers to.
+   *
+   * @param riskdataBasketItemItemNrProductTitle
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrProductTitle(String riskdataBasketItemItemNrProductTitle) {
     this.riskdataBasketItemItemNrProductTitle = riskdataBasketItemItemNrProductTitle;
   }
 
-
+  /**
+   * Quantity of the item purchased.
+   *
+   * @param riskdataBasketItemItemNrQuantity
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrQuantity(String riskdataBasketItemItemNrQuantity) {
     this.riskdataBasketItemItemNrQuantity = riskdataBasketItemItemNrQuantity;
     return this;
   }
 
-   /**
+  /**
    * Quantity of the item purchased.
    * @return riskdataBasketItemItemNrQuantity
-  **/
+   */
   @ApiModelProperty(value = "Quantity of the item purchased.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrQuantity() {
     return riskdataBasketItemItemNrQuantity;
   }
 
-
- /**
-  * Quantity of the item purchased.
-  *
-  * @param riskdataBasketItemItemNrQuantity
-  */ 
+  /**
+   * Quantity of the item purchased.
+   *
+   * @param riskdataBasketItemItemNrQuantity
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrQuantity(String riskdataBasketItemItemNrQuantity) {
     this.riskdataBasketItemItemNrQuantity = riskdataBasketItemItemNrQuantity;
   }
 
-
+  /**
+   * Email associated with the given product in the basket (usually in electronic gift cards).
+   *
+   * @param riskdataBasketItemItemNrReceiverEmail
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrReceiverEmail(String riskdataBasketItemItemNrReceiverEmail) {
     this.riskdataBasketItemItemNrReceiverEmail = riskdataBasketItemItemNrReceiverEmail;
     return this;
   }
 
-   /**
+  /**
    * Email associated with the given product in the basket (usually in electronic gift cards).
    * @return riskdataBasketItemItemNrReceiverEmail
-  **/
+   */
   @ApiModelProperty(value = "Email associated with the given product in the basket (usually in electronic gift cards).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrReceiverEmail() {
     return riskdataBasketItemItemNrReceiverEmail;
   }
 
-
- /**
-  * Email associated with the given product in the basket (usually in electronic gift cards).
-  *
-  * @param riskdataBasketItemItemNrReceiverEmail
-  */ 
+  /**
+   * Email associated with the given product in the basket (usually in electronic gift cards).
+   *
+   * @param riskdataBasketItemItemNrReceiverEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrReceiverEmail(String riskdataBasketItemItemNrReceiverEmail) {
     this.riskdataBasketItemItemNrReceiverEmail = riskdataBasketItemItemNrReceiverEmail;
   }
 
-
+  /**
+   * Size of the item.
+   *
+   * @param riskdataBasketItemItemNrSize
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrSize(String riskdataBasketItemItemNrSize) {
     this.riskdataBasketItemItemNrSize = riskdataBasketItemItemNrSize;
     return this;
   }
 
-   /**
+  /**
    * Size of the item.
    * @return riskdataBasketItemItemNrSize
-  **/
+   */
   @ApiModelProperty(value = "Size of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrSize() {
     return riskdataBasketItemItemNrSize;
   }
 
-
- /**
-  * Size of the item.
-  *
-  * @param riskdataBasketItemItemNrSize
-  */ 
+  /**
+   * Size of the item.
+   *
+   * @param riskdataBasketItemItemNrSize
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSize(String riskdataBasketItemItemNrSize) {
     this.riskdataBasketItemItemNrSize = riskdataBasketItemItemNrSize;
   }
 
-
+  /**
+   * [Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).
+   *
+   * @param riskdataBasketItemItemNrSku
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrSku(String riskdataBasketItemItemNrSku) {
     this.riskdataBasketItemItemNrSku = riskdataBasketItemItemNrSku;
     return this;
   }
 
-   /**
+  /**
    * [Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).
    * @return riskdataBasketItemItemNrSku
-  **/
+   */
   @ApiModelProperty(value = "[Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrSku() {
     return riskdataBasketItemItemNrSku;
   }
 
-
- /**
-  * [Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).
-  *
-  * @param riskdataBasketItemItemNrSku
-  */ 
+  /**
+   * [Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).
+   *
+   * @param riskdataBasketItemItemNrSku
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSku(String riskdataBasketItemItemNrSku) {
     this.riskdataBasketItemItemNrSku = riskdataBasketItemItemNrSku;
   }
 
-
+  /**
+   * [Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).
+   *
+   * @param riskdataBasketItemItemNrUpc
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataBasketItemItemNrUpc(String riskdataBasketItemItemNrUpc) {
     this.riskdataBasketItemItemNrUpc = riskdataBasketItemItemNrUpc;
     return this;
   }
 
-   /**
+  /**
    * [Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).
    * @return riskdataBasketItemItemNrUpc
-  **/
+   */
   @ApiModelProperty(value = "[Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataBasketItemItemNrUpc() {
     return riskdataBasketItemItemNrUpc;
   }
 
-
- /**
-  * [Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).
-  *
-  * @param riskdataBasketItemItemNrUpc
-  */ 
+  /**
+   * [Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).
+   *
+   * @param riskdataBasketItemItemNrUpc
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrUpc(String riskdataBasketItemItemNrUpc) {
     this.riskdataBasketItemItemNrUpc = riskdataBasketItemItemNrUpc;
   }
 
-
+  /**
+   * Code of the promotion.
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionCode
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionCode(String riskdataPromotionsPromotionItemNrPromotionCode) {
     this.riskdataPromotionsPromotionItemNrPromotionCode = riskdataPromotionsPromotionItemNrPromotionCode;
     return this;
   }
 
-   /**
+  /**
    * Code of the promotion.
    * @return riskdataPromotionsPromotionItemNrPromotionCode
-  **/
+   */
   @ApiModelProperty(value = "Code of the promotion.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataPromotionsPromotionItemNrPromotionCode() {
     return riskdataPromotionsPromotionItemNrPromotionCode;
   }
 
-
- /**
-  * Code of the promotion.
-  *
-  * @param riskdataPromotionsPromotionItemNrPromotionCode
-  */ 
+  /**
+   * Code of the promotion.
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionCode(String riskdataPromotionsPromotionItemNrPromotionCode) {
     this.riskdataPromotionsPromotionItemNrPromotionCode = riskdataPromotionsPromotionItemNrPromotionCode;
   }
 
-
+  /**
+   * The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionDiscountAmount
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionDiscountAmount(String riskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount = riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
     return this;
   }
 
-   /**
+  /**
    * The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountAmount
-  **/
+   */
   @ApiModelProperty(value = "The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountAmount() {
     return riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
   }
 
-
- /**
-  * The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param riskdataPromotionsPromotionItemNrPromotionDiscountAmount
-  */ 
+  /**
+   * The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionDiscountAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountAmount(String riskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount = riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
   }
 
-
+  /**
+   * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionDiscountCurrency(String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency = riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
-  **/
+   */
   @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency() {
     return riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
-  *
-  * @param riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency(String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency = riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
   }
 
-
+  /**
+   * Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionDiscountPercentage(String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage = riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
     return this;
   }
 
-   /**
-   * Promotion&#39;s percentage discount. It is represented in percentage value and there is no need to include the &#39;%&#39; sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
+  /**
+   * Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
-  **/
+   */
   @ApiModelProperty(value = "Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage() {
     return riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
   }
 
-
- /**
-  * Promotion&#39;s percentage discount. It is represented in percentage value and there is no need to include the &#39;%&#39; sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
-  *
-  * @param riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
-  */ 
+  /**
+   * Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage(String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage = riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
   }
 
-
+  /**
+   * Name of the promotion.
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionName
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataPromotionsPromotionItemNrPromotionName(String riskdataPromotionsPromotionItemNrPromotionName) {
     this.riskdataPromotionsPromotionItemNrPromotionName = riskdataPromotionsPromotionItemNrPromotionName;
     return this;
   }
 
-   /**
+  /**
    * Name of the promotion.
    * @return riskdataPromotionsPromotionItemNrPromotionName
-  **/
+   */
   @ApiModelProperty(value = "Name of the promotion.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataPromotionsPromotionItemNrPromotionName() {
     return riskdataPromotionsPromotionItemNrPromotionName;
   }
 
-
- /**
-  * Name of the promotion.
-  *
-  * @param riskdataPromotionsPromotionItemNrPromotionName
-  */ 
+  /**
+   * Name of the promotion.
+   *
+   * @param riskdataPromotionsPromotionItemNrPromotionName
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionName(String riskdataPromotionsPromotionItemNrPromotionName) {
     this.riskdataPromotionsPromotionItemNrPromotionName = riskdataPromotionsPromotionItemNrPromotionName;
   }
 
-
+  /**
+   * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
+   *
+   * @param riskdataRiskProfileReference
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataRiskProfileReference(String riskdataRiskProfileReference) {
     this.riskdataRiskProfileReference = riskdataRiskProfileReference;
     return this;
   }
 
-   /**
-   * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account&#39;s default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
+  /**
+   * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
    * @return riskdataRiskProfileReference
-  **/
+   */
   @ApiModelProperty(value = "Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataRiskProfileReference() {
     return riskdataRiskProfileReference;
   }
 
-
- /**
-  * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account&#39;s default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
-  *
-  * @param riskdataRiskProfileReference
-  */ 
+  /**
+   * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
+   *
+   * @param riskdataRiskProfileReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataRiskProfileReference(String riskdataRiskProfileReference) {
     this.riskdataRiskProfileReference = riskdataRiskProfileReference;
   }
 
-
+  /**
+   * If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.
+   *
+   * @param riskdataSkipRisk
+   * @return the current {@code AdditionalDataRisk} instance, allowing for method chaining
+   */
   public AdditionalDataRisk riskdataSkipRisk(String riskdataSkipRisk) {
     this.riskdataSkipRisk = riskdataSkipRisk;
     return this;
   }
 
-   /**
+  /**
    * If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.
    * @return riskdataSkipRisk
-  **/
+   */
   @ApiModelProperty(value = "If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_SKIP_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskdataSkipRisk() {
     return riskdataSkipRisk;
   }
 
-
- /**
-  * If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.
-  *
-  * @param riskdataSkipRisk
-  */ 
+  /**
+   * If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.
+   *
+   * @param riskdataSkipRisk
+   */ 
   @JsonProperty(JSON_PROPERTY_RISKDATA_SKIP_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataSkipRisk(String riskdataSkipRisk) {
     this.riskdataSkipRisk = riskdataSkipRisk;
   }
-
 
   /**
    * Return true if this AdditionalDataRisk object is equal to o.

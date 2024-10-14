@@ -220,425 +220,467 @@ public class ThreeDS2Result {
   public ThreeDS2Result() { 
   }
 
+  /**
+   * The `authenticationValue` value as defined in the 3D Secure 2 specification.
+   *
+   * @param authenticationValue
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result authenticationValue(String authenticationValue) {
     this.authenticationValue = authenticationValue;
     return this;
   }
 
-   /**
-   * The &#x60;authenticationValue&#x60; value as defined in the 3D Secure 2 specification.
+  /**
+   * The `authenticationValue` value as defined in the 3D Secure 2 specification.
    * @return authenticationValue
-  **/
+   */
   @ApiModelProperty(value = "The `authenticationValue` value as defined in the 3D Secure 2 specification.")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthenticationValue() {
     return authenticationValue;
   }
 
-
- /**
-  * The &#x60;authenticationValue&#x60; value as defined in the 3D Secure 2 specification.
-  *
-  * @param authenticationValue
-  */ 
+  /**
+   * The `authenticationValue` value as defined in the 3D Secure 2 specification.
+   *
+   * @param authenticationValue
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationValue(String authenticationValue) {
     this.authenticationValue = authenticationValue;
   }
 
-
+  /**
+   * The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.
+   *
+   * @param cavvAlgorithm
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result cavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
     return this;
   }
 
-   /**
+  /**
    * The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.
    * @return cavvAlgorithm
-  **/
+   */
   @ApiModelProperty(value = "The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.")
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCavvAlgorithm() {
     return cavvAlgorithm;
   }
 
-
- /**
-  * The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.
-  *
-  * @param cavvAlgorithm
-  */ 
+  /**
+   * The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.
+   *
+   * @param cavvAlgorithm
+   */ 
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
   }
 
-
+  /**
+   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+   *
+   * @param challengeCancel
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result challengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
     return this;
   }
 
-   /**
+  /**
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    * @return challengeCancel
-  **/
+   */
   @ApiModelProperty(value = "Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).")
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ChallengeCancelEnum getChallengeCancel() {
     return challengeCancel;
   }
 
-
- /**
-  * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
-  *
-  * @param challengeCancel
-  */ 
+  /**
+   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+   *
+   * @param challengeCancel
+   */ 
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
   }
 
-
+  /**
+   * The `dsTransID` value as defined in the 3D Secure 2 specification.
+   *
+   * @param dsTransID
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result dsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
     return this;
   }
 
-   /**
-   * The &#x60;dsTransID&#x60; value as defined in the 3D Secure 2 specification.
+  /**
+   * The `dsTransID` value as defined in the 3D Secure 2 specification.
    * @return dsTransID
-  **/
+   */
   @ApiModelProperty(value = "The `dsTransID` value as defined in the 3D Secure 2 specification.")
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDsTransID() {
     return dsTransID;
   }
 
-
- /**
-  * The &#x60;dsTransID&#x60; value as defined in the 3D Secure 2 specification.
-  *
-  * @param dsTransID
-  */ 
+  /**
+   * The `dsTransID` value as defined in the 3D Secure 2 specification.
+   *
+   * @param dsTransID
+   */ 
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
   }
 
-
+  /**
+   * The `eci` value as defined in the 3D Secure 2 specification.
+   *
+   * @param eci
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result eci(String eci) {
     this.eci = eci;
     return this;
   }
 
-   /**
-   * The &#x60;eci&#x60; value as defined in the 3D Secure 2 specification.
+  /**
+   * The `eci` value as defined in the 3D Secure 2 specification.
    * @return eci
-  **/
+   */
   @ApiModelProperty(value = "The `eci` value as defined in the 3D Secure 2 specification.")
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEci() {
     return eci;
   }
 
-
- /**
-  * The &#x60;eci&#x60; value as defined in the 3D Secure 2 specification.
-  *
-  * @param eci
-  */ 
+  /**
+   * The `eci` value as defined in the 3D Secure 2 specification.
+   *
+   * @param eci
+   */ 
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
   }
 
-
+  /**
+   * Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * `lowValue` * `secureCorporate` * `trustedBeneficiary` * `transactionRiskAnalysis` 
+   *
+   * @param exemptionIndicator
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result exemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
     return this;
   }
 
-   /**
-   * Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * &#x60;lowValue&#x60; * &#x60;secureCorporate&#x60; * &#x60;trustedBeneficiary&#x60; * &#x60;transactionRiskAnalysis&#x60; 
+  /**
+   * Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * `lowValue` * `secureCorporate` * `trustedBeneficiary` * `transactionRiskAnalysis` 
    * @return exemptionIndicator
-  **/
+   */
   @ApiModelProperty(value = "Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * `lowValue` * `secureCorporate` * `trustedBeneficiary` * `transactionRiskAnalysis` ")
   @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ExemptionIndicatorEnum getExemptionIndicator() {
     return exemptionIndicator;
   }
 
-
- /**
-  * Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * &#x60;lowValue&#x60; * &#x60;secureCorporate&#x60; * &#x60;trustedBeneficiary&#x60; * &#x60;transactionRiskAnalysis&#x60; 
-  *
-  * @param exemptionIndicator
-  */ 
+  /**
+   * Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * `lowValue` * `secureCorporate` * `trustedBeneficiary` * `transactionRiskAnalysis` 
+   *
+   * @param exemptionIndicator
+   */ 
   @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
   }
 
-
+  /**
+   * The `messageVersion` value as defined in the 3D Secure 2 specification.
+   *
+   * @param messageVersion
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result messageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
     return this;
   }
 
-   /**
-   * The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
+  /**
+   * The `messageVersion` value as defined in the 3D Secure 2 specification.
    * @return messageVersion
-  **/
+   */
   @ApiModelProperty(value = "The `messageVersion` value as defined in the 3D Secure 2 specification.")
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessageVersion() {
     return messageVersion;
   }
 
-
- /**
-  * The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
-  *
-  * @param messageVersion
-  */ 
+  /**
+   * The `messageVersion` value as defined in the 3D Secure 2 specification.
+   *
+   * @param messageVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
   }
 
-
+  /**
+   * Risk score calculated by Cartes Bancaires Directory Server (DS).
+   *
+   * @param riskScore
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result riskScore(String riskScore) {
     this.riskScore = riskScore;
     return this;
   }
 
-   /**
+  /**
    * Risk score calculated by Cartes Bancaires Directory Server (DS).
    * @return riskScore
-  **/
+   */
   @ApiModelProperty(value = "Risk score calculated by Cartes Bancaires Directory Server (DS).")
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskScore() {
     return riskScore;
   }
 
-
- /**
-  * Risk score calculated by Cartes Bancaires Directory Server (DS).
-  *
-  * @param riskScore
-  */ 
+  /**
+   * Risk score calculated by Cartes Bancaires Directory Server (DS).
+   *
+   * @param riskScore
+   */ 
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
     this.riskScore = riskScore;
   }
 
-
+  /**
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+   *
+   * @param threeDSRequestorChallengeInd
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result threeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    * @return threeDSRequestorChallengeInd
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
     return threeDSRequestorChallengeInd;
   }
 
-
- /**
-  * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
-  *
-  * @param threeDSRequestorChallengeInd
-  */ 
+  /**
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+   *
+   * @param threeDSRequestorChallengeInd
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
   }
 
-
+  /**
+   * The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.
+   *
+   * @param threeDSServerTransID
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result threeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
     return this;
   }
 
-   /**
-   * The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
+  /**
+   * The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.
    * @return threeDSServerTransID
-  **/
+   */
   @ApiModelProperty(value = "The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDSServerTransID() {
     return threeDSServerTransID;
   }
 
-
- /**
-  * The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
-  *
-  * @param threeDSServerTransID
-  */ 
+  /**
+   * The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.
+   *
+   * @param threeDSServerTransID
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
   }
 
-
+  /**
+   * The `timestamp` value of the 3D Secure 2 authentication.
+   *
+   * @param timestamp
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result timestamp(String timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
-   /**
-   * The &#x60;timestamp&#x60; value of the 3D Secure 2 authentication.
+  /**
+   * The `timestamp` value of the 3D Secure 2 authentication.
    * @return timestamp
-  **/
+   */
   @ApiModelProperty(value = "The `timestamp` value of the 3D Secure 2 authentication.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTimestamp() {
     return timestamp;
   }
 
-
- /**
-  * The &#x60;timestamp&#x60; value of the 3D Secure 2 authentication.
-  *
-  * @param timestamp
-  */ 
+  /**
+   * The `timestamp` value of the 3D Secure 2 authentication.
+   *
+   * @param timestamp
+   */ 
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(String timestamp) {
     this.timestamp = timestamp;
   }
 
-
+  /**
+   * The `transStatus` value as defined in the 3D Secure 2 specification.
+   *
+   * @param transStatus
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result transStatus(String transStatus) {
     this.transStatus = transStatus;
     return this;
   }
 
-   /**
-   * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification.
+  /**
+   * The `transStatus` value as defined in the 3D Secure 2 specification.
    * @return transStatus
-  **/
+   */
   @ApiModelProperty(value = "The `transStatus` value as defined in the 3D Secure 2 specification.")
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransStatus() {
     return transStatus;
   }
 
-
- /**
-  * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification.
-  *
-  * @param transStatus
-  */ 
+  /**
+   * The `transStatus` value as defined in the 3D Secure 2 specification.
+   *
+   * @param transStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatus(String transStatus) {
     this.transStatus = transStatus;
   }
 
-
+  /**
+   * Provides information on why the `transStatus` field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
+   *
+   * @param transStatusReason
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result transStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
     return this;
   }
 
-   /**
-   * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
+  /**
+   * Provides information on why the `transStatus` field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    * @return transStatusReason
-  **/
+   */
   @ApiModelProperty(value = "Provides information on why the `transStatus` field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).")
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransStatusReason() {
     return transStatusReason;
   }
 
-
- /**
-  * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
-  *
-  * @param transStatusReason
-  */ 
+  /**
+   * Provides information on why the `transStatus` field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
+   *
+   * @param transStatusReason
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
   }
 
-
+  /**
+   * The `whiteListStatus` value as defined in the 3D Secure 2 specification.
+   *
+   * @param whiteListStatus
+   * @return the current {@code ThreeDS2Result} instance, allowing for method chaining
+   */
   public ThreeDS2Result whiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
     return this;
   }
 
-   /**
-   * The &#x60;whiteListStatus&#x60; value as defined in the 3D Secure 2 specification.
+  /**
+   * The `whiteListStatus` value as defined in the 3D Secure 2 specification.
    * @return whiteListStatus
-  **/
+   */
   @ApiModelProperty(value = "The `whiteListStatus` value as defined in the 3D Secure 2 specification.")
   @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWhiteListStatus() {
     return whiteListStatus;
   }
 
-
- /**
-  * The &#x60;whiteListStatus&#x60; value as defined in the 3D Secure 2 specification.
-  *
-  * @param whiteListStatus
-  */ 
+  /**
+   * The `whiteListStatus` value as defined in the 3D Secure 2 specification.
+   *
+   * @param whiteListStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
   }
-
 
   /**
    * Return true if this ThreeDS2Result object is equal to o.

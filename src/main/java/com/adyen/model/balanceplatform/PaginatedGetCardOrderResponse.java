@@ -52,6 +52,12 @@ public class PaginatedGetCardOrderResponse {
   public PaginatedGetCardOrderResponse() { 
   }
 
+  /**
+   * Contains objects with information about card orders.
+   *
+   * @param cardOrders
+   * @return the current {@code PaginatedGetCardOrderResponse} instance, allowing for method chaining
+   */
   public PaginatedGetCardOrderResponse cardOrders(List<CardOrder> cardOrders) {
     this.cardOrders = cardOrders;
     return this;
@@ -65,90 +71,93 @@ public class PaginatedGetCardOrderResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains objects with information about card orders.
    * @return cardOrders
-  **/
+   */
   @ApiModelProperty(value = "Contains objects with information about card orders.")
   @JsonProperty(JSON_PROPERTY_CARD_ORDERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CardOrder> getCardOrders() {
     return cardOrders;
   }
 
-
- /**
-  * Contains objects with information about card orders.
-  *
-  * @param cardOrders
-  */ 
+  /**
+   * Contains objects with information about card orders.
+   *
+   * @param cardOrders
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_ORDERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardOrders(List<CardOrder> cardOrders) {
     this.cardOrders = cardOrders;
   }
 
-
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   * @return the current {@code PaginatedGetCardOrderResponse} instance, allowing for method chaining
+   */
   public PaginatedGetCardOrderResponse hasNext(Boolean hasNext) {
     this.hasNext = hasNext;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the next page.
    * @return hasNext
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasNext() {
     return hasNext;
   }
 
-
- /**
-  * Indicates whether there are more items on the next page.
-  *
-  * @param hasNext
-  */ 
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
 
-
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   * @return the current {@code PaginatedGetCardOrderResponse} instance, allowing for method chaining
+   */
   public PaginatedGetCardOrderResponse hasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
 
-
- /**
-  * Indicates whether there are more items on the previous page.
-  *
-  * @param hasPrevious
-  */ 
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
-
 
   /**
    * Return true if this PaginatedGetCardOrderResponse object is equal to o.

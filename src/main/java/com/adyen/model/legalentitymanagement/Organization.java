@@ -191,336 +191,375 @@ public class Organization {
   public Organization() { 
   }
 
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
+   *
+   * @param countryOfGoverningLaw
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization countryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
     return this;
   }
 
-   /**
+  /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
-  **/
+   */
   @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountryOfGoverningLaw() {
     return countryOfGoverningLaw;
   }
 
-
- /**
-  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
-  *
-  * @param countryOfGoverningLaw
-  */ 
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
+   *
+   * @param countryOfGoverningLaw
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
   }
 
-
+  /**
+   * The date when the organization was incorporated in YYYY-MM-DD format.
+   *
+   * @param dateOfIncorporation
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization dateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
     return this;
   }
 
-   /**
+  /**
    * The date when the organization was incorporated in YYYY-MM-DD format.
    * @return dateOfIncorporation
-  **/
+   */
   @ApiModelProperty(value = "The date when the organization was incorporated in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDateOfIncorporation() {
     return dateOfIncorporation;
   }
 
-
- /**
-  * The date when the organization was incorporated in YYYY-MM-DD format.
-  *
-  * @param dateOfIncorporation
-  */ 
+  /**
+   * The date when the organization was incorporated in YYYY-MM-DD format.
+   *
+   * @param dateOfIncorporation
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
   }
 
-
+  /**
+   * Your description for the organization.
+   *
+   * @param description
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the organization.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Your description for the organization.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the organization.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the organization.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The organization's trading name, if different from the registered legal name.
+   *
+   * @param doingBusinessAs
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization doingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
     return this;
   }
 
-   /**
-   * The organization&#39;s trading name, if different from the registered legal name.
+  /**
+   * The organization's trading name, if different from the registered legal name.
    * @return doingBusinessAs
-  **/
+   */
   @ApiModelProperty(value = "The organization's trading name, if different from the registered legal name.")
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDoingBusinessAs() {
     return doingBusinessAs;
   }
 
-
- /**
-  * The organization&#39;s trading name, if different from the registered legal name.
-  *
-  * @param doingBusinessAs
-  */ 
+  /**
+   * The organization's trading name, if different from the registered legal name.
+   *
+   * @param doingBusinessAs
+   */ 
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
   }
 
-
+  /**
+   * The email address of the legal entity.
+   *
+   * @param email
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address of the legal entity.
    * @return email
-  **/
+   */
   @ApiModelProperty(value = "The email address of the legal entity.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address of the legal entity.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address of the legal entity.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * The organization's legal name.
+   *
+   * @param legalName
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization legalName(String legalName) {
     this.legalName = legalName;
     return this;
   }
 
-   /**
-   * The organization&#39;s legal name.
+  /**
+   * The organization's legal name.
    * @return legalName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The organization's legal name.")
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLegalName() {
     return legalName;
   }
 
-
- /**
-  * The organization&#39;s legal name.
-  *
-  * @param legalName
-  */ 
+  /**
+   * The organization's legal name.
+   *
+   * @param legalName
+   */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalName(String legalName) {
     this.legalName = legalName;
   }
 
-
+  /**
+   * phone
+   *
+   * @param phone
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization phone(PhoneNumber phone) {
     this.phone = phone;
     return this;
   }
 
-   /**
-   * Get phone
+  /**
+   * phone
    * @return phone
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PhoneNumber getPhone() {
     return phone;
   }
 
-
- /**
-  * phone
-  *
-  * @param phone
-  */ 
+  /**
+   * phone
+   *
+   * @param phone
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
     this.phone = phone;
   }
 
-
+  /**
+   * principalPlaceOfBusiness
+   *
+   * @param principalPlaceOfBusiness
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
     return this;
   }
 
-   /**
-   * Get principalPlaceOfBusiness
+  /**
+   * principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getPrincipalPlaceOfBusiness() {
     return principalPlaceOfBusiness;
   }
 
-
- /**
-  * principalPlaceOfBusiness
-  *
-  * @param principalPlaceOfBusiness
-  */ 
+  /**
+   * principalPlaceOfBusiness
+   *
+   * @param principalPlaceOfBusiness
+   */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
   }
 
-
+  /**
+   * registeredAddress
+   *
+   * @param registeredAddress
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization registeredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
     return this;
   }
 
-   /**
-   * Get registeredAddress
+  /**
+   * registeredAddress
    * @return registeredAddress
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getRegisteredAddress() {
     return registeredAddress;
   }
 
-
- /**
-  * registeredAddress
-  *
-  * @param registeredAddress
-  */ 
+  /**
+   * registeredAddress
+   *
+   * @param registeredAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
   }
 
-
+  /**
+   * The organization's registration number.
+   *
+   * @param registrationNumber
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization registrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
     return this;
   }
 
-   /**
-   * The organization&#39;s registration number.
+  /**
+   * The organization's registration number.
    * @return registrationNumber
-  **/
+   */
   @ApiModelProperty(value = "The organization's registration number.")
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRegistrationNumber() {
     return registrationNumber;
   }
 
-
- /**
-  * The organization&#39;s registration number.
-  *
-  * @param registrationNumber
-  */ 
+  /**
+   * The organization's registration number.
+   *
+   * @param registrationNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
   }
 
-
+  /**
+   * stockData
+   *
+   * @param stockData
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization stockData(StockData stockData) {
     this.stockData = stockData;
     return this;
   }
 
-   /**
-   * Get stockData
+  /**
+   * stockData
    * @return stockData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STOCK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StockData getStockData() {
     return stockData;
   }
 
-
- /**
-  * stockData
-  *
-  * @param stockData
-  */ 
+  /**
+   * stockData
+   *
+   * @param stockData
+   */ 
   @JsonProperty(JSON_PROPERTY_STOCK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockData(StockData stockData) {
     this.stockData = stockData;
   }
 
-
+  /**
+   * The tax information of the organization.
+   *
+   * @param taxInformation
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
     return this;
@@ -534,180 +573,192 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * The tax information of the organization.
    * @return taxInformation
-  **/
+   */
   @ApiModelProperty(value = "The tax information of the organization.")
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TaxInformation> getTaxInformation() {
     return taxInformation;
   }
 
-
- /**
-  * The tax information of the organization.
-  *
-  * @param taxInformation
-  */ 
+  /**
+   * The tax information of the organization.
+   *
+   * @param taxInformation
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
   }
 
-
+  /**
+   * taxReportingClassification
+   *
+   * @param taxReportingClassification
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization taxReportingClassification(TaxReportingClassification taxReportingClassification) {
     this.taxReportingClassification = taxReportingClassification;
     return this;
   }
 
-   /**
-   * Get taxReportingClassification
+  /**
+   * taxReportingClassification
    * @return taxReportingClassification
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TaxReportingClassification getTaxReportingClassification() {
     return taxReportingClassification;
   }
 
-
- /**
-  * taxReportingClassification
-  *
-  * @param taxReportingClassification
-  */ 
+  /**
+   * taxReportingClassification
+   *
+   * @param taxReportingClassification
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxReportingClassification(TaxReportingClassification taxReportingClassification) {
     this.taxReportingClassification = taxReportingClassification;
   }
 
-
+  /**
+   * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
+   *
+   * @param type
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
+   *
+   * @param vatAbsenceReason
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
     return this;
   }
 
-   /**
+  /**
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
-  **/
+   */
   @ApiModelProperty(value = "The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public VatAbsenceReasonEnum getVatAbsenceReason() {
     return vatAbsenceReason;
   }
 
-
- /**
-  * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
-  *
-  * @param vatAbsenceReason
-  */ 
+  /**
+   * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
+   *
+   * @param vatAbsenceReason
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
   }
 
-
+  /**
+   * The organization's VAT number.
+   *
+   * @param vatNumber
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization vatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
     return this;
   }
 
-   /**
-   * The organization&#39;s VAT number.
+  /**
+   * The organization's VAT number.
    * @return vatNumber
-  **/
+   */
   @ApiModelProperty(value = "The organization's VAT number.")
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVatNumber() {
     return vatNumber;
   }
 
-
- /**
-  * The organization&#39;s VAT number.
-  *
-  * @param vatNumber
-  */ 
+  /**
+   * The organization's VAT number.
+   *
+   * @param vatNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
   }
 
-
+  /**
+   * webData
+   *
+   * @param webData
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
   public Organization webData(WebData webData) {
     this.webData = webData;
     return this;
   }
 
-   /**
-   * Get webData
+  /**
+   * webData
    * @return webData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WebData getWebData() {
     return webData;
   }
 
-
- /**
-  * webData
-  *
-  * @param webData
-  */ 
+  /**
+   * webData
+   *
+   * @param webData
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {
     this.webData = webData;
   }
-
 
   /**
    * Return true if this Organization object is equal to o.

@@ -41,35 +41,38 @@ public class BoardingTokenRequest {
   public BoardingTokenRequest() { 
   }
 
+  /**
+   * The boardingToken request token.
+   *
+   * @param boardingRequestToken
+   * @return the current {@code BoardingTokenRequest} instance, allowing for method chaining
+   */
   public BoardingTokenRequest boardingRequestToken(String boardingRequestToken) {
     this.boardingRequestToken = boardingRequestToken;
     return this;
   }
 
-   /**
+  /**
    * The boardingToken request token.
    * @return boardingRequestToken
-  **/
+   */
   @ApiModelProperty(required = true, value = "The boardingToken request token.")
   @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBoardingRequestToken() {
     return boardingRequestToken;
   }
 
-
- /**
-  * The boardingToken request token.
-  *
-  * @param boardingRequestToken
-  */ 
+  /**
+   * The boardingToken request token.
+   *
+   * @param boardingRequestToken
+   */ 
   @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBoardingRequestToken(String boardingRequestToken) {
     this.boardingRequestToken = boardingRequestToken;
   }
-
 
   /**
    * Return true if this BoardingTokenRequest object is equal to o.

@@ -45,65 +45,71 @@ public class CardBrandDetails {
   public CardBrandDetails() { 
   }
 
+  /**
+   * Indicates if you support the card brand.
+   *
+   * @param supported
+   * @return the current {@code CardBrandDetails} instance, allowing for method chaining
+   */
   public CardBrandDetails supported(Boolean supported) {
     this.supported = supported;
     return this;
   }
 
-   /**
+  /**
    * Indicates if you support the card brand.
    * @return supported
-  **/
+   */
   @ApiModelProperty(value = "Indicates if you support the card brand.")
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSupported() {
     return supported;
   }
 
-
- /**
-  * Indicates if you support the card brand.
-  *
-  * @param supported
-  */ 
+  /**
+   * Indicates if you support the card brand.
+   *
+   * @param supported
+   */ 
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupported(Boolean supported) {
     this.supported = supported;
   }
 
-
+  /**
+   * The name of the card brand.
+   *
+   * @param type
+   * @return the current {@code CardBrandDetails} instance, allowing for method chaining
+   */
   public CardBrandDetails type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The name of the card brand.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The name of the card brand.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The name of the card brand.
-  *
-  * @param type
-  */ 
+  /**
+   * The name of the card brand.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CardBrandDetails object is equal to o.

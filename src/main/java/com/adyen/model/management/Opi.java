@@ -49,95 +49,104 @@ public class Opi {
   public Opi() { 
   }
 
+  /**
+   * Indicates if Pay at table is enabled.
+   *
+   * @param enablePayAtTable
+   * @return the current {@code Opi} instance, allowing for method chaining
+   */
   public Opi enablePayAtTable(Boolean enablePayAtTable) {
     this.enablePayAtTable = enablePayAtTable;
     return this;
   }
 
-   /**
+  /**
    * Indicates if Pay at table is enabled.
    * @return enablePayAtTable
-  **/
+   */
   @ApiModelProperty(value = "Indicates if Pay at table is enabled.")
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnablePayAtTable() {
     return enablePayAtTable;
   }
 
-
- /**
-  * Indicates if Pay at table is enabled.
-  *
-  * @param enablePayAtTable
-  */ 
+  /**
+   * Indicates if Pay at table is enabled.
+   *
+   * @param enablePayAtTable
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayAtTable(Boolean enablePayAtTable) {
     this.enablePayAtTable = enablePayAtTable;
   }
 
-
+  /**
+   * The store number to use for Pay at Table.
+   *
+   * @param payAtTableStoreNumber
+   * @return the current {@code Opi} instance, allowing for method chaining
+   */
   public Opi payAtTableStoreNumber(String payAtTableStoreNumber) {
     this.payAtTableStoreNumber = payAtTableStoreNumber;
     return this;
   }
 
-   /**
+  /**
    * The store number to use for Pay at Table.
    * @return payAtTableStoreNumber
-  **/
+   */
   @ApiModelProperty(value = "The store number to use for Pay at Table.")
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_STORE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayAtTableStoreNumber() {
     return payAtTableStoreNumber;
   }
 
-
- /**
-  * The store number to use for Pay at Table.
-  *
-  * @param payAtTableStoreNumber
-  */ 
+  /**
+   * The store number to use for Pay at Table.
+   *
+   * @param payAtTableStoreNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_STORE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTableStoreNumber(String payAtTableStoreNumber) {
     this.payAtTableStoreNumber = payAtTableStoreNumber;
   }
 
-
+  /**
+   * The URL and port number used for Pay at Table communication.
+   *
+   * @param payAtTableURL
+   * @return the current {@code Opi} instance, allowing for method chaining
+   */
   public Opi payAtTableURL(String payAtTableURL) {
     this.payAtTableURL = payAtTableURL;
     return this;
   }
 
-   /**
+  /**
    * The URL and port number used for Pay at Table communication.
    * @return payAtTableURL
-  **/
+   */
   @ApiModelProperty(value = "The URL and port number used for Pay at Table communication.")
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayAtTableURL() {
     return payAtTableURL;
   }
 
-
- /**
-  * The URL and port number used for Pay at Table communication.
-  *
-  * @param payAtTableURL
-  */ 
+  /**
+   * The URL and port number used for Pay at Table communication.
+   *
+   * @param payAtTableURL
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTableURL(String payAtTableURL) {
     this.payAtTableURL = payAtTableURL;
   }
-
 
   /**
    * Return true if this Opi object is equal to o.

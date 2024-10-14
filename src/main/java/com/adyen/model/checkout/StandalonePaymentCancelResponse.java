@@ -90,155 +90,170 @@ public class StandalonePaymentCancelResponse {
   public StandalonePaymentCancelResponse() { 
   }
 
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   * @return the current {@code StandalonePaymentCancelResponse} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account that is used to process the payment.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that is used to process the payment.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.
+   *
+   * @param paymentReference
+   * @return the current {@code StandalonePaymentCancelResponse} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelResponse paymentReference(String paymentReference) {
     this.paymentReference = paymentReference;
     return this;
   }
 
-   /**
-   * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.
+  /**
+   * The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.
    * @return paymentReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentReference() {
     return paymentReference;
   }
 
-
- /**
-  * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.
-  *
-  * @param paymentReference
-  */ 
+  /**
+   * The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.
+   *
+   * @param paymentReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentReference(String paymentReference) {
     this.paymentReference = paymentReference;
   }
 
-
+  /**
+   * Adyen's 16-character reference associated with the cancel request.
+   *
+   * @param pspReference
+   * @return the current {@code StandalonePaymentCancelResponse} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
-   * Adyen&#39;s 16-character reference associated with the cancel request.
+  /**
+   * Adyen's 16-character reference associated with the cancel request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the cancel request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character reference associated with the cancel request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen's 16-character reference associated with the cancel request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * Your reference for the cancel request.
+   *
+   * @param reference
+   * @return the current {@code StandalonePaymentCancelResponse} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the cancel request.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the cancel request.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the cancel request.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the cancel request.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The status of your request. This will always have the value **received**.
+   *
+   * @param status
+   * @return the current {@code StandalonePaymentCancelResponse} instance, allowing for method chaining
+   */
   public StandalonePaymentCancelResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of your request. This will always have the value **received**.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of your request. This will always have the value **received**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of your request. This will always have the value **received**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this StandalonePaymentCancelResponse object is equal to o.

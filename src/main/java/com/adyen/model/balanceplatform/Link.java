@@ -58,155 +58,170 @@ public class Link {
   public Link() { 
   }
 
+  /**
+   * first
+   *
+   * @param first
+   * @return the current {@code Link} instance, allowing for method chaining
+   */
   public Link first(Href first) {
     this.first = first;
     return this;
   }
 
-   /**
-   * Get first
+  /**
+   * first
    * @return first
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Href getFirst() {
     return first;
   }
 
-
- /**
-  * first
-  *
-  * @param first
-  */ 
+  /**
+   * first
+   *
+   * @param first
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirst(Href first) {
     this.first = first;
   }
 
-
+  /**
+   * last
+   *
+   * @param last
+   * @return the current {@code Link} instance, allowing for method chaining
+   */
   public Link last(Href last) {
     this.last = last;
     return this;
   }
 
-   /**
-   * Get last
+  /**
+   * last
    * @return last
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Href getLast() {
     return last;
   }
 
-
- /**
-  * last
-  *
-  * @param last
-  */ 
+  /**
+   * last
+   *
+   * @param last
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLast(Href last) {
     this.last = last;
   }
 
-
+  /**
+   * next
+   *
+   * @param next
+   * @return the current {@code Link} instance, allowing for method chaining
+   */
   public Link next(Href next) {
     this.next = next;
     return this;
   }
 
-   /**
-   * Get next
+  /**
+   * next
    * @return next
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Href getNext() {
     return next;
   }
 
-
- /**
-  * next
-  *
-  * @param next
-  */ 
+  /**
+   * next
+   *
+   * @param next
+   */ 
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(Href next) {
     this.next = next;
   }
 
-
+  /**
+   * previous
+   *
+   * @param previous
+   * @return the current {@code Link} instance, allowing for method chaining
+   */
   public Link previous(Href previous) {
     this.previous = previous;
     return this;
   }
 
-   /**
-   * Get previous
+  /**
+   * previous
    * @return previous
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Href getPrevious() {
     return previous;
   }
 
-
- /**
-  * previous
-  *
-  * @param previous
-  */ 
+  /**
+   * previous
+   *
+   * @param previous
+   */ 
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(Href previous) {
     this.previous = previous;
   }
 
-
+  /**
+   * self
+   *
+   * @param self
+   * @return the current {@code Link} instance, allowing for method chaining
+   */
   public Link self(Href self) {
     this.self = self;
     return this;
   }
 
-   /**
-   * Get self
+  /**
+   * self
    * @return self
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Href getSelf() {
     return self;
   }
 
-
- /**
-  * self
-  *
-  * @param self
-  */ 
+  /**
+   * self
+   *
+   * @param self
+   */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(Href self) {
     this.self = self;
   }
-
 
   /**
    * Return true if this Link object is equal to o.

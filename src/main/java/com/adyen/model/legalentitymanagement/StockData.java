@@ -49,95 +49,104 @@ public class StockData {
   public StockData() { 
   }
 
+  /**
+   * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.
+   *
+   * @param marketIdentifier
+   * @return the current {@code StockData} instance, allowing for method chaining
+   */
   public StockData marketIdentifier(String marketIdentifier) {
     this.marketIdentifier = marketIdentifier;
     return this;
   }
 
-   /**
-   * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
+  /**
+   * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.
    * @return marketIdentifier
-  **/
+   */
   @ApiModelProperty(value = "The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.")
   @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMarketIdentifier() {
     return marketIdentifier;
   }
 
-
- /**
-  * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
-  *
-  * @param marketIdentifier
-  */ 
+  /**
+   * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.
+   *
+   * @param marketIdentifier
+   */ 
   @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMarketIdentifier(String marketIdentifier) {
     this.marketIdentifier = marketIdentifier;
   }
 
-
+  /**
+   * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
+   *
+   * @param stockNumber
+   * @return the current {@code StockData} instance, allowing for method chaining
+   */
   public StockData stockNumber(String stockNumber) {
     this.stockNumber = stockNumber;
     return this;
   }
 
-   /**
+  /**
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    * @return stockNumber
-  **/
+   */
   @ApiModelProperty(value = "The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).")
   @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStockNumber() {
     return stockNumber;
   }
 
-
- /**
-  * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
-  *
-  * @param stockNumber
-  */ 
+  /**
+   * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
+   *
+   * @param stockNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockNumber(String stockNumber) {
     this.stockNumber = stockNumber;
   }
 
-
+  /**
+   * The stock ticker symbol.
+   *
+   * @param tickerSymbol
+   * @return the current {@code StockData} instance, allowing for method chaining
+   */
   public StockData tickerSymbol(String tickerSymbol) {
     this.tickerSymbol = tickerSymbol;
     return this;
   }
 
-   /**
+  /**
    * The stock ticker symbol.
    * @return tickerSymbol
-  **/
+   */
   @ApiModelProperty(value = "The stock ticker symbol.")
   @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTickerSymbol() {
     return tickerSymbol;
   }
 
-
- /**
-  * The stock ticker symbol.
-  *
-  * @param tickerSymbol
-  */ 
+  /**
+   * The stock ticker symbol.
+   *
+   * @param tickerSymbol
+   */ 
   @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTickerSymbol(String tickerSymbol) {
     this.tickerSymbol = tickerSymbol;
   }
-
 
   /**
    * Return true if this StockData object is equal to o.

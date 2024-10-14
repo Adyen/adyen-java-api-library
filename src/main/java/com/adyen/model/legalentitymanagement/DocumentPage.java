@@ -86,95 +86,104 @@ public class DocumentPage {
   public DocumentPage() { 
   }
 
+  /**
+   * pageName
+   *
+   * @param pageName
+   * @return the current {@code DocumentPage} instance, allowing for method chaining
+   */
   public DocumentPage pageName(String pageName) {
     this.pageName = pageName;
     return this;
   }
 
-   /**
-   * Get pageName
+  /**
+   * pageName
    * @return pageName
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPageName() {
     return pageName;
   }
 
-
- /**
-  * pageName
-  *
-  * @param pageName
-  */ 
+  /**
+   * pageName
+   *
+   * @param pageName
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageName(String pageName) {
     this.pageName = pageName;
   }
 
-
+  /**
+   * pageNumber
+   *
+   * @param pageNumber
+   * @return the current {@code DocumentPage} instance, allowing for method chaining
+   */
   public DocumentPage pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
 
-   /**
-   * Get pageNumber
+  /**
+   * pageNumber
    * @return pageNumber
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPageNumber() {
     return pageNumber;
   }
 
-
- /**
-  * pageNumber
-  *
-  * @param pageNumber
-  */ 
+  /**
+   * pageNumber
+   *
+   * @param pageNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-
+  /**
+   * type
+   *
+   * @param type
+   * @return the current {@code DocumentPage} instance, allowing for method chaining
+   */
   public DocumentPage type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
-   * Get type
+  /**
+   * type
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * type
-  *
-  * @param type
-  */ 
+  /**
+   * type
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this DocumentPage object is equal to o.

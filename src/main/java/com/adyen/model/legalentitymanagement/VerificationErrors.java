@@ -44,6 +44,12 @@ public class VerificationErrors {
   public VerificationErrors() { 
   }
 
+  /**
+   * List of the verification errors.
+   *
+   * @param problems
+   * @return the current {@code VerificationErrors} instance, allowing for method chaining
+   */
   public VerificationErrors problems(List<CapabilityProblem> problems) {
     this.problems = problems;
     return this;
@@ -57,30 +63,27 @@ public class VerificationErrors {
     return this;
   }
 
-   /**
+  /**
    * List of the verification errors.
    * @return problems
-  **/
+   */
   @ApiModelProperty(value = "List of the verification errors.")
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CapabilityProblem> getProblems() {
     return problems;
   }
 
-
- /**
-  * List of the verification errors.
-  *
-  * @param problems
-  */ 
+  /**
+   * List of the verification errors.
+   *
+   * @param problems
+   */ 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
     this.problems = problems;
   }
-
 
   /**
    * Return true if this VerificationErrors object is equal to o.

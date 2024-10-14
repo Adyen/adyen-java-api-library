@@ -139,6 +139,12 @@ public class SubmitRequest {
   public SubmitRequest() { 
   }
 
+  /**
+   * This field contains additional data, which may be required for a particular request.
+   *
+   * @param additionalData
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -152,450 +158,489 @@ public class SubmitRequest {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be required for a particular request.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be required for a particular request.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  > This field is mandatory for natural persons.  > This field is required to update the existing `dateOfBirth` that is associated with this recurring contract.
+   *
+   * @param dateOfBirth
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
 
-   /**
-   * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  &gt; This field is mandatory for natural persons.  &gt; This field is required to update the existing &#x60;dateOfBirth&#x60; that is associated with this recurring contract.
+  /**
+   * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  > This field is mandatory for natural persons.  > This field is required to update the existing `dateOfBirth` that is associated with this recurring contract.
    * @return dateOfBirth
-  **/
+   */
   @ApiModelProperty(value = "The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  > This field is mandatory for natural persons.  > This field is required to update the existing `dateOfBirth` that is associated with this recurring contract.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
-
- /**
-  * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  &gt; This field is mandatory for natural persons.  &gt; This field is required to update the existing &#x60;dateOfBirth&#x60; that is associated with this recurring contract.
-  *
-  * @param dateOfBirth
-  */ 
+  /**
+   * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  > This field is mandatory for natural persons.  > This field is required to update the existing `dateOfBirth` that is associated with this recurring contract.
+   *
+   * @param dateOfBirth
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
-
+  /**
+   * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company > This field is required to update the existing `entityType` that is associated with this recurring contract.
+   *
+   * @param entityType
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest entityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
     return this;
   }
 
-   /**
-   * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company &gt; This field is required to update the existing &#x60;entityType&#x60; that is associated with this recurring contract.
+  /**
+   * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company > This field is required to update the existing `entityType` that is associated with this recurring contract.
    * @return entityType
-  **/
+   */
   @ApiModelProperty(value = "The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company > This field is required to update the existing `entityType` that is associated with this recurring contract.")
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EntityTypeEnum getEntityType() {
     return entityType;
   }
 
-
- /**
-  * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company &gt; This field is required to update the existing &#x60;entityType&#x60; that is associated with this recurring contract.
-  *
-  * @param entityType
-  */ 
+  /**
+   * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company > This field is required to update the existing `entityType` that is associated with this recurring contract.
+   *
+   * @param entityType
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
   }
 
-
+  /**
+   * An integer value that is added to the normal fraud score. The value can be either positive or negative.
+   *
+   * @param fraudOffset
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
     return this;
   }
 
-   /**
+  /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
-  **/
+   */
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getFraudOffset() {
     return fraudOffset;
   }
 
-
- /**
-  * An integer value that is added to the normal fraud score. The value can be either positive or negative.
-  *
-  * @param fraudOffset
-  */ 
+  /**
+   * An integer value that is added to the normal fraud score. The value can be either positive or negative.
+   *
+   * @param fraudOffset
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
   }
 
-
+  /**
+   * The merchant account identifier you want to process the transaction request with.
+   *
+   * @param merchantAccount
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier you want to process the transaction request with.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier you want to process the transaction request with.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier you want to process the transaction request with.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier you want to process the transaction request with.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').  > This field is required to update the existing nationality that is associated with this recurring contract.
+   *
+   * @param nationality
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest nationality(String nationality) {
     this.nationality = nationality;
     return this;
   }
 
-   /**
-   * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).  &gt; This field is required to update the existing nationality that is associated with this recurring contract.
+  /**
+   * The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').  > This field is required to update the existing nationality that is associated with this recurring contract.
    * @return nationality
-  **/
+   */
   @ApiModelProperty(value = "The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').  > This field is required to update the existing nationality that is associated with this recurring contract.")
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNationality() {
     return nationality;
   }
 
-
- /**
-  * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).  &gt; This field is required to update the existing nationality that is associated with this recurring contract.
-  *
-  * @param nationality
-  */ 
+  /**
+   * The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').  > This field is required to update the existing nationality that is associated with this recurring contract.
+   *
+   * @param nationality
+   */ 
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
     this.nationality = nationality;
   }
 
-
+  /**
+   * recurring
+   *
+   * @param recurring
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest recurring(Recurring recurring) {
     this.recurring = recurring;
     return this;
   }
 
-   /**
-   * Get recurring
+  /**
+   * recurring
    * @return recurring
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Recurring getRecurring() {
     return recurring;
   }
 
-
- /**
-  * recurring
-  *
-  * @param recurring
-  */ 
+  /**
+   * recurring
+   *
+   * @param recurring
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
   }
 
-
+  /**
+   * The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
+   *
+   * @param reference
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
    * @return reference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
-  *
-  * @param reference
-  */ 
+  /**
+   * The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * This is the `recurringDetailReference` you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
+   *
+   * @param selectedRecurringDetailReference
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
     return this;
   }
 
-   /**
-   * This is the &#x60;recurringDetailReference&#x60; you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
+  /**
+   * This is the `recurringDetailReference` you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
    * @return selectedRecurringDetailReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "This is the `recurringDetailReference` you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSelectedRecurringDetailReference() {
     return selectedRecurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
-  *
-  * @param selectedRecurringDetailReference
-  */ 
+  /**
+   * This is the `recurringDetailReference` you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
+   *
+   * @param selectedRecurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
   }
 
-
+  /**
+   * The shopper's email address.
+   *
+   * @param shopperEmail
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
-   * The shopper&#39;s email address.
+  /**
+   * The shopper's email address.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopper's email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * The shopper&#39;s email address.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * The shopper's email address.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
 
-   /**
-   * Get shopperName
+  /**
+   * shopperName
    * @return shopperName
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getShopperName() {
     return shopperName;
   }
 
-
- /**
-  * shopperName
-  *
-  * @param shopperName
-  */ 
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
-
+  /**
+   * The shopper's reference for the payout transaction.
+   *
+   * @param shopperReference
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
-   * The shopper&#39;s reference for the payout transaction.
+  /**
+   * The shopper's reference for the payout transaction.
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopper's reference for the payout transaction.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * The shopper&#39;s reference for the payout transaction.
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * The shopper's reference for the payout transaction.
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
-
+  /**
+   * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
+   *
+   * @param shopperStatement
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
     return this;
   }
 
-   /**
+  /**
    * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
    * @return shopperStatement
-  **/
+   */
   @ApiModelProperty(value = "The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperStatement() {
     return shopperStatement;
   }
 
-
- /**
-  * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
-  *
-  * @param shopperStatement
-  */ 
+  /**
+   * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
+   *
+   * @param shopperStatement
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
   }
 
-
+  /**
+   * The shopper's social security number.
+   *
+   * @param socialSecurityNumber
+   * @return the current {@code SubmitRequest} instance, allowing for method chaining
+   */
   public SubmitRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
 
-   /**
-   * The shopper&#39;s social security number.
+  /**
+   * The shopper's social security number.
    * @return socialSecurityNumber
-  **/
+   */
   @ApiModelProperty(value = "The shopper's social security number.")
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
 
-
- /**
-  * The shopper&#39;s social security number.
-  *
-  * @param socialSecurityNumber
-  */ 
+  /**
+   * The shopper's social security number.
+   *
+   * @param socialSecurityNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
   }
-
 
   /**
    * Return true if this SubmitRequest object is equal to o.

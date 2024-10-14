@@ -52,6 +52,12 @@ public class DefenseReason {
   public DefenseReason() { 
   }
 
+  /**
+   * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
+   *
+   * @param defenseDocumentTypes
+   * @return the current {@code DefenseReason} instance, allowing for method chaining
+   */
   public DefenseReason defenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
     this.defenseDocumentTypes = defenseDocumentTypes;
     return this;
@@ -65,90 +71,93 @@ public class DefenseReason {
     return this;
   }
 
-   /**
+  /**
    * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
    * @return defenseDocumentTypes
-  **/
+   */
   @ApiModelProperty(value = "Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DefenseDocumentType> getDefenseDocumentTypes() {
     return defenseDocumentTypes;
   }
 
-
- /**
-  * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
-  *
-  * @param defenseDocumentTypes
-  */ 
+  /**
+   * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
+   *
+   * @param defenseDocumentTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
     this.defenseDocumentTypes = defenseDocumentTypes;
   }
 
-
+  /**
+   * The defense reason code that was selected to defend this dispute.
+   *
+   * @param defenseReasonCode
+   * @return the current {@code DefenseReason} instance, allowing for method chaining
+   */
   public DefenseReason defenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
     return this;
   }
 
-   /**
+  /**
    * The defense reason code that was selected to defend this dispute.
    * @return defenseReasonCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The defense reason code that was selected to defend this dispute.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDefenseReasonCode() {
     return defenseReasonCode;
   }
 
-
- /**
-  * The defense reason code that was selected to defend this dispute.
-  *
-  * @param defenseReasonCode
-  */ 
+  /**
+   * The defense reason code that was selected to defend this dispute.
+   *
+   * @param defenseReasonCode
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
   }
 
-
+  /**
+   * Indicates if sufficient defense material has been supplied.
+   *
+   * @param satisfied
+   * @return the current {@code DefenseReason} instance, allowing for method chaining
+   */
   public DefenseReason satisfied(Boolean satisfied) {
     this.satisfied = satisfied;
     return this;
   }
 
-   /**
+  /**
    * Indicates if sufficient defense material has been supplied.
    * @return satisfied
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates if sufficient defense material has been supplied.")
   @JsonProperty(JSON_PROPERTY_SATISFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSatisfied() {
     return satisfied;
   }
 
-
- /**
-  * Indicates if sufficient defense material has been supplied.
-  *
-  * @param satisfied
-  */ 
+  /**
+   * Indicates if sufficient defense material has been supplied.
+   *
+   * @param satisfied
+   */ 
   @JsonProperty(JSON_PROPERTY_SATISFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSatisfied(Boolean satisfied) {
     this.satisfied = satisfied;
   }
-
 
   /**
    * Return true if this DefenseReason object is equal to o.

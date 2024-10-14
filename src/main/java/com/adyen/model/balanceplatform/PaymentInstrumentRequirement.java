@@ -131,66 +131,78 @@ public class PaymentInstrumentRequirement {
   public PaymentInstrumentRequirement() { 
   }
 
+  /**
+   * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
+   *
+   * @param description
+   * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
+   */
   public PaymentInstrumentRequirement description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Specifies the requirements for the payment instrument that need to be included in the request for a particular route.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
-  *
-  * @param description
-  */ 
+  /**
+   * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
+   *
+   * @param issuingCountryCode
+   * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
+   */
   public PaymentInstrumentRequirement issuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
     return this;
   }
 
-   /**
+  /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    * @return issuingCountryCode
-  **/
+   */
   @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuingCountryCode() {
     return issuingCountryCode;
   }
 
-
- /**
-  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
-  *
-  * @param issuingCountryCode
-  */ 
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
+   *
+   * @param issuingCountryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
   }
 
-
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
+   *
+   * @param issuingCountryCodes
+   * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
+   */
   public PaymentInstrumentRequirement issuingCountryCodes(List<String> issuingCountryCodes) {
     this.issuingCountryCodes = issuingCountryCodes;
     return this;
@@ -204,120 +216,126 @@ public class PaymentInstrumentRequirement {
     return this;
   }
 
-   /**
+  /**
    * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    * @return issuingCountryCodes
-  **/
+   */
   @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code list for payment instruments.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getIssuingCountryCodes() {
     return issuingCountryCodes;
   }
 
-
- /**
-  * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
-  *
-  * @param issuingCountryCodes
-  */ 
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
+   *
+   * @param issuingCountryCodes
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCodes(List<String> issuingCountryCodes) {
     this.issuingCountryCodes = issuingCountryCodes;
   }
 
-
+  /**
+   * Specifies if the requirement only applies to transfers to another balance platform.
+   *
+   * @param onlyForCrossBalancePlatform
+   * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
+   */
   public PaymentInstrumentRequirement onlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
     this.onlyForCrossBalancePlatform = onlyForCrossBalancePlatform;
     return this;
   }
 
-   /**
+  /**
    * Specifies if the requirement only applies to transfers to another balance platform.
    * @return onlyForCrossBalancePlatform
-  **/
+   */
   @ApiModelProperty(value = "Specifies if the requirement only applies to transfers to another balance platform.")
   @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getOnlyForCrossBalancePlatform() {
     return onlyForCrossBalancePlatform;
   }
 
-
- /**
-  * Specifies if the requirement only applies to transfers to another balance platform.
-  *
-  * @param onlyForCrossBalancePlatform
-  */ 
+  /**
+   * Specifies if the requirement only applies to transfers to another balance platform.
+   *
+   * @param onlyForCrossBalancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOnlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
     this.onlyForCrossBalancePlatform = onlyForCrossBalancePlatform;
   }
 
-
+  /**
+   * The type of the payment instrument. For example, \"BankAccount\" or \"Card\".
+   *
+   * @param paymentInstrumentType
+   * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
+   */
   public PaymentInstrumentRequirement paymentInstrumentType(PaymentInstrumentTypeEnum paymentInstrumentType) {
     this.paymentInstrumentType = paymentInstrumentType;
     return this;
   }
 
-   /**
-   * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
+  /**
+   * The type of the payment instrument. For example, \"BankAccount\" or \"Card\".
    * @return paymentInstrumentType
-  **/
+   */
   @ApiModelProperty(value = "The type of the payment instrument. For example, \"BankAccount\" or \"Card\".")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentInstrumentTypeEnum getPaymentInstrumentType() {
     return paymentInstrumentType;
   }
 
-
- /**
-  * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
-  *
-  * @param paymentInstrumentType
-  */ 
+  /**
+   * The type of the payment instrument. For example, \"BankAccount\" or \"Card\".
+   *
+   * @param paymentInstrumentType
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentType(PaymentInstrumentTypeEnum paymentInstrumentType) {
     this.paymentInstrumentType = paymentInstrumentType;
   }
 
-
+  /**
+   * **paymentInstrumentRequirement**
+   *
+   * @param type
+   * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
+   */
   public PaymentInstrumentRequirement type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **paymentInstrumentRequirement**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**paymentInstrumentRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **paymentInstrumentRequirement**
-  *
-  * @param type
-  */ 
+  /**
+   * **paymentInstrumentRequirement**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PaymentInstrumentRequirement object is equal to o.

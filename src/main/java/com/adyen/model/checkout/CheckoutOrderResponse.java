@@ -62,185 +62,203 @@ public class CheckoutOrderResponse {
   public CheckoutOrderResponse() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
+   */
   public CheckoutOrderResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The expiry date for the order.
+   *
+   * @param expiresAt
+   * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
+   */
   public CheckoutOrderResponse expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
-   /**
+  /**
    * The expiry date for the order.
    * @return expiresAt
-  **/
+   */
   @ApiModelProperty(value = "The expiry date for the order.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiresAt() {
     return expiresAt;
   }
 
-
- /**
-  * The expiry date for the order.
-  *
-  * @param expiresAt
-  */ 
+  /**
+   * The expiry date for the order.
+   *
+   * @param expiresAt
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
-
+  /**
+   * The encrypted order data.
+   *
+   * @param orderData
+   * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
+   */
   public CheckoutOrderResponse orderData(String orderData) {
     this.orderData = orderData;
     return this;
   }
 
-   /**
+  /**
    * The encrypted order data.
    * @return orderData
-  **/
+   */
   @ApiModelProperty(value = "The encrypted order data.")
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOrderData() {
     return orderData;
   }
 
-
- /**
-  * The encrypted order data.
-  *
-  * @param orderData
-  */ 
+  /**
+   * The encrypted order data.
+   *
+   * @param orderData
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
   }
 
-
+  /**
+   * The `pspReference` that belongs to the order.
+   *
+   * @param pspReference
+   * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
+   */
   public CheckoutOrderResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
-   * The &#x60;pspReference&#x60; that belongs to the order.
+  /**
+   * The `pspReference` that belongs to the order.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The `pspReference` that belongs to the order.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * The &#x60;pspReference&#x60; that belongs to the order.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * The `pspReference` that belongs to the order.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * The merchant reference for the order.
+   *
+   * @param reference
+   * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
+   */
   public CheckoutOrderResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The merchant reference for the order.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The merchant reference for the order.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The merchant reference for the order.
-  *
-  * @param reference
-  */ 
+  /**
+   * The merchant reference for the order.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * remainingAmount
+   *
+   * @param remainingAmount
+   * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
+   */
   public CheckoutOrderResponse remainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
     return this;
   }
 
-   /**
-   * Get remainingAmount
+  /**
+   * remainingAmount
    * @return remainingAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getRemainingAmount() {
     return remainingAmount;
   }
 
-
- /**
-  * remainingAmount
-  *
-  * @param remainingAmount
-  */ 
+  /**
+   * remainingAmount
+   *
+   * @param remainingAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
   }
-
 
   /**
    * Return true if this CheckoutOrderResponse object is equal to o.

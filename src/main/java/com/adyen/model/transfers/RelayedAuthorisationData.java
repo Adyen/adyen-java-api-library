@@ -48,6 +48,12 @@ public class RelayedAuthorisationData {
   public RelayedAuthorisationData() { 
   }
 
+  /**
+   * Contains key-value pairs of your references and descriptions, for example, `customId`:`your-own-custom-field-12345`.
+   *
+   * @param metadata
+   * @return the current {@code RelayedAuthorisationData} instance, allowing for method chaining
+   */
   public RelayedAuthorisationData metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
@@ -61,60 +67,60 @@ public class RelayedAuthorisationData {
     return this;
   }
 
-   /**
-   * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
+  /**
+   * Contains key-value pairs of your references and descriptions, for example, `customId`:`your-own-custom-field-12345`.
    * @return metadata
-  **/
+   */
   @ApiModelProperty(value = "Contains key-value pairs of your references and descriptions, for example, `customId`:`your-own-custom-field-12345`.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getMetadata() {
     return metadata;
   }
 
-
- /**
-  * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
-  *
-  * @param metadata
-  */ 
+  /**
+   * Contains key-value pairs of your references and descriptions, for example, `customId`:`your-own-custom-field-12345`.
+   *
+   * @param metadata
+   */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
-
+  /**
+   * Your reference for the relayed authorisation data.
+   *
+   * @param reference
+   * @return the current {@code RelayedAuthorisationData} instance, allowing for method chaining
+   */
   public RelayedAuthorisationData reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the relayed authorisation data.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the relayed authorisation data.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the relayed authorisation data.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the relayed authorisation data.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this RelayedAuthorisationData object is equal to o.

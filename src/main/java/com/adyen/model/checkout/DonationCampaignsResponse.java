@@ -44,6 +44,12 @@ public class DonationCampaignsResponse {
   public DonationCampaignsResponse() { 
   }
 
+  /**
+   * List of active donation campaigns for your merchant account.
+   *
+   * @param donationCampaigns
+   * @return the current {@code DonationCampaignsResponse} instance, allowing for method chaining
+   */
   public DonationCampaignsResponse donationCampaigns(List<DonationCampaign> donationCampaigns) {
     this.donationCampaigns = donationCampaigns;
     return this;
@@ -57,30 +63,27 @@ public class DonationCampaignsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of active donation campaigns for your merchant account.
    * @return donationCampaigns
-  **/
+   */
   @ApiModelProperty(value = "List of active donation campaigns for your merchant account.")
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DonationCampaign> getDonationCampaigns() {
     return donationCampaigns;
   }
 
-
- /**
-  * List of active donation campaigns for your merchant account.
-  *
-  * @param donationCampaigns
-  */ 
+  /**
+   * List of active donation campaigns for your merchant account.
+   *
+   * @param donationCampaigns
+   */ 
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationCampaigns(List<DonationCampaign> donationCampaigns) {
     this.donationCampaigns = donationCampaigns;
   }
-
 
   /**
    * Return true if this DonationCampaignsResponse object is equal to o.

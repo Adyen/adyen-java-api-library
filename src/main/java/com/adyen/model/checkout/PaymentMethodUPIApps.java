@@ -45,65 +45,71 @@ public class PaymentMethodUPIApps {
   public PaymentMethodUPIApps() { 
   }
 
+  /**
+   * The unique identifier of this app, to submit in requests to /payments.
+   *
+   * @param id
+   * @return the current {@code PaymentMethodUPIApps} instance, allowing for method chaining
+   */
   public PaymentMethodUPIApps id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of this app, to submit in requests to /payments.
    * @return id
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of this app, to submit in requests to /payments.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of this app, to submit in requests to /payments.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of this app, to submit in requests to /payments.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * A localized name of the app.
+   *
+   * @param name
+   * @return the current {@code PaymentMethodUPIApps} instance, allowing for method chaining
+   */
   public PaymentMethodUPIApps name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * A localized name of the app.
    * @return name
-  **/
+   */
   @ApiModelProperty(required = true, value = "A localized name of the app.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * A localized name of the app.
-  *
-  * @param name
-  */ 
+  /**
+   * A localized name of the app.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
-
 
   /**
    * Return true if this PaymentMethodUPIApps object is equal to o.

@@ -49,95 +49,104 @@ public class SubjectErasureByPspReferenceRequest {
   public SubjectErasureByPspReferenceRequest() { 
   }
 
+  /**
+   * Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.
+   *
+   * @param forceErasure
+   * @return the current {@code SubjectErasureByPspReferenceRequest} instance, allowing for method chaining
+   */
   public SubjectErasureByPspReferenceRequest forceErasure(Boolean forceErasure) {
     this.forceErasure = forceErasure;
     return this;
   }
 
-   /**
+  /**
    * Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.
    * @return forceErasure
-  **/
+   */
   @ApiModelProperty(value = "Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.")
   @JsonProperty(JSON_PROPERTY_FORCE_ERASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getForceErasure() {
     return forceErasure;
   }
 
-
- /**
-  * Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.
-  *
-  * @param forceErasure
-  */ 
+  /**
+   * Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.
+   *
+   * @param forceErasure
+   */ 
   @JsonProperty(JSON_PROPERTY_FORCE_ERASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceErasure(Boolean forceErasure) {
     this.forceErasure = forceErasure;
   }
 
-
+  /**
+   * Your merchant account
+   *
+   * @param merchantAccount
+   * @return the current {@code SubjectErasureByPspReferenceRequest} instance, allowing for method chaining
+   */
   public SubjectErasureByPspReferenceRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * Your merchant account
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "Your merchant account")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * Your merchant account
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * Your merchant account
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The PSP reference of the payment. We will delete all shopper-related data for this payment.
+   *
+   * @param pspReference
+   * @return the current {@code SubjectErasureByPspReferenceRequest} instance, allowing for method chaining
+   */
   public SubjectErasureByPspReferenceRequest pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * The PSP reference of the payment. We will delete all shopper-related data for this payment.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "The PSP reference of the payment. We will delete all shopper-related data for this payment.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * The PSP reference of the payment. We will delete all shopper-related data for this payment.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * The PSP reference of the payment. We will delete all shopper-related data for this payment.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
-
 
   /**
    * Return true if this SubjectErasureByPspReferenceRequest object is equal to o.

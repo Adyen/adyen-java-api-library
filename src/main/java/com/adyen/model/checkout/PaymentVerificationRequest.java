@@ -41,35 +41,38 @@ public class PaymentVerificationRequest {
   public PaymentVerificationRequest() { 
   }
 
+  /**
+   * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
+   *
+   * @param payload
+   * @return the current {@code PaymentVerificationRequest} instance, allowing for method chaining
+   */
   public PaymentVerificationRequest payload(String payload) {
     this.payload = payload;
     return this;
   }
 
-   /**
+  /**
    * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
    * @return payload
-  **/
+   */
   @ApiModelProperty(required = true, value = "Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.")
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayload() {
     return payload;
   }
 
-
- /**
-  * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
-  *
-  * @param payload
-  */ 
+  /**
+   * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
+   *
+   * @param payload
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayload(String payload) {
     this.payload = payload;
   }
-
 
   /**
    * Return true if this PaymentVerificationRequest object is equal to o.

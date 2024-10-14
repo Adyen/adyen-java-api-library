@@ -49,95 +49,104 @@ public class Currency {
   public Currency() { 
   }
 
+  /**
+   * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param amount
+   * @return the current {@code Currency} instance, allowing for method chaining
+   */
   public Currency amount(Integer amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
+  /**
    * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getAmount() {
     return amount;
   }
 
-
- /**
-  * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param amount
-  */ 
+  /**
+   * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Integer amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
+   *
+   * @param currencyCode
+   * @return the current {@code Currency} instance, allowing for method chaining
+   */
   public Currency currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
 
-   /**
+  /**
    * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
    * @return currencyCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrencyCode() {
     return currencyCode;
   }
 
-
- /**
-  * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
-  *
-  * @param currencyCode
-  */ 
+  /**
+   * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
+   *
+   * @param currencyCode
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
   }
 
-
+  /**
+   * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
+   *
+   * @param percentage
+   * @return the current {@code Currency} instance, allowing for method chaining
+   */
   public Currency percentage(Double percentage) {
     this.percentage = percentage;
     return this;
   }
 
-   /**
+  /**
    * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
    * @return percentage
-  **/
+   */
   @ApiModelProperty(value = "Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.")
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getPercentage() {
     return percentage;
   }
 
-
- /**
-  * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
-  *
-  * @param percentage
-  */ 
+  /**
+   * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
+   *
+   * @param percentage
+   */ 
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPercentage(Double percentage) {
     this.percentage = percentage;
   }
-
 
   /**
    * Return true if this Currency object is equal to o.

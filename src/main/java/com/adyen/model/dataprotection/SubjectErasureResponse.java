@@ -80,35 +80,38 @@ public class SubjectErasureResponse {
   public SubjectErasureResponse() { 
   }
 
+  /**
+   * The result of this operation.
+   *
+   * @param result
+   * @return the current {@code SubjectErasureResponse} instance, allowing for method chaining
+   */
   public SubjectErasureResponse result(ResultEnum result) {
     this.result = result;
     return this;
   }
 
-   /**
+  /**
    * The result of this operation.
    * @return result
-  **/
+   */
   @ApiModelProperty(value = "The result of this operation.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResultEnum getResult() {
     return result;
   }
 
-
- /**
-  * The result of this operation.
-  *
-  * @param result
-  */ 
+  /**
+   * The result of this operation.
+   *
+   * @param result
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(ResultEnum result) {
     this.result = result;
   }
-
 
   /**
    * Return true if this SubjectErasureResponse object is equal to o.

@@ -61,185 +61,203 @@ public class ResponseAdditionalDataBillingAddress {
   public ResponseAdditionalDataBillingAddress() { 
   }
 
+  /**
+   * The billing address city passed in the payment request.
+   *
+   * @param billingAddressCity
+   * @return the current {@code ResponseAdditionalDataBillingAddress} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataBillingAddress billingAddressCity(String billingAddressCity) {
     this.billingAddressCity = billingAddressCity;
     return this;
   }
 
-   /**
+  /**
    * The billing address city passed in the payment request.
    * @return billingAddressCity
-  **/
+   */
   @ApiModelProperty(value = "The billing address city passed in the payment request.")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBillingAddressCity() {
     return billingAddressCity;
   }
 
-
- /**
-  * The billing address city passed in the payment request.
-  *
-  * @param billingAddressCity
-  */ 
+  /**
+   * The billing address city passed in the payment request.
+   *
+   * @param billingAddressCity
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressCity(String billingAddressCity) {
     this.billingAddressCity = billingAddressCity;
   }
 
-
+  /**
+   * The billing address country passed in the payment request.  Example: NL
+   *
+   * @param billingAddressCountry
+   * @return the current {@code ResponseAdditionalDataBillingAddress} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataBillingAddress billingAddressCountry(String billingAddressCountry) {
     this.billingAddressCountry = billingAddressCountry;
     return this;
   }
 
-   /**
+  /**
    * The billing address country passed in the payment request.  Example: NL
    * @return billingAddressCountry
-  **/
+   */
   @ApiModelProperty(value = "The billing address country passed in the payment request.  Example: NL")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBillingAddressCountry() {
     return billingAddressCountry;
   }
 
-
- /**
-  * The billing address country passed in the payment request.  Example: NL
-  *
-  * @param billingAddressCountry
-  */ 
+  /**
+   * The billing address country passed in the payment request.  Example: NL
+   *
+   * @param billingAddressCountry
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressCountry(String billingAddressCountry) {
     this.billingAddressCountry = billingAddressCountry;
   }
 
-
+  /**
+   * The billing address house number or name passed in the payment request.
+   *
+   * @param billingAddressHouseNumberOrName
+   * @return the current {@code ResponseAdditionalDataBillingAddress} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataBillingAddress billingAddressHouseNumberOrName(String billingAddressHouseNumberOrName) {
     this.billingAddressHouseNumberOrName = billingAddressHouseNumberOrName;
     return this;
   }
 
-   /**
+  /**
    * The billing address house number or name passed in the payment request.
    * @return billingAddressHouseNumberOrName
-  **/
+   */
   @ApiModelProperty(value = "The billing address house number or name passed in the payment request.")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBillingAddressHouseNumberOrName() {
     return billingAddressHouseNumberOrName;
   }
 
-
- /**
-  * The billing address house number or name passed in the payment request.
-  *
-  * @param billingAddressHouseNumberOrName
-  */ 
+  /**
+   * The billing address house number or name passed in the payment request.
+   *
+   * @param billingAddressHouseNumberOrName
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressHouseNumberOrName(String billingAddressHouseNumberOrName) {
     this.billingAddressHouseNumberOrName = billingAddressHouseNumberOrName;
   }
 
-
+  /**
+   * The billing address postal code passed in the payment request.  Example: 1011 DJ
+   *
+   * @param billingAddressPostalCode
+   * @return the current {@code ResponseAdditionalDataBillingAddress} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataBillingAddress billingAddressPostalCode(String billingAddressPostalCode) {
     this.billingAddressPostalCode = billingAddressPostalCode;
     return this;
   }
 
-   /**
+  /**
    * The billing address postal code passed in the payment request.  Example: 1011 DJ
    * @return billingAddressPostalCode
-  **/
+   */
   @ApiModelProperty(value = "The billing address postal code passed in the payment request.  Example: 1011 DJ")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBillingAddressPostalCode() {
     return billingAddressPostalCode;
   }
 
-
- /**
-  * The billing address postal code passed in the payment request.  Example: 1011 DJ
-  *
-  * @param billingAddressPostalCode
-  */ 
+  /**
+   * The billing address postal code passed in the payment request.  Example: 1011 DJ
+   *
+   * @param billingAddressPostalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressPostalCode(String billingAddressPostalCode) {
     this.billingAddressPostalCode = billingAddressPostalCode;
   }
 
-
+  /**
+   * The billing address state or province passed in the payment request.  Example: NH
+   *
+   * @param billingAddressStateOrProvince
+   * @return the current {@code ResponseAdditionalDataBillingAddress} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataBillingAddress billingAddressStateOrProvince(String billingAddressStateOrProvince) {
     this.billingAddressStateOrProvince = billingAddressStateOrProvince;
     return this;
   }
 
-   /**
+  /**
    * The billing address state or province passed in the payment request.  Example: NH
    * @return billingAddressStateOrProvince
-  **/
+   */
   @ApiModelProperty(value = "The billing address state or province passed in the payment request.  Example: NH")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBillingAddressStateOrProvince() {
     return billingAddressStateOrProvince;
   }
 
-
- /**
-  * The billing address state or province passed in the payment request.  Example: NH
-  *
-  * @param billingAddressStateOrProvince
-  */ 
+  /**
+   * The billing address state or province passed in the payment request.  Example: NH
+   *
+   * @param billingAddressStateOrProvince
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressStateOrProvince(String billingAddressStateOrProvince) {
     this.billingAddressStateOrProvince = billingAddressStateOrProvince;
   }
 
-
+  /**
+   * The billing address street passed in the payment request.
+   *
+   * @param billingAddressStreet
+   * @return the current {@code ResponseAdditionalDataBillingAddress} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataBillingAddress billingAddressStreet(String billingAddressStreet) {
     this.billingAddressStreet = billingAddressStreet;
     return this;
   }
 
-   /**
+  /**
    * The billing address street passed in the payment request.
    * @return billingAddressStreet
-  **/
+   */
   @ApiModelProperty(value = "The billing address street passed in the payment request.")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBillingAddressStreet() {
     return billingAddressStreet;
   }
 
-
- /**
-  * The billing address street passed in the payment request.
-  *
-  * @param billingAddressStreet
-  */ 
+  /**
+   * The billing address street passed in the payment request.
+   *
+   * @param billingAddressStreet
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressStreet(String billingAddressStreet) {
     this.billingAddressStreet = billingAddressStreet;
   }
-
 
   /**
    * Return true if this ResponseAdditionalDataBillingAddress object is equal to o.

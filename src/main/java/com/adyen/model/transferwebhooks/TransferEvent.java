@@ -94,6 +94,8 @@ public class TransferEvent {
    * The reason for the transfer status.
    */
   public enum ReasonEnum {
+    ACCOUNTHIERARCHYNOTACTIVE("accountHierarchyNotActive"),
+    
     AMOUNTLIMITEXCEEDED("amountLimitExceeded"),
     
     APPROVED("approved"),
@@ -116,17 +118,23 @@ public class TransferEvent {
     
     DECLINEDBYTRANSACTIONRULE("declinedByTransactionRule"),
     
+    DIRECTDEBITNOTSUPPORTED("directDebitNotSupported"),
+    
     ERROR("error"),
     
     NOTENOUGHBALANCE("notEnoughBalance"),
     
     PENDINGAPPROVAL("pendingApproval"),
     
+    PENDINGEXECUTION("pendingExecution"),
+    
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
     ROUTENOTFOUND("routeNotFound"),
     
     SCAFAILED("scaFailed"),
+    
+    TRANSFERINSTRUMENTDOESNOTEXIST("transferInstrumentDoesNotExist"),
     
     UNKNOWN("unknown");
 
@@ -268,6 +276,8 @@ public class TransferEvent {
     
     PENDINGAPPROVAL("pendingApproval"),
     
+    PENDINGEXECUTION("pendingExecution"),
+    
     RECEIVED("received"),
     
     REFUNDPENDING("refundPending"),
@@ -379,36 +389,45 @@ public class TransferEvent {
   public TransferEvent() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The amount adjustments in this transfer.
+   *
+   * @param amountAdjustments
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent amountAdjustments(List<AmountAdjustment> amountAdjustments) {
     this.amountAdjustments = amountAdjustments;
     return this;
@@ -422,211 +441,232 @@ public class TransferEvent {
     return this;
   }
 
-   /**
+  /**
    * The amount adjustments in this transfer.
    * @return amountAdjustments
-  **/
+   */
   @ApiModelProperty(value = "The amount adjustments in this transfer.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AmountAdjustment> getAmountAdjustments() {
     return amountAdjustments;
   }
 
-
- /**
-  * The amount adjustments in this transfer.
-  *
-  * @param amountAdjustments
-  */ 
+  /**
+   * The amount adjustments in this transfer.
+   *
+   * @param amountAdjustments
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountAdjustments(List<AmountAdjustment> amountAdjustments) {
     this.amountAdjustments = amountAdjustments;
   }
 
-
+  /**
+   * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
+   *
+   * @param arn
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent arn(String arn) {
     this.arn = arn;
     return this;
   }
 
-   /**
+  /**
    * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    * @return arn
-  **/
+   */
   @ApiModelProperty(value = "Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.")
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getArn() {
     return arn;
   }
 
-
- /**
-  * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
-  *
-  * @param arn
-  */ 
+  /**
+   * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
+   *
+   * @param arn
+   */ 
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setArn(String arn) {
     this.arn = arn;
   }
 
-
+  /**
+   * The date when the transfer request was sent.
+   *
+   * @param bookingDate
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent bookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the transfer request was sent.
    * @return bookingDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the transfer request was sent.")
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getBookingDate() {
     return bookingDate;
   }
 
-
- /**
-  * The date when the transfer request was sent.
-  *
-  * @param bookingDate
-  */ 
+  /**
+   * The date when the transfer request was sent.
+   *
+   * @param bookingDate
+   */ 
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
   }
 
-
+  /**
+   * The estimated time when the beneficiary should have access to the funds.
+   *
+   * @param estimatedArrivalTime
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent estimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
     return this;
   }
 
-   /**
+  /**
    * The estimated time when the beneficiary should have access to the funds.
    * @return estimatedArrivalTime
-  **/
+   */
   @ApiModelProperty(value = "The estimated time when the beneficiary should have access to the funds.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getEstimatedArrivalTime() {
     return estimatedArrivalTime;
   }
 
-
- /**
-  * The estimated time when the beneficiary should have access to the funds.
-  *
-  * @param estimatedArrivalTime
-  */ 
+  /**
+   * The estimated time when the beneficiary should have access to the funds.
+   *
+   * @param estimatedArrivalTime
+   */ 
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
   }
 
-
+  /**
+   * externalReason
+   *
+   * @param externalReason
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent externalReason(ExternalReason externalReason) {
     this.externalReason = externalReason;
     return this;
   }
 
-   /**
-   * Get externalReason
+  /**
+   * externalReason
    * @return externalReason
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ExternalReason getExternalReason() {
     return externalReason;
   }
 
-
- /**
-  * externalReason
-  *
-  * @param externalReason
-  */ 
+  /**
+   * externalReason
+   *
+   * @param externalReason
+   */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReason(ExternalReason externalReason) {
     this.externalReason = externalReason;
   }
 
-
+  /**
+   * The unique identifier of the transfer event.
+   *
+   * @param id
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the transfer event.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the transfer event.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the transfer event.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the transfer event.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * modification
+   *
+   * @param modification
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent modification(Modification modification) {
     this.modification = modification;
     return this;
   }
 
-   /**
-   * Get modification
+  /**
+   * modification
    * @return modification
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MODIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Modification getModification() {
     return modification;
   }
 
-
- /**
-  * modification
-  *
-  * @param modification
-  */ 
+  /**
+   * modification
+   *
+   * @param modification
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModification(Modification modification) {
     this.modification = modification;
   }
 
-
+  /**
+   * The list of balance mutations per event.
+   *
+   * @param mutations
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent mutations(List<BalanceMutation> mutations) {
     this.mutations = mutations;
     return this;
@@ -640,270 +680,291 @@ public class TransferEvent {
     return this;
   }
 
-   /**
+  /**
    * The list of balance mutations per event.
    * @return mutations
-  **/
+   */
   @ApiModelProperty(value = "The list of balance mutations per event.")
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<BalanceMutation> getMutations() {
     return mutations;
   }
 
-
- /**
-  * The list of balance mutations per event.
-  *
-  * @param mutations
-  */ 
+  /**
+   * The list of balance mutations per event.
+   *
+   * @param mutations
+   */ 
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMutations(List<BalanceMutation> mutations) {
     this.mutations = mutations;
   }
 
-
+  /**
+   * originalAmount
+   *
+   * @param originalAmount
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent originalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
     return this;
   }
 
-   /**
-   * Get originalAmount
+  /**
+   * originalAmount
    * @return originalAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getOriginalAmount() {
     return originalAmount;
   }
 
-
- /**
-  * originalAmount
-  *
-  * @param originalAmount
-  */ 
+  /**
+   * originalAmount
+   *
+   * @param originalAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
   }
 
-
+  /**
+   * The reason for the transfer status.
+   *
+   * @param reason
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent reason(ReasonEnum reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * The reason for the transfer status.
    * @return reason
-  **/
+   */
   @ApiModelProperty(value = "The reason for the transfer status.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReasonEnum getReason() {
     return reason;
   }
 
-
- /**
-  * The reason for the transfer status.
-  *
-  * @param reason
-  */ 
+  /**
+   * The reason for the transfer status.
+   *
+   * @param reason
+   */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
   }
 
-
+  /**
+   * The status of the transfer event.
+   *
+   * @param status
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the transfer event.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the transfer event.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the transfer event.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the transfer event.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * trackingData
+   *
+   * @param trackingData
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent trackingData(TransferEventTrackingData trackingData) {
     this.trackingData = trackingData;
     return this;
   }
 
-   /**
-   * Get trackingData
+  /**
+   * trackingData
    * @return trackingData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransferEventTrackingData getTrackingData() {
     return trackingData;
   }
 
-
- /**
-  * trackingData
-  *
-  * @param trackingData
-  */ 
+  /**
+   * trackingData
+   *
+   * @param trackingData
+   */ 
   @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingData(TransferEventTrackingData trackingData) {
     this.trackingData = trackingData;
   }
 
-
+  /**
+   * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
+   *
+   * @param transactionId
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent transactionId(String transactionId) {
     this.transactionId = transactionId;
     return this;
   }
 
-   /**
+  /**
    * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    * @return transactionId
-  **/
+   */
   @ApiModelProperty(value = "The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransactionId() {
     return transactionId;
   }
 
-
- /**
-  * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
-  *
-  * @param transactionId
-  */ 
+  /**
+   * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
+   *
+   * @param transactionId
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionId(String transactionId) {
     this.transactionId = transactionId;
   }
 
-
+  /**
+   * The type of the transfer event. Possible values: **accounting**, **tracking**.
+   *
+   * @param type
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of the transfer event. Possible values: **accounting**, **tracking**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of the transfer event. Possible values: **accounting**, **tracking**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of the transfer event. Possible values: **accounting**, **tracking**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * The date when the tracking status was updated.
+   *
+   * @param updateDate
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent updateDate(OffsetDateTime updateDate) {
     this.updateDate = updateDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the tracking status was updated.
    * @return updateDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the tracking status was updated.")
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getUpdateDate() {
     return updateDate;
   }
 
-
- /**
-  * The date when the tracking status was updated.
-  *
-  * @param updateDate
-  */ 
+  /**
+   * The date when the tracking status was updated.
+   *
+   * @param updateDate
+   */ 
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateDate(OffsetDateTime updateDate) {
     this.updateDate = updateDate;
   }
 
-
+  /**
+   * A future date, when the funds are expected to be deducted from or credited to the balance account.
+   *
+   * @param valueDate
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
   public TransferEvent valueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
     return this;
   }
 
-   /**
+  /**
    * A future date, when the funds are expected to be deducted from or credited to the balance account.
    * @return valueDate
-  **/
+   */
   @ApiModelProperty(value = "A future date, when the funds are expected to be deducted from or credited to the balance account.")
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getValueDate() {
     return valueDate;
   }
 
-
- /**
-  * A future date, when the funds are expected to be deducted from or credited to the balance account.
-  *
-  * @param valueDate
-  */ 
+  /**
+   * A future date, when the funds are expected to be deducted from or credited to the balance account.
+   *
+   * @param valueDate
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
   }
-
 
   /**
    * Return true if this TransferEvent object is equal to o.

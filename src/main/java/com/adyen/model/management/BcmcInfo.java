@@ -41,35 +41,38 @@ public class BcmcInfo {
   public BcmcInfo() { 
   }
 
+  /**
+   * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
+   *
+   * @param enableBcmcMobile
+   * @return the current {@code BcmcInfo} instance, allowing for method chaining
+   */
   public BcmcInfo enableBcmcMobile(Boolean enableBcmcMobile) {
     this.enableBcmcMobile = enableBcmcMobile;
     return this;
   }
 
-   /**
+  /**
    * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
    * @return enableBcmcMobile
-  **/
+   */
   @ApiModelProperty(value = "Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.")
   @JsonProperty(JSON_PROPERTY_ENABLE_BCMC_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnableBcmcMobile() {
     return enableBcmcMobile;
   }
 
-
- /**
-  * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
-  *
-  * @param enableBcmcMobile
-  */ 
+  /**
+   * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
+   *
+   * @param enableBcmcMobile
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_BCMC_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableBcmcMobile(Boolean enableBcmcMobile) {
     this.enableBcmcMobile = enableBcmcMobile;
   }
-
 
   /**
    * Return true if this BcmcInfo object is equal to o.

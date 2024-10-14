@@ -144,186 +144,210 @@ public class TransferRouteRequest {
   public TransferRouteRequest() { 
   }
 
+  /**
+   * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id). Required if `counterparty` is **transferInstrumentId**.
+   *
+   * @param balanceAccountId
+   * @return the current {@code TransferRouteRequest} instance, allowing for method chaining
+   */
   public TransferRouteRequest balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     return this;
   }
 
-   /**
-   * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id). Required if &#x60;counterparty&#x60; is **transferInstrumentId**.
+  /**
+   * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id). Required if `counterparty` is **transferInstrumentId**.
    * @return balanceAccountId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id). Required if `counterparty` is **transferInstrumentId**.")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
-
- /**
-  * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id). Required if &#x60;counterparty&#x60; is **transferInstrumentId**.
-  *
-  * @param balanceAccountId
-  */ 
+  /**
+   * The unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id). Required if `counterparty` is **transferInstrumentId**.
+   *
+   * @param balanceAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
-
+  /**
+   * The unique identifier assigned to the balance platform associated with the account holder.
+   *
+   * @param balancePlatform
+   * @return the current {@code TransferRouteRequest} instance, allowing for method chaining
+   */
   public TransferRouteRequest balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier assigned to the balance platform associated with the account holder.
    * @return balancePlatform
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier assigned to the balance platform associated with the account holder.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
-
- /**
-  * The unique identifier assigned to the balance platform associated with the account holder.
-  *
-  * @param balancePlatform
-  */ 
+  /**
+   * The unique identifier assigned to the balance platform associated with the account holder.
+   *
+   * @param balancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
-
+  /**
+   *  The type of transfer. Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
+   *
+   * @param category
+   * @return the current {@code TransferRouteRequest} instance, allowing for method chaining
+   */
   public TransferRouteRequest category(CategoryEnum category) {
     this.category = category;
     return this;
   }
 
-   /**
+  /**
    *  The type of transfer. Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
    * @return category
-  **/
+   */
   @ApiModelProperty(required = true, value = " The type of transfer. Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. ")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CategoryEnum getCategory() {
     return category;
   }
 
-
- /**
-  *  The type of transfer. Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
-  *
-  * @param category
-  */ 
+  /**
+   *  The type of transfer. Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
+   *
+   * @param category
+   */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
 
-
+  /**
+   * counterparty
+   *
+   * @param counterparty
+   * @return the current {@code TransferRouteRequest} instance, allowing for method chaining
+   */
   public TransferRouteRequest counterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
     return this;
   }
 
-   /**
-   * Get counterparty
+  /**
+   * counterparty
    * @return counterparty
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Counterparty getCounterparty() {
     return counterparty;
   }
 
-
- /**
-  * counterparty
-  *
-  * @param counterparty
-  */ 
+  /**
+   * counterparty
+   *
+   * @param counterparty
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
   }
 
-
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.  > Either `counterparty` or `country` field must be provided in a transfer route request.
+   *
+   * @param country
+   * @return the current {@code TransferRouteRequest} instance, allowing for method chaining
+   */
   public TransferRouteRequest country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
-   * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.  &gt; Either &#x60;counterparty&#x60; or &#x60;country&#x60; field must be provided in a transfer route request.
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.  > Either `counterparty` or `country` field must be provided in a transfer route request.
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.  > Either `counterparty` or `country` field must be provided in a transfer route request.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.  &gt; Either &#x60;counterparty&#x60; or &#x60;country&#x60; field must be provided in a transfer route request.
-  *
-  * @param country
-  */ 
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.  > Either `counterparty` or `country` field must be provided in a transfer route request.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
+   *
+   * @param currency
+   * @return the current {@code TransferRouteRequest} instance, allowing for method chaining
+   */
   public TransferRouteRequest currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
    * @return currency
-  **/
+   */
   @ApiModelProperty(required = true, value = "The three-character ISO currency code of transfer. For example, **USD** or **EUR**.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The list of priorities for the bank transfer. Priorities set the speed at which the transfer is sent and the fees that you have to pay. Multiple values can be provided. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
+   *
+   * @param priorities
+   * @return the current {@code TransferRouteRequest} instance, allowing for method chaining
+   */
   public TransferRouteRequest priorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
     return this;
@@ -337,30 +361,27 @@ public class TransferRouteRequest {
     return this;
   }
 
-   /**
+  /**
    * The list of priorities for the bank transfer. Priorities set the speed at which the transfer is sent and the fees that you have to pay. Multiple values can be provided. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    * @return priorities
-  **/
+   */
   @ApiModelProperty(value = "The list of priorities for the bank transfer. Priorities set the speed at which the transfer is sent and the fees that you have to pay. Multiple values can be provided. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).")
   @JsonProperty(JSON_PROPERTY_PRIORITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PrioritiesEnum> getPriorities() {
     return priorities;
   }
 
-
- /**
-  * The list of priorities for the bank transfer. Priorities set the speed at which the transfer is sent and the fees that you have to pay. Multiple values can be provided. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
-  *
-  * @param priorities
-  */ 
+  /**
+   * The list of priorities for the bank transfer. Priorities set the speed at which the transfer is sent and the fees that you have to pay. Multiple values can be provided. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
+   *
+   * @param priorities
+   */ 
   @JsonProperty(JSON_PROPERTY_PRIORITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
   }
-
 
   /**
    * Return true if this TransferRouteRequest object is equal to o.

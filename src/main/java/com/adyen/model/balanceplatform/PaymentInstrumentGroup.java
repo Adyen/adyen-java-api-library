@@ -64,96 +64,111 @@ public class PaymentInstrumentGroup {
   public PaymentInstrumentGroup() { 
   }
 
+  /**
+   * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
+   *
+   * @param balancePlatform
+   * @return the current {@code PaymentInstrumentGroup} instance, allowing for method chaining
+   */
   public PaymentInstrumentGroup balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
    * @return balancePlatform
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
-
- /**
-  * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
-  *
-  * @param balancePlatform
-  */ 
+  /**
+   * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
+   *
+   * @param balancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
-
+  /**
+   * Your description for the payment instrument group.
+   *
+   * @param description
+   * @return the current {@code PaymentInstrumentGroup} instance, allowing for method chaining
+   */
   public PaymentInstrumentGroup description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the payment instrument group.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Your description for the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the payment instrument group.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the payment instrument group.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the payment instrument group.
+   *
+   * @param id
+   * @return the current {@code PaymentInstrumentGroup} instance, allowing for method chaining
+   */
   public PaymentInstrumentGroup id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the payment instrument group.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the payment instrument group.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the payment instrument group.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Properties of the payment instrument group.
+   *
+   * @param properties
+   * @return the current {@code PaymentInstrumentGroup} instance, allowing for method chaining
+   */
   public PaymentInstrumentGroup properties(Map<String, String> properties) {
     this.properties = properties;
     return this;
@@ -167,90 +182,93 @@ public class PaymentInstrumentGroup {
     return this;
   }
 
-   /**
+  /**
    * Properties of the payment instrument group.
    * @return properties
-  **/
+   */
   @ApiModelProperty(value = "Properties of the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getProperties() {
     return properties;
   }
 
-
- /**
-  * Properties of the payment instrument group.
-  *
-  * @param properties
-  */ 
+  /**
+   * Properties of the payment instrument group.
+   *
+   * @param properties
+   */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, String> properties) {
     this.properties = properties;
   }
 
-
+  /**
+   * Your reference for the payment instrument group.
+   *
+   * @param reference
+   * @return the current {@code PaymentInstrumentGroup} instance, allowing for method chaining
+   */
   public PaymentInstrumentGroup reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the payment instrument group.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the payment instrument group.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the payment instrument group.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The tx variant of the payment instrument group.
+   *
+   * @param txVariant
+   * @return the current {@code PaymentInstrumentGroup} instance, allowing for method chaining
+   */
   public PaymentInstrumentGroup txVariant(String txVariant) {
     this.txVariant = txVariant;
     return this;
   }
 
-   /**
+  /**
    * The tx variant of the payment instrument group.
    * @return txVariant
-  **/
+   */
   @ApiModelProperty(required = true, value = "The tx variant of the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_TX_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTxVariant() {
     return txVariant;
   }
 
-
- /**
-  * The tx variant of the payment instrument group.
-  *
-  * @param txVariant
-  */ 
+  /**
+   * The tx variant of the payment instrument group.
+   *
+   * @param txVariant
+   */ 
   @JsonProperty(JSON_PROPERTY_TX_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxVariant(String txVariant) {
     this.txVariant = txVariant;
   }
-
 
   /**
    * Return true if this PaymentInstrumentGroup object is equal to o.

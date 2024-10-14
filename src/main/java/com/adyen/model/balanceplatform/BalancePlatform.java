@@ -49,95 +49,104 @@ public class BalancePlatform {
   public BalancePlatform() { 
   }
 
+  /**
+   * Your description of the balance platform.
+   *
+   * @param description
+   * @return the current {@code BalancePlatform} instance, allowing for method chaining
+   */
   public BalancePlatform description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description of the balance platform.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Your description of the balance platform.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description of the balance platform.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description of the balance platform.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param id
+   * @return the current {@code BalancePlatform} instance, allowing for method chaining
+   */
   public BalancePlatform id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the balance platform.
    * @return id
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the balance platform.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
+   *
+   * @param status
+   * @return the current {@code BalancePlatform} instance, allowing for method chaining
+   */
   public BalancePlatform status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this BalancePlatform object is equal to o.

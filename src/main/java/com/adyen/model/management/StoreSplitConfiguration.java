@@ -45,65 +45,71 @@ public class StoreSplitConfiguration {
   public StoreSplitConfiguration() { 
   }
 
+  /**
+   * The [unique identifier of the balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) to which the split amount must be booked, depending on the defined [split logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/_merchantId_/splitConfigurations#request-rules-splitLogic).
+   *
+   * @param balanceAccountId
+   * @return the current {@code StoreSplitConfiguration} instance, allowing for method chaining
+   */
   public StoreSplitConfiguration balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     return this;
   }
 
-   /**
+  /**
    * The [unique identifier of the balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) to which the split amount must be booked, depending on the defined [split logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/_merchantId_/splitConfigurations#request-rules-splitLogic).
    * @return balanceAccountId
-  **/
+   */
   @ApiModelProperty(value = "The [unique identifier of the balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) to which the split amount must be booked, depending on the defined [split logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/_merchantId_/splitConfigurations#request-rules-splitLogic).")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
-
- /**
-  * The [unique identifier of the balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) to which the split amount must be booked, depending on the defined [split logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/_merchantId_/splitConfigurations#request-rules-splitLogic).
-  *
-  * @param balanceAccountId
-  */ 
+  /**
+   * The [unique identifier of the balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) to which the split amount must be booked, depending on the defined [split logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/_merchantId_/splitConfigurations#request-rules-splitLogic).
+   *
+   * @param balanceAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
-
+  /**
+   * The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).
+   *
+   * @param splitConfigurationId
+   * @return the current {@code StoreSplitConfiguration} instance, allowing for method chaining
+   */
   public StoreSplitConfiguration splitConfigurationId(String splitConfigurationId) {
     this.splitConfigurationId = splitConfigurationId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).
    * @return splitConfigurationId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).")
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSplitConfigurationId() {
     return splitConfigurationId;
   }
 
-
- /**
-  * The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).
-  *
-  * @param splitConfigurationId
-  */ 
+  /**
+   * The unique identifier of the [split configuration profile](https://docs.adyen.com/platforms/automatic-split-configuration/create-split-configuration/).
+   *
+   * @param splitConfigurationId
+   */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfigurationId(String splitConfigurationId) {
     this.splitConfigurationId = splitConfigurationId;
   }
-
 
   /**
    * Return true if this StoreSplitConfiguration object is equal to o.

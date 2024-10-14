@@ -83,335 +83,368 @@ public class DonationCampaign {
   public DonationCampaign() { 
   }
 
+  /**
+   * amounts
+   *
+   * @param amounts
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign amounts(Amounts amounts) {
     this.amounts = amounts;
     return this;
   }
 
-   /**
-   * Get amounts
+  /**
+   * amounts
    * @return amounts
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amounts getAmounts() {
     return amounts;
   }
 
-
- /**
-  * amounts
-  *
-  * @param amounts
-  */ 
+  /**
+   * amounts
+   *
+   * @param amounts
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmounts(Amounts amounts) {
     this.amounts = amounts;
   }
 
-
+  /**
+   * The URL for the banner of the nonprofit or campaign.
+   *
+   * @param bannerUrl
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign bannerUrl(String bannerUrl) {
     this.bannerUrl = bannerUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL for the banner of the nonprofit or campaign.
    * @return bannerUrl
-  **/
+   */
   @ApiModelProperty(value = "The URL for the banner of the nonprofit or campaign.")
   @JsonProperty(JSON_PROPERTY_BANNER_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBannerUrl() {
     return bannerUrl;
   }
 
-
- /**
-  * The URL for the banner of the nonprofit or campaign.
-  *
-  * @param bannerUrl
-  */ 
+  /**
+   * The URL for the banner of the nonprofit or campaign.
+   *
+   * @param bannerUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_BANNER_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBannerUrl(String bannerUrl) {
     this.bannerUrl = bannerUrl;
   }
 
-
+  /**
+   * The name of the donation campaign..
+   *
+   * @param campaignName
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign campaignName(String campaignName) {
     this.campaignName = campaignName;
     return this;
   }
 
-   /**
+  /**
    * The name of the donation campaign..
    * @return campaignName
-  **/
+   */
   @ApiModelProperty(value = "The name of the donation campaign..")
   @JsonProperty(JSON_PROPERTY_CAMPAIGN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCampaignName() {
     return campaignName;
   }
 
-
- /**
-  * The name of the donation campaign..
-  *
-  * @param campaignName
-  */ 
+  /**
+   * The name of the donation campaign..
+   *
+   * @param campaignName
+   */ 
   @JsonProperty(JSON_PROPERTY_CAMPAIGN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCampaignName(String campaignName) {
     this.campaignName = campaignName;
   }
 
-
+  /**
+   * The cause of the nonprofit.
+   *
+   * @param causeName
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign causeName(String causeName) {
     this.causeName = causeName;
     return this;
   }
 
-   /**
+  /**
    * The cause of the nonprofit.
    * @return causeName
-  **/
+   */
   @ApiModelProperty(value = "The cause of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_CAUSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCauseName() {
     return causeName;
   }
 
-
- /**
-  * The cause of the nonprofit.
-  *
-  * @param causeName
-  */ 
+  /**
+   * The cause of the nonprofit.
+   *
+   * @param causeName
+   */ 
   @JsonProperty(JSON_PROPERTY_CAUSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCauseName(String causeName) {
     this.causeName = causeName;
   }
 
-
+  /**
+   * donation
+   *
+   * @param donation
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign donation(Donation donation) {
     this.donation = donation;
     return this;
   }
 
-   /**
-   * Get donation
+  /**
+   * donation
    * @return donation
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DONATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Donation getDonation() {
     return donation;
   }
 
-
- /**
-  * donation
-  *
-  * @param donation
-  */ 
+  /**
+   * donation
+   *
+   * @param donation
+   */ 
   @JsonProperty(JSON_PROPERTY_DONATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonation(Donation donation) {
     this.donation = donation;
   }
 
-
+  /**
+   * The unique campaign ID of the donation campaign.
+   *
+   * @param id
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique campaign ID of the donation campaign.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique campaign ID of the donation campaign.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique campaign ID of the donation campaign.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique campaign ID of the donation campaign.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The URL for the logo of the nonprofit.
+   *
+   * @param logoUrl
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign logoUrl(String logoUrl) {
     this.logoUrl = logoUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL for the logo of the nonprofit.
    * @return logoUrl
-  **/
+   */
   @ApiModelProperty(value = "The URL for the logo of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_LOGO_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLogoUrl() {
     return logoUrl;
   }
 
-
- /**
-  * The URL for the logo of the nonprofit.
-  *
-  * @param logoUrl
-  */ 
+  /**
+   * The URL for the logo of the nonprofit.
+   *
+   * @param logoUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_LOGO_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogoUrl(String logoUrl) {
     this.logoUrl = logoUrl;
   }
 
-
+  /**
+   * The description of the nonprofit.
+   *
+   * @param nonprofitDescription
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign nonprofitDescription(String nonprofitDescription) {
     this.nonprofitDescription = nonprofitDescription;
     return this;
   }
 
-   /**
+  /**
    * The description of the nonprofit.
    * @return nonprofitDescription
-  **/
+   */
   @ApiModelProperty(value = "The description of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_NONPROFIT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNonprofitDescription() {
     return nonprofitDescription;
   }
 
-
- /**
-  * The description of the nonprofit.
-  *
-  * @param nonprofitDescription
-  */ 
+  /**
+   * The description of the nonprofit.
+   *
+   * @param nonprofitDescription
+   */ 
   @JsonProperty(JSON_PROPERTY_NONPROFIT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitDescription(String nonprofitDescription) {
     this.nonprofitDescription = nonprofitDescription;
   }
 
-
+  /**
+   * The name of the nonprofit organization that receives the donation.
+   *
+   * @param nonprofitName
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign nonprofitName(String nonprofitName) {
     this.nonprofitName = nonprofitName;
     return this;
   }
 
-   /**
+  /**
    * The name of the nonprofit organization that receives the donation.
    * @return nonprofitName
-  **/
+   */
   @ApiModelProperty(value = "The name of the nonprofit organization that receives the donation.")
   @JsonProperty(JSON_PROPERTY_NONPROFIT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNonprofitName() {
     return nonprofitName;
   }
 
-
- /**
-  * The name of the nonprofit organization that receives the donation.
-  *
-  * @param nonprofitName
-  */ 
+  /**
+   * The name of the nonprofit organization that receives the donation.
+   *
+   * @param nonprofitName
+   */ 
   @JsonProperty(JSON_PROPERTY_NONPROFIT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitName(String nonprofitName) {
     this.nonprofitName = nonprofitName;
   }
 
-
+  /**
+   * The website URL of the nonprofit.
+   *
+   * @param nonprofitUrl
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign nonprofitUrl(String nonprofitUrl) {
     this.nonprofitUrl = nonprofitUrl;
     return this;
   }
 
-   /**
+  /**
    * The website URL of the nonprofit.
    * @return nonprofitUrl
-  **/
+   */
   @ApiModelProperty(value = "The website URL of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_NONPROFIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNonprofitUrl() {
     return nonprofitUrl;
   }
 
-
- /**
-  * The website URL of the nonprofit.
-  *
-  * @param nonprofitUrl
-  */ 
+  /**
+   * The website URL of the nonprofit.
+   *
+   * @param nonprofitUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_NONPROFIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitUrl(String nonprofitUrl) {
     this.nonprofitUrl = nonprofitUrl;
   }
 
-
+  /**
+   * The URL of the terms and conditions page of the nonprofit and the campaign.
+   *
+   * @param termsAndConditionsUrl
+   * @return the current {@code DonationCampaign} instance, allowing for method chaining
+   */
   public DonationCampaign termsAndConditionsUrl(String termsAndConditionsUrl) {
     this.termsAndConditionsUrl = termsAndConditionsUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL of the terms and conditions page of the nonprofit and the campaign.
    * @return termsAndConditionsUrl
-  **/
+   */
   @ApiModelProperty(value = "The URL of the terms and conditions page of the nonprofit and the campaign.")
   @JsonProperty(JSON_PROPERTY_TERMS_AND_CONDITIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTermsAndConditionsUrl() {
     return termsAndConditionsUrl;
   }
 
-
- /**
-  * The URL of the terms and conditions page of the nonprofit and the campaign.
-  *
-  * @param termsAndConditionsUrl
-  */ 
+  /**
+   * The URL of the terms and conditions page of the nonprofit and the campaign.
+   *
+   * @param termsAndConditionsUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMS_AND_CONDITIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsAndConditionsUrl(String termsAndConditionsUrl) {
     this.termsAndConditionsUrl = termsAndConditionsUrl;
   }
-
 
   /**
    * Return true if this DonationCampaign object is equal to o.

@@ -49,95 +49,104 @@ public class ExternalPlatform {
   public ExternalPlatform() { 
   }
 
+  /**
+   * External platform integrator.
+   *
+   * @param integrator
+   * @return the current {@code ExternalPlatform} instance, allowing for method chaining
+   */
   public ExternalPlatform integrator(String integrator) {
     this.integrator = integrator;
     return this;
   }
 
-   /**
+  /**
    * External platform integrator.
    * @return integrator
-  **/
+   */
   @ApiModelProperty(value = "External platform integrator.")
   @JsonProperty(JSON_PROPERTY_INTEGRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIntegrator() {
     return integrator;
   }
 
-
- /**
-  * External platform integrator.
-  *
-  * @param integrator
-  */ 
+  /**
+   * External platform integrator.
+   *
+   * @param integrator
+   */ 
   @JsonProperty(JSON_PROPERTY_INTEGRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIntegrator(String integrator) {
     this.integrator = integrator;
   }
 
-
+  /**
+   * Name of the field. For example, Name of External Platform.
+   *
+   * @param name
+   * @return the current {@code ExternalPlatform} instance, allowing for method chaining
+   */
   public ExternalPlatform name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the field. For example, Name of External Platform.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "Name of the field. For example, Name of External Platform.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * Name of the field. For example, Name of External Platform.
-  *
-  * @param name
-  */ 
+  /**
+   * Name of the field. For example, Name of External Platform.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * Version of the field. For example, Version of External Platform.
+   *
+   * @param version
+   * @return the current {@code ExternalPlatform} instance, allowing for method chaining
+   */
   public ExternalPlatform version(String version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Version of the field. For example, Version of External Platform.
    * @return version
-  **/
+   */
   @ApiModelProperty(value = "Version of the field. For example, Version of External Platform.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVersion() {
     return version;
   }
 
-
- /**
-  * Version of the field. For example, Version of External Platform.
-  *
-  * @param version
-  */ 
+  /**
+   * Version of the field. For example, Version of External Platform.
+   *
+   * @param version
+   */ 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {
     this.version = version;
   }
-
 
   /**
    * Return true if this ExternalPlatform object is equal to o.

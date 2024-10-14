@@ -50,95 +50,104 @@ public class PaymentInstrumentRevealInfo {
   public PaymentInstrumentRevealInfo() { 
   }
 
+  /**
+   * The CVC2 value of the card.
+   *
+   * @param cvc
+   * @return the current {@code PaymentInstrumentRevealInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentRevealInfo cvc(String cvc) {
     this.cvc = cvc;
     return this;
   }
 
-   /**
+  /**
    * The CVC2 value of the card.
    * @return cvc
-  **/
+   */
   @ApiModelProperty(required = true, value = "The CVC2 value of the card.")
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCvc() {
     return cvc;
   }
 
-
- /**
-  * The CVC2 value of the card.
-  *
-  * @param cvc
-  */ 
+  /**
+   * The CVC2 value of the card.
+   *
+   * @param cvc
+   */ 
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
   }
 
-
+  /**
+   * expiration
+   *
+   * @param expiration
+   * @return the current {@code PaymentInstrumentRevealInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentRevealInfo expiration(Expiry expiration) {
     this.expiration = expiration;
     return this;
   }
 
-   /**
-   * Get expiration
+  /**
+   * expiration
    * @return expiration
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Expiry getExpiration() {
     return expiration;
   }
 
-
- /**
-  * expiration
-  *
-  * @param expiration
-  */ 
+  /**
+   * expiration
+   *
+   * @param expiration
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiration(Expiry expiration) {
     this.expiration = expiration;
   }
 
-
+  /**
+   * The primary account number (PAN) of the card.
+   *
+   * @param pan
+   * @return the current {@code PaymentInstrumentRevealInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentRevealInfo pan(String pan) {
     this.pan = pan;
     return this;
   }
 
-   /**
+  /**
    * The primary account number (PAN) of the card.
    * @return pan
-  **/
+   */
   @ApiModelProperty(required = true, value = "The primary account number (PAN) of the card.")
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPan() {
     return pan;
   }
 
-
- /**
-  * The primary account number (PAN) of the card.
-  *
-  * @param pan
-  */ 
+  /**
+   * The primary account number (PAN) of the card.
+   *
+   * @param pan
+   */ 
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPan(String pan) {
     this.pan = pan;
   }
-
 
   /**
    * Return true if this PaymentInstrumentRevealInfo object is equal to o.

@@ -57,155 +57,170 @@ public class FindTerminalResponse {
   public FindTerminalResponse() { 
   }
 
+  /**
+   * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
+   *
+   * @param companyAccount
+   * @return the current {@code FindTerminalResponse} instance, allowing for method chaining
+   */
   public FindTerminalResponse companyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
     return this;
   }
 
-   /**
+  /**
    * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
    * @return companyAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyAccount() {
     return companyAccount;
   }
 
-
- /**
-  * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
-  *
-  * @param companyAccount
-  */ 
+  /**
+   * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
+   *
+   * @param companyAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
-
+  /**
+   * The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code FindTerminalResponse} instance, allowing for method chaining
+   */
   public FindTerminalResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
-   * The merchant account that the terminal is associated with. If the response doesn&#39;t contain a &#x60;store&#x60; the terminal is assigned to this merchant account.
+  /**
+   * The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that the terminal is associated with. If the response doesn&#39;t contain a &#x60;store&#x60; the terminal is assigned to this merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
+   *
+   * @param merchantInventory
+   * @return the current {@code FindTerminalResponse} instance, allowing for method chaining
+   */
   public FindTerminalResponse merchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
     return this;
   }
 
-   /**
+  /**
    * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
    * @return merchantInventory
-  **/
+   */
   @ApiModelProperty(value = "Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantInventory() {
     return merchantInventory;
   }
 
-
- /**
-  * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
-  *
-  * @param merchantInventory
-  */ 
+  /**
+   * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
+   *
+   * @param merchantInventory
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
   }
 
-
+  /**
+   * The store code of the store that the terminal is assigned to.
+   *
+   * @param store
+   * @return the current {@code FindTerminalResponse} instance, allowing for method chaining
+   */
   public FindTerminalResponse store(String store) {
     this.store = store;
     return this;
   }
 
-   /**
+  /**
    * The store code of the store that the terminal is assigned to.
    * @return store
-  **/
+   */
   @ApiModelProperty(value = "The store code of the store that the terminal is assigned to.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStore() {
     return store;
   }
 
-
- /**
-  * The store code of the store that the terminal is assigned to.
-  *
-  * @param store
-  */ 
+  /**
+   * The store code of the store that the terminal is assigned to.
+   *
+   * @param store
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
 
-
+  /**
+   * The unique terminal ID.
+   *
+   * @param terminal
+   * @return the current {@code FindTerminalResponse} instance, allowing for method chaining
+   */
   public FindTerminalResponse terminal(String terminal) {
     this.terminal = terminal;
     return this;
   }
 
-   /**
+  /**
    * The unique terminal ID.
    * @return terminal
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique terminal ID.")
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminal() {
     return terminal;
   }
 
-
- /**
-  * The unique terminal ID.
-  *
-  * @param terminal
-  */ 
+  /**
+   * The unique terminal ID.
+   *
+   * @param terminal
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }
-
 
   /**
    * Return true if this FindTerminalResponse object is equal to o.

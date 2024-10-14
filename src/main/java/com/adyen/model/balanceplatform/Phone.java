@@ -80,65 +80,71 @@ public class Phone {
   public Phone() { 
   }
 
+  /**
+   * The full phone number provided as a single string.  For example, **\"0031 6 11 22 33 44\"**, **\"+316/1122-3344\"**,    or **\"(0031) 611223344\"**.
+   *
+   * @param number
+   * @return the current {@code Phone} instance, allowing for method chaining
+   */
   public Phone number(String number) {
     this.number = number;
     return this;
   }
 
-   /**
-   * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
+  /**
+   * The full phone number provided as a single string.  For example, **\"0031 6 11 22 33 44\"**, **\"+316/1122-3344\"**,    or **\"(0031) 611223344\"**.
    * @return number
-  **/
+   */
   @ApiModelProperty(required = true, value = "The full phone number provided as a single string.  For example, **\"0031 6 11 22 33 44\"**, **\"+316/1122-3344\"**,    or **\"(0031) 611223344\"**.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNumber() {
     return number;
   }
 
-
- /**
-  * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
-  *
-  * @param number
-  */ 
+  /**
+   * The full phone number provided as a single string.  For example, **\"0031 6 11 22 33 44\"**, **\"+316/1122-3344\"**,    or **\"(0031) 611223344\"**.
+   *
+   * @param number
+   */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
   }
 
-
+  /**
+   * Type of phone number. Possible values:  **Landline**, **Mobile**. 
+   *
+   * @param type
+   * @return the current {@code Phone} instance, allowing for method chaining
+   */
   public Phone type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "Type of phone number. Possible values:  **Landline**, **Mobile**. ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of phone number. Possible values:  **Landline**, **Mobile**. 
-  *
-  * @param type
-  */ 
+  /**
+   * Type of phone number. Possible values:  **Landline**, **Mobile**. 
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this Phone object is equal to o.

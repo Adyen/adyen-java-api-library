@@ -49,36 +49,45 @@ public class FindTransfersResponse {
   public FindTransfersResponse() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code FindTransfersResponse} instance, allowing for method chaining
+   */
   public FindTransfersResponse links(Links links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Links getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
     this.links = links;
   }
 
-
+  /**
+   * Contains the transfers that match the query parameters.
+   *
+   * @param data
+   * @return the current {@code FindTransfersResponse} instance, allowing for method chaining
+   */
   public FindTransfersResponse data(List<TransferData> data) {
     this.data = data;
     return this;
@@ -92,30 +101,27 @@ public class FindTransfersResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains the transfers that match the query parameters.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "Contains the transfers that match the query parameters.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TransferData> getData() {
     return data;
   }
 
-
- /**
-  * Contains the transfers that match the query parameters.
-  *
-  * @param data
-  */ 
+  /**
+   * Contains the transfers that match the query parameters.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TransferData> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this FindTransfersResponse object is equal to o.

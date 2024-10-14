@@ -55,7 +55,7 @@ public class Nexo {
   private EventUrl eventUrls;
 
   public static final String JSON_PROPERTY_NEXO_EVENT_URLS = "nexoEventUrls";
-  @Deprecated
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   private List<String> nexoEventUrls = null;
 
   public static final String JSON_PROPERTY_NOTIFICATION = "notification";
@@ -64,96 +64,114 @@ public class Nexo {
   public Nexo() { 
   }
 
+  /**
+   * displayUrls
+   *
+   * @param displayUrls
+   * @return the current {@code Nexo} instance, allowing for method chaining
+   */
   public Nexo displayUrls(NotificationUrl displayUrls) {
     this.displayUrls = displayUrls;
     return this;
   }
 
-   /**
-   * Get displayUrls
+  /**
+   * displayUrls
    * @return displayUrls
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NotificationUrl getDisplayUrls() {
     return displayUrls;
   }
 
-
- /**
-  * displayUrls
-  *
-  * @param displayUrls
-  */ 
+  /**
+   * displayUrls
+   *
+   * @param displayUrls
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayUrls(NotificationUrl displayUrls) {
     this.displayUrls = displayUrls;
   }
 
-
+  /**
+   * encryptionKey
+   *
+   * @param encryptionKey
+   * @return the current {@code Nexo} instance, allowing for method chaining
+   */
   public Nexo encryptionKey(Key encryptionKey) {
     this.encryptionKey = encryptionKey;
     return this;
   }
 
-   /**
-   * Get encryptionKey
+  /**
+   * encryptionKey
    * @return encryptionKey
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Key getEncryptionKey() {
     return encryptionKey;
   }
 
-
- /**
-  * encryptionKey
-  *
-  * @param encryptionKey
-  */ 
+  /**
+   * encryptionKey
+   *
+   * @param encryptionKey
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionKey(Key encryptionKey) {
     this.encryptionKey = encryptionKey;
   }
 
-
+  /**
+   * eventUrls
+   *
+   * @param eventUrls
+   * @return the current {@code Nexo} instance, allowing for method chaining
+   */
   public Nexo eventUrls(EventUrl eventUrls) {
     this.eventUrls = eventUrls;
     return this;
   }
 
-   /**
-   * Get eventUrls
+  /**
+   * eventUrls
    * @return eventUrls
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EventUrl getEventUrls() {
     return eventUrls;
   }
 
-
- /**
-  * eventUrls
-  *
-  * @param eventUrls
-  */ 
+  /**
+   * eventUrls
+   *
+   * @param eventUrls
+   */ 
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventUrls(EventUrl eventUrls) {
     this.eventUrls = eventUrls;
   }
 
-
+  /**
+   * One or more URLs to send event messages to when using Terminal API.
+   *
+   * @param nexoEventUrls
+   * @return the current {@code Nexo} instance, allowing for method chaining
+   *
+   * @deprecated since Management API v1
+   * Use `eventUrls` instead.
+   */
   @Deprecated
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
@@ -168,26 +186,29 @@ public class Nexo {
     return this;
   }
 
-   /**
+  /**
    * One or more URLs to send event messages to when using Terminal API.
    * @return nexoEventUrls
-   * @deprecated
-  **/
+   *
+   * @deprecated since Management API v1
+   * Use `eventUrls` instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "One or more URLs to send event messages to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getNexoEventUrls() {
     return nexoEventUrls;
   }
 
-
- /**
-  * One or more URLs to send event messages to when using Terminal API.
-  *
-  * @param nexoEventUrls
-  */ 
+  /**
+   * One or more URLs to send event messages to when using Terminal API.
+   *
+   * @param nexoEventUrls
+   *
+   * @deprecated since Management API v1
+   * Use `eventUrls` instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,36 +216,38 @@ public class Nexo {
     this.nexoEventUrls = nexoEventUrls;
   }
 
-
+  /**
+   * notification
+   *
+   * @param notification
+   * @return the current {@code Nexo} instance, allowing for method chaining
+   */
   public Nexo notification(Notification notification) {
     this.notification = notification;
     return this;
   }
 
-   /**
-   * Get notification
+  /**
+   * notification
    * @return notification
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Notification getNotification() {
     return notification;
   }
 
-
- /**
-  * notification
-  *
-  * @param notification
-  */ 
+  /**
+   * notification
+   *
+   * @param notification
+   */ 
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotification(Notification notification) {
     this.notification = notification;
   }
-
 
   /**
    * Return true if this Nexo object is equal to o.

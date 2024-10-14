@@ -81,96 +81,111 @@ public class TransferServiceRestServiceError {
   public TransferServiceRestServiceError() { 
   }
 
+  /**
+   * A human-readable explanation specific to this occurrence of the problem.
+   *
+   * @param detail
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError detail(String detail) {
     this.detail = detail;
     return this;
   }
 
-   /**
+  /**
    * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
-  **/
+   */
   @ApiModelProperty(required = true, value = "A human-readable explanation specific to this occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDetail() {
     return detail;
   }
 
-
- /**
-  * A human-readable explanation specific to this occurrence of the problem.
-  *
-  * @param detail
-  */ 
+  /**
+   * A human-readable explanation specific to this occurrence of the problem.
+   *
+   * @param detail
+   */ 
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
     this.detail = detail;
   }
 
-
+  /**
+   * A code that identifies the problem type.
+   *
+   * @param errorCode
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError errorCode(String errorCode) {
     this.errorCode = errorCode;
     return this;
   }
 
-   /**
+  /**
    * A code that identifies the problem type.
    * @return errorCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "A code that identifies the problem type.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorCode() {
     return errorCode;
   }
 
-
- /**
-  * A code that identifies the problem type.
-  *
-  * @param errorCode
-  */ 
+  /**
+   * A code that identifies the problem type.
+   *
+   * @param errorCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
 
-
+  /**
+   * A unique URI that identifies the specific occurrence of the problem.
+   *
+   * @param instance
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError instance(String instance) {
     this.instance = instance;
     return this;
   }
 
-   /**
+  /**
    * A unique URI that identifies the specific occurrence of the problem.
    * @return instance
-  **/
+   */
   @ApiModelProperty(value = "A unique URI that identifies the specific occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInstance() {
     return instance;
   }
 
-
- /**
-  * A unique URI that identifies the specific occurrence of the problem.
-  *
-  * @param instance
-  */ 
+  /**
+   * A unique URI that identifies the specific occurrence of the problem.
+   *
+   * @param instance
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(String instance) {
     this.instance = instance;
   }
 
-
+  /**
+   * Detailed explanation of each validation error, when applicable.
+   *
+   * @param invalidFields
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError invalidFields(List<InvalidField> invalidFields) {
     this.invalidFields = invalidFields;
     return this;
@@ -184,91 +199,100 @@ public class TransferServiceRestServiceError {
     return this;
   }
 
-   /**
+  /**
    * Detailed explanation of each validation error, when applicable.
    * @return invalidFields
-  **/
+   */
   @ApiModelProperty(value = "Detailed explanation of each validation error, when applicable.")
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<InvalidField> getInvalidFields() {
     return invalidFields;
   }
 
-
- /**
-  * Detailed explanation of each validation error, when applicable.
-  *
-  * @param invalidFields
-  */ 
+  /**
+   * Detailed explanation of each validation error, when applicable.
+   *
+   * @param invalidFields
+   */ 
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvalidFields(List<InvalidField> invalidFields) {
     this.invalidFields = invalidFields;
   }
 
-
+  /**
+   * A unique reference for the request, essentially the same as `pspReference`.
+   *
+   * @param requestId
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
-   /**
-   * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
+  /**
+   * A unique reference for the request, essentially the same as `pspReference`.
    * @return requestId
-  **/
+   */
   @ApiModelProperty(value = "A unique reference for the request, essentially the same as `pspReference`.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestId() {
     return requestId;
   }
 
-
- /**
-  * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
-  *
-  * @param requestId
-  */ 
+  /**
+   * A unique reference for the request, essentially the same as `pspReference`.
+   *
+   * @param requestId
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
 
-
+  /**
+   * response
+   *
+   * @param response
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError response(Object response) {
     this.response = response;
     return this;
   }
 
-   /**
-   * Get response
+  /**
+   * response
    * @return response
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Object getResponse() {
     return response;
   }
 
-
- /**
-  * response
-  *
-  * @param response
-  */ 
+  /**
+   * response
+   *
+   * @param response
+   */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(Object response) {
     this.response = response;
   }
 
-
+  /**
+   * Detailed explanation of each attempt to route the transfer with the priorities from the request.
+   *
+   * @param routingDetails
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError routingDetails(List<RoutingDetails> routingDetails) {
     this.routingDetails = routingDetails;
     return this;
@@ -282,120 +306,126 @@ public class TransferServiceRestServiceError {
     return this;
   }
 
-   /**
+  /**
    * Detailed explanation of each attempt to route the transfer with the priorities from the request.
    * @return routingDetails
-  **/
+   */
   @ApiModelProperty(value = "Detailed explanation of each attempt to route the transfer with the priorities from the request.")
   @JsonProperty(JSON_PROPERTY_ROUTING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<RoutingDetails> getRoutingDetails() {
     return routingDetails;
   }
 
-
- /**
-  * Detailed explanation of each attempt to route the transfer with the priorities from the request.
-  *
-  * @param routingDetails
-  */ 
+  /**
+   * Detailed explanation of each attempt to route the transfer with the priorities from the request.
+   *
+   * @param routingDetails
+   */ 
   @JsonProperty(JSON_PROPERTY_ROUTING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingDetails(List<RoutingDetails> routingDetails) {
     this.routingDetails = routingDetails;
   }
 
-
+  /**
+   * The HTTP status code.
+   *
+   * @param status
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError status(Integer status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The HTTP status code.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The HTTP status code.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getStatus() {
     return status;
   }
 
-
- /**
-  * The HTTP status code.
-  *
-  * @param status
-  */ 
+  /**
+   * The HTTP status code.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
     this.status = status;
   }
 
-
+  /**
+   * A short, human-readable summary of the problem type.
+   *
+   * @param title
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * A short, human-readable summary of the problem type.
    * @return title
-  **/
+   */
   @ApiModelProperty(required = true, value = "A short, human-readable summary of the problem type.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
- /**
-  * A short, human-readable summary of the problem type.
-  *
-  * @param title
-  */ 
+  /**
+   * A short, human-readable summary of the problem type.
+   *
+   * @param title
+   */ 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
   }
 
-
+  /**
+   * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
+   *
+   * @param type
+   * @return the current {@code TransferServiceRestServiceError} instance, allowing for method chaining
+   */
   public TransferServiceRestServiceError type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "A URI that identifies the problem type, pointing to human-readable documentation on this problem type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
-  *
-  * @param type
-  */ 
+  /**
+   * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TransferServiceRestServiceError object is equal to o.

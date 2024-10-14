@@ -92,125 +92,137 @@ public class KlarnaInfo {
   public KlarnaInfo() { 
   }
 
+  /**
+   * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
+   *
+   * @param autoCapture
+   * @return the current {@code KlarnaInfo} instance, allowing for method chaining
+   */
   public KlarnaInfo autoCapture(Boolean autoCapture) {
     this.autoCapture = autoCapture;
     return this;
   }
 
-   /**
+  /**
    * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
    * @return autoCapture
-  **/
+   */
   @ApiModelProperty(value = "Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.")
   @JsonProperty(JSON_PROPERTY_AUTO_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAutoCapture() {
     return autoCapture;
   }
 
-
- /**
-  * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
-  *
-  * @param autoCapture
-  */ 
+  /**
+   * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
+   *
+   * @param autoCapture
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTO_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoCapture(Boolean autoCapture) {
     this.autoCapture = autoCapture;
   }
 
-
+  /**
+   * The email address for disputes.
+   *
+   * @param disputeEmail
+   * @return the current {@code KlarnaInfo} instance, allowing for method chaining
+   */
   public KlarnaInfo disputeEmail(String disputeEmail) {
     this.disputeEmail = disputeEmail;
     return this;
   }
 
-   /**
+  /**
    * The email address for disputes.
    * @return disputeEmail
-  **/
+   */
   @ApiModelProperty(required = true, value = "The email address for disputes.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisputeEmail() {
     return disputeEmail;
   }
 
-
- /**
-  * The email address for disputes.
-  *
-  * @param disputeEmail
-  */ 
+  /**
+   * The email address for disputes.
+   *
+   * @param disputeEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeEmail(String disputeEmail) {
     this.disputeEmail = disputeEmail;
   }
 
-
+  /**
+   * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
+   *
+   * @param region
+   * @return the current {@code KlarnaInfo} instance, allowing for method chaining
+   */
   public KlarnaInfo region(RegionEnum region) {
     this.region = region;
     return this;
   }
 
-   /**
+  /**
    * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
    * @return region
-  **/
+   */
   @ApiModelProperty(required = true, value = "The region of operation. For example, **NA**, **EU**, **CH**, **AU**.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RegionEnum getRegion() {
     return region;
   }
 
-
- /**
-  * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
-  *
-  * @param region
-  */ 
+  /**
+   * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
+   *
+   * @param region
+   */ 
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegion(RegionEnum region) {
     this.region = region;
   }
 
-
+  /**
+   * The email address of merchant support.
+   *
+   * @param supportEmail
+   * @return the current {@code KlarnaInfo} instance, allowing for method chaining
+   */
   public KlarnaInfo supportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
     return this;
   }
 
-   /**
+  /**
    * The email address of merchant support.
    * @return supportEmail
-  **/
+   */
   @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSupportEmail() {
     return supportEmail;
   }
 
-
- /**
-  * The email address of merchant support.
-  *
-  * @param supportEmail
-  */ 
+  /**
+   * The email address of merchant support.
+   *
+   * @param supportEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
   }
-
 
   /**
    * Return true if this KlarnaInfo object is equal to o.

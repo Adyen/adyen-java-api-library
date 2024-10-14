@@ -104,215 +104,236 @@ public class DonationPaymentResponse {
   public DonationPaymentResponse() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
+   */
   public DonationPaymentResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
+   *
+   * @param donationAccount
+   * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
+   */
   public DonationPaymentResponse donationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
     return this;
   }
 
-   /**
+  /**
    * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
    * @return donationAccount
-  **/
+   */
   @ApiModelProperty(value = "The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).")
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDonationAccount() {
     return donationAccount;
   }
 
-
- /**
-  * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
-  *
-  * @param donationAccount
-  */ 
+  /**
+   * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
+   *
+   * @param donationAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
   }
 
-
+  /**
+   * Your unique resource identifier.
+   *
+   * @param id
+   * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
+   */
   public DonationPaymentResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Your unique resource identifier.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "Your unique resource identifier.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * Your unique resource identifier.
-  *
-  * @param id
-  */ 
+  /**
+   * Your unique resource identifier.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
+   */
   public DonationPaymentResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * payment
+   *
+   * @param payment
+   * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
+   */
   public DonationPaymentResponse payment(PaymentResponse payment) {
     this.payment = payment;
     return this;
   }
 
-   /**
-   * Get payment
+  /**
+   * payment
    * @return payment
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentResponse getPayment() {
     return payment;
   }
 
-
- /**
-  * payment
-  *
-  * @param payment
-  */ 
+  /**
+   * payment
+   *
+   * @param payment
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayment(PaymentResponse payment) {
     this.payment = payment;
   }
 
-
+  /**
+   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.
+   *
+   * @param reference
+   * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
+   */
   public DonationPaymentResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
-   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
+  /**
+   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
+   *
+   * @param status
+   * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
+   */
   public DonationPaymentResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this DonationPaymentResponse object is equal to o.

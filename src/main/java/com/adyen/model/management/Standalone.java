@@ -45,65 +45,71 @@ public class Standalone {
   public Standalone() { 
   }
 
+  /**
+   * The default currency of the standalone payment terminal as an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+   *
+   * @param currencyCode
+   * @return the current {@code Standalone} instance, allowing for method chaining
+   */
   public Standalone currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
 
-   /**
+  /**
    * The default currency of the standalone payment terminal as an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
    * @return currencyCode
-  **/
+   */
   @ApiModelProperty(value = "The default currency of the standalone payment terminal as an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrencyCode() {
     return currencyCode;
   }
 
-
- /**
-  * The default currency of the standalone payment terminal as an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
-  *
-  * @param currencyCode
-  */ 
+  /**
+   * The default currency of the standalone payment terminal as an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+   *
+   * @param currencyCode
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
   }
 
-
+  /**
+   * Enable standalone mode.
+   *
+   * @param enableStandalone
+   * @return the current {@code Standalone} instance, allowing for method chaining
+   */
   public Standalone enableStandalone(Boolean enableStandalone) {
     this.enableStandalone = enableStandalone;
     return this;
   }
 
-   /**
+  /**
    * Enable standalone mode.
    * @return enableStandalone
-  **/
+   */
   @ApiModelProperty(value = "Enable standalone mode.")
   @JsonProperty(JSON_PROPERTY_ENABLE_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnableStandalone() {
     return enableStandalone;
   }
 
-
- /**
-  * Enable standalone mode.
-  *
-  * @param enableStandalone
-  */ 
+  /**
+   * Enable standalone mode.
+   *
+   * @param enableStandalone
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableStandalone(Boolean enableStandalone) {
     this.enableStandalone = enableStandalone;
   }
-
 
   /**
    * Return true if this Standalone object is equal to o.

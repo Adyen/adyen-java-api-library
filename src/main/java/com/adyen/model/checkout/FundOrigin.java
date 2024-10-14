@@ -59,155 +59,170 @@ public class FundOrigin {
   public FundOrigin() { 
   }
 
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   * @return the current {@code FundOrigin} instance, allowing for method chaining
+   */
   public FundOrigin billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
-   * Get billingAddress
+  /**
+   * billingAddress
    * @return billingAddress
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getBillingAddress() {
     return billingAddress;
   }
 
-
- /**
-  * billingAddress
-  *
-  * @param billingAddress
-  */ 
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-
+  /**
+   * The email address of the person funding the money.
+   *
+   * @param shopperEmail
+   * @return the current {@code FundOrigin} instance, allowing for method chaining
+   */
   public FundOrigin shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * The email address of the person funding the money.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(value = "The email address of the person funding the money.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * The email address of the person funding the money.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * The email address of the person funding the money.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   * @return the current {@code FundOrigin} instance, allowing for method chaining
+   */
   public FundOrigin shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
 
-   /**
-   * Get shopperName
+  /**
+   * shopperName
    * @return shopperName
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getShopperName() {
     return shopperName;
   }
 
-
- /**
-  * shopperName
-  *
-  * @param shopperName
-  */ 
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
-
+  /**
+   * The phone number of the person funding the money.
+   *
+   * @param telephoneNumber
+   * @return the current {@code FundOrigin} instance, allowing for method chaining
+   */
   public FundOrigin telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
 
-   /**
+  /**
    * The phone number of the person funding the money.
    * @return telephoneNumber
-  **/
+   */
   @ApiModelProperty(value = "The phone number of the person funding the money.")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
 
-
- /**
-  * The phone number of the person funding the money.
-  *
-  * @param telephoneNumber
-  */ 
+  /**
+   * The phone number of the person funding the money.
+   *
+   * @param telephoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
 
-
+  /**
+   * The unique identifier of the wallet where the funds are coming from.
+   *
+   * @param walletIdentifier
+   * @return the current {@code FundOrigin} instance, allowing for method chaining
+   */
   public FundOrigin walletIdentifier(String walletIdentifier) {
     this.walletIdentifier = walletIdentifier;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the wallet where the funds are coming from.
    * @return walletIdentifier
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the wallet where the funds are coming from.")
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWalletIdentifier() {
     return walletIdentifier;
   }
 
-
- /**
-  * The unique identifier of the wallet where the funds are coming from.
-  *
-  * @param walletIdentifier
-  */ 
+  /**
+   * The unique identifier of the wallet where the funds are coming from.
+   *
+   * @param walletIdentifier
+   */ 
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletIdentifier(String walletIdentifier) {
     this.walletIdentifier = walletIdentifier;
   }
-
 
   /**
    * Return true if this FundOrigin object is equal to o.

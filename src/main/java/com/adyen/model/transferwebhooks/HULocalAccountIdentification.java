@@ -78,65 +78,71 @@ public class HULocalAccountIdentification {
   public HULocalAccountIdentification() { 
   }
 
+  /**
+   * The 24-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code HULocalAccountIdentification} instance, allowing for method chaining
+   */
   public HULocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 24-digit bank account number, without separators or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 24-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 24-digit bank account number, without separators or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 24-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * **huLocal**
+   *
+   * @param type
+   * @return the current {@code HULocalAccountIdentification} instance, allowing for method chaining
+   */
   public HULocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **huLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**huLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **huLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **huLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this HULocalAccountIdentification object is equal to o.

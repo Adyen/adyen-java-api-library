@@ -105,155 +105,170 @@ public class TermsOfServiceAcceptanceInfo {
   public TermsOfServiceAcceptanceInfo() { 
   }
 
+  /**
+   * The unique identifier of the user that accepted the Terms of Service.
+   *
+   * @param acceptedBy
+   * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
+   */
   public TermsOfServiceAcceptanceInfo acceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the user that accepted the Terms of Service.
    * @return acceptedBy
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the user that accepted the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcceptedBy() {
     return acceptedBy;
   }
 
-
- /**
-  * The unique identifier of the user that accepted the Terms of Service.
-  *
-  * @param acceptedBy
-  */ 
+  /**
+   * The unique identifier of the user that accepted the Terms of Service.
+   *
+   * @param acceptedBy
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
   }
 
-
+  /**
+   * The unique identifier of the legal entity for which the Terms of Service are accepted.
+   *
+   * @param acceptedFor
+   * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
+   */
   public TermsOfServiceAcceptanceInfo acceptedFor(String acceptedFor) {
     this.acceptedFor = acceptedFor;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the legal entity for which the Terms of Service are accepted.
    * @return acceptedFor
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the legal entity for which the Terms of Service are accepted.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcceptedFor() {
     return acceptedFor;
   }
 
-
- /**
-  * The unique identifier of the legal entity for which the Terms of Service are accepted.
-  *
-  * @param acceptedFor
-  */ 
+  /**
+   * The unique identifier of the legal entity for which the Terms of Service are accepted.
+   *
+   * @param acceptedFor
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedFor(String acceptedFor) {
     this.acceptedFor = acceptedFor;
   }
 
-
+  /**
+   * The date when the Terms of Service were accepted.
+   *
+   * @param createdAt
+   * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
+   */
   public TermsOfServiceAcceptanceInfo createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * The date when the Terms of Service were accepted.
    * @return createdAt
-  **/
+   */
   @ApiModelProperty(value = "The date when the Terms of Service were accepted.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
- /**
-  * The date when the Terms of Service were accepted.
-  *
-  * @param createdAt
-  */ 
+  /**
+   * The date when the Terms of Service were accepted.
+   *
+   * @param createdAt
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-
+  /**
+   * An Adyen-generated reference for the accepted Terms of Service.
+   *
+   * @param id
+   * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
+   */
   public TermsOfServiceAcceptanceInfo id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * An Adyen-generated reference for the accepted Terms of Service.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "An Adyen-generated reference for the accepted Terms of Service.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * An Adyen-generated reference for the accepted Terms of Service.
-  *
-  * @param id
-  */ 
+  /**
+   * An Adyen-generated reference for the accepted Terms of Service.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
+   *
+   * @param type
+   * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
+   */
   public TermsOfServiceAcceptanceInfo type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
-  *
-  * @param type
-  */ 
+  /**
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TermsOfServiceAcceptanceInfo object is equal to o.

@@ -88,36 +88,45 @@ public class FundDestination {
   public FundDestination() { 
   }
 
+  /**
+   * Bank Account Number of the recipient
+   *
+   * @param IBAN
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination IBAN(String IBAN) {
     this.IBAN = IBAN;
     return this;
   }
 
-   /**
+  /**
    * Bank Account Number of the recipient
    * @return IBAN
-  **/
+   */
   @ApiModelProperty(value = "Bank Account Number of the recipient")
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIBAN() {
     return IBAN;
   }
 
-
- /**
-  * Bank Account Number of the recipient
-  *
-  * @param IBAN
-  */ 
+  /**
+   * Bank Account Number of the recipient
+   *
+   * @param IBAN
+   */ 
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIBAN(String IBAN) {
     this.IBAN = IBAN;
   }
 
-
+  /**
+   * a map of name/value pairs for passing in additional/industry-specific data
+   *
+   * @param additionalData
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -131,300 +140,324 @@ public class FundDestination {
     return this;
   }
 
-   /**
+  /**
    * a map of name/value pairs for passing in additional/industry-specific data
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "a map of name/value pairs for passing in additional/industry-specific data")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * a map of name/value pairs for passing in additional/industry-specific data
-  *
-  * @param additionalData
-  */ 
+  /**
+   * a map of name/value pairs for passing in additional/industry-specific data
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
-   * Get billingAddress
+  /**
+   * billingAddress
    * @return billingAddress
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getBillingAddress() {
     return billingAddress;
   }
 
-
- /**
-  * billingAddress
-  *
-  * @param billingAddress
-  */ 
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination card(Card card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Card getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
-
+  /**
+   * The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.
+   *
+   * @param selectedRecurringDetailReference
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination selectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
     return this;
   }
 
-   /**
-   * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
+  /**
+   * The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.
    * @return selectedRecurringDetailReference
-  **/
+   */
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSelectedRecurringDetailReference() {
     return selectedRecurringDetailReference;
   }
 
-
- /**
-  * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
-  *
-  * @param selectedRecurringDetailReference
-  */ 
+  /**
+   * The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.
+   *
+   * @param selectedRecurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
   }
 
-
+  /**
+   * the email address of the person
+   *
+   * @param shopperEmail
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * the email address of the person
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(value = "the email address of the person")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * the email address of the person
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * the email address of the person
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
 
-   /**
-   * Get shopperName
+  /**
+   * shopperName
    * @return shopperName
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getShopperName() {
     return shopperName;
   }
 
-
- /**
-  * shopperName
-  *
-  * @param shopperName
-  */ 
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
-
+  /**
+   * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
+   *
+   * @param shopperReference
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
-   * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+  /**
+   * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
-
+  /**
+   * subMerchant
+   *
+   * @param subMerchant
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination subMerchant(SubMerchant subMerchant) {
     this.subMerchant = subMerchant;
     return this;
   }
 
-   /**
-   * Get subMerchant
+  /**
+   * subMerchant
    * @return subMerchant
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SubMerchant getSubMerchant() {
     return subMerchant;
   }
 
-
- /**
-  * subMerchant
-  *
-  * @param subMerchant
-  */ 
+  /**
+   * subMerchant
+   *
+   * @param subMerchant
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchant(SubMerchant subMerchant) {
     this.subMerchant = subMerchant;
   }
 
-
+  /**
+   * the telephone number of the person
+   *
+   * @param telephoneNumber
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
 
-   /**
+  /**
    * the telephone number of the person
    * @return telephoneNumber
-  **/
+   */
   @ApiModelProperty(value = "the telephone number of the person")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
 
-
- /**
-  * the telephone number of the person
-  *
-  * @param telephoneNumber
-  */ 
+  /**
+   * the telephone number of the person
+   *
+   * @param telephoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
 
-
+  /**
+   * The purpose of a digital wallet transaction.
+   *
+   * @param walletPurpose
+   * @return the current {@code FundDestination} instance, allowing for method chaining
+   */
   public FundDestination walletPurpose(String walletPurpose) {
     this.walletPurpose = walletPurpose;
     return this;
   }
 
-   /**
+  /**
    * The purpose of a digital wallet transaction.
    * @return walletPurpose
-  **/
+   */
   @ApiModelProperty(value = "The purpose of a digital wallet transaction.")
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWalletPurpose() {
     return walletPurpose;
   }
 
-
- /**
-  * The purpose of a digital wallet transaction.
-  *
-  * @param walletPurpose
-  */ 
+  /**
+   * The purpose of a digital wallet transaction.
+   *
+   * @param walletPurpose
+   */ 
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletPurpose(String walletPurpose) {
     this.walletPurpose = walletPurpose;
   }
-
 
   /**
    * Return true if this FundDestination object is equal to o.

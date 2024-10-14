@@ -65,215 +65,236 @@ public class Address {
   public Address() { 
   }
 
+  /**
+   * The name of the city.
+   *
+   * @param city
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address city(String city) {
     this.city = city;
     return this;
   }
 
-   /**
+  /**
    * The name of the city.
    * @return city
-  **/
+   */
   @ApiModelProperty(value = "The name of the city.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCity() {
     return city;
   }
 
-
- /**
-  * The name of the city.
-  *
-  * @param city
-  */ 
+  /**
+   * The name of the city.
+   *
+   * @param city
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
-
+  /**
+   * The name of the company.
+   *
+   * @param companyName
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address companyName(String companyName) {
     this.companyName = companyName;
     return this;
   }
 
-   /**
+  /**
    * The name of the company.
    * @return companyName
-  **/
+   */
   @ApiModelProperty(value = "The name of the company.")
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyName() {
     return companyName;
   }
 
-
- /**
-  * The name of the company.
-  *
-  * @param companyName
-  */ 
+  /**
+   * The name of the company.
+   *
+   * @param companyName
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyName(String companyName) {
     this.companyName = companyName;
   }
 
-
+  /**
+   * The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param country
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
+  /**
    * The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
-  *
-  * @param country
-  */ 
+  /**
+   * The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The postal code.
+   *
+   * @param postalCode
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
 
-   /**
+  /**
    * The postal code.
    * @return postalCode
-  **/
+   */
   @ApiModelProperty(value = "The postal code.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
 
-
- /**
-  * The postal code.
-  *
-  * @param postalCode
-  */ 
+  /**
+   * The postal code.
+   *
+   * @param postalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
 
-
+  /**
+   * The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.   Applicable for the following countries: - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
+   *
+   * @param stateOrProvince
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address stateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
     return this;
   }
 
-   /**
+  /**
    * The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.   Applicable for the following countries: - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    * @return stateOrProvince
-  **/
+   */
   @ApiModelProperty(value = "The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.   Applicable for the following countries: - Australia - Brazil - Canada - India - Mexico - New Zealand - United States")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStateOrProvince() {
     return stateOrProvince;
   }
 
-
- /**
-  * The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.   Applicable for the following countries: - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
-  *
-  * @param stateOrProvince
-  */ 
+  /**
+   * The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.   Applicable for the following countries: - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
+   *
+   * @param stateOrProvince
+   */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
   }
 
-
+  /**
+   * The name of the street, and the house or building number.
+   *
+   * @param streetAddress
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address streetAddress(String streetAddress) {
     this.streetAddress = streetAddress;
     return this;
   }
 
-   /**
+  /**
    * The name of the street, and the house or building number.
    * @return streetAddress
-  **/
+   */
   @ApiModelProperty(value = "The name of the street, and the house or building number.")
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStreetAddress() {
     return streetAddress;
   }
 
-
- /**
-  * The name of the street, and the house or building number.
-  *
-  * @param streetAddress
-  */ 
+  /**
+   * The name of the street, and the house or building number.
+   *
+   * @param streetAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress(String streetAddress) {
     this.streetAddress = streetAddress;
   }
 
-
+  /**
+   * Additional address details, if any.
+   *
+   * @param streetAddress2
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address streetAddress2(String streetAddress2) {
     this.streetAddress2 = streetAddress2;
     return this;
   }
 
-   /**
+  /**
    * Additional address details, if any.
    * @return streetAddress2
-  **/
+   */
   @ApiModelProperty(value = "Additional address details, if any.")
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStreetAddress2() {
     return streetAddress2;
   }
 
-
- /**
-  * Additional address details, if any.
-  *
-  * @param streetAddress2
-  */ 
+  /**
+   * Additional address details, if any.
+   *
+   * @param streetAddress2
+   */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress2(String streetAddress2) {
     this.streetAddress2 = streetAddress2;
   }
-
 
   /**
    * Return true if this Address object is equal to o.

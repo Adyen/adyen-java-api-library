@@ -109,545 +109,599 @@ public class LineItem {
   public LineItem() { 
   }
 
+  /**
+   * Item amount excluding the tax, in minor units.
+   *
+   * @param amountExcludingTax
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem amountExcludingTax(Long amountExcludingTax) {
     this.amountExcludingTax = amountExcludingTax;
     return this;
   }
 
-   /**
+  /**
    * Item amount excluding the tax, in minor units.
    * @return amountExcludingTax
-  **/
+   */
   @ApiModelProperty(value = "Item amount excluding the tax, in minor units.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAmountExcludingTax() {
     return amountExcludingTax;
   }
 
-
- /**
-  * Item amount excluding the tax, in minor units.
-  *
-  * @param amountExcludingTax
-  */ 
+  /**
+   * Item amount excluding the tax, in minor units.
+   *
+   * @param amountExcludingTax
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountExcludingTax(Long amountExcludingTax) {
     this.amountExcludingTax = amountExcludingTax;
   }
 
-
+  /**
+   * Item amount including the tax, in minor units.
+   *
+   * @param amountIncludingTax
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem amountIncludingTax(Long amountIncludingTax) {
     this.amountIncludingTax = amountIncludingTax;
     return this;
   }
 
-   /**
+  /**
    * Item amount including the tax, in minor units.
    * @return amountIncludingTax
-  **/
+   */
   @ApiModelProperty(value = "Item amount including the tax, in minor units.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAmountIncludingTax() {
     return amountIncludingTax;
   }
 
-
- /**
-  * Item amount including the tax, in minor units.
-  *
-  * @param amountIncludingTax
-  */ 
+  /**
+   * Item amount including the tax, in minor units.
+   *
+   * @param amountIncludingTax
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountIncludingTax(Long amountIncludingTax) {
     this.amountIncludingTax = amountIncludingTax;
   }
 
-
+  /**
+   * Brand of the item.
+   *
+   * @param brand
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem brand(String brand) {
     this.brand = brand;
     return this;
   }
 
-   /**
+  /**
    * Brand of the item.
    * @return brand
-  **/
+   */
   @ApiModelProperty(value = "Brand of the item.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrand() {
     return brand;
   }
 
-
- /**
-  * Brand of the item.
-  *
-  * @param brand
-  */ 
+  /**
+   * Brand of the item.
+   *
+   * @param brand
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
-
+  /**
+   * Color of the item.
+   *
+   * @param color
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem color(String color) {
     this.color = color;
     return this;
   }
 
-   /**
+  /**
    * Color of the item.
    * @return color
-  **/
+   */
   @ApiModelProperty(value = "Color of the item.")
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getColor() {
     return color;
   }
 
-
- /**
-  * Color of the item.
-  *
-  * @param color
-  */ 
+  /**
+   * Color of the item.
+   *
+   * @param color
+   */ 
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setColor(String color) {
     this.color = color;
   }
 
-
+  /**
+   * Description of the line item.
+   *
+   * @param description
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the line item.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Description of the line item.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Description of the line item.
-  *
-  * @param description
-  */ 
+  /**
+   * Description of the line item.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * ID of the line item.
+   *
+   * @param id
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID of the line item.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "ID of the line item.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * ID of the line item.
-  *
-  * @param id
-  */ 
+  /**
+   * ID of the line item.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Link to the picture of the purchased item.
+   *
+   * @param imageUrl
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem imageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
     return this;
   }
 
-   /**
+  /**
    * Link to the picture of the purchased item.
    * @return imageUrl
-  **/
+   */
   @ApiModelProperty(value = "Link to the picture of the purchased item.")
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImageUrl() {
     return imageUrl;
   }
 
-
- /**
-  * Link to the picture of the purchased item.
-  *
-  * @param imageUrl
-  */ 
+  /**
+   * Link to the picture of the purchased item.
+   *
+   * @param imageUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
   }
 
-
+  /**
+   * Item category, used by the payment methods PayPal and Ratepay.
+   *
+   * @param itemCategory
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem itemCategory(String itemCategory) {
     this.itemCategory = itemCategory;
     return this;
   }
 
-   /**
+  /**
    * Item category, used by the payment methods PayPal and Ratepay.
    * @return itemCategory
-  **/
+   */
   @ApiModelProperty(value = "Item category, used by the payment methods PayPal and Ratepay.")
   @JsonProperty(JSON_PROPERTY_ITEM_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getItemCategory() {
     return itemCategory;
   }
 
-
- /**
-  * Item category, used by the payment methods PayPal and Ratepay.
-  *
-  * @param itemCategory
-  */ 
+  /**
+   * Item category, used by the payment methods PayPal and Ratepay.
+   *
+   * @param itemCategory
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEM_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemCategory(String itemCategory) {
     this.itemCategory = itemCategory;
   }
 
-
+  /**
+   * Manufacturer of the item.
+   *
+   * @param manufacturer
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem manufacturer(String manufacturer) {
     this.manufacturer = manufacturer;
     return this;
   }
 
-   /**
+  /**
    * Manufacturer of the item.
    * @return manufacturer
-  **/
+   */
   @ApiModelProperty(value = "Manufacturer of the item.")
   @JsonProperty(JSON_PROPERTY_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getManufacturer() {
     return manufacturer;
   }
 
-
- /**
-  * Manufacturer of the item.
-  *
-  * @param manufacturer
-  */ 
+  /**
+   * Manufacturer of the item.
+   *
+   * @param manufacturer
+   */ 
   @JsonProperty(JSON_PROPERTY_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManufacturer(String manufacturer) {
     this.manufacturer = manufacturer;
   }
 
-
+  /**
+   * Marketplace seller id.
+   *
+   * @param marketplaceSellerId
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem marketplaceSellerId(String marketplaceSellerId) {
     this.marketplaceSellerId = marketplaceSellerId;
     return this;
   }
 
-   /**
+  /**
    * Marketplace seller id.
    * @return marketplaceSellerId
-  **/
+   */
   @ApiModelProperty(value = "Marketplace seller id.")
   @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMarketplaceSellerId() {
     return marketplaceSellerId;
   }
 
-
- /**
-  * Marketplace seller id.
-  *
-  * @param marketplaceSellerId
-  */ 
+  /**
+   * Marketplace seller id.
+   *
+   * @param marketplaceSellerId
+   */ 
   @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMarketplaceSellerId(String marketplaceSellerId) {
     this.marketplaceSellerId = marketplaceSellerId;
   }
 
-
+  /**
+   * Link to the purchased item.
+   *
+   * @param productUrl
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem productUrl(String productUrl) {
     this.productUrl = productUrl;
     return this;
   }
 
-   /**
+  /**
    * Link to the purchased item.
    * @return productUrl
-  **/
+   */
   @ApiModelProperty(value = "Link to the purchased item.")
   @JsonProperty(JSON_PROPERTY_PRODUCT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getProductUrl() {
     return productUrl;
   }
 
-
- /**
-  * Link to the purchased item.
-  *
-  * @param productUrl
-  */ 
+  /**
+   * Link to the purchased item.
+   *
+   * @param productUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_PRODUCT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProductUrl(String productUrl) {
     this.productUrl = productUrl;
   }
 
-
+  /**
+   * Number of items.
+   *
+   * @param quantity
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem quantity(Long quantity) {
     this.quantity = quantity;
     return this;
   }
 
-   /**
+  /**
    * Number of items.
    * @return quantity
-  **/
+   */
   @ApiModelProperty(value = "Number of items.")
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getQuantity() {
     return quantity;
   }
 
-
- /**
-  * Number of items.
-  *
-  * @param quantity
-  */ 
+  /**
+   * Number of items.
+   *
+   * @param quantity
+   */ 
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(Long quantity) {
     this.quantity = quantity;
   }
 
-
+  /**
+   * Email associated with the given product in the basket (usually in electronic gift cards).
+   *
+   * @param receiverEmail
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem receiverEmail(String receiverEmail) {
     this.receiverEmail = receiverEmail;
     return this;
   }
 
-   /**
+  /**
    * Email associated with the given product in the basket (usually in electronic gift cards).
    * @return receiverEmail
-  **/
+   */
   @ApiModelProperty(value = "Email associated with the given product in the basket (usually in electronic gift cards).")
   @JsonProperty(JSON_PROPERTY_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReceiverEmail() {
     return receiverEmail;
   }
 
-
- /**
-  * Email associated with the given product in the basket (usually in electronic gift cards).
-  *
-  * @param receiverEmail
-  */ 
+  /**
+   * Email associated with the given product in the basket (usually in electronic gift cards).
+   *
+   * @param receiverEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiverEmail(String receiverEmail) {
     this.receiverEmail = receiverEmail;
   }
 
-
+  /**
+   * Size of the item.
+   *
+   * @param size
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem size(String size) {
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Size of the item.
    * @return size
-  **/
+   */
   @ApiModelProperty(value = "Size of the item.")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSize() {
     return size;
   }
 
-
- /**
-  * Size of the item.
-  *
-  * @param size
-  */ 
+  /**
+   * Size of the item.
+   *
+   * @param size
+   */ 
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSize(String size) {
     this.size = size;
   }
 
-
+  /**
+   * Stock keeping unit.
+   *
+   * @param sku
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem sku(String sku) {
     this.sku = sku;
     return this;
   }
 
-   /**
+  /**
    * Stock keeping unit.
    * @return sku
-  **/
+   */
   @ApiModelProperty(value = "Stock keeping unit.")
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSku() {
     return sku;
   }
 
-
- /**
-  * Stock keeping unit.
-  *
-  * @param sku
-  */ 
+  /**
+   * Stock keeping unit.
+   *
+   * @param sku
+   */ 
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSku(String sku) {
     this.sku = sku;
   }
 
-
+  /**
+   * Tax amount, in minor units.
+   *
+   * @param taxAmount
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem taxAmount(Long taxAmount) {
     this.taxAmount = taxAmount;
     return this;
   }
 
-   /**
+  /**
    * Tax amount, in minor units.
    * @return taxAmount
-  **/
+   */
   @ApiModelProperty(value = "Tax amount, in minor units.")
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTaxAmount() {
     return taxAmount;
   }
 
-
- /**
-  * Tax amount, in minor units.
-  *
-  * @param taxAmount
-  */ 
+  /**
+   * Tax amount, in minor units.
+   *
+   * @param taxAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxAmount(Long taxAmount) {
     this.taxAmount = taxAmount;
   }
 
-
+  /**
+   * Tax percentage, in minor units.
+   *
+   * @param taxPercentage
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem taxPercentage(Long taxPercentage) {
     this.taxPercentage = taxPercentage;
     return this;
   }
 
-   /**
+  /**
    * Tax percentage, in minor units.
    * @return taxPercentage
-  **/
+   */
   @ApiModelProperty(value = "Tax percentage, in minor units.")
   @JsonProperty(JSON_PROPERTY_TAX_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTaxPercentage() {
     return taxPercentage;
   }
 
-
- /**
-  * Tax percentage, in minor units.
-  *
-  * @param taxPercentage
-  */ 
+  /**
+   * Tax percentage, in minor units.
+   *
+   * @param taxPercentage
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxPercentage(Long taxPercentage) {
     this.taxPercentage = taxPercentage;
   }
 
-
+  /**
+   * Universal Product Code.
+   *
+   * @param upc
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
   public LineItem upc(String upc) {
     this.upc = upc;
     return this;
   }
 
-   /**
+  /**
    * Universal Product Code.
    * @return upc
-  **/
+   */
   @ApiModelProperty(value = "Universal Product Code.")
   @JsonProperty(JSON_PROPERTY_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUpc() {
     return upc;
   }
 
-
- /**
-  * Universal Product Code.
-  *
-  * @param upc
-  */ 
+  /**
+   * Universal Product Code.
+   *
+   * @param upc
+   */ 
   @JsonProperty(JSON_PROPERTY_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpc(String upc) {
     this.upc = upc;
   }
-
 
   /**
    * Return true if this LineItem object is equal to o.

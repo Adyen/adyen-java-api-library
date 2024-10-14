@@ -78,65 +78,71 @@ public class InstallAndroidCertificateDetails {
   public InstallAndroidCertificateDetails() { 
   }
 
+  /**
+   * The unique identifier of the certificate to be installed.
+   *
+   * @param certificateId
+   * @return the current {@code InstallAndroidCertificateDetails} instance, allowing for method chaining
+   */
   public InstallAndroidCertificateDetails certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the certificate to be installed.
    * @return certificateId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the certificate to be installed.")
   @JsonProperty(JSON_PROPERTY_CERTIFICATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCertificateId() {
     return certificateId;
   }
 
-
- /**
-  * The unique identifier of the certificate to be installed.
-  *
-  * @param certificateId
-  */ 
+  /**
+   * The unique identifier of the certificate to be installed.
+   *
+   * @param certificateId
+   */ 
   @JsonProperty(JSON_PROPERTY_CERTIFICATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
   }
 
-
+  /**
+   * Type of terminal action: Install an Android certificate.
+   *
+   * @param type
+   * @return the current {@code InstallAndroidCertificateDetails} instance, allowing for method chaining
+   */
   public InstallAndroidCertificateDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of terminal action: Install an Android certificate.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Type of terminal action: Install an Android certificate.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of terminal action: Install an Android certificate.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of terminal action: Install an Android certificate.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this InstallAndroidCertificateDetails object is equal to o.

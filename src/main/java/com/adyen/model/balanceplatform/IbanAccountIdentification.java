@@ -78,65 +78,71 @@ public class IbanAccountIdentification {
   public IbanAccountIdentification() { 
   }
 
+  /**
+   * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
+   *
+   * @param iban
+   * @return the current {@code IbanAccountIdentification} instance, allowing for method chaining
+   */
   public IbanAccountIdentification iban(String iban) {
     this.iban = iban;
     return this;
   }
 
-   /**
+  /**
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    * @return iban
-  **/
+   */
   @ApiModelProperty(required = true, value = "The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIban() {
     return iban;
   }
 
-
- /**
-  * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
-  *
-  * @param iban
-  */ 
+  /**
+   * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
+   *
+   * @param iban
+   */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
   }
 
-
+  /**
+   * **iban**
+   *
+   * @param type
+   * @return the current {@code IbanAccountIdentification} instance, allowing for method chaining
+   */
   public IbanAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **iban**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**iban**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **iban**
-  *
-  * @param type
-  */ 
+  /**
+   * **iban**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this IbanAccountIdentification object is equal to o.

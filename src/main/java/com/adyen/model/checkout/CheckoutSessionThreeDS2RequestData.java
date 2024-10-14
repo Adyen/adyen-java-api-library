@@ -97,125 +97,137 @@ public class CheckoutSessionThreeDS2RequestData {
   public CheckoutSessionThreeDS2RequestData() { 
   }
 
+  /**
+   * homePhone
+   *
+   * @param homePhone
+   * @return the current {@code CheckoutSessionThreeDS2RequestData} instance, allowing for method chaining
+   */
   public CheckoutSessionThreeDS2RequestData homePhone(Phone homePhone) {
     this.homePhone = homePhone;
     return this;
   }
 
-   /**
-   * Get homePhone
+  /**
+   * homePhone
    * @return homePhone
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getHomePhone() {
     return homePhone;
   }
 
-
- /**
-  * homePhone
-  *
-  * @param homePhone
-  */ 
+  /**
+   * homePhone
+   *
+   * @param homePhone
+   */ 
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(Phone homePhone) {
     this.homePhone = homePhone;
   }
 
-
+  /**
+   * mobilePhone
+   *
+   * @param mobilePhone
+   * @return the current {@code CheckoutSessionThreeDS2RequestData} instance, allowing for method chaining
+   */
   public CheckoutSessionThreeDS2RequestData mobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
     return this;
   }
 
-   /**
-   * Get mobilePhone
+  /**
+   * mobilePhone
    * @return mobilePhone
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getMobilePhone() {
     return mobilePhone;
   }
 
-
- /**
-  * mobilePhone
-  *
-  * @param mobilePhone
-  */ 
+  /**
+   * mobilePhone
+   *
+   * @param mobilePhone
+   */ 
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
   }
 
-
+  /**
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+   *
+   * @param threeDSRequestorChallengeInd
+   * @return the current {@code CheckoutSessionThreeDS2RequestData} instance, allowing for method chaining
+   */
   public CheckoutSessionThreeDS2RequestData threeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    * @return threeDSRequestorChallengeInd
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
     return threeDSRequestorChallengeInd;
   }
 
-
- /**
-  * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
-  *
-  * @param threeDSRequestorChallengeInd
-  */ 
+  /**
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
+   *
+   * @param threeDSRequestorChallengeInd
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
   }
 
-
+  /**
+   * workPhone
+   *
+   * @param workPhone
+   * @return the current {@code CheckoutSessionThreeDS2RequestData} instance, allowing for method chaining
+   */
   public CheckoutSessionThreeDS2RequestData workPhone(Phone workPhone) {
     this.workPhone = workPhone;
     return this;
   }
 
-   /**
-   * Get workPhone
+  /**
+   * workPhone
    * @return workPhone
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getWorkPhone() {
     return workPhone;
   }
 
-
- /**
-  * workPhone
-  *
-  * @param workPhone
-  */ 
+  /**
+   * workPhone
+   *
+   * @param workPhone
+   */ 
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(Phone workPhone) {
     this.workPhone = workPhone;
   }
-
 
   /**
    * Return true if this CheckoutSessionThreeDS2RequestData object is equal to o.

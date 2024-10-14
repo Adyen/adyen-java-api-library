@@ -49,95 +49,104 @@ public class ResponseAdditionalDataSepa {
   public ResponseAdditionalDataSepa() { 
   }
 
+  /**
+   * The transaction signature date.  Format: yyyy-MM-dd
+   *
+   * @param sepadirectdebitDateOfSignature
+   * @return the current {@code ResponseAdditionalDataSepa} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataSepa sepadirectdebitDateOfSignature(String sepadirectdebitDateOfSignature) {
     this.sepadirectdebitDateOfSignature = sepadirectdebitDateOfSignature;
     return this;
   }
 
-   /**
+  /**
    * The transaction signature date.  Format: yyyy-MM-dd
    * @return sepadirectdebitDateOfSignature
-  **/
+   */
   @ApiModelProperty(value = "The transaction signature date.  Format: yyyy-MM-dd")
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSepadirectdebitDateOfSignature() {
     return sepadirectdebitDateOfSignature;
   }
 
-
- /**
-  * The transaction signature date.  Format: yyyy-MM-dd
-  *
-  * @param sepadirectdebitDateOfSignature
-  */ 
+  /**
+   * The transaction signature date.  Format: yyyy-MM-dd
+   *
+   * @param sepadirectdebitDateOfSignature
+   */ 
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitDateOfSignature(String sepadirectdebitDateOfSignature) {
     this.sepadirectdebitDateOfSignature = sepadirectdebitDateOfSignature;
   }
 
-
+  /**
+   * Its value corresponds to the pspReference value of the transaction.
+   *
+   * @param sepadirectdebitMandateId
+   * @return the current {@code ResponseAdditionalDataSepa} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataSepa sepadirectdebitMandateId(String sepadirectdebitMandateId) {
     this.sepadirectdebitMandateId = sepadirectdebitMandateId;
     return this;
   }
 
-   /**
+  /**
    * Its value corresponds to the pspReference value of the transaction.
    * @return sepadirectdebitMandateId
-  **/
+   */
   @ApiModelProperty(value = "Its value corresponds to the pspReference value of the transaction.")
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSepadirectdebitMandateId() {
     return sepadirectdebitMandateId;
   }
 
-
- /**
-  * Its value corresponds to the pspReference value of the transaction.
-  *
-  * @param sepadirectdebitMandateId
-  */ 
+  /**
+   * Its value corresponds to the pspReference value of the transaction.
+   *
+   * @param sepadirectdebitMandateId
+   */ 
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitMandateId(String sepadirectdebitMandateId) {
     this.sepadirectdebitMandateId = sepadirectdebitMandateId;
   }
 
-
+  /**
+   * This field can take one of the following values: * OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.  * First: (FRST) Initial/first collection in a series of direct debit instructions. * Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor. * Final: (FNAL) Last/final collection in a series of direct debit instructions.  Example: OOFF
+   *
+   * @param sepadirectdebitSequenceType
+   * @return the current {@code ResponseAdditionalDataSepa} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataSepa sepadirectdebitSequenceType(String sepadirectdebitSequenceType) {
     this.sepadirectdebitSequenceType = sepadirectdebitSequenceType;
     return this;
   }
 
-   /**
+  /**
    * This field can take one of the following values: * OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.  * First: (FRST) Initial/first collection in a series of direct debit instructions. * Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor. * Final: (FNAL) Last/final collection in a series of direct debit instructions.  Example: OOFF
    * @return sepadirectdebitSequenceType
-  **/
+   */
   @ApiModelProperty(value = "This field can take one of the following values: * OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.  * First: (FRST) Initial/first collection in a series of direct debit instructions. * Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor. * Final: (FNAL) Last/final collection in a series of direct debit instructions.  Example: OOFF")
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSepadirectdebitSequenceType() {
     return sepadirectdebitSequenceType;
   }
 
-
- /**
-  * This field can take one of the following values: * OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.  * First: (FRST) Initial/first collection in a series of direct debit instructions. * Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor. * Final: (FNAL) Last/final collection in a series of direct debit instructions.  Example: OOFF
-  *
-  * @param sepadirectdebitSequenceType
-  */ 
+  /**
+   * This field can take one of the following values: * OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.  * First: (FRST) Initial/first collection in a series of direct debit instructions. * Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor. * Final: (FNAL) Last/final collection in a series of direct debit instructions.  Example: OOFF
+   *
+   * @param sepadirectdebitSequenceType
+   */ 
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitSequenceType(String sepadirectdebitSequenceType) {
     this.sepadirectdebitSequenceType = sepadirectdebitSequenceType;
   }
-
 
   /**
    * Return true if this ResponseAdditionalDataSepa object is equal to o.

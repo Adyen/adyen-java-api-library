@@ -61,185 +61,203 @@ public class Company {
   public Company() { 
   }
 
+  /**
+   * The company website's home page.
+   *
+   * @param homepage
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company homepage(String homepage) {
     this.homepage = homepage;
     return this;
   }
 
-   /**
-   * The company website&#39;s home page.
+  /**
+   * The company website's home page.
    * @return homepage
-  **/
+   */
   @ApiModelProperty(value = "The company website's home page.")
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHomepage() {
     return homepage;
   }
 
-
- /**
-  * The company website&#39;s home page.
-  *
-  * @param homepage
-  */ 
+  /**
+   * The company website's home page.
+   *
+   * @param homepage
+   */ 
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomepage(String homepage) {
     this.homepage = homepage;
   }
 
-
+  /**
+   * The company name.
+   *
+   * @param name
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The company name.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The company name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The company name.
-  *
-  * @param name
-  */ 
+  /**
+   * The company name.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * Registration number of the company.
+   *
+   * @param registrationNumber
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company registrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
     return this;
   }
 
-   /**
+  /**
    * Registration number of the company.
    * @return registrationNumber
-  **/
+   */
   @ApiModelProperty(value = "Registration number of the company.")
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRegistrationNumber() {
     return registrationNumber;
   }
 
-
- /**
-  * Registration number of the company.
-  *
-  * @param registrationNumber
-  */ 
+  /**
+   * Registration number of the company.
+   *
+   * @param registrationNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
   }
 
-
+  /**
+   * Registry location of the company.
+   *
+   * @param registryLocation
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company registryLocation(String registryLocation) {
     this.registryLocation = registryLocation;
     return this;
   }
 
-   /**
+  /**
    * Registry location of the company.
    * @return registryLocation
-  **/
+   */
   @ApiModelProperty(value = "Registry location of the company.")
   @JsonProperty(JSON_PROPERTY_REGISTRY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRegistryLocation() {
     return registryLocation;
   }
 
-
- /**
-  * Registry location of the company.
-  *
-  * @param registryLocation
-  */ 
+  /**
+   * Registry location of the company.
+   *
+   * @param registryLocation
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTRY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistryLocation(String registryLocation) {
     this.registryLocation = registryLocation;
   }
 
-
+  /**
+   * Tax ID of the company.
+   *
+   * @param taxId
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company taxId(String taxId) {
     this.taxId = taxId;
     return this;
   }
 
-   /**
+  /**
    * Tax ID of the company.
    * @return taxId
-  **/
+   */
   @ApiModelProperty(value = "Tax ID of the company.")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTaxId() {
     return taxId;
   }
 
-
- /**
-  * Tax ID of the company.
-  *
-  * @param taxId
-  */ 
+  /**
+   * Tax ID of the company.
+   *
+   * @param taxId
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
   }
 
-
+  /**
+   * The company type.
+   *
+   * @param type
+   * @return the current {@code Company} instance, allowing for method chaining
+   */
   public Company type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The company type.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The company type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The company type.
-  *
-  * @param type
-  */ 
+  /**
+   * The company type.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this Company object is equal to o.

@@ -80,65 +80,71 @@ public class PaypalUpdateOrderResponse {
   public PaypalUpdateOrderResponse() { 
   }
 
+  /**
+   * The updated paymentData.
+   *
+   * @param paymentData
+   * @return the current {@code PaypalUpdateOrderResponse} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderResponse paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
 
-   /**
+  /**
    * The updated paymentData.
    * @return paymentData
-  **/
+   */
   @ApiModelProperty(required = true, value = "The updated paymentData.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentData() {
     return paymentData;
   }
 
-
- /**
-  * The updated paymentData.
-  *
-  * @param paymentData
-  */ 
+  /**
+   * The updated paymentData.
+   *
+   * @param paymentData
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
 
-
+  /**
+   * The status of the request. This indicates whether the order was successfully updated with PayPal.
+   *
+   * @param status
+   * @return the current {@code PaypalUpdateOrderResponse} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the request. This indicates whether the order was successfully updated with PayPal.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of the request. This indicates whether the order was successfully updated with PayPal.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the request. This indicates whether the order was successfully updated with PayPal.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the request. This indicates whether the order was successfully updated with PayPal.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this PaypalUpdateOrderResponse object is equal to o.

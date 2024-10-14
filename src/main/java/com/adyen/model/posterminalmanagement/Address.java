@@ -61,185 +61,203 @@ public class Address {
   public Address() { 
   }
 
+  /**
+   * city
+   *
+   * @param city
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address city(String city) {
     this.city = city;
     return this;
   }
 
-   /**
-   * Get city
+  /**
+   * city
    * @return city
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCity() {
     return city;
   }
 
-
- /**
-  * city
-  *
-  * @param city
-  */ 
+  /**
+   * city
+   *
+   * @param city
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
-
+  /**
+   * countryCode
+   *
+   * @param countryCode
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
 
-   /**
-   * Get countryCode
+  /**
+   * countryCode
    * @return countryCode
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountryCode() {
     return countryCode;
   }
 
-
- /**
-  * countryCode
-  *
-  * @param countryCode
-  */ 
+  /**
+   * countryCode
+   *
+   * @param countryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
-
+  /**
+   * postalCode
+   *
+   * @param postalCode
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
 
-   /**
-   * Get postalCode
+  /**
+   * postalCode
    * @return postalCode
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
 
-
- /**
-  * postalCode
-  *
-  * @param postalCode
-  */ 
+  /**
+   * postalCode
+   *
+   * @param postalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
 
-
+  /**
+   * stateOrProvince
+   *
+   * @param stateOrProvince
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address stateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
     return this;
   }
 
-   /**
-   * Get stateOrProvince
+  /**
+   * stateOrProvince
    * @return stateOrProvince
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStateOrProvince() {
     return stateOrProvince;
   }
 
-
- /**
-  * stateOrProvince
-  *
-  * @param stateOrProvince
-  */ 
+  /**
+   * stateOrProvince
+   *
+   * @param stateOrProvince
+   */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
   }
 
-
+  /**
+   * streetAddress
+   *
+   * @param streetAddress
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address streetAddress(String streetAddress) {
     this.streetAddress = streetAddress;
     return this;
   }
 
-   /**
-   * Get streetAddress
+  /**
+   * streetAddress
    * @return streetAddress
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStreetAddress() {
     return streetAddress;
   }
 
-
- /**
-  * streetAddress
-  *
-  * @param streetAddress
-  */ 
+  /**
+   * streetAddress
+   *
+   * @param streetAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress(String streetAddress) {
     this.streetAddress = streetAddress;
   }
 
-
+  /**
+   * streetAddress2
+   *
+   * @param streetAddress2
+   * @return the current {@code Address} instance, allowing for method chaining
+   */
   public Address streetAddress2(String streetAddress2) {
     this.streetAddress2 = streetAddress2;
     return this;
   }
 
-   /**
-   * Get streetAddress2
+  /**
+   * streetAddress2
    * @return streetAddress2
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStreetAddress2() {
     return streetAddress2;
   }
 
-
- /**
-  * streetAddress2
-  *
-  * @param streetAddress2
-  */ 
+  /**
+   * streetAddress2
+   *
+   * @param streetAddress2
+   */ 
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress2(String streetAddress2) {
     this.streetAddress2 = streetAddress2;
   }
-
 
   /**
    * Return true if this Address object is equal to o.

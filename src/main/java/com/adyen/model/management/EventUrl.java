@@ -48,6 +48,12 @@ public class EventUrl {
   public EventUrl() { 
   }
 
+  /**
+   * One or more local URLs to send event notifications to when using Terminal API.
+   *
+   * @param eventLocalUrls
+   * @return the current {@code EventUrl} instance, allowing for method chaining
+   */
   public EventUrl eventLocalUrls(List<Url> eventLocalUrls) {
     this.eventLocalUrls = eventLocalUrls;
     return this;
@@ -61,31 +67,34 @@ public class EventUrl {
     return this;
   }
 
-   /**
+  /**
    * One or more local URLs to send event notifications to when using Terminal API.
    * @return eventLocalUrls
-  **/
+   */
   @ApiModelProperty(value = "One or more local URLs to send event notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_EVENT_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Url> getEventLocalUrls() {
     return eventLocalUrls;
   }
 
-
- /**
-  * One or more local URLs to send event notifications to when using Terminal API.
-  *
-  * @param eventLocalUrls
-  */ 
+  /**
+   * One or more local URLs to send event notifications to when using Terminal API.
+   *
+   * @param eventLocalUrls
+   */ 
   @JsonProperty(JSON_PROPERTY_EVENT_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventLocalUrls(List<Url> eventLocalUrls) {
     this.eventLocalUrls = eventLocalUrls;
   }
 
-
+  /**
+   * One or more public URLs to send event notifications to when using Terminal API.
+   *
+   * @param eventPublicUrls
+   * @return the current {@code EventUrl} instance, allowing for method chaining
+   */
   public EventUrl eventPublicUrls(List<Url> eventPublicUrls) {
     this.eventPublicUrls = eventPublicUrls;
     return this;
@@ -99,30 +108,27 @@ public class EventUrl {
     return this;
   }
 
-   /**
+  /**
    * One or more public URLs to send event notifications to when using Terminal API.
    * @return eventPublicUrls
-  **/
+   */
   @ApiModelProperty(value = "One or more public URLs to send event notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_EVENT_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Url> getEventPublicUrls() {
     return eventPublicUrls;
   }
 
-
- /**
-  * One or more public URLs to send event notifications to when using Terminal API.
-  *
-  * @param eventPublicUrls
-  */ 
+  /**
+   * One or more public URLs to send event notifications to when using Terminal API.
+   *
+   * @param eventPublicUrls
+   */ 
   @JsonProperty(JSON_PROPERTY_EVENT_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventPublicUrls(List<Url> eventPublicUrls) {
     this.eventPublicUrls = eventPublicUrls;
   }
-
 
   /**
    * Return true if this EventUrl object is equal to o.

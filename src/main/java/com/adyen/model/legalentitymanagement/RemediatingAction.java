@@ -45,65 +45,71 @@ public class RemediatingAction {
   public RemediatingAction() { 
   }
 
+  /**
+   * code
+   *
+   * @param code
+   * @return the current {@code RemediatingAction} instance, allowing for method chaining
+   */
   public RemediatingAction code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
-   * Get code
+  /**
+   * code
    * @return code
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
- /**
-  * code
-  *
-  * @param code
-  */ 
+  /**
+   * code
+   *
+   * @param code
+   */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
   }
 
-
+  /**
+   * message
+   *
+   * @param message
+   * @return the current {@code RemediatingAction} instance, allowing for method chaining
+   */
   public RemediatingAction message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
-   * Get message
+  /**
+   * message
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * message
-  *
-  * @param message
-  */ 
+  /**
+   * message
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   /**
    * Return true if this RemediatingAction object is equal to o.

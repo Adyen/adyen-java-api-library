@@ -79,305 +79,335 @@ public class SubMerchantInfo {
   public SubMerchantInfo() { 
   }
 
+  /**
+   * address
+   *
+   * @param address
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo address(BillingAddress address) {
     this.address = address;
     return this;
   }
 
-   /**
-   * Get address
+  /**
+   * address
    * @return address
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BillingAddress getAddress() {
     return address;
   }
 
-
- /**
-  * address
-  *
-  * @param address
-  */ 
+  /**
+   * address
+   *
+   * @param address
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(BillingAddress address) {
     this.address = address;
   }
 
-
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant's account.
+   *
+   * @param email
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
-   * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
+  /**
+   * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant's account.
    * @return email
-  **/
+   */
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant's account.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
-  *
-  * @param email
-  */ 
+  /**
+   * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant's account.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
+   *
+   * @param id
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
-  *
-  * @param id
-  */ 
+  /**
+   * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Required for transactions performed by registered payment facilitators. The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
+   *
+   * @param mcc
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
 
-   /**
-   * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
+  /**
+   * Required for transactions performed by registered payment facilitators. The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    * @return mcc
-  **/
+   */
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits")
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMcc() {
     return mcc;
   }
 
-
- /**
-  * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
-  *
-  * @param mcc
-  */ 
+  /**
+   * Required for transactions performed by registered payment facilitators. The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
+   *
+   * @param mcc
+   */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
-
+  /**
+   * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
+   *
+   * @param name
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
-  *
-  * @param name
-  */ 
+  /**
+   * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant's account.
+   *
+   * @param phoneNumber
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
 
-   /**
-   * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
+  /**
+   * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant's account.
    * @return phoneNumber
-  **/
+   */
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant's account.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
-
- /**
-  * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
-  *
-  * @param phoneNumber
-  */ 
+  /**
+   * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant's account.
+   *
+   * @param phoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
 
-
+  /**
+   * registeredSince
+   *
+   * @param registeredSince
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo registeredSince(String registeredSince) {
     this.registeredSince = registeredSince;
     return this;
   }
 
-   /**
-   * Get registeredSince
+  /**
+   * registeredSince
    * @return registeredSince
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGISTERED_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRegisteredSince() {
     return registeredSince;
   }
 
-
- /**
-  * registeredSince
-  *
-  * @param registeredSince
-  */ 
+  /**
+   * registeredSince
+   *
+   * @param registeredSince
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTERED_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredSince(String registeredSince) {
     this.registeredSince = registeredSince;
   }
 
-
+  /**
+   * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
+   *
+   * @param taxId
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo taxId(String taxId) {
     this.taxId = taxId;
     return this;
   }
 
-   /**
+  /**
    * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    * @return taxId
-  **/
+   */
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTaxId() {
     return taxId;
   }
 
-
- /**
-  * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
-  *
-  * @param taxId
-  */ 
+  /**
+   * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
+   *
+   * @param taxId
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
   }
 
-
+  /**
+   * Required for transactions performed by registered payment facilitators. The sub-merchant's URL on the platform, i.e. the sub-merchant's shop.
+   *
+   * @param url
+   * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
+   */
   public SubMerchantInfo url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
-   * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
+  /**
+   * Required for transactions performed by registered payment facilitators. The sub-merchant's URL on the platform, i.e. the sub-merchant's shop.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The sub-merchant's URL on the platform, i.e. the sub-merchant's shop.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
-  *
-  * @param url
-  */ 
+  /**
+   * Required for transactions performed by registered payment facilitators. The sub-merchant's URL on the platform, i.e. the sub-merchant's shop.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this SubMerchantInfo object is equal to o.

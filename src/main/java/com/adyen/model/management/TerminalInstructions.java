@@ -41,35 +41,38 @@ public class TerminalInstructions {
   public TerminalInstructions() { 
   }
 
+  /**
+   * Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.
+   *
+   * @param adyenAppRestart
+   * @return the current {@code TerminalInstructions} instance, allowing for method chaining
+   */
   public TerminalInstructions adyenAppRestart(Boolean adyenAppRestart) {
     this.adyenAppRestart = adyenAppRestart;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.
    * @return adyenAppRestart
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.")
   @JsonProperty(JSON_PROPERTY_ADYEN_APP_RESTART)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAdyenAppRestart() {
     return adyenAppRestart;
   }
 
-
- /**
-  * Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.
-  *
-  * @param adyenAppRestart
-  */ 
+  /**
+   * Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.
+   *
+   * @param adyenAppRestart
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_APP_RESTART)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenAppRestart(Boolean adyenAppRestart) {
     this.adyenAppRestart = adyenAppRestart;
   }
-
 
   /**
    * Return true if this TerminalInstructions object is equal to o.

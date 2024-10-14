@@ -115,6 +115,12 @@ public class RecurringDetail {
   public RecurringDetail() { 
   }
 
+  /**
+   * This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.
+   *
+   * @param additionalData
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -128,181 +134,199 @@ public class RecurringDetail {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * The alias of the credit card number.  Applies only to recurring contracts storing credit card details
+   *
+   * @param alias
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail alias(String alias) {
     this.alias = alias;
     return this;
   }
 
-   /**
+  /**
    * The alias of the credit card number.  Applies only to recurring contracts storing credit card details
    * @return alias
-  **/
+   */
   @ApiModelProperty(value = "The alias of the credit card number.  Applies only to recurring contracts storing credit card details")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAlias() {
     return alias;
   }
 
-
- /**
-  * The alias of the credit card number.  Applies only to recurring contracts storing credit card details
-  *
-  * @param alias
-  */ 
+  /**
+   * The alias of the credit card number.  Applies only to recurring contracts storing credit card details
+   *
+   * @param alias
+   */ 
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlias(String alias) {
     this.alias = alias;
   }
 
-
+  /**
+   * The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
+   *
+   * @param aliasType
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail aliasType(String aliasType) {
     this.aliasType = aliasType;
     return this;
   }
 
-   /**
+  /**
    * The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
    * @return aliasType
-  **/
+   */
   @ApiModelProperty(value = "The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.")
   @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAliasType() {
     return aliasType;
   }
 
-
- /**
-  * The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
-  *
-  * @param aliasType
-  */ 
+  /**
+   * The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
+   *
+   * @param aliasType
+   */ 
   @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAliasType(String aliasType) {
     this.aliasType = aliasType;
   }
 
-
+  /**
+   * bank
+   *
+   * @param bank
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail bank(BankAccount bank) {
     this.bank = bank;
     return this;
   }
 
-   /**
-   * Get bank
+  /**
+   * bank
    * @return bank
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccount getBank() {
     return bank;
   }
 
-
- /**
-  * bank
-  *
-  * @param bank
-  */ 
+  /**
+   * bank
+   *
+   * @param bank
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
     this.bank = bank;
   }
 
-
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
-   * Get billingAddress
+  /**
+   * billingAddress
    * @return billingAddress
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getBillingAddress() {
     return billingAddress;
   }
 
-
- /**
-  * billingAddress
-  *
-  * @param billingAddress
-  */ 
+  /**
+   * billingAddress
+   *
+   * @param billingAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail card(Card card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Card getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
-
+  /**
+   * Types of recurring contracts.
+   *
+   * @param contractTypes
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail contractTypes(List<String> contractTypes) {
     this.contractTypes = contractTypes;
     return this;
@@ -316,330 +340,357 @@ public class RecurringDetail {
     return this;
   }
 
-   /**
+  /**
    * Types of recurring contracts.
    * @return contractTypes
-  **/
+   */
   @ApiModelProperty(value = "Types of recurring contracts.")
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getContractTypes() {
     return contractTypes;
   }
 
-
- /**
-  * Types of recurring contracts.
-  *
-  * @param contractTypes
-  */ 
+  /**
+   * Types of recurring contracts.
+   *
+   * @param contractTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContractTypes(List<String> contractTypes) {
     this.contractTypes = contractTypes;
   }
 
-
+  /**
+   * The date when the recurring details were created.
+   *
+   * @param creationDate
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the recurring details were created.
    * @return creationDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the recurring details were created.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
-
- /**
-  * The date when the recurring details were created.
-  *
-  * @param creationDate
-  */ 
+  /**
+   * The date when the recurring details were created.
+   *
+   * @param creationDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
-
+  /**
+   * The `pspReference` of the first recurring payment that created the recurring detail.
+   *
+   * @param firstPspReference
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail firstPspReference(String firstPspReference) {
     this.firstPspReference = firstPspReference;
     return this;
   }
 
-   /**
-   * The &#x60;pspReference&#x60; of the first recurring payment that created the recurring detail.
+  /**
+   * The `pspReference` of the first recurring payment that created the recurring detail.
    * @return firstPspReference
-  **/
+   */
   @ApiModelProperty(value = "The `pspReference` of the first recurring payment that created the recurring detail.")
   @JsonProperty(JSON_PROPERTY_FIRST_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFirstPspReference() {
     return firstPspReference;
   }
 
-
- /**
-  * The &#x60;pspReference&#x60; of the first recurring payment that created the recurring detail.
-  *
-  * @param firstPspReference
-  */ 
+  /**
+   * The `pspReference` of the first recurring payment that created the recurring detail.
+   *
+   * @param firstPspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstPspReference(String firstPspReference) {
     this.firstPspReference = firstPspReference;
   }
 
-
+  /**
+   * An optional descriptive name for this recurring detail.
+   *
+   * @param name
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * An optional descriptive name for this recurring detail.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "An optional descriptive name for this recurring detail.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * An optional descriptive name for this recurring detail.
-  *
-  * @param name
-  */ 
+  /**
+   * An optional descriptive name for this recurring detail.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+   *
+   * @param networkTxReference
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
     return this;
   }
 
-   /**
+  /**
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    * @return networkTxReference
-  **/
+   */
   @ApiModelProperty(value = "Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetworkTxReference() {
     return networkTxReference;
   }
 
-
- /**
-  * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
-  *
-  * @param networkTxReference
-  */ 
+  /**
+   * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+   *
+   * @param networkTxReference
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
   }
 
-
+  /**
+   * The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).
+   *
+   * @param paymentMethodVariant
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail paymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
     return this;
   }
 
-   /**
+  /**
    * The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).
    * @return paymentMethodVariant
-  **/
+   */
   @ApiModelProperty(value = "The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodVariant() {
     return paymentMethodVariant;
   }
 
-
- /**
-  * The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).
-  *
-  * @param paymentMethodVariant
-  */ 
+  /**
+   * The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).
+   *
+   * @param paymentMethodVariant
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
   }
 
-
+  /**
+   * The reference that uniquely identifies the recurring detail.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * The reference that uniquely identifies the recurring detail.
    * @return recurringDetailReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The reference that uniquely identifies the recurring detail.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * The reference that uniquely identifies the recurring detail.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * The reference that uniquely identifies the recurring detail.
+   *
+   * @param recurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
 
-   /**
-   * Get shopperName
+  /**
+   * shopperName
    * @return shopperName
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getShopperName() {
     return shopperName;
   }
 
-
- /**
-  * shopperName
-  *
-  * @param shopperName
-  */ 
+  /**
+   * shopperName
+   *
+   * @param shopperName
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
-
+  /**
+   * A shopper's social security number (only in countries where it is legal to collect).
+   *
+   * @param socialSecurityNumber
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
 
-   /**
-   * A shopper&#39;s social security number (only in countries where it is legal to collect).
+  /**
+   * A shopper's social security number (only in countries where it is legal to collect).
    * @return socialSecurityNumber
-  **/
+   */
   @ApiModelProperty(value = "A shopper's social security number (only in countries where it is legal to collect).")
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
 
-
- /**
-  * A shopper&#39;s social security number (only in countries where it is legal to collect).
-  *
-  * @param socialSecurityNumber
-  */ 
+  /**
+   * A shopper's social security number (only in countries where it is legal to collect).
+   *
+   * @param socialSecurityNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
   }
 
-
+  /**
+   * tokenDetails
+   *
+   * @param tokenDetails
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail tokenDetails(TokenDetails tokenDetails) {
     this.tokenDetails = tokenDetails;
     return this;
   }
 
-   /**
-   * Get tokenDetails
+  /**
+   * tokenDetails
    * @return tokenDetails
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TokenDetails getTokenDetails() {
     return tokenDetails;
   }
 
-
- /**
-  * tokenDetails
-  *
-  * @param tokenDetails
-  */ 
+  /**
+   * tokenDetails
+   *
+   * @param tokenDetails
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDetails(TokenDetails tokenDetails) {
     this.tokenDetails = tokenDetails;
   }
 
-
+  /**
+   * The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".
+   *
+   * @param variant
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
   public RecurringDetail variant(String variant) {
     this.variant = variant;
     return this;
   }
 
-   /**
-   * The payment method, such as “mc\&quot;, \&quot;visa\&quot;, \&quot;ideal\&quot;, \&quot;paypal\&quot;.
+  /**
+   * The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".
    * @return variant
-  **/
+   */
   @ApiModelProperty(required = true, value = "The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".")
   @JsonProperty(JSON_PROPERTY_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVariant() {
     return variant;
   }
 
-
- /**
-  * The payment method, such as “mc\&quot;, \&quot;visa\&quot;, \&quot;ideal\&quot;, \&quot;paypal\&quot;.
-  *
-  * @param variant
-  */ 
+  /**
+   * The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".
+   *
+   * @param variant
+   */ 
   @JsonProperty(JSON_PROPERTY_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariant(String variant) {
     this.variant = variant;
   }
-
 
   /**
    * Return true if this RecurringDetail object is equal to o.

@@ -43,6 +43,12 @@ public class ApplePayInfo {
   public ApplePayInfo() { 
   }
 
+  /**
+   * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).
+   *
+   * @param domains
+   * @return the current {@code ApplePayInfo} instance, allowing for method chaining
+   */
   public ApplePayInfo domains(List<String> domains) {
     this.domains = domains;
     return this;
@@ -53,30 +59,27 @@ public class ApplePayInfo {
     return this;
   }
 
-   /**
-   * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
+  /**
+   * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).
    * @return domains
-  **/
+   */
   @ApiModelProperty(required = true, value = "The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getDomains() {
     return domains;
   }
 
-
- /**
-  * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
-  *
-  * @param domains
-  */ 
+  /**
+   * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).
+   *
+   * @param domains
+   */ 
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomains(List<String> domains) {
     this.domains = domains;
   }
-
 
   /**
    * Return true if this ApplePayInfo object is equal to o.

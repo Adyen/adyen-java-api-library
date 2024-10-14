@@ -45,65 +45,71 @@ public class Expiry {
   public Expiry() { 
   }
 
+  /**
+   * The month in which the card will expire.
+   *
+   * @param month
+   * @return the current {@code Expiry} instance, allowing for method chaining
+   */
   public Expiry month(String month) {
     this.month = month;
     return this;
   }
 
-   /**
+  /**
    * The month in which the card will expire.
    * @return month
-  **/
+   */
   @ApiModelProperty(value = "The month in which the card will expire.")
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMonth() {
     return month;
   }
 
-
- /**
-  * The month in which the card will expire.
-  *
-  * @param month
-  */ 
+  /**
+   * The month in which the card will expire.
+   *
+   * @param month
+   */ 
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMonth(String month) {
     this.month = month;
   }
 
-
+  /**
+   * The year in which the card will expire.
+   *
+   * @param year
+   * @return the current {@code Expiry} instance, allowing for method chaining
+   */
   public Expiry year(String year) {
     this.year = year;
     return this;
   }
 
-   /**
+  /**
    * The year in which the card will expire.
    * @return year
-  **/
+   */
   @ApiModelProperty(value = "The year in which the card will expire.")
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getYear() {
     return year;
   }
 
-
- /**
-  * The year in which the card will expire.
-  *
-  * @param year
-  */ 
+  /**
+   * The year in which the card will expire.
+   *
+   * @param year
+   */ 
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setYear(String year) {
     this.year = year;
   }
-
 
   /**
    * Return true if this Expiry object is equal to o.

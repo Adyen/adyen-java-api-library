@@ -41,35 +41,38 @@ public class EntityReference {
   public EntityReference() { 
   }
 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   * @return the current {@code EntityReference} instance, allowing for method chaining
+   */
   public EntityReference id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
-
 
   /**
    * Return true if this EntityReference object is equal to o.
