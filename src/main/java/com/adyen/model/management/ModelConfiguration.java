@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   ModelConfiguration.JSON_PROPERTY_BRAND,
+  ModelConfiguration.JSON_PROPERTY_COMMERCIAL,
   ModelConfiguration.JSON_PROPERTY_COUNTRY,
   ModelConfiguration.JSON_PROPERTY_CURRENCIES,
   ModelConfiguration.JSON_PROPERTY_SOURCES
@@ -44,6 +45,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class ModelConfiguration {
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
+
+  public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
+  private Boolean commercial;
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private List<String> country = null;
@@ -91,7 +95,40 @@ public class ModelConfiguration {
   }
 
   /**
-   * Countries, to filter different surcharge amounts for domestic or international cards.
+   * Set to **true** to apply surcharges only to commercial/business cards.
+   *
+   * @param commercial
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
+  public ModelConfiguration commercial(Boolean commercial) {
+    this.commercial = commercial;
+    return this;
+  }
+
+  /**
+   * Set to **true** to apply surcharges only to commercial/business cards.
+   * @return commercial
+   */
+  @ApiModelProperty(value = "Set to **true** to apply surcharges only to commercial/business cards.")
+  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCommercial() {
+    return commercial;
+  }
+
+  /**
+   * Set to **true** to apply surcharges only to commercial/business cards.
+   *
+   * @param commercial
+   */ 
+  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCommercial(Boolean commercial) {
+    this.commercial = commercial;
+  }
+
+  /**
+   * The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
    *
    * @param country
    * @return the current {@code ModelConfiguration} instance, allowing for method chaining
@@ -110,10 +147,10 @@ public class ModelConfiguration {
   }
 
   /**
-   * Countries, to filter different surcharge amounts for domestic or international cards.
+   * The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
    * @return country
    */
-  @ApiModelProperty(value = "Countries, to filter different surcharge amounts for domestic or international cards.")
+  @ApiModelProperty(value = "The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getCountry() {
@@ -121,7 +158,7 @@ public class ModelConfiguration {
   }
 
   /**
-   * Countries, to filter different surcharge amounts for domestic or international cards.
+   * The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
    *
    * @param country
    */ 
@@ -132,7 +169,7 @@ public class ModelConfiguration {
   }
 
   /**
-   * Currency, and surcharge percentage or amount.
+   * Currency and percentage or amount of the surcharge.
    *
    * @param currencies
    * @return the current {@code ModelConfiguration} instance, allowing for method chaining
@@ -148,10 +185,10 @@ public class ModelConfiguration {
   }
 
   /**
-   * Currency, and surcharge percentage or amount.
+   * Currency and percentage or amount of the surcharge.
    * @return currencies
    */
-  @ApiModelProperty(required = true, value = "Currency, and surcharge percentage or amount.")
+  @ApiModelProperty(required = true, value = "Currency and percentage or amount of the surcharge.")
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Currency> getCurrencies() {
@@ -159,7 +196,7 @@ public class ModelConfiguration {
   }
 
   /**
-   * Currency, and surcharge percentage or amount.
+   * Currency and percentage or amount of the surcharge.
    *
    * @param currencies
    */ 
@@ -223,6 +260,7 @@ public class ModelConfiguration {
     }
     ModelConfiguration configuration = (ModelConfiguration) o;
     return Objects.equals(this.brand, configuration.brand) &&
+        Objects.equals(this.commercial, configuration.commercial) &&
         Objects.equals(this.country, configuration.country) &&
         Objects.equals(this.currencies, configuration.currencies) &&
         Objects.equals(this.sources, configuration.sources);
@@ -230,7 +268,7 @@ public class ModelConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, country, currencies, sources);
+    return Objects.hash(brand, commercial, country, currencies, sources);
   }
 
   @Override
@@ -238,6 +276,7 @@ public class ModelConfiguration {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelConfiguration {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
+    sb.append("    commercial: ").append(toIndentedString(commercial)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");

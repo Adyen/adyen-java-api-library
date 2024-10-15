@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   Currency.JSON_PROPERTY_AMOUNT,
   Currency.JSON_PROPERTY_CURRENCY_CODE,
+  Currency.JSON_PROPERTY_MAX_AMOUNT,
   Currency.JSON_PROPERTY_PERCENTAGE
 })
 
@@ -42,6 +43,9 @@ public class Currency {
 
   public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
   private String currencyCode;
+
+  public static final String JSON_PROPERTY_MAX_AMOUNT = "maxAmount";
+  private Integer maxAmount;
 
   public static final String JSON_PROPERTY_PERCENTAGE = "percentage";
   private Double percentage;
@@ -116,6 +120,39 @@ public class Currency {
   }
 
   /**
+   * The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param maxAmount
+   * @return the current {@code Currency} instance, allowing for method chaining
+   */
+  public Currency maxAmount(Integer maxAmount) {
+    this.maxAmount = maxAmount;
+    return this;
+  }
+
+  /**
+   * The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * @return maxAmount
+   */
+  @ApiModelProperty(value = "The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getMaxAmount() {
+    return maxAmount;
+  }
+
+  /**
+   * The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param maxAmount
+   */ 
+  @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxAmount(Integer maxAmount) {
+    this.maxAmount = maxAmount;
+  }
+
+  /**
    * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
    *
    * @param percentage
@@ -162,12 +199,13 @@ public class Currency {
     Currency currency = (Currency) o;
     return Objects.equals(this.amount, currency.amount) &&
         Objects.equals(this.currencyCode, currency.currencyCode) &&
+        Objects.equals(this.maxAmount, currency.maxAmount) &&
         Objects.equals(this.percentage, currency.percentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, currencyCode, percentage);
+    return Objects.hash(amount, currencyCode, maxAmount, percentage);
   }
 
   @Override
@@ -176,6 +214,7 @@ public class Currency {
     sb.append("class Currency {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+    sb.append("    maxAmount: ").append(toIndentedString(maxAmount)).append("\n");
     sb.append("    percentage: ").append(toIndentedString(percentage)).append("\n");
     sb.append("}");
     return sb.toString();

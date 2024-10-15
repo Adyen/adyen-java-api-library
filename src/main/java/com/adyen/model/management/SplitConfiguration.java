@@ -36,8 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   SplitConfiguration.JSON_PROPERTY_DESCRIPTION,
   SplitConfiguration.JSON_PROPERTY_RULES,
-  SplitConfiguration.JSON_PROPERTY_SPLIT_CONFIGURATION_ID,
-  SplitConfiguration.JSON_PROPERTY_STORES
+  SplitConfiguration.JSON_PROPERTY_SPLIT_CONFIGURATION_ID
 })
 
 public class SplitConfiguration {
@@ -49,9 +48,6 @@ public class SplitConfiguration {
 
   public static final String JSON_PROPERTY_SPLIT_CONFIGURATION_ID = "splitConfigurationId";
   private String splitConfigurationId;
-
-  public static final String JSON_PROPERTY_STORES = "stores";
-  private List<String> stores = null;
 
   public SplitConfiguration() { 
   }
@@ -161,47 +157,6 @@ public class SplitConfiguration {
   }
 
   /**
-   * List of stores to which the split configuration applies.
-   *
-   * @param stores
-   * @return the current {@code SplitConfiguration} instance, allowing for method chaining
-   */
-  public SplitConfiguration stores(List<String> stores) {
-    this.stores = stores;
-    return this;
-  }
-
-  public SplitConfiguration addStoresItem(String storesItem) {
-    if (this.stores == null) {
-      this.stores = new ArrayList<>();
-    }
-    this.stores.add(storesItem);
-    return this;
-  }
-
-  /**
-   * List of stores to which the split configuration applies.
-   * @return stores
-   */
-  @ApiModelProperty(value = "List of stores to which the split configuration applies.")
-  @JsonProperty(JSON_PROPERTY_STORES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getStores() {
-    return stores;
-  }
-
-  /**
-   * List of stores to which the split configuration applies.
-   *
-   * @param stores
-   */ 
-  @JsonProperty(JSON_PROPERTY_STORES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStores(List<String> stores) {
-    this.stores = stores;
-  }
-
-  /**
    * Return true if this SplitConfiguration object is equal to o.
    */
   @Override
@@ -215,13 +170,12 @@ public class SplitConfiguration {
     SplitConfiguration splitConfiguration = (SplitConfiguration) o;
     return Objects.equals(this.description, splitConfiguration.description) &&
         Objects.equals(this.rules, splitConfiguration.rules) &&
-        Objects.equals(this.splitConfigurationId, splitConfiguration.splitConfigurationId) &&
-        Objects.equals(this.stores, splitConfiguration.stores);
+        Objects.equals(this.splitConfigurationId, splitConfiguration.splitConfigurationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, rules, splitConfigurationId, stores);
+    return Objects.hash(description, rules, splitConfigurationId);
   }
 
   @Override
@@ -231,7 +185,6 @@ public class SplitConfiguration {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    splitConfigurationId: ").append(toIndentedString(splitConfigurationId)).append("\n");
-    sb.append("    stores: ").append(toIndentedString(stores)).append("\n");
     sb.append("}");
     return sb.toString();
   }

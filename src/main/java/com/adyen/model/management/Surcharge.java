@@ -82,7 +82,7 @@ public class Surcharge {
   }
 
   /**
-   * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
+   * Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.
    *
    * @param configurations
    * @return the current {@code Surcharge} instance, allowing for method chaining
@@ -101,10 +101,10 @@ public class Surcharge {
   }
 
   /**
-   * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
+   * Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.
    * @return configurations
    */
-  @ApiModelProperty(value = "Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.")
+  @ApiModelProperty(value = "Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ModelConfiguration> getConfigurations() {
@@ -112,7 +112,7 @@ public class Surcharge {
   }
 
   /**
-   * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
+   * Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.
    *
    * @param configurations
    */ 
