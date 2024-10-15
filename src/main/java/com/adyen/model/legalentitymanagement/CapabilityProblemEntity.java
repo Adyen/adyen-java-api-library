@@ -95,6 +95,12 @@ public class CapabilityProblemEntity {
   public CapabilityProblemEntity() { 
   }
 
+  /**
+   * List of document IDs corresponding to the verification errors from capabilities.
+   *
+   * @param documents
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
+   */
   public CapabilityProblemEntity documents(List<String> documents) {
     this.documents = documents;
     return this;
@@ -108,120 +114,126 @@ public class CapabilityProblemEntity {
     return this;
   }
 
-   /**
+  /**
    * List of document IDs corresponding to the verification errors from capabilities.
    * @return documents
-  **/
+   */
   @ApiModelProperty(value = "List of document IDs corresponding to the verification errors from capabilities.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getDocuments() {
     return documents;
   }
 
-
- /**
-  * List of document IDs corresponding to the verification errors from capabilities.
-  *
-  * @param documents
-  */ 
+  /**
+   * List of document IDs corresponding to the verification errors from capabilities.
+   *
+   * @param documents
+   */ 
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
     this.documents = documents;
   }
 
-
+  /**
+   * id
+   *
+   * @param id
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
+   */
   public CapabilityProblemEntity id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
-   * Get id
+  /**
+   * id
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * id
-  *
-  * @param id
-  */ 
+  /**
+   * id
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * owner
+   *
+   * @param owner
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
+   */
   public CapabilityProblemEntity owner(CapabilityProblemEntityRecursive owner) {
     this.owner = owner;
     return this;
   }
 
-   /**
-   * Get owner
+  /**
+   * owner
    * @return owner
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CapabilityProblemEntityRecursive getOwner() {
     return owner;
   }
 
-
- /**
-  * owner
-  *
-  * @param owner
-  */ 
+  /**
+   * owner
+   *
+   * @param owner
+   */ 
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwner(CapabilityProblemEntityRecursive owner) {
     this.owner = owner;
   }
 
-
+  /**
+   * type
+   *
+   * @param type
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
+   */
   public CapabilityProblemEntity type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
-   * Get type
+  /**
+   * type
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * type
-  *
-  * @param type
-  */ 
+  /**
+   * type
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CapabilityProblemEntity object is equal to o.
@@ -288,4 +300,3 @@ public class CapabilityProblemEntity {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

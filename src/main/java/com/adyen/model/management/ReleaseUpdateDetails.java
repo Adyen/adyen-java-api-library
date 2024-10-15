@@ -78,65 +78,71 @@ public class ReleaseUpdateDetails {
   public ReleaseUpdateDetails() { 
   }
 
+  /**
+   * Type of terminal action: Update Release.
+   *
+   * @param type
+   * @return the current {@code ReleaseUpdateDetails} instance, allowing for method chaining
+   */
   public ReleaseUpdateDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of terminal action: Update Release.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Type of terminal action: Update Release.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of terminal action: Update Release.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of terminal action: Update Release.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
+   *
+   * @param updateAtFirstMaintenanceCall
+   * @return the current {@code ReleaseUpdateDetails} instance, allowing for method chaining
+   */
   public ReleaseUpdateDetails updateAtFirstMaintenanceCall(Boolean updateAtFirstMaintenanceCall) {
     this.updateAtFirstMaintenanceCall = updateAtFirstMaintenanceCall;
     return this;
   }
 
-   /**
+  /**
    * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
    * @return updateAtFirstMaintenanceCall
-  **/
+   */
   @ApiModelProperty(value = "Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.")
   @JsonProperty(JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getUpdateAtFirstMaintenanceCall() {
     return updateAtFirstMaintenanceCall;
   }
 
-
- /**
-  * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
-  *
-  * @param updateAtFirstMaintenanceCall
-  */ 
+  /**
+   * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
+   *
+   * @param updateAtFirstMaintenanceCall
+   */ 
   @JsonProperty(JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateAtFirstMaintenanceCall(Boolean updateAtFirstMaintenanceCall) {
     this.updateAtFirstMaintenanceCall = updateAtFirstMaintenanceCall;
   }
-
 
   /**
    * Return true if this ReleaseUpdateDetails object is equal to o.
@@ -199,4 +205,3 @@ public class ReleaseUpdateDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

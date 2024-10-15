@@ -44,6 +44,12 @@ public class AndroidCertificatesResponse {
   public AndroidCertificatesResponse() { 
   }
 
+  /**
+   * Uploaded Android certificates for Android payment terminals.
+   *
+   * @param data
+   * @return the current {@code AndroidCertificatesResponse} instance, allowing for method chaining
+   */
   public AndroidCertificatesResponse data(List<AndroidCertificate> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class AndroidCertificatesResponse {
     return this;
   }
 
-   /**
+  /**
    * Uploaded Android certificates for Android payment terminals.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "Uploaded Android certificates for Android payment terminals.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AndroidCertificate> getData() {
     return data;
   }
 
-
- /**
-  * Uploaded Android certificates for Android payment terminals.
-  *
-  * @param data
-  */ 
+  /**
+   * Uploaded Android certificates for Android payment terminals.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<AndroidCertificate> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this AndroidCertificatesResponse object is equal to o.
@@ -141,4 +144,3 @@ public class AndroidCertificatesResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

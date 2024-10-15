@@ -119,95 +119,104 @@ public class PayAtTable {
   public PayAtTable() { 
   }
 
+  /**
+   * Allowed authentication methods: Magswipe, Manual Entry.
+   *
+   * @param authenticationMethod
+   * @return the current {@code PayAtTable} instance, allowing for method chaining
+   */
   public PayAtTable authenticationMethod(AuthenticationMethodEnum authenticationMethod) {
     this.authenticationMethod = authenticationMethod;
     return this;
   }
 
-   /**
+  /**
    * Allowed authentication methods: Magswipe, Manual Entry.
    * @return authenticationMethod
-  **/
+   */
   @ApiModelProperty(value = "Allowed authentication methods: Magswipe, Manual Entry.")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AuthenticationMethodEnum getAuthenticationMethod() {
     return authenticationMethod;
   }
 
-
- /**
-  * Allowed authentication methods: Magswipe, Manual Entry.
-  *
-  * @param authenticationMethod
-  */ 
+  /**
+   * Allowed authentication methods: Magswipe, Manual Entry.
+   *
+   * @param authenticationMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationMethod(AuthenticationMethodEnum authenticationMethod) {
     this.authenticationMethod = authenticationMethod;
   }
 
-
+  /**
+   * Enable Pay at table.
+   *
+   * @param enablePayAtTable
+   * @return the current {@code PayAtTable} instance, allowing for method chaining
+   */
   public PayAtTable enablePayAtTable(Boolean enablePayAtTable) {
     this.enablePayAtTable = enablePayAtTable;
     return this;
   }
 
-   /**
+  /**
    * Enable Pay at table.
    * @return enablePayAtTable
-  **/
+   */
   @ApiModelProperty(value = "Enable Pay at table.")
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnablePayAtTable() {
     return enablePayAtTable;
   }
 
-
- /**
-  * Enable Pay at table.
-  *
-  * @param enablePayAtTable
-  */ 
+  /**
+   * Enable Pay at table.
+   *
+   * @param enablePayAtTable
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayAtTable(Boolean enablePayAtTable) {
     this.enablePayAtTable = enablePayAtTable;
   }
 
-
+  /**
+   * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
+   *
+   * @param paymentInstrument
+   * @return the current {@code PayAtTable} instance, allowing for method chaining
+   */
   public PayAtTable paymentInstrument(PaymentInstrumentEnum paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
     return this;
   }
 
-   /**
+  /**
    * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
    * @return paymentInstrument
-  **/
+   */
   @ApiModelProperty(value = "Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentInstrumentEnum getPaymentInstrument() {
     return paymentInstrument;
   }
 
-
- /**
-  * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
-  *
-  * @param paymentInstrument
-  */ 
+  /**
+   * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
+   *
+   * @param paymentInstrument
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrumentEnum paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
   }
-
 
   /**
    * Return true if this PayAtTable object is equal to o.
@@ -272,4 +281,3 @@ public class PayAtTable {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

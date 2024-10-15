@@ -96,185 +96,203 @@ public class TerminalSettingsData {
   public TerminalSettingsData() { 
   }
 
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param companyId
+   * @return the current {@code TerminalSettingsData} instance, allowing for method chaining
+   */
   public TerminalSettingsData companyId(String companyId) {
     this.companyId = companyId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the company account.
    * @return companyId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyId() {
     return companyId;
   }
 
-
- /**
-  * The unique identifier of the company account.
-  *
-  * @param companyId
-  */ 
+  /**
+   * The unique identifier of the company account.
+   *
+   * @param companyId
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
 
-
+  /**
+   * The unique identifier of the merchant account.
+   *
+   * @param merchantId
+   * @return the current {@code TerminalSettingsData} instance, allowing for method chaining
+   */
   public TerminalSettingsData merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the merchant account.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * The unique identifier of the merchant account.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * The unique identifier of the merchant account.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
-
+  /**
+   * The unique identifier of the store.
+   *
+   * @param storeId
+   * @return the current {@code TerminalSettingsData} instance, allowing for method chaining
+   */
   public TerminalSettingsData storeId(String storeId) {
     this.storeId = storeId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the store.
    * @return storeId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the store.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoreId() {
     return storeId;
   }
 
-
- /**
-  * The unique identifier of the store.
-  *
-  * @param storeId
-  */ 
+  /**
+   * The unique identifier of the store.
+   *
+   * @param storeId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
     this.storeId = storeId;
   }
 
-
+  /**
+   * The unique identifier of the terminal.
+   *
+   * @param terminalId
+   * @return the current {@code TerminalSettingsData} instance, allowing for method chaining
+   */
   public TerminalSettingsData terminalId(String terminalId) {
     this.terminalId = terminalId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the terminal.
    * @return terminalId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the terminal.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminalId() {
     return terminalId;
   }
 
-
- /**
-  * The unique identifier of the terminal.
-  *
-  * @param terminalId
-  */ 
+  /**
+   * The unique identifier of the terminal.
+   *
+   * @param terminalId
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
   }
 
-
+  /**
+   * Indicates whether the terminal settings were updated using the Customer Area or the Management API.
+   *
+   * @param updateSource
+   * @return the current {@code TerminalSettingsData} instance, allowing for method chaining
+   */
   public TerminalSettingsData updateSource(UpdateSourceEnum updateSource) {
     this.updateSource = updateSource;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the terminal settings were updated using the Customer Area or the Management API.
    * @return updateSource
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether the terminal settings were updated using the Customer Area or the Management API.")
   @JsonProperty(JSON_PROPERTY_UPDATE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UpdateSourceEnum getUpdateSource() {
     return updateSource;
   }
 
-
- /**
-  * Indicates whether the terminal settings were updated using the Customer Area or the Management API.
-  *
-  * @param updateSource
-  */ 
+  /**
+   * Indicates whether the terminal settings were updated using the Customer Area or the Management API.
+   *
+   * @param updateSource
+   */ 
   @JsonProperty(JSON_PROPERTY_UPDATE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateSource(UpdateSourceEnum updateSource) {
     this.updateSource = updateSource;
   }
 
-
+  /**
+   * The user that updated the terminal settings. Can be Adyen or your API credential username.
+   *
+   * @param user
+   * @return the current {@code TerminalSettingsData} instance, allowing for method chaining
+   */
   public TerminalSettingsData user(String user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * The user that updated the terminal settings. Can be Adyen or your API credential username.
    * @return user
-  **/
+   */
   @ApiModelProperty(required = true, value = "The user that updated the terminal settings. Can be Adyen or your API credential username.")
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUser() {
     return user;
   }
 
-
- /**
-  * The user that updated the terminal settings. Can be Adyen or your API credential username.
-  *
-  * @param user
-  */ 
+  /**
+   * The user that updated the terminal settings. Can be Adyen or your API credential username.
+   *
+   * @param user
+   */ 
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUser(String user) {
     this.user = user;
   }
-
 
   /**
    * Return true if this TerminalSettingsData object is equal to o.
@@ -345,4 +363,3 @@ public class TerminalSettingsData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

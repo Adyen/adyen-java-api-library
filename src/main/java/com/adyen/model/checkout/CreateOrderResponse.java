@@ -115,6 +115,12 @@ public class CreateOrderResponse {
   public CreateOrderResponse() { 
   }
 
+  /**
+   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+   *
+   * @param additionalData
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -128,300 +134,324 @@ public class CreateOrderResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The date that the order will expire.
+   *
+   * @param expiresAt
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
-   /**
+  /**
    * The date that the order will expire.
    * @return expiresAt
-  **/
+   */
   @ApiModelProperty(required = true, value = "The date that the order will expire.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiresAt() {
     return expiresAt;
   }
 
-
- /**
-  * The date that the order will expire.
-  *
-  * @param expiresAt
-  */ 
+  /**
+   * The date that the order will expire.
+   *
+   * @param expiresAt
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
-
+  /**
+   * fraudResult
+   *
+   * @param fraudResult
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
     return this;
   }
 
-   /**
-   * Get fraudResult
+  /**
+   * fraudResult
    * @return fraudResult
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FraudResult getFraudResult() {
     return fraudResult;
   }
 
-
- /**
-  * fraudResult
-  *
-  * @param fraudResult
-  */ 
+  /**
+   * fraudResult
+   *
+   * @param fraudResult
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
   }
 
-
+  /**
+   * The encrypted data that will be used by merchant for adding payments to the order.
+   *
+   * @param orderData
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse orderData(String orderData) {
     this.orderData = orderData;
     return this;
   }
 
-   /**
+  /**
    * The encrypted data that will be used by merchant for adding payments to the order.
    * @return orderData
-  **/
+   */
   @ApiModelProperty(required = true, value = "The encrypted data that will be used by merchant for adding payments to the order.")
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOrderData() {
     return orderData;
   }
 
-
- /**
-  * The encrypted data that will be used by merchant for adding payments to the order.
-  *
-  * @param orderData
-  */ 
+  /**
+   * The encrypted data that will be used by merchant for adding payments to the order.
+   *
+   * @param orderData
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
   }
 
-
+  /**
+   * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * The reference provided by merchant for creating the order.
+   *
+   * @param reference
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference provided by merchant for creating the order.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The reference provided by merchant for creating the order.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference provided by merchant for creating the order.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference provided by merchant for creating the order.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReason
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
   }
 
-   /**
+  /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReason
-  **/
+   */
   @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRefusalReason() {
     return refusalReason;
   }
 
-
- /**
-  * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-  *
-  * @param refusalReason
-  */ 
+  /**
+   * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReason
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
 
-
+  /**
+   * remainingAmount
+   *
+   * @param remainingAmount
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse remainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
     return this;
   }
 
-   /**
-   * Get remainingAmount
+  /**
+   * remainingAmount
    * @return remainingAmount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getRemainingAmount() {
     return remainingAmount;
   }
 
-
- /**
-  * remainingAmount
-  *
-  * @param remainingAmount
-  */ 
+  /**
+   * remainingAmount
+   *
+   * @param remainingAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
   }
 
-
+  /**
+   * The result of the order creation request.  The value is always **Success**.
+   *
+   * @param resultCode
+   * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
+   */
   public CreateOrderResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     return this;
   }
 
-   /**
+  /**
    * The result of the order creation request.  The value is always **Success**.
    * @return resultCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The result of the order creation request.  The value is always **Success**.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
 
-
- /**
-  * The result of the order creation request.  The value is always **Success**.
-  *
-  * @param resultCode
-  */ 
+  /**
+   * The result of the order creation request.  The value is always **Success**.
+   *
+   * @param resultCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }
-
 
   /**
    * Return true if this CreateOrderResponse object is equal to o.
@@ -500,4 +530,3 @@ public class CreateOrderResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

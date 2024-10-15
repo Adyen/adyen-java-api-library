@@ -85,95 +85,104 @@ public class TransferInstrumentInfo {
   public TransferInstrumentInfo() { 
   }
 
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   * @return the current {@code TransferInstrumentInfo} instance, allowing for method chaining
+   */
   public TransferInstrumentInfo bankAccount(BankAccountInfo bankAccount) {
     this.bankAccount = bankAccount;
     return this;
   }
 
-   /**
-   * Get bankAccount
+  /**
+   * bankAccount
    * @return bankAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccountInfo getBankAccount() {
     return bankAccount;
   }
 
-
- /**
-  * bankAccount
-  *
-  * @param bankAccount
-  */ 
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountInfo bankAccount) {
     this.bankAccount = bankAccount;
   }
 
-
+  /**
+   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
+   *
+   * @param legalEntityId
+   * @return the current {@code TransferInstrumentInfo} instance, allowing for method chaining
+   */
   public TransferInstrumentInfo legalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    * @return legalEntityId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLegalEntityId() {
     return legalEntityId;
   }
 
-
- /**
-  * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
-  *
-  * @param legalEntityId
-  */ 
+  /**
+   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
+   *
+   * @param legalEntityId
+   */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
 
-
+  /**
+   * The type of transfer instrument.  Possible value: **bankAccount**.
+   *
+   * @param type
+   * @return the current {@code TransferInstrumentInfo} instance, allowing for method chaining
+   */
   public TransferInstrumentInfo type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of transfer instrument.  Possible value: **bankAccount**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of transfer instrument.  Possible value: **bankAccount**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of transfer instrument.  Possible value: **bankAccount**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TransferInstrumentInfo object is equal to o.
@@ -238,4 +247,3 @@ public class TransferInstrumentInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

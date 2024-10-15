@@ -61,185 +61,203 @@ public class BillingAddress {
   public BillingAddress() { 
   }
 
+  /**
+   * The name of the city. Maximum length: 3000 characters.
+   *
+   * @param city
+   * @return the current {@code BillingAddress} instance, allowing for method chaining
+   */
   public BillingAddress city(String city) {
     this.city = city;
     return this;
   }
 
-   /**
+  /**
    * The name of the city. Maximum length: 3000 characters.
    * @return city
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the city. Maximum length: 3000 characters.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCity() {
     return city;
   }
 
-
- /**
-  * The name of the city. Maximum length: 3000 characters.
-  *
-  * @param city
-  */ 
+  /**
+   * The name of the city. Maximum length: 3000 characters.
+   *
+   * @param city
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
-
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
+   *
+   * @param country
+   * @return the current {@code BillingAddress} instance, allowing for method chaining
+   */
   public BillingAddress country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
+  /**
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
    * @return country
-  **/
+   */
   @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code. For example, **US**. > If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
-  *
-  * @param country
-  */ 
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The number or name of the house. Maximum length: 3000 characters.
+   *
+   * @param houseNumberOrName
+   * @return the current {@code BillingAddress} instance, allowing for method chaining
+   */
   public BillingAddress houseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
     return this;
   }
 
-   /**
+  /**
    * The number or name of the house. Maximum length: 3000 characters.
    * @return houseNumberOrName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The number or name of the house. Maximum length: 3000 characters.")
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHouseNumberOrName() {
     return houseNumberOrName;
   }
 
-
- /**
-  * The number or name of the house. Maximum length: 3000 characters.
-  *
-  * @param houseNumberOrName
-  */ 
+  /**
+   * The number or name of the house. Maximum length: 3000 characters.
+   *
+   * @param houseNumberOrName
+   */ 
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
   }
 
-
+  /**
+   * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
+   *
+   * @param postalCode
+   * @return the current {@code BillingAddress} instance, allowing for method chaining
+   */
   public BillingAddress postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
 
-   /**
+  /**
    * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
    * @return postalCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
 
-
- /**
-  * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
-  *
-  * @param postalCode
-  */ 
+  /**
+   * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
+   *
+   * @param postalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
 
-
+  /**
+   * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+   *
+   * @param stateOrProvince
+   * @return the current {@code BillingAddress} instance, allowing for method chaining
+   */
   public BillingAddress stateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
     return this;
   }
 
-   /**
+  /**
    * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
    * @return stateOrProvince
-  **/
+   */
   @ApiModelProperty(value = "The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. > Required for the US and Canada.")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStateOrProvince() {
     return stateOrProvince;
   }
 
-
- /**
-  * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
-  *
-  * @param stateOrProvince
-  */ 
+  /**
+   * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
+   *
+   * @param stateOrProvince
+   */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
   }
 
-
+  /**
+   * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
+   *
+   * @param street
+   * @return the current {@code BillingAddress} instance, allowing for method chaining
+   */
   public BillingAddress street(String street) {
     this.street = street;
     return this;
   }
 
-   /**
+  /**
    * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
    * @return street
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the street. Maximum length: 3000 characters. > The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.")
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStreet() {
     return street;
   }
 
-
- /**
-  * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
-  *
-  * @param street
-  */ 
+  /**
+   * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
+   *
+   * @param street
+   */ 
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {
     this.street = street;
   }
-
 
   /**
    * Return true if this BillingAddress object is equal to o.
@@ -310,4 +328,3 @@ public class BillingAddress {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

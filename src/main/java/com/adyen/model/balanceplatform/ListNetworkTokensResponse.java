@@ -44,6 +44,12 @@ public class ListNetworkTokensResponse {
   public ListNetworkTokensResponse() { 
   }
 
+  /**
+   * List of network tokens.
+   *
+   * @param networkTokens
+   * @return the current {@code ListNetworkTokensResponse} instance, allowing for method chaining
+   */
   public ListNetworkTokensResponse networkTokens(List<NetworkToken> networkTokens) {
     this.networkTokens = networkTokens;
     return this;
@@ -57,30 +63,27 @@ public class ListNetworkTokensResponse {
     return this;
   }
 
-   /**
+  /**
    * List of network tokens.
    * @return networkTokens
-  **/
+   */
   @ApiModelProperty(value = "List of network tokens.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<NetworkToken> getNetworkTokens() {
     return networkTokens;
   }
 
-
- /**
-  * List of network tokens.
-  *
-  * @param networkTokens
-  */ 
+  /**
+   * List of network tokens.
+   *
+   * @param networkTokens
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokens(List<NetworkToken> networkTokens) {
     this.networkTokens = networkTokens;
   }
-
 
   /**
    * Return true if this ListNetworkTokensResponse object is equal to o.
@@ -141,4 +144,3 @@ public class ListNetworkTokensResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

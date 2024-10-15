@@ -82,95 +82,104 @@ public class SGLocalAccountIdentification {
   public SGLocalAccountIdentification() { 
   }
 
+  /**
+   * The 4- to 19-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
+   */
   public SGLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 4- to 19-digit bank account number, without separators or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 4- to 19-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 4- to 19-digit bank account number, without separators or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 4- to 19-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   *
+   * @param bic
+   * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
+   */
   public SGLocalAccountIdentification bic(String bic) {
     this.bic = bic;
     return this;
   }
 
-   /**
+  /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    * @return bic
-  **/
+   */
   @ApiModelProperty(required = true, value = "The bank's 8- or 11-character BIC or SWIFT code.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBic() {
     return bic;
   }
 
-
- /**
-  * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-  *
-  * @param bic
-  */ 
+  /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   *
+   * @param bic
+   */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
   }
 
-
+  /**
+   * **sgLocal**
+   *
+   * @param type
+   * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
+   */
   public SGLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **sgLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**sgLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **sgLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **sgLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this SGLocalAccountIdentification object is equal to o.
@@ -235,4 +244,3 @@ public class SGLocalAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

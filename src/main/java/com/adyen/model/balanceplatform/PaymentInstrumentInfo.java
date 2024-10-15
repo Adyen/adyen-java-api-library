@@ -206,335 +206,368 @@ public class PaymentInstrumentInfo {
   public PaymentInstrumentInfo() { 
   }
 
+  /**
+   * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
+   *
+   * @param balanceAccountId
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
    * @return balanceAccountId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
-
- /**
-  * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
-  *
-  * @param balanceAccountId
-  */ 
+  /**
+   * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
+   *
+   * @param balanceAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
-
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo bankAccount(BankAccountModel bankAccount) {
     this.bankAccount = bankAccount;
     return this;
   }
 
-   /**
-   * Get bankAccount
+  /**
+   * bankAccount
    * @return bankAccount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccountModel getBankAccount() {
     return bankAccount;
   }
 
-
- /**
-  * bankAccount
-  *
-  * @param bankAccount
-  */ 
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountModel bankAccount) {
     this.bankAccount = bankAccount;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo card(CardInfo card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardInfo getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardInfo card) {
     this.card = card;
   }
 
-
+  /**
+   * Your description for the payment instrument, maximum 300 characters.
+   *
+   * @param description
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the payment instrument, maximum 300 characters.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Your description for the payment instrument, maximum 300 characters.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the payment instrument, maximum 300 characters.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the payment instrument, maximum 300 characters.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
+   *
+   * @param issuingCountryCode
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo issuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
     return this;
   }
 
-   /**
+  /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    * @return issuingCountryCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuingCountryCode() {
     return issuingCountryCode;
   }
 
-
- /**
-  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
-  *
-  * @param issuingCountryCode
-  */ 
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
+   *
+   * @param issuingCountryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
   }
 
-
+  /**
+   * The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
+   *
+   * @param paymentInstrumentGroupId
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo paymentInstrumentGroupId(String paymentInstrumentGroupId) {
     this.paymentInstrumentGroupId = paymentInstrumentGroupId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
    * @return paymentInstrumentGroupId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentGroupId() {
     return paymentInstrumentGroupId;
   }
 
-
- /**
-  * The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
-  *
-  * @param paymentInstrumentGroupId
-  */ 
+  /**
+   * The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
+   *
+   * @param paymentInstrumentGroupId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentGroupId(String paymentInstrumentGroupId) {
     this.paymentInstrumentGroupId = paymentInstrumentGroupId;
   }
 
-
+  /**
+   * Your reference for the payment instrument, maximum 150 characters.
+   *
+   * @param reference
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the payment instrument, maximum 150 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the payment instrument, maximum 150 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the payment instrument, maximum 150 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the payment instrument, maximum 150 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
+   *
+   * @param status
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the `card.formFactor` and the `issuingCountryCode`. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The status comment provides additional information for the statusReason of the payment instrument.
+   *
+   * @param statusComment
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo statusComment(String statusComment) {
     this.statusComment = statusComment;
     return this;
   }
 
-   /**
+  /**
    * The status comment provides additional information for the statusReason of the payment instrument.
    * @return statusComment
-  **/
+   */
   @ApiModelProperty(value = "The status comment provides additional information for the statusReason of the payment instrument.")
   @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatusComment() {
     return statusComment;
   }
 
-
- /**
-  * The status comment provides additional information for the statusReason of the payment instrument.
-  *
-  * @param statusComment
-  */ 
+  /**
+   * The status comment provides additional information for the statusReason of the payment instrument.
+   *
+   * @param statusComment
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusComment(String statusComment) {
     this.statusComment = statusComment;
   }
 
-
+  /**
+   * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
+   *
+   * @param statusReason
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo statusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
     return this;
   }
 
-   /**
+  /**
    * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
    * @return statusReason
-  **/
+   */
   @ApiModelProperty(value = "The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the `statusComment` parameter describing the status change.")
   @JsonProperty(JSON_PROPERTY_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusReasonEnum getStatusReason() {
     return statusReason;
   }
 
-
- /**
-  * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
-  *
-  * @param statusReason
-  */ 
+  /**
+   * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
+   *
+   * @param statusReason
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
   }
 
-
+  /**
+   * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
+   *
+   * @param type
+   * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
+   */
   public PaymentInstrumentInfo type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "Type of payment instrument.  Possible value: **card**, **bankAccount**. ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
-  *
-  * @param type
-  */ 
+  /**
+   * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PaymentInstrumentInfo object is equal to o.
@@ -615,4 +648,3 @@ public class PaymentInstrumentInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

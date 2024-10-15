@@ -45,65 +45,71 @@ public class TransactionRuleEntityKey {
   public TransactionRuleEntityKey() { 
   }
 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param entityReference
+   * @return the current {@code TransactionRuleEntityKey} instance, allowing for method chaining
+   */
   public TransactionRuleEntityKey entityReference(String entityReference) {
     this.entityReference = entityReference;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the resource.
    * @return entityReference
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ENTITY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEntityReference() {
     return entityReference;
   }
 
-
- /**
-  * The unique identifier of the resource.
-  *
-  * @param entityReference
-  */ 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param entityReference
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityReference(String entityReference) {
     this.entityReference = entityReference;
   }
 
-
+  /**
+   * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
+   *
+   * @param entityType
+   * @return the current {@code TransactionRuleEntityKey} instance, allowing for method chaining
+   */
   public TransactionRuleEntityKey entityType(String entityType) {
     this.entityType = entityType;
     return this;
   }
 
-   /**
+  /**
    * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
    * @return entityType
-  **/
+   */
   @ApiModelProperty(value = "The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.")
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEntityType() {
     return entityType;
   }
 
-
- /**
-  * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
-  *
-  * @param entityType
-  */ 
+  /**
+   * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
+   *
+   * @param entityType
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(String entityType) {
     this.entityType = entityType;
   }
-
 
   /**
    * Return true if this TransactionRuleEntityKey object is equal to o.
@@ -166,4 +172,3 @@ public class TransactionRuleEntityKey {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

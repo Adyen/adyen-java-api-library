@@ -82,95 +82,104 @@ public class InternalCategoryData {
   public InternalCategoryData() { 
   }
 
+  /**
+   * The capture&#39;s merchant reference included in the transfer.
+   *
+   * @param modificationMerchantReference
+   * @return the current {@code InternalCategoryData} instance, allowing for method chaining
+   */
   public InternalCategoryData modificationMerchantReference(String modificationMerchantReference) {
     this.modificationMerchantReference = modificationMerchantReference;
     return this;
   }
 
-   /**
+  /**
    * The capture&#39;s merchant reference included in the transfer.
    * @return modificationMerchantReference
-  **/
+   */
   @ApiModelProperty(value = "The capture's merchant reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getModificationMerchantReference() {
     return modificationMerchantReference;
   }
 
-
- /**
-  * The capture&#39;s merchant reference included in the transfer.
-  *
-  * @param modificationMerchantReference
-  */ 
+  /**
+   * The capture&#39;s merchant reference included in the transfer.
+   *
+   * @param modificationMerchantReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationMerchantReference(String modificationMerchantReference) {
     this.modificationMerchantReference = modificationMerchantReference;
   }
 
-
+  /**
+   * The capture reference included in the transfer.
+   *
+   * @param modificationPspReference
+   * @return the current {@code InternalCategoryData} instance, allowing for method chaining
+   */
   public InternalCategoryData modificationPspReference(String modificationPspReference) {
     this.modificationPspReference = modificationPspReference;
     return this;
   }
 
-   /**
+  /**
    * The capture reference included in the transfer.
    * @return modificationPspReference
-  **/
+   */
   @ApiModelProperty(value = "The capture reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getModificationPspReference() {
     return modificationPspReference;
   }
 
-
- /**
-  * The capture reference included in the transfer.
-  *
-  * @param modificationPspReference
-  */ 
+  /**
+   * The capture reference included in the transfer.
+   *
+   * @param modificationPspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationPspReference(String modificationPspReference) {
     this.modificationPspReference = modificationPspReference;
   }
 
-
+  /**
+   * **internal**
+   *
+   * @param type
+   * @return the current {@code InternalCategoryData} instance, allowing for method chaining
+   */
   public InternalCategoryData type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **internal**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**internal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **internal**
-  *
-  * @param type
-  */ 
+  /**
+   * **internal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this InternalCategoryData object is equal to o.
@@ -235,4 +244,3 @@ public class InternalCategoryData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -110,545 +110,599 @@ public class Profile {
   public Profile() { 
   }
 
+  /**
+   * The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.
+   *
+   * @param authType
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile authType(String authType) {
     this.authType = authType;
     return this;
   }
 
-   /**
+  /**
    * The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.
    * @return authType
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.")
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthType() {
     return authType;
   }
 
-
- /**
-  * The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.
-  *
-  * @param authType
-  */ 
+  /**
+   * The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.
+   *
+   * @param authType
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthType(String authType) {
     this.authType = authType;
   }
 
-
+  /**
+   * Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.
+   *
+   * @param autoWifi
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile autoWifi(Boolean autoWifi) {
     this.autoWifi = autoWifi;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.
    * @return autoWifi
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.")
   @JsonProperty(JSON_PROPERTY_AUTO_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAutoWifi() {
     return autoWifi;
   }
 
-
- /**
-  * Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.
-  *
-  * @param autoWifi
-  */ 
+  /**
+   * Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.
+   *
+   * @param autoWifi
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTO_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoWifi(Boolean autoWifi) {
     this.autoWifi = autoWifi;
   }
 
-
+  /**
+   * Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.
+   *
+   * @param bssType
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile bssType(String bssType) {
     this.bssType = bssType;
     return this;
   }
 
-   /**
+  /**
    * Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.
    * @return bssType
-  **/
+   */
   @ApiModelProperty(required = true, value = "Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.")
   @JsonProperty(JSON_PROPERTY_BSS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBssType() {
     return bssType;
   }
 
-
- /**
-  * Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.
-  *
-  * @param bssType
-  */ 
+  /**
+   * Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.
+   *
+   * @param bssType
+   */ 
   @JsonProperty(JSON_PROPERTY_BSS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBssType(String bssType) {
     this.bssType = bssType;
   }
 
-
+  /**
+   * The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.
+   *
+   * @param channel
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile channel(Integer channel) {
     this.channel = channel;
     return this;
   }
 
-   /**
+  /**
    * The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.
    * @return channel
-  **/
+   */
   @ApiModelProperty(value = "The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.")
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getChannel() {
     return channel;
   }
 
-
- /**
-  * The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.
-  *
-  * @param channel
-  */ 
+  /**
+   * The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.
+   *
+   * @param channel
+   */ 
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChannel(Integer channel) {
     this.channel = channel;
   }
 
-
+  /**
+   * Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.
+   *
+   * @param defaultProfile
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile defaultProfile(Boolean defaultProfile) {
     this.defaultProfile = defaultProfile;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.
    * @return defaultProfile
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.")
   @JsonProperty(JSON_PROPERTY_DEFAULT_PROFILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDefaultProfile() {
     return defaultProfile;
   }
 
-
- /**
-  * Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.
-  *
-  * @param defaultProfile
-  */ 
+  /**
+   * Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.
+   *
+   * @param defaultProfile
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFAULT_PROFILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultProfile(Boolean defaultProfile) {
     this.defaultProfile = defaultProfile;
   }
 
-
+  /**
+   * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**
+   *
+   * @param eap
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eap(String eap) {
     this.eap = eap;
     return this;
   }
 
-   /**
+  /**
    * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**
    * @return eap
-  **/
+   */
   @ApiModelProperty(value = "For `authType` **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**")
   @JsonProperty(JSON_PROPERTY_EAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEap() {
     return eap;
   }
 
-
- /**
-  * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**
-  *
-  * @param eap
-  */ 
+  /**
+   * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**
+   *
+   * @param eap
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEap(String eap) {
     this.eap = eap;
   }
 
-
+  /**
+   * eapCaCert
+   *
+   * @param eapCaCert
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eapCaCert(ModelFile eapCaCert) {
     this.eapCaCert = eapCaCert;
     return this;
   }
 
-   /**
-   * Get eapCaCert
+  /**
+   * eapCaCert
    * @return eapCaCert
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EAP_CA_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ModelFile getEapCaCert() {
     return eapCaCert;
   }
 
-
- /**
-  * eapCaCert
-  *
-  * @param eapCaCert
-  */ 
+  /**
+   * eapCaCert
+   *
+   * @param eapCaCert
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP_CA_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapCaCert(ModelFile eapCaCert) {
     this.eapCaCert = eapCaCert;
   }
 
-
+  /**
+   * eapClientCert
+   *
+   * @param eapClientCert
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eapClientCert(ModelFile eapClientCert) {
     this.eapClientCert = eapClientCert;
     return this;
   }
 
-   /**
-   * Get eapClientCert
+  /**
+   * eapClientCert
    * @return eapClientCert
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ModelFile getEapClientCert() {
     return eapClientCert;
   }
 
-
- /**
-  * eapClientCert
-  *
-  * @param eapClientCert
-  */ 
+  /**
+   * eapClientCert
+   *
+   * @param eapClientCert
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientCert(ModelFile eapClientCert) {
     this.eapClientCert = eapClientCert;
   }
 
-
+  /**
+   * eapClientKey
+   *
+   * @param eapClientKey
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eapClientKey(ModelFile eapClientKey) {
     this.eapClientKey = eapClientKey;
     return this;
   }
 
-   /**
-   * Get eapClientKey
+  /**
+   * eapClientKey
    * @return eapClientKey
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ModelFile getEapClientKey() {
     return eapClientKey;
   }
 
-
- /**
-  * eapClientKey
-  *
-  * @param eapClientKey
-  */ 
+  /**
+   * eapClientKey
+   *
+   * @param eapClientKey
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientKey(ModelFile eapClientKey) {
     this.eapClientKey = eapClientKey;
   }
 
-
+  /**
+   * For &#x60;eap&#x60; **tls**. The password of the RSA key file, if that file is password-protected.
+   *
+   * @param eapClientPwd
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eapClientPwd(String eapClientPwd) {
     this.eapClientPwd = eapClientPwd;
     return this;
   }
 
-   /**
+  /**
    * For &#x60;eap&#x60; **tls**. The password of the RSA key file, if that file is password-protected.
    * @return eapClientPwd
-  **/
+   */
   @ApiModelProperty(value = "For `eap` **tls**. The password of the RSA key file, if that file is password-protected.")
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_PWD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEapClientPwd() {
     return eapClientPwd;
   }
 
-
- /**
-  * For &#x60;eap&#x60; **tls**. The password of the RSA key file, if that file is password-protected.
-  *
-  * @param eapClientPwd
-  */ 
+  /**
+   * For &#x60;eap&#x60; **tls**. The password of the RSA key file, if that file is password-protected.
+   *
+   * @param eapClientPwd
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_PWD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientPwd(String eapClientPwd) {
     this.eapClientPwd = eapClientPwd;
   }
 
-
+  /**
+   * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.
+   *
+   * @param eapIdentity
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eapIdentity(String eapIdentity) {
     this.eapIdentity = eapIdentity;
     return this;
   }
 
-   /**
+  /**
    * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.
    * @return eapIdentity
-  **/
+   */
   @ApiModelProperty(value = "For `authType` **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.")
   @JsonProperty(JSON_PROPERTY_EAP_IDENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEapIdentity() {
     return eapIdentity;
   }
 
-
- /**
-  * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.
-  *
-  * @param eapIdentity
-  */ 
+  /**
+   * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.
+   *
+   * @param eapIdentity
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP_IDENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIdentity(String eapIdentity) {
     this.eapIdentity = eapIdentity;
   }
 
-
+  /**
+   * eapIntermediateCert
+   *
+   * @param eapIntermediateCert
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eapIntermediateCert(ModelFile eapIntermediateCert) {
     this.eapIntermediateCert = eapIntermediateCert;
     return this;
   }
 
-   /**
-   * Get eapIntermediateCert
+  /**
+   * eapIntermediateCert
    * @return eapIntermediateCert
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EAP_INTERMEDIATE_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ModelFile getEapIntermediateCert() {
     return eapIntermediateCert;
   }
 
-
- /**
-  * eapIntermediateCert
-  *
-  * @param eapIntermediateCert
-  */ 
+  /**
+   * eapIntermediateCert
+   *
+   * @param eapIntermediateCert
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP_INTERMEDIATE_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIntermediateCert(ModelFile eapIntermediateCert) {
     this.eapIntermediateCert = eapIntermediateCert;
   }
 
-
+  /**
+   * For &#x60;eap&#x60; **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.
+   *
+   * @param eapPwd
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile eapPwd(String eapPwd) {
     this.eapPwd = eapPwd;
     return this;
   }
 
-   /**
+  /**
    * For &#x60;eap&#x60; **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.
    * @return eapPwd
-  **/
+   */
   @ApiModelProperty(value = "For `eap` **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.")
   @JsonProperty(JSON_PROPERTY_EAP_PWD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEapPwd() {
     return eapPwd;
   }
 
-
- /**
-  * For &#x60;eap&#x60; **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.
-  *
-  * @param eapPwd
-  */ 
+  /**
+   * For &#x60;eap&#x60; **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.
+   *
+   * @param eapPwd
+   */ 
   @JsonProperty(JSON_PROPERTY_EAP_PWD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapPwd(String eapPwd) {
     this.eapPwd = eapPwd;
   }
 
-
+  /**
+   * Indicates if the network doesn&#39;t broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.
+   *
+   * @param hiddenSsid
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile hiddenSsid(Boolean hiddenSsid) {
     this.hiddenSsid = hiddenSsid;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the network doesn&#39;t broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.
    * @return hiddenSsid
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the network doesn't broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.")
   @JsonProperty(JSON_PROPERTY_HIDDEN_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHiddenSsid() {
     return hiddenSsid;
   }
 
-
- /**
-  * Indicates if the network doesn&#39;t broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.
-  *
-  * @param hiddenSsid
-  */ 
+  /**
+   * Indicates if the network doesn&#39;t broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.
+   *
+   * @param hiddenSsid
+   */ 
   @JsonProperty(JSON_PROPERTY_HIDDEN_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHiddenSsid(Boolean hiddenSsid) {
     this.hiddenSsid = hiddenSsid;
   }
 
-
+  /**
+   * Your name for the Wi-Fi profile.
+   *
+   * @param name
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Your name for the Wi-Fi profile.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "Your name for the Wi-Fi profile.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * Your name for the Wi-Fi profile.
-  *
-  * @param name
-  */ 
+  /**
+   * Your name for the Wi-Fi profile.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * For &#x60;authType&#x60; **wpa-psk or **wpa2-psk**. The password to the wireless network.
+   *
+   * @param psk
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile psk(String psk) {
     this.psk = psk;
     return this;
   }
 
-   /**
+  /**
    * For &#x60;authType&#x60; **wpa-psk or **wpa2-psk**. The password to the wireless network.
    * @return psk
-  **/
+   */
   @ApiModelProperty(value = "For `authType` **wpa-psk or **wpa2-psk**. The password to the wireless network.")
   @JsonProperty(JSON_PROPERTY_PSK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPsk() {
     return psk;
   }
 
-
- /**
-  * For &#x60;authType&#x60; **wpa-psk or **wpa2-psk**. The password to the wireless network.
-  *
-  * @param psk
-  */ 
+  /**
+   * For &#x60;authType&#x60; **wpa-psk or **wpa2-psk**. The password to the wireless network.
+   *
+   * @param psk
+   */ 
   @JsonProperty(JSON_PROPERTY_PSK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPsk(String psk) {
     this.psk = psk;
   }
 
-
+  /**
+   * The name of the wireless network.
+   *
+   * @param ssid
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile ssid(String ssid) {
     this.ssid = ssid;
     return this;
   }
 
-   /**
+  /**
    * The name of the wireless network.
    * @return ssid
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the wireless network.")
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSsid() {
     return ssid;
   }
 
-
- /**
-  * The name of the wireless network.
-  *
-  * @param ssid
-  */ 
+  /**
+   * The name of the wireless network.
+   *
+   * @param ssid
+   */ 
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {
     this.ssid = ssid;
   }
 
-
+  /**
+   * The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**
+   *
+   * @param wsec
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
   public Profile wsec(String wsec) {
     this.wsec = wsec;
     return this;
   }
 
-   /**
+  /**
    * The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**
    * @return wsec
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**")
   @JsonProperty(JSON_PROPERTY_WSEC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWsec() {
     return wsec;
   }
 
-
- /**
-  * The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**
-  *
-  * @param wsec
-  */ 
+  /**
+   * The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**
+   *
+   * @param wsec
+   */ 
   @JsonProperty(JSON_PROPERTY_WSEC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWsec(String wsec) {
     this.wsec = wsec;
   }
-
 
   /**
    * Return true if this Profile object is equal to o.
@@ -743,4 +797,3 @@ public class Profile {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

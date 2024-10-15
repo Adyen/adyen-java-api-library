@@ -79,65 +79,71 @@ public class EstimationTrackingData {
   public EstimationTrackingData() { 
   }
 
+  /**
+   * The estimated time the beneficiary should have access to the funds.
+   *
+   * @param estimatedArrivalTime
+   * @return the current {@code EstimationTrackingData} instance, allowing for method chaining
+   */
   public EstimationTrackingData estimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
     return this;
   }
 
-   /**
+  /**
    * The estimated time the beneficiary should have access to the funds.
    * @return estimatedArrivalTime
-  **/
+   */
   @ApiModelProperty(required = true, value = "The estimated time the beneficiary should have access to the funds.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getEstimatedArrivalTime() {
     return estimatedArrivalTime;
   }
 
-
- /**
-  * The estimated time the beneficiary should have access to the funds.
-  *
-  * @param estimatedArrivalTime
-  */ 
+  /**
+   * The estimated time the beneficiary should have access to the funds.
+   *
+   * @param estimatedArrivalTime
+   */ 
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
   }
 
-
+  /**
+   * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
+   *
+   * @param type
+   * @return the current {@code EstimationTrackingData} instance, allowing for method chaining
+   */
   public EstimationTrackingData type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this EstimationTrackingData object is equal to o.
@@ -200,4 +206,3 @@ public class EstimationTrackingData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

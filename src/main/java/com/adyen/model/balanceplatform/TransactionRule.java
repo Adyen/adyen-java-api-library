@@ -70,7 +70,7 @@ public class TransactionRule {
   private TransactionRuleInterval interval;
 
   /**
-   * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule. If not provided, by default, this is set to **hardBlock**.  Possible values:   * **hardBlock**: the transaction is declined.  * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined.
+   * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule.  Possible values: * **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, declines the Transaction.  Default value: **hardBlock**.  &gt; **scoreBased** is not allowed when &#x60;requestType&#x60; is **bankTransfer**.
    */
   public enum OutcomeTypeEnum {
     ENFORCESCA("enforceSCA"),
@@ -248,425 +248,467 @@ public class TransactionRule {
   public TransactionRule() { 
   }
 
+  /**
+   * The level at which data must be accumulated, used in rules with &#x60;type&#x60; **velocity** or **maxUsage**. The level must be the [same or lower in hierarchy](https://docs.adyen.com/issuing/transaction-rules#accumulate-data) than the &#x60;entityKey&#x60;.  If not provided, by default, the rule will accumulate data at the **paymentInstrument** level.  Possible values: **paymentInstrument**, **paymentInstrumentGroup**, **balanceAccount**, **accountHolder**, **balancePlatform**.
+   *
+   * @param aggregationLevel
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule aggregationLevel(String aggregationLevel) {
     this.aggregationLevel = aggregationLevel;
     return this;
   }
 
-   /**
+  /**
    * The level at which data must be accumulated, used in rules with &#x60;type&#x60; **velocity** or **maxUsage**. The level must be the [same or lower in hierarchy](https://docs.adyen.com/issuing/transaction-rules#accumulate-data) than the &#x60;entityKey&#x60;.  If not provided, by default, the rule will accumulate data at the **paymentInstrument** level.  Possible values: **paymentInstrument**, **paymentInstrumentGroup**, **balanceAccount**, **accountHolder**, **balancePlatform**.
    * @return aggregationLevel
-  **/
+   */
   @ApiModelProperty(value = "The level at which data must be accumulated, used in rules with `type` **velocity** or **maxUsage**. The level must be the [same or lower in hierarchy](https://docs.adyen.com/issuing/transaction-rules#accumulate-data) than the `entityKey`.  If not provided, by default, the rule will accumulate data at the **paymentInstrument** level.  Possible values: **paymentInstrument**, **paymentInstrumentGroup**, **balanceAccount**, **accountHolder**, **balancePlatform**.")
   @JsonProperty(JSON_PROPERTY_AGGREGATION_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAggregationLevel() {
     return aggregationLevel;
   }
 
-
- /**
-  * The level at which data must be accumulated, used in rules with &#x60;type&#x60; **velocity** or **maxUsage**. The level must be the [same or lower in hierarchy](https://docs.adyen.com/issuing/transaction-rules#accumulate-data) than the &#x60;entityKey&#x60;.  If not provided, by default, the rule will accumulate data at the **paymentInstrument** level.  Possible values: **paymentInstrument**, **paymentInstrumentGroup**, **balanceAccount**, **accountHolder**, **balancePlatform**.
-  *
-  * @param aggregationLevel
-  */ 
+  /**
+   * The level at which data must be accumulated, used in rules with &#x60;type&#x60; **velocity** or **maxUsage**. The level must be the [same or lower in hierarchy](https://docs.adyen.com/issuing/transaction-rules#accumulate-data) than the &#x60;entityKey&#x60;.  If not provided, by default, the rule will accumulate data at the **paymentInstrument** level.  Possible values: **paymentInstrument**, **paymentInstrumentGroup**, **balanceAccount**, **accountHolder**, **balancePlatform**.
+   *
+   * @param aggregationLevel
+   */ 
   @JsonProperty(JSON_PROPERTY_AGGREGATION_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAggregationLevel(String aggregationLevel) {
     this.aggregationLevel = aggregationLevel;
   }
 
-
+  /**
+   * Your description for the transaction rule.
+   *
+   * @param description
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the transaction rule.
    * @return description
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your description for the transaction rule.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the transaction rule.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the transaction rule.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided, the rule will be evaluated until the rule status is set to **inactive**.
+   *
+   * @param endDate
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule endDate(String endDate) {
     this.endDate = endDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided, the rule will be evaluated until the rule status is set to **inactive**.
    * @return endDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided, the rule will be evaluated until the rule status is set to **inactive**.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEndDate() {
     return endDate;
   }
 
-
- /**
-  * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided, the rule will be evaluated until the rule status is set to **inactive**.
-  *
-  * @param endDate
-  */ 
+  /**
+   * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided, the rule will be evaluated until the rule status is set to **inactive**.
+   *
+   * @param endDate
+   */ 
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
 
-
+  /**
+   * entityKey
+   *
+   * @param entityKey
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule entityKey(TransactionRuleEntityKey entityKey) {
     this.entityKey = entityKey;
     return this;
   }
 
-   /**
-   * Get entityKey
+  /**
+   * entityKey
    * @return entityKey
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ENTITY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionRuleEntityKey getEntityKey() {
     return entityKey;
   }
 
-
- /**
-  * entityKey
-  *
-  * @param entityKey
-  */ 
+  /**
+   * entityKey
+   *
+   * @param entityKey
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityKey(TransactionRuleEntityKey entityKey) {
     this.entityKey = entityKey;
   }
 
-
+  /**
+   * The unique identifier of the transaction rule.
+   *
+   * @param id
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the transaction rule.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the transaction rule.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the transaction rule.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the transaction rule.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * interval
+   *
+   * @param interval
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule interval(TransactionRuleInterval interval) {
     this.interval = interval;
     return this;
   }
 
-   /**
-   * Get interval
+  /**
+   * interval
    * @return interval
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionRuleInterval getInterval() {
     return interval;
   }
 
-
- /**
-  * interval
-  *
-  * @param interval
-  */ 
+  /**
+   * interval
+   *
+   * @param interval
+   */ 
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(TransactionRuleInterval interval) {
     this.interval = interval;
   }
 
-
+  /**
+   * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule.  Possible values: * **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, declines the Transaction.  Default value: **hardBlock**.  &gt; **scoreBased** is not allowed when &#x60;requestType&#x60; is **bankTransfer**.
+   *
+   * @param outcomeType
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule outcomeType(OutcomeTypeEnum outcomeType) {
     this.outcomeType = outcomeType;
     return this;
   }
 
-   /**
-   * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule. If not provided, by default, this is set to **hardBlock**.  Possible values:   * **hardBlock**: the transaction is declined.  * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined.
+  /**
+   * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule.  Possible values: * **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, declines the Transaction.  Default value: **hardBlock**.  &gt; **scoreBased** is not allowed when &#x60;requestType&#x60; is **bankTransfer**.
    * @return outcomeType
-  **/
-  @ApiModelProperty(value = "The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule. If not provided, by default, this is set to **hardBlock**.  Possible values:   * **hardBlock**: the transaction is declined.  * **scoreBased**: the transaction is assigned the `score` you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined.")
+   */
+  @ApiModelProperty(value = "The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule.  Possible values: * **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned the `score` you specified. Adyen calculates the total score and if it exceeds 100, declines the Transaction.  Default value: **hardBlock**.  > **scoreBased** is not allowed when `requestType` is **bankTransfer**.")
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OutcomeTypeEnum getOutcomeType() {
     return outcomeType;
   }
 
-
- /**
-  * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule. If not provided, by default, this is set to **hardBlock**.  Possible values:   * **hardBlock**: the transaction is declined.  * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined.
-  *
-  * @param outcomeType
-  */ 
+  /**
+   * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule.  Possible values: * **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, declines the Transaction.  Default value: **hardBlock**.  &gt; **scoreBased** is not allowed when &#x60;requestType&#x60; is **bankTransfer**.
+   *
+   * @param outcomeType
+   */ 
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcomeType(OutcomeTypeEnum outcomeType) {
     this.outcomeType = outcomeType;
   }
 
-
+  /**
+   * Your reference for the transaction rule.
+   *
+   * @param reference
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the transaction rule.
    * @return reference
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your reference for the transaction rule.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the transaction rule.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the transaction rule.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.
+   *
+   * @param requestType
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule requestType(RequestTypeEnum requestType) {
     this.requestType = requestType;
     return this;
   }
 
-   /**
+  /**
    * Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.
    * @return requestType
-  **/
+   */
   @ApiModelProperty(value = "Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.")
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RequestTypeEnum getRequestType() {
     return requestType;
   }
 
-
- /**
-  * Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.
-  *
-  * @param requestType
-  */ 
+  /**
+   * Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.
+   *
+   * @param requestType
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestType(RequestTypeEnum requestType) {
     this.requestType = requestType;
   }
 
-
+  /**
+   * ruleRestrictions
+   *
+   * @param ruleRestrictions
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule ruleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     this.ruleRestrictions = ruleRestrictions;
     return this;
   }
 
-   /**
-   * Get ruleRestrictions
+  /**
+   * ruleRestrictions
    * @return ruleRestrictions
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RULE_RESTRICTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionRuleRestrictions getRuleRestrictions() {
     return ruleRestrictions;
   }
 
-
- /**
-  * ruleRestrictions
-  *
-  * @param ruleRestrictions
-  */ 
+  /**
+   * ruleRestrictions
+   *
+   * @param ruleRestrictions
+   */ 
   @JsonProperty(JSON_PROPERTY_RULE_RESTRICTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRuleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     this.ruleRestrictions = ruleRestrictions;
   }
 
-
+  /**
+   * A positive or negative score applied to the transaction if it meets the conditions of the rule. Required when &#x60;outcomeType&#x60; is **scoreBased**.  The value must be between **-100** and **100**.
+   *
+   * @param score
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule score(Integer score) {
     this.score = score;
     return this;
   }
 
-   /**
+  /**
    * A positive or negative score applied to the transaction if it meets the conditions of the rule. Required when &#x60;outcomeType&#x60; is **scoreBased**.  The value must be between **-100** and **100**.
    * @return score
-  **/
+   */
   @ApiModelProperty(value = "A positive or negative score applied to the transaction if it meets the conditions of the rule. Required when `outcomeType` is **scoreBased**.  The value must be between **-100** and **100**.")
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getScore() {
     return score;
   }
 
-
- /**
-  * A positive or negative score applied to the transaction if it meets the conditions of the rule. Required when &#x60;outcomeType&#x60; is **scoreBased**.  The value must be between **-100** and **100**.
-  *
-  * @param score
-  */ 
+  /**
+   * A positive or negative score applied to the transaction if it meets the conditions of the rule. Required when &#x60;outcomeType&#x60; is **scoreBased**.  The value must be between **-100** and **100**.
+   *
+   * @param score
+   */ 
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
   }
 
-
+  /**
+   * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided when creating a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.   
+   *
+   * @param startDate
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule startDate(String startDate) {
     this.startDate = startDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided when creating a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.   
    * @return startDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided when creating a transaction rule, the `startDate` is set to the date when the rule status is set to **active**.   ")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStartDate() {
     return startDate;
   }
 
-
- /**
-  * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided when creating a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.   
-  *
-  * @param startDate
-  */ 
+  /**
+   * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided when creating a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.   
+   *
+   * @param startDate
+   */ 
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
 
-
+  /**
+   * The status of the transaction rule. If you provide a &#x60;startDate&#x60; in the request, the rule is automatically created  with an **active** status.   Possible values: **active**, **inactive**.
+   *
+   * @param status
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the transaction rule. If you provide a &#x60;startDate&#x60; in the request, the rule is automatically created  with an **active** status.   Possible values: **active**, **inactive**.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the transaction rule. If you provide a `startDate` in the request, the rule is automatically created  with an **active** status.   Possible values: **active**, **inactive**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the transaction rule. If you provide a &#x60;startDate&#x60; in the request, the rule is automatically created  with an **active** status.   Possible values: **active**, **inactive**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the transaction rule. If you provide a &#x60;startDate&#x60; in the request, the rule is automatically created  with an **active** status.   Possible values: **active**, **inactive**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
+   *
+   * @param type
+   * @return the current {@code TransactionRule} instance, allowing for method chaining
+   */
   public TransactionRule type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
-  *
-  * @param type
-  */ 
+  /**
+   * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TransactionRule object is equal to o.
@@ -753,4 +795,3 @@ public class TransactionRule {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

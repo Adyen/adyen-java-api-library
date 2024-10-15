@@ -43,42 +43,53 @@ public class PaymentSetupResponse {
   private String paymentSession;
 
   public static final String JSON_PROPERTY_RECURRING_DETAILS = "recurringDetails";
-  @Deprecated
+  @Deprecated // deprecated 
   private List<RecurringDetail> recurringDetails = null;
 
   public PaymentSetupResponse() { 
   }
 
+  /**
+   * The encoded payment session that you need to pass to the SDK.
+   *
+   * @param paymentSession
+   * @return the current {@code PaymentSetupResponse} instance, allowing for method chaining
+   */
   public PaymentSetupResponse paymentSession(String paymentSession) {
     this.paymentSession = paymentSession;
     return this;
   }
 
-   /**
+  /**
    * The encoded payment session that you need to pass to the SDK.
    * @return paymentSession
-  **/
+   */
   @ApiModelProperty(value = "The encoded payment session that you need to pass to the SDK.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_SESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentSession() {
     return paymentSession;
   }
 
-
- /**
-  * The encoded payment session that you need to pass to the SDK.
-  *
-  * @param paymentSession
-  */ 
+  /**
+   * The encoded payment session that you need to pass to the SDK.
+   *
+   * @param paymentSession
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_SESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentSession(String paymentSession) {
     this.paymentSession = paymentSession;
   }
 
-
+  /**
+   * The detailed list of stored payment details required to generate payment forms. Will be empty if oneClick is set to false in the request.
+   *
+   * @param recurringDetails
+   * @return the current {@code PaymentSetupResponse} instance, allowing for method chaining
+   *
+   * @deprecated 
+   */
   @Deprecated
   public PaymentSetupResponse recurringDetails(List<RecurringDetail> recurringDetails) {
     this.recurringDetails = recurringDetails;
@@ -93,33 +104,33 @@ public class PaymentSetupResponse {
     return this;
   }
 
-   /**
+  /**
    * The detailed list of stored payment details required to generate payment forms. Will be empty if oneClick is set to false in the request.
    * @return recurringDetails
-   * @deprecated
-  **/
+   *
+   * @deprecated 
+   */
   @Deprecated
   @ApiModelProperty(value = "The detailed list of stored payment details required to generate payment forms. Will be empty if oneClick is set to false in the request.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<RecurringDetail> getRecurringDetails() {
     return recurringDetails;
   }
 
-
- /**
-  * The detailed list of stored payment details required to generate payment forms. Will be empty if oneClick is set to false in the request.
-  *
-  * @param recurringDetails
-  */ 
+  /**
+   * The detailed list of stored payment details required to generate payment forms. Will be empty if oneClick is set to false in the request.
+   *
+   * @param recurringDetails
+   *
+   * @deprecated 
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetails(List<RecurringDetail> recurringDetails) {
     this.recurringDetails = recurringDetails;
   }
-
 
   /**
    * Return true if this PaymentSetupResponse object is equal to o.
@@ -182,4 +193,3 @@ public class PaymentSetupResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

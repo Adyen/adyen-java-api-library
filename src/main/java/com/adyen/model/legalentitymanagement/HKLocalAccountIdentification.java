@@ -82,95 +82,104 @@ public class HKLocalAccountIdentification {
   public HKLocalAccountIdentification() { 
   }
 
+  /**
+   * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
+   *
+   * @param accountNumber
+   * @return the current {@code HKLocalAccountIdentification} instance, allowing for method chaining
+   */
   public HKLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The 3-digit clearing code, without separators or whitespace.
+   *
+   * @param clearingCode
+   * @return the current {@code HKLocalAccountIdentification} instance, allowing for method chaining
+   */
   public HKLocalAccountIdentification clearingCode(String clearingCode) {
     this.clearingCode = clearingCode;
     return this;
   }
 
-   /**
+  /**
    * The 3-digit clearing code, without separators or whitespace.
    * @return clearingCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 3-digit clearing code, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getClearingCode() {
     return clearingCode;
   }
 
-
- /**
-  * The 3-digit clearing code, without separators or whitespace.
-  *
-  * @param clearingCode
-  */ 
+  /**
+   * The 3-digit clearing code, without separators or whitespace.
+   *
+   * @param clearingCode
+   */ 
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingCode(String clearingCode) {
     this.clearingCode = clearingCode;
   }
 
-
+  /**
+   * **hkLocal**
+   *
+   * @param type
+   * @return the current {@code HKLocalAccountIdentification} instance, allowing for method chaining
+   */
   public HKLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **hkLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**hkLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **hkLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **hkLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this HKLocalAccountIdentification object is equal to o.
@@ -235,4 +244,3 @@ public class HKLocalAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

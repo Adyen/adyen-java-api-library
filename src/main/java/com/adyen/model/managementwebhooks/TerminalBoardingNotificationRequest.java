@@ -88,125 +88,137 @@ public class TerminalBoardingNotificationRequest {
   public TerminalBoardingNotificationRequest() { 
   }
 
+  /**
+   * Timestamp for when the webhook was created.
+   *
+   * @param createdAt
+   * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
+   */
   public TerminalBoardingNotificationRequest createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * Timestamp for when the webhook was created.
    * @return createdAt
-  **/
+   */
   @ApiModelProperty(required = true, value = "Timestamp for when the webhook was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
- /**
-  * Timestamp for when the webhook was created.
-  *
-  * @param createdAt
-  */ 
+  /**
+   * Timestamp for when the webhook was created.
+   *
+   * @param createdAt
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-
+  /**
+   * data
+   *
+   * @param data
+   * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
+   */
   public TerminalBoardingNotificationRequest data(TerminalBoardingData data) {
     this.data = data;
     return this;
   }
 
-   /**
-   * Get data
+  /**
+   * data
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalBoardingData getData() {
     return data;
   }
 
-
- /**
-  * data
-  *
-  * @param data
-  */ 
+  /**
+   * data
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(TerminalBoardingData data) {
     this.data = data;
   }
 
-
+  /**
+   * The environment from which the webhook originated.  Possible values: **test**, **live**.
+   *
+   * @param environment
+   * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
+   */
   public TerminalBoardingNotificationRequest environment(String environment) {
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
-  **/
+   */
   @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEnvironment() {
     return environment;
   }
 
-
- /**
-  * The environment from which the webhook originated.  Possible values: **test**, **live**.
-  *
-  * @param environment
-  */ 
+  /**
+   * The environment from which the webhook originated.  Possible values: **test**, **live**.
+   *
+   * @param environment
+   */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }
 
-
+  /**
+   * Type of notification.
+   *
+   * @param type
+   * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
+   */
   public TerminalBoardingNotificationRequest type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of notification.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "Type of notification.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of notification.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of notification.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TerminalBoardingNotificationRequest object is equal to o.
@@ -273,4 +285,3 @@ public class TerminalBoardingNotificationRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -61,66 +61,78 @@ public class ListWebhooksResponse {
   public ListWebhooksResponse() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
+   */
   public ListWebhooksResponse links(PaginationLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationLinks getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
     this.links = links;
   }
 
-
+  /**
+   * Reference to the account.
+   *
+   * @param accountReference
+   * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
+   */
   public ListWebhooksResponse accountReference(String accountReference) {
     this.accountReference = accountReference;
     return this;
   }
 
-   /**
+  /**
    * Reference to the account.
    * @return accountReference
-  **/
+   */
   @ApiModelProperty(value = "Reference to the account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountReference() {
     return accountReference;
   }
 
-
- /**
-  * Reference to the account.
-  *
-  * @param accountReference
-  */ 
+  /**
+   * Reference to the account.
+   *
+   * @param accountReference
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountReference(String accountReference) {
     this.accountReference = accountReference;
   }
 
-
+  /**
+   * The list of webhooks configured for this account.
+   *
+   * @param data
+   * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
+   */
   public ListWebhooksResponse data(List<Webhook> data) {
     this.data = data;
     return this;
@@ -134,90 +146,93 @@ public class ListWebhooksResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of webhooks configured for this account.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The list of webhooks configured for this account.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Webhook> getData() {
     return data;
   }
 
-
- /**
-  * The list of webhooks configured for this account.
-  *
-  * @param data
-  */ 
+  /**
+   * The list of webhooks configured for this account.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Webhook> data) {
     this.data = data;
   }
 
-
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
+   */
   public ListWebhooksResponse itemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of items.
    * @return itemsTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getItemsTotal() {
     return itemsTotal;
   }
 
-
- /**
-  * Total number of items.
-  *
-  * @param itemsTotal
-  */ 
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
 
-
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
+   */
   public ListWebhooksResponse pagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of pages.
    * @return pagesTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPagesTotal() {
     return pagesTotal;
   }
 
-
- /**
-  * Total number of pages.
-  *
-  * @param pagesTotal
-  */ 
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }
-
 
   /**
    * Return true if this ListWebhooksResponse object is equal to o.
@@ -286,4 +301,3 @@ public class ListWebhooksResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

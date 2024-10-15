@@ -45,65 +45,71 @@ public class SofortInfo {
   public SofortInfo() { 
   }
 
+  /**
+   * Sofort currency code. For example, **EUR**.
+   *
+   * @param currencyCode
+   * @return the current {@code SofortInfo} instance, allowing for method chaining
+   */
   public SofortInfo currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
 
-   /**
+  /**
    * Sofort currency code. For example, **EUR**.
    * @return currencyCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "Sofort currency code. For example, **EUR**.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrencyCode() {
     return currencyCode;
   }
 
-
- /**
-  * Sofort currency code. For example, **EUR**.
-  *
-  * @param currencyCode
-  */ 
+  /**
+   * Sofort currency code. For example, **EUR**.
+   *
+   * @param currencyCode
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
   }
 
-
+  /**
+   * Sofort logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   * @return the current {@code SofortInfo} instance, allowing for method chaining
+   */
   public SofortInfo logo(String logo) {
     this.logo = logo;
     return this;
   }
 
-   /**
+  /**
    * Sofort logo. Format: Base64-encoded string.
    * @return logo
-  **/
+   */
   @ApiModelProperty(required = true, value = "Sofort logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLogo() {
     return logo;
   }
 
-
- /**
-  * Sofort logo. Format: Base64-encoded string.
-  *
-  * @param logo
-  */ 
+  /**
+   * Sofort logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }
-
 
   /**
    * Return true if this SofortInfo object is equal to o.
@@ -166,4 +172,3 @@ public class SofortInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

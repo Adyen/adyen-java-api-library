@@ -98,215 +98,236 @@ public class CheckoutThreeDS2Action {
   public CheckoutThreeDS2Action() { 
   }
 
+  /**
+   * A token needed to authorise a payment.
+   *
+   * @param authorisationToken
+   * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
+   */
   public CheckoutThreeDS2Action authorisationToken(String authorisationToken) {
     this.authorisationToken = authorisationToken;
     return this;
   }
 
-   /**
+  /**
    * A token needed to authorise a payment.
    * @return authorisationToken
-  **/
+   */
   @ApiModelProperty(value = "A token needed to authorise a payment.")
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthorisationToken() {
     return authorisationToken;
   }
 
-
- /**
-  * A token needed to authorise a payment.
-  *
-  * @param authorisationToken
-  */ 
+  /**
+   * A token needed to authorise a payment.
+   *
+   * @param authorisationToken
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationToken(String authorisationToken) {
     this.authorisationToken = authorisationToken;
   }
 
-
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
+   */
   public CheckoutThreeDS2Action paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
 
-   /**
+  /**
    * Encoded payment data.
    * @return paymentData
-  **/
+   */
   @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentData() {
     return paymentData;
   }
 
-
- /**
-  * Encoded payment data.
-  *
-  * @param paymentData
-  */ 
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
 
-
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
+   */
   public CheckoutThreeDS2Action paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
     return this;
   }
 
-   /**
+  /**
    * Specifies the payment method.
    * @return paymentMethodType
-  **/
+   */
   @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodType() {
     return paymentMethodType;
   }
 
-
- /**
-  * Specifies the payment method.
-  *
-  * @param paymentMethodType
-  */ 
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
   }
 
-
+  /**
+   * A subtype of the token.
+   *
+   * @param subtype
+   * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
+   */
   public CheckoutThreeDS2Action subtype(String subtype) {
     this.subtype = subtype;
     return this;
   }
 
-   /**
+  /**
    * A subtype of the token.
    * @return subtype
-  **/
+   */
   @ApiModelProperty(value = "A subtype of the token.")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubtype() {
     return subtype;
   }
 
-
- /**
-  * A subtype of the token.
-  *
-  * @param subtype
-  */ 
+  /**
+   * A subtype of the token.
+   *
+   * @param subtype
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
     this.subtype = subtype;
   }
 
-
+  /**
+   * A token to pass to the 3DS2 Component to get the fingerprint.
+   *
+   * @param token
+   * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
+   */
   public CheckoutThreeDS2Action token(String token) {
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * A token to pass to the 3DS2 Component to get the fingerprint.
    * @return token
-  **/
+   */
   @ApiModelProperty(value = "A token to pass to the 3DS2 Component to get the fingerprint.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToken() {
     return token;
   }
 
-
- /**
-  * A token to pass to the 3DS2 Component to get the fingerprint.
-  *
-  * @param token
-  */ 
+  /**
+   * A token to pass to the 3DS2 Component to get the fingerprint.
+   *
+   * @param token
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }
 
-
+  /**
+   * **threeDS2**
+   *
+   * @param type
+   * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
+   */
   public CheckoutThreeDS2Action type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **threeDS2**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**threeDS2**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **threeDS2**
-  *
-  * @param type
-  */ 
+  /**
+   * **threeDS2**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
+   */
   public CheckoutThreeDS2Action url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Specifies the URL to redirect to.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Specifies the URL to redirect to.
-  *
-  * @param url
-  */ 
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this CheckoutThreeDS2Action object is equal to o.
@@ -379,4 +400,3 @@ public class CheckoutThreeDS2Action {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -87,125 +87,137 @@ public class NumberAndBicAccountIdentification {
   public NumberAndBicAccountIdentification() { 
   }
 
+  /**
+   * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
+   *
+   * @param accountNumber
+   * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
+   */
   public NumberAndBicAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace. The length and format depends on the bank or country.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * additionalBankIdentification
+   *
+   * @param additionalBankIdentification
+   * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
+   */
   public NumberAndBicAccountIdentification additionalBankIdentification(AdditionalBankIdentification additionalBankIdentification) {
     this.additionalBankIdentification = additionalBankIdentification;
     return this;
   }
 
-   /**
-   * Get additionalBankIdentification
+  /**
+   * additionalBankIdentification
    * @return additionalBankIdentification
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AdditionalBankIdentification getAdditionalBankIdentification() {
     return additionalBankIdentification;
   }
 
-
- /**
-  * additionalBankIdentification
-  *
-  * @param additionalBankIdentification
-  */ 
+  /**
+   * additionalBankIdentification
+   *
+   * @param additionalBankIdentification
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalBankIdentification(AdditionalBankIdentification additionalBankIdentification) {
     this.additionalBankIdentification = additionalBankIdentification;
   }
 
-
+  /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   *
+   * @param bic
+   * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
+   */
   public NumberAndBicAccountIdentification bic(String bic) {
     this.bic = bic;
     return this;
   }
 
-   /**
+  /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    * @return bic
-  **/
+   */
   @ApiModelProperty(required = true, value = "The bank's 8- or 11-character BIC or SWIFT code.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBic() {
     return bic;
   }
 
-
- /**
-  * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-  *
-  * @param bic
-  */ 
+  /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   *
+   * @param bic
+   */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
   }
 
-
+  /**
+   * **numberAndBic**
+   *
+   * @param type
+   * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
+   */
   public NumberAndBicAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **numberAndBic**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**numberAndBic**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **numberAndBic**
-  *
-  * @param type
-  */ 
+  /**
+   * **numberAndBic**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this NumberAndBicAccountIdentification object is equal to o.
@@ -272,4 +284,3 @@ public class NumberAndBicAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

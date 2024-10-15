@@ -125,155 +125,170 @@ public class CALocalAccountIdentification {
   public CALocalAccountIdentification() { 
   }
 
+  /**
+   * The 5- to 12-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
+   */
   public CALocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 5- to 12-digit bank account number, without separators or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 5- to 12-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 5- to 12-digit bank account number, without separators or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 5- to 12-digit bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+   *
+   * @param accountType
+   * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
+   */
   public CALocalAccountIdentification accountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
     return this;
   }
 
-   /**
+  /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return accountType
-  **/
+   */
   @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
-
- /**
-  * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
-  *
-  * @param accountType
-  */ 
+  /**
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+   *
+   * @param accountType
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
   }
 
-
+  /**
+   * The 3-digit institution number, without separators or whitespace.
+   *
+   * @param institutionNumber
+   * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
+   */
   public CALocalAccountIdentification institutionNumber(String institutionNumber) {
     this.institutionNumber = institutionNumber;
     return this;
   }
 
-   /**
+  /**
    * The 3-digit institution number, without separators or whitespace.
    * @return institutionNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 3-digit institution number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInstitutionNumber() {
     return institutionNumber;
   }
 
-
- /**
-  * The 3-digit institution number, without separators or whitespace.
-  *
-  * @param institutionNumber
-  */ 
+  /**
+   * The 3-digit institution number, without separators or whitespace.
+   *
+   * @param institutionNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstitutionNumber(String institutionNumber) {
     this.institutionNumber = institutionNumber;
   }
 
-
+  /**
+   * The 5-digit transit number, without separators or whitespace.
+   *
+   * @param transitNumber
+   * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
+   */
   public CALocalAccountIdentification transitNumber(String transitNumber) {
     this.transitNumber = transitNumber;
     return this;
   }
 
-   /**
+  /**
    * The 5-digit transit number, without separators or whitespace.
    * @return transitNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 5-digit transit number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransitNumber() {
     return transitNumber;
   }
 
-
- /**
-  * The 5-digit transit number, without separators or whitespace.
-  *
-  * @param transitNumber
-  */ 
+  /**
+   * The 5-digit transit number, without separators or whitespace.
+   *
+   * @param transitNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransitNumber(String transitNumber) {
     this.transitNumber = transitNumber;
   }
 
-
+  /**
+   * **caLocal**
+   *
+   * @param type
+   * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
+   */
   public CALocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **caLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**caLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **caLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **caLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CALocalAccountIdentification object is equal to o.
@@ -342,4 +357,3 @@ public class CALocalAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

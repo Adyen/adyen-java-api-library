@@ -65,215 +65,236 @@ public class TransferNotificationMerchantData {
   public TransferNotificationMerchantData() { 
   }
 
+  /**
+   * The unique identifier of the merchant&#39;s acquirer.
+   *
+   * @param acquirerId
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method chaining
+   */
   public TransferNotificationMerchantData acquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the merchant&#39;s acquirer.
    * @return acquirerId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the merchant's acquirer.")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcquirerId() {
     return acquirerId;
   }
 
-
- /**
-  * The unique identifier of the merchant&#39;s acquirer.
-  *
-  * @param acquirerId
-  */ 
+  /**
+   * The unique identifier of the merchant&#39;s acquirer.
+   *
+   * @param acquirerId
+   */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
   }
 
-
+  /**
+   * The city where the merchant is located.
+   *
+   * @param city
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method chaining
+   */
   public TransferNotificationMerchantData city(String city) {
     this.city = city;
     return this;
   }
 
-   /**
+  /**
    * The city where the merchant is located.
    * @return city
-  **/
+   */
   @ApiModelProperty(value = "The city where the merchant is located.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCity() {
     return city;
   }
 
-
- /**
-  * The city where the merchant is located.
-  *
-  * @param city
-  */ 
+  /**
+   * The city where the merchant is located.
+   *
+   * @param city
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
-
+  /**
+   * The country where the merchant is located.
+   *
+   * @param country
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method chaining
+   */
   public TransferNotificationMerchantData country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
+  /**
    * The country where the merchant is located.
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "The country where the merchant is located.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The country where the merchant is located.
-  *
-  * @param country
-  */ 
+  /**
+   * The country where the merchant is located.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The merchant category code.
+   *
+   * @param mcc
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method chaining
+   */
   public TransferNotificationMerchantData mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
 
-   /**
+  /**
    * The merchant category code.
    * @return mcc
-  **/
+   */
   @ApiModelProperty(value = "The merchant category code.")
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMcc() {
     return mcc;
   }
 
-
- /**
-  * The merchant category code.
-  *
-  * @param mcc
-  */ 
+  /**
+   * The merchant category code.
+   *
+   * @param mcc
+   */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
-
+  /**
+   * The merchant identifier.
+   *
+   * @param merchantId
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method chaining
+   */
   public TransferNotificationMerchantData merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * The merchant identifier.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "The merchant identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * The merchant identifier.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * The merchant identifier.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
-
+  /**
+   * The name of the merchant&#39;s shop or service.
+   *
+   * @param name
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method chaining
+   */
   public TransferNotificationMerchantData name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the merchant&#39;s shop or service.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The name of the merchant's shop or service.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the merchant&#39;s shop or service.
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the merchant&#39;s shop or service.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The merchant postal code.
+   *
+   * @param postalCode
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method chaining
+   */
   public TransferNotificationMerchantData postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
 
-   /**
+  /**
    * The merchant postal code.
    * @return postalCode
-  **/
+   */
   @ApiModelProperty(value = "The merchant postal code.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
 
-
- /**
-  * The merchant postal code.
-  *
-  * @param postalCode
-  */ 
+  /**
+   * The merchant postal code.
+   *
+   * @param postalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
-
 
   /**
    * Return true if this TransferNotificationMerchantData object is equal to o.
@@ -346,4 +367,3 @@ public class TransferNotificationMerchantData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

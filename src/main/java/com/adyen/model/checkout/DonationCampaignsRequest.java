@@ -49,95 +49,104 @@ public class DonationCampaignsRequest {
   public DonationCampaignsRequest() { 
   }
 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
+   *
+   * @param currency
+   * @return the current {@code DonationCampaignsRequest} instance, allowing for method chaining
+   */
   public DonationCampaignsRequest currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    * @return currency
-  **/
+   */
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * Locale on the shopper interaction device.
+   *
+   * @param locale
+   * @return the current {@code DonationCampaignsRequest} instance, allowing for method chaining
+   */
   public DonationCampaignsRequest locale(String locale) {
     this.locale = locale;
     return this;
   }
 
-   /**
+  /**
    * Locale on the shopper interaction device.
    * @return locale
-  **/
+   */
   @ApiModelProperty(value = "Locale on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLocale() {
     return locale;
   }
 
-
- /**
-  * Locale on the shopper interaction device.
-  *
-  * @param locale
-  */ 
+  /**
+   * Locale on the shopper interaction device.
+   *
+   * @param locale
+   */ 
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
     this.locale = locale;
   }
 
-
+  /**
+   * Your merchant account identifier.
+   *
+   * @param merchantAccount
+   * @return the current {@code DonationCampaignsRequest} instance, allowing for method chaining
+   */
   public DonationCampaignsRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * Your merchant account identifier.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your merchant account identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * Your merchant account identifier.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * Your merchant account identifier.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
-
 
   /**
    * Return true if this DonationCampaignsRequest object is equal to o.
@@ -202,4 +211,3 @@ public class DonationCampaignsRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

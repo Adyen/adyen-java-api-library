@@ -45,65 +45,71 @@ public class TerminalProductPrice {
   public TerminalProductPrice() { 
   }
 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   * @return the current {@code TerminalProductPrice} instance, allowing for method chaining
+   */
   public TerminalProductPrice currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
-  **/
+   */
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The price of the item.
+   *
+   * @param value
+   * @return the current {@code TerminalProductPrice} instance, allowing for method chaining
+   */
   public TerminalProductPrice value(Double value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The price of the item.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "The price of the item.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getValue() {
     return value;
   }
 
-
- /**
-  * The price of the item.
-  *
-  * @param value
-  */ 
+  /**
+   * The price of the item.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Double value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this TerminalProductPrice object is equal to o.
@@ -166,4 +172,3 @@ public class TerminalProductPrice {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

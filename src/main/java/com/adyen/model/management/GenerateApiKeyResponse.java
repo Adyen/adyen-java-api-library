@@ -41,35 +41,38 @@ public class GenerateApiKeyResponse {
   public GenerateApiKeyResponse() { 
   }
 
+  /**
+   * The generated API key.
+   *
+   * @param apiKey
+   * @return the current {@code GenerateApiKeyResponse} instance, allowing for method chaining
+   */
   public GenerateApiKeyResponse apiKey(String apiKey) {
     this.apiKey = apiKey;
     return this;
   }
 
-   /**
+  /**
    * The generated API key.
    * @return apiKey
-  **/
+   */
   @ApiModelProperty(required = true, value = "The generated API key.")
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getApiKey() {
     return apiKey;
   }
 
-
- /**
-  * The generated API key.
-  *
-  * @param apiKey
-  */ 
+  /**
+   * The generated API key.
+   *
+   * @param apiKey
+   */ 
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }
-
 
   /**
    * Return true if this GenerateApiKeyResponse object is equal to o.
@@ -130,4 +133,3 @@ public class GenerateApiKeyResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

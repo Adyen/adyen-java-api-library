@@ -203,425 +203,467 @@ public class CreateMerchantWebhookRequest {
   public CreateMerchantWebhookRequest() { 
   }
 
+  /**
+   * Indicates if expired SSL certificates are accepted. Default value: **false**.
+   *
+   * @param acceptsExpiredCertificate
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest acceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
     return this;
   }
 
-   /**
+  /**
    * Indicates if expired SSL certificates are accepted. Default value: **false**.
    * @return acceptsExpiredCertificate
-  **/
+   */
   @ApiModelProperty(value = "Indicates if expired SSL certificates are accepted. Default value: **false**.")
   @JsonProperty(JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAcceptsExpiredCertificate() {
     return acceptsExpiredCertificate;
   }
 
-
- /**
-  * Indicates if expired SSL certificates are accepted. Default value: **false**.
-  *
-  * @param acceptsExpiredCertificate
-  */ 
+  /**
+   * Indicates if expired SSL certificates are accepted. Default value: **false**.
+   *
+   * @param acceptsExpiredCertificate
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
   }
 
-
+  /**
+   * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
+   *
+   * @param acceptsSelfSignedCertificate
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest acceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
     return this;
   }
 
-   /**
+  /**
    * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
    * @return acceptsSelfSignedCertificate
-  **/
+   */
   @ApiModelProperty(value = "Indicates if self-signed SSL certificates are accepted. Default value: **false**.")
   @JsonProperty(JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAcceptsSelfSignedCertificate() {
     return acceptsSelfSignedCertificate;
   }
 
-
- /**
-  * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
-  *
-  * @param acceptsSelfSignedCertificate
-  */ 
+  /**
+   * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
+   *
+   * @param acceptsSelfSignedCertificate
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
   }
 
-
+  /**
+   * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
+   *
+   * @param acceptsUntrustedRootCertificate
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest acceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
     return this;
   }
 
-   /**
+  /**
    * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
    * @return acceptsUntrustedRootCertificate
-  **/
+   */
   @ApiModelProperty(value = "Indicates if untrusted SSL certificates are accepted. Default value: **false**.")
   @JsonProperty(JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAcceptsUntrustedRootCertificate() {
     return acceptsUntrustedRootCertificate;
   }
 
-
- /**
-  * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
-  *
-  * @param acceptsUntrustedRootCertificate
-  */ 
+  /**
+   * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
+   *
+   * @param acceptsUntrustedRootCertificate
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
   }
 
-
+  /**
+   * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
+   *
+   * @param active
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest active(Boolean active) {
     this.active = active;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
    * @return active
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getActive() {
     return active;
   }
 
-
- /**
-  * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
-  *
-  * @param active
-  */ 
+  /**
+   * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
+   *
+   * @param active
+   */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
 
-
+  /**
+   * additionalSettings
+   *
+   * @param additionalSettings
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest additionalSettings(AdditionalSettings additionalSettings) {
     this.additionalSettings = additionalSettings;
     return this;
   }
 
-   /**
-   * Get additionalSettings
+  /**
+   * additionalSettings
    * @return additionalSettings
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AdditionalSettings getAdditionalSettings() {
     return additionalSettings;
   }
 
-
- /**
-  * additionalSettings
-  *
-  * @param additionalSettings
-  */ 
+  /**
+   * additionalSettings
+   *
+   * @param additionalSettings
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSettings(AdditionalSettings additionalSettings) {
     this.additionalSettings = additionalSettings;
   }
 
-
+  /**
+   * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
+   *
+   * @param communicationFormat
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest communicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
     return this;
   }
 
-   /**
+  /**
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    * @return communicationFormat
-  **/
+   */
   @ApiModelProperty(example = "soap", required = true, value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
   @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CommunicationFormatEnum getCommunicationFormat() {
     return communicationFormat;
   }
 
-
- /**
-  * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
-  *
-  * @param communicationFormat
-  */ 
+  /**
+   * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
+   *
+   * @param communicationFormat
+   */ 
   @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
   }
 
-
+  /**
+   * Your description for this webhook configuration.
+   *
+   * @param description
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for this webhook configuration.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Your description for this webhook configuration.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for this webhook configuration.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for this webhook configuration.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
+   *
+   * @param encryptionProtocol
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest encryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
     return this;
   }
 
-   /**
+  /**
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
    * @return encryptionProtocol
-  **/
+   */
   @ApiModelProperty(example = "TLSv1.2", value = "SSL version to access the public webhook URL specified in the `url` field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use `sslVersion`: **TLSv1.2**.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EncryptionProtocolEnum getEncryptionProtocol() {
     return encryptionProtocol;
   }
 
-
- /**
-  * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
-  *
-  * @param encryptionProtocol
-  */ 
+  /**
+   * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
+   *
+   * @param encryptionProtocol
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
   }
 
-
+  /**
+   * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
+   *
+   * @param networkType
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest networkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
     return this;
   }
 
-   /**
+  /**
    * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
    * @return networkType
-  **/
+   */
   @ApiModelProperty(value = "Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NetworkTypeEnum getNetworkType() {
     return networkType;
   }
 
-
- /**
-  * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
-  *
-  * @param networkType
-  */ 
+  /**
+   * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
+   *
+   * @param networkType
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
   }
 
-
+  /**
+   * Password to access the webhook URL.
+   *
+   * @param password
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest password(String password) {
     this.password = password;
     return this;
   }
 
-   /**
+  /**
    * Password to access the webhook URL.
    * @return password
-  **/
+   */
   @ApiModelProperty(value = "Password to access the webhook URL.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassword() {
     return password;
   }
 
-
- /**
-  * Password to access the webhook URL.
-  *
-  * @param password
-  */ 
+  /**
+   * Password to access the webhook URL.
+   *
+   * @param password
+   */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
   }
 
-
+  /**
+   * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
+   *
+   * @param populateSoapActionHeader
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest populateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
    * @return populateSoapActionHeader
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if `communicationFormat`: **soap**.")
   @JsonProperty(JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getPopulateSoapActionHeader() {
     return populateSoapActionHeader;
   }
 
-
- /**
-  * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
-  *
-  * @param populateSoapActionHeader
-  */ 
+  /**
+   * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
+   *
+   * @param populateSoapActionHeader
+   */ 
   @JsonProperty(JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
   }
 
-
+  /**
+   * The type of webhook that is being created. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **ach-notification-of-change-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   *
+   * @param type
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of webhook that is being created. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **ach-notification-of-change-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of webhook that is being created. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **ach-notification-of-change-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of webhook that is being created. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **ach-notification-of-change-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
-  *
-  * @param type
-  */ 
+  /**
+   * The type of webhook that is being created. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **ach-notification-of-change-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
-
+  /**
+   * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
+   *
+   * @param url
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
    * @return url
-  **/
+   */
   @ApiModelProperty(example = "http://www.adyen.com", required = true, value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
-  *
-  * @param url
-  */ 
+  /**
+   * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
 
-
+  /**
+   * Username to access the webhook URL.
+   *
+   * @param username
+   * @return the current {@code CreateMerchantWebhookRequest} instance, allowing for method chaining
+   */
   public CreateMerchantWebhookRequest username(String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * Username to access the webhook URL.
    * @return username
-  **/
+   */
   @ApiModelProperty(value = "Username to access the webhook URL.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUsername() {
     return username;
   }
 
-
- /**
-  * Username to access the webhook URL.
-  *
-  * @param username
-  */ 
+  /**
+   * Username to access the webhook URL.
+   *
+   * @param username
+   */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
-
 
   /**
    * Return true if this CreateMerchantWebhookRequest object is equal to o.
@@ -708,4 +750,3 @@ public class CreateMerchantWebhookRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

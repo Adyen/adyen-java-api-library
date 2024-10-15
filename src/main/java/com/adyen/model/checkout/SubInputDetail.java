@@ -66,6 +66,12 @@ public class SubInputDetail {
   public SubInputDetail() { 
   }
 
+  /**
+   * Configuration parameters for the required input.
+   *
+   * @param configuration
+   * @return the current {@code SubInputDetail} instance, allowing for method chaining
+   */
   public SubInputDetail configuration(Map<String, String> configuration) {
     this.configuration = configuration;
     return this;
@@ -79,31 +85,34 @@ public class SubInputDetail {
     return this;
   }
 
-   /**
+  /**
    * Configuration parameters for the required input.
    * @return configuration
-  **/
+   */
   @ApiModelProperty(value = "Configuration parameters for the required input.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getConfiguration() {
     return configuration;
   }
 
-
- /**
-  * Configuration parameters for the required input.
-  *
-  * @param configuration
-  */ 
+  /**
+   * Configuration parameters for the required input.
+   *
+   * @param configuration
+   */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
     this.configuration = configuration;
   }
 
-
+  /**
+   * In case of a select, the items to choose from.
+   *
+   * @param items
+   * @return the current {@code SubInputDetail} instance, allowing for method chaining
+   */
   public SubInputDetail items(List<Item> items) {
     this.items = items;
     return this;
@@ -117,150 +126,159 @@ public class SubInputDetail {
     return this;
   }
 
-   /**
+  /**
    * In case of a select, the items to choose from.
    * @return items
-  **/
+   */
   @ApiModelProperty(value = "In case of a select, the items to choose from.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Item> getItems() {
     return items;
   }
 
-
- /**
-  * In case of a select, the items to choose from.
-  *
-  * @param items
-  */ 
+  /**
+   * In case of a select, the items to choose from.
+   *
+   * @param items
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<Item> items) {
     this.items = items;
   }
 
-
+  /**
+   * The value to provide in the result.
+   *
+   * @param key
+   * @return the current {@code SubInputDetail} instance, allowing for method chaining
+   */
   public SubInputDetail key(String key) {
     this.key = key;
     return this;
   }
 
-   /**
+  /**
    * The value to provide in the result.
    * @return key
-  **/
+   */
   @ApiModelProperty(value = "The value to provide in the result.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getKey() {
     return key;
   }
 
-
- /**
-  * The value to provide in the result.
-  *
-  * @param key
-  */ 
+  /**
+   * The value to provide in the result.
+   *
+   * @param key
+   */ 
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKey(String key) {
     this.key = key;
   }
 
-
+  /**
+   * True if this input is optional to provide.
+   *
+   * @param optional
+   * @return the current {@code SubInputDetail} instance, allowing for method chaining
+   */
   public SubInputDetail optional(Boolean optional) {
     this.optional = optional;
     return this;
   }
 
-   /**
+  /**
    * True if this input is optional to provide.
    * @return optional
-  **/
+   */
   @ApiModelProperty(value = "True if this input is optional to provide.")
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getOptional() {
     return optional;
   }
 
-
- /**
-  * True if this input is optional to provide.
-  *
-  * @param optional
-  */ 
+  /**
+   * True if this input is optional to provide.
+   *
+   * @param optional
+   */ 
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptional(Boolean optional) {
     this.optional = optional;
   }
 
-
+  /**
+   * The type of the required input.
+   *
+   * @param type
+   * @return the current {@code SubInputDetail} instance, allowing for method chaining
+   */
   public SubInputDetail type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the required input.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of the required input.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of the required input.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of the required input.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
-
+  /**
+   * The value can be pre-filled, if available.
+   *
+   * @param value
+   * @return the current {@code SubInputDetail} instance, allowing for method chaining
+   */
   public SubInputDetail value(String value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The value can be pre-filled, if available.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "The value can be pre-filled, if available.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getValue() {
     return value;
   }
 
-
- /**
-  * The value can be pre-filled, if available.
-  *
-  * @param value
-  */ 
+  /**
+   * The value can be pre-filled, if available.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this SubInputDetail object is equal to o.
@@ -331,4 +349,3 @@ public class SubInputDetail {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

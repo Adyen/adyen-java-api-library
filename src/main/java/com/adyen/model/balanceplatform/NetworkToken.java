@@ -110,245 +110,269 @@ public class NetworkToken {
   public NetworkToken() { 
   }
 
+  /**
+   * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
+   *
+   * @param brandVariant
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken brandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
     return this;
   }
 
-   /**
+  /**
    * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    * @return brandVariant
-  **/
+   */
   @ApiModelProperty(value = "The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.")
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrandVariant() {
     return brandVariant;
   }
 
-
- /**
-  * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
-  *
-  * @param brandVariant
-  */ 
+  /**
+   * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
+   *
+   * @param brandVariant
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
   }
 
-
+  /**
+   * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
+   *
+   * @param creationDate
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
   }
 
-   /**
+  /**
    * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    * @return creationDate
-  **/
+   */
   @ApiModelProperty(value = "Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
-
- /**
-  * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
-  *
-  * @param creationDate
-  */ 
+  /**
+   * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
+   *
+   * @param creationDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
-
+  /**
+   * device
+   *
+   * @param device
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken device(DeviceInfo device) {
     this.device = device;
     return this;
   }
 
-   /**
-   * Get device
+  /**
+   * device
    * @return device
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DeviceInfo getDevice() {
     return device;
   }
 
-
- /**
-  * device
-  *
-  * @param device
-  */ 
+  /**
+   * device
+   *
+   * @param device
+   */ 
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDevice(DeviceInfo device) {
     this.device = device;
   }
 
-
+  /**
+   * The unique identifier of the network token.
+   *
+   * @param id
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the network token.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the network token.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the network token.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the network token.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The unique identifier of the payment instrument to which this network token belongs to.
+   *
+   * @param paymentInstrumentId
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the payment instrument to which this network token belongs to.
    * @return paymentInstrumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the payment instrument to which this network token belongs to.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the payment instrument to which this network token belongs to.
-  *
-  * @param paymentInstrumentId
-  */ 
+  /**
+   * The unique identifier of the payment instrument to which this network token belongs to.
+   *
+   * @param paymentInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
-
+  /**
+   * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
+   *
+   * @param status
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The last four digits of the network token &#x60;id&#x60;.
+   *
+   * @param tokenLastFour
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken tokenLastFour(String tokenLastFour) {
     this.tokenLastFour = tokenLastFour;
     return this;
   }
 
-   /**
+  /**
    * The last four digits of the network token &#x60;id&#x60;.
    * @return tokenLastFour
-  **/
+   */
   @ApiModelProperty(value = "The last four digits of the network token `id`.")
   @JsonProperty(JSON_PROPERTY_TOKEN_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTokenLastFour() {
     return tokenLastFour;
   }
 
-
- /**
-  * The last four digits of the network token &#x60;id&#x60;.
-  *
-  * @param tokenLastFour
-  */ 
+  /**
+   * The last four digits of the network token &#x60;id&#x60;.
+   *
+   * @param tokenLastFour
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenLastFour(String tokenLastFour) {
     this.tokenLastFour = tokenLastFour;
   }
 
-
+  /**
+   * The type of wallet the network token is associated with. For example, **applePay**.
+   *
+   * @param type
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
   public NetworkToken type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of wallet the network token is associated with. For example, **applePay**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of wallet the network token is associated with. For example, **applePay**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of wallet the network token is associated with. For example, **applePay**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of wallet the network token is associated with. For example, **applePay**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this NetworkToken object is equal to o.
@@ -423,4 +447,3 @@ public class NetworkToken {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

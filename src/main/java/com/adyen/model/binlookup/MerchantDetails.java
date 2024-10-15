@@ -49,95 +49,104 @@ public class MerchantDetails {
   public MerchantDetails() { 
   }
 
+  /**
+   * 2-letter ISO 3166 country code of the card acceptor location. &gt; This parameter is required for the merchants who don&#39;t use Adyen as the payment authorisation gateway.
+   *
+   * @param countryCode
+   * @return the current {@code MerchantDetails} instance, allowing for method chaining
+   */
   public MerchantDetails countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
 
-   /**
+  /**
    * 2-letter ISO 3166 country code of the card acceptor location. &gt; This parameter is required for the merchants who don&#39;t use Adyen as the payment authorisation gateway.
    * @return countryCode
-  **/
+   */
   @ApiModelProperty(value = "2-letter ISO 3166 country code of the card acceptor location. > This parameter is required for the merchants who don't use Adyen as the payment authorisation gateway.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountryCode() {
     return countryCode;
   }
 
-
- /**
-  * 2-letter ISO 3166 country code of the card acceptor location. &gt; This parameter is required for the merchants who don&#39;t use Adyen as the payment authorisation gateway.
-  *
-  * @param countryCode
-  */ 
+  /**
+   * 2-letter ISO 3166 country code of the card acceptor location. &gt; This parameter is required for the merchants who don&#39;t use Adyen as the payment authorisation gateway.
+   *
+   * @param countryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
-
+  /**
+   * If true, indicates that the merchant is enrolled in 3D Secure for the card network.
+   *
+   * @param enrolledIn3DSecure
+   * @return the current {@code MerchantDetails} instance, allowing for method chaining
+   */
   public MerchantDetails enrolledIn3DSecure(Boolean enrolledIn3DSecure) {
     this.enrolledIn3DSecure = enrolledIn3DSecure;
     return this;
   }
 
-   /**
+  /**
    * If true, indicates that the merchant is enrolled in 3D Secure for the card network.
    * @return enrolledIn3DSecure
-  **/
+   */
   @ApiModelProperty(value = "If true, indicates that the merchant is enrolled in 3D Secure for the card network.")
   @JsonProperty(JSON_PROPERTY_ENROLLED_IN3_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnrolledIn3DSecure() {
     return enrolledIn3DSecure;
   }
 
-
- /**
-  * If true, indicates that the merchant is enrolled in 3D Secure for the card network.
-  *
-  * @param enrolledIn3DSecure
-  */ 
+  /**
+   * If true, indicates that the merchant is enrolled in 3D Secure for the card network.
+   *
+   * @param enrolledIn3DSecure
+   */ 
   @JsonProperty(JSON_PROPERTY_ENROLLED_IN3_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnrolledIn3DSecure(Boolean enrolledIn3DSecure) {
     this.enrolledIn3DSecure = enrolledIn3DSecure;
   }
 
-
+  /**
+   * The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.  The list of MCCs can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).
+   *
+   * @param mcc
+   * @return the current {@code MerchantDetails} instance, allowing for method chaining
+   */
   public MerchantDetails mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
 
-   /**
+  /**
    * The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.  The list of MCCs can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).
    * @return mcc
-  **/
+   */
   @ApiModelProperty(value = "The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.  The list of MCCs can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).")
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMcc() {
     return mcc;
   }
 
-
- /**
-  * The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.  The list of MCCs can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).
-  *
-  * @param mcc
-  */ 
+  /**
+   * The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.  The list of MCCs can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).
+   *
+   * @param mcc
+   */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
-
 
   /**
    * Return true if this MerchantDetails object is equal to o.
@@ -202,4 +211,3 @@ public class MerchantDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

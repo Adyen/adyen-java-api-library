@@ -155,185 +155,203 @@ public class PlatformPayment {
   public PlatformPayment() { 
   }
 
+  /**
+   * The capture&#39;s merchant reference included in the transfer.
+   *
+   * @param modificationMerchantReference
+   * @return the current {@code PlatformPayment} instance, allowing for method chaining
+   */
   public PlatformPayment modificationMerchantReference(String modificationMerchantReference) {
     this.modificationMerchantReference = modificationMerchantReference;
     return this;
   }
 
-   /**
+  /**
    * The capture&#39;s merchant reference included in the transfer.
    * @return modificationMerchantReference
-  **/
+   */
   @ApiModelProperty(value = "The capture's merchant reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getModificationMerchantReference() {
     return modificationMerchantReference;
   }
 
-
- /**
-  * The capture&#39;s merchant reference included in the transfer.
-  *
-  * @param modificationMerchantReference
-  */ 
+  /**
+   * The capture&#39;s merchant reference included in the transfer.
+   *
+   * @param modificationMerchantReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationMerchantReference(String modificationMerchantReference) {
     this.modificationMerchantReference = modificationMerchantReference;
   }
 
-
+  /**
+   * The capture reference included in the transfer.
+   *
+   * @param modificationPspReference
+   * @return the current {@code PlatformPayment} instance, allowing for method chaining
+   */
   public PlatformPayment modificationPspReference(String modificationPspReference) {
     this.modificationPspReference = modificationPspReference;
     return this;
   }
 
-   /**
+  /**
    * The capture reference included in the transfer.
    * @return modificationPspReference
-  **/
+   */
   @ApiModelProperty(value = "The capture reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getModificationPspReference() {
     return modificationPspReference;
   }
 
-
- /**
-  * The capture reference included in the transfer.
-  *
-  * @param modificationPspReference
-  */ 
+  /**
+   * The capture reference included in the transfer.
+   *
+   * @param modificationPspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationPspReference(String modificationPspReference) {
     this.modificationPspReference = modificationPspReference;
   }
 
-
+  /**
+   * The payment&#39;s merchant reference included in the transfer.
+   *
+   * @param paymentMerchantReference
+   * @return the current {@code PlatformPayment} instance, allowing for method chaining
+   */
   public PlatformPayment paymentMerchantReference(String paymentMerchantReference) {
     this.paymentMerchantReference = paymentMerchantReference;
     return this;
   }
 
-   /**
+  /**
    * The payment&#39;s merchant reference included in the transfer.
    * @return paymentMerchantReference
-  **/
+   */
   @ApiModelProperty(value = "The payment's merchant reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMerchantReference() {
     return paymentMerchantReference;
   }
 
-
- /**
-  * The payment&#39;s merchant reference included in the transfer.
-  *
-  * @param paymentMerchantReference
-  */ 
+  /**
+   * The payment&#39;s merchant reference included in the transfer.
+   *
+   * @param paymentMerchantReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMerchantReference(String paymentMerchantReference) {
     this.paymentMerchantReference = paymentMerchantReference;
   }
 
-
+  /**
+   * The type of the related split.
+   *
+   * @param platformPaymentType
+   * @return the current {@code PlatformPayment} instance, allowing for method chaining
+   */
   public PlatformPayment platformPaymentType(PlatformPaymentTypeEnum platformPaymentType) {
     this.platformPaymentType = platformPaymentType;
     return this;
   }
 
-   /**
+  /**
    * The type of the related split.
    * @return platformPaymentType
-  **/
+   */
   @ApiModelProperty(value = "The type of the related split.")
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PlatformPaymentTypeEnum getPlatformPaymentType() {
     return platformPaymentType;
   }
 
-
- /**
-  * The type of the related split.
-  *
-  * @param platformPaymentType
-  */ 
+  /**
+   * The type of the related split.
+   *
+   * @param platformPaymentType
+   */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformPaymentType(PlatformPaymentTypeEnum platformPaymentType) {
     this.platformPaymentType = platformPaymentType;
   }
 
-
+  /**
+   * The payment reference included in the transfer.
+   *
+   * @param pspPaymentReference
+   * @return the current {@code PlatformPayment} instance, allowing for method chaining
+   */
   public PlatformPayment pspPaymentReference(String pspPaymentReference) {
     this.pspPaymentReference = pspPaymentReference;
     return this;
   }
 
-   /**
+  /**
    * The payment reference included in the transfer.
    * @return pspPaymentReference
-  **/
+   */
   @ApiModelProperty(value = "The payment reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_PSP_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspPaymentReference() {
     return pspPaymentReference;
   }
 
-
- /**
-  * The payment reference included in the transfer.
-  *
-  * @param pspPaymentReference
-  */ 
+  /**
+   * The payment reference included in the transfer.
+   *
+   * @param pspPaymentReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspPaymentReference(String pspPaymentReference) {
     this.pspPaymentReference = pspPaymentReference;
   }
 
-
+  /**
+   * **platformPayment**
+   *
+   * @param type
+   * @return the current {@code PlatformPayment} instance, allowing for method chaining
+   */
   public PlatformPayment type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **platformPayment**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**platformPayment**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **platformPayment**
-  *
-  * @param type
-  */ 
+  /**
+   * **platformPayment**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PlatformPayment object is equal to o.
@@ -404,4 +422,3 @@ public class PlatformPayment {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

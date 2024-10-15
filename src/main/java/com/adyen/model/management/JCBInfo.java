@@ -89,125 +89,137 @@ public class JCBInfo {
   public JCBInfo() { 
   }
 
+  /**
+   * MID (Merchant ID) number. Format: 10 numeric characters.  Must be provided for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.
+   *
+   * @param midNumber
+   * @return the current {@code JCBInfo} instance, allowing for method chaining
+   */
   public JCBInfo midNumber(String midNumber) {
     this.midNumber = midNumber;
     return this;
   }
 
-   /**
+  /**
    * MID (Merchant ID) number. Format: 10 numeric characters.  Must be provided for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.
    * @return midNumber
-  **/
+   */
   @ApiModelProperty(value = "MID (Merchant ID) number. Format: 10 numeric characters.  Must be provided for both `noContract` and `gatewayContract` service levels.")
   @JsonProperty(JSON_PROPERTY_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMidNumber() {
     return midNumber;
   }
 
-
- /**
-  * MID (Merchant ID) number. Format: 10 numeric characters.  Must be provided for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.
-  *
-  * @param midNumber
-  */ 
+  /**
+   * MID (Merchant ID) number. Format: 10 numeric characters.  Must be provided for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.
+   *
+   * @param midNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMidNumber(String midNumber) {
     this.midNumber = midNumber;
   }
 
-
+  /**
+   * Indicates whether the JCB Merchant ID is reused from a previously setup JCB payment method.  This is applicable for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.  The default value is &#x60;false&#x60;.
+   *
+   * @param reuseMidNumber
+   * @return the current {@code JCBInfo} instance, allowing for method chaining
+   */
   public JCBInfo reuseMidNumber(Boolean reuseMidNumber) {
     this.reuseMidNumber = reuseMidNumber;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the JCB Merchant ID is reused from a previously setup JCB payment method.  This is applicable for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.  The default value is &#x60;false&#x60;.
    * @return reuseMidNumber
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the JCB Merchant ID is reused from a previously setup JCB payment method.  This is applicable for both `noContract` and `gatewayContract` service levels.  The default value is `false`.")
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getReuseMidNumber() {
     return reuseMidNumber;
   }
 
-
- /**
-  * Indicates whether the JCB Merchant ID is reused from a previously setup JCB payment method.  This is applicable for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.  The default value is &#x60;false&#x60;.
-  *
-  * @param reuseMidNumber
-  */ 
+  /**
+   * Indicates whether the JCB Merchant ID is reused from a previously setup JCB payment method.  This is applicable for both &#x60;noContract&#x60; and &#x60;gatewayContract&#x60; service levels.  The default value is &#x60;false&#x60;.
+   *
+   * @param reuseMidNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMidNumber(Boolean reuseMidNumber) {
     this.reuseMidNumber = reuseMidNumber;
   }
 
-
+  /**
+   * Specifies the service level (settlement type) of this payment method. Possible values: * **noContract** — Adyen holds the contract with JCB. * **gatewayContract** — JCB receives the settlement and handles disputes. They then pay out to the merchant directly.
+   *
+   * @param serviceLevel
+   * @return the current {@code JCBInfo} instance, allowing for method chaining
+   */
   public JCBInfo serviceLevel(ServiceLevelEnum serviceLevel) {
     this.serviceLevel = serviceLevel;
     return this;
   }
 
-   /**
+  /**
    * Specifies the service level (settlement type) of this payment method. Possible values: * **noContract** — Adyen holds the contract with JCB. * **gatewayContract** — JCB receives the settlement and handles disputes. They then pay out to the merchant directly.
    * @return serviceLevel
-  **/
+   */
   @ApiModelProperty(required = true, value = "Specifies the service level (settlement type) of this payment method. Possible values: * **noContract** — Adyen holds the contract with JCB. * **gatewayContract** — JCB receives the settlement and handles disputes. They then pay out to the merchant directly.")
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ServiceLevelEnum getServiceLevel() {
     return serviceLevel;
   }
 
-
- /**
-  * Specifies the service level (settlement type) of this payment method. Possible values: * **noContract** — Adyen holds the contract with JCB. * **gatewayContract** — JCB receives the settlement and handles disputes. They then pay out to the merchant directly.
-  *
-  * @param serviceLevel
-  */ 
+  /**
+   * Specifies the service level (settlement type) of this payment method. Possible values: * **noContract** — Adyen holds the contract with JCB. * **gatewayContract** — JCB receives the settlement and handles disputes. They then pay out to the merchant directly.
+   *
+   * @param serviceLevel
+   */ 
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceLevel(ServiceLevelEnum serviceLevel) {
     this.serviceLevel = serviceLevel;
   }
 
-
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   * @return the current {@code JCBInfo} instance, allowing for method chaining
+   */
   public JCBInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
     return this;
   }
 
-   /**
-   * Get transactionDescription
+  /**
+   * transactionDescription
    * @return transactionDescription
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionDescriptionInfo getTransactionDescription() {
     return transactionDescription;
   }
 
-
- /**
-  * transactionDescription
-  *
-  * @param transactionDescription
-  */ 
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
   }
-
 
   /**
    * Return true if this JCBInfo object is equal to o.
@@ -274,4 +286,3 @@ public class JCBInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

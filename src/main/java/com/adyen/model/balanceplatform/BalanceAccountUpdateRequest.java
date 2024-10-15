@@ -108,66 +108,78 @@ public class BalanceAccountUpdateRequest {
   public BalanceAccountUpdateRequest() { 
   }
 
+  /**
+   * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
+   *
+   * @param accountHolderId
+   * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
+   */
   public BalanceAccountUpdateRequest accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    * @return accountHolderId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountHolderId() {
     return accountHolderId;
   }
 
-
- /**
-  * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
-  *
-  * @param accountHolderId
-  */ 
+  /**
+   * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
+   *
+   * @param accountHolderId
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }
 
-
+  /**
+   * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
+   *
+   * @param description
+   * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
+   */
   public BalanceAccountUpdateRequest description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
-  *
-  * @param description
-  */ 
+  /**
+   * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+   *
+   * @param metadata
+   * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
+   */
   public BalanceAccountUpdateRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
@@ -181,150 +193,159 @@ public class BalanceAccountUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return metadata
-  **/
+   */
   @ApiModelProperty(value = "A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getMetadata() {
     return metadata;
   }
 
-
- /**
-  * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
-  *
-  * @param metadata
-  */ 
+  /**
+   * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+   *
+   * @param metadata
+   */ 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
-
+  /**
+   * platformPaymentConfiguration
+   *
+   * @param platformPaymentConfiguration
+   * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
+   */
   public BalanceAccountUpdateRequest platformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
     this.platformPaymentConfiguration = platformPaymentConfiguration;
     return this;
   }
 
-   /**
-   * Get platformPaymentConfiguration
+  /**
+   * platformPaymentConfiguration
    * @return platformPaymentConfiguration
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PlatformPaymentConfiguration getPlatformPaymentConfiguration() {
     return platformPaymentConfiguration;
   }
 
-
- /**
-  * platformPaymentConfiguration
-  *
-  * @param platformPaymentConfiguration
-  */ 
+  /**
+   * platformPaymentConfiguration
+   *
+   * @param platformPaymentConfiguration
+   */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
     this.platformPaymentConfiguration = platformPaymentConfiguration;
   }
 
-
+  /**
+   * Your reference to the balance account.
+   *
+   * @param reference
+   * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
+   */
   public BalanceAccountUpdateRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference to the balance account.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference to the balance account.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference to the balance account.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference to the balance account.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
+   *
+   * @param status
+   * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
+   */
   public BalanceAccountUpdateRequest status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+   *
+   * @param timeZone
+   * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
+   */
   public BalanceAccountUpdateRequest timeZone(String timeZone) {
     this.timeZone = timeZone;
     return this;
   }
 
-   /**
+  /**
    * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return timeZone
-  **/
+   */
   @ApiModelProperty(value = "The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTimeZone() {
     return timeZone;
   }
 
-
- /**
-  * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-  *
-  * @param timeZone
-  */ 
+  /**
+   * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+   *
+   * @param timeZone
+   */ 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
   }
-
 
   /**
    * Return true if this BalanceAccountUpdateRequest object is equal to o.
@@ -397,4 +418,3 @@ public class BalanceAccountUpdateRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

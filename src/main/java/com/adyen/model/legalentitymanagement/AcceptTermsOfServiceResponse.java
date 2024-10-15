@@ -108,185 +108,203 @@ public class AcceptTermsOfServiceResponse {
   public AcceptTermsOfServiceResponse() { 
   }
 
+  /**
+   * The unique identifier of the user that accepted the Terms of Service.
+   *
+   * @param acceptedBy
+   * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceResponse acceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the user that accepted the Terms of Service.
    * @return acceptedBy
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the user that accepted the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcceptedBy() {
     return acceptedBy;
   }
 
-
- /**
-  * The unique identifier of the user that accepted the Terms of Service.
-  *
-  * @param acceptedBy
-  */ 
+  /**
+   * The unique identifier of the user that accepted the Terms of Service.
+   *
+   * @param acceptedBy
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
   }
 
-
+  /**
+   * The unique identifier of the Terms of Service acceptance.
+   *
+   * @param id
+   * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the Terms of Service acceptance.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the Terms of Service acceptance.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the Terms of Service acceptance.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the Terms of Service acceptance.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The IP address of the user that accepted the Terms of Service.
+   *
+   * @param ipAddress
+   * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceResponse ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
 
-   /**
+  /**
    * The IP address of the user that accepted the Terms of Service.
    * @return ipAddress
-  **/
+   */
   @ApiModelProperty(value = "The IP address of the user that accepted the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIpAddress() {
     return ipAddress;
   }
 
-
- /**
-  * The IP address of the user that accepted the Terms of Service.
-  *
-  * @param ipAddress
-  */ 
+  /**
+   * The IP address of the user that accepted the Terms of Service.
+   *
+   * @param ipAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
   }
 
-
+  /**
+   * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
+   *
+   * @param language
+   * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceResponse language(String language) {
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    * @return language
-  **/
+   */
   @ApiModelProperty(value = "The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLanguage() {
     return language;
   }
 
-
- /**
-  * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
-  *
-  * @param language
-  */ 
+  /**
+   * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
+   *
+   * @param language
+   */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
   }
 
-
+  /**
+   * The unique identifier of the Terms of Service document.
+   *
+   * @param termsOfServiceDocumentId
+   * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceResponse termsOfServiceDocumentId(String termsOfServiceDocumentId) {
     this.termsOfServiceDocumentId = termsOfServiceDocumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the Terms of Service document.
    * @return termsOfServiceDocumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the Terms of Service document.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTermsOfServiceDocumentId() {
     return termsOfServiceDocumentId;
   }
 
-
- /**
-  * The unique identifier of the Terms of Service document.
-  *
-  * @param termsOfServiceDocumentId
-  */ 
+  /**
+   * The unique identifier of the Terms of Service document.
+   *
+   * @param termsOfServiceDocumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentId(String termsOfServiceDocumentId) {
     this.termsOfServiceDocumentId = termsOfServiceDocumentId;
   }
 
-
+  /**
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
+   *
+   * @param type
+   * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceResponse type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
-  *
-  * @param type
-  */ 
+  /**
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this AcceptTermsOfServiceResponse object is equal to o.
@@ -357,4 +375,3 @@ public class AcceptTermsOfServiceResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

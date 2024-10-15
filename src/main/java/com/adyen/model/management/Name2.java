@@ -45,65 +45,71 @@ public class Name2 {
   public Name2() { 
   }
 
+  /**
+   * The first name.
+   *
+   * @param firstName
+   * @return the current {@code Name2} instance, allowing for method chaining
+   */
   public Name2 firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
 
-   /**
+  /**
    * The first name.
    * @return firstName
-  **/
+   */
   @ApiModelProperty(value = "The first name.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFirstName() {
     return firstName;
   }
 
-
- /**
-  * The first name.
-  *
-  * @param firstName
-  */ 
+  /**
+   * The first name.
+   *
+   * @param firstName
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
-
+  /**
+   * The last name.
+   *
+   * @param lastName
+   * @return the current {@code Name2} instance, allowing for method chaining
+   */
   public Name2 lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
 
-   /**
+  /**
    * The last name.
    * @return lastName
-  **/
+   */
   @ApiModelProperty(value = "The last name.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLastName() {
     return lastName;
   }
 
-
- /**
-  * The last name.
-  *
-  * @param lastName
-  */ 
+  /**
+   * The last name.
+   *
+   * @param lastName
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
-
 
   /**
    * Return true if this Name2 object is equal to o.
@@ -166,4 +172,3 @@ public class Name2 {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

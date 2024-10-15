@@ -83,246 +83,276 @@ public class DeviceInfo {
   public DeviceInfo() { 
   }
 
+  /**
+   * The technology used to capture the card details.
+   *
+   * @param cardCaptureTechnology
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo cardCaptureTechnology(String cardCaptureTechnology) {
     this.cardCaptureTechnology = cardCaptureTechnology;
     return this;
   }
 
-   /**
+  /**
    * The technology used to capture the card details.
    * @return cardCaptureTechnology
-  **/
+   */
   @ApiModelProperty(value = "The technology used to capture the card details.")
   @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardCaptureTechnology() {
     return cardCaptureTechnology;
   }
 
-
- /**
-  * The technology used to capture the card details.
-  *
-  * @param cardCaptureTechnology
-  */ 
+  /**
+   * The technology used to capture the card details.
+   *
+   * @param cardCaptureTechnology
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardCaptureTechnology(String cardCaptureTechnology) {
     this.cardCaptureTechnology = cardCaptureTechnology;
   }
 
-
+  /**
+   * The name of the device.
+   *
+   * @param deviceName
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo deviceName(String deviceName) {
     this.deviceName = deviceName;
     return this;
   }
 
-   /**
+  /**
    * The name of the device.
    * @return deviceName
-  **/
+   */
   @ApiModelProperty(value = "The name of the device.")
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDeviceName() {
     return deviceName;
   }
 
-
- /**
-  * The name of the device.
-  *
-  * @param deviceName
-  */ 
+  /**
+   * The name of the device.
+   *
+   * @param deviceName
+   */ 
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceName(String deviceName) {
     this.deviceName = deviceName;
   }
 
-
+  /**
+   * The form factor of the device to be provisioned.
+   *
+   * @param formFactor
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo formFactor(String formFactor) {
     this.formFactor = formFactor;
     return this;
   }
 
-   /**
+  /**
    * The form factor of the device to be provisioned.
    * @return formFactor
-  **/
+   */
   @ApiModelProperty(value = "The form factor of the device to be provisioned.")
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFormFactor() {
     return formFactor;
   }
 
-
- /**
-  * The form factor of the device to be provisioned.
-  *
-  * @param formFactor
-  */ 
+  /**
+   * The form factor of the device to be provisioned.
+   *
+   * @param formFactor
+   */ 
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(String formFactor) {
     this.formFactor = formFactor;
   }
 
-
+  /**
+   * The IMEI number of the device being provisioned.
+   *
+   * @param imei
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo imei(String imei) {
     this.imei = imei;
     return this;
   }
 
-   /**
+  /**
    * The IMEI number of the device being provisioned.
    * @return imei
-  **/
+   */
   @ApiModelProperty(value = "The IMEI number of the device being provisioned.")
   @JsonProperty(JSON_PROPERTY_IMEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImei() {
     return imei;
   }
 
-
- /**
-  * The IMEI number of the device being provisioned.
-  *
-  * @param imei
-  */ 
+  /**
+   * The IMEI number of the device being provisioned.
+   *
+   * @param imei
+   */ 
   @JsonProperty(JSON_PROPERTY_IMEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImei(String imei) {
     this.imei = imei;
   }
 
-
+  /**
+   * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
+   *
+   * @param isoDeviceType
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo isoDeviceType(String isoDeviceType) {
     this.isoDeviceType = isoDeviceType;
     return this;
   }
 
-   /**
+  /**
    * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    * @return isoDeviceType
-  **/
+   */
   @ApiModelProperty(value = "The 2-digit device type provided on the ISO messages that the token is being provisioned to.")
   @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIsoDeviceType() {
     return isoDeviceType;
   }
 
-
- /**
-  * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
-  *
-  * @param isoDeviceType
-  */ 
+  /**
+   * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
+   *
+   * @param isoDeviceType
+   */ 
   @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsoDeviceType(String isoDeviceType) {
     this.isoDeviceType = isoDeviceType;
   }
 
-
+  /**
+   * The MSISDN of the device being provisioned.
+   *
+   * @param msisdn
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo msisdn(String msisdn) {
     this.msisdn = msisdn;
     return this;
   }
 
-   /**
+  /**
    * The MSISDN of the device being provisioned.
    * @return msisdn
-  **/
+   */
   @ApiModelProperty(value = "The MSISDN of the device being provisioned.")
   @JsonProperty(JSON_PROPERTY_MSISDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMsisdn() {
     return msisdn;
   }
 
-
- /**
-  * The MSISDN of the device being provisioned.
-  *
-  * @param msisdn
-  */ 
+  /**
+   * The MSISDN of the device being provisioned.
+   *
+   * @param msisdn
+   */ 
   @JsonProperty(JSON_PROPERTY_MSISDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMsisdn(String msisdn) {
     this.msisdn = msisdn;
   }
 
-
+  /**
+   * The name of the device operating system.
+   *
+   * @param osName
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo osName(String osName) {
     this.osName = osName;
     return this;
   }
 
-   /**
+  /**
    * The name of the device operating system.
    * @return osName
-  **/
+   */
   @ApiModelProperty(value = "The name of the device operating system.")
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOsName() {
     return osName;
   }
 
-
- /**
-  * The name of the device operating system.
-  *
-  * @param osName
-  */ 
+  /**
+   * The name of the device operating system.
+   *
+   * @param osName
+   */ 
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsName(String osName) {
     this.osName = osName;
   }
 
-
+  /**
+   * The version of the device operating system.
+   *
+   * @param osVersion
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo osVersion(String osVersion) {
     this.osVersion = osVersion;
     return this;
   }
 
-   /**
+  /**
    * The version of the device operating system.
    * @return osVersion
-  **/
+   */
   @ApiModelProperty(value = "The version of the device operating system.")
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOsVersion() {
     return osVersion;
   }
 
-
- /**
-  * The version of the device operating system.
-  *
-  * @param osVersion
-  */ 
+  /**
+   * The version of the device operating system.
+   *
+   * @param osVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
     this.osVersion = osVersion;
   }
 
-
+  /**
+   * Different types of payments supported for the network token.
+   *
+   * @param paymentTypes
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo paymentTypes(List<String> paymentTypes) {
     this.paymentTypes = paymentTypes;
     return this;
@@ -336,90 +366,93 @@ public class DeviceInfo {
     return this;
   }
 
-   /**
+  /**
    * Different types of payments supported for the network token.
    * @return paymentTypes
-  **/
+   */
   @ApiModelProperty(value = "Different types of payments supported for the network token.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPaymentTypes() {
     return paymentTypes;
   }
 
-
- /**
-  * Different types of payments supported for the network token.
-  *
-  * @param paymentTypes
-  */ 
+  /**
+   * Different types of payments supported for the network token.
+   *
+   * @param paymentTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentTypes(List<String> paymentTypes) {
     this.paymentTypes = paymentTypes;
   }
 
-
+  /**
+   * The serial number of the device.
+   *
+   * @param serialNumber
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
     return this;
   }
 
-   /**
+  /**
    * The serial number of the device.
    * @return serialNumber
-  **/
+   */
   @ApiModelProperty(value = "The serial number of the device.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSerialNumber() {
     return serialNumber;
   }
 
-
- /**
-  * The serial number of the device.
-  *
-  * @param serialNumber
-  */ 
+  /**
+   * The serial number of the device.
+   *
+   * @param serialNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
 
-
+  /**
+   * The architecture or technology used for network token storage.
+   *
+   * @param storageTechnology
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
   public DeviceInfo storageTechnology(String storageTechnology) {
     this.storageTechnology = storageTechnology;
     return this;
   }
 
-   /**
+  /**
    * The architecture or technology used for network token storage.
    * @return storageTechnology
-  **/
+   */
   @ApiModelProperty(value = "The architecture or technology used for network token storage.")
   @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStorageTechnology() {
     return storageTechnology;
   }
 
-
- /**
-  * The architecture or technology used for network token storage.
-  *
-  * @param storageTechnology
-  */ 
+  /**
+   * The architecture or technology used for network token storage.
+   *
+   * @param storageTechnology
+   */ 
   @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorageTechnology(String storageTechnology) {
     this.storageTechnology = storageTechnology;
   }
-
 
   /**
    * Return true if this DeviceInfo object is equal to o.
@@ -500,4 +533,3 @@ public class DeviceInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

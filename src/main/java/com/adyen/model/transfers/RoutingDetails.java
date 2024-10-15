@@ -96,125 +96,137 @@ public class RoutingDetails {
   public RoutingDetails() { 
   }
 
+  /**
+   * A human-readable explanation specific to this occurrence of the problem.
+   *
+   * @param detail
+   * @return the current {@code RoutingDetails} instance, allowing for method chaining
+   */
   public RoutingDetails detail(String detail) {
     this.detail = detail;
     return this;
   }
 
-   /**
+  /**
    * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
-  **/
+   */
   @ApiModelProperty(value = "A human-readable explanation specific to this occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDetail() {
     return detail;
   }
 
-
- /**
-  * A human-readable explanation specific to this occurrence of the problem.
-  *
-  * @param detail
-  */ 
+  /**
+   * A human-readable explanation specific to this occurrence of the problem.
+   *
+   * @param detail
+   */ 
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
     this.detail = detail;
   }
 
-
+  /**
+   * A code that identifies the problem type.
+   *
+   * @param errorCode
+   * @return the current {@code RoutingDetails} instance, allowing for method chaining
+   */
   public RoutingDetails errorCode(String errorCode) {
     this.errorCode = errorCode;
     return this;
   }
 
-   /**
+  /**
    * A code that identifies the problem type.
    * @return errorCode
-  **/
+   */
   @ApiModelProperty(value = "A code that identifies the problem type.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorCode() {
     return errorCode;
   }
 
-
- /**
-  * A code that identifies the problem type.
-  *
-  * @param errorCode
-  */ 
+  /**
+   * A code that identifies the problem type.
+   *
+   * @param errorCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
 
-
+  /**
+   * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
+   *
+   * @param priority
+   * @return the current {@code RoutingDetails} instance, allowing for method chaining
+   */
   public RoutingDetails priority(PriorityEnum priority) {
     this.priority = priority;
     return this;
   }
 
-   /**
+  /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    * @return priority
-  **/
+   */
   @ApiModelProperty(value = "The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with `category` **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PriorityEnum getPriority() {
     return priority;
   }
 
-
- /**
-  * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
-  *
-  * @param priority
-  */ 
+  /**
+   * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
+   *
+   * @param priority
+   */ 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
     this.priority = priority;
   }
 
-
+  /**
+   * A short, human-readable summary of the problem type.
+   *
+   * @param title
+   * @return the current {@code RoutingDetails} instance, allowing for method chaining
+   */
   public RoutingDetails title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * A short, human-readable summary of the problem type.
    * @return title
-  **/
+   */
   @ApiModelProperty(value = "A short, human-readable summary of the problem type.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
- /**
-  * A short, human-readable summary of the problem type.
-  *
-  * @param title
-  */ 
+  /**
+   * A short, human-readable summary of the problem type.
+   *
+   * @param title
+   */ 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   /**
    * Return true if this RoutingDetails object is equal to o.
@@ -281,4 +293,3 @@ public class RoutingDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

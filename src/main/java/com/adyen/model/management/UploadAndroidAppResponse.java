@@ -41,35 +41,38 @@ public class UploadAndroidAppResponse {
   public UploadAndroidAppResponse() { 
   }
 
+  /**
+   * The unique identifier of the uploaded Android app.
+   *
+   * @param id
+   * @return the current {@code UploadAndroidAppResponse} instance, allowing for method chaining
+   */
   public UploadAndroidAppResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the uploaded Android app.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the uploaded Android app.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the uploaded Android app.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the uploaded Android app.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
-
 
   /**
    * Return true if this UploadAndroidAppResponse object is equal to o.
@@ -130,4 +133,3 @@ public class UploadAndroidAppResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

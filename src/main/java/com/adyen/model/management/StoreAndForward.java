@@ -53,6 +53,12 @@ public class StoreAndForward {
   public StoreAndForward() { 
   }
 
+  /**
+   * The maximum amount that the terminal accepts for a single store-and-forward payment.
+   *
+   * @param maxAmount
+   * @return the current {@code StoreAndForward} instance, allowing for method chaining
+   */
   public StoreAndForward maxAmount(List<MinorUnitsMonetaryValue> maxAmount) {
     this.maxAmount = maxAmount;
     return this;
@@ -66,90 +72,93 @@ public class StoreAndForward {
     return this;
   }
 
-   /**
+  /**
    * The maximum amount that the terminal accepts for a single store-and-forward payment.
    * @return maxAmount
-  **/
+   */
   @ApiModelProperty(value = "The maximum amount that the terminal accepts for a single store-and-forward payment.")
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<MinorUnitsMonetaryValue> getMaxAmount() {
     return maxAmount;
   }
 
-
- /**
-  * The maximum amount that the terminal accepts for a single store-and-forward payment.
-  *
-  * @param maxAmount
-  */ 
+  /**
+   * The maximum amount that the terminal accepts for a single store-and-forward payment.
+   *
+   * @param maxAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(List<MinorUnitsMonetaryValue> maxAmount) {
     this.maxAmount = maxAmount;
   }
 
-
+  /**
+   * The maximum number of store-and-forward transactions per terminal that you can process while offline.
+   *
+   * @param maxPayments
+   * @return the current {@code StoreAndForward} instance, allowing for method chaining
+   */
   public StoreAndForward maxPayments(Integer maxPayments) {
     this.maxPayments = maxPayments;
     return this;
   }
 
-   /**
+  /**
    * The maximum number of store-and-forward transactions per terminal that you can process while offline.
    * @return maxPayments
-  **/
+   */
   @ApiModelProperty(value = "The maximum number of store-and-forward transactions per terminal that you can process while offline.")
   @JsonProperty(JSON_PROPERTY_MAX_PAYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getMaxPayments() {
     return maxPayments;
   }
 
-
- /**
-  * The maximum number of store-and-forward transactions per terminal that you can process while offline.
-  *
-  * @param maxPayments
-  */ 
+  /**
+   * The maximum number of store-and-forward transactions per terminal that you can process while offline.
+   *
+   * @param maxPayments
+   */ 
   @JsonProperty(JSON_PROPERTY_MAX_PAYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxPayments(Integer maxPayments) {
     this.maxPayments = maxPayments;
   }
 
-
+  /**
+   * supportedCardTypes
+   *
+   * @param supportedCardTypes
+   * @return the current {@code StoreAndForward} instance, allowing for method chaining
+   */
   public StoreAndForward supportedCardTypes(SupportedCardTypes supportedCardTypes) {
     this.supportedCardTypes = supportedCardTypes;
     return this;
   }
 
-   /**
-   * Get supportedCardTypes
+  /**
+   * supportedCardTypes
    * @return supportedCardTypes
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CARD_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SupportedCardTypes getSupportedCardTypes() {
     return supportedCardTypes;
   }
 
-
- /**
-  * supportedCardTypes
-  *
-  * @param supportedCardTypes
-  */ 
+  /**
+   * supportedCardTypes
+   *
+   * @param supportedCardTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CARD_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedCardTypes(SupportedCardTypes supportedCardTypes) {
     this.supportedCardTypes = supportedCardTypes;
   }
-
 
   /**
    * Return true if this StoreAndForward object is equal to o.
@@ -214,4 +223,3 @@ public class StoreAndForward {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

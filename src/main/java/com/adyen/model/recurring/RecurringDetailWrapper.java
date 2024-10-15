@@ -42,35 +42,38 @@ public class RecurringDetailWrapper {
   public RecurringDetailWrapper() { 
   }
 
+  /**
+   * recurringDetail
+   *
+   * @param recurringDetail
+   * @return the current {@code RecurringDetailWrapper} instance, allowing for method chaining
+   */
   public RecurringDetailWrapper recurringDetail(RecurringDetail recurringDetail) {
     this.recurringDetail = recurringDetail;
     return this;
   }
 
-   /**
-   * Get recurringDetail
+  /**
+   * recurringDetail
    * @return recurringDetail
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RecurringDetail getRecurringDetail() {
     return recurringDetail;
   }
 
-
- /**
-  * recurringDetail
-  *
-  * @param recurringDetail
-  */ 
+  /**
+   * recurringDetail
+   *
+   * @param recurringDetail
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetail(RecurringDetail recurringDetail) {
     this.recurringDetail = recurringDetail;
   }
-
 
   /**
    * Return true if this RecurringDetailWrapper object is equal to o.
@@ -131,4 +134,3 @@ public class RecurringDetailWrapper {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

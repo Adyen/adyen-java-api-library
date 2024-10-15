@@ -44,6 +44,12 @@ public class TerminalModelsResponse {
   public TerminalModelsResponse() { 
   }
 
+  /**
+   * The terminal models that the API credential has access to.
+   *
+   * @param data
+   * @return the current {@code TerminalModelsResponse} instance, allowing for method chaining
+   */
   public TerminalModelsResponse data(List<IdName> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class TerminalModelsResponse {
     return this;
   }
 
-   /**
+  /**
    * The terminal models that the API credential has access to.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The terminal models that the API credential has access to.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<IdName> getData() {
     return data;
   }
 
-
- /**
-  * The terminal models that the API credential has access to.
-  *
-  * @param data
-  */ 
+  /**
+   * The terminal models that the API credential has access to.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<IdName> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this TerminalModelsResponse object is equal to o.
@@ -141,4 +144,3 @@ public class TerminalModelsResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

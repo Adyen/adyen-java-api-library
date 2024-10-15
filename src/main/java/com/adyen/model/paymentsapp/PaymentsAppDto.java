@@ -53,125 +53,137 @@ public class PaymentsAppDto {
   public PaymentsAppDto() { 
   }
 
+  /**
+   * The unique identifier of the Payments App instance.
+   *
+   * @param installationId
+   * @return the current {@code PaymentsAppDto} instance, allowing for method chaining
+   */
   public PaymentsAppDto installationId(String installationId) {
     this.installationId = installationId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the Payments App instance.
    * @return installationId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInstallationId() {
     return installationId;
   }
 
-
- /**
-  * The unique identifier of the Payments App instance.
-  *
-  * @param installationId
-  */ 
+  /**
+   * The unique identifier of the Payments App instance.
+   *
+   * @param installationId
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
   }
 
-
+  /**
+   * The account code associated with the Payments App instance.
+   *
+   * @param merchantAccountCode
+   * @return the current {@code PaymentsAppDto} instance, allowing for method chaining
+   */
   public PaymentsAppDto merchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
     return this;
   }
 
-   /**
+  /**
    * The account code associated with the Payments App instance.
    * @return merchantAccountCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The account code associated with the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
 
-
- /**
-  * The account code associated with the Payments App instance.
-  *
-  * @param merchantAccountCode
-  */ 
+  /**
+   * The account code associated with the Payments App instance.
+   *
+   * @param merchantAccountCode
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }
 
-
+  /**
+   * The store code associated with the Payments App instance.
+   *
+   * @param merchantStoreCode
+   * @return the current {@code PaymentsAppDto} instance, allowing for method chaining
+   */
   public PaymentsAppDto merchantStoreCode(String merchantStoreCode) {
     this.merchantStoreCode = merchantStoreCode;
     return this;
   }
 
-   /**
+  /**
    * The store code associated with the Payments App instance.
    * @return merchantStoreCode
-  **/
+   */
   @ApiModelProperty(value = "The store code associated with the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_STORE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantStoreCode() {
     return merchantStoreCode;
   }
 
-
- /**
-  * The store code associated with the Payments App instance.
-  *
-  * @param merchantStoreCode
-  */ 
+  /**
+   * The store code associated with the Payments App instance.
+   *
+   * @param merchantStoreCode
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_STORE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantStoreCode(String merchantStoreCode) {
     this.merchantStoreCode = merchantStoreCode;
   }
 
-
+  /**
+   * The status of the Payments App instance.
+   *
+   * @param status
+   * @return the current {@code PaymentsAppDto} instance, allowing for method chaining
+   */
   public PaymentsAppDto status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the Payments App instance.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the Payments App instance.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the Payments App instance.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this PaymentsAppDto object is equal to o.
@@ -238,4 +250,3 @@ public class PaymentsAppDto {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

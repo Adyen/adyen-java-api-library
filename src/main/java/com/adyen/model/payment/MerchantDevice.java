@@ -49,95 +49,104 @@ public class MerchantDevice {
   public MerchantDevice() { 
   }
 
+  /**
+   * Operating system running on the merchant device.
+   *
+   * @param os
+   * @return the current {@code MerchantDevice} instance, allowing for method chaining
+   */
   public MerchantDevice os(String os) {
     this.os = os;
     return this;
   }
 
-   /**
+  /**
    * Operating system running on the merchant device.
    * @return os
-  **/
+   */
   @ApiModelProperty(value = "Operating system running on the merchant device.")
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOs() {
     return os;
   }
 
-
- /**
-  * Operating system running on the merchant device.
-  *
-  * @param os
-  */ 
+  /**
+   * Operating system running on the merchant device.
+   *
+   * @param os
+   */ 
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOs(String os) {
     this.os = os;
   }
 
-
+  /**
+   * Version of the operating system on the merchant device.
+   *
+   * @param osVersion
+   * @return the current {@code MerchantDevice} instance, allowing for method chaining
+   */
   public MerchantDevice osVersion(String osVersion) {
     this.osVersion = osVersion;
     return this;
   }
 
-   /**
+  /**
    * Version of the operating system on the merchant device.
    * @return osVersion
-  **/
+   */
   @ApiModelProperty(value = "Version of the operating system on the merchant device.")
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOsVersion() {
     return osVersion;
   }
 
-
- /**
-  * Version of the operating system on the merchant device.
-  *
-  * @param osVersion
-  */ 
+  /**
+   * Version of the operating system on the merchant device.
+   *
+   * @param osVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
     this.osVersion = osVersion;
   }
 
-
+  /**
+   * Merchant device reference.
+   *
+   * @param reference
+   * @return the current {@code MerchantDevice} instance, allowing for method chaining
+   */
   public MerchantDevice reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Merchant device reference.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Merchant device reference.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Merchant device reference.
-  *
-  * @param reference
-  */ 
+  /**
+   * Merchant device reference.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this MerchantDevice object is equal to o.
@@ -202,4 +211,3 @@ public class MerchantDevice {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

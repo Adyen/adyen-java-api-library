@@ -51,95 +51,104 @@ public class TransactionEventViolation {
   public TransactionEventViolation() { 
   }
 
+  /**
+   * An explanation about why the transaction rule failed.
+   *
+   * @param reason
+   * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
+   */
   public TransactionEventViolation reason(String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * An explanation about why the transaction rule failed.
    * @return reason
-  **/
+   */
   @ApiModelProperty(value = "An explanation about why the transaction rule failed.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReason() {
     return reason;
   }
 
-
- /**
-  * An explanation about why the transaction rule failed.
-  *
-  * @param reason
-  */ 
+  /**
+   * An explanation about why the transaction rule failed.
+   *
+   * @param reason
+   */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
     this.reason = reason;
   }
 
-
+  /**
+   * transactionRule
+   *
+   * @param transactionRule
+   * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
+   */
   public TransactionEventViolation transactionRule(TransactionRuleReference transactionRule) {
     this.transactionRule = transactionRule;
     return this;
   }
 
-   /**
-   * Get transactionRule
+  /**
+   * transactionRule
    * @return transactionRule
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionRuleReference getTransactionRule() {
     return transactionRule;
   }
 
-
- /**
-  * transactionRule
-  *
-  * @param transactionRule
-  */ 
+  /**
+   * transactionRule
+   *
+   * @param transactionRule
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRule(TransactionRuleReference transactionRule) {
     this.transactionRule = transactionRule;
   }
 
-
+  /**
+   * transactionRuleSource
+   *
+   * @param transactionRuleSource
+   * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
+   */
   public TransactionEventViolation transactionRuleSource(TransactionRuleSource transactionRuleSource) {
     this.transactionRuleSource = transactionRuleSource;
     return this;
   }
 
-   /**
-   * Get transactionRuleSource
+  /**
+   * transactionRuleSource
    * @return transactionRuleSource
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionRuleSource getTransactionRuleSource() {
     return transactionRuleSource;
   }
 
-
- /**
-  * transactionRuleSource
-  *
-  * @param transactionRuleSource
-  */ 
+  /**
+   * transactionRuleSource
+   *
+   * @param transactionRuleSource
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRuleSource(TransactionRuleSource transactionRuleSource) {
     this.transactionRuleSource = transactionRuleSource;
   }
-
 
   /**
    * Return true if this TransactionEventViolation object is equal to o.
@@ -204,4 +213,3 @@ public class TransactionEventViolation {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

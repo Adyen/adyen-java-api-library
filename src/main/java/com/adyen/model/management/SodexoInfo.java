@@ -41,35 +41,38 @@ public class SodexoInfo {
   public SodexoInfo() { 
   }
 
+  /**
+   * Sodexo merchantContactPhone
+   *
+   * @param merchantContactPhone
+   * @return the current {@code SodexoInfo} instance, allowing for method chaining
+   */
   public SodexoInfo merchantContactPhone(String merchantContactPhone) {
     this.merchantContactPhone = merchantContactPhone;
     return this;
   }
 
-   /**
+  /**
    * Sodexo merchantContactPhone
    * @return merchantContactPhone
-  **/
+   */
   @ApiModelProperty(required = true, value = "Sodexo merchantContactPhone")
   @JsonProperty(JSON_PROPERTY_MERCHANT_CONTACT_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantContactPhone() {
     return merchantContactPhone;
   }
 
-
- /**
-  * Sodexo merchantContactPhone
-  *
-  * @param merchantContactPhone
-  */ 
+  /**
+   * Sodexo merchantContactPhone
+   *
+   * @param merchantContactPhone
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_CONTACT_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantContactPhone(String merchantContactPhone) {
     this.merchantContactPhone = merchantContactPhone;
   }
-
 
   /**
    * Return true if this SodexoInfo object is equal to o.
@@ -130,4 +133,3 @@ public class SodexoInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

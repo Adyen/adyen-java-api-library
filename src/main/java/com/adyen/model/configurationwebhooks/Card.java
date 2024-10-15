@@ -130,395 +130,434 @@ public class Card {
   public Card() { 
   }
 
+  /**
+   * authentication
+   *
+   * @param authentication
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card authentication(Authentication authentication) {
     this.authentication = authentication;
     return this;
   }
 
-   /**
-   * Get authentication
+  /**
+   * authentication
    * @return authentication
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Authentication getAuthentication() {
     return authentication;
   }
 
-
- /**
-  * authentication
-  *
-  * @param authentication
-  */ 
+  /**
+   * authentication
+   *
+   * @param authentication
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(Authentication authentication) {
     this.authentication = authentication;
   }
 
-
+  /**
+   * The bank identification number (BIN) of the card number.
+   *
+   * @param bin
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card bin(String bin) {
     this.bin = bin;
     return this;
   }
 
-   /**
+  /**
    * The bank identification number (BIN) of the card number.
    * @return bin
-  **/
+   */
   @ApiModelProperty(value = "The bank identification number (BIN) of the card number.")
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBin() {
     return bin;
   }
 
-
- /**
-  * The bank identification number (BIN) of the card number.
-  *
-  * @param bin
-  */ 
+  /**
+   * The bank identification number (BIN) of the card number.
+   *
+   * @param bin
+   */ 
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
     this.bin = bin;
   }
 
-
+  /**
+   * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
+   *
+   * @param brand
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card brand(String brand) {
     this.brand = brand;
     return this;
   }
 
-   /**
+  /**
    * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    * @return brand
-  **/
+   */
   @ApiModelProperty(required = true, value = "The brand of the physical or the virtual card. Possible values: **visa**, **mc**.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrand() {
     return brand;
   }
 
-
- /**
-  * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
-  *
-  * @param brand
-  */ 
+  /**
+   * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
+   *
+   * @param brand
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
-
+  /**
+   * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
+   *
+   * @param brandVariant
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card brandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
     return this;
   }
 
-   /**
+  /**
    * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return brandVariant
-  **/
+   */
   @ApiModelProperty(required = true, value = "The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. >Reach out to your Adyen contact to get the values relevant for your integration.")
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrandVariant() {
     return brandVariant;
   }
 
-
- /**
-  * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
-  *
-  * @param brandVariant
-  */ 
+  /**
+   * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
+   *
+   * @param brandVariant
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
   }
 
-
+  /**
+   * The name of the cardholder.  Maximum length: 26 characters.
+   *
+   * @param cardholderName
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card cardholderName(String cardholderName) {
     this.cardholderName = cardholderName;
     return this;
   }
 
-   /**
+  /**
    * The name of the cardholder.  Maximum length: 26 characters.
    * @return cardholderName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the cardholder.  Maximum length: 26 characters.")
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardholderName() {
     return cardholderName;
   }
 
-
- /**
-  * The name of the cardholder.  Maximum length: 26 characters.
-  *
-  * @param cardholderName
-  */ 
+  /**
+   * The name of the cardholder.  Maximum length: 26 characters.
+   *
+   * @param cardholderName
+   */ 
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderName(String cardholderName) {
     this.cardholderName = cardholderName;
   }
 
-
+  /**
+   * configuration
+   *
+   * @param configuration
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card configuration(CardConfiguration configuration) {
     this.configuration = configuration;
     return this;
   }
 
-   /**
-   * Get configuration
+  /**
+   * configuration
    * @return configuration
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardConfiguration getConfiguration() {
     return configuration;
   }
 
-
- /**
-  * configuration
-  *
-  * @param configuration
-  */ 
+  /**
+   * configuration
+   *
+   * @param configuration
+   */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(CardConfiguration configuration) {
     this.configuration = configuration;
   }
 
-
+  /**
+   * The CVC2 value of the card. &gt; The CVC2 is not sent by default. This is only returned in the &#x60;POST&#x60; response for single-use virtual cards.
+   *
+   * @param cvc
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card cvc(String cvc) {
     this.cvc = cvc;
     return this;
   }
 
-   /**
+  /**
    * The CVC2 value of the card. &gt; The CVC2 is not sent by default. This is only returned in the &#x60;POST&#x60; response for single-use virtual cards.
    * @return cvc
-  **/
+   */
   @ApiModelProperty(value = "The CVC2 value of the card. > The CVC2 is not sent by default. This is only returned in the `POST` response for single-use virtual cards.")
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCvc() {
     return cvc;
   }
 
-
- /**
-  * The CVC2 value of the card. &gt; The CVC2 is not sent by default. This is only returned in the &#x60;POST&#x60; response for single-use virtual cards.
-  *
-  * @param cvc
-  */ 
+  /**
+   * The CVC2 value of the card. &gt; The CVC2 is not sent by default. This is only returned in the &#x60;POST&#x60; response for single-use virtual cards.
+   *
+   * @param cvc
+   */ 
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
   }
 
-
+  /**
+   * deliveryContact
+   *
+   * @param deliveryContact
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card deliveryContact(DeliveryContact deliveryContact) {
     this.deliveryContact = deliveryContact;
     return this;
   }
 
-   /**
-   * Get deliveryContact
+  /**
+   * deliveryContact
    * @return deliveryContact
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DELIVERY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DeliveryContact getDeliveryContact() {
     return deliveryContact;
   }
 
-
- /**
-  * deliveryContact
-  *
-  * @param deliveryContact
-  */ 
+  /**
+   * deliveryContact
+   *
+   * @param deliveryContact
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryContact(DeliveryContact deliveryContact) {
     this.deliveryContact = deliveryContact;
   }
 
-
+  /**
+   * expiration
+   *
+   * @param expiration
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card expiration(Expiry expiration) {
     this.expiration = expiration;
     return this;
   }
 
-   /**
-   * Get expiration
+  /**
+   * expiration
    * @return expiration
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Expiry getExpiration() {
     return expiration;
   }
 
-
- /**
-  * expiration
-  *
-  * @param expiration
-  */ 
+  /**
+   * expiration
+   *
+   * @param expiration
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiration(Expiry expiration) {
     this.expiration = expiration;
   }
 
-
+  /**
+   * The form factor of the card. Possible values: **virtual**, **physical**.
+   *
+   * @param formFactor
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card formFactor(FormFactorEnum formFactor) {
     this.formFactor = formFactor;
     return this;
   }
 
-   /**
+  /**
    * The form factor of the card. Possible values: **virtual**, **physical**.
    * @return formFactor
-  **/
+   */
   @ApiModelProperty(required = true, value = "The form factor of the card. Possible values: **virtual**, **physical**.")
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FormFactorEnum getFormFactor() {
     return formFactor;
   }
 
-
- /**
-  * The form factor of the card. Possible values: **virtual**, **physical**.
-  *
-  * @param formFactor
-  */ 
+  /**
+   * The form factor of the card. Possible values: **virtual**, **physical**.
+   *
+   * @param formFactor
+   */ 
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(FormFactorEnum formFactor) {
     this.formFactor = formFactor;
   }
 
-
+  /**
+   * Last last four digits of the card number.
+   *
+   * @param lastFour
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card lastFour(String lastFour) {
     this.lastFour = lastFour;
     return this;
   }
 
-   /**
+  /**
    * Last last four digits of the card number.
    * @return lastFour
-  **/
+   */
   @ApiModelProperty(value = "Last last four digits of the card number.")
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLastFour() {
     return lastFour;
   }
 
-
- /**
-  * Last last four digits of the card number.
-  *
-  * @param lastFour
-  */ 
+  /**
+   * Last last four digits of the card number.
+   *
+   * @param lastFour
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastFour(String lastFour) {
     this.lastFour = lastFour;
   }
 
-
+  /**
+   * The primary account number (PAN) of the card. &gt; The PAN is masked by default and returned only for single-use virtual cards.
+   *
+   * @param number
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card number(String number) {
     this.number = number;
     return this;
   }
 
-   /**
+  /**
    * The primary account number (PAN) of the card. &gt; The PAN is masked by default and returned only for single-use virtual cards.
    * @return number
-  **/
+   */
   @ApiModelProperty(required = true, value = "The primary account number (PAN) of the card. > The PAN is masked by default and returned only for single-use virtual cards.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNumber() {
     return number;
   }
 
-
- /**
-  * The primary account number (PAN) of the card. &gt; The PAN is masked by default and returned only for single-use virtual cards.
-  *
-  * @param number
-  */ 
+  /**
+   * The primary account number (PAN) of the card. &gt; The PAN is masked by default and returned only for single-use virtual cards.
+   *
+   * @param number
+   */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
   }
 
-
+  /**
+   * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
+   *
+   * @param threeDSecure
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card threeDSecure(String threeDSecure) {
     this.threeDSecure = threeDSecure;
     return this;
   }
 
-   /**
+  /**
    * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return threeDSecure
-  **/
+   */
   @ApiModelProperty(value = "Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. >Reach out to your Adyen contact to get the values relevant for your integration.")
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDSecure() {
     return threeDSecure;
   }
 
-
- /**
-  * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
-  *
-  * @param threeDSecure
-  */ 
+  /**
+   * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
+   *
+   * @param threeDSecure
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSecure(String threeDSecure) {
     this.threeDSecure = threeDSecure;
   }
-
 
   /**
    * Return true if this Card object is equal to o.
@@ -603,4 +642,3 @@ public class Card {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

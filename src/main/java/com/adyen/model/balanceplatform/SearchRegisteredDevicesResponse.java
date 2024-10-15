@@ -57,6 +57,12 @@ public class SearchRegisteredDevicesResponse {
   public SearchRegisteredDevicesResponse() { 
   }
 
+  /**
+   * Contains a list of registered SCA devices and their corresponding details.
+   *
+   * @param data
+   * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
+   */
   public SearchRegisteredDevicesResponse data(List<Device> data) {
     this.data = data;
     return this;
@@ -70,120 +76,126 @@ public class SearchRegisteredDevicesResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains a list of registered SCA devices and their corresponding details.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "Contains a list of registered SCA devices and their corresponding details.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Device> getData() {
     return data;
   }
 
-
- /**
-  * Contains a list of registered SCA devices and their corresponding details.
-  *
-  * @param data
-  */ 
+  /**
+   * Contains a list of registered SCA devices and their corresponding details.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Device> data) {
     this.data = data;
   }
 
-
+  /**
+   * The total amount of registered SCA devices that match the query parameters.
+   *
+   * @param itemsTotal
+   * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
+   */
   public SearchRegisteredDevicesResponse itemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
     return this;
   }
 
-   /**
+  /**
    * The total amount of registered SCA devices that match the query parameters.
    * @return itemsTotal
-  **/
+   */
   @ApiModelProperty(value = "The total amount of registered SCA devices that match the query parameters.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getItemsTotal() {
     return itemsTotal;
   }
 
-
- /**
-  * The total amount of registered SCA devices that match the query parameters.
-  *
-  * @param itemsTotal
-  */ 
+  /**
+   * The total amount of registered SCA devices that match the query parameters.
+   *
+   * @param itemsTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
 
-
+  /**
+   * link
+   *
+   * @param link
+   * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
+   */
   public SearchRegisteredDevicesResponse link(Link link) {
     this.link = link;
     return this;
   }
 
-   /**
-   * Get link
+  /**
+   * link
    * @return link
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Link getLink() {
     return link;
   }
 
-
- /**
-  * link
-  *
-  * @param link
-  */ 
+  /**
+   * link
+   *
+   * @param link
+   */ 
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLink(Link link) {
     this.link = link;
   }
 
-
+  /**
+   * The total amount of list pages.
+   *
+   * @param pagesTotal
+   * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
+   */
   public SearchRegisteredDevicesResponse pagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
     return this;
   }
 
-   /**
+  /**
    * The total amount of list pages.
    * @return pagesTotal
-  **/
+   */
   @ApiModelProperty(value = "The total amount of list pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPagesTotal() {
     return pagesTotal;
   }
 
-
- /**
-  * The total amount of list pages.
-  *
-  * @param pagesTotal
-  */ 
+  /**
+   * The total amount of list pages.
+   *
+   * @param pagesTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }
-
 
   /**
    * Return true if this SearchRegisteredDevicesResponse object is equal to o.
@@ -250,4 +262,3 @@ public class SearchRegisteredDevicesResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

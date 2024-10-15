@@ -65,215 +65,236 @@ public class StoreLocation {
   public StoreLocation() { 
   }
 
+  /**
+   * The name of the city.
+   *
+   * @param city
+   * @return the current {@code StoreLocation} instance, allowing for method chaining
+   */
   public StoreLocation city(String city) {
     this.city = city;
     return this;
   }
 
-   /**
+  /**
    * The name of the city.
    * @return city
-  **/
+   */
   @ApiModelProperty(value = "The name of the city.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCity() {
     return city;
   }
 
-
- /**
-  * The name of the city.
-  *
-  * @param city
-  */ 
+  /**
+   * The name of the city.
+   *
+   * @param city
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
-
+  /**
+   * The two-letter country code in [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param country
+   * @return the current {@code StoreLocation} instance, allowing for method chaining
+   */
   public StoreLocation country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
+  /**
    * The two-letter country code in [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
    * @return country
-  **/
+   */
   @ApiModelProperty(required = true, value = "The two-letter country code in [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The two-letter country code in [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
-  *
-  * @param country
-  */ 
+  /**
+   * The two-letter country code in [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The street address.
+   *
+   * @param line1
+   * @return the current {@code StoreLocation} instance, allowing for method chaining
+   */
   public StoreLocation line1(String line1) {
     this.line1 = line1;
     return this;
   }
 
-   /**
+  /**
    * The street address.
    * @return line1
-  **/
+   */
   @ApiModelProperty(value = "The street address.")
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLine1() {
     return line1;
   }
 
-
- /**
-  * The street address.
-  *
-  * @param line1
-  */ 
+  /**
+   * The street address.
+   *
+   * @param line1
+   */ 
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
     this.line1 = line1;
   }
 
-
+  /**
+   * Second address line.
+   *
+   * @param line2
+   * @return the current {@code StoreLocation} instance, allowing for method chaining
+   */
   public StoreLocation line2(String line2) {
     this.line2 = line2;
     return this;
   }
 
-   /**
+  /**
    * Second address line.
    * @return line2
-  **/
+   */
   @ApiModelProperty(value = "Second address line.")
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLine2() {
     return line2;
   }
 
-
- /**
-  * Second address line.
-  *
-  * @param line2
-  */ 
+  /**
+   * Second address line.
+   *
+   * @param line2
+   */ 
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
     this.line2 = line2;
   }
 
-
+  /**
+   * Third address line.
+   *
+   * @param line3
+   * @return the current {@code StoreLocation} instance, allowing for method chaining
+   */
   public StoreLocation line3(String line3) {
     this.line3 = line3;
     return this;
   }
 
-   /**
+  /**
    * Third address line.
    * @return line3
-  **/
+   */
   @ApiModelProperty(value = "Third address line.")
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLine3() {
     return line3;
   }
 
-
- /**
-  * Third address line.
-  *
-  * @param line3
-  */ 
+  /**
+   * Third address line.
+   *
+   * @param line3
+   */ 
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
     this.line3 = line3;
   }
 
-
+  /**
+   * The postal code.
+   *
+   * @param postalCode
+   * @return the current {@code StoreLocation} instance, allowing for method chaining
+   */
   public StoreLocation postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
 
-   /**
+  /**
    * The postal code.
    * @return postalCode
-  **/
+   */
   @ApiModelProperty(value = "The postal code.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
 
-
- /**
-  * The postal code.
-  *
-  * @param postalCode
-  */ 
+  /**
+   * The postal code.
+   *
+   * @param postalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
 
-
+  /**
+   * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
+   *
+   * @param stateOrProvince
+   * @return the current {@code StoreLocation} instance, allowing for method chaining
+   */
   public StoreLocation stateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
     return this;
   }
 
-   /**
+  /**
    * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    * @return stateOrProvince
-  **/
+   */
   @ApiModelProperty(value = "The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStateOrProvince() {
     return stateOrProvince;
   }
 
-
- /**
-  * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
-  *
-  * @param stateOrProvince
-  */ 
+  /**
+   * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
+   *
+   * @param stateOrProvince
+   */ 
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
   }
-
 
   /**
    * Return true if this StoreLocation object is equal to o.
@@ -346,4 +367,3 @@ public class StoreLocation {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

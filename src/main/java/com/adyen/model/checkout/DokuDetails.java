@@ -110,155 +110,170 @@ public class DokuDetails {
   public DokuDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code DokuDetails} instance, allowing for method chaining
+   */
   public DokuDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The shopper&#39;s first name.
+   *
+   * @param firstName
+   * @return the current {@code DokuDetails} instance, allowing for method chaining
+   */
   public DokuDetails firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
 
-   /**
+  /**
    * The shopper&#39;s first name.
    * @return firstName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopper's first name.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFirstName() {
     return firstName;
   }
 
-
- /**
-  * The shopper&#39;s first name.
-  *
-  * @param firstName
-  */ 
+  /**
+   * The shopper&#39;s first name.
+   *
+   * @param firstName
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
-
+  /**
+   * The shopper&#39;s last name.
+   *
+   * @param lastName
+   * @return the current {@code DokuDetails} instance, allowing for method chaining
+   */
   public DokuDetails lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
 
-   /**
+  /**
    * The shopper&#39;s last name.
    * @return lastName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopper's last name.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLastName() {
     return lastName;
   }
 
-
- /**
-  * The shopper&#39;s last name.
-  *
-  * @param lastName
-  */ 
+  /**
+   * The shopper&#39;s last name.
+   *
+   * @param lastName
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
-
+  /**
+   * The shopper&#39;s email.
+   *
+   * @param shopperEmail
+   * @return the current {@code DokuDetails} instance, allowing for method chaining
+   */
   public DokuDetails shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * The shopper&#39;s email.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopper's email.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * The shopper&#39;s email.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * The shopper&#39;s email.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * **doku**
+   *
+   * @param type
+   * @return the current {@code DokuDetails} instance, allowing for method chaining
+   */
   public DokuDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **doku**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**doku**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **doku**
-  *
-  * @param type
-  */ 
+  /**
+   * **doku**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this DokuDetails object is equal to o.
@@ -327,4 +342,3 @@ public class DokuDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

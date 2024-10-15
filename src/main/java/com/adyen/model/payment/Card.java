@@ -69,245 +69,269 @@ public class Card {
   public Card() { 
   }
 
+  /**
+   * The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits &gt; If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. &gt; This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). &gt; When this value is returned in a response, it is always empty because it is not stored.
+   *
+   * @param cvc
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card cvc(String cvc) {
     this.cvc = cvc;
     return this;
   }
 
-   /**
+  /**
    * The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits &gt; If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. &gt; This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). &gt; When this value is returned in a response, it is always empty because it is not stored.
    * @return cvc
-  **/
+   */
   @ApiModelProperty(value = "The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits > If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. > This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). > When this value is returned in a response, it is always empty because it is not stored.")
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCvc() {
     return cvc;
   }
 
-
- /**
-  * The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits &gt; If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. &gt; This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). &gt; When this value is returned in a response, it is always empty because it is not stored.
-  *
-  * @param cvc
-  */ 
+  /**
+   * The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits &gt; If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. &gt; This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). &gt; When this value is returned in a response, it is always empty because it is not stored.
+   *
+   * @param cvc
+   */ 
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
   }
 
-
+  /**
+   * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
+   *
+   * @param expiryMonth
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card expiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
     return this;
   }
 
-   /**
+  /**
    * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
    * @return expiryMonth
-  **/
+   */
   @ApiModelProperty(value = "The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 = March * 11 = November")
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiryMonth() {
     return expiryMonth;
   }
 
-
- /**
-  * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
-  *
-  * @param expiryMonth
-  */ 
+  /**
+   * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
+   *
+   * @param expiryMonth
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
   }
 
-
+  /**
+   * The card expiry year. Format: 4 digits. For example: 2020
+   *
+   * @param expiryYear
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card expiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
     return this;
   }
 
-   /**
+  /**
    * The card expiry year. Format: 4 digits. For example: 2020
    * @return expiryYear
-  **/
+   */
   @ApiModelProperty(value = "The card expiry year. Format: 4 digits. For example: 2020")
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiryYear() {
     return expiryYear;
   }
 
-
- /**
-  * The card expiry year. Format: 4 digits. For example: 2020
-  *
-  * @param expiryYear
-  */ 
+  /**
+   * The card expiry year. Format: 4 digits. For example: 2020
+   *
+   * @param expiryYear
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
   }
 
-
+  /**
+   * The name of the cardholder, as printed on the card.
+   *
+   * @param holderName
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card holderName(String holderName) {
     this.holderName = holderName;
     return this;
   }
 
-   /**
+  /**
    * The name of the cardholder, as printed on the card.
    * @return holderName
-  **/
+   */
   @ApiModelProperty(value = "The name of the cardholder, as printed on the card.")
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHolderName() {
     return holderName;
   }
 
-
- /**
-  * The name of the cardholder, as printed on the card.
-  *
-  * @param holderName
-  */ 
+  /**
+   * The name of the cardholder, as printed on the card.
+   *
+   * @param holderName
+   */ 
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
     this.holderName = holderName;
   }
 
-
+  /**
+   * The issue number of the card (for some UK debit cards only).
+   *
+   * @param issueNumber
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card issueNumber(String issueNumber) {
     this.issueNumber = issueNumber;
     return this;
   }
 
-   /**
+  /**
    * The issue number of the card (for some UK debit cards only).
    * @return issueNumber
-  **/
+   */
   @ApiModelProperty(value = "The issue number of the card (for some UK debit cards only).")
   @JsonProperty(JSON_PROPERTY_ISSUE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssueNumber() {
     return issueNumber;
   }
 
-
- /**
-  * The issue number of the card (for some UK debit cards only).
-  *
-  * @param issueNumber
-  */ 
+  /**
+   * The issue number of the card (for some UK debit cards only).
+   *
+   * @param issueNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssueNumber(String issueNumber) {
     this.issueNumber = issueNumber;
   }
 
-
+  /**
+   * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
+   *
+   * @param number
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card number(String number) {
     this.number = number;
     return this;
   }
 
-   /**
+  /**
    * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
    * @return number
-  **/
+   */
   @ApiModelProperty(value = "The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNumber() {
     return number;
   }
 
-
- /**
-  * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
-  *
-  * @param number
-  */ 
+  /**
+   * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
+   *
+   * @param number
+   */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
   }
 
-
+  /**
+   * The month component of the start date (for some UK debit cards only).
+   *
+   * @param startMonth
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card startMonth(String startMonth) {
     this.startMonth = startMonth;
     return this;
   }
 
-   /**
+  /**
    * The month component of the start date (for some UK debit cards only).
    * @return startMonth
-  **/
+   */
   @ApiModelProperty(value = "The month component of the start date (for some UK debit cards only).")
   @JsonProperty(JSON_PROPERTY_START_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStartMonth() {
     return startMonth;
   }
 
-
- /**
-  * The month component of the start date (for some UK debit cards only).
-  *
-  * @param startMonth
-  */ 
+  /**
+   * The month component of the start date (for some UK debit cards only).
+   *
+   * @param startMonth
+   */ 
   @JsonProperty(JSON_PROPERTY_START_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartMonth(String startMonth) {
     this.startMonth = startMonth;
   }
 
-
+  /**
+   * The year component of the start date (for some UK debit cards only).
+   *
+   * @param startYear
+   * @return the current {@code Card} instance, allowing for method chaining
+   */
   public Card startYear(String startYear) {
     this.startYear = startYear;
     return this;
   }
 
-   /**
+  /**
    * The year component of the start date (for some UK debit cards only).
    * @return startYear
-  **/
+   */
   @ApiModelProperty(value = "The year component of the start date (for some UK debit cards only).")
   @JsonProperty(JSON_PROPERTY_START_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStartYear() {
     return startYear;
   }
 
-
- /**
-  * The year component of the start date (for some UK debit cards only).
-  *
-  * @param startYear
-  */ 
+  /**
+   * The year component of the start date (for some UK debit cards only).
+   *
+   * @param startYear
+   */ 
   @JsonProperty(JSON_PROPERTY_START_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartYear(String startYear) {
     this.startYear = startYear;
   }
-
 
   /**
    * Return true if this Card object is equal to o.
@@ -382,4 +406,3 @@ public class Card {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -46,65 +46,71 @@ public class Links {
   public Links() { 
   }
 
+  /**
+   * next
+   *
+   * @param next
+   * @return the current {@code Links} instance, allowing for method chaining
+   */
   public Links next(Link next) {
     this.next = next;
     return this;
   }
 
-   /**
-   * Get next
+  /**
+   * next
    * @return next
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Link getNext() {
     return next;
   }
 
-
- /**
-  * next
-  *
-  * @param next
-  */ 
+  /**
+   * next
+   *
+   * @param next
+   */ 
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(Link next) {
     this.next = next;
   }
 
-
+  /**
+   * prev
+   *
+   * @param prev
+   * @return the current {@code Links} instance, allowing for method chaining
+   */
   public Links prev(Link prev) {
     this.prev = prev;
     return this;
   }
 
-   /**
-   * Get prev
+  /**
+   * prev
    * @return prev
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Link getPrev() {
     return prev;
   }
 
-
- /**
-  * prev
-  *
-  * @param prev
-  */ 
+  /**
+   * prev
+   *
+   * @param prev
+   */ 
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrev(Link prev) {
     this.prev = prev;
   }
-
 
   /**
    * Return true if this Links object is equal to o.
@@ -167,4 +173,3 @@ public class Links {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

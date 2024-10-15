@@ -61,185 +61,203 @@ public class NameLocation {
   public NameLocation() { 
   }
 
+  /**
+   * The city where the merchant is located.
+   *
+   * @param city
+   * @return the current {@code NameLocation} instance, allowing for method chaining
+   */
   public NameLocation city(String city) {
     this.city = city;
     return this;
   }
 
-   /**
+  /**
    * The city where the merchant is located.
    * @return city
-  **/
+   */
   @ApiModelProperty(value = "The city where the merchant is located.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCity() {
     return city;
   }
 
-
- /**
-  * The city where the merchant is located.
-  *
-  * @param city
-  */ 
+  /**
+   * The city where the merchant is located.
+   *
+   * @param city
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
 
-
+  /**
+   * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
+   *
+   * @param country
+   * @return the current {@code NameLocation} instance, allowing for method chaining
+   */
   public NameLocation country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
+  /**
    * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
-  *
-  * @param country
-  */ 
+  /**
+   * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
+   *
+   * @param countryOfOrigin
+   * @return the current {@code NameLocation} instance, allowing for method chaining
+   */
   public NameLocation countryOfOrigin(String countryOfOrigin) {
     this.countryOfOrigin = countryOfOrigin;
     return this;
   }
 
-   /**
+  /**
    * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
    * @return countryOfOrigin
-  **/
+   */
   @ApiModelProperty(value = "The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountryOfOrigin() {
     return countryOfOrigin;
   }
 
-
- /**
-  * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
-  *
-  * @param countryOfOrigin
-  */ 
+  /**
+   * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
+   *
+   * @param countryOfOrigin
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfOrigin(String countryOfOrigin) {
     this.countryOfOrigin = countryOfOrigin;
   }
 
-
+  /**
+   * The name of the merchant&#39;s shop or service.
+   *
+   * @param name
+   * @return the current {@code NameLocation} instance, allowing for method chaining
+   */
   public NameLocation name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the merchant&#39;s shop or service.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The name of the merchant's shop or service.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the merchant&#39;s shop or service.
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the merchant&#39;s shop or service.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The raw data.
+   *
+   * @param rawData
+   * @return the current {@code NameLocation} instance, allowing for method chaining
+   */
   public NameLocation rawData(String rawData) {
     this.rawData = rawData;
     return this;
   }
 
-   /**
+  /**
    * The raw data.
    * @return rawData
-  **/
+   */
   @ApiModelProperty(value = "The raw data.")
   @JsonProperty(JSON_PROPERTY_RAW_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRawData() {
     return rawData;
   }
 
-
- /**
-  * The raw data.
-  *
-  * @param rawData
-  */ 
+  /**
+   * The raw data.
+   *
+   * @param rawData
+   */ 
   @JsonProperty(JSON_PROPERTY_RAW_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRawData(String rawData) {
     this.rawData = rawData;
   }
 
-
+  /**
+   * The state where the merchant is located.
+   *
+   * @param state
+   * @return the current {@code NameLocation} instance, allowing for method chaining
+   */
   public NameLocation state(String state) {
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * The state where the merchant is located.
    * @return state
-  **/
+   */
   @ApiModelProperty(value = "The state where the merchant is located.")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getState() {
     return state;
   }
 
-
- /**
-  * The state where the merchant is located.
-  *
-  * @param state
-  */ 
+  /**
+   * The state where the merchant is located.
+   *
+   * @param state
+   */ 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(String state) {
     this.state = state;
   }
-
 
   /**
    * Return true if this NameLocation object is equal to o.
@@ -310,4 +328,3 @@ public class NameLocation {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

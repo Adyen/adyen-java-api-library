@@ -55,125 +55,137 @@ public class CounterpartyInfoV3 {
   public CounterpartyInfoV3() { 
   }
 
+  /**
+   * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
+   *
+   * @param balanceAccountId
+   * @return the current {@code CounterpartyInfoV3} instance, allowing for method chaining
+   */
   public CounterpartyInfoV3 balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
    * @return balanceAccountId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
 
-
- /**
-  * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
-  *
-  * @param balanceAccountId
-  */ 
+  /**
+   * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
+   *
+   * @param balanceAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
 
-
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   * @return the current {@code CounterpartyInfoV3} instance, allowing for method chaining
+   */
   public CounterpartyInfoV3 bankAccount(BankAccountV3 bankAccount) {
     this.bankAccount = bankAccount;
     return this;
   }
 
-   /**
-   * Get bankAccount
+  /**
+   * bankAccount
    * @return bankAccount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccountV3 getBankAccount() {
     return bankAccount;
   }
 
-
- /**
-  * bankAccount
-  *
-  * @param bankAccount
-  */ 
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountV3 bankAccount) {
     this.bankAccount = bankAccount;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code CounterpartyInfoV3} instance, allowing for method chaining
+   */
   public CounterpartyInfoV3 card(Card card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Card getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
-
+  /**
+   * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
+   *
+   * @param transferInstrumentId
+   * @return the current {@code CounterpartyInfoV3} instance, allowing for method chaining
+   */
   public CounterpartyInfoV3 transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
    * @return transferInstrumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
-  *
-  * @param transferInstrumentId
-  */ 
+  /**
+   * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
+   *
+   * @param transferInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }
-
 
   /**
    * Return true if this CounterpartyInfoV3 object is equal to o.
@@ -240,4 +252,3 @@ public class CounterpartyInfoV3 {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

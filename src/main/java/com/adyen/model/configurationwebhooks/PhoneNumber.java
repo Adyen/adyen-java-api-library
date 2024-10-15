@@ -88,95 +88,104 @@ public class PhoneNumber {
   public PhoneNumber() { 
   }
 
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
+   *
+   * @param phoneCountryCode
+   * @return the current {@code PhoneNumber} instance, allowing for method chaining
+   */
   public PhoneNumber phoneCountryCode(String phoneCountryCode) {
     this.phoneCountryCode = phoneCountryCode;
     return this;
   }
 
-   /**
+  /**
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    * @return phoneCountryCode
-  **/
+   */
   @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.")
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPhoneCountryCode() {
     return phoneCountryCode;
   }
 
-
- /**
-  * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
-  *
-  * @param phoneCountryCode
-  */ 
+  /**
+   * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
+   *
+   * @param phoneCountryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneCountryCode(String phoneCountryCode) {
     this.phoneCountryCode = phoneCountryCode;
   }
 
-
+  /**
+   * The phone number. The inclusion of the phone number country code is not necessary.
+   *
+   * @param phoneNumber
+   * @return the current {@code PhoneNumber} instance, allowing for method chaining
+   */
   public PhoneNumber phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
 
-   /**
+  /**
    * The phone number. The inclusion of the phone number country code is not necessary.
    * @return phoneNumber
-  **/
+   */
   @ApiModelProperty(value = "The phone number. The inclusion of the phone number country code is not necessary.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
-
- /**
-  * The phone number. The inclusion of the phone number country code is not necessary.
-  *
-  * @param phoneNumber
-  */ 
+  /**
+   * The phone number. The inclusion of the phone number country code is not necessary.
+   *
+   * @param phoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
 
-
+  /**
+   * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
+   *
+   * @param phoneType
+   * @return the current {@code PhoneNumber} instance, allowing for method chaining
+   */
   public PhoneNumber phoneType(PhoneTypeEnum phoneType) {
     this.phoneType = phoneType;
     return this;
   }
 
-   /**
+  /**
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    * @return phoneType
-  **/
+   */
   @ApiModelProperty(value = "The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.")
   @JsonProperty(JSON_PROPERTY_PHONE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PhoneTypeEnum getPhoneType() {
     return phoneType;
   }
 
-
- /**
-  * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
-  *
-  * @param phoneType
-  */ 
+  /**
+   * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
+   *
+   * @param phoneType
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneType(PhoneTypeEnum phoneType) {
     this.phoneType = phoneType;
   }
-
 
   /**
    * Return true if this PhoneNumber object is equal to o.
@@ -241,4 +250,3 @@ public class PhoneNumber {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -62,185 +62,203 @@ public class ApiCredentialLinks {
   public ApiCredentialLinks() { 
   }
 
+  /**
+   * allowedOrigins
+   *
+   * @param allowedOrigins
+   * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
+   */
   public ApiCredentialLinks allowedOrigins(LinksElement allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
     return this;
   }
 
-   /**
-   * Get allowedOrigins
+  /**
+   * allowedOrigins
    * @return allowedOrigins
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getAllowedOrigins() {
     return allowedOrigins;
   }
 
-
- /**
-  * allowedOrigins
-  *
-  * @param allowedOrigins
-  */ 
+  /**
+   * allowedOrigins
+   *
+   * @param allowedOrigins
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(LinksElement allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
   }
 
-
+  /**
+   * company
+   *
+   * @param company
+   * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
+   */
   public ApiCredentialLinks company(LinksElement company) {
     this.company = company;
     return this;
   }
 
-   /**
-   * Get company
+  /**
+   * company
    * @return company
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getCompany() {
     return company;
   }
 
-
- /**
-  * company
-  *
-  * @param company
-  */ 
+  /**
+   * company
+   *
+   * @param company
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
     this.company = company;
   }
 
-
+  /**
+   * generateApiKey
+   *
+   * @param generateApiKey
+   * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
+   */
   public ApiCredentialLinks generateApiKey(LinksElement generateApiKey) {
     this.generateApiKey = generateApiKey;
     return this;
   }
 
-   /**
-   * Get generateApiKey
+  /**
+   * generateApiKey
    * @return generateApiKey
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getGenerateApiKey() {
     return generateApiKey;
   }
 
-
- /**
-  * generateApiKey
-  *
-  * @param generateApiKey
-  */ 
+  /**
+   * generateApiKey
+   *
+   * @param generateApiKey
+   */ 
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateApiKey(LinksElement generateApiKey) {
     this.generateApiKey = generateApiKey;
   }
 
-
+  /**
+   * generateClientKey
+   *
+   * @param generateClientKey
+   * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
+   */
   public ApiCredentialLinks generateClientKey(LinksElement generateClientKey) {
     this.generateClientKey = generateClientKey;
     return this;
   }
 
-   /**
-   * Get generateClientKey
+  /**
+   * generateClientKey
    * @return generateClientKey
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getGenerateClientKey() {
     return generateClientKey;
   }
 
-
- /**
-  * generateClientKey
-  *
-  * @param generateClientKey
-  */ 
+  /**
+   * generateClientKey
+   *
+   * @param generateClientKey
+   */ 
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateClientKey(LinksElement generateClientKey) {
     this.generateClientKey = generateClientKey;
   }
 
-
+  /**
+   * merchant
+   *
+   * @param merchant
+   * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
+   */
   public ApiCredentialLinks merchant(LinksElement merchant) {
     this.merchant = merchant;
     return this;
   }
 
-   /**
-   * Get merchant
+  /**
+   * merchant
    * @return merchant
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getMerchant() {
     return merchant;
   }
 
-
- /**
-  * merchant
-  *
-  * @param merchant
-  */ 
+  /**
+   * merchant
+   *
+   * @param merchant
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
     this.merchant = merchant;
   }
 
-
+  /**
+   * self
+   *
+   * @param self
+   * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
+   */
   public ApiCredentialLinks self(LinksElement self) {
     this.self = self;
     return this;
   }
 
-   /**
-   * Get self
+  /**
+   * self
    * @return self
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getSelf() {
     return self;
   }
 
-
- /**
-  * self
-  *
-  * @param self
-  */ 
+  /**
+   * self
+   *
+   * @param self
+   */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
-
 
   /**
    * Return true if this ApiCredentialLinks object is equal to o.
@@ -311,4 +329,3 @@ public class ApiCredentialLinks {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

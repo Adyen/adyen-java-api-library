@@ -41,35 +41,38 @@ public class DataReviewConfirmationResponse {
   public DataReviewConfirmationResponse() { 
   }
 
+  /**
+   * Date when data review was confirmed.
+   *
+   * @param dataReviewedAt
+   * @return the current {@code DataReviewConfirmationResponse} instance, allowing for method chaining
+   */
   public DataReviewConfirmationResponse dataReviewedAt(String dataReviewedAt) {
     this.dataReviewedAt = dataReviewedAt;
     return this;
   }
 
-   /**
+  /**
    * Date when data review was confirmed.
    * @return dataReviewedAt
-  **/
+   */
   @ApiModelProperty(value = "Date when data review was confirmed.")
   @JsonProperty(JSON_PROPERTY_DATA_REVIEWED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDataReviewedAt() {
     return dataReviewedAt;
   }
 
-
- /**
-  * Date when data review was confirmed.
-  *
-  * @param dataReviewedAt
-  */ 
+  /**
+   * Date when data review was confirmed.
+   *
+   * @param dataReviewedAt
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA_REVIEWED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataReviewedAt(String dataReviewedAt) {
     this.dataReviewedAt = dataReviewedAt;
   }
-
 
   /**
    * Return true if this DataReviewConfirmationResponse object is equal to o.
@@ -130,4 +133,3 @@ public class DataReviewConfirmationResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

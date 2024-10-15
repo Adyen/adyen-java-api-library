@@ -48,36 +48,45 @@ public class CounterpartyBankRestriction {
   public CounterpartyBankRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code CounterpartyBankRestriction} instance, allowing for method chaining
+   */
   public CounterpartyBankRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * List of counterparty Bank Institutions and the operation.
+   *
+   * @param value
+   * @return the current {@code CounterpartyBankRestriction} instance, allowing for method chaining
+   */
   public CounterpartyBankRestriction value(List<BankIdentification> value) {
     this.value = value;
     return this;
@@ -91,30 +100,27 @@ public class CounterpartyBankRestriction {
     return this;
   }
 
-   /**
+  /**
    * List of counterparty Bank Institutions and the operation.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "List of counterparty Bank Institutions and the operation.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<BankIdentification> getValue() {
     return value;
   }
 
-
- /**
-  * List of counterparty Bank Institutions and the operation.
-  *
-  * @param value
-  */ 
+  /**
+   * List of counterparty Bank Institutions and the operation.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<BankIdentification> value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this CounterpartyBankRestriction object is equal to o.
@@ -177,4 +183,3 @@ public class CounterpartyBankRestriction {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

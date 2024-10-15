@@ -176,125 +176,137 @@ public class TaxReportingClassification {
   public TaxReportingClassification() { 
   }
 
+  /**
+   * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
+   *
+   * @param businessType
+   * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
+   */
   public TaxReportingClassification businessType(BusinessTypeEnum businessType) {
     this.businessType = businessType;
     return this;
   }
 
-   /**
+  /**
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    * @return businessType
-  **/
+   */
   @ApiModelProperty(value = "The organization's business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BusinessTypeEnum getBusinessType() {
     return businessType;
   }
 
-
- /**
-  * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
-  *
-  * @param businessType
-  */ 
+  /**
+   * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
+   *
+   * @param businessType
+   */ 
   @JsonProperty(JSON_PROPERTY_BUSINESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessType(BusinessTypeEnum businessType) {
     this.businessType = businessType;
   }
 
-
+  /**
+   * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
+   *
+   * @param financialInstitutionNumber
+   * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
+   */
   public TaxReportingClassification financialInstitutionNumber(String financialInstitutionNumber) {
     this.financialInstitutionNumber = financialInstitutionNumber;
     return this;
   }
 
-   /**
+  /**
    * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    * @return financialInstitutionNumber
-  **/
+   */
   @ApiModelProperty(value = "The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the `businessType` is **financialInstitution**.")
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFinancialInstitutionNumber() {
     return financialInstitutionNumber;
   }
 
-
- /**
-  * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
-  *
-  * @param financialInstitutionNumber
-  */ 
+  /**
+   * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
+   *
+   * @param financialInstitutionNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinancialInstitutionNumber(String financialInstitutionNumber) {
     this.financialInstitutionNumber = financialInstitutionNumber;
   }
 
-
+  /**
+   * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
+   *
+   * @param mainSourceOfIncome
+   * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
+   */
   public TaxReportingClassification mainSourceOfIncome(MainSourceOfIncomeEnum mainSourceOfIncome) {
     this.mainSourceOfIncome = mainSourceOfIncome;
     return this;
   }
 
-   /**
+  /**
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    * @return mainSourceOfIncome
-  **/
+   */
   @ApiModelProperty(value = "The organization's main source of income. Only required if `businessType` is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.")
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MainSourceOfIncomeEnum getMainSourceOfIncome() {
     return mainSourceOfIncome;
   }
 
-
- /**
-  * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
-  *
-  * @param mainSourceOfIncome
-  */ 
+  /**
+   * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
+   *
+   * @param mainSourceOfIncome
+   */ 
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMainSourceOfIncome(MainSourceOfIncomeEnum mainSourceOfIncome) {
     this.mainSourceOfIncome = mainSourceOfIncome;
   }
 
-
+  /**
+   * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
+   *
+   * @param type
+   * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
+   */
   public TaxReportingClassification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
-  *
-  * @param type
-  */ 
+  /**
+   * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TaxReportingClassification object is equal to o.
@@ -361,4 +373,3 @@ public class TaxReportingClassification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -96,95 +96,104 @@ public class CardOrderItemDeliveryStatus {
   public CardOrderItemDeliveryStatus() { 
   }
 
+  /**
+   * An error message.
+   *
+   * @param errorMessage
+   * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
+   */
   public CardOrderItemDeliveryStatus errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
   }
 
-   /**
+  /**
    * An error message.
    * @return errorMessage
-  **/
+   */
   @ApiModelProperty(value = "An error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorMessage() {
     return errorMessage;
   }
 
-
- /**
-  * An error message.
-  *
-  * @param errorMessage
-  */ 
+  /**
+   * An error message.
+   *
+   * @param errorMessage
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
 
-
+  /**
+   * The status of the PIN delivery.
+   *
+   * @param status
+   * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
+   */
   public CardOrderItemDeliveryStatus status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the PIN delivery.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the PIN delivery.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the PIN delivery.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the PIN delivery.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The tracking number of the PIN delivery.
+   *
+   * @param trackingNumber
+   * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
+   */
   public CardOrderItemDeliveryStatus trackingNumber(String trackingNumber) {
     this.trackingNumber = trackingNumber;
     return this;
   }
 
-   /**
+  /**
    * The tracking number of the PIN delivery.
    * @return trackingNumber
-  **/
+   */
   @ApiModelProperty(value = "The tracking number of the PIN delivery.")
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTrackingNumber() {
     return trackingNumber;
   }
 
-
- /**
-  * The tracking number of the PIN delivery.
-  *
-  * @param trackingNumber
-  */ 
+  /**
+   * The tracking number of the PIN delivery.
+   *
+   * @param trackingNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingNumber(String trackingNumber) {
     this.trackingNumber = trackingNumber;
   }
-
 
   /**
    * Return true if this CardOrderItemDeliveryStatus object is equal to o.
@@ -249,4 +258,3 @@ public class CardOrderItemDeliveryStatus {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -41,35 +41,38 @@ public class TwintInfo {
   public TwintInfo() { 
   }
 
+  /**
+   * Twint logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   * @return the current {@code TwintInfo} instance, allowing for method chaining
+   */
   public TwintInfo logo(String logo) {
     this.logo = logo;
     return this;
   }
 
-   /**
+  /**
    * Twint logo. Format: Base64-encoded string.
    * @return logo
-  **/
+   */
   @ApiModelProperty(required = true, value = "Twint logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLogo() {
     return logo;
   }
 
-
- /**
-  * Twint logo. Format: Base64-encoded string.
-  *
-  * @param logo
-  */ 
+  /**
+   * Twint logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }
-
 
   /**
    * Return true if this TwintInfo object is equal to o.
@@ -130,4 +133,3 @@ public class TwintInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

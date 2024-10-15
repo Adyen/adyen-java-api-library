@@ -190,246 +190,276 @@ public class Trust {
   public Trust() { 
   }
 
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
+   *
+   * @param countryOfGoverningLaw
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust countryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
     return this;
   }
 
-   /**
+  /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
-  **/
+   */
   @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountryOfGoverningLaw() {
     return countryOfGoverningLaw;
   }
 
-
- /**
-  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
-  *
-  * @param countryOfGoverningLaw
-  */ 
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
+   *
+   * @param countryOfGoverningLaw
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
   }
 
-
+  /**
+   * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
+   *
+   * @param dateOfIncorporation
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust dateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
     return this;
   }
 
-   /**
+  /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    * @return dateOfIncorporation
-  **/
+   */
   @ApiModelProperty(value = "The date when the legal arrangement was incorporated in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDateOfIncorporation() {
     return dateOfIncorporation;
   }
 
-
- /**
-  * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
-  *
-  * @param dateOfIncorporation
-  */ 
+  /**
+   * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
+   *
+   * @param dateOfIncorporation
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
   }
 
-
+  /**
+   * The registered name, if different from the &#x60;name&#x60;.
+   *
+   * @param doingBusinessAs
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust doingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
     return this;
   }
 
-   /**
+  /**
    * The registered name, if different from the &#x60;name&#x60;.
    * @return doingBusinessAs
-  **/
+   */
   @ApiModelProperty(value = "The registered name, if different from the `name`.")
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDoingBusinessAs() {
     return doingBusinessAs;
   }
 
-
- /**
-  * The registered name, if different from the &#x60;name&#x60;.
-  *
-  * @param doingBusinessAs
-  */ 
+  /**
+   * The registered name, if different from the &#x60;name&#x60;.
+   *
+   * @param doingBusinessAs
+   */ 
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
   }
 
-
+  /**
+   * The legal name.
+   *
+   * @param name
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The legal name.
    * @return name
-  **/
+   */
   @ApiModelProperty(required = true, value = "The legal name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The legal name.
-  *
-  * @param name
-  */ 
+  /**
+   * The legal name.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * principalPlaceOfBusiness
+   *
+   * @param principalPlaceOfBusiness
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
     return this;
   }
 
-   /**
-   * Get principalPlaceOfBusiness
+  /**
+   * principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getPrincipalPlaceOfBusiness() {
     return principalPlaceOfBusiness;
   }
 
-
- /**
-  * principalPlaceOfBusiness
-  *
-  * @param principalPlaceOfBusiness
-  */ 
+  /**
+   * principalPlaceOfBusiness
+   *
+   * @param principalPlaceOfBusiness
+   */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
   }
 
-
+  /**
+   * registeredAddress
+   *
+   * @param registeredAddress
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust registeredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
     return this;
   }
 
-   /**
-   * Get registeredAddress
+  /**
+   * registeredAddress
    * @return registeredAddress
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getRegisteredAddress() {
     return registeredAddress;
   }
 
-
- /**
-  * registeredAddress
-  *
-  * @param registeredAddress
-  */ 
+  /**
+   * registeredAddress
+   *
+   * @param registeredAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
   }
 
-
+  /**
+   * The registration number.
+   *
+   * @param registrationNumber
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust registrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
     return this;
   }
 
-   /**
+  /**
    * The registration number.
    * @return registrationNumber
-  **/
+   */
   @ApiModelProperty(value = "The registration number.")
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRegistrationNumber() {
     return registrationNumber;
   }
 
-
- /**
-  * The registration number.
-  *
-  * @param registrationNumber
-  */ 
+  /**
+   * The registration number.
+   *
+   * @param registrationNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
   }
 
-
+  /**
+   * The tax information is absent.
+   *
+   * @param taxAbsent
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust taxAbsent(Boolean taxAbsent) {
     this.taxAbsent = taxAbsent;
     return this;
   }
 
-   /**
+  /**
    * The tax information is absent.
    * @return taxAbsent
-  **/
+   */
   @ApiModelProperty(value = "The tax information is absent.")
   @JsonProperty(JSON_PROPERTY_TAX_ABSENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getTaxAbsent() {
     return taxAbsent;
   }
 
-
- /**
-  * The tax information is absent.
-  *
-  * @param taxAbsent
-  */ 
+  /**
+   * The tax information is absent.
+   *
+   * @param taxAbsent
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_ABSENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxAbsent(Boolean taxAbsent) {
     this.taxAbsent = taxAbsent;
   }
 
-
+  /**
+   * The tax information of the entity.
+   *
+   * @param taxInformation
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
     return this;
@@ -443,61 +473,67 @@ public class Trust {
     return this;
   }
 
-   /**
+  /**
    * The tax information of the entity.
    * @return taxInformation
-  **/
+   */
   @ApiModelProperty(value = "The tax information of the entity.")
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TaxInformation> getTaxInformation() {
     return taxInformation;
   }
 
-
- /**
-  * The tax information of the entity.
-  *
-  * @param taxInformation
-  */ 
+  /**
+   * The tax information of the entity.
+   *
+   * @param taxInformation
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
   }
 
-
+  /**
+   * Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.
+   *
+   * @param type
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of trust.  Possible values for Australian trusts: **cashManagementTrust**, **corporateUnitTrust**, **deceasedEstate**, **discretionaryInvestmentTrust**, **discretionaryServicesManagementTrust**, **discretionaryTradingTrust**, **firstHomeSaverAccountsTrust**, **fixedTrust**, **fixedUnitTrust**, **hybridTrust**, **listedPublicUnitTrust**, **otherTrust**, **pooledSuperannuationTrust**, **publicTradingTrust**, **unlistedPublicUnitTrust**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * The undefined beneficiary information of the entity.
+   *
+   * @param undefinedBeneficiaryInfo
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust undefinedBeneficiaryInfo(List<UndefinedBeneficiary> undefinedBeneficiaryInfo) {
     this.undefinedBeneficiaryInfo = undefinedBeneficiaryInfo;
     return this;
@@ -511,90 +547,93 @@ public class Trust {
     return this;
   }
 
-   /**
+  /**
    * The undefined beneficiary information of the entity.
    * @return undefinedBeneficiaryInfo
-  **/
+   */
   @ApiModelProperty(value = "The undefined beneficiary information of the entity.")
   @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UndefinedBeneficiary> getUndefinedBeneficiaryInfo() {
     return undefinedBeneficiaryInfo;
   }
 
-
- /**
-  * The undefined beneficiary information of the entity.
-  *
-  * @param undefinedBeneficiaryInfo
-  */ 
+  /**
+   * The undefined beneficiary information of the entity.
+   *
+   * @param undefinedBeneficiaryInfo
+   */ 
   @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUndefinedBeneficiaryInfo(List<UndefinedBeneficiary> undefinedBeneficiaryInfo) {
     this.undefinedBeneficiaryInfo = undefinedBeneficiaryInfo;
   }
 
-
+  /**
+   * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
+   *
+   * @param vatAbsenceReason
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
     return this;
   }
 
-   /**
+  /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
-  **/
+   */
   @ApiModelProperty(value = "The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public VatAbsenceReasonEnum getVatAbsenceReason() {
     return vatAbsenceReason;
   }
 
-
- /**
-  * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
-  *
-  * @param vatAbsenceReason
-  */ 
+  /**
+   * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
+   *
+   * @param vatAbsenceReason
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
   }
 
-
+  /**
+   * The VAT number.
+   *
+   * @param vatNumber
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
   public Trust vatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
     return this;
   }
 
-   /**
+  /**
    * The VAT number.
    * @return vatNumber
-  **/
+   */
   @ApiModelProperty(value = "The VAT number.")
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVatNumber() {
     return vatNumber;
   }
 
-
- /**
-  * The VAT number.
-  *
-  * @param vatNumber
-  */ 
+  /**
+   * The VAT number.
+   *
+   * @param vatNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
   }
-
 
   /**
    * Return true if this Trust object is equal to o.
@@ -679,4 +718,3 @@ public class Trust {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

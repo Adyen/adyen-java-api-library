@@ -49,95 +49,104 @@ public class ResourceReference {
   public ResourceReference() { 
   }
 
+  /**
+   * The description of the resource.
+   *
+   * @param description
+   * @return the current {@code ResourceReference} instance, allowing for method chaining
+   */
   public ResourceReference description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The description of the resource.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "The description of the resource.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * The description of the resource.
-  *
-  * @param description
-  */ 
+  /**
+   * The description of the resource.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   * @return the current {@code ResourceReference} instance, allowing for method chaining
+   */
   public ResourceReference id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The reference for the resource.
+   *
+   * @param reference
+   * @return the current {@code ResourceReference} instance, allowing for method chaining
+   */
   public ResourceReference reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference for the resource.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The reference for the resource.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference for the resource.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference for the resource.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this ResourceReference object is equal to o.
@@ -202,4 +211,3 @@ public class ResourceReference {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

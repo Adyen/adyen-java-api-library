@@ -41,35 +41,38 @@ public class BirthData {
   public BirthData() { 
   }
 
+  /**
+   * The individual&#39;s date of birth, in YYYY-MM-DD format.
+   *
+   * @param dateOfBirth
+   * @return the current {@code BirthData} instance, allowing for method chaining
+   */
   public BirthData dateOfBirth(String dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
 
-   /**
+  /**
    * The individual&#39;s date of birth, in YYYY-MM-DD format.
    * @return dateOfBirth
-  **/
+   */
   @ApiModelProperty(value = "The individual's date of birth, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDateOfBirth() {
     return dateOfBirth;
   }
 
-
- /**
-  * The individual&#39;s date of birth, in YYYY-MM-DD format.
-  *
-  * @param dateOfBirth
-  */ 
+  /**
+   * The individual&#39;s date of birth, in YYYY-MM-DD format.
+   *
+   * @param dateOfBirth
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(String dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
-
 
   /**
    * Return true if this BirthData object is equal to o.
@@ -130,4 +133,3 @@ public class BirthData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

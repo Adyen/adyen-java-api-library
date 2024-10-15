@@ -121,125 +121,137 @@ public class USLocalAccountIdentification {
   public USLocalAccountIdentification() { 
   }
 
+  /**
+   * The bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
+   */
   public USLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The bank account number, without separators or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The bank account number, without separators or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The bank account number, without separators or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+   *
+   * @param accountType
+   * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
+   */
   public USLocalAccountIdentification accountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
     return this;
   }
 
-   /**
+  /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return accountType
-  **/
+   */
   @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
-
- /**
-  * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
-  *
-  * @param accountType
-  */ 
+  /**
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+   *
+   * @param accountType
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
   }
 
-
+  /**
+   * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
+   *
+   * @param routingNumber
+   * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
+   */
   public USLocalAccountIdentification routingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
     return this;
   }
 
-   /**
+  /**
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    * @return routingNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRoutingNumber() {
     return routingNumber;
   }
 
-
- /**
-  * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
-  *
-  * @param routingNumber
-  */ 
+  /**
+   * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
+   *
+   * @param routingNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
   }
 
-
+  /**
+   * **usLocal**
+   *
+   * @param type
+   * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
+   */
   public USLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **usLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**usLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **usLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **usLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this USLocalAccountIdentification object is equal to o.
@@ -306,4 +318,3 @@ public class USLocalAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

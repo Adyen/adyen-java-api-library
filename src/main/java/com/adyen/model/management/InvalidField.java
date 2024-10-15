@@ -49,95 +49,104 @@ public class InvalidField {
   public InvalidField() { 
   }
 
+  /**
+   * Description of the validation error.
+   *
+   * @param message
+   * @return the current {@code InvalidField} instance, allowing for method chaining
+   */
   public InvalidField message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Description of the validation error.
    * @return message
-  **/
+   */
   @ApiModelProperty(required = true, value = "Description of the validation error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * Description of the validation error.
-  *
-  * @param message
-  */ 
+  /**
+   * Description of the validation error.
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
-
+  /**
+   * The field that has an invalid value.
+   *
+   * @param name
+   * @return the current {@code InvalidField} instance, allowing for method chaining
+   */
   public InvalidField name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The field that has an invalid value.
    * @return name
-  **/
+   */
   @ApiModelProperty(required = true, value = "The field that has an invalid value.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The field that has an invalid value.
-  *
-  * @param name
-  */ 
+  /**
+   * The field that has an invalid value.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The invalid value.
+   *
+   * @param value
+   * @return the current {@code InvalidField} instance, allowing for method chaining
+   */
   public InvalidField value(String value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The invalid value.
    * @return value
-  **/
+   */
   @ApiModelProperty(required = true, value = "The invalid value.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getValue() {
     return value;
   }
 
-
- /**
-  * The invalid value.
-  *
-  * @param value
-  */ 
+  /**
+   * The invalid value.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this InvalidField object is equal to o.
@@ -202,4 +211,3 @@ public class InvalidField {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

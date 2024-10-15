@@ -45,65 +45,71 @@ public class DisablePermitRequest {
   public DisablePermitRequest() { 
   }
 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code DisablePermitRequest} instance, allowing for method chaining
+   */
   public DisablePermitRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The permit token to disable.
+   *
+   * @param token
+   * @return the current {@code DisablePermitRequest} instance, allowing for method chaining
+   */
   public DisablePermitRequest token(String token) {
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * The permit token to disable.
    * @return token
-  **/
+   */
   @ApiModelProperty(required = true, value = "The permit token to disable.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToken() {
     return token;
   }
 
-
- /**
-  * The permit token to disable.
-  *
-  * @param token
-  */ 
+  /**
+   * The permit token to disable.
+   *
+   * @param token
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }
-
 
   /**
    * Return true if this DisablePermitRequest object is equal to o.
@@ -166,4 +172,3 @@ public class DisablePermitRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

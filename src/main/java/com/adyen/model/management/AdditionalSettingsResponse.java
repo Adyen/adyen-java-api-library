@@ -53,6 +53,12 @@ public class AdditionalSettingsResponse {
   public AdditionalSettingsResponse() { 
   }
 
+  /**
+   * Object containing list of event codes for which the notification will not be sent. 
+   *
+   * @param excludeEventCodes
+   * @return the current {@code AdditionalSettingsResponse} instance, allowing for method chaining
+   */
   public AdditionalSettingsResponse excludeEventCodes(List<String> excludeEventCodes) {
     this.excludeEventCodes = excludeEventCodes;
     return this;
@@ -66,31 +72,34 @@ public class AdditionalSettingsResponse {
     return this;
   }
 
-   /**
+  /**
    * Object containing list of event codes for which the notification will not be sent. 
    * @return excludeEventCodes
-  **/
+   */
   @ApiModelProperty(value = "Object containing list of event codes for which the notification will not be sent. ")
   @JsonProperty(JSON_PROPERTY_EXCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getExcludeEventCodes() {
     return excludeEventCodes;
   }
 
-
- /**
-  * Object containing list of event codes for which the notification will not be sent. 
-  *
-  * @param excludeEventCodes
-  */ 
+  /**
+   * Object containing list of event codes for which the notification will not be sent. 
+   *
+   * @param excludeEventCodes
+   */ 
   @JsonProperty(JSON_PROPERTY_EXCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExcludeEventCodes(List<String> excludeEventCodes) {
     this.excludeEventCodes = excludeEventCodes;
   }
 
-
+  /**
+   * Object containing list of event codes for which the notification will be sent. 
+   *
+   * @param includeEventCodes
+   * @return the current {@code AdditionalSettingsResponse} instance, allowing for method chaining
+   */
   public AdditionalSettingsResponse includeEventCodes(List<String> includeEventCodes) {
     this.includeEventCodes = includeEventCodes;
     return this;
@@ -104,31 +113,34 @@ public class AdditionalSettingsResponse {
     return this;
   }
 
-   /**
+  /**
    * Object containing list of event codes for which the notification will be sent. 
    * @return includeEventCodes
-  **/
+   */
   @ApiModelProperty(value = "Object containing list of event codes for which the notification will be sent. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getIncludeEventCodes() {
     return includeEventCodes;
   }
 
-
- /**
-  * Object containing list of event codes for which the notification will be sent. 
-  *
-  * @param includeEventCodes
-  */ 
+  /**
+   * Object containing list of event codes for which the notification will be sent. 
+   *
+   * @param includeEventCodes
+   */ 
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIncludeEventCodes(List<String> includeEventCodes) {
     this.includeEventCodes = includeEventCodes;
   }
 
-
+  /**
+   * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
+   *
+   * @param properties
+   * @return the current {@code AdditionalSettingsResponse} instance, allowing for method chaining
+   */
   public AdditionalSettingsResponse properties(Map<String, Boolean> properties) {
     this.properties = properties;
     return this;
@@ -142,30 +154,27 @@ public class AdditionalSettingsResponse {
     return this;
   }
 
-   /**
+  /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    * @return properties
-  **/
+   */
   @ApiModelProperty(value = "Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, `captureDelayHours`: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.")
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, Boolean> getProperties() {
     return properties;
   }
 
-
- /**
-  * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
-  *
-  * @param properties
-  */ 
+  /**
+   * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
+   *
+   * @param properties
+   */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, Boolean> properties) {
     this.properties = properties;
   }
-
 
   /**
    * Return true if this AdditionalSettingsResponse object is equal to o.
@@ -230,4 +239,3 @@ public class AdditionalSettingsResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

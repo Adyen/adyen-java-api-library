@@ -44,6 +44,12 @@ public class GetStoresUnderAccountResponse {
   public GetStoresUnderAccountResponse() { 
   }
 
+  /**
+   * Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.
+   *
+   * @param stores
+   * @return the current {@code GetStoresUnderAccountResponse} instance, allowing for method chaining
+   */
   public GetStoresUnderAccountResponse stores(List<Store> stores) {
     this.stores = stores;
     return this;
@@ -57,30 +63,27 @@ public class GetStoresUnderAccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.
    * @return stores
-  **/
+   */
   @ApiModelProperty(value = "Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.")
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Store> getStores() {
     return stores;
   }
 
-
- /**
-  * Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.
-  *
-  * @param stores
-  */ 
+  /**
+   * Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.
+   *
+   * @param stores
+   */ 
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<Store> stores) {
     this.stores = stores;
   }
-
 
   /**
    * Return true if this GetStoresUnderAccountResponse object is equal to o.
@@ -141,4 +144,3 @@ public class GetStoresUnderAccountResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

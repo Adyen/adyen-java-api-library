@@ -42,35 +42,38 @@ public class ThreeDS2ResultResponse {
   public ThreeDS2ResultResponse() { 
   }
 
+  /**
+   * threeDS2Result
+   *
+   * @param threeDS2Result
+   * @return the current {@code ThreeDS2ResultResponse} instance, allowing for method chaining
+   */
   public ThreeDS2ResultResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
     return this;
   }
 
-   /**
-   * Get threeDS2Result
+  /**
+   * threeDS2Result
    * @return threeDS2Result
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ThreeDS2Result getThreeDS2Result() {
     return threeDS2Result;
   }
 
-
- /**
-  * threeDS2Result
-  *
-  * @param threeDS2Result
-  */ 
+  /**
+   * threeDS2Result
+   *
+   * @param threeDS2Result
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
   }
-
 
   /**
    * Return true if this ThreeDS2ResultResponse object is equal to o.
@@ -131,4 +134,3 @@ public class ThreeDS2ResultResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

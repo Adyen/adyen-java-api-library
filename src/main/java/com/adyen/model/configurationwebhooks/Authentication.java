@@ -50,95 +50,104 @@ public class Authentication {
   public Authentication() { 
   }
 
+  /**
+   * The email address where the one-time password (OTP) is sent.
+   *
+   * @param email
+   * @return the current {@code Authentication} instance, allowing for method chaining
+   */
   public Authentication email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address where the one-time password (OTP) is sent.
    * @return email
-  **/
+   */
   @ApiModelProperty(value = "The email address where the one-time password (OTP) is sent.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address where the one-time password (OTP) is sent.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address where the one-time password (OTP) is sent.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()&#x3D;?!~#&#39;\&quot;,;:$&amp;àùòâôûáúó**
+   *
+   * @param password
+   * @return the current {@code Authentication} instance, allowing for method chaining
+   */
   public Authentication password(String password) {
     this.password = password;
     return this;
   }
 
-   /**
+  /**
    * The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()&#x3D;?!~#&#39;\&quot;,;:$&amp;àùòâôûáúó**
    * @return password
-  **/
+   */
   @ApiModelProperty(value = "The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()=?!~#'\",;:$&àùòâôûáúó**")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassword() {
     return password;
   }
 
-
- /**
-  * The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()&#x3D;?!~#&#39;\&quot;,;:$&amp;àùòâôûáúó**
-  *
-  * @param password
-  */ 
+  /**
+   * The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()&#x3D;?!~#&#39;\&quot;,;:$&amp;àùòâôûáúó**
+   *
+   * @param password
+   */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
   }
 
-
+  /**
+   * phone
+   *
+   * @param phone
+   * @return the current {@code Authentication} instance, allowing for method chaining
+   */
   public Authentication phone(Phone phone) {
     this.phone = phone;
     return this;
   }
 
-   /**
-   * Get phone
+  /**
+   * phone
    * @return phone
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
 
-
- /**
-  * phone
-  *
-  * @param phone
-  */ 
+  /**
+   * phone
+   *
+   * @param phone
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(Phone phone) {
     this.phone = phone;
   }
-
 
   /**
    * Return true if this Authentication object is equal to o.
@@ -203,4 +212,3 @@ public class Authentication {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

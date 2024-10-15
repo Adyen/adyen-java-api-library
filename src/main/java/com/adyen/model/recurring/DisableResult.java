@@ -41,35 +41,38 @@ public class DisableResult {
   public DisableResult() { 
   }
 
+  /**
+   * Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].
+   *
+   * @param response
+   * @return the current {@code DisableResult} instance, allowing for method chaining
+   */
   public DisableResult response(String response) {
     this.response = response;
     return this;
   }
 
-   /**
+  /**
    * Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].
    * @return response
-  **/
+   */
   @ApiModelProperty(value = "Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResponse() {
     return response;
   }
 
-
- /**
-  * Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].
-  *
-  * @param response
-  */ 
+  /**
+   * Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].
+   *
+   * @param response
+   */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(String response) {
     this.response = response;
   }
-
 
   /**
    * Return true if this DisableResult object is equal to o.
@@ -130,4 +133,3 @@ public class DisableResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

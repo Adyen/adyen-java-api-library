@@ -64,66 +64,78 @@ public class TerminalOrderRequest {
   public TerminalOrderRequest() { 
   }
 
+  /**
+   * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
+   *
+   * @param billingEntityId
+   * @return the current {@code TerminalOrderRequest} instance, allowing for method chaining
+   */
   public TerminalOrderRequest billingEntityId(String billingEntityId) {
     this.billingEntityId = billingEntityId;
     return this;
   }
 
-   /**
+  /**
    * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
    * @return billingEntityId
-  **/
+   */
   @ApiModelProperty(value = "The identification of the billing entity to use for the order.    > When ordering products in Brazil, you do not need to include the `billingEntityId` in the request.")
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBillingEntityId() {
     return billingEntityId;
   }
 
-
- /**
-  * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
-  *
-  * @param billingEntityId
-  */ 
+  /**
+   * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
+   *
+   * @param billingEntityId
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntityId(String billingEntityId) {
     this.billingEntityId = billingEntityId;
   }
 
-
+  /**
+   * The merchant-defined purchase order reference.
+   *
+   * @param customerOrderReference
+   * @return the current {@code TerminalOrderRequest} instance, allowing for method chaining
+   */
   public TerminalOrderRequest customerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant-defined purchase order reference.
    * @return customerOrderReference
-  **/
+   */
   @ApiModelProperty(value = "The merchant-defined purchase order reference.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomerOrderReference() {
     return customerOrderReference;
   }
 
-
- /**
-  * The merchant-defined purchase order reference.
-  *
-  * @param customerOrderReference
-  */ 
+  /**
+   * The merchant-defined purchase order reference.
+   *
+   * @param customerOrderReference
+   */ 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
   }
 
-
+  /**
+   * The products included in the order.
+   *
+   * @param items
+   * @return the current {@code TerminalOrderRequest} instance, allowing for method chaining
+   */
   public TerminalOrderRequest items(List<OrderItem> items) {
     this.items = items;
     return this;
@@ -137,120 +149,126 @@ public class TerminalOrderRequest {
     return this;
   }
 
-   /**
+  /**
    * The products included in the order.
    * @return items
-  **/
+   */
   @ApiModelProperty(value = "The products included in the order.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<OrderItem> getItems() {
     return items;
   }
 
-
- /**
-  * The products included in the order.
-  *
-  * @param items
-  */ 
+  /**
+   * The products included in the order.
+   *
+   * @param items
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
     this.items = items;
   }
 
-
+  /**
+   * Type of order
+   *
+   * @param orderType
+   * @return the current {@code TerminalOrderRequest} instance, allowing for method chaining
+   */
   public TerminalOrderRequest orderType(String orderType) {
     this.orderType = orderType;
     return this;
   }
 
-   /**
+  /**
    * Type of order
    * @return orderType
-  **/
+   */
   @ApiModelProperty(value = "Type of order")
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOrderType() {
     return orderType;
   }
 
-
- /**
-  * Type of order
-  *
-  * @param orderType
-  */ 
+  /**
+   * Type of order
+   *
+   * @param orderType
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderType(String orderType) {
     this.orderType = orderType;
   }
 
-
+  /**
+   * The identification of the shipping location to use for the order.
+   *
+   * @param shippingLocationId
+   * @return the current {@code TerminalOrderRequest} instance, allowing for method chaining
+   */
   public TerminalOrderRequest shippingLocationId(String shippingLocationId) {
     this.shippingLocationId = shippingLocationId;
     return this;
   }
 
-   /**
+  /**
    * The identification of the shipping location to use for the order.
    * @return shippingLocationId
-  **/
+   */
   @ApiModelProperty(value = "The identification of the shipping location to use for the order.")
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShippingLocationId() {
     return shippingLocationId;
   }
 
-
- /**
-  * The identification of the shipping location to use for the order.
-  *
-  * @param shippingLocationId
-  */ 
+  /**
+   * The identification of the shipping location to use for the order.
+   *
+   * @param shippingLocationId
+   */ 
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocationId(String shippingLocationId) {
     this.shippingLocationId = shippingLocationId;
   }
 
-
+  /**
+   * The tax number of the billing entity.
+   *
+   * @param taxId
+   * @return the current {@code TerminalOrderRequest} instance, allowing for method chaining
+   */
   public TerminalOrderRequest taxId(String taxId) {
     this.taxId = taxId;
     return this;
   }
 
-   /**
+  /**
    * The tax number of the billing entity.
    * @return taxId
-  **/
+   */
   @ApiModelProperty(value = "The tax number of the billing entity.")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTaxId() {
     return taxId;
   }
 
-
- /**
-  * The tax number of the billing entity.
-  *
-  * @param taxId
-  */ 
+  /**
+   * The tax number of the billing entity.
+   *
+   * @param taxId
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
   }
-
 
   /**
    * Return true if this TerminalOrderRequest object is equal to o.
@@ -321,4 +339,3 @@ public class TerminalOrderRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

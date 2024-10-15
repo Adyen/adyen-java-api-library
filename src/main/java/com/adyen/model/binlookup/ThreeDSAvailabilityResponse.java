@@ -62,36 +62,45 @@ public class ThreeDSAvailabilityResponse {
   public ThreeDSAvailabilityResponse() { 
   }
 
+  /**
+   * binDetails
+   *
+   * @param binDetails
+   * @return the current {@code ThreeDSAvailabilityResponse} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityResponse binDetails(BinDetail binDetails) {
     this.binDetails = binDetails;
     return this;
   }
 
-   /**
-   * Get binDetails
+  /**
+   * binDetails
    * @return binDetails
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BIN_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BinDetail getBinDetails() {
     return binDetails;
   }
 
-
- /**
-  * binDetails
-  *
-  * @param binDetails
-  */ 
+  /**
+   * binDetails
+   *
+   * @param binDetails
+   */ 
   @JsonProperty(JSON_PROPERTY_BIN_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBinDetails(BinDetail binDetails) {
     this.binDetails = binDetails;
   }
 
-
+  /**
+   * List of Directory Server (DS) public keys.
+   *
+   * @param dsPublicKeys
+   * @return the current {@code ThreeDSAvailabilityResponse} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityResponse dsPublicKeys(List<DSPublicKeyDetail> dsPublicKeys) {
     this.dsPublicKeys = dsPublicKeys;
     return this;
@@ -105,61 +114,67 @@ public class ThreeDSAvailabilityResponse {
     return this;
   }
 
-   /**
+  /**
    * List of Directory Server (DS) public keys.
    * @return dsPublicKeys
-  **/
+   */
   @ApiModelProperty(value = "List of Directory Server (DS) public keys.")
   @JsonProperty(JSON_PROPERTY_DS_PUBLIC_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DSPublicKeyDetail> getDsPublicKeys() {
     return dsPublicKeys;
   }
 
-
- /**
-  * List of Directory Server (DS) public keys.
-  *
-  * @param dsPublicKeys
-  */ 
+  /**
+   * List of Directory Server (DS) public keys.
+   *
+   * @param dsPublicKeys
+   */ 
   @JsonProperty(JSON_PROPERTY_DS_PUBLIC_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsPublicKeys(List<DSPublicKeyDetail> dsPublicKeys) {
     this.dsPublicKeys = dsPublicKeys;
   }
 
-
+  /**
+   * Indicator if 3D Secure 1 is supported.
+   *
+   * @param threeDS1Supported
+   * @return the current {@code ThreeDSAvailabilityResponse} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityResponse threeDS1Supported(Boolean threeDS1Supported) {
     this.threeDS1Supported = threeDS1Supported;
     return this;
   }
 
-   /**
+  /**
    * Indicator if 3D Secure 1 is supported.
    * @return threeDS1Supported
-  **/
+   */
   @ApiModelProperty(value = "Indicator if 3D Secure 1 is supported.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S1_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getThreeDS1Supported() {
     return threeDS1Supported;
   }
 
-
- /**
-  * Indicator if 3D Secure 1 is supported.
-  *
-  * @param threeDS1Supported
-  */ 
+  /**
+   * Indicator if 3D Secure 1 is supported.
+   *
+   * @param threeDS1Supported
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S1_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS1Supported(Boolean threeDS1Supported) {
     this.threeDS1Supported = threeDS1Supported;
   }
 
-
+  /**
+   * List of brand and card range pairs.
+   *
+   * @param threeDS2CardRangeDetails
+   * @return the current {@code ThreeDSAvailabilityResponse} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityResponse threeDS2CardRangeDetails(List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails) {
     this.threeDS2CardRangeDetails = threeDS2CardRangeDetails;
     return this;
@@ -173,60 +188,60 @@ public class ThreeDSAvailabilityResponse {
     return this;
   }
 
-   /**
+  /**
    * List of brand and card range pairs.
    * @return threeDS2CardRangeDetails
-  **/
+   */
   @ApiModelProperty(value = "List of brand and card range pairs.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ThreeDS2CardRangeDetail> getThreeDS2CardRangeDetails() {
     return threeDS2CardRangeDetails;
   }
 
-
- /**
-  * List of brand and card range pairs.
-  *
-  * @param threeDS2CardRangeDetails
-  */ 
+  /**
+   * List of brand and card range pairs.
+   *
+   * @param threeDS2CardRangeDetails
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2CardRangeDetails(List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails) {
     this.threeDS2CardRangeDetails = threeDS2CardRangeDetails;
   }
 
-
+  /**
+   * Indicator if 3D Secure 2 is supported.
+   *
+   * @param threeDS2supported
+   * @return the current {@code ThreeDSAvailabilityResponse} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityResponse threeDS2supported(Boolean threeDS2supported) {
     this.threeDS2supported = threeDS2supported;
     return this;
   }
 
-   /**
+  /**
    * Indicator if 3D Secure 2 is supported.
    * @return threeDS2supported
-  **/
+   */
   @ApiModelProperty(value = "Indicator if 3D Secure 2 is supported.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getThreeDS2supported() {
     return threeDS2supported;
   }
 
-
- /**
-  * Indicator if 3D Secure 2 is supported.
-  *
-  * @param threeDS2supported
-  */ 
+  /**
+   * Indicator if 3D Secure 2 is supported.
+   *
+   * @param threeDS2supported
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S2SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2supported(Boolean threeDS2supported) {
     this.threeDS2supported = threeDS2supported;
   }
-
 
   /**
    * Return true if this ThreeDSAvailabilityResponse object is equal to o.
@@ -295,4 +310,3 @@ public class ThreeDSAvailabilityResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -42,35 +42,38 @@ public class Fee {
   public Fee() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code Fee} instance, allowing for method chaining
+   */
   public Fee amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
-
 
   /**
    * Return true if this Fee object is equal to o.
@@ -131,4 +134,3 @@ public class Fee {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

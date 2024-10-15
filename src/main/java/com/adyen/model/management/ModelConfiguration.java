@@ -57,36 +57,45 @@ public class ModelConfiguration {
   public ModelConfiguration() { 
   }
 
+  /**
+   * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
+   *
+   * @param brand
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration brand(String brand) {
     this.brand = brand;
     return this;
   }
 
-   /**
+  /**
    * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
    * @return brand
-  **/
+   */
   @ApiModelProperty(required = true, value = "Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). ")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrand() {
     return brand;
   }
 
-
- /**
-  * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
-  *
-  * @param brand
-  */ 
+  /**
+   * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
+   *
+   * @param brand
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
-
+  /**
+   * Countries, to filter different surcharge amounts for domestic or international cards.
+   *
+   * @param country
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration country(List<String> country) {
     this.country = country;
     return this;
@@ -100,31 +109,34 @@ public class ModelConfiguration {
     return this;
   }
 
-   /**
+  /**
    * Countries, to filter different surcharge amounts for domestic or international cards.
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "Countries, to filter different surcharge amounts for domestic or international cards.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getCountry() {
     return country;
   }
 
-
- /**
-  * Countries, to filter different surcharge amounts for domestic or international cards.
-  *
-  * @param country
-  */ 
+  /**
+   * Countries, to filter different surcharge amounts for domestic or international cards.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(List<String> country) {
     this.country = country;
   }
 
-
+  /**
+   * Currency, and surcharge percentage or amount.
+   *
+   * @param currencies
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration currencies(List<Currency> currencies) {
     this.currencies = currencies;
     return this;
@@ -135,31 +147,34 @@ public class ModelConfiguration {
     return this;
   }
 
-   /**
+  /**
    * Currency, and surcharge percentage or amount.
    * @return currencies
-  **/
+   */
   @ApiModelProperty(required = true, value = "Currency, and surcharge percentage or amount.")
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Currency> getCurrencies() {
     return currencies;
   }
 
-
- /**
-  * Currency, and surcharge percentage or amount.
-  *
-  * @param currencies
-  */ 
+  /**
+   * Currency, and surcharge percentage or amount.
+   *
+   * @param currencies
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<Currency> currencies) {
     this.currencies = currencies;
   }
 
-
+  /**
+   * Funding source. Possible values: * **Credit** * **Debit**
+   *
+   * @param sources
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration sources(List<String> sources) {
     this.sources = sources;
     return this;
@@ -173,30 +188,27 @@ public class ModelConfiguration {
     return this;
   }
 
-   /**
+  /**
    * Funding source. Possible values: * **Credit** * **Debit**
    * @return sources
-  **/
+   */
   @ApiModelProperty(value = "Funding source. Possible values: * **Credit** * **Debit**")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getSources() {
     return sources;
   }
 
-
- /**
-  * Funding source. Possible values: * **Credit** * **Debit**
-  *
-  * @param sources
-  */ 
+  /**
+   * Funding source. Possible values: * **Credit** * **Debit**
+   *
+   * @param sources
+   */ 
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
-
 
   /**
    * Return true if this Configuration object is equal to o.
@@ -263,4 +275,3 @@ public class ModelConfiguration {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

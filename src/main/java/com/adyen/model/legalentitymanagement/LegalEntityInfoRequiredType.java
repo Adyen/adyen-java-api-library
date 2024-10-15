@@ -124,6 +124,12 @@ public class LegalEntityInfoRequiredType {
   public LegalEntityInfoRequiredType() { 
   }
 
+  /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+   *
+   * @param capabilities
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType capabilities(Map<String, LegalEntityCapability> capabilities) {
     this.capabilities = capabilities;
     return this;
@@ -137,31 +143,34 @@ public class LegalEntityInfoRequiredType {
     return this;
   }
 
-   /**
+  /**
    * Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    * @return capabilities
-  **/
+   */
   @ApiModelProperty(value = "Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, LegalEntityCapability> getCapabilities() {
     return capabilities;
   }
 
-
- /**
-  * Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
-  *
-  * @param capabilities
-  */ 
+  /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+   *
+   * @param capabilities
+   */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, LegalEntityCapability> capabilities) {
     this.capabilities = capabilities;
   }
 
-
+  /**
+   * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
+   *
+   * @param entityAssociations
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType entityAssociations(List<LegalEntityAssociation> entityAssociations) {
     this.entityAssociations = entityAssociations;
     return this;
@@ -175,240 +184,258 @@ public class LegalEntityInfoRequiredType {
     return this;
   }
 
-   /**
+  /**
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    * @return entityAssociations
-  **/
+   */
   @ApiModelProperty(value = "List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.")
   @JsonProperty(JSON_PROPERTY_ENTITY_ASSOCIATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<LegalEntityAssociation> getEntityAssociations() {
     return entityAssociations;
   }
 
-
- /**
-  * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
-  *
-  * @param entityAssociations
-  */ 
+  /**
+   * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
+   *
+   * @param entityAssociations
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY_ASSOCIATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityAssociations(List<LegalEntityAssociation> entityAssociations) {
     this.entityAssociations = entityAssociations;
   }
 
-
+  /**
+   * individual
+   *
+   * @param individual
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType individual(Individual individual) {
     this.individual = individual;
     return this;
   }
 
-   /**
-   * Get individual
+  /**
+   * individual
    * @return individual
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Individual getIndividual() {
     return individual;
   }
 
-
- /**
-  * individual
-  *
-  * @param individual
-  */ 
+  /**
+   * individual
+   *
+   * @param individual
+   */ 
   @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndividual(Individual individual) {
     this.individual = individual;
   }
 
-
+  /**
+   * organization
+   *
+   * @param organization
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType organization(Organization organization) {
     this.organization = organization;
     return this;
   }
 
-   /**
-   * Get organization
+  /**
+   * organization
    * @return organization
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Organization getOrganization() {
     return organization;
   }
 
-
- /**
-  * organization
-  *
-  * @param organization
-  */ 
+  /**
+   * organization
+   *
+   * @param organization
+   */ 
   @JsonProperty(JSON_PROPERTY_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrganization(Organization organization) {
     this.organization = organization;
   }
 
-
+  /**
+   * Your reference for the legal entity, maximum 150 characters.
+   *
+   * @param reference
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the legal entity, maximum 150 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the legal entity, maximum 150 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the legal entity, maximum 150 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the legal entity, maximum 150 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * soleProprietorship
+   *
+   * @param soleProprietorship
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType soleProprietorship(SoleProprietorship soleProprietorship) {
     this.soleProprietorship = soleProprietorship;
     return this;
   }
 
-   /**
-   * Get soleProprietorship
+  /**
+   * soleProprietorship
    * @return soleProprietorship
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SoleProprietorship getSoleProprietorship() {
     return soleProprietorship;
   }
 
-
- /**
-  * soleProprietorship
-  *
-  * @param soleProprietorship
-  */ 
+  /**
+   * soleProprietorship
+   *
+   * @param soleProprietorship
+   */ 
   @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSoleProprietorship(SoleProprietorship soleProprietorship) {
     this.soleProprietorship = soleProprietorship;
   }
 
-
+  /**
+   * trust
+   *
+   * @param trust
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType trust(Trust trust) {
     this.trust = trust;
     return this;
   }
 
-   /**
-   * Get trust
+  /**
+   * trust
    * @return trust
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Trust getTrust() {
     return trust;
   }
 
-
- /**
-  * trust
-  *
-  * @param trust
-  */ 
+  /**
+   * trust
+   *
+   * @param trust
+   */ 
   @JsonProperty(JSON_PROPERTY_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrust(Trust trust) {
     this.trust = trust;
   }
 
-
+  /**
+   * The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
+   *
+   * @param type
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of legal entity.   Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
+   *
+   * @param verificationPlan
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
   public LegalEntityInfoRequiredType verificationPlan(String verificationPlan) {
     this.verificationPlan = verificationPlan;
     return this;
   }
 
-   /**
+  /**
    * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    * @return verificationPlan
-  **/
+   */
   @ApiModelProperty(value = "A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVerificationPlan() {
     return verificationPlan;
   }
 
-
- /**
-  * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
-  *
-  * @param verificationPlan
-  */ 
+  /**
+   * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
+   *
+   * @param verificationPlan
+   */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationPlan(String verificationPlan) {
     this.verificationPlan = verificationPlan;
   }
-
 
   /**
    * Return true if this LegalEntityInfoRequiredType object is equal to o.
@@ -485,4 +512,3 @@ public class LegalEntityInfoRequiredType {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

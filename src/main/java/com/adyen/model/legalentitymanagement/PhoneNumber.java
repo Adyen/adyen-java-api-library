@@ -45,65 +45,71 @@ public class PhoneNumber {
   public PhoneNumber() { 
   }
 
+  /**
+   * The full phone number, including the country code. For example, **+3112345678**.
+   *
+   * @param number
+   * @return the current {@code PhoneNumber} instance, allowing for method chaining
+   */
   public PhoneNumber number(String number) {
     this.number = number;
     return this;
   }
 
-   /**
+  /**
    * The full phone number, including the country code. For example, **+3112345678**.
    * @return number
-  **/
+   */
   @ApiModelProperty(required = true, value = "The full phone number, including the country code. For example, **+3112345678**.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNumber() {
     return number;
   }
 
-
- /**
-  * The full phone number, including the country code. For example, **+3112345678**.
-  *
-  * @param number
-  */ 
+  /**
+   * The full phone number, including the country code. For example, **+3112345678**.
+   *
+   * @param number
+   */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
   }
 
-
+  /**
+   * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
+   *
+   * @param type
+   * @return the current {@code PhoneNumber} instance, allowing for method chaining
+   */
   public PhoneNumber type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
-  *
-  * @param type
-  */ 
+  /**
+   * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PhoneNumber object is equal to o.
@@ -166,4 +172,3 @@ public class PhoneNumber {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

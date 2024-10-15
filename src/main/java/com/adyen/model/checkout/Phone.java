@@ -45,65 +45,71 @@ public class Phone {
   public Phone() { 
   }
 
+  /**
+   * Country code. Length: 1–3 characters.
+   *
+   * @param cc
+   * @return the current {@code Phone} instance, allowing for method chaining
+   */
   public Phone cc(String cc) {
     this.cc = cc;
     return this;
   }
 
-   /**
+  /**
    * Country code. Length: 1–3 characters.
    * @return cc
-  **/
+   */
   @ApiModelProperty(value = "Country code. Length: 1–3 characters.")
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCc() {
     return cc;
   }
 
-
- /**
-  * Country code. Length: 1–3 characters.
-  *
-  * @param cc
-  */ 
+  /**
+   * Country code. Length: 1–3 characters.
+   *
+   * @param cc
+   */ 
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCc(String cc) {
     this.cc = cc;
   }
 
-
+  /**
+   * Subscriber number. Maximum length: 15 characters.
+   *
+   * @param subscriber
+   * @return the current {@code Phone} instance, allowing for method chaining
+   */
   public Phone subscriber(String subscriber) {
     this.subscriber = subscriber;
     return this;
   }
 
-   /**
+  /**
    * Subscriber number. Maximum length: 15 characters.
    * @return subscriber
-  **/
+   */
   @ApiModelProperty(value = "Subscriber number. Maximum length: 15 characters.")
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubscriber() {
     return subscriber;
   }
 
-
- /**
-  * Subscriber number. Maximum length: 15 characters.
-  *
-  * @param subscriber
-  */ 
+  /**
+   * Subscriber number. Maximum length: 15 characters.
+   *
+   * @param subscriber
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriber(String subscriber) {
     this.subscriber = subscriber;
   }
-
 
   /**
    * Return true if this Phone object is equal to o.
@@ -166,4 +172,3 @@ public class Phone {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

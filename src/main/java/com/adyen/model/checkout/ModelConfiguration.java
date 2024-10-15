@@ -94,125 +94,137 @@ public class ModelConfiguration {
   public ModelConfiguration() { 
   }
 
+  /**
+   * avs
+   *
+   * @param avs
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration avs(Avs avs) {
     this.avs = avs;
     return this;
   }
 
-   /**
-   * Get avs
+  /**
+   * avs
    * @return avs
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Avs getAvs() {
     return avs;
   }
 
-
- /**
-  * avs
-  *
-  * @param avs
-  */ 
+  /**
+   * avs
+   *
+   * @param avs
+   */ 
   @JsonProperty(JSON_PROPERTY_AVS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvs(Avs avs) {
     this.avs = avs;
   }
 
-
+  /**
+   * Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED
+   *
+   * @param cardHolderName
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration cardHolderName(CardHolderNameEnum cardHolderName) {
     this.cardHolderName = cardHolderName;
     return this;
   }
 
-   /**
+  /**
    * Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED
    * @return cardHolderName
-  **/
+   */
   @ApiModelProperty(value = "Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED")
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardHolderNameEnum getCardHolderName() {
     return cardHolderName;
   }
 
-
- /**
-  * Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED
-  *
-  * @param cardHolderName
-  */ 
+  /**
+   * Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED
+   *
+   * @param cardHolderName
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderName(CardHolderNameEnum cardHolderName) {
     this.cardHolderName = cardHolderName;
   }
 
-
+  /**
+   * installments
+   *
+   * @param installments
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration installments(InstallmentsNumber installments) {
     this.installments = installments;
     return this;
   }
 
-   /**
-   * Get installments
+  /**
+   * installments
    * @return installments
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public InstallmentsNumber getInstallments() {
     return installments;
   }
 
-
- /**
-  * installments
-  *
-  * @param installments
-  */ 
+  /**
+   * installments
+   *
+   * @param installments
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(InstallmentsNumber installments) {
     this.installments = installments;
   }
 
-
+  /**
+   * shopperInput
+   *
+   * @param shopperInput
+   * @return the current {@code ModelConfiguration} instance, allowing for method chaining
+   */
   public ModelConfiguration shopperInput(ShopperInput shopperInput) {
     this.shopperInput = shopperInput;
     return this;
   }
 
-   /**
-   * Get shopperInput
+  /**
+   * shopperInput
    * @return shopperInput
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ShopperInput getShopperInput() {
     return shopperInput;
   }
 
-
- /**
-  * shopperInput
-  *
-  * @param shopperInput
-  */ 
+  /**
+   * shopperInput
+   *
+   * @param shopperInput
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInput(ShopperInput shopperInput) {
     this.shopperInput = shopperInput;
   }
-
 
   /**
    * Return true if this Configuration object is equal to o.
@@ -279,4 +291,3 @@ public class ModelConfiguration {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

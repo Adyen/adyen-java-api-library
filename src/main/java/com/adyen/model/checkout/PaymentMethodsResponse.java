@@ -49,6 +49,12 @@ public class PaymentMethodsResponse {
   public PaymentMethodsResponse() { 
   }
 
+  /**
+   * Detailed list of payment methods required to generate payment forms.
+   *
+   * @param paymentMethods
+   * @return the current {@code PaymentMethodsResponse} instance, allowing for method chaining
+   */
   public PaymentMethodsResponse paymentMethods(List<PaymentMethod> paymentMethods) {
     this.paymentMethods = paymentMethods;
     return this;
@@ -62,31 +68,34 @@ public class PaymentMethodsResponse {
     return this;
   }
 
-   /**
+  /**
    * Detailed list of payment methods required to generate payment forms.
    * @return paymentMethods
-  **/
+   */
   @ApiModelProperty(value = "Detailed list of payment methods required to generate payment forms.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PaymentMethod> getPaymentMethods() {
     return paymentMethods;
   }
 
-
- /**
-  * Detailed list of payment methods required to generate payment forms.
-  *
-  * @param paymentMethods
-  */ 
+  /**
+   * Detailed list of payment methods required to generate payment forms.
+   *
+   * @param paymentMethods
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
     this.paymentMethods = paymentMethods;
   }
 
-
+  /**
+   * List of all stored payment methods.
+   *
+   * @param storedPaymentMethods
+   * @return the current {@code PaymentMethodsResponse} instance, allowing for method chaining
+   */
   public PaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
     return this;
@@ -100,30 +109,27 @@ public class PaymentMethodsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of all stored payment methods.
    * @return storedPaymentMethods
-  **/
+   */
   @ApiModelProperty(value = "List of all stored payment methods.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<StoredPaymentMethod> getStoredPaymentMethods() {
     return storedPaymentMethods;
   }
 
-
- /**
-  * List of all stored payment methods.
-  *
-  * @param storedPaymentMethods
-  */ 
+  /**
+   * List of all stored payment methods.
+   *
+   * @param storedPaymentMethods
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
   }
-
 
   /**
    * Return true if this PaymentMethodsResponse object is equal to o.
@@ -186,4 +192,3 @@ public class PaymentMethodsResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

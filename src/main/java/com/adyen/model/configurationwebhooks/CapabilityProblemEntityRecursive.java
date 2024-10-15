@@ -89,6 +89,12 @@ public class CapabilityProblemEntityRecursive {
   public CapabilityProblemEntityRecursive() { 
   }
 
+  /**
+   * List of document IDs to which the verification errors related to the capabilities correspond to.
+   *
+   * @param documents
+   * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
+   */
   public CapabilityProblemEntityRecursive documents(List<String> documents) {
     this.documents = documents;
     return this;
@@ -102,90 +108,93 @@ public class CapabilityProblemEntityRecursive {
     return this;
   }
 
-   /**
+  /**
    * List of document IDs to which the verification errors related to the capabilities correspond to.
    * @return documents
-  **/
+   */
   @ApiModelProperty(value = "List of document IDs to which the verification errors related to the capabilities correspond to.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getDocuments() {
     return documents;
   }
 
-
- /**
-  * List of document IDs to which the verification errors related to the capabilities correspond to.
-  *
-  * @param documents
-  */ 
+  /**
+   * List of document IDs to which the verification errors related to the capabilities correspond to.
+   *
+   * @param documents
+   */ 
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
     this.documents = documents;
   }
 
-
+  /**
+   * The ID of the entity.
+   *
+   * @param id
+   * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
+   */
   public CapabilityProblemEntityRecursive id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The ID of the entity.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The ID of the entity.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The ID of the entity.
-  *
-  * @param id
-  */ 
+  /**
+   * The ID of the entity.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
+   *
+   * @param type
+   * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
+   */
   public CapabilityProblemEntityRecursive type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CapabilityProblemEntity-recursive object is equal to o.
@@ -250,4 +259,3 @@ public class CapabilityProblemEntityRecursive {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

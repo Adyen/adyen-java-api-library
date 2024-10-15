@@ -49,95 +49,104 @@ public class ExternalReason {
   public ExternalReason() { 
   }
 
+  /**
+   * The reason code.
+   *
+   * @param code
+   * @return the current {@code ExternalReason} instance, allowing for method chaining
+   */
   public ExternalReason code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * The reason code.
    * @return code
-  **/
+   */
   @ApiModelProperty(value = "The reason code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
- /**
-  * The reason code.
-  *
-  * @param code
-  */ 
+  /**
+   * The reason code.
+   *
+   * @param code
+   */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
   }
 
-
+  /**
+   * The description of the reason code.
+   *
+   * @param description
+   * @return the current {@code ExternalReason} instance, allowing for method chaining
+   */
   public ExternalReason description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The description of the reason code.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "The description of the reason code.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * The description of the reason code.
-  *
-  * @param description
-  */ 
+  /**
+   * The description of the reason code.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The namespace for the reason code.
+   *
+   * @param namespace
+   * @return the current {@code ExternalReason} instance, allowing for method chaining
+   */
   public ExternalReason namespace(String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * The namespace for the reason code.
    * @return namespace
-  **/
+   */
   @ApiModelProperty(value = "The namespace for the reason code.")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNamespace() {
     return namespace;
   }
 
-
- /**
-  * The namespace for the reason code.
-  *
-  * @param namespace
-  */ 
+  /**
+   * The namespace for the reason code.
+   *
+   * @param namespace
+   */ 
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
-
 
   /**
    * Return true if this ExternalReason object is equal to o.
@@ -202,4 +211,3 @@ public class ExternalReason {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

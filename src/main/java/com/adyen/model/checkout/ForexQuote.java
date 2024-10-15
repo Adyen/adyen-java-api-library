@@ -87,365 +87,401 @@ public class ForexQuote {
   public ForexQuote() { 
   }
 
+  /**
+   * The account name.
+   *
+   * @param account
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote account(String account) {
     this.account = account;
     return this;
   }
 
-   /**
+  /**
    * The account name.
    * @return account
-  **/
+   */
   @ApiModelProperty(value = "The account name.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccount() {
     return account;
   }
 
-
- /**
-  * The account name.
-  *
-  * @param account
-  */ 
+  /**
+   * The account name.
+   *
+   * @param account
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccount(String account) {
     this.account = account;
   }
 
-
+  /**
+   * The account type.
+   *
+   * @param accountType
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote accountType(String accountType) {
     this.accountType = accountType;
     return this;
   }
 
-   /**
+  /**
    * The account type.
    * @return accountType
-  **/
+   */
   @ApiModelProperty(value = "The account type.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountType() {
     return accountType;
   }
 
-
- /**
-  * The account type.
-  *
-  * @param accountType
-  */ 
+  /**
+   * The account type.
+   *
+   * @param accountType
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
     this.accountType = accountType;
   }
 
-
+  /**
+   * baseAmount
+   *
+   * @param baseAmount
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote baseAmount(Amount baseAmount) {
     this.baseAmount = baseAmount;
     return this;
   }
 
-   /**
-   * Get baseAmount
+  /**
+   * baseAmount
    * @return baseAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getBaseAmount() {
     return baseAmount;
   }
 
-
- /**
-  * baseAmount
-  *
-  * @param baseAmount
-  */ 
+  /**
+   * baseAmount
+   *
+   * @param baseAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBaseAmount(Amount baseAmount) {
     this.baseAmount = baseAmount;
   }
 
-
+  /**
+   * The base points.
+   *
+   * @param basePoints
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote basePoints(Integer basePoints) {
     this.basePoints = basePoints;
     return this;
   }
 
-   /**
+  /**
    * The base points.
    * @return basePoints
-  **/
+   */
   @ApiModelProperty(required = true, value = "The base points.")
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getBasePoints() {
     return basePoints;
   }
 
-
- /**
-  * The base points.
-  *
-  * @param basePoints
-  */ 
+  /**
+   * The base points.
+   *
+   * @param basePoints
+   */ 
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasePoints(Integer basePoints) {
     this.basePoints = basePoints;
   }
 
-
+  /**
+   * buy
+   *
+   * @param buy
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote buy(Amount buy) {
     this.buy = buy;
     return this;
   }
 
-   /**
-   * Get buy
+  /**
+   * buy
    * @return buy
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BUY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getBuy() {
     return buy;
   }
 
-
- /**
-  * buy
-  *
-  * @param buy
-  */ 
+  /**
+   * buy
+   *
+   * @param buy
+   */ 
   @JsonProperty(JSON_PROPERTY_BUY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBuy(Amount buy) {
     this.buy = buy;
   }
 
-
+  /**
+   * interbank
+   *
+   * @param interbank
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote interbank(Amount interbank) {
     this.interbank = interbank;
     return this;
   }
 
-   /**
-   * Get interbank
+  /**
+   * interbank
    * @return interbank
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERBANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getInterbank() {
     return interbank;
   }
 
-
- /**
-  * interbank
-  *
-  * @param interbank
-  */ 
+  /**
+   * interbank
+   *
+   * @param interbank
+   */ 
   @JsonProperty(JSON_PROPERTY_INTERBANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterbank(Amount interbank) {
     this.interbank = interbank;
   }
 
-
+  /**
+   * The reference assigned to the forex quote request.
+   *
+   * @param reference
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference assigned to the forex quote request.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The reference assigned to the forex quote request.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference assigned to the forex quote request.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference assigned to the forex quote request.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * sell
+   *
+   * @param sell
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote sell(Amount sell) {
     this.sell = sell;
     return this;
   }
 
-   /**
-   * Get sell
+  /**
+   * sell
    * @return sell
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SELL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getSell() {
     return sell;
   }
 
-
- /**
-  * sell
-  *
-  * @param sell
-  */ 
+  /**
+   * sell
+   *
+   * @param sell
+   */ 
   @JsonProperty(JSON_PROPERTY_SELL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSell(Amount sell) {
     this.sell = sell;
   }
 
-
+  /**
+   * The signature to validate the integrity.
+   *
+   * @param signature
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote signature(String signature) {
     this.signature = signature;
     return this;
   }
 
-   /**
+  /**
    * The signature to validate the integrity.
    * @return signature
-  **/
+   */
   @ApiModelProperty(value = "The signature to validate the integrity.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSignature() {
     return signature;
   }
 
-
- /**
-  * The signature to validate the integrity.
-  *
-  * @param signature
-  */ 
+  /**
+   * The signature to validate the integrity.
+   *
+   * @param signature
+   */ 
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(String signature) {
     this.signature = signature;
   }
 
-
+  /**
+   * The source of the forex quote.
+   *
+   * @param source
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote source(String source) {
     this.source = source;
     return this;
   }
 
-   /**
+  /**
    * The source of the forex quote.
    * @return source
-  **/
+   */
   @ApiModelProperty(value = "The source of the forex quote.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSource() {
     return source;
   }
 
-
- /**
-  * The source of the forex quote.
-  *
-  * @param source
-  */ 
+  /**
+   * The source of the forex quote.
+   *
+   * @param source
+   */ 
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSource(String source) {
     this.source = source;
   }
 
-
+  /**
+   * The type of forex.
+   *
+   * @param type
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of forex.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of forex.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of forex.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of forex.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
 
-
+  /**
+   * The date until which the forex quote is valid.
+   *
+   * @param validTill
+   * @return the current {@code ForexQuote} instance, allowing for method chaining
+   */
   public ForexQuote validTill(OffsetDateTime validTill) {
     this.validTill = validTill;
     return this;
   }
 
-   /**
+  /**
    * The date until which the forex quote is valid.
    * @return validTill
-  **/
+   */
   @ApiModelProperty(required = true, value = "The date until which the forex quote is valid.")
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getValidTill() {
     return validTill;
   }
 
-
- /**
-  * The date until which the forex quote is valid.
-  *
-  * @param validTill
-  */ 
+  /**
+   * The date until which the forex quote is valid.
+   *
+   * @param validTill
+   */ 
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTill(OffsetDateTime validTill) {
     this.validTill = validTill;
   }
-
 
   /**
    * Return true if this ForexQuote object is equal to o.
@@ -528,4 +564,3 @@ public class ForexQuote {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

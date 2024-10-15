@@ -56,96 +56,111 @@ public class TransactionRulesResult {
   public TransactionRulesResult() { 
   }
 
+  /**
+   * The advice given by the Risk analysis.
+   *
+   * @param advice
+   * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
+   */
   public TransactionRulesResult advice(String advice) {
     this.advice = advice;
     return this;
   }
 
-   /**
+  /**
    * The advice given by the Risk analysis.
    * @return advice
-  **/
+   */
   @ApiModelProperty(value = "The advice given by the Risk analysis.")
   @JsonProperty(JSON_PROPERTY_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAdvice() {
     return advice;
   }
 
-
- /**
-  * The advice given by the Risk analysis.
-  *
-  * @param advice
-  */ 
+  /**
+   * The advice given by the Risk analysis.
+   *
+   * @param advice
+   */ 
   @JsonProperty(JSON_PROPERTY_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdvice(String advice) {
     this.advice = advice;
   }
 
-
+  /**
+   * Indicates whether the transaction passed the evaluation for all hardblock rules
+   *
+   * @param allHardBlockRulesPassed
+   * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
+   */
   public TransactionRulesResult allHardBlockRulesPassed(Boolean allHardBlockRulesPassed) {
     this.allHardBlockRulesPassed = allHardBlockRulesPassed;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the transaction passed the evaluation for all hardblock rules
    * @return allHardBlockRulesPassed
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the transaction passed the evaluation for all hardblock rules")
   @JsonProperty(JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAllHardBlockRulesPassed() {
     return allHardBlockRulesPassed;
   }
 
-
- /**
-  * Indicates whether the transaction passed the evaluation for all hardblock rules
-  *
-  * @param allHardBlockRulesPassed
-  */ 
+  /**
+   * Indicates whether the transaction passed the evaluation for all hardblock rules
+   *
+   * @param allHardBlockRulesPassed
+   */ 
   @JsonProperty(JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllHardBlockRulesPassed(Boolean allHardBlockRulesPassed) {
     this.allHardBlockRulesPassed = allHardBlockRulesPassed;
   }
 
-
+  /**
+   * The score of the Risk analysis.
+   *
+   * @param score
+   * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
+   */
   public TransactionRulesResult score(Integer score) {
     this.score = score;
     return this;
   }
 
-   /**
+  /**
    * The score of the Risk analysis.
    * @return score
-  **/
+   */
   @ApiModelProperty(value = "The score of the Risk analysis.")
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getScore() {
     return score;
   }
 
-
- /**
-  * The score of the Risk analysis.
-  *
-  * @param score
-  */ 
+  /**
+   * The score of the Risk analysis.
+   *
+   * @param score
+   */ 
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
   }
 
-
+  /**
+   * Array containing all the transaction rules that the transaction triggered.
+   *
+   * @param triggeredTransactionRules
+   * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
+   */
   public TransactionRulesResult triggeredTransactionRules(List<TransactionEventViolation> triggeredTransactionRules) {
     this.triggeredTransactionRules = triggeredTransactionRules;
     return this;
@@ -159,30 +174,27 @@ public class TransactionRulesResult {
     return this;
   }
 
-   /**
+  /**
    * Array containing all the transaction rules that the transaction triggered.
    * @return triggeredTransactionRules
-  **/
+   */
   @ApiModelProperty(value = "Array containing all the transaction rules that the transaction triggered.")
   @JsonProperty(JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TransactionEventViolation> getTriggeredTransactionRules() {
     return triggeredTransactionRules;
   }
 
-
- /**
-  * Array containing all the transaction rules that the transaction triggered.
-  *
-  * @param triggeredTransactionRules
-  */ 
+  /**
+   * Array containing all the transaction rules that the transaction triggered.
+   *
+   * @param triggeredTransactionRules
+   */ 
   @JsonProperty(JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggeredTransactionRules(List<TransactionEventViolation> triggeredTransactionRules) {
     this.triggeredTransactionRules = triggeredTransactionRules;
   }
-
 
   /**
    * Return true if this TransactionRulesResult object is equal to o.
@@ -249,4 +261,3 @@ public class TransactionRulesResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

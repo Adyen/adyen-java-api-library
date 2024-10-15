@@ -85,95 +85,104 @@ public class AuthenticationData {
   public AuthenticationData() { 
   }
 
+  /**
+   * Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
+   *
+   * @param attemptAuthentication
+   * @return the current {@code AuthenticationData} instance, allowing for method chaining
+   */
   public AuthenticationData attemptAuthentication(AttemptAuthenticationEnum attemptAuthentication) {
     this.attemptAuthentication = attemptAuthentication;
     return this;
   }
 
-   /**
+  /**
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
    * @return attemptAuthentication
-  **/
+   */
   @ApiModelProperty(value = "Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don't perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.")
   @JsonProperty(JSON_PROPERTY_ATTEMPT_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AttemptAuthenticationEnum getAttemptAuthentication() {
     return attemptAuthentication;
   }
 
-
- /**
-  * Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
-  *
-  * @param attemptAuthentication
-  */ 
+  /**
+   * Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
+   *
+   * @param attemptAuthentication
+   */ 
   @JsonProperty(JSON_PROPERTY_ATTEMPT_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttemptAuthentication(AttemptAuthenticationEnum attemptAuthentication) {
     this.attemptAuthentication = attemptAuthentication;
   }
 
-
+  /**
+   * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
+   *
+   * @param authenticationOnly
+   * @return the current {@code AuthenticationData} instance, allowing for method chaining
+   */
   public AuthenticationData authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
     return this;
   }
 
-   /**
+  /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
    * @return authenticationOnly
-  **/
+   */
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAuthenticationOnly() {
     return authenticationOnly;
   }
 
-
- /**
-  * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
-  *
-  * @param authenticationOnly
-  */ 
+  /**
+   * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
+   *
+   * @param authenticationOnly
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
   }
 
-
+  /**
+   * threeDSRequestData
+   *
+   * @param threeDSRequestData
+   * @return the current {@code AuthenticationData} instance, allowing for method chaining
+   */
   public AuthenticationData threeDSRequestData(ThreeDSRequestData threeDSRequestData) {
     this.threeDSRequestData = threeDSRequestData;
     return this;
   }
 
-   /**
-   * Get threeDSRequestData
+  /**
+   * threeDSRequestData
    * @return threeDSRequestData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ThreeDSRequestData getThreeDSRequestData() {
     return threeDSRequestData;
   }
 
-
- /**
-  * threeDSRequestData
-  *
-  * @param threeDSRequestData
-  */ 
+  /**
+   * threeDSRequestData
+   *
+   * @param threeDSRequestData
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestData(ThreeDSRequestData threeDSRequestData) {
     this.threeDSRequestData = threeDSRequestData;
   }
-
 
   /**
    * Return true if this AuthenticationData object is equal to o.
@@ -238,4 +247,3 @@ public class AuthenticationData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -78,65 +78,71 @@ public class UninstallAndroidCertificateDetails {
   public UninstallAndroidCertificateDetails() { 
   }
 
+  /**
+   * The unique identifier of the certificate to be uninstalled.
+   *
+   * @param certificateId
+   * @return the current {@code UninstallAndroidCertificateDetails} instance, allowing for method chaining
+   */
   public UninstallAndroidCertificateDetails certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the certificate to be uninstalled.
    * @return certificateId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the certificate to be uninstalled.")
   @JsonProperty(JSON_PROPERTY_CERTIFICATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCertificateId() {
     return certificateId;
   }
 
-
- /**
-  * The unique identifier of the certificate to be uninstalled.
-  *
-  * @param certificateId
-  */ 
+  /**
+   * The unique identifier of the certificate to be uninstalled.
+   *
+   * @param certificateId
+   */ 
   @JsonProperty(JSON_PROPERTY_CERTIFICATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
   }
 
-
+  /**
+   * Type of terminal action: Uninstall an Android certificate.
+   *
+   * @param type
+   * @return the current {@code UninstallAndroidCertificateDetails} instance, allowing for method chaining
+   */
   public UninstallAndroidCertificateDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of terminal action: Uninstall an Android certificate.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "Type of terminal action: Uninstall an Android certificate.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of terminal action: Uninstall an Android certificate.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of terminal action: Uninstall an Android certificate.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this UninstallAndroidCertificateDetails object is equal to o.
@@ -199,4 +205,3 @@ public class UninstallAndroidCertificateDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

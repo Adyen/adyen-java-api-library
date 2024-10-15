@@ -155,635 +155,698 @@ public class CheckoutVoucherAction {
   public CheckoutVoucherAction() { 
   }
 
+  /**
+   * The voucher alternative reference code.
+   *
+   * @param alternativeReference
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction alternativeReference(String alternativeReference) {
     this.alternativeReference = alternativeReference;
     return this;
   }
 
-   /**
+  /**
    * The voucher alternative reference code.
    * @return alternativeReference
-  **/
+   */
   @ApiModelProperty(value = "The voucher alternative reference code.")
   @JsonProperty(JSON_PROPERTY_ALTERNATIVE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAlternativeReference() {
     return alternativeReference;
   }
 
-
- /**
-  * The voucher alternative reference code.
-  *
-  * @param alternativeReference
-  */ 
+  /**
+   * The voucher alternative reference code.
+   *
+   * @param alternativeReference
+   */ 
   @JsonProperty(JSON_PROPERTY_ALTERNATIVE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlternativeReference(String alternativeReference) {
     this.alternativeReference = alternativeReference;
   }
 
-
+  /**
+   * A collection institution number (store number) for Econtext Pay-Easy ATM.
+   *
+   * @param collectionInstitutionNumber
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction collectionInstitutionNumber(String collectionInstitutionNumber) {
     this.collectionInstitutionNumber = collectionInstitutionNumber;
     return this;
   }
 
-   /**
+  /**
    * A collection institution number (store number) for Econtext Pay-Easy ATM.
    * @return collectionInstitutionNumber
-  **/
+   */
   @ApiModelProperty(value = "A collection institution number (store number) for Econtext Pay-Easy ATM.")
   @JsonProperty(JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCollectionInstitutionNumber() {
     return collectionInstitutionNumber;
   }
 
-
- /**
-  * A collection institution number (store number) for Econtext Pay-Easy ATM.
-  *
-  * @param collectionInstitutionNumber
-  */ 
+  /**
+   * A collection institution number (store number) for Econtext Pay-Easy ATM.
+   *
+   * @param collectionInstitutionNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCollectionInstitutionNumber(String collectionInstitutionNumber) {
     this.collectionInstitutionNumber = collectionInstitutionNumber;
   }
 
-
+  /**
+   * The URL to download the voucher.
+   *
+   * @param downloadUrl
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL to download the voucher.
    * @return downloadUrl
-  **/
+   */
   @ApiModelProperty(value = "The URL to download the voucher.")
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDownloadUrl() {
     return downloadUrl;
   }
 
-
- /**
-  * The URL to download the voucher.
-  *
-  * @param downloadUrl
-  */ 
+  /**
+   * The URL to download the voucher.
+   *
+   * @param downloadUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
   }
 
-
+  /**
+   * An entity number of Multibanco.
+   *
+   * @param entity
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction entity(String entity) {
     this.entity = entity;
     return this;
   }
 
-   /**
+  /**
    * An entity number of Multibanco.
    * @return entity
-  **/
+   */
   @ApiModelProperty(value = "An entity number of Multibanco.")
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEntity() {
     return entity;
   }
 
-
- /**
-  * An entity number of Multibanco.
-  *
-  * @param entity
-  */ 
+  /**
+   * An entity number of Multibanco.
+   *
+   * @param entity
+   */ 
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(String entity) {
     this.entity = entity;
   }
 
-
+  /**
+   * The date time of the voucher expiry.
+   *
+   * @param expiresAt
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
-   /**
+  /**
    * The date time of the voucher expiry.
    * @return expiresAt
-  **/
+   */
   @ApiModelProperty(value = "The date time of the voucher expiry.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiresAt() {
     return expiresAt;
   }
 
-
- /**
-  * The date time of the voucher expiry.
-  *
-  * @param expiresAt
-  */ 
+  /**
+   * The date time of the voucher expiry.
+   *
+   * @param expiresAt
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
-
+  /**
+   * initialAmount
+   *
+   * @param initialAmount
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction initialAmount(Amount initialAmount) {
     this.initialAmount = initialAmount;
     return this;
   }
 
-   /**
-   * Get initialAmount
+  /**
+   * initialAmount
    * @return initialAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INITIAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getInitialAmount() {
     return initialAmount;
   }
 
-
- /**
-  * initialAmount
-  *
-  * @param initialAmount
-  */ 
+  /**
+   * initialAmount
+   *
+   * @param initialAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_INITIAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInitialAmount(Amount initialAmount) {
     this.initialAmount = initialAmount;
   }
 
-
+  /**
+   * The URL to the detailed instructions to make payment using the voucher.
+   *
+   * @param instructionsUrl
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction instructionsUrl(String instructionsUrl) {
     this.instructionsUrl = instructionsUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL to the detailed instructions to make payment using the voucher.
    * @return instructionsUrl
-  **/
+   */
   @ApiModelProperty(value = "The URL to the detailed instructions to make payment using the voucher.")
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInstructionsUrl() {
     return instructionsUrl;
   }
 
-
- /**
-  * The URL to the detailed instructions to make payment using the voucher.
-  *
-  * @param instructionsUrl
-  */ 
+  /**
+   * The URL to the detailed instructions to make payment using the voucher.
+   *
+   * @param instructionsUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstructionsUrl(String instructionsUrl) {
     this.instructionsUrl = instructionsUrl;
   }
 
-
+  /**
+   * The issuer of the voucher.
+   *
+   * @param issuer
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction issuer(String issuer) {
     this.issuer = issuer;
     return this;
   }
 
-   /**
+  /**
    * The issuer of the voucher.
    * @return issuer
-  **/
+   */
   @ApiModelProperty(value = "The issuer of the voucher.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuer() {
     return issuer;
   }
 
-
- /**
-  * The issuer of the voucher.
-  *
-  * @param issuer
-  */ 
+  /**
+   * The issuer of the voucher.
+   *
+   * @param issuer
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
 
-
+  /**
+   * The shopper telephone number (partially masked).
+   *
+   * @param maskedTelephoneNumber
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction maskedTelephoneNumber(String maskedTelephoneNumber) {
     this.maskedTelephoneNumber = maskedTelephoneNumber;
     return this;
   }
 
-   /**
+  /**
    * The shopper telephone number (partially masked).
    * @return maskedTelephoneNumber
-  **/
+   */
   @ApiModelProperty(value = "The shopper telephone number (partially masked).")
   @JsonProperty(JSON_PROPERTY_MASKED_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedTelephoneNumber() {
     return maskedTelephoneNumber;
   }
 
-
- /**
-  * The shopper telephone number (partially masked).
-  *
-  * @param maskedTelephoneNumber
-  */ 
+  /**
+   * The shopper telephone number (partially masked).
+   *
+   * @param maskedTelephoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_MASKED_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaskedTelephoneNumber(String maskedTelephoneNumber) {
     this.maskedTelephoneNumber = maskedTelephoneNumber;
   }
 
-
+  /**
+   * The merchant name.
+   *
+   * @param merchantName
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction merchantName(String merchantName) {
     this.merchantName = merchantName;
     return this;
   }
 
-   /**
+  /**
    * The merchant name.
    * @return merchantName
-  **/
+   */
   @ApiModelProperty(value = "The merchant name.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantName() {
     return merchantName;
   }
 
-
- /**
-  * The merchant name.
-  *
-  * @param merchantName
-  */ 
+  /**
+   * The merchant name.
+   *
+   * @param merchantName
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
   }
 
-
+  /**
+   * The merchant reference.
+   *
+   * @param merchantReference
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant reference.
    * @return merchantReference
-  **/
+   */
   @ApiModelProperty(value = "The merchant reference.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantReference() {
     return merchantReference;
   }
 
-
- /**
-  * The merchant reference.
-  *
-  * @param merchantReference
-  */ 
+  /**
+   * The merchant reference.
+   *
+   * @param merchantReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
-
+  /**
+   * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
+   *
+   * @param passCreationToken
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction passCreationToken(String passCreationToken) {
     this.passCreationToken = passCreationToken;
     return this;
   }
 
-   /**
+  /**
    * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
    * @return passCreationToken
-  **/
+   */
   @ApiModelProperty(value = "A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.")
   @JsonProperty(JSON_PROPERTY_PASS_CREATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassCreationToken() {
     return passCreationToken;
   }
 
-
- /**
-  * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
-  *
-  * @param passCreationToken
-  */ 
+  /**
+   * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
+   *
+   * @param passCreationToken
+   */ 
   @JsonProperty(JSON_PROPERTY_PASS_CREATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassCreationToken(String passCreationToken) {
     this.passCreationToken = passCreationToken;
   }
 
-
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
 
-   /**
+  /**
    * Encoded payment data.
    * @return paymentData
-  **/
+   */
   @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentData() {
     return paymentData;
   }
 
-
- /**
-  * Encoded payment data.
-  *
-  * @param paymentData
-  */ 
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
 
-
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
     return this;
   }
 
-   /**
+  /**
    * Specifies the payment method.
    * @return paymentMethodType
-  **/
+   */
   @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodType() {
     return paymentMethodType;
   }
 
-
- /**
-  * Specifies the payment method.
-  *
-  * @param paymentMethodType
-  */ 
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
   }
 
-
+  /**
+   * The voucher reference code.
+   *
+   * @param reference
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The voucher reference code.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The voucher reference code.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The voucher reference code.
-  *
-  * @param reference
-  */ 
+  /**
+   * The voucher reference code.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The shopper email.
+   *
+   * @param shopperEmail
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
 
-   /**
+  /**
    * The shopper email.
    * @return shopperEmail
-  **/
+   */
   @ApiModelProperty(value = "The shopper email.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperEmail() {
     return shopperEmail;
   }
 
-
- /**
-  * The shopper email.
-  *
-  * @param shopperEmail
-  */ 
+  /**
+   * The shopper email.
+   *
+   * @param shopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
 
-
+  /**
+   * The shopper name.
+   *
+   * @param shopperName
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction shopperName(String shopperName) {
     this.shopperName = shopperName;
     return this;
   }
 
-   /**
+  /**
    * The shopper name.
    * @return shopperName
-  **/
+   */
   @ApiModelProperty(value = "The shopper name.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperName() {
     return shopperName;
   }
 
-
- /**
-  * The shopper name.
-  *
-  * @param shopperName
-  */ 
+  /**
+   * The shopper name.
+   *
+   * @param shopperName
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(String shopperName) {
     this.shopperName = shopperName;
   }
 
-
+  /**
+   * surcharge
+   *
+   * @param surcharge
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction surcharge(Amount surcharge) {
     this.surcharge = surcharge;
     return this;
   }
 
-   /**
-   * Get surcharge
+  /**
+   * surcharge
    * @return surcharge
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getSurcharge() {
     return surcharge;
   }
 
-
- /**
-  * surcharge
-  *
-  * @param surcharge
-  */ 
+  /**
+   * surcharge
+   *
+   * @param surcharge
+   */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Amount surcharge) {
     this.surcharge = surcharge;
   }
 
-
+  /**
+   * totalAmount
+   *
+   * @param totalAmount
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction totalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
 
-   /**
-   * Get totalAmount
+  /**
+   * totalAmount
    * @return totalAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getTotalAmount() {
     return totalAmount;
   }
 
-
- /**
-  * totalAmount
-  *
-  * @param totalAmount
-  */ 
+  /**
+   * totalAmount
+   *
+   * @param totalAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
   }
 
-
+  /**
+   * **voucher**
+   *
+   * @param type
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **voucher**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**voucher**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **voucher**
-  *
-  * @param type
-  */ 
+  /**
+   * **voucher**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
+   */
   public CheckoutVoucherAction url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Specifies the URL to redirect to.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Specifies the URL to redirect to.
-  *
-  * @param url
-  */ 
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this CheckoutVoucherAction object is equal to o.
@@ -884,4 +947,3 @@ public class CheckoutVoucherAction {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

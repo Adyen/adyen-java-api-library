@@ -82,95 +82,104 @@ public class CellulantDetails {
   public CellulantDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code CellulantDetails} instance, allowing for method chaining
+   */
   public CellulantDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The Cellulant issuer.
+   *
+   * @param issuer
+   * @return the current {@code CellulantDetails} instance, allowing for method chaining
+   */
   public CellulantDetails issuer(String issuer) {
     this.issuer = issuer;
     return this;
   }
 
-   /**
+  /**
    * The Cellulant issuer.
    * @return issuer
-  **/
+   */
   @ApiModelProperty(value = "The Cellulant issuer.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuer() {
     return issuer;
   }
 
-
- /**
-  * The Cellulant issuer.
-  *
-  * @param issuer
-  */ 
+  /**
+   * The Cellulant issuer.
+   *
+   * @param issuer
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
 
-
+  /**
+   * **Cellulant**
+   *
+   * @param type
+   * @return the current {@code CellulantDetails} instance, allowing for method chaining
+   */
   public CellulantDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **Cellulant**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**Cellulant**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **Cellulant**
-  *
-  * @param type
-  */ 
+  /**
+   * **Cellulant**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CellulantDetails object is equal to o.
@@ -235,4 +244,3 @@ public class CellulantDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

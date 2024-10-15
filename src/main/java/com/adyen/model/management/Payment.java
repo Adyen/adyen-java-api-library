@@ -47,36 +47,45 @@ public class Payment {
   public Payment() { 
   }
 
+  /**
+   * The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+   *
+   * @param contactlessCurrency
+   * @return the current {@code Payment} instance, allowing for method chaining
+   */
   public Payment contactlessCurrency(String contactlessCurrency) {
     this.contactlessCurrency = contactlessCurrency;
     return this;
   }
 
-   /**
+  /**
    * The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
    * @return contactlessCurrency
-  **/
+   */
   @ApiModelProperty(value = "The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.")
   @JsonProperty(JSON_PROPERTY_CONTACTLESS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getContactlessCurrency() {
     return contactlessCurrency;
   }
 
-
- /**
-  * The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
-  *
-  * @param contactlessCurrency
-  */ 
+  /**
+   * The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+   *
+   * @param contactlessCurrency
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTACTLESS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactlessCurrency(String contactlessCurrency) {
     this.contactlessCurrency = contactlessCurrency;
   }
 
-
+  /**
+   * Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param hideMinorUnitsInCurrencies
+   * @return the current {@code Payment} instance, allowing for method chaining
+   */
   public Payment hideMinorUnitsInCurrencies(List<String> hideMinorUnitsInCurrencies) {
     this.hideMinorUnitsInCurrencies = hideMinorUnitsInCurrencies;
     return this;
@@ -90,30 +99,27 @@ public class Payment {
     return this;
   }
 
-   /**
+  /**
    * Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
    * @return hideMinorUnitsInCurrencies
-  **/
+   */
   @ApiModelProperty(value = "Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getHideMinorUnitsInCurrencies() {
     return hideMinorUnitsInCurrencies;
   }
 
-
- /**
-  * Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
-  *
-  * @param hideMinorUnitsInCurrencies
-  */ 
+  /**
+   * Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
+   *
+   * @param hideMinorUnitsInCurrencies
+   */ 
   @JsonProperty(JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideMinorUnitsInCurrencies(List<String> hideMinorUnitsInCurrencies) {
     this.hideMinorUnitsInCurrencies = hideMinorUnitsInCurrencies;
   }
-
 
   /**
    * Return true if this Payment object is equal to o.
@@ -176,4 +182,3 @@ public class Payment {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

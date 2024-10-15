@@ -65,6 +65,12 @@ public class ThreeDSAvailabilityRequest {
   public ThreeDSAvailabilityRequest() { 
   }
 
+  /**
+   * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
+   *
+   * @param additionalData
+   * @return the current {@code ThreeDSAvailabilityRequest} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -78,31 +84,34 @@ public class ThreeDSAvailabilityRequest {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.  The `additionalData` object consists of entries, each of which includes the key and value.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * List of brands.
+   *
+   * @param brands
+   * @return the current {@code ThreeDSAvailabilityRequest} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityRequest brands(List<String> brands) {
     this.brands = brands;
     return this;
@@ -116,150 +125,159 @@ public class ThreeDSAvailabilityRequest {
     return this;
   }
 
-   /**
+  /**
    * List of brands.
    * @return brands
-  **/
+   */
   @ApiModelProperty(value = "List of brands.")
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getBrands() {
     return brands;
   }
 
-
- /**
-  * List of brands.
-  *
-  * @param brands
-  */ 
+  /**
+   * List of brands.
+   *
+   * @param brands
+   */ 
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
     this.brands = brands;
   }
 
-
+  /**
+   * Card number or BIN.
+   *
+   * @param cardNumber
+   * @return the current {@code ThreeDSAvailabilityRequest} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityRequest cardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
     return this;
   }
 
-   /**
+  /**
    * Card number or BIN.
    * @return cardNumber
-  **/
+   */
   @ApiModelProperty(value = "Card number or BIN.")
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardNumber() {
     return cardNumber;
   }
 
-
- /**
-  * Card number or BIN.
-  *
-  * @param cardNumber
-  */ 
+  /**
+   * Card number or BIN.
+   *
+   * @param cardNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
   }
 
-
+  /**
+   * The merchant account identifier.
+   *
+   * @param merchantAccount
+   * @return the current {@code ThreeDSAvailabilityRequest} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * A recurring detail reference corresponding to a card.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code ThreeDSAvailabilityRequest} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * A recurring detail reference corresponding to a card.
    * @return recurringDetailReference
-  **/
+   */
   @ApiModelProperty(value = "A recurring detail reference corresponding to a card.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * A recurring detail reference corresponding to a card.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * A recurring detail reference corresponding to a card.
+   *
+   * @param recurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
+   *
+   * @param shopperReference
+   * @return the current {@code ThreeDSAvailabilityRequest} instance, allowing for method chaining
+   */
   public ThreeDSAvailabilityRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
+  /**
    * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(value = "The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
-
 
   /**
    * Return true if this ThreeDSAvailabilityRequest object is equal to o.
@@ -330,4 +348,3 @@ public class ThreeDSAvailabilityRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

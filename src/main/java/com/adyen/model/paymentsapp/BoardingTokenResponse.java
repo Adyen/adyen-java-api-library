@@ -45,65 +45,71 @@ public class BoardingTokenResponse {
   public BoardingTokenResponse() { 
   }
 
+  /**
+   * The boarding token that allows the Payments App to board.
+   *
+   * @param boardingToken
+   * @return the current {@code BoardingTokenResponse} instance, allowing for method chaining
+   */
   public BoardingTokenResponse boardingToken(String boardingToken) {
     this.boardingToken = boardingToken;
     return this;
   }
 
-   /**
+  /**
    * The boarding token that allows the Payments App to board.
    * @return boardingToken
-  **/
+   */
   @ApiModelProperty(required = true, value = "The boarding token that allows the Payments App to board.")
   @JsonProperty(JSON_PROPERTY_BOARDING_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBoardingToken() {
     return boardingToken;
   }
 
-
- /**
-  * The boarding token that allows the Payments App to board.
-  *
-  * @param boardingToken
-  */ 
+  /**
+   * The boarding token that allows the Payments App to board.
+   *
+   * @param boardingToken
+   */ 
   @JsonProperty(JSON_PROPERTY_BOARDING_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBoardingToken(String boardingToken) {
     this.boardingToken = boardingToken;
   }
 
-
+  /**
+   * The unique identifier of the Payments App instance.
+   *
+   * @param installationId
+   * @return the current {@code BoardingTokenResponse} instance, allowing for method chaining
+   */
   public BoardingTokenResponse installationId(String installationId) {
     this.installationId = installationId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the Payments App instance.
    * @return installationId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInstallationId() {
     return installationId;
   }
 
-
- /**
-  * The unique identifier of the Payments App instance.
-  *
-  * @param installationId
-  */ 
+  /**
+   * The unique identifier of the Payments App instance.
+   *
+   * @param installationId
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
   }
-
 
   /**
    * Return true if this BoardingTokenResponse object is equal to o.
@@ -166,4 +172,3 @@ public class BoardingTokenResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

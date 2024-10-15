@@ -76,35 +76,38 @@ public class WebDataExemption {
   public WebDataExemption() { 
   }
 
+  /**
+   * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
+   *
+   * @param reason
+   * @return the current {@code WebDataExemption} instance, allowing for method chaining
+   */
   public WebDataExemption reason(ReasonEnum reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    * @return reason
-  **/
+   */
   @ApiModelProperty(value = "The reason why the web data was not provided. Possible value: **noOnlinePresence**.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReasonEnum getReason() {
     return reason;
   }
 
-
- /**
-  * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
-  *
-  * @param reason
-  */ 
+  /**
+   * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
+   *
+   * @param reason
+   */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
   }
-
 
   /**
    * Return true if this WebDataExemption object is equal to o.
@@ -165,4 +168,3 @@ public class WebDataExemption {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

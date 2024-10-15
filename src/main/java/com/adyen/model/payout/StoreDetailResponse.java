@@ -56,6 +56,12 @@ public class StoreDetailResponse {
   public StoreDetailResponse() { 
   }
 
+  /**
+   * This field contains additional data, which may be returned in a particular response.
+   *
+   * @param additionalData
+   * @return the current {@code StoreDetailResponse} instance, allowing for method chaining
+   */
   public StoreDetailResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -69,120 +75,126 @@ public class StoreDetailResponse {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be returned in a particular response.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be returned in a particular response.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * A new reference to uniquely identify this request.
+   *
+   * @param pspReference
+   * @return the current {@code StoreDetailResponse} instance, allowing for method chaining
+   */
   public StoreDetailResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * A new reference to uniquely identify this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * A new reference to uniquely identify this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * A new reference to uniquely identify this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * The token which you can use later on for submitting the payout.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code StoreDetailResponse} instance, allowing for method chaining
+   */
   public StoreDetailResponse recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * The token which you can use later on for submitting the payout.
    * @return recurringDetailReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The token which you can use later on for submitting the payout.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * The token which you can use later on for submitting the payout.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * The token which you can use later on for submitting the payout.
+   *
+   * @param recurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
+   *
+   * @param resultCode
+   * @return the current {@code StoreDetailResponse} instance, allowing for method chaining
+   */
   public StoreDetailResponse resultCode(String resultCode) {
     this.resultCode = resultCode;
     return this;
   }
 
-   /**
+  /**
    * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
    * @return resultCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The result code of the transaction. `Success` indicates that the details were stored successfully.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResultCode() {
     return resultCode;
   }
 
-
- /**
-  * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
-  *
-  * @param resultCode
-  */ 
+  /**
+   * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
+   *
+   * @param resultCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }
-
 
   /**
    * Return true if this StoreDetailResponse object is equal to o.
@@ -249,4 +261,3 @@ public class StoreDetailResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -44,6 +44,12 @@ public class GrantOffers {
   public GrantOffers() { 
   }
 
+  /**
+   * A list of available grant offers.
+   *
+   * @param grantOffers
+   * @return the current {@code GrantOffers} instance, allowing for method chaining
+   */
   public GrantOffers grantOffers(List<GrantOffer> grantOffers) {
     this.grantOffers = grantOffers;
     return this;
@@ -54,30 +60,27 @@ public class GrantOffers {
     return this;
   }
 
-   /**
+  /**
    * A list of available grant offers.
    * @return grantOffers
-  **/
+   */
   @ApiModelProperty(required = true, value = "A list of available grant offers.")
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<GrantOffer> getGrantOffers() {
     return grantOffers;
   }
 
-
- /**
-  * A list of available grant offers.
-  *
-  * @param grantOffers
-  */ 
+  /**
+   * A list of available grant offers.
+   *
+   * @param grantOffers
+   */ 
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOffers(List<GrantOffer> grantOffers) {
     this.grantOffers = grantOffers;
   }
-
 
   /**
    * Return true if this GrantOffers object is equal to o.
@@ -138,4 +141,3 @@ public class GrantOffers {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

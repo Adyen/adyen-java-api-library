@@ -47,6 +47,12 @@ public class PciSigningRequest {
   public PciSigningRequest() { 
   }
 
+  /**
+   * The array of Adyen-generated unique identifiers for the questionnaires.
+   *
+   * @param pciTemplateReferences
+   * @return the current {@code PciSigningRequest} instance, allowing for method chaining
+   */
   public PciSigningRequest pciTemplateReferences(List<String> pciTemplateReferences) {
     this.pciTemplateReferences = pciTemplateReferences;
     return this;
@@ -57,60 +63,60 @@ public class PciSigningRequest {
     return this;
   }
 
-   /**
+  /**
    * The array of Adyen-generated unique identifiers for the questionnaires.
    * @return pciTemplateReferences
-  **/
+   */
   @ApiModelProperty(required = true, value = "The array of Adyen-generated unique identifiers for the questionnaires.")
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPciTemplateReferences() {
     return pciTemplateReferences;
   }
 
-
- /**
-  * The array of Adyen-generated unique identifiers for the questionnaires.
-  *
-  * @param pciTemplateReferences
-  */ 
+  /**
+   * The array of Adyen-generated unique identifiers for the questionnaires.
+   *
+   * @param pciTemplateReferences
+   */ 
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciTemplateReferences(List<String> pciTemplateReferences) {
     this.pciTemplateReferences = pciTemplateReferences;
   }
 
-
+  /**
+   * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signs the PCI questionnaire.
+   *
+   * @param signedBy
+   * @return the current {@code PciSigningRequest} instance, allowing for method chaining
+   */
   public PciSigningRequest signedBy(String signedBy) {
     this.signedBy = signedBy;
     return this;
   }
 
-   /**
+  /**
    * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signs the PCI questionnaire.
    * @return signedBy
-  **/
+   */
   @ApiModelProperty(required = true, value = "The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signs the PCI questionnaire.")
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSignedBy() {
     return signedBy;
   }
 
-
- /**
-  * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signs the PCI questionnaire.
-  *
-  * @param signedBy
-  */ 
+  /**
+   * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signs the PCI questionnaire.
+   *
+   * @param signedBy
+   */ 
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignedBy(String signedBy) {
     this.signedBy = signedBy;
   }
-
 
   /**
    * Return true if this PciSigningRequest object is equal to o.
@@ -173,4 +179,3 @@ public class PciSigningRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

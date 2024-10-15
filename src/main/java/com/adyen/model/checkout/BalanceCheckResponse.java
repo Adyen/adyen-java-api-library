@@ -107,6 +107,12 @@ public class BalanceCheckResponse {
   public BalanceCheckResponse() { 
   }
 
+  /**
+   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+   *
+   * @param additionalData
+   * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
+   */
   public BalanceCheckResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -120,210 +126,225 @@ public class BalanceCheckResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * balance
+   *
+   * @param balance
+   * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
+   */
   public BalanceCheckResponse balance(Amount balance) {
     this.balance = balance;
     return this;
   }
 
-   /**
-   * Get balance
+  /**
+   * balance
    * @return balance
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getBalance() {
     return balance;
   }
 
-
- /**
-  * balance
-  *
-  * @param balance
-  */ 
+  /**
+   * balance
+   *
+   * @param balance
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Amount balance) {
     this.balance = balance;
   }
 
-
+  /**
+   * fraudResult
+   *
+   * @param fraudResult
+   * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
+   */
   public BalanceCheckResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
     return this;
   }
 
-   /**
-   * Get fraudResult
+  /**
+   * fraudResult
    * @return fraudResult
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FraudResult getFraudResult() {
     return fraudResult;
   }
 
-
- /**
-  * fraudResult
-  *
-  * @param fraudResult
-  */ 
+  /**
+   * fraudResult
+   *
+   * @param fraudResult
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
   }
 
-
+  /**
+   * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
+   */
   public BalanceCheckResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReason
+   * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
+   */
   public BalanceCheckResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
   }
 
-   /**
+  /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReason
-  **/
+   */
   @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRefusalReason() {
     return refusalReason;
   }
 
-
- /**
-  * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-  *
-  * @param refusalReason
-  */ 
+  /**
+   * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
+   *
+   * @param refusalReason
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
 
-
+  /**
+   * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
+   *
+   * @param resultCode
+   * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
+   */
   public BalanceCheckResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     return this;
   }
 
-   /**
+  /**
    * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
    * @return resultCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
 
-
- /**
-  * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
-  *
-  * @param resultCode
-  */ 
+  /**
+   * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
+   *
+   * @param resultCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }
 
-
+  /**
+   * transactionLimit
+   *
+   * @param transactionLimit
+   * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
+   */
   public BalanceCheckResponse transactionLimit(Amount transactionLimit) {
     this.transactionLimit = transactionLimit;
     return this;
   }
 
-   /**
-   * Get transactionLimit
+  /**
+   * transactionLimit
    * @return transactionLimit
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getTransactionLimit() {
     return transactionLimit;
   }
 
-
- /**
-  * transactionLimit
-  *
-  * @param transactionLimit
-  */ 
+  /**
+   * transactionLimit
+   *
+   * @param transactionLimit
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionLimit(Amount transactionLimit) {
     this.transactionLimit = transactionLimit;
   }
-
 
   /**
    * Return true if this BalanceCheckResponse object is equal to o.
@@ -396,4 +417,3 @@ public class BalanceCheckResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

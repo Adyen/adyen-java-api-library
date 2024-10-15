@@ -49,95 +49,104 @@ public class TerminalConnectivityWifi {
   public TerminalConnectivityWifi() { 
   }
 
+  /**
+   * The terminal&#39;s IP address in the Wi-Fi network.
+   *
+   * @param ipAddress
+   * @return the current {@code TerminalConnectivityWifi} instance, allowing for method chaining
+   */
   public TerminalConnectivityWifi ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
 
-   /**
+  /**
    * The terminal&#39;s IP address in the Wi-Fi network.
    * @return ipAddress
-  **/
+   */
   @ApiModelProperty(value = "The terminal's IP address in the Wi-Fi network.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIpAddress() {
     return ipAddress;
   }
 
-
- /**
-  * The terminal&#39;s IP address in the Wi-Fi network.
-  *
-  * @param ipAddress
-  */ 
+  /**
+   * The terminal&#39;s IP address in the Wi-Fi network.
+   *
+   * @param ipAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
   }
 
-
+  /**
+   * The terminal&#39;s MAC address in the Wi-Fi network.
+   *
+   * @param macAddress
+   * @return the current {@code TerminalConnectivityWifi} instance, allowing for method chaining
+   */
   public TerminalConnectivityWifi macAddress(String macAddress) {
     this.macAddress = macAddress;
     return this;
   }
 
-   /**
+  /**
    * The terminal&#39;s MAC address in the Wi-Fi network.
    * @return macAddress
-  **/
+   */
   @ApiModelProperty(value = "The terminal's MAC address in the Wi-Fi network.")
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMacAddress() {
     return macAddress;
   }
 
-
- /**
-  * The terminal&#39;s MAC address in the Wi-Fi network.
-  *
-  * @param macAddress
-  */ 
+  /**
+   * The terminal&#39;s MAC address in the Wi-Fi network.
+   *
+   * @param macAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {
     this.macAddress = macAddress;
   }
 
-
+  /**
+   * The SSID of the Wi-Fi network that the terminal is connected to.
+   *
+   * @param ssid
+   * @return the current {@code TerminalConnectivityWifi} instance, allowing for method chaining
+   */
   public TerminalConnectivityWifi ssid(String ssid) {
     this.ssid = ssid;
     return this;
   }
 
-   /**
+  /**
    * The SSID of the Wi-Fi network that the terminal is connected to.
    * @return ssid
-  **/
+   */
   @ApiModelProperty(value = "The SSID of the Wi-Fi network that the terminal is connected to.")
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSsid() {
     return ssid;
   }
 
-
- /**
-  * The SSID of the Wi-Fi network that the terminal is connected to.
-  *
-  * @param ssid
-  */ 
+  /**
+   * The SSID of the Wi-Fi network that the terminal is connected to.
+   *
+   * @param ssid
+   */ 
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {
     this.ssid = ssid;
   }
-
 
   /**
    * Return true if this TerminalConnectivityWifi object is equal to o.
@@ -202,4 +211,3 @@ public class TerminalConnectivityWifi {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

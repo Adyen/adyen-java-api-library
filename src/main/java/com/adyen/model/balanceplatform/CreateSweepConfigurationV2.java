@@ -152,6 +152,8 @@ public class CreateSweepConfigurationV2 {
    * The reason for disabling the sweep.
    */
   public enum ReasonEnum {
+    ACCOUNTHIERARCHYNOTACTIVE("accountHierarchyNotActive"),
+    
     AMOUNTLIMITEXCEEDED("amountLimitExceeded"),
     
     APPROVED("approved"),
@@ -174,17 +176,23 @@ public class CreateSweepConfigurationV2 {
     
     DECLINEDBYTRANSACTIONRULE("declinedByTransactionRule"),
     
+    DIRECTDEBITNOTSUPPORTED("directDebitNotSupported"),
+    
     ERROR("error"),
     
     NOTENOUGHBALANCE("notEnoughBalance"),
     
     PENDINGAPPROVAL("pendingApproval"),
     
+    PENDINGEXECUTION("pendingExecution"),
+    
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
     ROUTENOTFOUND("routeNotFound"),
     
     SCAFAILED("scaFailed"),
+    
+    TRANSFERINSTRUMENTDOESNOTEXIST("transferInstrumentDoesNotExist"),
     
     UNKNOWN("unknown");
 
@@ -315,126 +323,144 @@ public class CreateSweepConfigurationV2 {
   public CreateSweepConfigurationV2() { 
   }
 
+  /**
+   * The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting &#x60;priorities&#x60;.
+   *
+   * @param category
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 category(CategoryEnum category) {
     this.category = category;
     return this;
   }
 
-   /**
+  /**
    * The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting &#x60;priorities&#x60;.
    * @return category
-  **/
+   */
   @ApiModelProperty(value = "The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting `priorities`.")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CategoryEnum getCategory() {
     return category;
   }
 
-
- /**
-  * The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting &#x60;priorities&#x60;.
-  *
-  * @param category
-  */ 
+  /**
+   * The type of transfer that results from the sweep.  Possible values:   - **bank**: Sweep to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  Required when setting &#x60;priorities&#x60;.
+   *
+   * @param category
+   */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
 
-
+  /**
+   * counterparty
+   *
+   * @param counterparty
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 counterparty(SweepCounterparty counterparty) {
     this.counterparty = counterparty;
     return this;
   }
 
-   /**
-   * Get counterparty
+  /**
+   * counterparty
    * @return counterparty
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SweepCounterparty getCounterparty() {
     return counterparty;
   }
 
-
- /**
-  * counterparty
-  *
-  * @param counterparty
-  */ 
+  /**
+   * counterparty
+   *
+   * @param counterparty
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(SweepCounterparty counterparty) {
     this.counterparty = counterparty;
   }
 
-
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).
+   *
+   * @param currency
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).
    * @return currency
-  **/
+   */
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The message that will be used in the sweep transfer&#39;s description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.
+   *
+   * @param description
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The message that will be used in the sweep transfer&#39;s description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "The message that will be used in the sweep transfer's description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * The message that will be used in the sweep transfer&#39;s description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.
-  *
-  * @param description
-  */ 
+  /**
+   * The message that will be used in the sweep transfer&#39;s description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
+   *
+   * @param priorities
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 priorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
     return this;
@@ -448,300 +474,324 @@ public class CreateSweepConfigurationV2 {
     return this;
   }
 
-   /**
+  /**
    * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
    * @return priorities
-  **/
+   */
   @ApiModelProperty(value = "The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that's not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Set `category` to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).")
   @JsonProperty(JSON_PROPERTY_PRIORITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PrioritiesEnum> getPriorities() {
     return priorities;
   }
 
-
- /**
-  * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
-  *
-  * @param priorities
-  */ 
+  /**
+   * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not possible, it moves on to the next option in the order of your provided priorities.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).  Set &#x60;category&#x60; to **bank**. For more details, see optional priorities setup for [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup) or [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
+   *
+   * @param priorities
+   */ 
   @JsonProperty(JSON_PROPERTY_PRIORITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
   }
 
-
+  /**
+   * The reason for disabling the sweep.
+   *
+   * @param reason
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 reason(ReasonEnum reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * The reason for disabling the sweep.
    * @return reason
-  **/
+   */
   @ApiModelProperty(value = "The reason for disabling the sweep.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReasonEnum getReason() {
     return reason;
   }
 
-
- /**
-  * The reason for disabling the sweep.
-  *
-  * @param reason
-  */ 
+  /**
+   * The reason for disabling the sweep.
+   *
+   * @param reason
+   */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
   }
 
-
+  /**
+   * Your reference for the sweep configuration.
+   *
+   * @param reference
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the sweep configuration.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the sweep configuration.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the sweep configuration.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the sweep configuration.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.
+   *
+   * @param referenceForBeneficiary
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 referenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
     return this;
   }
 
-   /**
+  /**
    * The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.
    * @return referenceForBeneficiary
-  **/
+   */
   @ApiModelProperty(value = "The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.")
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReferenceForBeneficiary() {
     return referenceForBeneficiary;
   }
 
-
- /**
-  * The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.
-  *
-  * @param referenceForBeneficiary
-  */ 
+  /**
+   * The reference sent to or received from the counterparty. Only alphanumeric characters are allowed.
+   *
+   * @param referenceForBeneficiary
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
   }
 
-
+  /**
+   * schedule
+   *
+   * @param schedule
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 schedule(SweepSchedule schedule) {
     this.schedule = schedule;
     return this;
   }
 
-   /**
-   * Get schedule
+  /**
+   * schedule
    * @return schedule
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SweepSchedule getSchedule() {
     return schedule;
   }
 
-
- /**
-  * schedule
-  *
-  * @param schedule
-  */ 
+  /**
+   * schedule
+   *
+   * @param schedule
+   */ 
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchedule(SweepSchedule schedule) {
     this.schedule = schedule;
   }
 
-
+  /**
+   * The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   
+   *
+   * @param status
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * sweepAmount
+   *
+   * @param sweepAmount
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 sweepAmount(Amount sweepAmount) {
     this.sweepAmount = sweepAmount;
     return this;
   }
 
-   /**
-   * Get sweepAmount
+  /**
+   * sweepAmount
    * @return sweepAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SWEEP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getSweepAmount() {
     return sweepAmount;
   }
 
-
- /**
-  * sweepAmount
-  *
-  * @param sweepAmount
-  */ 
+  /**
+   * sweepAmount
+   *
+   * @param sweepAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_SWEEP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSweepAmount(Amount sweepAmount) {
     this.sweepAmount = sweepAmount;
   }
 
-
+  /**
+   * targetAmount
+   *
+   * @param targetAmount
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 targetAmount(Amount targetAmount) {
     this.targetAmount = targetAmount;
     return this;
   }
 
-   /**
-   * Get targetAmount
+  /**
+   * targetAmount
    * @return targetAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TARGET_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getTargetAmount() {
     return targetAmount;
   }
 
-
- /**
-  * targetAmount
-  *
-  * @param targetAmount
-  */ 
+  /**
+   * targetAmount
+   *
+   * @param targetAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_TARGET_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTargetAmount(Amount targetAmount) {
     this.targetAmount = targetAmount;
   }
 
-
+  /**
+   * triggerAmount
+   *
+   * @param triggerAmount
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 triggerAmount(Amount triggerAmount) {
     this.triggerAmount = triggerAmount;
     return this;
   }
 
-   /**
-   * Get triggerAmount
+  /**
+   * triggerAmount
    * @return triggerAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRIGGER_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getTriggerAmount() {
     return triggerAmount;
   }
 
-
- /**
-  * triggerAmount
-  *
-  * @param triggerAmount
-  */ 
+  /**
+   * triggerAmount
+   *
+   * @param triggerAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_TRIGGER_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggerAmount(Amount triggerAmount) {
     this.triggerAmount = triggerAmount;
   }
 
-
+  /**
+   * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.
+   *
+   * @param type
+   * @return the current {@code CreateSweepConfigurationV2} instance, allowing for method chaining
+   */
   public CreateSweepConfigurationV2 type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.
-  *
-  * @param type
-  */ 
+  /**
+   * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CreateSweepConfigurationV2 object is equal to o.
@@ -828,4 +878,3 @@ public class CreateSweepConfigurationV2 {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

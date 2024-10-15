@@ -69,245 +69,269 @@ public class AdditionalDataRatepay {
   public AdditionalDataRatepay() { 
   }
 
+  /**
+   * Amount the customer has to pay each month.
+   *
+   * @param ratepayInstallmentAmount
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepayInstallmentAmount(String ratepayInstallmentAmount) {
     this.ratepayInstallmentAmount = ratepayInstallmentAmount;
     return this;
   }
 
-   /**
+  /**
    * Amount the customer has to pay each month.
    * @return ratepayInstallmentAmount
-  **/
+   */
   @ApiModelProperty(value = "Amount the customer has to pay each month.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepayInstallmentAmount() {
     return ratepayInstallmentAmount;
   }
 
-
- /**
-  * Amount the customer has to pay each month.
-  *
-  * @param ratepayInstallmentAmount
-  */ 
+  /**
+   * Amount the customer has to pay each month.
+   *
+   * @param ratepayInstallmentAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayInstallmentAmount(String ratepayInstallmentAmount) {
     this.ratepayInstallmentAmount = ratepayInstallmentAmount;
   }
 
-
+  /**
+   * Interest rate of this installment.
+   *
+   * @param ratepayInterestRate
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepayInterestRate(String ratepayInterestRate) {
     this.ratepayInterestRate = ratepayInterestRate;
     return this;
   }
 
-   /**
+  /**
    * Interest rate of this installment.
    * @return ratepayInterestRate
-  **/
+   */
   @ApiModelProperty(value = "Interest rate of this installment.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepayInterestRate() {
     return ratepayInterestRate;
   }
 
-
- /**
-  * Interest rate of this installment.
-  *
-  * @param ratepayInterestRate
-  */ 
+  /**
+   * Interest rate of this installment.
+   *
+   * @param ratepayInterestRate
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayInterestRate(String ratepayInterestRate) {
     this.ratepayInterestRate = ratepayInterestRate;
   }
 
-
+  /**
+   * Amount of the last installment.
+   *
+   * @param ratepayLastInstallmentAmount
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepayLastInstallmentAmount(String ratepayLastInstallmentAmount) {
     this.ratepayLastInstallmentAmount = ratepayLastInstallmentAmount;
     return this;
   }
 
-   /**
+  /**
    * Amount of the last installment.
    * @return ratepayLastInstallmentAmount
-  **/
+   */
   @ApiModelProperty(value = "Amount of the last installment.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepayLastInstallmentAmount() {
     return ratepayLastInstallmentAmount;
   }
 
-
- /**
-  * Amount of the last installment.
-  *
-  * @param ratepayLastInstallmentAmount
-  */ 
+  /**
+   * Amount of the last installment.
+   *
+   * @param ratepayLastInstallmentAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayLastInstallmentAmount(String ratepayLastInstallmentAmount) {
     this.ratepayLastInstallmentAmount = ratepayLastInstallmentAmount;
   }
 
-
+  /**
+   * Calendar day of the first payment.
+   *
+   * @param ratepayPaymentFirstday
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepayPaymentFirstday(String ratepayPaymentFirstday) {
     this.ratepayPaymentFirstday = ratepayPaymentFirstday;
     return this;
   }
 
-   /**
+  /**
    * Calendar day of the first payment.
    * @return ratepayPaymentFirstday
-  **/
+   */
   @ApiModelProperty(value = "Calendar day of the first payment.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepayPaymentFirstday() {
     return ratepayPaymentFirstday;
   }
 
-
- /**
-  * Calendar day of the first payment.
-  *
-  * @param ratepayPaymentFirstday
-  */ 
+  /**
+   * Calendar day of the first payment.
+   *
+   * @param ratepayPaymentFirstday
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayPaymentFirstday(String ratepayPaymentFirstday) {
     this.ratepayPaymentFirstday = ratepayPaymentFirstday;
   }
 
-
+  /**
+   * Date the merchant delivered the goods to the customer.
+   *
+   * @param ratepaydataDeliveryDate
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepaydataDeliveryDate(String ratepaydataDeliveryDate) {
     this.ratepaydataDeliveryDate = ratepaydataDeliveryDate;
     return this;
   }
 
-   /**
+  /**
    * Date the merchant delivered the goods to the customer.
    * @return ratepaydataDeliveryDate
-  **/
+   */
   @ApiModelProperty(value = "Date the merchant delivered the goods to the customer.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepaydataDeliveryDate() {
     return ratepaydataDeliveryDate;
   }
 
-
- /**
-  * Date the merchant delivered the goods to the customer.
-  *
-  * @param ratepaydataDeliveryDate
-  */ 
+  /**
+   * Date the merchant delivered the goods to the customer.
+   *
+   * @param ratepaydataDeliveryDate
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataDeliveryDate(String ratepaydataDeliveryDate) {
     this.ratepaydataDeliveryDate = ratepaydataDeliveryDate;
   }
 
-
+  /**
+   * Date by which the customer must settle the payment.
+   *
+   * @param ratepaydataDueDate
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepaydataDueDate(String ratepaydataDueDate) {
     this.ratepaydataDueDate = ratepaydataDueDate;
     return this;
   }
 
-   /**
+  /**
    * Date by which the customer must settle the payment.
    * @return ratepaydataDueDate
-  **/
+   */
   @ApiModelProperty(value = "Date by which the customer must settle the payment.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepaydataDueDate() {
     return ratepaydataDueDate;
   }
 
-
- /**
-  * Date by which the customer must settle the payment.
-  *
-  * @param ratepaydataDueDate
-  */ 
+  /**
+   * Date by which the customer must settle the payment.
+   *
+   * @param ratepaydataDueDate
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataDueDate(String ratepaydataDueDate) {
     this.ratepaydataDueDate = ratepaydataDueDate;
   }
 
-
+  /**
+   * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
+   *
+   * @param ratepaydataInvoiceDate
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepaydataInvoiceDate(String ratepaydataInvoiceDate) {
     this.ratepaydataInvoiceDate = ratepaydataInvoiceDate;
     return this;
   }
 
-   /**
+  /**
    * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    * @return ratepaydataInvoiceDate
-  **/
+   */
   @ApiModelProperty(value = "Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepaydataInvoiceDate() {
     return ratepaydataInvoiceDate;
   }
 
-
- /**
-  * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
-  *
-  * @param ratepaydataInvoiceDate
-  */ 
+  /**
+   * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
+   *
+   * @param ratepaydataInvoiceDate
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataInvoiceDate(String ratepaydataInvoiceDate) {
     this.ratepaydataInvoiceDate = ratepaydataInvoiceDate;
   }
 
-
+  /**
+   * Identification name or number for the invoice, defined by the merchant.
+   *
+   * @param ratepaydataInvoiceId
+   * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
+   */
   public AdditionalDataRatepay ratepaydataInvoiceId(String ratepaydataInvoiceId) {
     this.ratepaydataInvoiceId = ratepaydataInvoiceId;
     return this;
   }
 
-   /**
+  /**
    * Identification name or number for the invoice, defined by the merchant.
    * @return ratepaydataInvoiceId
-  **/
+   */
   @ApiModelProperty(value = "Identification name or number for the invoice, defined by the merchant.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRatepaydataInvoiceId() {
     return ratepaydataInvoiceId;
   }
 
-
- /**
-  * Identification name or number for the invoice, defined by the merchant.
-  *
-  * @param ratepaydataInvoiceId
-  */ 
+  /**
+   * Identification name or number for the invoice, defined by the merchant.
+   *
+   * @param ratepaydataInvoiceId
+   */ 
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataInvoiceId(String ratepaydataInvoiceId) {
     this.ratepaydataInvoiceId = ratepaydataInvoiceId;
   }
-
 
   /**
    * Return true if this AdditionalDataRatepay object is equal to o.
@@ -382,4 +406,3 @@ public class AdditionalDataRatepay {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

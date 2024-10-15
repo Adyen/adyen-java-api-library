@@ -57,155 +57,170 @@ public class TransactionRuleReference {
   public TransactionRuleReference() { 
   }
 
+  /**
+   * The description of the resource.
+   *
+   * @param description
+   * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
+   */
   public TransactionRuleReference description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The description of the resource.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "The description of the resource.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * The description of the resource.
-  *
-  * @param description
-  */ 
+  /**
+   * The description of the resource.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
+   */
   public TransactionRuleReference id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The outcome type of the rule.
+   *
+   * @param outcomeType
+   * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
+   */
   public TransactionRuleReference outcomeType(String outcomeType) {
     this.outcomeType = outcomeType;
     return this;
   }
 
-   /**
+  /**
    * The outcome type of the rule.
    * @return outcomeType
-  **/
+   */
   @ApiModelProperty(value = "The outcome type of the rule.")
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOutcomeType() {
     return outcomeType;
   }
 
-
- /**
-  * The outcome type of the rule.
-  *
-  * @param outcomeType
-  */ 
+  /**
+   * The outcome type of the rule.
+   *
+   * @param outcomeType
+   */ 
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcomeType(String outcomeType) {
     this.outcomeType = outcomeType;
   }
 
-
+  /**
+   * The reference for the resource.
+   *
+   * @param reference
+   * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
+   */
   public TransactionRuleReference reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference for the resource.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The reference for the resource.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference for the resource.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference for the resource.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The score of the rule in case it&#39;s a scoreBased rule.
+   *
+   * @param score
+   * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
+   */
   public TransactionRuleReference score(Integer score) {
     this.score = score;
     return this;
   }
 
-   /**
+  /**
    * The score of the rule in case it&#39;s a scoreBased rule.
    * @return score
-  **/
+   */
   @ApiModelProperty(value = "The score of the rule in case it's a scoreBased rule.")
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getScore() {
     return score;
   }
 
-
- /**
-  * The score of the rule in case it&#39;s a scoreBased rule.
-  *
-  * @param score
-  */ 
+  /**
+   * The score of the rule in case it&#39;s a scoreBased rule.
+   *
+   * @param score
+   */ 
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
   }
-
 
   /**
    * Return true if this TransactionRuleReference object is equal to o.
@@ -274,4 +289,3 @@ public class TransactionRuleReference {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

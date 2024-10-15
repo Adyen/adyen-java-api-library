@@ -49,6 +49,12 @@ public class DefenseReasonsResponse {
   public DefenseReasonsResponse() { 
   }
 
+  /**
+   * The defense reasons that can be used to defend the dispute.
+   *
+   * @param defenseReasons
+   * @return the current {@code DefenseReasonsResponse} instance, allowing for method chaining
+   */
   public DefenseReasonsResponse defenseReasons(List<DefenseReason> defenseReasons) {
     this.defenseReasons = defenseReasons;
     return this;
@@ -62,60 +68,60 @@ public class DefenseReasonsResponse {
     return this;
   }
 
-   /**
+  /**
    * The defense reasons that can be used to defend the dispute.
    * @return defenseReasons
-  **/
+   */
   @ApiModelProperty(value = "The defense reasons that can be used to defend the dispute.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DefenseReason> getDefenseReasons() {
     return defenseReasons;
   }
 
-
- /**
-  * The defense reasons that can be used to defend the dispute.
-  *
-  * @param defenseReasons
-  */ 
+  /**
+   * The defense reasons that can be used to defend the dispute.
+   *
+   * @param defenseReasons
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasons(List<DefenseReason> defenseReasons) {
     this.defenseReasons = defenseReasons;
   }
 
-
+  /**
+   * disputeServiceResult
+   *
+   * @param disputeServiceResult
+   * @return the current {@code DefenseReasonsResponse} instance, allowing for method chaining
+   */
   public DefenseReasonsResponse disputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
     return this;
   }
 
-   /**
-   * Get disputeServiceResult
+  /**
+   * disputeServiceResult
    * @return disputeServiceResult
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DisputeServiceResult getDisputeServiceResult() {
     return disputeServiceResult;
   }
 
-
- /**
-  * disputeServiceResult
-  *
-  * @param disputeServiceResult
-  */ 
+  /**
+   * disputeServiceResult
+   *
+   * @param disputeServiceResult
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
   }
-
 
   /**
    * Return true if this DefenseReasonsResponse object is equal to o.
@@ -178,4 +184,3 @@ public class DefenseReasonsResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -111,65 +111,71 @@ public class ConfirmationTrackingData {
   public ConfirmationTrackingData() { 
   }
 
+  /**
+   * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
+   *
+   * @param status
+   * @return the current {@code ConfirmationTrackingData} instance, allowing for method chaining
+   */
   public ConfirmationTrackingData status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user's transfer instrument or bank account.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
+   *
+   * @param type
+   * @return the current {@code ConfirmationTrackingData} instance, allowing for method chaining
+   */
   public ConfirmationTrackingData type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen's internal review.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this ConfirmationTrackingData object is equal to o.
@@ -232,4 +238,3 @@ public class ConfirmationTrackingData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

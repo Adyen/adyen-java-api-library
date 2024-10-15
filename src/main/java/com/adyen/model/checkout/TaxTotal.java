@@ -42,35 +42,38 @@ public class TaxTotal {
   public TaxTotal() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code TaxTotal} instance, allowing for method chaining
+   */
   public TaxTotal amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
-
 
   /**
    * Return true if this TaxTotal object is equal to o.
@@ -131,4 +134,3 @@ public class TaxTotal {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

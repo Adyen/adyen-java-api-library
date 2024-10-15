@@ -157,275 +157,302 @@ public class BalanceTransferResponse {
   public BalanceTransferResponse() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The date when the balance transfer was requested.
+   *
+   * @param createdAt
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * The date when the balance transfer was requested.
    * @return createdAt
-  **/
+   */
   @ApiModelProperty(required = true, value = "The date when the balance transfer was requested.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
- /**
-  * The date when the balance transfer was requested.
-  *
-  * @param createdAt
-  */ 
+  /**
+   * The date when the balance transfer was requested.
+   *
+   * @param createdAt
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-
+  /**
+   * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
+   *
+   * @param description
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
-  *
-  * @param description
-  */ 
+  /**
+   * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the source merchant account from which funds are deducted.
+   *
+   * @param fromMerchant
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse fromMerchant(String fromMerchant) {
     this.fromMerchant = fromMerchant;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the source merchant account from which funds are deducted.
    * @return fromMerchant
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the source merchant account from which funds are deducted.")
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFromMerchant() {
     return fromMerchant;
   }
 
-
- /**
-  * The unique identifier of the source merchant account from which funds are deducted.
-  *
-  * @param fromMerchant
-  */ 
+  /**
+   * The unique identifier of the source merchant account from which funds are deducted.
+   *
+   * @param fromMerchant
+   */ 
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromMerchant(String fromMerchant) {
     this.fromMerchant = fromMerchant;
   }
 
-
+  /**
+   * Adyen&#39;s 16-character string reference associated with the balance transfer.
+   *
+   * @param pspReference
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * Adyen&#39;s 16-character string reference associated with the balance transfer.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the balance transfer.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character string reference associated with the balance transfer.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen&#39;s 16-character string reference associated with the balance transfer.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
+   *
+   * @param reference
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "A reference for the balance transfer. If you don't provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.
+   *
+   * @param status
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**, and **notEnoughBalance**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The unique identifier of the destination merchant account from which funds are transferred.
+   *
+   * @param toMerchant
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse toMerchant(String toMerchant) {
     this.toMerchant = toMerchant;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the destination merchant account from which funds are transferred.
    * @return toMerchant
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the destination merchant account from which funds are transferred.")
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToMerchant() {
     return toMerchant;
   }
 
-
- /**
-  * The unique identifier of the destination merchant account from which funds are transferred.
-  *
-  * @param toMerchant
-  */ 
+  /**
+   * The unique identifier of the destination merchant account from which funds are transferred.
+   *
+   * @param toMerchant
+   */ 
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToMerchant(String toMerchant) {
     this.toMerchant = toMerchant;
   }
 
-
+  /**
+   * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
+   *
+   * @param type
+   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   */
   public BalanceTransferResponse type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this BalanceTransferResponse object is equal to o.
@@ -502,4 +529,3 @@ public class BalanceTransferResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

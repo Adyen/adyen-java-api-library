@@ -55,66 +55,78 @@ public class Gratuity {
   public Gratuity() { 
   }
 
+  /**
+   * Indicates whether one of the predefined tipping options is to let the shopper enter a custom tip. If **true**, only three of the other options defined in &#x60;predefinedTipEntries&#x60; are shown.
+   *
+   * @param allowCustomAmount
+   * @return the current {@code Gratuity} instance, allowing for method chaining
+   */
   public Gratuity allowCustomAmount(Boolean allowCustomAmount) {
     this.allowCustomAmount = allowCustomAmount;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether one of the predefined tipping options is to let the shopper enter a custom tip. If **true**, only three of the other options defined in &#x60;predefinedTipEntries&#x60; are shown.
    * @return allowCustomAmount
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether one of the predefined tipping options is to let the shopper enter a custom tip. If **true**, only three of the other options defined in `predefinedTipEntries` are shown.")
   @JsonProperty(JSON_PROPERTY_ALLOW_CUSTOM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAllowCustomAmount() {
     return allowCustomAmount;
   }
 
-
- /**
-  * Indicates whether one of the predefined tipping options is to let the shopper enter a custom tip. If **true**, only three of the other options defined in &#x60;predefinedTipEntries&#x60; are shown.
-  *
-  * @param allowCustomAmount
-  */ 
+  /**
+   * Indicates whether one of the predefined tipping options is to let the shopper enter a custom tip. If **true**, only three of the other options defined in &#x60;predefinedTipEntries&#x60; are shown.
+   *
+   * @param allowCustomAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOW_CUSTOM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowCustomAmount(Boolean allowCustomAmount) {
     this.allowCustomAmount = allowCustomAmount;
   }
 
-
+  /**
+   * The currency that the tipping settings apply to.
+   *
+   * @param currency
+   * @return the current {@code Gratuity} instance, allowing for method chaining
+   */
   public Gratuity currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The currency that the tipping settings apply to.
    * @return currency
-  **/
+   */
   @ApiModelProperty(value = "The currency that the tipping settings apply to.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The currency that the tipping settings apply to.
-  *
-  * @param currency
-  */ 
+  /**
+   * The currency that the tipping settings apply to.
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * Tipping options the shopper can choose from if &#x60;usePredefinedTipEntries&#x60; is **true**. The maximum number of predefined options is four, or three plus the option to enter a custom tip. The options can be a mix of:  - A percentage of the transaction amount. Example: **5%** - A tip amount in [minor units](https://docs.adyen.com/development-resources/currency-codes). Example: **500** for a EUR 5 tip.
+   *
+   * @param predefinedTipEntries
+   * @return the current {@code Gratuity} instance, allowing for method chaining
+   */
   public Gratuity predefinedTipEntries(List<String> predefinedTipEntries) {
     this.predefinedTipEntries = predefinedTipEntries;
     return this;
@@ -128,60 +140,60 @@ public class Gratuity {
     return this;
   }
 
-   /**
+  /**
    * Tipping options the shopper can choose from if &#x60;usePredefinedTipEntries&#x60; is **true**. The maximum number of predefined options is four, or three plus the option to enter a custom tip. The options can be a mix of:  - A percentage of the transaction amount. Example: **5%** - A tip amount in [minor units](https://docs.adyen.com/development-resources/currency-codes). Example: **500** for a EUR 5 tip.
    * @return predefinedTipEntries
-  **/
+   */
   @ApiModelProperty(value = "Tipping options the shopper can choose from if `usePredefinedTipEntries` is **true**. The maximum number of predefined options is four, or three plus the option to enter a custom tip. The options can be a mix of:  - A percentage of the transaction amount. Example: **5%** - A tip amount in [minor units](https://docs.adyen.com/development-resources/currency-codes). Example: **500** for a EUR 5 tip.")
   @JsonProperty(JSON_PROPERTY_PREDEFINED_TIP_ENTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPredefinedTipEntries() {
     return predefinedTipEntries;
   }
 
-
- /**
-  * Tipping options the shopper can choose from if &#x60;usePredefinedTipEntries&#x60; is **true**. The maximum number of predefined options is four, or three plus the option to enter a custom tip. The options can be a mix of:  - A percentage of the transaction amount. Example: **5%** - A tip amount in [minor units](https://docs.adyen.com/development-resources/currency-codes). Example: **500** for a EUR 5 tip.
-  *
-  * @param predefinedTipEntries
-  */ 
+  /**
+   * Tipping options the shopper can choose from if &#x60;usePredefinedTipEntries&#x60; is **true**. The maximum number of predefined options is four, or three plus the option to enter a custom tip. The options can be a mix of:  - A percentage of the transaction amount. Example: **5%** - A tip amount in [minor units](https://docs.adyen.com/development-resources/currency-codes). Example: **500** for a EUR 5 tip.
+   *
+   * @param predefinedTipEntries
+   */ 
   @JsonProperty(JSON_PROPERTY_PREDEFINED_TIP_ENTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPredefinedTipEntries(List<String> predefinedTipEntries) {
     this.predefinedTipEntries = predefinedTipEntries;
   }
 
-
+  /**
+   * Indicates whether the terminal shows a prompt to enter a tip (**false**), or predefined tipping options to choose from (**true**).
+   *
+   * @param usePredefinedTipEntries
+   * @return the current {@code Gratuity} instance, allowing for method chaining
+   */
   public Gratuity usePredefinedTipEntries(Boolean usePredefinedTipEntries) {
     this.usePredefinedTipEntries = usePredefinedTipEntries;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the terminal shows a prompt to enter a tip (**false**), or predefined tipping options to choose from (**true**).
    * @return usePredefinedTipEntries
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the terminal shows a prompt to enter a tip (**false**), or predefined tipping options to choose from (**true**).")
   @JsonProperty(JSON_PROPERTY_USE_PREDEFINED_TIP_ENTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getUsePredefinedTipEntries() {
     return usePredefinedTipEntries;
   }
 
-
- /**
-  * Indicates whether the terminal shows a prompt to enter a tip (**false**), or predefined tipping options to choose from (**true**).
-  *
-  * @param usePredefinedTipEntries
-  */ 
+  /**
+   * Indicates whether the terminal shows a prompt to enter a tip (**false**), or predefined tipping options to choose from (**true**).
+   *
+   * @param usePredefinedTipEntries
+   */ 
   @JsonProperty(JSON_PROPERTY_USE_PREDEFINED_TIP_ENTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsePredefinedTipEntries(Boolean usePredefinedTipEntries) {
     this.usePredefinedTipEntries = usePredefinedTipEntries;
   }
-
 
   /**
    * Return true if this Gratuity object is equal to o.
@@ -248,4 +260,3 @@ public class Gratuity {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

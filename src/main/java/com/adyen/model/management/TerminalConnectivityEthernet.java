@@ -49,95 +49,104 @@ public class TerminalConnectivityEthernet {
   public TerminalConnectivityEthernet() { 
   }
 
+  /**
+   * The terminal&#39;s ethernet IP address.
+   *
+   * @param ipAddress
+   * @return the current {@code TerminalConnectivityEthernet} instance, allowing for method chaining
+   */
   public TerminalConnectivityEthernet ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
 
-   /**
+  /**
    * The terminal&#39;s ethernet IP address.
    * @return ipAddress
-  **/
+   */
   @ApiModelProperty(value = "The terminal's ethernet IP address.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIpAddress() {
     return ipAddress;
   }
 
-
- /**
-  * The terminal&#39;s ethernet IP address.
-  *
-  * @param ipAddress
-  */ 
+  /**
+   * The terminal&#39;s ethernet IP address.
+   *
+   * @param ipAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
   }
 
-
+  /**
+   * The ethernet link negotiation that the terminal uses.
+   *
+   * @param linkNegotiation
+   * @return the current {@code TerminalConnectivityEthernet} instance, allowing for method chaining
+   */
   public TerminalConnectivityEthernet linkNegotiation(String linkNegotiation) {
     this.linkNegotiation = linkNegotiation;
     return this;
   }
 
-   /**
+  /**
    * The ethernet link negotiation that the terminal uses.
    * @return linkNegotiation
-  **/
+   */
   @ApiModelProperty(value = "The ethernet link negotiation that the terminal uses.")
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLinkNegotiation() {
     return linkNegotiation;
   }
 
-
- /**
-  * The ethernet link negotiation that the terminal uses.
-  *
-  * @param linkNegotiation
-  */ 
+  /**
+   * The ethernet link negotiation that the terminal uses.
+   *
+   * @param linkNegotiation
+   */ 
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkNegotiation(String linkNegotiation) {
     this.linkNegotiation = linkNegotiation;
   }
 
-
+  /**
+   * The terminal&#39;s ethernet MAC address.
+   *
+   * @param macAddress
+   * @return the current {@code TerminalConnectivityEthernet} instance, allowing for method chaining
+   */
   public TerminalConnectivityEthernet macAddress(String macAddress) {
     this.macAddress = macAddress;
     return this;
   }
 
-   /**
+  /**
    * The terminal&#39;s ethernet MAC address.
    * @return macAddress
-  **/
+   */
   @ApiModelProperty(value = "The terminal's ethernet MAC address.")
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMacAddress() {
     return macAddress;
   }
 
-
- /**
-  * The terminal&#39;s ethernet MAC address.
-  *
-  * @param macAddress
-  */ 
+  /**
+   * The terminal&#39;s ethernet MAC address.
+   *
+   * @param macAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {
     this.macAddress = macAddress;
   }
-
 
   /**
    * Return true if this TerminalConnectivityEthernet object is equal to o.
@@ -202,4 +211,3 @@ public class TerminalConnectivityEthernet {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

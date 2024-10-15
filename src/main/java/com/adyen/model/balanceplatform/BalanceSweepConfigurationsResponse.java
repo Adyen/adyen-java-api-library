@@ -52,66 +52,78 @@ public class BalanceSweepConfigurationsResponse {
   public BalanceSweepConfigurationsResponse() { 
   }
 
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   * @return the current {@code BalanceSweepConfigurationsResponse} instance, allowing for method chaining
+   */
   public BalanceSweepConfigurationsResponse hasNext(Boolean hasNext) {
     this.hasNext = hasNext;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the next page.
    * @return hasNext
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasNext() {
     return hasNext;
   }
 
-
- /**
-  * Indicates whether there are more items on the next page.
-  *
-  * @param hasNext
-  */ 
+  /**
+   * Indicates whether there are more items on the next page.
+   *
+   * @param hasNext
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
 
-
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   * @return the current {@code BalanceSweepConfigurationsResponse} instance, allowing for method chaining
+   */
   public BalanceSweepConfigurationsResponse hasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
 
-
- /**
-  * Indicates whether there are more items on the previous page.
-  *
-  * @param hasPrevious
-  */ 
+  /**
+   * Indicates whether there are more items on the previous page.
+   *
+   * @param hasPrevious
+   */ 
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
 
-
+  /**
+   * List of sweeps associated with the balance account.
+   *
+   * @param sweeps
+   * @return the current {@code BalanceSweepConfigurationsResponse} instance, allowing for method chaining
+   */
   public BalanceSweepConfigurationsResponse sweeps(List<SweepConfigurationV2> sweeps) {
     this.sweeps = sweeps;
     return this;
@@ -122,30 +134,27 @@ public class BalanceSweepConfigurationsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of sweeps associated with the balance account.
    * @return sweeps
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of sweeps associated with the balance account.")
   @JsonProperty(JSON_PROPERTY_SWEEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SweepConfigurationV2> getSweeps() {
     return sweeps;
   }
 
-
- /**
-  * List of sweeps associated with the balance account.
-  *
-  * @param sweeps
-  */ 
+  /**
+   * List of sweeps associated with the balance account.
+   *
+   * @param sweeps
+   */ 
   @JsonProperty(JSON_PROPERTY_SWEEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSweeps(List<SweepConfigurationV2> sweeps) {
     this.sweeps = sweeps;
   }
-
 
   /**
    * Return true if this BalanceSweepConfigurationsResponse object is equal to o.
@@ -210,4 +219,3 @@ public class BalanceSweepConfigurationsResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

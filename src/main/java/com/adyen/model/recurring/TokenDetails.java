@@ -48,6 +48,12 @@ public class TokenDetails {
   public TokenDetails() { 
   }
 
+  /**
+   * tokenData
+   *
+   * @param tokenData
+   * @return the current {@code TokenDetails} instance, allowing for method chaining
+   */
   public TokenDetails tokenData(Map<String, String> tokenData) {
     this.tokenData = tokenData;
     return this;
@@ -61,60 +67,60 @@ public class TokenDetails {
     return this;
   }
 
-   /**
-   * Get tokenData
+  /**
+   * tokenData
    * @return tokenData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTokenData() {
     return tokenData;
   }
 
-
- /**
-  * tokenData
-  *
-  * @param tokenData
-  */ 
+  /**
+   * tokenData
+   *
+   * @param tokenData
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenData(Map<String, String> tokenData) {
     this.tokenData = tokenData;
   }
 
-
+  /**
+   * tokenDataType
+   *
+   * @param tokenDataType
+   * @return the current {@code TokenDetails} instance, allowing for method chaining
+   */
   public TokenDetails tokenDataType(String tokenDataType) {
     this.tokenDataType = tokenDataType;
     return this;
   }
 
-   /**
-   * Get tokenDataType
+  /**
+   * tokenDataType
    * @return tokenDataType
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTokenDataType() {
     return tokenDataType;
   }
 
-
- /**
-  * tokenDataType
-  *
-  * @param tokenDataType
-  */ 
+  /**
+   * tokenDataType
+   *
+   * @param tokenDataType
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDataType(String tokenDataType) {
     this.tokenDataType = tokenDataType;
   }
-
 
   /**
    * Return true if this TokenDetails object is equal to o.
@@ -177,4 +183,3 @@ public class TokenDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

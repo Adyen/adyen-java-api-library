@@ -49,95 +49,104 @@ public class Name {
   public Name() { 
   }
 
+  /**
+   * The individual&#39;s first name. Must not be blank.
+   *
+   * @param firstName
+   * @return the current {@code Name} instance, allowing for method chaining
+   */
   public Name firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
 
-   /**
+  /**
    * The individual&#39;s first name. Must not be blank.
    * @return firstName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The individual's first name. Must not be blank.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFirstName() {
     return firstName;
   }
 
-
- /**
-  * The individual&#39;s first name. Must not be blank.
-  *
-  * @param firstName
-  */ 
+  /**
+   * The individual&#39;s first name. Must not be blank.
+   *
+   * @param firstName
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
-
+  /**
+   * The infix in the individual&#39;s name, if any.
+   *
+   * @param infix
+   * @return the current {@code Name} instance, allowing for method chaining
+   */
   public Name infix(String infix) {
     this.infix = infix;
     return this;
   }
 
-   /**
+  /**
    * The infix in the individual&#39;s name, if any.
    * @return infix
-  **/
+   */
   @ApiModelProperty(value = "The infix in the individual's name, if any.")
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInfix() {
     return infix;
   }
 
-
- /**
-  * The infix in the individual&#39;s name, if any.
-  *
-  * @param infix
-  */ 
+  /**
+   * The infix in the individual&#39;s name, if any.
+   *
+   * @param infix
+   */ 
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfix(String infix) {
     this.infix = infix;
   }
 
-
+  /**
+   * The individual&#39;s last name. Must not be blank.
+   *
+   * @param lastName
+   * @return the current {@code Name} instance, allowing for method chaining
+   */
   public Name lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
 
-   /**
+  /**
    * The individual&#39;s last name. Must not be blank.
    * @return lastName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The individual's last name. Must not be blank.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLastName() {
     return lastName;
   }
 
-
- /**
-  * The individual&#39;s last name. Must not be blank.
-  *
-  * @param lastName
-  */ 
+  /**
+   * The individual&#39;s last name. Must not be blank.
+   *
+   * @param lastName
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
-
 
   /**
    * Return true if this Name object is equal to o.
@@ -202,4 +211,3 @@ public class Name {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -50,95 +50,104 @@ public class Resource {
   public Resource() { 
   }
 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   * @return the current {@code Resource} instance, allowing for method chaining
+   */
   public Resource balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the balance platform.
    * @return balancePlatform
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
-
- /**
-  * The unique identifier of the balance platform.
-  *
-  * @param balancePlatform
-  */ 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
-
+  /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+   *
+   * @param creationDate
+   * @return the current {@code Resource} instance, allowing for method chaining
+   */
   public Resource creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return creationDate
-  **/
+   */
   @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
-
- /**
-  * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
-  *
-  * @param creationDate
-  */ 
+  /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
+   *
+   * @param creationDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
-
+  /**
+   * The ID of the resource.
+   *
+   * @param id
+   * @return the current {@code Resource} instance, allowing for method chaining
+   */
   public Resource id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The ID of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The ID of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The ID of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The ID of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
-
 
   /**
    * Return true if this Resource object is equal to o.
@@ -203,4 +212,3 @@ public class Resource {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

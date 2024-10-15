@@ -44,6 +44,12 @@ public class TestWebhookResponse {
   public TestWebhookResponse() { 
   }
 
+  /**
+   * List with test results. Each test webhook we send has a list element with the result.
+   *
+   * @param data
+   * @return the current {@code TestWebhookResponse} instance, allowing for method chaining
+   */
   public TestWebhookResponse data(List<TestOutput> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class TestWebhookResponse {
     return this;
   }
 
-   /**
+  /**
    * List with test results. Each test webhook we send has a list element with the result.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "List with test results. Each test webhook we send has a list element with the result.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TestOutput> getData() {
     return data;
   }
 
-
- /**
-  * List with test results. Each test webhook we send has a list element with the result.
-  *
-  * @param data
-  */ 
+  /**
+   * List with test results. Each test webhook we send has a list element with the result.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TestOutput> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this TestWebhookResponse object is equal to o.
@@ -141,4 +144,3 @@ public class TestWebhookResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

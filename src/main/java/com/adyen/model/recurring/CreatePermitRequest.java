@@ -56,36 +56,45 @@ public class CreatePermitRequest {
   public CreatePermitRequest() { 
   }
 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code CreatePermitRequest} instance, allowing for method chaining
+   */
   public CreatePermitRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The permits to create for this recurring contract.
+   *
+   * @param permits
+   * @return the current {@code CreatePermitRequest} instance, allowing for method chaining
+   */
   public CreatePermitRequest permits(List<Permit> permits) {
     this.permits = permits;
     return this;
@@ -96,90 +105,93 @@ public class CreatePermitRequest {
     return this;
   }
 
-   /**
+  /**
    * The permits to create for this recurring contract.
    * @return permits
-  **/
+   */
   @ApiModelProperty(required = true, value = "The permits to create for this recurring contract.")
   @JsonProperty(JSON_PROPERTY_PERMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Permit> getPermits() {
     return permits;
   }
 
-
- /**
-  * The permits to create for this recurring contract.
-  *
-  * @param permits
-  */ 
+  /**
+   * The permits to create for this recurring contract.
+   *
+   * @param permits
+   */ 
   @JsonProperty(JSON_PROPERTY_PERMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermits(List<Permit> permits) {
     this.permits = permits;
   }
 
-
+  /**
+   * The recurring contract the new permits will use.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code CreatePermitRequest} instance, allowing for method chaining
+   */
   public CreatePermitRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * The recurring contract the new permits will use.
    * @return recurringDetailReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The recurring contract the new permits will use.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * The recurring contract the new permits will use.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * The recurring contract the new permits will use.
+   *
+   * @param recurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
+   *
+   * @param shopperReference
+   * @return the current {@code CreatePermitRequest} instance, allowing for method chaining
+   */
   public CreatePermitRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
+  /**
    * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
-
 
   /**
    * Return true if this CreatePermitRequest object is equal to o.
@@ -246,4 +258,3 @@ public class CreatePermitRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

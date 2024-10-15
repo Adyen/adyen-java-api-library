@@ -82,65 +82,71 @@ public class Avs {
   public Avs() { 
   }
 
+  /**
+   * Indicates whether the shopper is allowed to modify the billing address for the current payment request.
+   *
+   * @param addressEditable
+   * @return the current {@code Avs} instance, allowing for method chaining
+   */
   public Avs addressEditable(Boolean addressEditable) {
     this.addressEditable = addressEditable;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the shopper is allowed to modify the billing address for the current payment request.
    * @return addressEditable
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the shopper is allowed to modify the billing address for the current payment request.")
   @JsonProperty(JSON_PROPERTY_ADDRESS_EDITABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAddressEditable() {
     return addressEditable;
   }
 
-
- /**
-  * Indicates whether the shopper is allowed to modify the billing address for the current payment request.
-  *
-  * @param addressEditable
-  */ 
+  /**
+   * Indicates whether the shopper is allowed to modify the billing address for the current payment request.
+   *
+   * @param addressEditable
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS_EDITABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddressEditable(Boolean addressEditable) {
     this.addressEditable = addressEditable;
   }
 
-
+  /**
+   * Specifies whether the shopper should enter their billing address during checkout.  Allowed values: * yes — Perform AVS checks for every card payment. * automatic — Perform AVS checks only when required to optimize the conversion rate. * no — Do not perform AVS checks.
+   *
+   * @param enabled
+   * @return the current {@code Avs} instance, allowing for method chaining
+   */
   public Avs enabled(EnabledEnum enabled) {
     this.enabled = enabled;
     return this;
   }
 
-   /**
+  /**
    * Specifies whether the shopper should enter their billing address during checkout.  Allowed values: * yes — Perform AVS checks for every card payment. * automatic — Perform AVS checks only when required to optimize the conversion rate. * no — Do not perform AVS checks.
    * @return enabled
-  **/
+   */
   @ApiModelProperty(value = "Specifies whether the shopper should enter their billing address during checkout.  Allowed values: * yes — Perform AVS checks for every card payment. * automatic — Perform AVS checks only when required to optimize the conversion rate. * no — Do not perform AVS checks.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EnabledEnum getEnabled() {
     return enabled;
   }
 
-
- /**
-  * Specifies whether the shopper should enter their billing address during checkout.  Allowed values: * yes — Perform AVS checks for every card payment. * automatic — Perform AVS checks only when required to optimize the conversion rate. * no — Do not perform AVS checks.
-  *
-  * @param enabled
-  */ 
+  /**
+   * Specifies whether the shopper should enter their billing address during checkout.  Allowed values: * yes — Perform AVS checks for every card payment. * automatic — Perform AVS checks only when required to optimize the conversion rate. * no — Do not perform AVS checks.
+   *
+   * @param enabled
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(EnabledEnum enabled) {
     this.enabled = enabled;
   }
-
 
   /**
    * Return true if this Avs object is equal to o.
@@ -203,4 +209,3 @@ public class Avs {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

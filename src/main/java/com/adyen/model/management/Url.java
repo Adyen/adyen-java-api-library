@@ -53,125 +53,137 @@ public class Url {
   public Url() { 
   }
 
+  /**
+   * Indicates if the message sent to this URL should be encrypted.
+   *
+   * @param encrypted
+   * @return the current {@code Url} instance, allowing for method chaining
+   */
   public Url encrypted(Boolean encrypted) {
     this.encrypted = encrypted;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the message sent to this URL should be encrypted.
    * @return encrypted
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the message sent to this URL should be encrypted.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEncrypted() {
     return encrypted;
   }
 
-
- /**
-  * Indicates if the message sent to this URL should be encrypted.
-  *
-  * @param encrypted
-  */ 
+  /**
+   * Indicates if the message sent to this URL should be encrypted.
+   *
+   * @param encrypted
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncrypted(Boolean encrypted) {
     this.encrypted = encrypted;
   }
 
-
+  /**
+   * The password for authentication of the notifications.
+   *
+   * @param password
+   * @return the current {@code Url} instance, allowing for method chaining
+   */
   public Url password(String password) {
     this.password = password;
     return this;
   }
 
-   /**
+  /**
    * The password for authentication of the notifications.
    * @return password
-  **/
+   */
   @ApiModelProperty(value = "The password for authentication of the notifications.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassword() {
     return password;
   }
 
-
- /**
-  * The password for authentication of the notifications.
-  *
-  * @param password
-  */ 
+  /**
+   * The password for authentication of the notifications.
+   *
+   * @param password
+   */ 
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
   }
 
-
+  /**
+   * The URL in the format: http(s)://domain.com.
+   *
+   * @param url
+   * @return the current {@code Url} instance, allowing for method chaining
+   */
   public Url url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * The URL in the format: http(s)://domain.com.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "The URL in the format: http(s)://domain.com.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * The URL in the format: http(s)://domain.com.
-  *
-  * @param url
-  */ 
+  /**
+   * The URL in the format: http(s)://domain.com.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
 
-
+  /**
+   * The username for authentication of the notifications.
+   *
+   * @param username
+   * @return the current {@code Url} instance, allowing for method chaining
+   */
   public Url username(String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * The username for authentication of the notifications.
    * @return username
-  **/
+   */
   @ApiModelProperty(value = "The username for authentication of the notifications.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUsername() {
     return username;
   }
 
-
- /**
-  * The username for authentication of the notifications.
-  *
-  * @param username
-  */ 
+  /**
+   * The username for authentication of the notifications.
+   *
+   * @param username
+   */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
-
 
   /**
    * Return true if this Url object is equal to o.
@@ -238,4 +250,3 @@ public class Url {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

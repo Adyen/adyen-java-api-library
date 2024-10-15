@@ -44,6 +44,12 @@ public class TerminalOrdersResponse {
   public TerminalOrdersResponse() { 
   }
 
+  /**
+   * List of orders for payment terminal packages and parts.
+   *
+   * @param data
+   * @return the current {@code TerminalOrdersResponse} instance, allowing for method chaining
+   */
   public TerminalOrdersResponse data(List<TerminalOrder> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class TerminalOrdersResponse {
     return this;
   }
 
-   /**
+  /**
    * List of orders for payment terminal packages and parts.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "List of orders for payment terminal packages and parts.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TerminalOrder> getData() {
     return data;
   }
 
-
- /**
-  * List of orders for payment terminal packages and parts.
-  *
-  * @param data
-  */ 
+  /**
+   * List of orders for payment terminal packages and parts.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TerminalOrder> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this TerminalOrdersResponse object is equal to o.
@@ -141,4 +144,3 @@ public class TerminalOrdersResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

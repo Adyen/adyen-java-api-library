@@ -49,95 +49,104 @@ public class Localization {
   public Localization() { 
   }
 
+  /**
+   * Language of the terminal.
+   *
+   * @param language
+   * @return the current {@code Localization} instance, allowing for method chaining
+   */
   public Localization language(String language) {
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * Language of the terminal.
    * @return language
-  **/
+   */
   @ApiModelProperty(value = "Language of the terminal.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLanguage() {
     return language;
   }
 
-
- /**
-  * Language of the terminal.
-  *
-  * @param language
-  */ 
+  /**
+   * Language of the terminal.
+   *
+   * @param language
+   */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
   }
 
-
+  /**
+   * Secondary language of the terminal.
+   *
+   * @param secondaryLanguage
+   * @return the current {@code Localization} instance, allowing for method chaining
+   */
   public Localization secondaryLanguage(String secondaryLanguage) {
     this.secondaryLanguage = secondaryLanguage;
     return this;
   }
 
-   /**
+  /**
    * Secondary language of the terminal.
    * @return secondaryLanguage
-  **/
+   */
   @ApiModelProperty(value = "Secondary language of the terminal.")
   @JsonProperty(JSON_PROPERTY_SECONDARY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSecondaryLanguage() {
     return secondaryLanguage;
   }
 
-
- /**
-  * Secondary language of the terminal.
-  *
-  * @param secondaryLanguage
-  */ 
+  /**
+   * Secondary language of the terminal.
+   *
+   * @param secondaryLanguage
+   */ 
   @JsonProperty(JSON_PROPERTY_SECONDARY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSecondaryLanguage(String secondaryLanguage) {
     this.secondaryLanguage = secondaryLanguage;
   }
 
-
+  /**
+   * The time zone of the terminal.
+   *
+   * @param timezone
+   * @return the current {@code Localization} instance, allowing for method chaining
+   */
   public Localization timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
 
-   /**
+  /**
    * The time zone of the terminal.
    * @return timezone
-  **/
+   */
   @ApiModelProperty(value = "The time zone of the terminal.")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTimezone() {
     return timezone;
   }
 
-
- /**
-  * The time zone of the terminal.
-  *
-  * @param timezone
-  */ 
+  /**
+   * The time zone of the terminal.
+   *
+   * @param timezone
+   */ 
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
-
 
   /**
    * Return true if this Localization object is equal to o.
@@ -202,4 +211,3 @@ public class Localization {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

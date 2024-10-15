@@ -50,95 +50,104 @@ public class TransferView {
   public TransferView() { 
   }
 
+  /**
+   * categoryData
+   *
+   * @param categoryData
+   * @return the current {@code TransferView} instance, allowing for method chaining
+   */
   public TransferView categoryData(TransferCategoryData categoryData) {
     this.categoryData = categoryData;
     return this;
   }
 
-   /**
-   * Get categoryData
+  /**
+   * categoryData
    * @return categoryData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransferCategoryData getCategoryData() {
     return categoryData;
   }
 
-
- /**
-  * categoryData
-  *
-  * @param categoryData
-  */ 
+  /**
+   * categoryData
+   *
+   * @param categoryData
+   */ 
   @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategoryData(TransferCategoryData categoryData) {
     this.categoryData = categoryData;
   }
 
-
+  /**
+   * The ID of the resource.
+   *
+   * @param id
+   * @return the current {@code TransferView} instance, allowing for method chaining
+   */
   public TransferView id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The ID of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The ID of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The ID of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The ID of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the &#x60;/transfers&#x60; request. If you haven&#39;t provided any, Adyen generates a unique reference.
+   *
+   * @param reference
+   * @return the current {@code TransferView} instance, allowing for method chaining
+   */
   public TransferView reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the &#x60;/transfers&#x60; request. If you haven&#39;t provided any, Adyen generates a unique reference.
    * @return reference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the `/transfers` request. If you haven't provided any, Adyen generates a unique reference.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the &#x60;/transfers&#x60; request. If you haven&#39;t provided any, Adyen generates a unique reference.
-  *
-  * @param reference
-  */ 
+  /**
+   * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the &#x60;/transfers&#x60; request. If you haven&#39;t provided any, Adyen generates a unique reference.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this TransferView object is equal to o.
@@ -203,4 +212,3 @@ public class TransferView {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

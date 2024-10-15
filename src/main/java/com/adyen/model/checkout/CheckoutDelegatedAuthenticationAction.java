@@ -94,185 +94,203 @@ public class CheckoutDelegatedAuthenticationAction {
   public CheckoutDelegatedAuthenticationAction() { 
   }
 
+  /**
+   * A token needed to authorise a payment.
+   *
+   * @param authorisationToken
+   * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
+   */
   public CheckoutDelegatedAuthenticationAction authorisationToken(String authorisationToken) {
     this.authorisationToken = authorisationToken;
     return this;
   }
 
-   /**
+  /**
    * A token needed to authorise a payment.
    * @return authorisationToken
-  **/
+   */
   @ApiModelProperty(value = "A token needed to authorise a payment.")
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthorisationToken() {
     return authorisationToken;
   }
 
-
- /**
-  * A token needed to authorise a payment.
-  *
-  * @param authorisationToken
-  */ 
+  /**
+   * A token needed to authorise a payment.
+   *
+   * @param authorisationToken
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationToken(String authorisationToken) {
     this.authorisationToken = authorisationToken;
   }
 
-
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
+   */
   public CheckoutDelegatedAuthenticationAction paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
 
-   /**
+  /**
    * Encoded payment data.
    * @return paymentData
-  **/
+   */
   @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentData() {
     return paymentData;
   }
 
-
- /**
-  * Encoded payment data.
-  *
-  * @param paymentData
-  */ 
+  /**
+   * Encoded payment data.
+   *
+   * @param paymentData
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
 
-
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
+   */
   public CheckoutDelegatedAuthenticationAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
     return this;
   }
 
-   /**
+  /**
    * Specifies the payment method.
    * @return paymentMethodType
-  **/
+   */
   @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodType() {
     return paymentMethodType;
   }
 
-
- /**
-  * Specifies the payment method.
-  *
-  * @param paymentMethodType
-  */ 
+  /**
+   * Specifies the payment method.
+   *
+   * @param paymentMethodType
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
   }
 
-
+  /**
+   * A token to pass to the delegatedAuthentication component.
+   *
+   * @param token
+   * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
+   */
   public CheckoutDelegatedAuthenticationAction token(String token) {
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * A token to pass to the delegatedAuthentication component.
    * @return token
-  **/
+   */
   @ApiModelProperty(value = "A token to pass to the delegatedAuthentication component.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToken() {
     return token;
   }
 
-
- /**
-  * A token to pass to the delegatedAuthentication component.
-  *
-  * @param token
-  */ 
+  /**
+   * A token to pass to the delegatedAuthentication component.
+   *
+   * @param token
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }
 
-
+  /**
+   * **delegatedAuthentication**
+   *
+   * @param type
+   * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
+   */
   public CheckoutDelegatedAuthenticationAction type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **delegatedAuthentication**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**delegatedAuthentication**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **delegatedAuthentication**
-  *
-  * @param type
-  */ 
+  /**
+   * **delegatedAuthentication**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
+   */
   public CheckoutDelegatedAuthenticationAction url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Specifies the URL to redirect to.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * Specifies the URL to redirect to.
-  *
-  * @param url
-  */ 
+  /**
+   * Specifies the URL to redirect to.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this CheckoutDelegatedAuthenticationAction object is equal to o.
@@ -343,4 +361,3 @@ public class CheckoutDelegatedAuthenticationAction {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

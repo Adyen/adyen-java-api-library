@@ -46,65 +46,71 @@ public class RiskScoresRestriction {
   public RiskScoresRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code RiskScoresRestriction} instance, allowing for method chaining
+   */
   public RiskScoresRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * value
+   *
+   * @param value
+   * @return the current {@code RiskScoresRestriction} instance, allowing for method chaining
+   */
   public RiskScoresRestriction value(RiskScores value) {
     this.value = value;
     return this;
   }
 
-   /**
-   * Get value
+  /**
+   * value
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RiskScores getValue() {
     return value;
   }
 
-
- /**
-  * value
-  *
-  * @param value
-  */ 
+  /**
+   * value
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(RiskScores value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this RiskScoresRestriction object is equal to o.
@@ -167,4 +173,3 @@ public class RiskScoresRestriction {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

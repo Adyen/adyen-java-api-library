@@ -57,155 +57,170 @@ public class Balance {
   public Balance() { 
   }
 
+  /**
+   * The current balance minus any reserved balance.
+   *
+   * @param available
+   * @return the current {@code Balance} instance, allowing for method chaining
+   */
   public Balance available(Long available) {
     this.available = available;
     return this;
   }
 
-   /**
+  /**
    * The current balance minus any reserved balance.
    * @return available
-  **/
+   */
   @ApiModelProperty(required = true, value = "The current balance minus any reserved balance.")
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAvailable() {
     return available;
   }
 
-
- /**
-  * The current balance minus any reserved balance.
-  *
-  * @param available
-  */ 
+  /**
+   * The current balance minus any reserved balance.
+   *
+   * @param available
+   */ 
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Long available) {
     this.available = available;
   }
 
-
+  /**
+   * The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.
+   *
+   * @param balance
+   * @return the current {@code Balance} instance, allowing for method chaining
+   */
   public Balance balance(Long balance) {
     this.balance = balance;
     return this;
   }
 
-   /**
+  /**
    * The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.
    * @return balance
-  **/
+   */
   @ApiModelProperty(required = true, value = "The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.")
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getBalance() {
     return balance;
   }
 
-
- /**
-  * The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.
-  *
-  * @param balance
-  */ 
+  /**
+   * The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.
+   *
+   * @param balance
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
     this.balance = balance;
   }
 
-
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
+   *
+   * @param currency
+   * @return the current {@code Balance} instance, allowing for method chaining
+   */
   public Balance currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    * @return currency
-  **/
+   */
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).
+   *
+   * @param pending
+   * @return the current {@code Balance} instance, allowing for method chaining
+   */
   public Balance pending(Long pending) {
     this.pending = pending;
     return this;
   }
 
-   /**
+  /**
    * The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).
    * @return pending
-  **/
+   */
   @ApiModelProperty(value = "The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).")
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getPending() {
     return pending;
   }
 
-
- /**
-  * The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).
-  *
-  * @param pending
-  */ 
+  /**
+   * The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).
+   *
+   * @param pending
+   */ 
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPending(Long pending) {
     this.pending = pending;
   }
 
-
+  /**
+   * The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).
+   *
+   * @param reserved
+   * @return the current {@code Balance} instance, allowing for method chaining
+   */
   public Balance reserved(Long reserved) {
     this.reserved = reserved;
     return this;
   }
 
-   /**
+  /**
    * The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).
    * @return reserved
-  **/
+   */
   @ApiModelProperty(required = true, value = "The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).")
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getReserved() {
     return reserved;
   }
 
-
- /**
-  * The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).
-  *
-  * @param reserved
-  */ 
+  /**
+   * The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).
+   *
+   * @param reserved
+   */ 
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
     this.reserved = reserved;
   }
-
 
   /**
    * Return true if this Balance object is equal to o.
@@ -274,4 +289,3 @@ public class Balance {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

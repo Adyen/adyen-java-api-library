@@ -48,36 +48,45 @@ public class Surcharge {
   public Surcharge() { 
   }
 
+  /**
+   * Show the surcharge details on the terminal, so the shopper can confirm.
+   *
+   * @param askConfirmation
+   * @return the current {@code Surcharge} instance, allowing for method chaining
+   */
   public Surcharge askConfirmation(Boolean askConfirmation) {
     this.askConfirmation = askConfirmation;
     return this;
   }
 
-   /**
+  /**
    * Show the surcharge details on the terminal, so the shopper can confirm.
    * @return askConfirmation
-  **/
+   */
   @ApiModelProperty(value = "Show the surcharge details on the terminal, so the shopper can confirm.")
   @JsonProperty(JSON_PROPERTY_ASK_CONFIRMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAskConfirmation() {
     return askConfirmation;
   }
 
-
- /**
-  * Show the surcharge details on the terminal, so the shopper can confirm.
-  *
-  * @param askConfirmation
-  */ 
+  /**
+   * Show the surcharge details on the terminal, so the shopper can confirm.
+   *
+   * @param askConfirmation
+   */ 
   @JsonProperty(JSON_PROPERTY_ASK_CONFIRMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskConfirmation(Boolean askConfirmation) {
     this.askConfirmation = askConfirmation;
   }
 
-
+  /**
+   * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
+   *
+   * @param configurations
+   * @return the current {@code Surcharge} instance, allowing for method chaining
+   */
   public Surcharge configurations(List<ModelConfiguration> configurations) {
     this.configurations = configurations;
     return this;
@@ -91,30 +100,27 @@ public class Surcharge {
     return this;
   }
 
-   /**
+  /**
    * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
    * @return configurations
-  **/
+   */
   @ApiModelProperty(value = "Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ModelConfiguration> getConfigurations() {
     return configurations;
   }
 
-
- /**
-  * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
-  *
-  * @param configurations
-  */ 
+  /**
+   * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
+   *
+   * @param configurations
+   */ 
   @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurations(List<ModelConfiguration> configurations) {
     this.configurations = configurations;
   }
-
 
   /**
    * Return true if this Surcharge object is equal to o.
@@ -177,4 +183,3 @@ public class Surcharge {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-
